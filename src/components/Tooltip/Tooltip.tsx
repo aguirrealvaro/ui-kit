@@ -7,7 +7,7 @@ import { useDelayUnmount, useOnClickOutside } from "@/hooks";
 const ANIMATION_TIME = 150;
 
 export type TooltipProps = {
-  children: ReactNode;
+  children?: ReactNode;
   content: ReactNode;
   placement?: PlacementType;
   trigger?: TriggerType;

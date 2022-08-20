@@ -12,7 +12,9 @@
     "lint-fix": "eslint --fix .",
     "check-types": "tsc --noEmit",
     "prepare": "husky install",
-    "pre-commit": "lint-staged --no-stash"
+    "pre-commit": "lint-staged --no-stash",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -22,6 +24,10 @@
     "styled-icons": "^10.45.0"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^6.5.10",
+    "@storybook/addon-essentials": "^6.5.10",
+    "@storybook/addon-links": "^6.5.10",
+    "@storybook/react": "^6.5.10",
     "@types/node": "^18.7.8",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",

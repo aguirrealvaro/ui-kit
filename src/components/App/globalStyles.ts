@@ -19,7 +19,6 @@ export const GlobalStyles = createGlobalStyle<{ theme: ThemeType }>`
   body {
     font-family: ${(props) => props.theme.fontFamily};
     font-size: 16px;
-    background-color: #fbfbfb;
   }
 
   #root {
