@@ -1,0 +1,68 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    }
+  },
+  "include": [],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
+  "files": [
+    "C:/Users/alvaro/Desktop/utils/src/App.tsx",
+    "C:/Users/alvaro/Desktop/utils/src/components/Accordion/Accordion.tsx",
+    "C:/Users/alvaro/Desktop/utils/src/components/Accordion/index.ts",
+    "C:/Users/alvaro/Desktop/utils/src/components/App/globalStyles.ts",
+    "C:/Users/alvaro/Desktop/utils/src/components/App/index.ts",
+    "C:/Users/alvaro/Desktop/utils/src/components/App/theme.ts",
+    "C:/Users/alvaro/Desktop/utils/src/components/Button/Button.tsx",
+    "C:/Users/alvaro/Desktop/utils/src/components/Button/index.ts",
+    "C:/Users/alvaro/Desktop/utils/src/components/Dropdown/Dropdown.tsx",
+    "C:/Users/alvaro/Desktop/utils/src/components/Dropdown/index.ts",
+    "C:/Users/alvaro/Desktop/utils/src/components/Dropdown/types.ts",
+    "C:/Users/alvaro/Desktop/utils/src/components/ExclamationTooltip/ExclamationTooltip.tsx",
+    "C:/Users/alvaro/Desktop/utils/src/components/ExclamationTooltip/index.ts",
+    "C:/Users/alvaro/Desktop/utils/src/components/GrowingNumber/GrowingNumber.tsx",
+    "C:/Users/alvaro/Desktop/utils/src/components/GrowingNumber/index.ts",
+    "C:/Users/alvaro/Desktop/utils/src/components/Icon/Icon.tsx",
+    "C:/Users/alvaro/Desktop/utils/src/components/Icon/assets.tsx",
+    "C:/Users/alvaro/Desktop/utils/src/components/Icon/index.ts",
+    "C:/Users/alvaro/Desktop/utils/src/components/Icon/types.ts",
+    "C:/Users/alvaro/Desktop/utils/src/components/Input/Input.tsx",
+    "C:/Users/alvaro/Desktop/utils/src/components/Input/index.ts",
+    "C:/Users/alvaro/Desktop/utils/src/components/Link/Link.tsx",
+    "C:/Users/alvaro/Desktop/utils/src/components/Link/index.ts",
+    "C:/Users/alvaro/Desktop/utils/src/components/Masonry/Masonry.tsx",
+    "C:/Users/alvaro/Desktop/utils/src/components/Masonry/index.ts",
+    "C:/Users/alvaro/Desktop/utils/src/components/Modal/Layout.tsx",
+    "C:/Users/alvaro/Desktop/utils/src/components/Modal/Modal.tsx",
+    "C:/Users/alvaro/Desktop/utils/src/components/Modal/constants.ts",
+    "C:/Users/alvaro/Desktop/utils/src/components/Modal/index.ts",
+    "C:/Users/alvaro/Desktop/utils/src/components/Modal/types.ts",
+    "C:/Users/alvaro/Desktop/utils/src/components/Navbar/Navbar.tsx"
+  ]
+}

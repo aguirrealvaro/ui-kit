@@ -1,12 +1,13 @@
-/* eslint-disable no-console */
-import { FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
+import { ThemeProvider } from "styled-components";
+import { ToastProvider } from "@/components";
+import { theme, GlobalStyles } from "@/components/App";
 
-console.log(process.env.MODE);
-console.log(process.env.API_HOST);
-console.log(process.env.APP_VERSION);
-
-const App: FunctionComponent = () => {
-  return <h1>Hello world</h1>;
-};
-
-export default App;
+export const App: FunctionComponent = () => (
+  <ThemeProvider theme={theme}>
+    <ToastProvider>
+      App
+      <GlobalStyles />
+    </ToastProvider>
+  </ThemeProvider>
+);

@@ -1,0 +1,28 @@
+type Size = "xxs" | "xs" | "sm" | "md" | "lg" | "xl";
+type WitdhPixel = `${number}px`;
+
+const sizes: Record<Size, WitdhPixel> = {
+  xxs: "400px",
+  xs: "480px",
+  sm: "600px",
+  md: "768px",
+  lg: "900px",
+  xl: "1024px",
+};
+
+export const theme = {
+  fontFamily: "Arial",
+  breakpoint: (size: Size): string => `@media (max-width: ${sizes[size]})`,
+  colors: {
+    black: "#000000",
+    white: "#ffffff",
+    blue: "#0072FF",
+    red: "#FF4658",
+    green: "#05944F",
+    yellow: "#FFC043",
+    grey: "#626262",
+    lightGrey: "lightgrey",
+  },
+};
+
+export type ThemeType = typeof theme;
