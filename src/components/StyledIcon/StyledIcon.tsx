@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import { FunctionComponent } from "react";
 import { StyledIcon as StyledIconType } from "styled-icons/types";
 
 type IconProps = {

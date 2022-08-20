@@ -1,4 +1,4 @@
-import React, { FunctionComponent, AnchorHTMLAttributes, ReactNode } from "react";
+import { FunctionComponent, AnchorHTMLAttributes, ReactNode } from "react";
 import styled from "styled-components";
 
 type LinkProps = {

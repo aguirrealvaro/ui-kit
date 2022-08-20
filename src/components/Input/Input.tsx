@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ChangeEvent, InputHTMLAttributes, ReactNode } from "react";
+import { FunctionComponent, ChangeEvent, InputHTMLAttributes, ReactNode } from "react";
 import styled, { css } from "styled-components";
 
 type InputProps = {

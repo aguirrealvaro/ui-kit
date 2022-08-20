@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useRef, ReactNode } from "react";
+import { FunctionComponent, useRef, ReactNode } from "react";
 import { createPortal } from "react-dom";
 import styled, { css, keyframes } from "styled-components";
 import { SIZES, SizeType } from ".";

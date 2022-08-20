@@ -1,9 +1,9 @@
-import React, { FunctionComponent } from "react";
+import { FunctionComponent } from "react";
 import { ThemeProvider } from "styled-components";
 import { ToastProvider } from "@/components";
 import { theme, GlobalStyles } from "@/components/App";
 
-export const App: FunctionComponent = () => (
+const App: FunctionComponent = () => (
   <ThemeProvider theme={theme}>
     <ToastProvider>
       App
@@ -11,3 +11,5 @@ export const App: FunctionComponent = () => (
     </ToastProvider>
   </ThemeProvider>
 );
+
+export default App;

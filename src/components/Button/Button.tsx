@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ButtonHTMLAttributes } from "react";
+import { FunctionComponent, ButtonHTMLAttributes } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { Spinner } from "../Spinner";
 

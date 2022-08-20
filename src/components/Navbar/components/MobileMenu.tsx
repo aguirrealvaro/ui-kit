@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useRef } from "react";
+import { FunctionComponent, useRef } from "react";
 import styled, { css, keyframes } from "styled-components";
 import { ANIMATION_TIME } from "../constants";
 import { NavbarItem } from "../types";

@@ -1,11 +1,4 @@
-import React, {
-  FunctionComponent,
-  Children,
-  useState,
-  useRef,
-  useEffect,
-  ReactNode,
-} from "react";
+import { FunctionComponent, Children, useState, useRef, useEffect, ReactNode } from "react";
 import styled from "styled-components";
 import { Arrow, Direction } from ".";
 import { useDisableRightArrow } from "./useDisableRightArrow";

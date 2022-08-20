@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import { FunctionComponent } from "react";
 import styled from "styled-components";
 import { paths, viewBox, IconType } from ".";
 import { theme } from "@/components/App";

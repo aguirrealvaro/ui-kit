@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode } from "react";
+import { FunctionComponent, ReactNode } from "react";
 import Masonry, { MasonryProps } from "react-masonry-css";
 import styled, { css } from "styled-components";
 

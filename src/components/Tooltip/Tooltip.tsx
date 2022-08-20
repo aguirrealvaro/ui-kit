@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode, useLayoutEffect, useRef, useState } from "react";
+import { FunctionComponent, ReactNode, useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import styled, { css, keyframes } from "styled-components";
 import { PlacementType, CoordinatesType, TriggerType } from ".";

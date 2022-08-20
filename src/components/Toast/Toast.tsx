@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect, useRef, useState } from "react";
+import { FunctionComponent, useEffect, useRef, useState } from "react";
 import styled, { css, keyframes } from "styled-components";
 import { ToastStatusType, ToastType } from "./types";
 import { useToast } from "./useToast";

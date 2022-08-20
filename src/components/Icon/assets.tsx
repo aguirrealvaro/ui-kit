@@ -1,4 +1,3 @@
-import React from "react";
 import { IconType } from "./types";
 
 export const viewBox: Record<IconType, string> = {

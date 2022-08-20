@@ -1,4 +1,4 @@
-import React, { useState, useRef, FunctionComponent, ReactNode } from "react";
+import { useState, useRef, FunctionComponent, ReactNode } from "react";
 import styled from "styled-components";
 import { Icon } from "@/components";
 
