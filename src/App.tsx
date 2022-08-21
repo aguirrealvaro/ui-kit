@@ -3,13 +3,15 @@ import { ThemeProvider } from "styled-components";
 import { ToastProvider } from "@/components";
 import { theme, GlobalStyles } from "@/components/App";
 
-const App: FunctionComponent = () => (
-  <ThemeProvider theme={theme}>
-    <ToastProvider>
-      App
-      <GlobalStyles />
-    </ToastProvider>
-  </ThemeProvider>
-);
+const App: FunctionComponent = () => {
+  return (
+    <ThemeProvider theme={theme}>
+      <ToastProvider>
+        App
+        <GlobalStyles />
+      </ToastProvider>
+    </ThemeProvider>
+  );
+};
 
 export default App;
