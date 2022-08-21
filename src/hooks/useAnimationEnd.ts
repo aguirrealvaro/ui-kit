@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
-type UseAnimationEndReturnType = {
+type UseAnimationEndReturn = {
   render: boolean;
   onAnimationEnd: () => void;
 };
 
-export const useAnimationEnd = (show: boolean): UseAnimationEndReturnType => {
+export const useAnimationEnd = (show: boolean): UseAnimationEndReturn => {
   const [render, setRender] = useState<boolean>(false);
 
   useEffect(() => {

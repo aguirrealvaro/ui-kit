@@ -1,10 +1,6 @@
 import { useState, useEffect } from "react";
 
-type UseWindowResizeType = {
-  isWindowResize: boolean;
-};
-
-export const useWindowResize = (size = 900): UseWindowResizeType => {
+export const useWindowResize = (size = 900): boolean => {
   const [isWindowResize, setIsWindowResize] = useState<boolean>(window.innerWidth <= size);
 
   useEffect(() => {
@@ -18,5 +14,5 @@ export const useWindowResize = (size = 900): UseWindowResizeType => {
     return () => window.removeEventListener("resize", updateWindowWidth);
   }, [isWindowResize, size]);
 
-  return { isWindowResize };
+  return isWindowResize;
 };

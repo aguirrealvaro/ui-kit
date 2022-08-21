@@ -1,11 +1,11 @@
 import { RefObject, useRef } from "react";
 
-type UseScrollIntoViewReturnType<T> = {
+type UseScrollIntoViewReturn<T> = {
   ref: RefObject<T>;
   handleScroll: () => void;
 };
 
-export const useScrollIntoView = <T extends HTMLElement>(): UseScrollIntoViewReturnType<T> => {
+export const useScrollIntoView = <T extends HTMLElement>(): UseScrollIntoViewReturn<T> => {
   const ref = useRef<T>(null);
 
   const handleScroll = () => {

@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 type PhasesType = "unmounted" | "mounting" | "mounted" | "unmounting";
 
-type UseDelayUnmountReturnType = {
+type UseDelayUnmountReturn = {
   show: boolean;
   onOpen: () => void;
   onClose: () => void;
@@ -16,7 +16,7 @@ type UseDelayUnmountType = {
 
 export const useDelayUnmount = (
   { timeout }: UseDelayUnmountType = { timeout: 200 }
-): UseDelayUnmountReturnType => {
+): UseDelayUnmountReturn => {
   const [phase, setPhase] = useState<PhasesType>("unmounted");
   const timeoutId = useRef<number>(0);
 

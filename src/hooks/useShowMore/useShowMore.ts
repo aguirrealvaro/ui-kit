@@ -1,6 +1,6 @@
 import { useEffect, useState, RefObject } from "react";
 
-type UseShowMoreReturnType = {
+type UseShowMoreReturn = {
   showMore: boolean;
   showMoreEnabled: boolean;
   containerHeight: number;
@@ -10,7 +10,7 @@ type UseShowMoreReturnType = {
 export const useShowMore = (
   ref: RefObject<HTMLDivElement>,
   minHeight: number
-): UseShowMoreReturnType => {
+): UseShowMoreReturn => {
   const [showMore, setShowMore] = useState<boolean>(false);
   const [showMoreEnabled, setShowMoreEnabled] = useState<boolean>(false);
 
