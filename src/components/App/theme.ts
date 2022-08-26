@@ -1,7 +1,7 @@
 type Size = "xxs" | "xs" | "sm" | "md" | "lg" | "xl";
-type WitdhPixel = `${number}px`;
+type WidthPx = `${number}px`;
 
-const sizes: Record<Size, WitdhPixel> = {
+const sizes: Record<Size, WidthPx> = {
   xxs: "400px",
   xs: "480px",
   sm: "600px",
@@ -12,7 +12,7 @@ const sizes: Record<Size, WitdhPixel> = {
 
 export const theme = {
   fontFamily: "Arial",
-  breakpoint: (size: Size): string => `@media (max-width: ${sizes[size]})`,
+  breakpoint: (size: Size) => `@media (max-width: ${sizes[size]})`,
   colors: {
     black: "#000000",
     white: "#ffffff",
@@ -21,8 +21,14 @@ export const theme = {
     green: "#05944F",
     yellow: "#FFC043",
     grey: "#626262",
-    lightGrey: "lightgrey",
+    lightGrey: "#d3d3d3",
   },
 };
 
-export type ThemeType = typeof theme;
+type Colors = "black" | "white" | "blue" | "red" | "green" | "yellow" | "grey" | "lightGrey";
+
+export type ThemeType = {
+  fontFamily: string;
+  breakpoint: (size: Size) => string;
+  colors: Record<Colors, string>;
+};
