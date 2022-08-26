@@ -19,9 +19,9 @@ const sizes: Record<Size, WidthPx> = {
   xl: "1024px",
 };
 
-export const theme = {
+export const theme: ThemeType = {
   fontFamily: "Arial",
-  breakpoint: (size: Size) => `@media (max-width: ${sizes[size]})`,
+  breakpoint: (size) => `@media (max-width: ${sizes[size]})`,
   colors: {
     black: "#000000",
     white: "#ffffff",
