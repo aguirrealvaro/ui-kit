@@ -10,22 +10,20 @@ export const GlobalStyles = createGlobalStyle<{ theme: ThemeType }>`
     box-sizing: border-box;
   }
 
+  body {
+    font-family: ${({ theme }) => theme.fontFamily};
+    font-size: 16px;
+    color: ${({ theme }) => theme.colors.black};
+  }
+
   ${({ theme }) => theme.breakpoint("sm")} {
-    html {
+    body {
       font-size: 90%;
     }
   }
-
-  body {
-    font-family: ${(props) => props.theme.fontFamily};
-    font-size: 16px;
-  }
-
-  #root {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
+  
+  img {
+    max-width: 100%;
   }
 
   button {
@@ -33,7 +31,7 @@ export const GlobalStyles = createGlobalStyle<{ theme: ThemeType }>`
     cursor: pointer;
   }
 
-  img {
-    max-width: 100%;
+  a {
+    color: inherit;
   }
 `;

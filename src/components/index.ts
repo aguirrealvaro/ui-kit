@@ -16,3 +16,4 @@ export { Link } from "./Link";
 export { StyledIcon } from "./StyledIcon";
 export { GrowingNumber } from "./GrowingNumber";
 export { Masonry } from "./Masonry";
+export { Layout } from "./Layout";
