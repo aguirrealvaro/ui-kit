@@ -1,5 +1,14 @@
 type Size = "xxs" | "xs" | "sm" | "md" | "lg" | "xl";
+
 type WidthPx = `${number}px`;
+
+type Colors = "black" | "white" | "blue" | "red" | "green" | "yellow" | "grey" | "lightGrey";
+
+export type ThemeType = {
+  fontFamily: string;
+  breakpoint: (size: Size) => string;
+  colors: Record<Colors, string>;
+};
 
 const sizes: Record<Size, WidthPx> = {
   xxs: "400px",
@@ -23,12 +32,4 @@ export const theme = {
     grey: "#626262",
     lightGrey: "#d3d3d3",
   },
-};
-
-type Colors = "black" | "white" | "blue" | "red" | "green" | "yellow" | "grey" | "lightGrey";
-
-export type ThemeType = {
-  fontFamily: string;
-  breakpoint: (size: Size) => string;
-  colors: Record<Colors, string>;
 };
