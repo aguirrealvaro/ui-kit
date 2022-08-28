@@ -1,4 +1,4 @@
-# Utils library
+# Utils Library
 
 ### React custom hooks and isolated components
 
