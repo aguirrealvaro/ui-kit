@@ -154,12 +154,14 @@ const Option = styled.button<{ isSelected: boolean }>`
         `
       : css`
           &:hover {
-            background-color: #f1f1f1;
+            background-color: #e7e7e7;
           }
         `};
 
   &:disabled {
     background: none;
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 `;
 
