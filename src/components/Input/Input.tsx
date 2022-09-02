@@ -1,4 +1,4 @@
-import { FunctionComponent, ChangeEvent, InputHTMLAttributes, ReactNode } from "react";
+import { FunctionComponent, ChangeEvent, InputHTMLAttributes, ReactNode, useRef } from "react";
 import styled, { css } from "styled-components";
 import { Spinner } from "../Spinner";
 
@@ -21,6 +21,12 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
   isLoading,
   ...restProps
 }) => {
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const focusInput = () => {
+    inputRef.current?.focus();
+  };
+
   const onValidChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.validity.valid) onChange?.(e);
   };
@@ -34,9 +40,14 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
 
   return (
     <div className={className}>
-      <InputContainer disabled={disabled || false} error={!!error}>
+      <InputContainer disabled={disabled || false} error={!!error} onClick={focusInput}>
         <InnerContainer>
-          <CustomInput id={inputId} hasPlaceholder={!!placeholder} {...inputProps} />
+          <CustomInput
+            id={inputId}
+            hasPlaceholder={!!placeholder}
+            ref={inputRef}
+            {...inputProps}
+          />
           <Label htmlFor={inputId}>{placeholder}</Label>
         </InnerContainer>
         {isLoading && (
