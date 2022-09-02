@@ -46,8 +46,8 @@ const InputContainer = styled.div<{
 }>`
   font-family: inherit;
   position: relative;
-  padding: 0 1rem;
-  height: 48px;
+  //padding: 0 1rem;
+  height: 55px;
   border-radius: 4px;
   ${({ error, theme }) =>
     error
@@ -77,11 +77,15 @@ const Label = styled.label`
   top: 50%;
   left: 1rem;
   transform: translateY(-50%);
-  padding: 0 0.25rem;
-  background-color: white;
   transition: 0.2s;
   pointer-events: none;
   color: ${({ theme }) => theme.colors.grey};
+`;
+
+const getFocusedLabelStyles = css`
+  top: 13px;
+  font-size: 0.73rem;
+  font-weight: 500;
 `;
 
 const CustomInput = styled.input<{ error: boolean }>`
@@ -90,28 +94,23 @@ const CustomInput = styled.input<{ error: boolean }>`
   border: none;
   background-color: transparent;
   padding: 0;
-  height: 100%;
-  top: 0;
-  left: 0;
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  height: 65%;
+  bottom: 0;
   &:focus + label {
-    top: -0.15rem;
-    left: 0.8rem;
-    color: ${({ error, theme }) => theme.colors[error ? "red" : "blue"]};
-    font-size: 0.73rem;
-    font-weight: 500;
+    ${getFocusedLabelStyles};
+    color: ${({ theme, error }) => theme.colors[error ? "red" : "blue"]};
   }
   &:not(:placeholder-shown) {
     &:not(:focus) {
       + label {
-        top: -0.15rem;
-        left: 0.8rem;
-        font-size: 0.73rem;
-        font-weight: 500;
-        color: ${({ error, theme }) => theme.colors[error ? "red" : "blue"]};
+        ${getFocusedLabelStyles};
+        color: ${({ theme, error }) => theme.colors[error ? "red" : "grey"]};
       }
     }
   }
-  width: 100%;
   &:disabled {
     cursor: not-allowed;
   }
