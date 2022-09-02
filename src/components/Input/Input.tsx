@@ -77,6 +77,7 @@ const InputContainer = styled.div<{
     css`
       background: #f3f3f3;
       border: 1px solid transparent;
+      cursor: not-allowed;
       ${Label} {
         background: none;
       }

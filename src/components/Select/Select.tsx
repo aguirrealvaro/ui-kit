@@ -114,6 +114,7 @@ const Button = styled.button<{ hasValue: boolean; error: boolean }>`
   &:disabled {
     background: #f3f3f3;
     border: 1px solid transparent;
+    cursor: not-allowed;
   }
 `;
 

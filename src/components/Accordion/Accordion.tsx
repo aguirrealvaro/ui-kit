@@ -44,6 +44,7 @@ const Button = styled.button`
   margin-bottom: 0.5rem;
   &:disabled {
     opacity: 0.5;
+    cursor: not-allowed;
   }
 `;
 
