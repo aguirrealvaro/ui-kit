@@ -36,7 +36,7 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
     <div className={className}>
       <InputContainer disabled={disabled || false} error={!!error}>
         <InnerContainer>
-          <CustomInput id={inputId} {...inputProps} />
+          <CustomInput id={inputId} hasPlaceholder={!!placeholder} {...inputProps} />
           <Label htmlFor={inputId}>{placeholder}</Label>
         </InnerContainer>
         {isLoading && (
@@ -104,7 +104,7 @@ const getFocusedLabelStyles = css`
   font-weight: 500;
 `;
 
-const CustomInput = styled.input<{ error: boolean }>`
+const CustomInput = styled.input<{ error: boolean; hasPlaceholder: boolean }>`
   font-size: 16px;
   outline: none;
   border: none;
@@ -113,7 +113,7 @@ const CustomInput = styled.input<{ error: boolean }>`
   position: absolute;
   left: 1rem;
   right: 1rem;
-  height: 65%;
+  height: ${({ hasPlaceholder }) => (hasPlaceholder ? "65%" : "100%")};
   bottom: 0;
   &:focus + label {
     ${getFocusedLabelStyles};
