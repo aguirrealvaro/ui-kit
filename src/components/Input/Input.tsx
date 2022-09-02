@@ -98,8 +98,9 @@ const Label = styled.label`
 `;
 
 const getFocusedLabelStyles = css`
-  top: 13px;
-  font-size: 0.73rem;
+  top: 7px;
+  transform: none;
+  font-size: 0.75rem;
   font-weight: 500;
 `;
 
