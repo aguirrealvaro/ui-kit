@@ -23,6 +23,7 @@ export const Primary: ComponentStory<typeof Select> = () => {
       options={options}
       onChange={setOption}
       placeholder="Choose option"
+      helpText="Help text"
     />
   );
 };

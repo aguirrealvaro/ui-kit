@@ -43,7 +43,7 @@ export const Select: FunctionComponent<SelectProps> = ({
     if (value) closeDropdown();
   }, [value, closeDropdown]);
 
-  const valueSelected = options.find((option) => option.value === value)?.label;
+  const selectedValue = options.find((option) => option.value === value)?.label;
 
   return (
     <Container ref={containerRef}>
@@ -54,8 +54,10 @@ export const Select: FunctionComponent<SelectProps> = ({
         error={!!error}
       >
         {value && <Placeholder>{placeholder}</Placeholder>}
-        <span>{valueSelected || placeholder}</span>
-        <Icon icon="chevron_down" size="10px" color={theme.colors.grey} />
+        <SelectedValue isSelected={!!selectedValue}>
+          {selectedValue || placeholder}
+        </SelectedValue>
+        <Icon icon="chevron_down" size="13px" color={theme.colors.grey} />
       </Button>
       {isOpen && (
         <Dropdown>
@@ -86,13 +88,11 @@ const Container = styled.div`
 
 const Placeholder = styled.span`
   display: inline-block;
-  color: ${({ theme }) => theme.colors.black};
-  background: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.grey};
   position: absolute;
-  font-size: 0.72rem;
-  top: -8px;
-  left: 7px;
-  padding: 0 5px;
+  top: 7px;
+  font-size: 0.75rem;
+  font-weight: 500;
 `;
 
 const Button = styled.button<{ hasValue: boolean; error: boolean }>`
@@ -102,8 +102,7 @@ const Button = styled.button<{ hasValue: boolean; error: boolean }>`
   border-radius: 4px;
   color: ${({ theme, hasValue }) => theme.colors[hasValue ? "black" : "grey"]};
   width: 100%;
-  height: 48px;
-  padding: 1rem;
+  height: 55px;
   border: 1px solid ${({ theme, error }) => (error ? theme.colors.red : "rgba(0, 0, 0, 0.36)")};
   &:focus-within {
     border: 1px solid ${({ theme }) => theme.colors.blue};
@@ -115,6 +114,10 @@ const Button = styled.button<{ hasValue: boolean; error: boolean }>`
     background: #f3f3f3;
     border: 1px solid transparent;
   }
+`;
+
+const SelectedValue = styled.span<{ isSelected: boolean }>`
+  transform: ${({ isSelected }) => (isSelected ? "translateY(7px)" : "translateY(0px)")};
 `;
 
 const Dropdown = styled.div`
