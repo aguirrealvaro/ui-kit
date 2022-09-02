@@ -91,6 +91,7 @@ const Placeholder = styled.span`
   color: ${({ theme }) => theme.colors.grey};
   position: absolute;
   top: 7px;
+  left: 1rem;
   font-size: 0.75rem;
   font-weight: 500;
 `;
@@ -102,7 +103,7 @@ const Button = styled.button<{ hasValue: boolean; error: boolean }>`
   border-radius: 4px;
   color: ${({ theme, hasValue }) => theme.colors[hasValue ? "black" : "grey"]};
   width: 100%;
-  height: 55px;
+  height: 53px; // plus 2 from border, 55, same as input
   border: 1px solid ${({ theme, error }) => (error ? theme.colors.red : "rgba(0, 0, 0, 0.36)")};
   &:focus-within {
     border: 1px solid ${({ theme }) => theme.colors.blue};
@@ -118,6 +119,7 @@ const Button = styled.button<{ hasValue: boolean; error: boolean }>`
 
 const SelectedValue = styled.span<{ isSelected: boolean }>`
   transform: ${({ isSelected }) => (isSelected ? "translateY(7px)" : "translateY(0px)")};
+  padding: 0 1rem;
 `;
 
 const Dropdown = styled.div`
@@ -161,10 +163,8 @@ const Option = styled.button<{ isSelected: boolean }>`
   }
 `;
 
-const BottomText = styled.span<{ error: boolean }>`
-  display: block;
-  color: ${({ theme, error }) => theme.colors[error ? "red" : "grey"]};
-  font-size: 0.75rem;
-  margin-top: 0.4rem;
-  margin-left: 1rem;
+const BottomText = styled.div<{ error: boolean }>`
+  font-size: 13px;
+  margin: 0.5rem 1rem 0 1rem;
+  color: ${({ error, theme }) => theme.colors[error ? "red" : "grey"]};
 `;

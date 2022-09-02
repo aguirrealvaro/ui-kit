@@ -45,7 +45,7 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
           </SpinnerWrapper>
         )}
       </InputContainer>
-      {(helpText || error) && <Bottom error={!!error}>{error || helpText}</Bottom>}
+      {(helpText || error) && <BottomText error={!!error}>{error || helpText}</BottomText>}
     </div>
   );
 };
@@ -113,7 +113,7 @@ const CustomInput = styled.input<{ error: boolean; hasPlaceholder: boolean }>`
   position: absolute;
   left: 1rem;
   right: 1rem;
-  height: ${({ hasPlaceholder }) => (hasPlaceholder ? "65%" : "100%")};
+  height: ${({ hasPlaceholder }) => (hasPlaceholder ? "72%" : "100%")};
   bottom: 0;
   &:focus + label {
     ${getFocusedLabelStyles};
@@ -132,7 +132,7 @@ const CustomInput = styled.input<{ error: boolean; hasPlaceholder: boolean }>`
   }
 `;
 
-const Bottom = styled.div<{ error: boolean }>`
+const BottomText = styled.div<{ error: boolean }>`
   font-size: 13px;
   margin: 0.5rem 1rem 0 1rem;
   color: ${({ error, theme }) => theme.colors[error ? "red" : "grey"]};
