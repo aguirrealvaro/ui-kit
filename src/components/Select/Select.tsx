@@ -9,7 +9,7 @@ import {
 } from "react";
 import styled, { css } from "styled-components";
 import { LabelValue } from "./types";
-import { Icon } from "@/components";
+import { Icon, Spinner } from "@/components";
 import { theme } from "@/components/App";
 import { useOnClickOutside } from "@/hooks";
 
@@ -21,6 +21,7 @@ type SelectProps = {
   disabled?: boolean;
   helpText?: string;
   error?: string;
+  isLoading?: boolean;
 };
 
 export const Select: FunctionComponent<SelectProps> = ({
@@ -31,6 +32,7 @@ export const Select: FunctionComponent<SelectProps> = ({
   disabled,
   helpText,
   error,
+  isLoading,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -57,7 +59,12 @@ export const Select: FunctionComponent<SelectProps> = ({
         <SelectedValue isSelected={!!selectedValue}>
           {selectedValue || placeholder}
         </SelectedValue>
-        <Icon icon="chevron_down" size="13px" color={theme.colors.grey} />
+        <SideContainer>
+          {isLoading && <Spinner size="mini" />}
+          <IconWrapper>
+            <Icon icon="chevron_down" size="14px" color={theme.colors.grey} />
+          </IconWrapper>
+        </SideContainer>
       </Button>
       {isOpen && (
         <Dropdown>
@@ -170,4 +177,13 @@ const BottomText = styled.div<{ error: boolean }>`
   font-size: 13px;
   margin: 0.5rem 1rem 0 1rem;
   color: ${({ error, theme }) => theme.colors[error ? "red" : "grey"]};
+`;
+
+const SideContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const IconWrapper = styled.div`
+  margin: 0 1rem;
 `;
