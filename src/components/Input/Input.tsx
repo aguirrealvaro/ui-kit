@@ -46,6 +46,7 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
             id={inputId}
             hasPlaceholder={!!placeholder}
             ref={inputRef}
+            disabled={disabled}
             {...inputProps}
           />
           <Label htmlFor={inputId}>{placeholder}</Label>
@@ -86,12 +87,9 @@ const InputContainer = styled.div<{
   ${({ disabled }) =>
     disabled &&
     css`
-      background: #f3f3f3;
+      background: #e9e9e9;
       border: 1px solid transparent;
       cursor: not-allowed;
-      ${Label} {
-        background: none;
-      }
     `};
 `;
 
