@@ -5,6 +5,7 @@ import { Spinner } from "../Spinner";
 type InputProps = {
   helpText?: ReactNode;
   error?: string;
+  success?: boolean;
   className?: string;
   inputId?: string;
   isLoading?: boolean;
@@ -15,6 +16,7 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
   onChange,
   helpText,
   error,
+  success,
   className,
   disabled,
   inputId,
@@ -34,18 +36,24 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
   const inputProps = {
     placeholder: " ",
     onChange: onValidChange,
-    error: !!error,
     ...restProps,
   };
 
   return (
     <div className={className}>
-      <InputContainer disabled={disabled || false} error={!!error} onClick={focusInput}>
+      <InputContainer
+        disabled={disabled || false}
+        error={!!error}
+        success={success || false}
+        onClick={focusInput}
+      >
         <InnerContainer>
           <CustomInput
             id={inputId}
             hasPlaceholder={!!placeholder}
             ref={inputRef}
+            error={!!error}
+            success={success || false}
             disabled={disabled}
             {...inputProps}
           />
@@ -65,6 +73,7 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
 const InputContainer = styled.div<{
   disabled: boolean;
   error: boolean;
+  success: boolean;
 }>`
   display: flex;
   justify-content: space-between;
@@ -72,18 +81,27 @@ const InputContainer = styled.div<{
   position: relative;
   height: 55px;
   border-radius: 4px;
-  ${({ error, theme }) =>
-    error
-      ? css`
-          border: 1px solid ${theme.colors.red};
-        `
-      : css`
-          border: 1px solid rgba(0, 0, 0, 0.36);
-          &:focus-within {
-            border: 1px solid ${theme.colors.blue};
-            border-radius: 4px;
-          }
-        `};
+  ${({ error, success, theme }) => {
+    if (error) {
+      return css`
+        border: 1px solid ${theme.colors.red};
+      `;
+    }
+
+    if (success) {
+      return css`
+        border: 1px solid ${theme.colors.green};
+      `;
+    }
+
+    return css`
+      border: 1px solid rgba(0, 0, 0, 0.36);
+      &:focus-within {
+        border: 1px solid ${theme.colors.blue};
+        border-radius: 4px;
+      }
+    `;
+  }};
   ${({ disabled }) =>
     disabled &&
     css`
@@ -114,7 +132,11 @@ const getFocusedLabelStyles = css`
   font-weight: 500;
 `;
 
-const CustomInput = styled.input<{ error: boolean; hasPlaceholder: boolean }>`
+const CustomInput = styled.input<{
+  error: boolean;
+  hasPlaceholder: boolean;
+  success: boolean;
+}>`
   font-size: 16px;
   outline: none;
   border: none;
@@ -127,13 +149,33 @@ const CustomInput = styled.input<{ error: boolean; hasPlaceholder: boolean }>`
   bottom: 0;
   &:focus + label {
     ${getFocusedLabelStyles};
-    color: ${({ theme, error }) => theme.colors[error ? "red" : "blue"]};
+    color: ${({ theme, error, success }) => {
+      if (error) {
+        return theme.colors.red;
+      }
+
+      if (success) {
+        return theme.colors.green;
+      }
+
+      return theme.colors.blue;
+    }};
   }
   &:not(:placeholder-shown) {
     &:not(:focus) {
       + label {
         ${getFocusedLabelStyles};
-        color: ${({ theme, error }) => theme.colors[error ? "red" : "grey"]};
+        color: ${({ theme, error, success }) => {
+          if (error) {
+            return theme.colors.red;
+          }
+
+          if (success) {
+            return theme.colors.green;
+          }
+
+          return theme.colors.grey;
+        }};
       }
     }
   }
