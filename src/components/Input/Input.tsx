@@ -1,11 +1,13 @@
 import { FunctionComponent, ChangeEvent, InputHTMLAttributes, ReactNode, useRef } from "react";
+import { CheckCircleFill } from "@styled-icons/bootstrap/CheckCircleFill";
 import styled, { css } from "styled-components";
-import { Spinner } from "../Spinner";
+import { Spinner, StyledIcon } from "..";
+import { theme } from "../App";
 
 type InputProps = {
   helpText?: ReactNode;
   error?: string;
-  success?: boolean;
+  isSuccess?: boolean;
   className?: string;
   inputId?: string;
   isLoading?: boolean;
@@ -16,7 +18,7 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
   onChange,
   helpText,
   error,
-  success,
+  isSuccess,
   className,
   disabled,
   inputId,
@@ -44,7 +46,7 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
       <InputContainer
         disabled={disabled || false}
         error={!!error}
-        success={success || false}
+        isSuccess={isSuccess || false}
         onClick={focusInput}
       >
         <InnerContainer>
@@ -53,17 +55,18 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
             hasPlaceholder={!!placeholder}
             ref={inputRef}
             error={!!error}
-            success={success || false}
+            isSuccess={isSuccess || false}
             disabled={disabled}
             {...inputProps}
           />
           <Label htmlFor={inputId}>{placeholder}</Label>
         </InnerContainer>
-        {isLoading && (
-          <SpinnerWrapper>
-            <Spinner size="mini" />
-          </SpinnerWrapper>
-        )}
+        <RightContainer>
+          {isLoading && <Spinner size="mini" />}
+          {isSuccess && (
+            <StyledIcon icon={CheckCircleFill} size="18px" color={theme.colors.green} />
+          )}
+        </RightContainer>
       </InputContainer>
       {(helpText || error) && <BottomText error={!!error}>{error || helpText}</BottomText>}
     </div>
@@ -73,7 +76,7 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
 const InputContainer = styled.div<{
   disabled: boolean;
   error: boolean;
-  success: boolean;
+  isSuccess: boolean;
 }>`
   display: flex;
   justify-content: space-between;
@@ -81,14 +84,14 @@ const InputContainer = styled.div<{
   position: relative;
   height: 55px;
   border-radius: 4px;
-  ${({ error, success, theme }) => {
+  ${({ error, isSuccess, theme }) => {
     if (error) {
       return css`
         border: 1px solid ${theme.colors.red};
       `;
     }
 
-    if (success) {
+    if (isSuccess) {
       return css`
         border: 1px solid ${theme.colors.green};
       `;
@@ -135,7 +138,7 @@ const getFocusedLabelStyles = css`
 const CustomInput = styled.input<{
   error: boolean;
   hasPlaceholder: boolean;
-  success: boolean;
+  isSuccess: boolean;
 }>`
   font-size: 16px;
   outline: none;
@@ -149,12 +152,12 @@ const CustomInput = styled.input<{
   bottom: 0;
   &:focus + label {
     ${getFocusedLabelStyles};
-    color: ${({ theme, error, success }) => {
+    color: ${({ theme, error, isSuccess }) => {
       if (error) {
         return theme.colors.red;
       }
 
-      if (success) {
+      if (isSuccess) {
         return theme.colors.green;
       }
 
@@ -165,12 +168,12 @@ const CustomInput = styled.input<{
     &:not(:focus) {
       + label {
         ${getFocusedLabelStyles};
-        color: ${({ theme, error, success }) => {
+        color: ${({ theme, error, isSuccess }) => {
           if (error) {
             return theme.colors.red;
           }
 
-          if (success) {
+          if (isSuccess) {
             return theme.colors.green;
           }
 
@@ -190,7 +193,9 @@ const BottomText = styled.div<{ error: boolean }>`
   color: ${({ error, theme }) => theme.colors[error ? "red" : "grey"]};
 `;
 
-const SpinnerWrapper = styled.div`
+const RightContainer = styled.div`
+  margin: 0 1.5rem;
   display: flex;
-  margin: 0 2rem;
+  align-items: center;
+  gap: 1rem;
 `;
