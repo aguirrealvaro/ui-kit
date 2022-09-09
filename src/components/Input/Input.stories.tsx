@@ -13,6 +13,13 @@ export const Primary: ComponentStory<typeof Input> = () => {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value);
 
   return (
-    <Input placeholder="Placeholder" onChange={onChange} value={name} helpText="Help text" />
+    <Input
+      placeholder="Placeholder"
+      onChange={onChange}
+      value={name}
+      helpText="Help text"
+      error="error"
+      isLoading
+    />
   );
 };
