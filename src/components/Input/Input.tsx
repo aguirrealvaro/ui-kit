@@ -150,10 +150,9 @@ const CustomInput = styled.input<{
   outline: none;
   border: none;
   background-color: transparent;
-  padding: 0;
   position: absolute;
-  left: 1rem;
-  right: 1rem;
+  width: 100%;
+  padding: 0 1rem;
   height: ${({ hasPlaceholder }) => (hasPlaceholder ? "72%" : "100%")};
   bottom: 0;
   &:focus + label {
