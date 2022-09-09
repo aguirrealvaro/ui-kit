@@ -33,5 +33,6 @@ export const GlobalStyles = createGlobalStyle<{ theme: ThemeType }>`
 
   a {
     color: inherit;
+    text-decoration: none;
   }
 `;

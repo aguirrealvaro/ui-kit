@@ -42,6 +42,8 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
     ...restProps,
   };
 
+  const showSideContainer = isLoading || !!error || isSuccess || false;
+
   return (
     <div className={className}>
       <InputContainer
@@ -62,13 +64,15 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
           />
           <Label htmlFor={inputId}>{placeholder}</Label>
         </InnerContainer>
-        <RightContainer>
-          {isLoading && <Spinner size="mini" />}
-          {error && <StyledIcon icon={Alert} size="18px" color={theme.colors.red} />}
-          {isSuccess && (
-            <StyledIcon icon={CheckCircleFill} size="18px" color={theme.colors.green} />
-          )}
-        </RightContainer>
+        {showSideContainer && (
+          <SideContainer>
+            {isLoading && <Spinner size="mini" />}
+            {error && <StyledIcon icon={Alert} size="18px" color={theme.colors.red} />}
+            {isSuccess && (
+              <StyledIcon icon={CheckCircleFill} size="18px" color={theme.colors.green} />
+            )}
+          </SideContainer>
+        )}
       </InputContainer>
       {(helpText || error) && <BottomText error={!!error}>{error || helpText}</BottomText>}
     </div>
@@ -195,7 +199,7 @@ const BottomText = styled.div<{ error: boolean }>`
   color: ${({ error, theme }) => theme.colors[error ? "red" : "grey"]};
 `;
 
-const RightContainer = styled.div`
+const SideContainer = styled.div`
   margin: 0 1.5rem;
   display: flex;
   align-items: center;
