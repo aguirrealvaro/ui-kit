@@ -18,7 +18,7 @@ export const Primary: ComponentStory<typeof Input> = () => {
       onChange={onChange}
       value={name}
       helpText="Help text"
-      isLoading
+      error="asd"
     />
   );
 };
