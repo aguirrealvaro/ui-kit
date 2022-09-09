@@ -1,4 +1,12 @@
-import { FunctionComponent, ChangeEvent, InputHTMLAttributes, ReactNode, useRef } from "react";
+import {
+  FunctionComponent,
+  ChangeEvent,
+  InputHTMLAttributes,
+  ReactNode,
+  useRef,
+  useEffect,
+  useState,
+} from "react";
 import { CheckCircleFill } from "@styled-icons/bootstrap/CheckCircleFill";
 import { Alert } from "@styled-icons/remix-fill/Alert";
 import styled, { css } from "styled-components";
@@ -44,6 +52,16 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
 
   const showSideContainer = isLoading || !!error || isSuccess || false;
 
+  const sideContainerRef = useRef<HTMLDivElement>(null);
+
+  const [sideContainerWidth, setSideContainerWidth] = useState<number | undefined>(undefined);
+
+  useEffect(() => {
+    if (!showSideContainer) return;
+
+    setSideContainerWidth(sideContainerRef.current?.offsetWidth);
+  }, [showSideContainer]);
+
   return (
     <div className={className}>
       <InputContainer
@@ -60,12 +78,13 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
             error={!!error}
             isSuccess={isSuccess || false}
             disabled={disabled}
+            sideWidth={sideContainerWidth}
             {...inputProps}
           />
           <Label htmlFor={inputId}>{placeholder}</Label>
         </InnerContainer>
         {showSideContainer && (
-          <SideContainer>
+          <SideContainer ref={sideContainerRef}>
             {isLoading && <Spinner size="mini" />}
             {error && <StyledIcon icon={Alert} size="18px" color={theme.colors.red} />}
             {isSuccess && (
@@ -145,13 +164,20 @@ const CustomInput = styled.input<{
   error: boolean;
   hasPlaceholder: boolean;
   isSuccess: boolean;
+  sideWidth: number | undefined;
 }>`
   font-size: 16px;
   outline: none;
   border: none;
   background-color: transparent;
   position: absolute;
-  width: 100%;
+  width: ${({ sideWidth }) => {
+    if (sideWidth) {
+      return `calc(100% - ${sideWidth}px - 20px)`;
+    } else {
+      return "100%";
+    }
+  }};
   padding: 0 1rem;
   height: ${({ hasPlaceholder }) => (hasPlaceholder ? "72%" : "100%")};
   bottom: 0;
@@ -199,7 +225,7 @@ const BottomText = styled.div<{ error: boolean }>`
 `;
 
 const SideContainer = styled.div`
-  margin: 0 1.5rem;
+  margin-right: 1.5rem;
   display: flex;
   align-items: center;
   gap: 1rem;
