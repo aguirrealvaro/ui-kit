@@ -62,7 +62,7 @@ const getShapeStyles = (shape: ShapeType): FlattenSimpleInterpolation => {
     circle: css`
       border-radius: 100%;
       width: 56px;
-      height: 56px;
+      height: 56px !important;
       padding: 0 !important;
     `,
     rectangle: css`
