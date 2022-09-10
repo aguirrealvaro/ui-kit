@@ -4,7 +4,7 @@ import {
   InputHTMLAttributes,
   ReactNode,
   useRef,
-  useEffect,
+  useLayoutEffect,
   useState,
 } from "react";
 import { CheckCircleFill } from "@styled-icons/bootstrap/CheckCircleFill";
@@ -56,7 +56,7 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
 
   const [sideContainerWidth, setSideContainerWidth] = useState<number | undefined>(undefined);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!showSideContainer) return;
 
     setSideContainerWidth(sideContainerRef.current?.offsetWidth);
