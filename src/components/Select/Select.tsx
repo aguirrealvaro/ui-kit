@@ -169,7 +169,8 @@ const Placeholder = styled.span<{ shouldAnimate: boolean; isOpen: boolean }>`
   display: inline-block;
   color: ${({ theme, isOpen }) => theme.colors[isOpen ? "blue" : "grey"]};
   position: absolute;
-  transition: all ${ANIMATION_TIME}ms ease;
+  transition: font-size ${ANIMATION_TIME}ms ease, top ${ANIMATION_TIME}ms ease,
+    transform ${ANIMATION_TIME}ms ease;
   ${({ shouldAnimate }) => {
     if (shouldAnimate) {
       return css`
