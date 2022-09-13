@@ -128,7 +128,6 @@ const InputContainer = styled.div<{
       border: 1px solid rgba(0, 0, 0, 0.36);
       &:focus-within {
         border: 1px solid ${theme.colors.blue};
-        border-radius: 4px;
       }
     `;
   }};

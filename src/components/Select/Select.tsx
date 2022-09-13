@@ -201,7 +201,7 @@ const Dropdown = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.lightGrey};
   background: #fff;
   box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.11);
-  border-radius: 8px;
+  border-radius: 4px;
   width: 100%;
   max-height: 250px;
   display: flex;
@@ -217,7 +217,7 @@ const Option = styled.button<{ isSelected: boolean }>`
   &:last-child {
     margin-bottom: 0;
   }
-  border-radius: 8px;
+  border-radius: 4px;
   ${({ isSelected, theme }) =>
     isSelected
       ? css`

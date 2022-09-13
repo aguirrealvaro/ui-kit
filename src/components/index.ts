@@ -18,3 +18,4 @@ export { GrowingNumber } from "./GrowingNumber";
 export { Masonry } from "./Masonry";
 export { Layout } from "./Layout";
 export { ShowMore } from "./ShowMore";
+export { Alert } from "./Alert";

@@ -22,7 +22,7 @@ const getRandomItem = (arr: number[]) => {
   return item;
 };
 
-const heights = [100, 150, 200, 250, 300, 350, 400];
+const heights = [250, 300, 350, 400];
 
 const Card = styled.div`
   height: ${() => getRandomItem(heights)}px;

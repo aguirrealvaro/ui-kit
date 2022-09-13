@@ -105,7 +105,7 @@ const Content = styled.div<{ size: SizeType; fadeOut: boolean }>`
       transition: all ${ANIMATION_TIME}ms ease-out;
     `}
   background-color: ${({ theme }) => theme.colors.white};
-  border-radius: 16px;
+  border-radius: 8px;
   box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.11);
   display: flex;
   flex-direction: column;
