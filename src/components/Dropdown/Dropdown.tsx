@@ -111,6 +111,6 @@ const Content = styled.div<{ coords: CoordinatesType; fadeOut: boolean }>`
     css`
       opacity: 0;
       transform: translateY(-5%);
-      transition: all ${ANIMATION_TIME}ms ease-out;
+      transition: opacity ${ANIMATION_TIME}ms ease-out, transform ${ANIMATION_TIME}ms ease-out;
     `}
 `;
