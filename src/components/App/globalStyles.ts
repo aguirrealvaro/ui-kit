@@ -18,7 +18,7 @@ export const GlobalStyles = createGlobalStyle<{ theme: ThemeType }>`
 
   ${({ theme }) => theme.breakpoint("sm")} {
     body {
-      font-size: 90%;
+      font-size: 95%;
     }
   }
   
