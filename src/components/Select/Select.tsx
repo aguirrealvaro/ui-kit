@@ -47,25 +47,30 @@ export const Select: FunctionComponent<SelectProps> = ({
 
   const selectedValue = options.find((option) => option.value === value)?.label;
 
+  const handleDropdown = () => {
+    if (disabled) return;
+    setIsOpen(!isOpen);
+  };
+
   return (
     <Container ref={containerRef}>
-      <Button
-        onClick={() => setIsOpen(!isOpen)}
-        disabled={disabled}
+      <SelectContainer
+        onClick={handleDropdown}
+        disabled={disabled || false}
         hasValue={!!value}
         error={!!error}
       >
-        {value && <Placeholder>{placeholder}</Placeholder>}
-        <SelectedValue isSelected={!!selectedValue}>
-          {selectedValue || placeholder}
-        </SelectedValue>
+        <InnerContainer>
+          {value && <Placeholder>{placeholder}</Placeholder>}
+          <SelectedValue isSelected={!!selectedValue}>
+            {selectedValue || placeholder}
+          </SelectedValue>
+        </InnerContainer>
         <SideContainer>
           {isLoading && <Spinner size="mini" />}
-          <IconWrapper>
-            <Icon icon="chevron_down" size="14px" color={theme.colors.grey} />
-          </IconWrapper>
+          <Icon icon="chevron_down" size="14px" color={theme.colors.grey} />
         </SideContainer>
-      </Button>
+      </SelectContainer>
       {isOpen && (
         <Dropdown>
           {options.map((option, i) => {
@@ -93,24 +98,29 @@ const Container = styled.div`
   position: relative;
 `;
 
+const InnerContainer = styled.div`
+  width: 100%;
+  padding: 0 1rem;
+  position: relative;
+`;
+
 const Placeholder = styled.span`
   display: inline-block;
   color: ${({ theme }) => theme.colors.grey};
   position: absolute;
   top: 7px;
-  left: 1rem;
   font-size: 0.75rem;
   font-weight: 500;
 `;
 
-const Button = styled.button<{ hasValue: boolean; error: boolean }>`
+const SelectContainer = styled.div<{ hasValue: boolean; error: boolean; disabled: boolean }>`
   display: flex;
-  align-items: center;
+  //align-items: center;
   justify-content: space-between;
   border-radius: 4px;
   color: ${({ theme, hasValue }) => theme.colors[hasValue ? "black" : "grey"]};
   width: 100%;
-  height: 53px; // plus 2 from border, 55, same as input
+  height: 55px;
   border: 1px solid ${({ theme, error }) => (error ? theme.colors.red : "rgba(0, 0, 0, 0.36)")};
   &:focus-within {
     border: 1px solid ${({ theme }) => theme.colors.blue};
@@ -118,16 +128,23 @@ const Button = styled.button<{ hasValue: boolean; error: boolean }>`
       color: ${({ theme }) => theme.colors.blue};
     }
   }
-  &:disabled {
-    background: #f3f3f3;
-    border: 1px solid transparent;
-    cursor: not-allowed;
-  }
+  ${({ disabled }) => {
+    if (disabled) {
+      return css`
+        background: #f3f3f3;
+        border: 1px solid transparent;
+        cursor: not-allowed;
+      `;
+    }
+  }};
 `;
 
 const SelectedValue = styled.span<{ isSelected: boolean }>`
-  transform: ${({ isSelected }) => (isSelected ? "translateY(7px)" : "translateY(0px)")};
-  padding: 0 1rem;
+  position: absolute;
+  height: ${({ isSelected }) => (isSelected ? "72%" : "100%")};
+  bottom: 0;
+  display: flex;
+  align-items: center;
 `;
 
 const Dropdown = styled.div`
@@ -180,10 +197,8 @@ const BottomText = styled.div<{ error: boolean }>`
 `;
 
 const SideContainer = styled.div`
+  margin-right: 1.5rem;
   display: flex;
   align-items: center;
-`;
-
-const IconWrapper = styled.div`
-  margin: 0 1rem;
+  gap: 1rem;
 `;

@@ -81,7 +81,7 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
             sideWidth={sideContainerWidth}
             {...inputProps}
           />
-          <Label htmlFor={inputId}>{placeholder}</Label>
+          <Placeholder htmlFor={inputId}>{placeholder}</Placeholder>
         </InnerContainer>
         {showSideContainer && (
           <SideContainer ref={sideContainerRef}>
@@ -141,9 +141,10 @@ const InputContainer = styled.div<{
 
 const InnerContainer = styled.div`
   width: 100%;
+  padding: 0 1rem;
 `;
 
-const Label = styled.label`
+const Placeholder = styled.label`
   position: absolute;
   top: 50%;
   left: 1rem;
@@ -178,7 +179,6 @@ const CustomInput = styled.input<{
       return "100%";
     }
   }};
-  padding: 0 1rem;
   height: ${({ hasPlaceholder }) => (hasPlaceholder ? "72%" : "100%")};
   bottom: 0;
   &:focus + label {

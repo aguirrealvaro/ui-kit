@@ -19,7 +19,6 @@ export const Primary: ComponentStory<typeof Input> = () => {
       value={name}
       helpText="Help text"
       isLoading
-      isSuccess
     />
   );
 };
