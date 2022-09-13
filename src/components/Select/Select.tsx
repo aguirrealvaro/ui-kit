@@ -60,9 +60,16 @@ export const Select: FunctionComponent<SelectProps> = ({
 
   return (
     <Container ref={containerRef}>
-      <SelectContainer disabled={disabled || false} isSelected={isSelected} error={!!error}>
+      <SelectContainer
+        disabled={disabled || false}
+        isSelected={isSelected}
+        error={!!error}
+        isOpen={isOpen}
+      >
         <InnerContainer onClick={handleDropdown}>
-          <Placeholder shouldAnimate={isSelected ? true : isOpen}>{placeholder}</Placeholder>
+          <Placeholder shouldAnimate={isSelected ? true : isOpen} isOpen={isOpen}>
+            {placeholder}
+          </Placeholder>
           <SelectedValue isSelected={isSelected}>{selectedValue}</SelectedValue>
         </InnerContainer>
         <SideContainer>
@@ -109,9 +116,9 @@ const InnerContainer = styled.div`
   cursor: pointer;
 `;
 
-const Placeholder = styled.span<{ shouldAnimate: boolean }>`
+const Placeholder = styled.span<{ shouldAnimate: boolean; isOpen: boolean }>`
   display: inline-block;
-  color: ${({ theme }) => theme.colors.grey};
+  color: ${({ theme, isOpen }) => theme.colors[isOpen ? "blue" : "grey"]};
   position: absolute;
   transition: all ${ANIMATION_TIME}ms ease;
   ${({ shouldAnimate }) => {
@@ -129,21 +136,30 @@ const Placeholder = styled.span<{ shouldAnimate: boolean }>`
   }}
 `;
 
-const SelectContainer = styled.div<{ isSelected: boolean; error: boolean; disabled: boolean }>`
+const SelectContainer = styled.div<{
+  isSelected: boolean;
+  error: boolean;
+  disabled: boolean;
+  isOpen: boolean;
+}>`
   display: flex;
-  //align-items: center;
   justify-content: space-between;
   border-radius: 4px;
   color: ${({ theme, isSelected }) => theme.colors[isSelected ? "black" : "grey"]};
   width: 100%;
   height: 55px;
-  border: 1px solid ${({ theme, error }) => (error ? theme.colors.red : "rgba(0, 0, 0, 0.36)")};
-  &:focus-within {
-    border: 1px solid ${({ theme }) => theme.colors.blue};
-    ${Placeholder} {
-      color: ${({ theme }) => theme.colors.blue};
-    }
-  }
+  border: 1px solid
+    ${({ theme, error, isOpen }) => {
+      if (isOpen) {
+        return theme.colors.blue;
+      }
+
+      if (error) {
+        return theme.colors.red;
+      }
+
+      return "rgba(0, 0, 0, 0.36)";
+    }};
   ${({ disabled }) => {
     if (disabled) {
       return css`
