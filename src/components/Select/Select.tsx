@@ -24,6 +24,7 @@ type SelectProps = {
   helpText?: string;
   error?: string;
   isLoading?: boolean;
+  handleClear: () => void;
 };
 
 export const Select: FunctionComponent<SelectProps> = ({
@@ -35,6 +36,7 @@ export const Select: FunctionComponent<SelectProps> = ({
   helpText,
   error,
   isLoading,
+  handleClear,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -56,13 +58,8 @@ export const Select: FunctionComponent<SelectProps> = ({
 
   return (
     <Container ref={containerRef}>
-      <SelectContainer
-        onClick={handleDropdown}
-        disabled={disabled || false}
-        hasValue={!!value}
-        error={!!error}
-      >
-        <InnerContainer>
+      <SelectContainer disabled={disabled || false} hasValue={!!value} error={!!error}>
+        <InnerContainer onClick={handleDropdown}>
           {value && <Placeholder>{placeholder}</Placeholder>}
           <SelectedValue isSelected={!!selectedValue}>
             {selectedValue || placeholder}
@@ -70,6 +67,11 @@ export const Select: FunctionComponent<SelectProps> = ({
         </InnerContainer>
         <SideContainer>
           {isLoading && <Spinner size="mini" />}
+          {!!handleClear && (
+            <ButtonClear onClick={handleClear}>
+              <Icon icon="close" size="14px" color={theme.colors.grey} />
+            </ButtonClear>
+          )}
           <Chevron active={isOpen} icon="chevron_down" size="14px" color={theme.colors.grey} />
         </SideContainer>
       </SelectContainer>
@@ -104,6 +106,7 @@ const InnerContainer = styled.div`
   width: 100%;
   padding: 0 1rem;
   position: relative;
+  cursor: pointer;
 `;
 
 const Placeholder = styled.span`
@@ -208,4 +211,8 @@ const SideContainer = styled.div`
 const Chevron = styled(Icon)<{ active: boolean }>`
   transform: ${({ active }) => `rotate(${active ? "-180" : 0}deg)`};
   transition: transform ${ANIMATION_TIME}ms ease;
+`;
+
+const ButtonClear = styled.button`
+  line-height: 0;
 `;

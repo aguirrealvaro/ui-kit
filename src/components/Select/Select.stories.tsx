@@ -17,6 +17,10 @@ export const Primary: ComponentStory<typeof Select> = () => {
     { label: "Option 4", value: "option4" },
   ];
 
+  const handleClear = () => {
+    setOption(undefined);
+  };
+
   return (
     <Select
       value={option}
@@ -24,6 +28,7 @@ export const Primary: ComponentStory<typeof Select> = () => {
       onChange={setOption}
       placeholder="Select option"
       helpText="Help text"
+      handleClear={handleClear}
     />
   );
 };
