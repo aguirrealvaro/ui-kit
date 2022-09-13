@@ -55,22 +55,22 @@ export const Button: FunctionComponent<
 const getSizeStyles = (size: SizeType): FlattenSimpleInterpolation => {
   const sizeOptions: Record<SizeType, FlattenSimpleInterpolation> = {
     mini: css`
-      height: 28px;
+      height: 24px;
       padding: 0rem 0.5rem;
       font-size: 12px;
     `,
     compact: css`
-      height: 36px;
+      height: 34px;
       padding: 0 1rem;
       font-size: 14px;
     `,
     default: css`
-      height: 48px;
+      height: 44px;
       padding: 0 1.5rem;
       font-size: 16px;
     `,
     large: css`
-      height: 56px;
+      height: 54px;
       padding: 0 2rem;
       font-size: 18px;
     `,
