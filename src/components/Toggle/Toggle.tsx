@@ -2,6 +2,8 @@ import { HTMLProps } from "react";
 import styled from "styled-components";
 import { theme } from "@/components/App";
 
+const ANIMATION_TIME = 300;
+
 export interface ToggleProps {
   onChange: HTMLProps<HTMLInputElement>["onChange"];
   checked: boolean;
@@ -28,7 +30,7 @@ export const Toggle = styled.input.attrs<ToggleProps>(
   outline: none;
   border-radius: 100px;
   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-  transition: 0.5s;
+  transition: all ${ANIMATION_TIME}ms ease;
   opacity: 1;
   cursor: pointer;
   &:checked {
@@ -46,7 +48,7 @@ export const Toggle = styled.input.attrs<ToggleProps>(
     background: #fff;
     transform: scale(1.1);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
-    transition: 0.3s;
+    transition: all ${ANIMATION_TIME}ms ease;
   }
   &:checked:before {
     left: ${({ size }) => size && `${size}px`};

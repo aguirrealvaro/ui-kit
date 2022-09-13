@@ -13,6 +13,8 @@ import styled, { css } from "styled-components";
 import { Spinner, StyledIcon } from "..";
 import { theme } from "../App";
 
+const ANIMATION_TIME = 200;
+
 type InputProps = {
   helpText?: ReactNode;
   error?: string;
@@ -156,7 +158,7 @@ const Placeholder = styled.label`
   top: 50%;
   left: 1rem;
   transform: translateY(-50%);
-  transition: 0.2s;
+  transition: all ${ANIMATION_TIME}ms ease;
   pointer-events: none;
   color: ${({ theme }) => theme.colors.grey};
 `;

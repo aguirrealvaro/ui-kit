@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { Arrow, Direction } from ".";
 import { useDisableRightArrow } from "./useDisableRightArrow";
 
+const ANIMATION_TIME = 400;
+
 type SliderProps = {
   children: ReactNode;
   gap?: number;
@@ -75,7 +77,7 @@ const Overflow = styled.div`
 const SlideContainer = styled.div<{ translate?: any; gap: number }>`
   display: flex;
   transform: ${({ translate }) => `translateX(-${translate}px)`};
-  transition: transform 0.4s ease;
+  transition: transform ${ANIMATION_TIME}ms ease;
   gap: ${({ gap }) => `${gap}px`};
   align-items: center;
 `;
