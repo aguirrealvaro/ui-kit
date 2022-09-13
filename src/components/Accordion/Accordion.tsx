@@ -1,5 +1,5 @@
 import { useState, useRef, FunctionComponent, ReactNode } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Icon } from "@/components";
 
 const ANIMATION_TIME = 200;
@@ -9,6 +9,7 @@ type AccordionProps = {
   children: ReactNode;
   disabled?: boolean;
   className?: string;
+  showBorder?: boolean;
 };
 
 export const Accordion: FunctionComponent<AccordionProps> = ({
@@ -16,6 +17,7 @@ export const Accordion: FunctionComponent<AccordionProps> = ({
   children,
   disabled,
   className,
+  showBorder = false,
 }) => {
   const [active, setActive] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -24,7 +26,7 @@ export const Accordion: FunctionComponent<AccordionProps> = ({
   const height = ref.current?.scrollHeight || 0;
 
   return (
-    <div className={className}>
+    <Container className={className} showBorder={showBorder}>
       <Button onClick={toggle} disabled={disabled}>
         <div>{title}</div>
         <Chevron icon="chevron_down" active={active} size="14px" marginLeft="10px" />
@@ -32,9 +34,22 @@ export const Accordion: FunctionComponent<AccordionProps> = ({
       <Content ref={ref} height={height} active={active}>
         {children}
       </Content>
-    </div>
+    </Container>
   );
 };
+
+const Container = styled.div<{ showBorder: boolean }>`
+  ${({ showBorder }) => {
+    if (showBorder) {
+      return css`
+        border-bottom: 1px solid ${({ theme }) => theme.colors.lightGrey};
+        &:last-child {
+          border-bottom: none;
+        }
+      `;
+    }
+  }}
+`;
 
 const Button = styled.button`
   display: flex;
