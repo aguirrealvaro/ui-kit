@@ -107,85 +107,87 @@ const getColorStyles = (variant: VariantType, kind: KindType): FlattenSimpleInte
     default: css`
       background-color: ${theme.colors.blue};
       color: ${theme.colors.white};
-      border: 1px solid ${theme.colors.blue};
+      border-color: ${theme.colors.blue};
       &:hover {
         background-color: #014ca7;
-        border: 1px solid #014ca7;
+        border-color: #014ca7;
       }
     `,
     positive: css`
       background-color: ${theme.colors.green};
       color: ${theme.colors.white};
-      border: 1px solid ${theme.colors.green};
+      border-color: ${theme.colors.green};
       &:hover {
         background-color: #03753e;
-        border: 1px solid #03753e;
+        border-color: #03753e;
       }
     `,
     warning: css`
       background-color: ${theme.colors.yellow};
       color: ${theme.colors.black};
-      border: 1px solid ${theme.colors.yellow};
+      border-color: ${theme.colors.yellow};
       &:hover {
         background-color: #dda534;
-        border: 1px solid #dda534;
+        border-color: #dda534;
       }
     `,
     negative: css`
       background-color: ${theme.colors.red};
       color: ${theme.colors.white};
-      border: 1px solid ${theme.colors.red};
+      border-color: ${theme.colors.red};
       &:hover {
         background-color: #b33844;
-        border: 1px solid #b33844;
+        border-color: #b33844;
       }
     `,
     neutral: css`
       background-color: ${theme.colors.black};
       color: ${theme.colors.white};
-      border: 1px solid ${theme.colors.black};
+      border-color: ${theme.colors.black};
     `,
   };
+
+  const outlinedHover = "#ebebeb";
 
   const variantOutlinedOptions: Record<VariantType, FlattenSimpleInterpolation> = {
     default: css`
       background-color: ${theme.colors.white};
       color: ${theme.colors.blue};
-      border: 1px solid ${theme.colors.blue};
+      border-color: ${theme.colors.blue};
       &:hover {
-        background-color: #e7e7e7;
+        background-color: ${outlinedHover};
       }
     `,
     positive: css`
       background-color: ${theme.colors.white};
       color: ${theme.colors.green};
-      border: 1px solid ${theme.colors.green};
+      border-color: ${theme.colors.green};
       &:hover {
-        background-color: #e7e7e7;
+        background-color: ${outlinedHover};
       }
     `,
     warning: css`
       background-color: ${theme.colors.white};
       color: ${theme.colors.yellow};
-      border: 1px solid ${theme.colors.yellow};
+      border-color: ${theme.colors.yellow};
       &:hover {
-        background-color: #e7e7e7;
+        background-color: ${outlinedHover};
       }
     `,
     negative: css`
       background-color: ${theme.colors.white};
       color: ${theme.colors.red};
-      border: 1px solid ${theme.colors.red};
+      border-color: ${theme.colors.red};
       &:hover {
-        background-color: #e7e7e7;
+        background-color: ${outlinedHover};
       }
     `,
     neutral: css`
       background-color: ${theme.colors.white};
       color: ${theme.colors.black};
-      border: 1px solid ${theme.colors.black};
+      border-color: ${theme.colors.black};
       &:hover {
-        background-color: #e7e7e7;
+        background-color: ${outlinedHover};
       }
     `,
   };
@@ -205,6 +207,7 @@ const CustomButton = styled.button<{
   shape: ShapeType;
 }>`
   width: ${({ block }) => (block ? "100%" : "auto")};
+  border: 1px solid transparent;
   ${({ size }) => getSizeStyles(size)};
   ${({ shape }) => getShapeStyles(shape)};
   ${({ variant, kind }) => getColorStyles(variant, kind)};
