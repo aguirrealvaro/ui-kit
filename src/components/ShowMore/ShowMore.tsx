@@ -1,6 +1,8 @@
 import { FunctionComponent, ReactNode, useEffect, useRef, useState } from "react";
 import styled, { css } from "styled-components";
 
+const ANIMATION_TIME = 200;
+
 type ShowMoreProps = {
   children: ReactNode;
   minHeight: number;
@@ -58,7 +60,7 @@ const Paragraph = styled.div<{
         height: ${showMore ? containerHeight : minHeight}px;
         margin-bottom: 1rem;
         overflow-y: hidden;
-        transition: height 0.2s ease;
+        transition: height ${ANIMATION_TIME}ms ease;
       `;
     } else {
       return css`
