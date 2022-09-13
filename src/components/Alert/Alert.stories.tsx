@@ -23,7 +23,7 @@ export const Primary: ComponentStory<typeof Alert> = () => {
         <Alert variant="negative">Negative</Alert>
       </AlertWrapper>
       <AlertWrapper>
-        <Alert variant="neutral">Default</Alert>
+        <Alert variant="neutral">Neutral</Alert>
       </AlertWrapper>
     </div>
   );
