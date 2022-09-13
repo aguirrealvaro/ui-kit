@@ -12,7 +12,6 @@ export const Primary: ComponentStory<typeof Button> = () => {
       <div>
         <Button kind="contained">Contained</Button>
         <Button kind="outlined">Outlined</Button>
-        <Button kind="text">Text</Button>
       </div>
       <div>
         <Button size="mini">Mini</Button>

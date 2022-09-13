@@ -4,7 +4,7 @@ import { Spinner } from "../Spinner";
 
 const ANIMATION_TIME = 300;
 
-type KindType = "contained" | "outlined" | "text";
+type KindType = "contained" | "outlined";
 type SizeType = "mini" | "compact" | "default" | "large";
 type VariantType = "default" | "positive" | "negative" | "warning" | "neutral";
 type ShapeType = "default" | "pill" | "circle" | "rectangle";
@@ -54,7 +54,7 @@ export const Button: FunctionComponent<
 const getShapeStyles = (shape: ShapeType): FlattenSimpleInterpolation => {
   const shapeOptions = {
     default: css`
-      border-radius: 8px;
+      border-radius: 4px;
     `,
     pill: css`
       border-radius: 42px;
@@ -117,7 +117,6 @@ const CustomButton = styled.button<{
   shape: ShapeType;
 }>`
   transition: all ${ANIMATION_TIME}ms ease;
-
   width: ${({ block }) => (block ? "100%" : "auto")};
   ${({ shape }) => getShapeStyles(shape)};
   ${({ size }) => getSizeStyles(size)};
@@ -137,17 +136,6 @@ const CustomButton = styled.button<{
         &:hover {
           background-color: ${theme.colors[variantColors[variant]]};
           color: ${theme.colors.white};
-        }
-      `;
-    }
-    if (kind === "text") {
-      return css`
-        color: ${theme.colors[variantColors[variant]]};
-        border: 1px solid transparent;
-        &:hover {
-          background-color: ${theme.colors[variantColors[variant]]};
-          color: ${theme.colors.white};
-          border: 1px solid ${theme.colors[variantColors[variant]]};
         }
       `;
     }
