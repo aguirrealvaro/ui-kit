@@ -51,10 +51,8 @@ export const Primary: ComponentStory<typeof Accordion> = () => {
 };
 
 const AccordionWrapper = styled.div`
-  margin-bottom: 1rem;
   border-bottom: 1px solid ${({ theme }) => theme.colors.lightGrey};
   &:last-child {
-    margin-bottom: 0;
     border-bottom: none;
   }
 `;

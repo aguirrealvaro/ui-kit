@@ -41,6 +41,7 @@ const Button = styled.button`
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  padding: 1rem 0;
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
@@ -55,6 +56,7 @@ const Chevron = styled(Icon)<{ active: boolean }>`
 const Content = styled.div<{ height: number; active: boolean }>`
   max-height: ${({ active, height }) => `${active ? height : 0}px`};
   overflow: hidden;
-  transition: max-height ${ANIMATION_TIME}ms ease;
-  margin: 1rem 0 0 1rem;
+  transition: all ${ANIMATION_TIME}ms ease;
+  margin-left: 1rem;
+  margin-bottom: ${({ active }) => active && "1rem"};
 `;
