@@ -15,12 +15,6 @@ export const GlobalStyles = createGlobalStyle<{ theme: ThemeType }>`
     font-size: 16px;
     color: ${({ theme }) => theme.colors.black};
   }
-
-  ${({ theme }) => theme.breakpoint("sm")} {
-    body {
-      font-size: 95%;
-    }
-  }
   
   img {
     max-width: 100%;
