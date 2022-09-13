@@ -5,14 +5,14 @@ import { Icon } from "@/components";
 const ANIMATION_TIME = 200;
 
 type AccordionProps = {
-  header: ReactNode;
+  title: ReactNode;
   content: ReactNode;
   disabled?: boolean;
   className?: string;
 };
 
 export const Accordion: FunctionComponent<AccordionProps> = ({
-  header,
+  title,
   content,
   disabled,
   className,
@@ -26,7 +26,7 @@ export const Accordion: FunctionComponent<AccordionProps> = ({
   return (
     <div className={className}>
       <Button onClick={toggle} disabled={disabled}>
-        <div>{header}</div>
+        <div>{title}</div>
         <Chevron icon="chevron_down" active={active} size="14px" marginLeft="10px" />
       </Button>
       <Content ref={ref} height={height} active={active}>
@@ -41,7 +41,6 @@ const Button = styled.button`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 0.5rem;
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
@@ -57,5 +56,5 @@ const Content = styled.div<{ height: number; active: boolean }>`
   max-height: ${({ active, height }) => `${active ? height : 0}px`};
   overflow: hidden;
   transition: max-height ${ANIMATION_TIME}ms ease;
-  margin-left: 0.5rem;
+  margin: 1rem 0 0 1rem;
 `;

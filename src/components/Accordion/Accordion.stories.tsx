@@ -7,7 +7,6 @@ export default {
 } as ComponentMeta<typeof Accordion>;
 
 export const Primary: ComponentStory<typeof Accordion> = () => {
-  const header = <>Click me</>;
   const content = (
     <>
       content
@@ -25,5 +24,5 @@ export const Primary: ComponentStory<typeof Accordion> = () => {
     </>
   );
 
-  return <Accordion header={header} content={content} />;
+  return <Accordion title={"Click me"} content={content} />;
 };
