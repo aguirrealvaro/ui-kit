@@ -72,7 +72,7 @@ const Container = styled.div<{ isClosing: boolean; status: ToastStatusType | und
   ${({ isClosing }) =>
     isClosing &&
     css`
-      transform: translateX(100%);
+      transform: translateY(-100%);
       transition: transform ${ANIMATION_TIME}ms linear;
     `}
 `;
