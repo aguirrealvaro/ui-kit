@@ -6,6 +6,7 @@ import {
   useState,
   Dispatch,
   SetStateAction,
+  MouseEvent,
 } from "react";
 import styled, { css } from "styled-components";
 import { LabelValue } from "./types";
@@ -24,7 +25,7 @@ type SelectProps = {
   helpText?: string;
   error?: string;
   isLoading?: boolean;
-  handleClear?: () => void;
+  clearValue?: () => void;
 };
 
 export const Select: FunctionComponent<SelectProps> = ({
@@ -36,7 +37,7 @@ export const Select: FunctionComponent<SelectProps> = ({
   helpText,
   error,
   isLoading,
-  handleClear,
+  clearValue,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -58,6 +59,11 @@ export const Select: FunctionComponent<SelectProps> = ({
 
   const isSelected = !!value;
 
+  const handleClearValue = (e: MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    clearValue?.();
+  };
+
   return (
     <Container ref={containerRef}>
       <SelectContainer
@@ -65,8 +71,9 @@ export const Select: FunctionComponent<SelectProps> = ({
         isSelected={isSelected}
         error={!!error}
         isOpen={isOpen}
+        onClick={handleDropdown}
       >
-        <InnerContainer onClick={handleDropdown}>
+        <InnerContainer>
           <Placeholder shouldAnimate={isSelected ? true : isOpen} isOpen={isOpen}>
             {placeholder}
           </Placeholder>
@@ -74,8 +81,8 @@ export const Select: FunctionComponent<SelectProps> = ({
         </InnerContainer>
         <SideContainer>
           {isLoading && <Spinner size="mini" />}
-          {isSelected && handleClear && (
-            <ButtonClear onClick={handleClear}>
+          {isSelected && clearValue && (
+            <ButtonClear onClick={handleClearValue}>
               <Icon icon="close" size="14px" color={theme.colors.grey} />
             </ButtonClear>
           )}
