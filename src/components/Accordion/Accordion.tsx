@@ -6,14 +6,14 @@ const ANIMATION_TIME = 200;
 
 type AccordionProps = {
   title: ReactNode;
-  content: ReactNode;
+  children: ReactNode;
   disabled?: boolean;
   className?: string;
 };
 
 export const Accordion: FunctionComponent<AccordionProps> = ({
   title,
-  content,
+  children,
   disabled,
   className,
 }) => {
@@ -30,7 +30,7 @@ export const Accordion: FunctionComponent<AccordionProps> = ({
         <Chevron icon="chevron_down" active={active} size="14px" marginLeft="10px" />
       </Button>
       <Content ref={ref} height={height} active={active}>
-        {content}
+        {children}
       </Content>
     </div>
   );
