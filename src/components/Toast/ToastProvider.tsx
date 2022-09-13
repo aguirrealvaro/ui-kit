@@ -25,7 +25,7 @@ export const ToastProvider: FunctionComponent<ToastProviderProps> = ({ children 
   const [toasts, setToast] = useState<ToastType[]>([]);
 
   const open = useCallback(
-    (content: string, options: ToastOptions = { permanent: false, status: "neutral" }) => {
+    (content: string, options: ToastOptions = { permanent: false, variant: "default" }) => {
       setToast((toasts) => [...toasts, { id: toastIdRef.current++, content, ...options }]);
     },
     []

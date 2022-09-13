@@ -10,7 +10,9 @@ export const Primary: FunctionComponent = () => {
   const toast = useToast();
 
   return (
-    <Button onClick={() => toast.open("Open toast", { status: "success" })}>Open toast</Button>
+    <Button onClick={() => toast.open("Open toast", { variant: "positive" })}>
+      Open toast
+    </Button>
   );
 };
 

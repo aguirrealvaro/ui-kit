@@ -1,10 +1,10 @@
 import { ReactNode } from "react";
 
-export type ToastStatusType = "success" | "neutral" | "error";
+export type ToastVariantType = "default" | "positive" | "negative" | "warning" | "neutral";
 
 export type ToastOptions = {
   permanent?: boolean;
-  status?: ToastStatusType;
+  variant?: ToastVariantType;
 };
 
 export type ToastType = {

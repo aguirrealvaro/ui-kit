@@ -14,7 +14,7 @@ export const ToastContainer: FunctionComponent<ToastContainerProps> = ({ toasts 
         const { id, content } = props;
         return (
           <Toast key={id} {...props}>
-            {content} {id}
+            {content}
           </Toast>
         );
       })}

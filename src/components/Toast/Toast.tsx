@@ -1,12 +1,12 @@
 import { FunctionComponent, useEffect, useRef, useState } from "react";
 import styled, { css, keyframes } from "styled-components";
-import { ToastStatusType, ToastType } from "./types";
+import { ToastVariantType, ToastType } from "./types";
 import { useToast } from "./useToast";
 
 const ANIMATION_TIME = 200;
 const DURATION_TIME = 3000;
 
-export const Toast: FunctionComponent<ToastType> = ({ children, id, permanent, status }) => {
+export const Toast: FunctionComponent<ToastType> = ({ children, id, permanent, variant }) => {
   const [isClosing, setIsClosing] = useState<boolean>(false);
   const timeoutRef = useRef<number>(0);
 
@@ -39,7 +39,7 @@ export const Toast: FunctionComponent<ToastType> = ({ children, id, permanent, s
   }, []);
 
   return (
-    <Container onClick={closeToast} isClosing={isClosing} status={status}>
+    <Container onClick={closeToast} isClosing={isClosing} variant={variant}>
       {children}
     </Container>
   );
@@ -50,16 +50,18 @@ const translate = keyframes`
   to { transform: translateX(0); }
 `;
 
-const Container = styled.div<{ isClosing: boolean; status: ToastStatusType | undefined }>`
-  background-color: ${({ theme, status }) => {
-    if (!status) return "black";
-    const backgroundColor: Record<ToastStatusType, string> = {
-      success: "green",
+const Container = styled.div<{ isClosing: boolean; variant: ToastVariantType | undefined }>`
+  background-color: ${({ theme, variant }) => {
+    if (!variant) return "black";
+    const backgroundColor: Record<ToastVariantType, string> = {
+      default: "blue",
+      positive: "green",
+      warning: "yellow",
+      negative: "red",
       neutral: "black",
-      error: "red",
     };
 
-    return theme.colors[backgroundColor[status]];
+    return theme.colors[backgroundColor[variant]];
   }};
   padding: 1rem;
   color: ${({ theme }) => theme.colors.white};
