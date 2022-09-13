@@ -64,6 +64,7 @@ const getShapeStyles = (shape: ShapeType): FlattenSimpleInterpolation => {
       width: 56px;
       height: 56px !important;
       padding: 0 !important;
+      text-align: center;
     `,
     rectangle: css`
       border-radius: 0px;
@@ -96,7 +97,7 @@ const getSizeStyles = (size: SizeType): FlattenSimpleInterpolation => {
     default: css`
       height: 48px;
       padding: 0 1.5rem;
-      font-size: 17px;
+      font-size: 16px;
     `,
     large: css`
       height: 56px;
@@ -115,12 +116,8 @@ const CustomButton = styled.button<{
   variant: VariantType;
   shape: ShapeType;
 }>`
-  text-align: center;
   transition: all ${ANIMATION_TIME}ms ease;
-  &:disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
-  }
+
   width: ${({ block }) => (block ? "100%" : "auto")};
   ${({ shape }) => getShapeStyles(shape)};
   ${({ size }) => getSizeStyles(size)};
@@ -155,4 +152,10 @@ const CustomButton = styled.button<{
       `;
     }
   }}
+  &:disabled {
+    background: #e9e9e9;
+    border: 1px solid transparent;
+    cursor: not-allowed;
+    color: #afafaf;
+  }
 `;
