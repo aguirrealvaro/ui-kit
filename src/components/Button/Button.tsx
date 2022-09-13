@@ -108,21 +108,37 @@ const getColorStyles = (variant: VariantType, kind: KindType): FlattenSimpleInte
       background-color: ${theme.colors.blue};
       color: ${theme.colors.white};
       border: 1px solid ${theme.colors.blue};
+      &:hover {
+        background-color: #014ca7;
+        border: 1px solid #014ca7;
+      }
     `,
     positive: css`
       background-color: ${theme.colors.green};
       color: ${theme.colors.white};
       border: 1px solid ${theme.colors.green};
+      &:hover {
+        background-color: #03753e;
+        border: 1px solid #03753e;
+      }
     `,
     warning: css`
       background-color: ${theme.colors.yellow};
-      color: ${theme.colors.white};
+      color: ${theme.colors.black};
       border: 1px solid ${theme.colors.yellow};
+      &:hover {
+        background-color: #dda534;
+        border: 1px solid #dda534;
+      }
     `,
     negative: css`
       background-color: ${theme.colors.red};
       color: ${theme.colors.white};
       border: 1px solid ${theme.colors.red};
+      &:hover {
+        background-color: #b33844;
+        border: 1px solid #b33844;
+      }
     `,
     neutral: css`
       background-color: ${theme.colors.black};
@@ -136,26 +152,41 @@ const getColorStyles = (variant: VariantType, kind: KindType): FlattenSimpleInte
       background-color: ${theme.colors.white};
       color: ${theme.colors.blue};
       border: 1px solid ${theme.colors.blue};
+      &:hover {
+        background-color: #e7e7e7;
+      }
     `,
     positive: css`
       background-color: ${theme.colors.white};
       color: ${theme.colors.green};
       border: 1px solid ${theme.colors.green};
+      &:hover {
+        background-color: #e7e7e7;
+      }
     `,
     warning: css`
       background-color: ${theme.colors.white};
       color: ${theme.colors.yellow};
       border: 1px solid ${theme.colors.yellow};
+      &:hover {
+        background-color: #e7e7e7;
+      }
     `,
     negative: css`
       background-color: ${theme.colors.white};
       color: ${theme.colors.red};
       border: 1px solid ${theme.colors.red};
+      &:hover {
+        background-color: #e7e7e7;
+      }
     `,
     neutral: css`
       background-color: ${theme.colors.white};
       color: ${theme.colors.black};
       border: 1px solid ${theme.colors.black};
+      &:hover {
+        background-color: #e7e7e7;
+      }
     `,
   };
 
