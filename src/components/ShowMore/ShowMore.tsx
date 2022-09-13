@@ -4,9 +4,16 @@ import styled, { css } from "styled-components";
 type ShowMoreProps = {
   children: ReactNode;
   minHeight: number;
+  showMoreLegend?: string;
+  showLessLegend?: string;
 };
 
-export const ShowMore: FunctionComponent<ShowMoreProps> = ({ children, minHeight }) => {
+export const ShowMore: FunctionComponent<ShowMoreProps> = ({
+  children,
+  minHeight,
+  showMoreLegend = "Show more",
+  showLessLegend = "Show less",
+}) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const [showMore, setShowMore] = useState<boolean>(false);
@@ -33,7 +40,7 @@ export const ShowMore: FunctionComponent<ShowMoreProps> = ({ children, minHeight
         {children}
       </Paragraph>
       {showMoreEnabled && (
-        <button onClick={toggleShowMore}>{showMore ? "Show less" : "Show more"}</button>
+        <Button onClick={toggleShowMore}>{showMore ? showLessLegend : showMoreLegend}</Button>
       )}
     </div>
   );
@@ -59,4 +66,11 @@ const Paragraph = styled.div<{
       `;
     }
   }}
+`;
+
+const Button = styled.button`
+  display: flex;
+  margin: 0 auto;
+  color: ${({ theme }) => theme.colors.blue};
+  font-size: 15px;
 `;
