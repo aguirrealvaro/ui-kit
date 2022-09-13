@@ -62,8 +62,8 @@ export const Select: FunctionComponent<SelectProps> = ({
     <Container ref={containerRef}>
       <SelectContainer disabled={disabled || false} isSelected={isSelected} error={!!error}>
         <InnerContainer onClick={handleDropdown}>
-          {value && <Placeholder>{placeholder}</Placeholder>}
-          <SelectedValue isSelected={isSelected}>{selectedValue || placeholder}</SelectedValue>
+          <Placeholder shouldAnimate={isSelected ? true : isOpen}>{placeholder}</Placeholder>
+          <SelectedValue isSelected={isSelected}>{selectedValue}</SelectedValue>
         </InnerContainer>
         <SideContainer>
           {isLoading && <Spinner size="mini" />}
@@ -109,13 +109,24 @@ const InnerContainer = styled.div`
   cursor: pointer;
 `;
 
-const Placeholder = styled.span`
+const Placeholder = styled.span<{ shouldAnimate: boolean }>`
   display: inline-block;
   color: ${({ theme }) => theme.colors.grey};
   position: absolute;
-  top: 7px;
-  font-size: 0.75rem;
-  font-weight: 500;
+  transition: all ${ANIMATION_TIME}ms ease;
+  ${({ shouldAnimate }) => {
+    if (shouldAnimate) {
+      return css`
+        top: 7px;
+        font-size: 0.75rem;
+      `;
+    } else {
+      return css`
+        top: 50%;
+        transform: translateY(-50%);
+      `;
+    }
+  }}
 `;
 
 const SelectContainer = styled.div<{ isSelected: boolean; error: boolean; disabled: boolean }>`

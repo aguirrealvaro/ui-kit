@@ -158,7 +158,6 @@ const getFocusedLabelStyles = css`
   top: 7px;
   transform: none;
   font-size: 0.75rem;
-  font-weight: 500;
 `;
 
 const CustomInput = styled.input<{
