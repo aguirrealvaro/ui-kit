@@ -13,6 +13,8 @@ import { Icon, Spinner } from "@/components";
 import { theme } from "@/components/App";
 import { useOnClickOutside } from "@/hooks";
 
+const ANIMATION_TIME = 200;
+
 type SelectProps = {
   placeholder: string;
   value: string | undefined;
@@ -68,7 +70,7 @@ export const Select: FunctionComponent<SelectProps> = ({
         </InnerContainer>
         <SideContainer>
           {isLoading && <Spinner size="mini" />}
-          <Icon icon="chevron_down" size="14px" color={theme.colors.grey} />
+          <Chevron active={isOpen} icon="chevron_down" size="14px" color={theme.colors.grey} />
         </SideContainer>
       </SelectContainer>
       {isOpen && (
@@ -201,4 +203,9 @@ const SideContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
+`;
+
+const Chevron = styled(Icon)<{ active: boolean }>`
+  transform: ${({ active }) => `rotate(${active ? "-180" : 0}deg)`};
+  transition: transform ${ANIMATION_TIME}ms ease;
 `;

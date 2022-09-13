@@ -49,7 +49,6 @@ const Button = styled.button`
 `;
 
 const Chevron = styled(Icon)<{ active: boolean }>`
-  transition: transform 0.2s ease;
   transform: ${({ active }) => `rotate(${active ? "-180" : 0}deg)`};
   transition: transform ${ANIMATION_TIME}ms ease;
 `;
