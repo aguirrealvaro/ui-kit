@@ -62,8 +62,8 @@ const getShapeStyles = (shape: ShapeType): FlattenSimpleInterpolation => {
     circle: css`
       border-radius: 100%;
       width: 56px;
-      height: 56px !important;
-      padding: 0 !important;
+      height: 56px;
+      padding: 0;
       text-align: center;
     `,
     rectangle: css`
@@ -118,8 +118,8 @@ const CustomButton = styled.button<{
 }>`
   transition: all ${ANIMATION_TIME}ms ease;
   width: ${({ block }) => (block ? "100%" : "auto")};
-  ${({ shape }) => getShapeStyles(shape)};
   ${({ size }) => getSizeStyles(size)};
+  ${({ shape }) => getShapeStyles(shape)};
   ${({ kind, theme, variant }) => {
     if (kind === "contained") {
       return css`
