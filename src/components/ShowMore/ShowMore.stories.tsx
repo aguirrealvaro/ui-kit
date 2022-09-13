@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import styled from "styled-components";
 import { ShowMore } from "@/components";
 
 export default {
@@ -9,24 +8,34 @@ export default {
 
 export const Primary: ComponentStory<typeof ShowMore> = () => {
   return (
-    <Container>
-      <ShowMore minHeight={200}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sequi, sit ex porro
-        natus obcaecati eaque voluptatem! Mollitia debitis, asperiores illo, illum molestias
-        aliquid omnis delectus dolor perferendis modi aspernatur? Lorem ipsum dolor sit amet
-        consectetur adipisicing elit. Dicta sequi, sit ex porro natus obcaecati eaque
-        voluptatem! Mollitia debitis, asperiores illo, illum molestias aliquid omnis delectus
-        dolor perferendis modi aspernatur? Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Dicta sequi, sit ex porro natus obcaecati eaque voluptatem! Mollitia debitis,
-        asperiores illo, illum molestias aliquid omnis delectus dolor perferendis modi
-        aspernatur? Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sequi, sit
-        ex porro natus obcaecati eaque voluptatem! Mollitia debitis, asperiores illo, illum
-        molestias aliquid omnis delectus dolor perferendis modi aspernatur?
-      </ShowMore>
-    </Container>
+    <ShowMore minHeight={200}>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit totam ea recusandae
+      distinctio tenetur, illo magni asperiores assumenda temporibus vitae ipsam ratione sunt
+      voluptate, cum possimus aliquid? Nobis, delectus quam? Lorem ipsum dolor sit amet,
+      consectetur adipisicing elit. Impedit totam ea recusandae distinctio tenetur, illo magni
+      asperiores assumenda temporibus vitae ipsam ratione sunt voluptate, cum possimus aliquid?
+      Nobis, delectus quam? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit
+      totam ea recusandae distinctio tenetur, illo magni asperiores assumenda temporibus vitae
+      ipsam ratione sunt voluptate, cum possimus aliquid? Nobis, delectus quam? Lorem ipsum
+      dolor sit amet, consectetur adipisicing elit. Impedit totam ea recusandae distinctio
+      tenetur, illo magni asperiores assumenda temporibus vitae ipsam ratione sunt voluptate,
+      cum possimus aliquid? Nobis, delectus quam? Lorem ipsum dolor sit amet, consectetur
+      adipisicing elit. Impedit totam ea recusandae distinctio tenetur, illo magni asperiores
+      assumenda temporibus vitae ipsam ratione sunt voluptate, cum possimus aliquid? Nobis,
+      delectus quam? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit totam ea
+      recusandae distinctio tenetur, illo magni asperiores assumenda temporibus vitae ipsam
+      ratione sunt voluptate, cum possimus aliquid? Nobis, delectus quam? Lorem ipsum dolor sit
+      amet, consectetur adipisicing elit. Impedit totam ea recusandae distinctio tenetur, illo
+      magni asperiores assumenda temporibus vitae ipsam ratione sunt voluptate, cum possimus
+      aliquid? Nobis, delectus quam? Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      Impedit totam ea recusandae distinctio tenetur, illo magni asperiores assumenda
+      temporibus vitae ipsam ratione sunt voluptate, cum possimus aliquid? Nobis, delectus
+      quam? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit totam ea
+      recusandae distinctio tenetur, illo magni asperiores assumenda temporibus vitae ipsam
+      ratione sunt voluptate, cum possimus aliquid? Nobis, delectus quam? Lorem ipsum dolor sit
+      amet, consectetur adipisicing elit. Impedit totam ea recusandae distinctio tenetur, illo
+      magni asperiores assumenda temporibus vitae ipsam ratione sunt voluptate, cum possimus
+      aliquid? Nobis, delectus quam?
+    </ShowMore>
   );
 };
-
-const Container = styled.div`
-  width: 350px;
-`;

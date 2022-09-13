@@ -1,4 +1,12 @@
-import { FunctionComponent, ReactNode, useEffect, useRef, useState } from "react";
+import {
+  FunctionComponent,
+  ReactNode,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+  useCallback,
+} from "react";
 import styled, { css } from "styled-components";
 
 const ANIMATION_TIME = 200;
@@ -24,11 +32,20 @@ export const ShowMore: FunctionComponent<ShowMoreProps> = ({
 
   const toggleShowMore = () => setShowMore(!showMore);
 
-  useEffect(() => {
+  const handleStates = useCallback(() => {
     if (!containerRef.current) return;
     setContainerHeight(containerRef.current.scrollHeight);
     setShowMoreEnabled(containerRef.current.scrollHeight > minHeight);
   }, [minHeight]);
+
+  useLayoutEffect(() => {
+    handleStates();
+  }, [handleStates]);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleStates);
+    return () => window.removeEventListener("resize", handleStates);
+  }, [handleStates]);
 
   return (
     <div>
@@ -48,7 +65,7 @@ export const ShowMore: FunctionComponent<ShowMoreProps> = ({
   );
 };
 
-const Paragraph = styled.div<{
+const Paragraph = styled.p<{
   showMore: boolean;
   containerHeight: number;
   showMoreEnabled: boolean;
@@ -61,10 +78,6 @@ const Paragraph = styled.div<{
         margin-bottom: 1rem;
         overflow-y: hidden;
         transition: height ${ANIMATION_TIME}ms ease;
-      `;
-    } else {
-      return css`
-        height: auto;
       `;
     }
   }}
