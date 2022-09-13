@@ -144,6 +144,13 @@ const InnerContainer = styled.div`
   padding: 0 1rem;
 `;
 
+const SideContainer = styled.div`
+  margin-right: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+
 const Placeholder = styled.label`
   position: absolute;
   top: 50%;
@@ -221,11 +228,4 @@ const BottomText = styled.div<{ error: boolean }>`
   font-size: 13px;
   margin: 0.5rem 1rem 0 1rem;
   color: ${({ error, theme }) => theme.colors[error ? "red" : "grey"]};
-`;
-
-const SideContainer = styled.div`
-  margin-right: 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
 `;

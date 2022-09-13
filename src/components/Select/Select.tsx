@@ -109,33 +109,6 @@ const Container = styled.div`
   position: relative;
 `;
 
-const InnerContainer = styled.div`
-  width: 100%;
-  padding: 0 1rem;
-  position: relative;
-  cursor: pointer;
-`;
-
-const Placeholder = styled.span<{ shouldAnimate: boolean; isOpen: boolean }>`
-  display: inline-block;
-  color: ${({ theme, isOpen }) => theme.colors[isOpen ? "blue" : "grey"]};
-  position: absolute;
-  transition: all ${ANIMATION_TIME}ms ease;
-  ${({ shouldAnimate }) => {
-    if (shouldAnimate) {
-      return css`
-        top: 7px;
-        font-size: 0.75rem;
-      `;
-    } else {
-      return css`
-        top: 50%;
-        transform: translateY(-50%);
-      `;
-    }
-  }}
-`;
-
 const SelectContainer = styled.div<{
   isSelected: boolean;
   error: boolean;
@@ -169,6 +142,40 @@ const SelectContainer = styled.div<{
       `;
     }
   }};
+`;
+
+const InnerContainer = styled.div`
+  width: 100%;
+  padding: 0 1rem;
+  position: relative;
+  cursor: pointer;
+`;
+
+const SideContainer = styled.div`
+  margin-right: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+
+const Placeholder = styled.span<{ shouldAnimate: boolean; isOpen: boolean }>`
+  display: inline-block;
+  color: ${({ theme, isOpen }) => theme.colors[isOpen ? "blue" : "grey"]};
+  position: absolute;
+  transition: all ${ANIMATION_TIME}ms ease;
+  ${({ shouldAnimate }) => {
+    if (shouldAnimate) {
+      return css`
+        top: 7px;
+        font-size: 0.75rem;
+      `;
+    } else {
+      return css`
+        top: 50%;
+        transform: translateY(-50%);
+      `;
+    }
+  }}
 `;
 
 const SelectedValue = styled.span<{ isSelected: boolean }>`
@@ -226,13 +233,6 @@ const BottomText = styled.div<{ error: boolean }>`
   font-size: 13px;
   margin: 0.5rem 1rem 0 1rem;
   color: ${({ error, theme }) => theme.colors[error ? "red" : "grey"]};
-`;
-
-const SideContainer = styled.div`
-  margin-right: 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
 `;
 
 const Chevron = styled(Icon)<{ active: boolean }>`
