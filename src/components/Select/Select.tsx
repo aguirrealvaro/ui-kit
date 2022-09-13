@@ -24,7 +24,7 @@ type SelectProps = {
   helpText?: string;
   error?: string;
   isLoading?: boolean;
-  handleClear: () => void;
+  handleClear?: () => void;
 };
 
 export const Select: FunctionComponent<SelectProps> = ({
@@ -56,18 +56,18 @@ export const Select: FunctionComponent<SelectProps> = ({
     setIsOpen(!isOpen);
   };
 
+  const isSelected = !!value;
+
   return (
     <Container ref={containerRef}>
-      <SelectContainer disabled={disabled || false} hasValue={!!value} error={!!error}>
+      <SelectContainer disabled={disabled || false} isSelected={isSelected} error={!!error}>
         <InnerContainer onClick={handleDropdown}>
           {value && <Placeholder>{placeholder}</Placeholder>}
-          <SelectedValue isSelected={!!selectedValue}>
-            {selectedValue || placeholder}
-          </SelectedValue>
+          <SelectedValue isSelected={isSelected}>{selectedValue || placeholder}</SelectedValue>
         </InnerContainer>
         <SideContainer>
           {isLoading && <Spinner size="mini" />}
-          {!!handleClear && (
+          {isSelected && handleClear && (
             <ButtonClear onClick={handleClear}>
               <Icon icon="close" size="14px" color={theme.colors.grey} />
             </ButtonClear>
@@ -118,12 +118,12 @@ const Placeholder = styled.span`
   font-weight: 500;
 `;
 
-const SelectContainer = styled.div<{ hasValue: boolean; error: boolean; disabled: boolean }>`
+const SelectContainer = styled.div<{ isSelected: boolean; error: boolean; disabled: boolean }>`
   display: flex;
   //align-items: center;
   justify-content: space-between;
   border-radius: 4px;
-  color: ${({ theme, hasValue }) => theme.colors[hasValue ? "black" : "grey"]};
+  color: ${({ theme, isSelected }) => theme.colors[isSelected ? "black" : "grey"]};
   width: 100%;
   height: 55px;
   border: 1px solid ${({ theme, error }) => (error ? theme.colors.red : "rgba(0, 0, 0, 0.36)")};
