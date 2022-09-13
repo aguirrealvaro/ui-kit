@@ -26,6 +26,7 @@ export const ToastContainer: FunctionComponent<ToastContainerProps> = ({ toasts 
 
 const Container = styled.div`
   position: fixed;
-  bottom: 1rem;
-  right: 1rem;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
 `;

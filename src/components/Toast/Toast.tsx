@@ -46,7 +46,7 @@ export const Toast: FunctionComponent<ToastType> = ({ children, id, permanent, s
 };
 
 const translate = keyframes`
-  from { transform: translateX(100%); }
+  from { transform: translateY(-100%); }
   to { transform: translateX(0); }
 `;
 
