@@ -5,7 +5,7 @@ import { Spinner } from "../Spinner";
 
 const ANIMATION_TIME = 300;
 
-type KindType = "solid" | "outlined" | "ghost";
+type KindType = "solid" | "outlined" | "ghost" | "link";
 type SizeType = "mini" | "compact" | "default" | "large";
 type VariantType = "default" | "positive" | "negative" | "warning" | "neutral";
 type ShapeType = "default" | "pill" | "circle" | "rectangle";
@@ -151,7 +151,6 @@ const getColorStyles = (variant: VariantType, kind: KindType): FlattenSimpleInte
 
   const variantOutlinedOptions: Record<VariantType, FlattenSimpleInterpolation> = {
     default: css`
-      background-color: ${theme.colors.white};
       color: ${theme.colors.blue};
       border-color: ${theme.colors.blue};
       &:hover {
@@ -159,7 +158,6 @@ const getColorStyles = (variant: VariantType, kind: KindType): FlattenSimpleInte
       }
     `,
     positive: css`
-      background-color: ${theme.colors.white};
       color: ${theme.colors.green};
       border-color: ${theme.colors.green};
       &:hover {
@@ -167,7 +165,6 @@ const getColorStyles = (variant: VariantType, kind: KindType): FlattenSimpleInte
       }
     `,
     warning: css`
-      background-color: ${theme.colors.white};
       color: ${theme.colors.yellow};
       border-color: ${theme.colors.yellow};
       &:hover {
@@ -175,7 +172,6 @@ const getColorStyles = (variant: VariantType, kind: KindType): FlattenSimpleInte
       }
     `,
     negative: css`
-      background-color: ${theme.colors.white};
       color: ${theme.colors.red};
       border-color: ${theme.colors.red};
       &:hover {
@@ -183,7 +179,6 @@ const getColorStyles = (variant: VariantType, kind: KindType): FlattenSimpleInte
       }
     `,
     neutral: css`
-      background-color: ${theme.colors.white};
       color: ${theme.colors.black};
       border-color: ${theme.colors.black};
       &:hover {
@@ -194,38 +189,66 @@ const getColorStyles = (variant: VariantType, kind: KindType): FlattenSimpleInte
 
   const variantGhostOptions: Record<VariantType, FlattenSimpleInterpolation> = {
     default: css`
-      background-color: ${theme.colors.white};
       color: ${theme.colors.blue};
       &:hover {
         background-color: #e3efff;
       }
     `,
     positive: css`
-      background-color: ${theme.colors.white};
       color: ${theme.colors.green};
       &:hover {
         background-color: #e1fcef;
       }
     `,
     warning: css`
-      background-color: ${theme.colors.white};
       color: ${theme.colors.yellow};
       &:hover {
         background-color: #faf5ec;
       }
     `,
     negative: css`
-      background-color: ${theme.colors.white};
       color: ${theme.colors.red};
       &:hover {
         background-color: #fcedee;
       }
     `,
     neutral: css`
-      background-color: ${theme.colors.white};
       color: ${theme.colors.black};
       &:hover {
         background-color: #ebebeb;
+      }
+    `,
+  };
+
+  const variantLinkOptions: Record<VariantType, FlattenSimpleInterpolation> = {
+    default: css`
+      color: ${theme.colors.blue};
+      &:hover {
+        text-decoration: underline;
+      }
+    `,
+    positive: css`
+      color: ${theme.colors.green};
+      &:hover {
+        text-decoration: underline;
+      }
+    `,
+    warning: css`
+      color: ${theme.colors.yellow};
+      &:hover {
+        text-decoration: underline;
+      }
+    `,
+    negative: css`
+      color: ${theme.colors.red};
+      &:hover {
+        text-decoration: underline;
+      }
+    `,
+    neutral: css`
+      color: ${theme.colors.black};
+      &:hover {
+        text-decoration: underline;
       }
     `,
   };
@@ -234,6 +257,7 @@ const getColorStyles = (variant: VariantType, kind: KindType): FlattenSimpleInte
     solid: variantSolidOptions[variant],
     outlined: variantOutlinedOptions[variant],
     ghost: variantGhostOptions[variant],
+    link: variantLinkOptions[variant],
   };
 
   return colorOptions[kind];

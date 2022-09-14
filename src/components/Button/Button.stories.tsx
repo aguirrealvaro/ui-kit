@@ -13,6 +13,7 @@ export const Primary: ComponentStory<typeof Button> = () => {
         <Button kind="solid">Solid</Button>
         <Button kind="outlined">Outlined</Button>
         <Button kind="ghost">Ghost</Button>
+        <Button kind="link">Link</Button>
       </div>
       <div>
         <Button size="mini">Mini</Button>
