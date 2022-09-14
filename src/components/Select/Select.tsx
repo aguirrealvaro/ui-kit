@@ -12,7 +12,7 @@ import styled, { css } from "styled-components";
 import { LabelValue } from "./types";
 import { Icon, Spinner } from "@/components";
 import { theme } from "@/components/App";
-import { useOnClickOutside } from "@/hooks";
+import { useOutsideClick } from "@/hooks";
 
 const ANIMATION_TIME = 200;
 
@@ -44,7 +44,7 @@ export const Select: FunctionComponent<SelectProps> = ({
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const closeDropdown = useCallback(() => setIsOpen(false), []);
 
-  useOnClickOutside({ ref: containerRef, callback: closeDropdown, prevent: !isOpen });
+  useOutsideClick({ ref: containerRef, callback: closeDropdown, prevent: !isOpen });
 
   useEffect(() => {
     if (value) closeDropdown();

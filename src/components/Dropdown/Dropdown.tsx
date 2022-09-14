@@ -9,7 +9,7 @@ import {
 import { createPortal } from "react-dom";
 import styled, { css, keyframes } from "styled-components";
 import { PlacementType, CoordinatesType, TriggerType } from ".";
-import { useDelayUnmount, useOnClickOutside } from "@/hooks";
+import { useDelayUnmount, useOutsideClick } from "@/hooks";
 
 const ANIMATION_TIME = 200;
 
@@ -43,7 +43,7 @@ export const Dropdown: FunctionComponent<DropdownProps> = ({
       : { onClick: onToggle }),
   };
 
-  useOnClickOutside({
+  useOutsideClick({
     ref: dropdownRef,
     callback: onClose,
     prevent: !show || trigger === "hover",

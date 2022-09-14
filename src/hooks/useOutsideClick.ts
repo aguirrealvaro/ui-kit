@@ -1,12 +1,12 @@
 import { useEffect, MutableRefObject } from "react";
 
-type OptionsType = {
+type UseOutsideClickParams = {
   ref: MutableRefObject<HTMLDivElement | HTMLButtonElement | null>;
   callback: () => void;
   prevent?: boolean;
 };
 
-export const useOnClickOutside = ({ ref, callback, prevent }: OptionsType): void => {
+export const useOutsideClick = ({ ref, callback, prevent }: UseOutsideClickParams): void => {
   useEffect(() => {
     if (prevent) return;
 

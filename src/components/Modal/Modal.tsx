@@ -4,7 +4,7 @@ import styled, { css, keyframes } from "styled-components";
 import { SIZES, SizeType } from ".";
 import { ANIMATION_TIME } from "./constants";
 import { Icon } from "@/components";
-import { useDisableScroll, useOnClickOutside, useOnKeyPress } from "@/hooks";
+import { useDisableScroll, useOutsideClick, useOnKeyPress } from "@/hooks";
 
 export type ModalProps = {
   children: ReactNode;
@@ -29,7 +29,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
 
   useDisableScroll(show);
 
-  useOnClickOutside({
+  useOutsideClick({
     ref: contentRef,
     callback: onClose,
     prevent: !closeOnInteractions || !show,

@@ -3,7 +3,7 @@ import styled, { css, keyframes } from "styled-components";
 import { ANIMATION_TIME } from "../constants";
 import { NavbarItem } from "../types";
 import { Icon } from "@/components/Icon";
-import { useOnClickOutside } from "@/hooks";
+import { useOutsideClick } from "@/hooks";
 
 type MobileMenuProps = {
   showMobileMenu: boolean;
@@ -19,7 +19,7 @@ export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
   items,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
-  useOnClickOutside({ ref, callback: onClose, prevent: !showMobileMenu });
+  useOutsideClick({ ref, callback: onClose, prevent: !showMobileMenu });
 
   return (
     <Backdrop isUnmounting={isUnmounting}>

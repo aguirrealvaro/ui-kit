@@ -2,7 +2,7 @@ import { FunctionComponent, ReactNode, useLayoutEffect, useRef, useState } from 
 import { createPortal } from "react-dom";
 import styled, { css, keyframes } from "styled-components";
 import { PlacementType, CoordinatesType, TriggerType } from ".";
-import { useDelayUnmount, useOnClickOutside } from "@/hooks";
+import { useDelayUnmount, useOutsideClick } from "@/hooks";
 
 const ANIMATION_TIME = 150;
 
@@ -36,7 +36,7 @@ export const Tooltip: FunctionComponent<TooltipProps> = ({
       : { onClick: onToggle }),
   };
 
-  useOnClickOutside({
+  useOutsideClick({
     ref: hoverRef,
     callback: onClose,
     prevent: !show || trigger === "hover",

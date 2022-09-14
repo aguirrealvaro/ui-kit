@@ -1,6 +1,6 @@
 export { useDebounce } from "./useDebounce";
 export { useDisableScroll } from "./useDisableScroll";
-export { useOnClickOutside } from "./useOnClickOutside";
+export { useOutsideClick } from "./useOutsideClick";
 export { useMediaQuery } from "./useMediaQuery";
 export { useOnTabChange } from "./useOnTabChange";
 export { useAnimationEnd } from "./useAnimationEnd";
