@@ -4,7 +4,7 @@ import styled, { css, keyframes } from "styled-components";
 import { SIZES, SizeType } from ".";
 import { ANIMATION_TIME } from "./constants";
 import { Icon } from "@/components";
-import { useDisableScroll, useOutsideClick, useOnKeyPress, useMediaQuery } from "@/hooks";
+import { useDisableScroll, useOutsideClick, useKeyPress, useMediaQuery } from "@/hooks";
 
 export type ModalProps = {
   children: ReactNode;
@@ -35,7 +35,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
     enabled: isOpen && closeOnInteractions,
   });
 
-  useOnKeyPress({
+  useKeyPress({
     targetKey: "Escape",
     handler: onClose,
     enabled: isOpen && closeOnInteractions,

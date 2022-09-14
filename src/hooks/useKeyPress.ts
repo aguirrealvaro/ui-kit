@@ -1,12 +1,16 @@
 import { useEffect } from "react";
 
-type OptionsType = {
+type UseKeyPressParams = {
   targetKey: string;
   handler: () => void;
   enabled?: boolean;
 };
 
-export const useOnKeyPress = ({ targetKey, handler, enabled = true }: OptionsType): void => {
+export const useKeyPress = ({
+  targetKey,
+  handler,
+  enabled = true,
+}: UseKeyPressParams): void => {
   useEffect(() => {
     if (!enabled) return;
     const listener = (e: KeyboardEvent) => {

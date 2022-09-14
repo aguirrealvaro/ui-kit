@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export const useOnTabChange = (callback: () => void, deps: any[]): void => {
+export const useTabChange = (callback: () => void, deps: any[]): void => {
   useEffect(() => {
     const handleDocumentVisibility = () => {
       if (!document.hidden) callback();
