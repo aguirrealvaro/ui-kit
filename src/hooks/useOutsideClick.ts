@@ -2,17 +2,21 @@ import { useEffect, MutableRefObject } from "react";
 
 type UseOutsideClickParams = {
   ref: MutableRefObject<HTMLDivElement | HTMLButtonElement | null>;
-  callback: () => void;
-  prevent?: boolean;
+  handler: () => void;
+  enabled?: boolean;
 };
 
-export const useOutsideClick = ({ ref, callback, prevent }: UseOutsideClickParams): void => {
+export const useOutsideClick = ({
+  ref,
+  handler,
+  enabled = true,
+}: UseOutsideClickParams): void => {
   useEffect(() => {
-    if (prevent) return;
+    if (!enabled) return;
 
     const listener = (e: MouseEvent | TouchEvent) => {
       if (ref.current?.contains(e.target as Node)) return;
-      callback();
+      handler();
     };
 
     document.addEventListener("click", listener);
@@ -22,5 +26,5 @@ export const useOutsideClick = ({ ref, callback, prevent }: UseOutsideClickParam
       document.removeEventListener("click", listener);
       document.removeEventListener("touchend", listener);
     };
-  }, [ref, callback, prevent]);
+  }, [handler, enabled, ref]);
 };

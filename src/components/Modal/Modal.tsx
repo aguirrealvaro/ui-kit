@@ -31,8 +31,8 @@ export const Modal: FunctionComponent<ModalProps> = ({
 
   useOutsideClick({
     ref: contentRef,
-    callback: onClose,
-    prevent: !closeOnInteractions || !isOpen,
+    handler: onClose,
+    enabled: isOpen && closeOnInteractions,
   });
 
   useOnKeyPress({

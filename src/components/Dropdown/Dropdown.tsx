@@ -45,8 +45,8 @@ export const Dropdown: FunctionComponent<DropdownProps> = ({
 
   useOutsideClick({
     ref: dropdownRef,
-    callback: onClose,
-    prevent: !isOpen || trigger === "hover",
+    handler: onClose,
+    enabled: isOpen && trigger === "click",
   });
 
   useLayoutEffect(() => {

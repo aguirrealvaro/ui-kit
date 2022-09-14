@@ -38,8 +38,8 @@ export const Tooltip: FunctionComponent<TooltipProps> = ({
 
   useOutsideClick({
     ref: hoverRef,
-    callback: onClose,
-    prevent: !isOpen || trigger === "hover",
+    handler: onClose,
+    enabled: isOpen && trigger === "click",
   });
 
   useLayoutEffect(() => {

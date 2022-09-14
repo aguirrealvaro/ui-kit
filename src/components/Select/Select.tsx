@@ -44,7 +44,7 @@ export const Select: FunctionComponent<SelectProps> = ({
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const closeDropdown = useCallback(() => setIsOpen(false), []);
 
-  useOutsideClick({ ref: containerRef, callback: closeDropdown, prevent: !isOpen });
+  useOutsideClick({ ref: containerRef, handler: closeDropdown, enabled: isOpen });
 
   useEffect(() => {
     if (value) closeDropdown();

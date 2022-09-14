@@ -19,7 +19,7 @@ export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
   items,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
-  useOutsideClick({ ref, callback: onClose, prevent: !isMobileMenuOpen });
+  useOutsideClick({ ref, handler: onClose, enabled: isMobileMenuOpen });
 
   return (
     <Backdrop isUnmounting={isUnmounting}>
