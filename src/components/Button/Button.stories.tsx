@@ -16,10 +16,10 @@ export const Primary: ComponentStory<typeof Button> = () => {
         <Button kind="link">Link</Button>
       </div>
       <div>
-        <Button size="mini">Mini</Button>
-        <Button size="compact">Compact</Button>
-        <Button size="default">Default</Button>
-        <Button size="large">Large</Button>
+        <Button size="xs">Mini</Button>
+        <Button size="sm">Compact</Button>
+        <Button size="md">Default</Button>
+        <Button size="lg">Large</Button>
       </div>
       <div>
         <Button variant="default">Default</Button>

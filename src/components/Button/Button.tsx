@@ -6,7 +6,7 @@ import { Spinner } from "../Spinner";
 const ANIMATION_TIME = 300;
 
 type KindType = "solid" | "outlined" | "ghost" | "link";
-type SizeType = "mini" | "compact" | "default" | "large";
+type SizeType = "xs" | "sm" | "md" | "lg";
 type VariantType = "default" | "positive" | "negative" | "warning" | "neutral";
 type ShapeType = "default" | "pill" | "circle" | "rectangle";
 
@@ -27,7 +27,7 @@ export const Button: FunctionComponent<
   block,
   isLoading,
   kind = "solid",
-  size = "default",
+  size = "md",
   variant = "default",
   shape = "default",
   ...restProps
@@ -54,22 +54,22 @@ export const Button: FunctionComponent<
 
 const getSizeStyles = (size: SizeType): FlattenSimpleInterpolation => {
   const sizeOptions: Record<SizeType, FlattenSimpleInterpolation> = {
-    mini: css`
+    xs: css`
       height: 24px;
       padding: 0rem 0.5rem;
       font-size: 12px;
     `,
-    compact: css`
+    sm: css`
       height: 34px;
       padding: 0 1rem;
       font-size: 14px;
     `,
-    default: css`
+    md: css`
       height: 44px;
       padding: 0 1.5rem;
       font-size: 16px;
     `,
-    large: css`
+    lg: css`
       height: 54px;
       padding: 0 2rem;
       font-size: 18px;
