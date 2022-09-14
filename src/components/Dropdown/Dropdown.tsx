@@ -9,7 +9,7 @@ import {
 import { createPortal } from "react-dom";
 import styled, { css, keyframes } from "styled-components";
 import { PlacementType, CoordinatesType, TriggerType } from ".";
-import { useDelayUnmount, useOutsideClick } from "@/hooks";
+import { useDisclosure, useOutsideClick } from "@/hooks";
 
 const ANIMATION_TIME = 200;
 
@@ -33,7 +33,7 @@ export const Dropdown: FunctionComponent<DropdownProps> = ({
 
   const [coords, setCoords] = useState<CoordinatesType>({ top: 0, left: 0 });
 
-  const { show, onOpen, onClose, onToggle, isUnmounting } = useDelayUnmount({
+  const { isOpen, onOpen, onClose, onToggle, isUnmounting } = useDisclosure({
     timeout: ANIMATION_TIME,
   });
 
@@ -46,7 +46,7 @@ export const Dropdown: FunctionComponent<DropdownProps> = ({
   useOutsideClick({
     ref: dropdownRef,
     callback: onClose,
-    prevent: !show || trigger === "hover",
+    prevent: !isOpen || trigger === "hover",
   });
 
   useLayoutEffect(() => {
@@ -68,7 +68,7 @@ export const Dropdown: FunctionComponent<DropdownProps> = ({
     };
 
     setCoords(positions[placement]);
-  }, [triggerRef, placement, show]);
+  }, [triggerRef, placement, isOpen]);
 
   useEffect(() => {
     window.addEventListener("resize", onClose);
@@ -80,7 +80,7 @@ export const Dropdown: FunctionComponent<DropdownProps> = ({
       <Container className={className} {...openProps} ref={triggerRef}>
         {children}
       </Container>
-      {show &&
+      {isOpen &&
         createPortal(
           <Content coords={coords} ref={dropdownRef} fadeOut={isUnmounting}>
             {content}

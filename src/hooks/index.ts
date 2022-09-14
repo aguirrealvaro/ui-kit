@@ -4,7 +4,7 @@ export { useOutsideClick } from "./useOutsideClick";
 export { useMediaQuery } from "./useMediaQuery";
 export { useOnTabChange } from "./useOnTabChange";
 export { useAnimationEnd } from "./useAnimationEnd";
-export { useDelayUnmount } from "./useDelayUnmount";
+export { useDisclosure } from "./useDisclosure";
 export { useOnKeyPress } from "./useOnKeyPress";
 export { usePreviousValue } from "./usePreviousValue";
 export { useLocalStorage } from "./useLocalStorage";

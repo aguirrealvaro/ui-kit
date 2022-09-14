@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import styled from "styled-components";
 import { Modal } from "@/components";
-import { useDelayUnmount } from "@/hooks";
+import { useDisclosure } from "@/hooks";
 
 export default {
   title: "Components/Modal",
@@ -9,12 +9,12 @@ export default {
 } as ComponentMeta<typeof Modal>;
 
 export const Primary: ComponentStory<typeof Modal> = () => {
-  const { show, onOpen, onClose, isUnmounting } = useDelayUnmount();
+  const { isOpen, onOpen, onClose, isUnmounting } = useDisclosure();
 
   return (
     <>
       <Button onClick={onOpen}>open modal</Button>
-      <Modal show={show} onClose={onClose} isUnmounting={isUnmounting}>
+      <Modal isOpen={isOpen} onClose={onClose} isUnmounting={isUnmounting}>
         Modal
       </Modal>
     </>

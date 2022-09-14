@@ -8,7 +8,7 @@ import { useDisableScroll, useOutsideClick, useOnKeyPress } from "@/hooks";
 
 export type ModalProps = {
   children: ReactNode;
-  show: boolean;
+  isOpen: boolean;
   onClose: () => void;
   size?: SizeType;
   closeOnInteractions?: boolean;
@@ -18,7 +18,7 @@ export type ModalProps = {
 
 export const Modal: FunctionComponent<ModalProps> = ({
   children,
-  show,
+  isOpen,
   onClose,
   size = "mini",
   closeOnInteractions = true,
@@ -27,24 +27,24 @@ export const Modal: FunctionComponent<ModalProps> = ({
 }) => {
   const contentRef = useRef<HTMLDivElement>(null);
 
-  useDisableScroll(show);
+  useDisableScroll(isOpen);
 
   useOutsideClick({
     ref: contentRef,
     callback: onClose,
-    prevent: !closeOnInteractions || !show,
+    prevent: !closeOnInteractions || !isOpen,
   });
 
   useOnKeyPress({
     targetKey: "Escape",
     callback: onClose,
-    prevent: !closeOnInteractions || !show,
+    prevent: !closeOnInteractions || !isOpen,
   });
 
-  if (!show) return null;
+  if (!isOpen) return null;
 
   const Component = (
-    <Backdrop show={show} fadeOut={isUnmounting} className={className}>
+    <Backdrop isOpen={isOpen} fadeOut={isUnmounting} className={className}>
       <Content size={size} ref={contentRef} fadeOut={isUnmounting}>
         <CloseButton onClick={onClose}>
           <Icon icon="close" color="grey" />
@@ -67,7 +67,7 @@ const fadeInScale = keyframes`
   to { opacity: 1; transform: scale(1);}
 `;
 
-const Backdrop = styled.div<{ show: boolean; fadeOut: boolean }>`
+const Backdrop = styled.div<{ isOpen: boolean; fadeOut: boolean }>`
   position: fixed;
   font-family: inherit;
   top: 0;

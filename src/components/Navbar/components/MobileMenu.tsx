@@ -6,20 +6,20 @@ import { Icon } from "@/components/Icon";
 import { useOutsideClick } from "@/hooks";
 
 type MobileMenuProps = {
-  showMobileMenu: boolean;
+  isMobileMenuOpen: boolean;
   onClose: () => void;
   isUnmounting: boolean;
   items: NavbarItem[];
 };
 
 export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
-  showMobileMenu,
+  isMobileMenuOpen,
   onClose,
   isUnmounting,
   items,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
-  useOutsideClick({ ref, callback: onClose, prevent: !showMobileMenu });
+  useOutsideClick({ ref, callback: onClose, prevent: !isMobileMenuOpen });
 
   return (
     <Backdrop isUnmounting={isUnmounting}>

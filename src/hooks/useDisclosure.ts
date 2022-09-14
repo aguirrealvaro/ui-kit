@@ -2,21 +2,21 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 type PhasesType = "unmounted" | "mounting" | "mounted" | "unmounting";
 
-type UseDelayUnmountReturn = {
-  show: boolean;
+type UseDisclosureParams = {
+  timeout?: number;
+};
+
+type UseDisclosureReturn = {
+  isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
   onToggle: () => void;
   isUnmounting: boolean;
 };
 
-type UseDelayUnmountType = {
-  timeout?: number;
-};
-
-export const useDelayUnmount = (
-  { timeout }: UseDelayUnmountType = { timeout: 200 }
-): UseDelayUnmountReturn => {
+export const useDisclosure = (
+  { timeout }: UseDisclosureParams = { timeout: 200 }
+): UseDisclosureReturn => {
   const [phase, setPhase] = useState<PhasesType>("unmounted");
   const timeoutId = useRef<number>(0);
 
@@ -52,8 +52,8 @@ export const useDelayUnmount = (
     return () => window.removeEventListener("resize", onClose);
   }, [onClose]);
 
-  const show = phase !== "unmounted";
+  const isOpen = phase !== "unmounted";
   const isUnmounting = phase === "unmounting";
 
-  return { show, onOpen, onClose, onToggle, isUnmounting };
+  return { isOpen, onOpen, onClose, onToggle, isUnmounting };
 };

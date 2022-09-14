@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 import styled from "styled-components";
 import { ANIMATION_TIME, NavbarItem } from ".";
 import { Logo, MainMenu, DropdownMenu, Burger, MobileMenu } from "./components";
-import { useDelayUnmount, useDisableScroll } from "@/hooks";
+import { useDisclosure, useDisableScroll } from "@/hooks";
 
 type NavbarProps = {
   user: string;
@@ -18,13 +18,13 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
   className,
 }) => {
   const {
-    show: showMobileMenu,
+    isOpen: isMobileMenuOpen,
     onToggle,
     onClose,
     isUnmounting,
-  } = useDelayUnmount({ timeout: ANIMATION_TIME });
+  } = useDisclosure({ timeout: ANIMATION_TIME });
 
-  useDisableScroll(showMobileMenu);
+  useDisableScroll(isMobileMenuOpen);
 
   return (
     <Container className={className}>
@@ -34,9 +34,9 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
           <MainMenu items={mainItems} />
           <DropdownMenu user={user} items={dropdownItems} />
           <Burger onClick={onToggle} />
-          {showMobileMenu && (
+          {isMobileMenuOpen && (
             <MobileMenu
-              showMobileMenu={showMobileMenu}
+              isMobileMenuOpen={isMobileMenuOpen}
               onClose={onClose}
               isUnmounting={isUnmounting}
               items={mainItems.concat(dropdownItems)}

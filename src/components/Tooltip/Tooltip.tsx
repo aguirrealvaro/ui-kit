@@ -2,7 +2,7 @@ import { FunctionComponent, ReactNode, useLayoutEffect, useRef, useState } from 
 import { createPortal } from "react-dom";
 import styled, { css, keyframes } from "styled-components";
 import { PlacementType, CoordinatesType, TriggerType } from ".";
-import { useDelayUnmount, useOutsideClick } from "@/hooks";
+import { useDisclosure, useOutsideClick } from "@/hooks";
 
 const ANIMATION_TIME = 150;
 
@@ -26,7 +26,7 @@ export const Tooltip: FunctionComponent<TooltipProps> = ({
 
   const [coords, setCoords] = useState<CoordinatesType>({ top: 0, left: 0 });
 
-  const { show, onOpen, onClose, onToggle, isUnmounting } = useDelayUnmount({
+  const { isOpen, onOpen, onClose, onToggle, isUnmounting } = useDisclosure({
     timeout: ANIMATION_TIME,
   });
 
@@ -39,7 +39,7 @@ export const Tooltip: FunctionComponent<TooltipProps> = ({
   useOutsideClick({
     ref: hoverRef,
     callback: onClose,
-    prevent: !show || trigger === "hover",
+    prevent: !isOpen || trigger === "hover",
   });
 
   useLayoutEffect(() => {
@@ -65,7 +65,7 @@ export const Tooltip: FunctionComponent<TooltipProps> = ({
     };
 
     setCoords(positions[placement]);
-  }, [triggerRef, placement, show]);
+  }, [triggerRef, placement, isOpen]);
 
   const isStringContent = typeof content === "string";
 
@@ -74,7 +74,7 @@ export const Tooltip: FunctionComponent<TooltipProps> = ({
       <Container className={className} {...openProps} ref={triggerRef}>
         {children}
       </Container>
-      {show &&
+      {isOpen &&
         createPortal(
           <Content
             coords={coords}
