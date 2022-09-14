@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export const useTabChange = (callback: () => void, deps: any[]): void => {
+export const useTabChange = (callback: () => void): void => {
   useEffect(() => {
     const handleDocumentVisibility = () => {
       if (!document.hidden) callback();
@@ -8,6 +8,5 @@ export const useTabChange = (callback: () => void, deps: any[]): void => {
 
     document.addEventListener("visibilitychange", handleDocumentVisibility);
     return () => document.removeEventListener("visibilitychange", handleDocumentVisibility);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, deps);
+  }, [callback]);
 };
