@@ -5,7 +5,7 @@ import { Spinner } from "../Spinner";
 
 const ANIMATION_TIME = 300;
 
-type KindType = "contained" | "outlined";
+type KindType = "solid" | "outlined";
 type SizeType = "mini" | "compact" | "default" | "large";
 type VariantType = "default" | "positive" | "negative" | "warning" | "neutral";
 type ShapeType = "default" | "pill" | "circle" | "rectangle";
@@ -26,7 +26,7 @@ export const Button: FunctionComponent<
   onClick,
   block,
   isLoading,
-  kind = "contained",
+  kind = "solid",
   size = "default",
   variant = "default",
   shape = "default",
@@ -103,7 +103,7 @@ const getShapeStyles = (shape: ShapeType): FlattenSimpleInterpolation => {
 };
 
 const getColorStyles = (variant: VariantType, kind: KindType): FlattenSimpleInterpolation => {
-  const variantContainedOptions: Record<VariantType, FlattenSimpleInterpolation> = {
+  const variantSolidOptions: Record<VariantType, FlattenSimpleInterpolation> = {
     default: css`
       background-color: ${theme.colors.blue};
       color: ${theme.colors.white};
@@ -192,8 +192,8 @@ const getColorStyles = (variant: VariantType, kind: KindType): FlattenSimpleInte
     `,
   };
 
-  if (kind === "contained") {
-    return variantContainedOptions[variant];
+  if (kind === "solid") {
+    return variantSolidOptions[variant];
   } else {
     return variantOutlinedOptions[variant];
   }
