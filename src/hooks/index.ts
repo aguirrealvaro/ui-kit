@@ -3,7 +3,6 @@ export { useDisableScroll } from "./useDisableScroll";
 export { useOutsideClick } from "./useOutsideClick";
 export { useMediaQuery } from "./useMediaQuery";
 export { useOnTabChange } from "./useOnTabChange";
-export { useAnimationEnd } from "./useAnimationEnd";
 export { useDisclosure } from "./useDisclosure";
 export { useOnKeyPress } from "./useOnKeyPress";
 export { usePreviousValue } from "./usePreviousValue";
