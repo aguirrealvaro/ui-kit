@@ -8,5 +8,5 @@ export { useKeyPress } from "./useKeyPress";
 export { usePreviousValue } from "./usePreviousValue";
 export { useLocalStorage } from "./useLocalStorage";
 export { useScrollIntoView } from "./useScrollIntoView";
-export { useIsInViewport } from "./useIsInViewport";
+export { useIntersectViewport } from "./useIntersectViewport";
 export { useBoolean } from "./useBoolean";

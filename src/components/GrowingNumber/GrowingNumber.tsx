@@ -1,5 +1,5 @@
 import { FunctionComponent, useEffect, useRef, useState } from "react";
-import { useIsInViewport } from "@/hooks";
+import { useIntersectViewport } from "@/hooks";
 
 type GrowingNumber = {
   number: string;
@@ -8,13 +8,13 @@ type GrowingNumber = {
 
 export const GrowingNumber: FunctionComponent<GrowingNumber> = ({
   number,
-  duration = "3",
+  duration = "2",
 }) => {
   const [count, setCount] = useState<string>("0");
 
   const ref = useRef<HTMLSpanElement>(null);
 
-  const isIntersecting = useIsInViewport<HTMLSpanElement>(ref);
+  const isIntersecting = useIntersectViewport<HTMLSpanElement>(ref);
 
   useEffect(() => {
     if (!isIntersecting) return;

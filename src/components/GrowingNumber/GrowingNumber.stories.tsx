@@ -7,5 +7,5 @@ export default {
 } as ComponentMeta<typeof GrowingNumber>;
 
 export const Primary: ComponentStory<typeof GrowingNumber> = () => {
-  return <GrowingNumber number="200" duration="3" />;
+  return <GrowingNumber number="200" duration="2" />;
 };

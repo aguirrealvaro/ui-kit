@@ -1,6 +1,6 @@
 import { RefObject, useEffect, useMemo, useState } from "react";
 
-export const useIsInViewport = <T extends HTMLElement>(ref: RefObject<T>): boolean => {
+export const useIntersectViewport = <T extends HTMLElement>(ref: RefObject<T>): boolean => {
   const [isIntersecting, setIsIntersecting] = useState<boolean>(false);
 
   const observer = useMemo(() => {
