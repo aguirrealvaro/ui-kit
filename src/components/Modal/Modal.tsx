@@ -4,7 +4,7 @@ import styled, { css, keyframes } from "styled-components";
 import { SIZES, SizeType } from ".";
 import { ANIMATION_TIME } from "./constants";
 import { Icon } from "@/components";
-import { useDisableScroll, useOutsideClick, useOnKeyPress } from "@/hooks";
+import { useDisableScroll, useOutsideClick, useOnKeyPress, useMediaQuery } from "@/hooks";
 
 export type ModalProps = {
   children: ReactNode;
@@ -41,11 +41,15 @@ export const Modal: FunctionComponent<ModalProps> = ({
     prevent: !closeOnInteractions || !isOpen,
   });
 
+  const isMobile = useMediaQuery(768);
+
+  const fadeOut = isUnmounting && !isMobile;
+
   if (!isOpen) return null;
 
   const Component = (
-    <Backdrop isOpen={isOpen} fadeOut={isUnmounting} className={className}>
-      <Content size={size} ref={contentRef} fadeOut={isUnmounting}>
+    <Backdrop isOpen={isOpen} fadeOut={fadeOut} className={className}>
+      <Content size={size} ref={contentRef} fadeOut={fadeOut}>
         <CloseButton onClick={onClose}>
           <Icon icon="close" color="grey" />
         </CloseButton>
