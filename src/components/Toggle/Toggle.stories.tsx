@@ -1,6 +1,6 @@
-import React, { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Toggle } from "@/components";
+import { useBoolean } from "@/hooks";
 
 export default {
   title: "Components/Toggle",
@@ -8,8 +8,7 @@ export default {
 } as ComponentMeta<typeof Toggle>;
 
 export const Primary: ComponentStory<typeof Toggle> = () => {
-  const [enabled, setEnabled] = useState<boolean>(false);
-  const onToggle = () => setEnabled(!enabled);
+  const [flag, setFlag] = useBoolean();
 
-  return <Toggle checked={enabled} onChange={onToggle} />;
+  return <Toggle checked={flag} onChange={setFlag.toggle} />;
 };

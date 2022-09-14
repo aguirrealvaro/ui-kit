@@ -9,3 +9,4 @@ export { usePreviousValue } from "./usePreviousValue";
 export { useLocalStorage } from "./useLocalStorage";
 export { useScrollIntoView } from "./useScrollIntoView";
 export { useIsInViewport } from "./useIsInViewport";
+export { useBoolean } from "./useBoolean";
