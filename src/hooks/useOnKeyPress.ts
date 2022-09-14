@@ -2,20 +2,20 @@ import { useEffect } from "react";
 
 type OptionsType = {
   targetKey: string;
-  callback: () => void;
-  prevent?: boolean;
+  handler: () => void;
+  enabled?: boolean;
 };
 
-export const useOnKeyPress = ({ targetKey, callback, prevent }: OptionsType): void => {
+export const useOnKeyPress = ({ targetKey, handler, enabled = true }: OptionsType): void => {
   useEffect(() => {
-    if (prevent) return;
+    if (!enabled) return;
     const listener = (e: KeyboardEvent) => {
-      if (e.key === targetKey) callback();
+      if (e.key === targetKey) handler();
     };
 
     document.addEventListener("keydown", listener);
     return () => {
       document.removeEventListener("keydown", listener);
     };
-  }, [callback, prevent, targetKey]);
+  }, [handler, enabled, targetKey]);
 };

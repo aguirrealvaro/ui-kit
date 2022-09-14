@@ -37,8 +37,8 @@ export const Modal: FunctionComponent<ModalProps> = ({
 
   useOnKeyPress({
     targetKey: "Escape",
-    callback: onClose,
-    prevent: !closeOnInteractions || !isOpen,
+    handler: onClose,
+    enabled: isOpen && closeOnInteractions,
   });
 
   const isMobile = useMediaQuery(768);
