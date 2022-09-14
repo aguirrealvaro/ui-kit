@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export const useWindowResize = (size = 900): boolean => {
+export const useMediaQuery = (size = 900): boolean => {
   const [isWindowResize, setIsWindowResize] = useState<boolean>(window.innerWidth <= size);
 
   useEffect(() => {
