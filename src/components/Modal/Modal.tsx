@@ -20,7 +20,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
   children,
   isOpen,
   onClose,
-  size = "mini",
+  size = "sm",
   closeOnInteractions = true,
   isUnmounting = false,
   className,

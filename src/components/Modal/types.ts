@@ -1,1 +1,1 @@
-export type SizeType = "mini" | "default" | "large";
+export type SizeType = "sm" | "md" | "lg";
