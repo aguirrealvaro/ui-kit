@@ -28,11 +28,13 @@ export const Modal: FunctionComponent<ModalProps> = ({
   const contentRef = useRef<HTMLDivElement>(null);
 
   useDisableScroll(show);
+
   useOnClickOutside({
     ref: contentRef,
     callback: onClose,
     prevent: !closeOnInteractions || !show,
   });
+
   useOnKeyPress({
     targetKey: "Escape",
     callback: onClose,

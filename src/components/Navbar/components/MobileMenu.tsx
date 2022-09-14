@@ -27,13 +27,15 @@ export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
         <CloseButton onClick={onClose}>
           <Icon icon="close" />
         </CloseButton>
-        {items
-          .filter(({ show = true }) => show)
-          .map(({ label, onClick, disabled = false }, i) => (
-            <Item key={i} onClick={onClick} disabled={disabled}>
-              {label}
-            </Item>
-          ))}
+        <div>
+          {items
+            .filter(({ show = true }) => show)
+            .map(({ label, onClick, disabled = false }, i) => (
+              <Item key={i} onClick={onClick} disabled={disabled}>
+                {label}
+              </Item>
+            ))}
+        </div>
       </Container>
     </Backdrop>
   );
