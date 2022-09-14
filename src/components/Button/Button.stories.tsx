@@ -10,8 +10,9 @@ export const Primary: ComponentStory<typeof Button> = () => {
   return (
     <div>
       <div>
-        <Button kind="contained">Contained</Button>
+        <Button kind="solid">Solid</Button>
         <Button kind="outlined">Outlined</Button>
+        <Button kind="ghost">Ghost</Button>
       </div>
       <div>
         <Button size="mini">Mini</Button>
@@ -25,6 +26,23 @@ export const Primary: ComponentStory<typeof Button> = () => {
         <Button variant="negative">Negative</Button>
         <Button variant="warning">Warning</Button>
         <Button variant="neutral">Neutral</Button>
+      </div>
+      <div>
+        <Button kind="ghost" variant="default">
+          Default
+        </Button>
+        <Button kind="ghost" variant="positive">
+          Positive
+        </Button>
+        <Button kind="ghost" variant="negative">
+          Negative
+        </Button>
+        <Button kind="ghost" variant="warning">
+          Warning
+        </Button>
+        <Button kind="ghost" variant="neutral">
+          Neutral
+        </Button>
       </div>
       <div>
         <Button variant="default" kind="outlined">

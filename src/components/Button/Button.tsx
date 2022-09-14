@@ -5,7 +5,7 @@ import { Spinner } from "../Spinner";
 
 const ANIMATION_TIME = 300;
 
-type KindType = "solid" | "outlined";
+type KindType = "solid" | "outlined" | "ghost";
 type SizeType = "mini" | "compact" | "default" | "large";
 type VariantType = "default" | "positive" | "negative" | "warning" | "neutral";
 type ShapeType = "default" | "pill" | "circle" | "rectangle";
@@ -192,11 +192,51 @@ const getColorStyles = (variant: VariantType, kind: KindType): FlattenSimpleInte
     `,
   };
 
-  if (kind === "solid") {
-    return variantSolidOptions[variant];
-  } else {
-    return variantOutlinedOptions[variant];
-  }
+  const variantGhostOptions: Record<VariantType, FlattenSimpleInterpolation> = {
+    default: css`
+      background-color: ${theme.colors.white};
+      color: ${theme.colors.blue};
+      &:hover {
+        background-color: #e3efff;
+      }
+    `,
+    positive: css`
+      background-color: ${theme.colors.white};
+      color: ${theme.colors.green};
+      &:hover {
+        background-color: #e1fcef;
+      }
+    `,
+    warning: css`
+      background-color: ${theme.colors.white};
+      color: ${theme.colors.yellow};
+      &:hover {
+        background-color: #faf5ec;
+      }
+    `,
+    negative: css`
+      background-color: ${theme.colors.white};
+      color: ${theme.colors.red};
+      &:hover {
+        background-color: #fcedee;
+      }
+    `,
+    neutral: css`
+      background-color: ${theme.colors.white};
+      color: ${theme.colors.black};
+      &:hover {
+        background-color: #ebebeb;
+      }
+    `,
+  };
+
+  const colorOptions: Record<KindType, FlattenSimpleInterpolation> = {
+    solid: variantSolidOptions[variant],
+    outlined: variantOutlinedOptions[variant],
+    ghost: variantGhostOptions[variant],
+  };
+
+  return colorOptions[kind];
 };
 
 const CustomButton = styled.button<{
