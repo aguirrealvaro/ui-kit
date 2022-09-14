@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 
-export const useTabChange = (callback: () => void): void => {
+export const useTabChange = (handler: () => void): void => {
   useEffect(() => {
     const handleDocumentVisibility = () => {
-      if (!document.hidden) callback();
+      if (!document.hidden) handler();
     };
 
     document.addEventListener("visibilitychange", handleDocumentVisibility);
     return () => document.removeEventListener("visibilitychange", handleDocumentVisibility);
-  }, [callback]);
+  }, [handler]);
 };
