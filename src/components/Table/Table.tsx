@@ -1,18 +1,23 @@
 import { FunctionComponent, ReactNode } from "react";
 import styled from "styled-components";
+import { PADDINGS_SIZES } from "./Table.constants";
+import { SizeType } from "./Table.types";
 
 type TableProps = {
   columns: ReactNode[];
   data: ReactNode[][];
+  size?: SizeType;
 };
 
-export const Table: FunctionComponent<TableProps> = ({ columns, data }) => {
+export const Table: FunctionComponent<TableProps> = ({ columns, data, size = "md" }) => {
+  const padding = PADDINGS_SIZES[size];
+
   return (
     <Container>
       <thead>
         <TableRow>
           {columns.map((column) => {
-            return <TableHead>{column}</TableHead>;
+            return <TableHead size={padding}>{column}</TableHead>;
           })}
         </TableRow>
       </thead>
@@ -21,7 +26,7 @@ export const Table: FunctionComponent<TableProps> = ({ columns, data }) => {
           return (
             <TableRow>
               {row.map((rowData) => {
-                return <TableData>{rowData}</TableData>;
+                return <TableData size={padding}>{rowData}</TableData>;
               })}
             </TableRow>
           );
@@ -48,21 +53,21 @@ const TableRow = styled.tr`
   }
 `;
 
-const TableHead = styled.th`
+const TableHead = styled.th<{ size: number }>`
   flex: 1;
   text-align: left;
   border-right: 1px solid;
-  padding: 1rem;
+  padding: ${({ size }) => `${size}px`};
   &:last-child {
     border-right: 0;
   }
 `;
 
-const TableData = styled.td`
+const TableData = styled.td<{ size: number }>`
   flex: 1;
   text-align: left;
   border-right: 1px solid;
-  padding: 1rem;
+  padding: ${({ size }) => `${size}px`};
   &:last-child {
     border-right: 0;
   }
