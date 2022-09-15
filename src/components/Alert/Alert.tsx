@@ -5,10 +5,9 @@ import { Alert as AlertIcon } from "@styled-icons/remix-fill/Alert";
 import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { StyledIcon } from "styled-icons/types";
-import { theme } from "../App";
+import { VariantType } from "./Alert.types";
 import { Icon } from "@/components";
-
-type VariantType = "default" | "positive" | "negative" | "warning" | "neutral";
+import { theme } from "@/components/App";
 
 type AlertProps = {
   children: ReactNode;
