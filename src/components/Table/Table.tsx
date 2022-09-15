@@ -56,6 +56,7 @@ const Container = styled.table<{ divider: DividerType }>`
   overflow: scroll;
   border-spacing: 0;
   border-color: rgba(0, 0, 0, 0.12);
+  //background-color: #929a9e;
   ${({ divider }) => {
     if (divider === "clean") return;
     if (divider === "horizontal") return;
@@ -65,7 +66,7 @@ const Container = styled.table<{ divider: DividerType }>`
         border: 1px solid ${BORDER_COLOR};
       `;
     }
-  }}
+  }};
 `;
 
 const TableRowHeader = styled.tr<{ divider: DividerType }>`
@@ -138,10 +139,10 @@ const TableRowData = styled.tr<{ divider: DividerType }>`
     }
   }}
   &:nth-child(even) {
-    background-color: #f8f8f8;
+    background-color: rgba(0, 0, 0, 0.04);
   }
   &:hover {
-    background-color: #f3f3f3;
+    background-color: rgba(0, 0, 0, 0.08);
   }
 `;
 
