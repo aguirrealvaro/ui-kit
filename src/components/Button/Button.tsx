@@ -1,8 +1,8 @@
 import { FunctionComponent, ButtonHTMLAttributes } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { theme } from "../App";
-import { ANIMATION_TIME } from "../Navbar";
 import { Spinner } from "../Spinner";
+import { ANIMATION_TIME } from "./Button.constants";
 import { KindType, SizeType, VariantType, ShapeType } from "./Button.types";
 
 type ButtonProps = {
