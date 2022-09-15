@@ -1,9 +1,10 @@
 import { FunctionComponent, useRef, ReactNode } from "react";
 import { createPortal } from "react-dom";
+import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import styled, { css, keyframes } from "styled-components";
 import { SIZES, SizeType } from ".";
 import { ANIMATION_TIME } from "./constants";
-import { Icon } from "@/components";
+import { StyledIcon } from "@/components";
 import { useDisableScroll, useOutsideClick, useKeyPress, useMediaQuery } from "@/hooks";
 
 export type ModalProps = {
@@ -51,7 +52,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
     <Backdrop isOpen={isOpen} fadeOut={fadeOut} className={className}>
       <Content size={size} ref={contentRef} fadeOut={fadeOut}>
         <CloseButton onClick={onClose}>
-          <Icon icon="close" color="grey" />
+          <StyledIcon icon={CloseOutline} color="grey" size="25px" />
         </CloseButton>
         {children}
       </Content>

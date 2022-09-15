@@ -1,8 +1,8 @@
 import { FunctionComponent } from "react";
 import { ExclamationCircle } from "@styled-icons/heroicons-outline/ExclamationCircle";
 import styled from "styled-components";
-import { StyledIcon } from "../StyledIcon";
-import { Tooltip, TooltipProps } from "../Tooltip/Tooltip";
+import { TooltipProps } from "../Tooltip/Tooltip";
+import { StyledIcon, Tooltip } from "@/components";
 
 type ExclamationTooltip = {
   size?: string;
