@@ -8,7 +8,7 @@ export { Dropdown } from "./Dropdown";
 export { Navbar } from "./Navbar";
 export { Accordion } from "./Accordion";
 export { Slider } from "./Slider";
-export { useToast, ToastProvider } from "./Toast";
+export { ToastProvider } from "./Toast";
 export { Toggle } from "./Toggle";
 export { Select } from "./Select";
 export { Button } from "./Button";

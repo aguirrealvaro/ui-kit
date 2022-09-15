@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import styled from "styled-components";
-import { useToast } from "@/components";
+import { useToast } from "./Toast.hooks";
 
 export default {
   title: "Components/Toast",
