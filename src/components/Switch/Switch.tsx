@@ -1,8 +1,7 @@
 import { FunctionComponent, InputHTMLAttributes } from "react";
 import styled, { css } from "styled-components";
 import { hiddenStyles } from "../App";
-
-const ANIMATION_TIME = 200;
+import { ANIMATION_TIME } from "./Switch.constants";
 
 export const Switch: FunctionComponent<InputHTMLAttributes<HTMLInputElement>> = ({
   checked,
