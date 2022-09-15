@@ -1,32 +1,46 @@
 import { FunctionComponent, ReactNode } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { PADDINGS_SIZES } from "./Table.constants";
-import { SizeType } from "./Table.types";
+import { DividerType, SizeType } from "./Table.types";
 
 type TableProps = {
   columns: ReactNode[];
   data: ReactNode[][];
   size?: SizeType;
+  divider?: DividerType;
 };
 
-export const Table: FunctionComponent<TableProps> = ({ columns, data, size = "md" }) => {
+export const Table: FunctionComponent<TableProps> = ({
+  columns,
+  data,
+  size = "md",
+  divider = "grid",
+}) => {
   const padding = PADDINGS_SIZES[size];
 
   return (
-    <Container>
+    <Container divider={divider}>
       <thead>
-        <TableRow>
+        <TableRow divider={divider}>
           {columns.map((column) => {
-            return <TableHead size={padding}>{column}</TableHead>;
+            return (
+              <TableHead size={padding} divider={divider}>
+                {column}
+              </TableHead>
+            );
           })}
         </TableRow>
       </thead>
       <tbody>
         {data.map((row) => {
           return (
-            <TableRow>
+            <TableRow divider={divider}>
               {row.map((rowData) => {
-                return <TableData size={padding}>{rowData}</TableData>;
+                return (
+                  <TableData size={padding} divider={divider}>
+                    {rowData}
+                  </TableData>
+                );
               })}
             </TableRow>
           );
@@ -36,39 +50,65 @@ export const Table: FunctionComponent<TableProps> = ({ columns, data, size = "md
   );
 };
 
-const Container = styled.table`
+const Container = styled.table<{ divider: DividerType }>`
   min-width: 100%;
-  border: 1px solid;
   border-spacing: 0;
+  ${({ divider }) => {
+    if (divider === "clean") return;
+    return css`
+      border: 1px solid;
+    `;
+  }}
 `;
 
-const TableRow = styled.tr`
+const TableRow = styled.tr<{ divider: DividerType }>`
   display: flex;
-  border-bottom: 1px solid;
-  &:last-child {
-    border-bottom: 0;
-  }
-  &:first-child {
-    border-bottom: 1px solid;
-  }
+  ${({ divider }) => {
+    if (divider === "clean") return;
+    if (divider === "grid") {
+      return css`
+        border-bottom: 1px solid;
+        &:last-child {
+          border-bottom: 0;
+        }
+        &:first-child {
+          border-bottom: 1px solid;
+        }
+      `;
+    }
+  }}
 `;
 
-const TableHead = styled.th<{ size: number }>`
+const TableHead = styled.th<{ size: number; divider: DividerType }>`
   flex: 1;
   text-align: left;
-  border-right: 1px solid;
   padding: ${({ size }) => `${size}px`};
-  &:last-child {
-    border-right: 0;
-  }
+  ${({ divider }) => {
+    if (divider === "clean") return;
+    if (divider === "grid") {
+      return css`
+        border-right: 1px solid;
+        &:last-child {
+          border-right: 0;
+        }
+      `;
+    }
+  }}
 `;
 
-const TableData = styled.td<{ size: number }>`
+const TableData = styled.td<{ size: number; divider: DividerType }>`
   flex: 1;
   text-align: left;
-  border-right: 1px solid;
   padding: ${({ size }) => `${size}px`};
-  &:last-child {
-    border-right: 0;
-  }
+  ${({ divider }) => {
+    if (divider === "clean") return;
+    if (divider === "grid") {
+      return css`
+        border-right: 1px solid;
+        &:last-child {
+          border-right: 0;
+        }
+      `;
+    }
+  }}
 `;
