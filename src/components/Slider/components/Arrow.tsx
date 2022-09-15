@@ -3,18 +3,18 @@ import { ChevronLeft } from "@styled-icons/boxicons-regular/ChevronLeft";
 import { ChevronRight } from "@styled-icons/boxicons-regular/ChevronRight";
 import styled, { css } from "styled-components";
 import { StyledIcon } from "styled-icons/types";
-import { Direction } from ".";
+import { DirectionType } from "../Slider.types";
 import { Icon } from "@/components";
 import { theme } from "@/components/App";
 
 type ArrowProps = {
-  direction: Direction;
-  handleArrow: (direction: Direction) => void;
+  direction: DirectionType;
+  handleArrow: (direction: DirectionType) => void;
   disabled: boolean;
 };
 
 export const Arrow: FunctionComponent<ArrowProps> = ({ direction, handleArrow, disabled }) => {
-  const chevronIcon: Record<Direction, StyledIcon> = {
+  const chevronIcon: Record<DirectionType, StyledIcon> = {
     left: ChevronLeft,
     right: ChevronRight,
   };
@@ -26,7 +26,7 @@ export const Arrow: FunctionComponent<ArrowProps> = ({ direction, handleArrow, d
   );
 };
 
-const Button = styled.button<{ direction: Direction }>`
+const Button = styled.button<{ direction: DirectionType }>`
   align-self: baseline;
   line-height: 0;
   position: absolute;

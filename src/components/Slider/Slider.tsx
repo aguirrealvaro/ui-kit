@@ -1,7 +1,8 @@
 import { FunctionComponent, Children, useState, useRef, useEffect, ReactNode } from "react";
 import styled from "styled-components";
-import { Arrow, Direction } from ".";
-import { useDisableRightArrow } from "./useDisableRightArrow";
+import { Arrow } from "./components";
+import { useDisableRightArrow } from "./Slider.hooks";
+import { DirectionType } from "./Slider.types";
 
 const ANIMATION_TIME = 400;
 
@@ -26,7 +27,7 @@ export const Slider: FunctionComponent<SliderProps> = ({
 
   const parsedGap = fullWidth ? 0 : gap;
 
-  const handleArrow = (direction: Direction) => {
+  const handleArrow = (direction: DirectionType) => {
     const sliderWidth = sliderRef.current?.scrollWidth || 0;
     const clientWidth = sliderRef.current?.clientWidth || 0;
 
