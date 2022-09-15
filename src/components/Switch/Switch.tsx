@@ -1,6 +1,6 @@
 import { FunctionComponent, InputHTMLAttributes, ReactNode } from "react";
 import styled, { css } from "styled-components";
-import { hiddenStyles } from "../App";
+import { hiddenStyles, theme } from "../App";
 import { ANIMATION_TIME, SIZES } from "./Switch.constants";
 import { PositionType, SizeType } from "./Switch.types";
 
@@ -8,11 +8,19 @@ type SwitchProps = {
   children?: ReactNode;
   switchSize?: SizeType;
   position?: PositionType;
+  color?: string;
 };
 
 export const Switch: FunctionComponent<
   SwitchProps & InputHTMLAttributes<HTMLInputElement>
-> = ({ children, switchSize = "sm", position = "right", checked, ...restProps }) => {
+> = ({
+  children,
+  switchSize = "sm",
+  position = "right",
+  checked,
+  color = theme.colors.blue,
+  ...restProps
+}) => {
   const size = SIZES[switchSize];
 
   return (
@@ -20,7 +28,7 @@ export const Switch: FunctionComponent<
       <HiddenInput type="checkbox" checked={checked} {...restProps} />
       <Container>
         <Wrapper position={position}>
-          <Pill checked={checked || false} size={size}>
+          <Pill checked={checked || false} size={size} color={color}>
             <Ball checked={checked || false} size={size} />
           </Pill>
         </Wrapper>
@@ -44,7 +52,7 @@ const Wrapper = styled.div<{ position: PositionType }>`
   order: ${({ position }) => (position === "left" ? 1 : 2)};
 `;
 
-const Pill = styled.span<{ checked: boolean; size: number }>`
+const Pill = styled.span<{ checked: boolean; size: number; color: string }>`
   display: inline-flex;
   cursor: pointer;
   position: relative;
@@ -52,10 +60,10 @@ const Pill = styled.span<{ checked: boolean; size: number }>`
   height: ${({ size }) => `${size}px`};
   border-radius: 100px;
   transition: background-color ${ANIMATION_TIME}ms ease, box-shadow ${ANIMATION_TIME}ms ease;
-  ${({ checked, theme }) => {
+  ${({ checked, color }) => {
     if (checked) {
       return css`
-        background-color: ${theme.colors.blue};
+        background-color: ${color};
         box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
       `;
     } else {
