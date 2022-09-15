@@ -56,7 +56,6 @@ const Container = styled.table<{ divider: DividerType }>`
   overflow: scroll;
   border-spacing: 0;
   border-color: rgba(0, 0, 0, 0.12);
-  //background-color: #929a9e;
   ${({ divider }) => {
     if (divider === "clean") return;
     if (divider === "horizontal") return;
