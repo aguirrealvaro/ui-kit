@@ -10,5 +10,12 @@ export default {
 export const Primary: ComponentStory<typeof Switch> = () => {
   const [flag, setFlag] = useBoolean();
 
-  return <Switch checked={flag} onChange={setFlag.toggle} />;
+  return (
+    <div>
+      <Switch checked={flag} onChange={setFlag.toggle} switchSize="xs" />
+      <Switch checked={flag} onChange={setFlag.toggle} switchSize="sm" />
+      <Switch checked={flag} onChange={setFlag.toggle} switchSize="md" />
+      <Switch checked={flag} onChange={setFlag.toggle} switchSize="lg" />
+    </div>
+  );
 };
