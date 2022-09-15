@@ -14,7 +14,7 @@ export const Table: FunctionComponent<TableProps> = ({
   columns,
   data,
   size = "md",
-  divider = "grid",
+  divider = "horizontal",
 }) => {
   const padding = PADDINGS_SIZES[size];
 
@@ -55,6 +55,7 @@ const Container = styled.table<{ divider: DividerType }>`
   border-spacing: 0;
   ${({ divider }) => {
     if (divider === "clean") return;
+    if (divider === "horizontal") return;
     return css`
       border: 1px solid;
     `;
@@ -65,6 +66,16 @@ const TableRow = styled.tr<{ divider: DividerType }>`
   display: flex;
   ${({ divider }) => {
     if (divider === "clean") return;
+    if (divider === "horizontal")
+      return css`
+        border-bottom: 1px solid;
+        &:last-child {
+          border-bottom: 0;
+        }
+        &:first-child {
+          border-bottom: 1px solid;
+        }
+      `;
     if (divider === "grid") {
       return css`
         border-bottom: 1px solid;
@@ -85,6 +96,7 @@ const TableHead = styled.th<{ size: number; divider: DividerType }>`
   padding: ${({ size }) => `${size}px`};
   ${({ divider }) => {
     if (divider === "clean") return;
+    if (divider === "horizontal") return;
     if (divider === "grid") {
       return css`
         border-right: 1px solid;
@@ -102,6 +114,7 @@ const TableData = styled.td<{ size: number; divider: DividerType }>`
   padding: ${({ size }) => `${size}px`};
   ${({ divider }) => {
     if (divider === "clean") return;
+    if (divider === "horizontal") return;
     if (divider === "grid") {
       return css`
         border-right: 1px solid;
