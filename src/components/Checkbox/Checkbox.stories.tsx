@@ -9,19 +9,19 @@ export default {
 } as ComponentMeta<typeof Checkbox>;
 
 export const Primary: ComponentStory<typeof Checkbox> = () => {
-  const [flag, setFlag] = useBoolean();
+  const [checked, setChecked] = useBoolean();
 
   return (
     <Conatiner>
-      <Checkbox checked={flag} onChange={setFlag.toggle} checkboxSize="xs" />
-      <Checkbox checked={flag} onChange={setFlag.toggle} checkboxSize="sm" />
-      <Checkbox checked={flag} onChange={setFlag.toggle} checkboxSize="md" />
-      <Checkbox checked={flag} onChange={setFlag.toggle} checkboxSize="lg" />
+      <Checkbox checked={checked} onChange={setChecked.toggle} checkboxSize="xs" />
+      <Checkbox checked={checked} onChange={setChecked.toggle} checkboxSize="sm" />
+      <Checkbox checked={checked} onChange={setChecked.toggle} checkboxSize="md" />
+      <Checkbox checked={checked} onChange={setChecked.toggle} checkboxSize="lg" />
 
-      <Checkbox checked={flag} onChange={setFlag.toggle} position="left">
+      <Checkbox checked={checked} onChange={setChecked.toggle} position="left">
         Children at left
       </Checkbox>
-      <Checkbox checked={flag} onChange={setFlag.toggle} position="right">
+      <Checkbox checked={checked} onChange={setChecked.toggle} position="right">
         Children at right
       </Checkbox>
     </Conatiner>

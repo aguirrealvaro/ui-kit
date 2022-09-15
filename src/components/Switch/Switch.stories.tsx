@@ -9,19 +9,19 @@ export default {
 } as ComponentMeta<typeof Switch>;
 
 export const Primary: ComponentStory<typeof Switch> = () => {
-  const [flag, setFlag] = useBoolean();
+  const [checked, setChecked] = useBoolean();
 
   return (
     <Conatiner>
-      <Switch checked={flag} onChange={setFlag.toggle} switchSize="xs" />
-      <Switch checked={flag} onChange={setFlag.toggle} switchSize="sm" />
-      <Switch checked={flag} onChange={setFlag.toggle} switchSize="md" />
-      <Switch checked={flag} onChange={setFlag.toggle} switchSize="lg" />
+      <Switch checked={checked} onChange={setChecked.toggle} switchSize="xs" />
+      <Switch checked={checked} onChange={setChecked.toggle} switchSize="sm" />
+      <Switch checked={checked} onChange={setChecked.toggle} switchSize="md" />
+      <Switch checked={checked} onChange={setChecked.toggle} switchSize="lg" />
 
-      <Switch checked={flag} onChange={setFlag.toggle} position="left">
+      <Switch checked={checked} onChange={setChecked.toggle} position="left">
         Children at left
       </Switch>
-      <Switch checked={flag} onChange={setFlag.toggle} position="right">
+      <Switch checked={checked} onChange={setChecked.toggle} position="right">
         Children at right
       </Switch>
     </Conatiner>
