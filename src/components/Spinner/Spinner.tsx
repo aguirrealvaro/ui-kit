@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import styled, { css } from "styled-components";
-
-type SizeType = "xs" | "sm" | "md" | "lg";
+import { SIZES } from "./Spinner.constants";
+import { SizeType } from "./Spinner.types";
 
 type SpinnerProps = {
   color?: string;
@@ -33,18 +33,11 @@ const Container = styled.div<{ fullHeight?: boolean }>`
   height: ${({ fullHeight }) => fullHeight && "100vh"};
 `;
 
-const sizes: Record<SizeType, number> = {
-  xs: 18,
-  sm: 22,
-  md: 26,
-  lg: 30,
-};
-
 const Loader = styled.div<SpinnerProps>`
   border-radius: 50%;
   animation: spin 1.5s linear infinite;
   ${({ size, color, background }) => {
-    const numberSize = size ? sizes[size] : 30;
+    const numberSize = size ? SIZES[size] : 30;
     const borderSize = (numberSize * 3.9) / 32;
 
     return css`
