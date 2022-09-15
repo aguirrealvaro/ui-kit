@@ -131,6 +131,12 @@ const TableRowData = styled.tr<{ divider: DividerType }>`
       `;
     }
   }}
+  &:nth-child(even) {
+    background-color: #f1f1f1;
+  }
+  &:hover {
+    background-color: #eeeded;
+  }
 `;
 
 const TableData = styled.td<{ size: number; divider: DividerType }>`
