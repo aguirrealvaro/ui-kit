@@ -134,10 +134,10 @@ const TableRowData = styled.tr<{ divider: DividerType }>`
     }
   }}
   &:nth-child(even) {
-    background-color: #f1f1f1;
+    background-color: #f8f8f8;
   }
   &:hover {
-    background-color: #eeeded;
+    background-color: #f3f3f3;
   }
 `;
 
