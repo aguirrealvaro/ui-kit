@@ -51,7 +51,9 @@ export const Table: FunctionComponent<TableProps> = ({
 };
 
 const Container = styled.table<{ divider: DividerType }>`
-  min-width: 100%;
+  min-width: 500px;
+  width: 100%;
+  overflow: scroll;
   border-spacing: 0;
   ${({ divider }) => {
     if (divider === "clean") return;
