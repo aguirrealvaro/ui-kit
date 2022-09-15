@@ -21,7 +21,7 @@ export const Table: FunctionComponent<TableProps> = ({
   return (
     <Container divider={divider}>
       <thead>
-        <TableRow divider={divider}>
+        <TableRowHeader divider={divider}>
           {columns.map((column) => {
             return (
               <TableHead size={padding} divider={divider}>
@@ -29,12 +29,12 @@ export const Table: FunctionComponent<TableProps> = ({
               </TableHead>
             );
           })}
-        </TableRow>
+        </TableRowHeader>
       </thead>
       <tbody>
         {data.map((row) => {
           return (
-            <TableRow divider={divider}>
+            <TableRowData divider={divider}>
               {row.map((rowData) => {
                 return (
                   <TableData size={padding} divider={divider}>
@@ -42,7 +42,7 @@ export const Table: FunctionComponent<TableProps> = ({
                   </TableData>
                 );
               })}
-            </TableRow>
+            </TableRowData>
           );
         })}
       </tbody>
@@ -65,30 +65,21 @@ const Container = styled.table<{ divider: DividerType }>`
   }}
 `;
 
-const TableRow = styled.tr<{ divider: DividerType }>`
+const TableRowHeader = styled.tr<{ divider: DividerType }>`
   display: flex;
   ${({ divider }) => {
     if (divider === "clean") return;
     if (divider === "horizontal")
       return css`
         border-bottom: 1px solid;
-        &:last-child {
-          border-bottom: 0;
-        }
-        &:first-child {
-          border-bottom: 1px solid;
-        }
       `;
-    if (divider === "vertical") return;
+    if (divider === "vertical")
+      return css`
+        border-bottom: 1px solid;
+      `;
     if (divider === "grid") {
       return css`
         border-bottom: 1px solid;
-        &:last-child {
-          border-bottom: 0;
-        }
-        &:first-child {
-          border-bottom: 1px solid;
-        }
       `;
     }
   }}
@@ -113,6 +104,29 @@ const TableHead = styled.th<{ size: number; divider: DividerType }>`
         border-right: 1px solid;
         &:last-child {
           border-right: 0;
+        }
+      `;
+    }
+  }}
+`;
+
+const TableRowData = styled.tr<{ divider: DividerType }>`
+  display: flex;
+  ${({ divider }) => {
+    if (divider === "clean") return;
+    if (divider === "horizontal")
+      return css`
+        border-bottom: 1px solid;
+        &:last-child {
+          border-bottom: 0;
+        }
+      `;
+    if (divider === "vertical") return;
+    if (divider === "grid") {
+      return css`
+        border-bottom: 1px solid;
+        &:last-child {
+          border-bottom: 0;
         }
       `;
     }
