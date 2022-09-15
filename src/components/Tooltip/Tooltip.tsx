@@ -1,7 +1,7 @@
 import { FunctionComponent, ReactNode, useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import styled, { css, keyframes } from "styled-components";
-import { PlacementType, CoordinatesType, TriggerType } from ".";
+import { PlacementType, TriggerType, CoordinatesType } from "./Tooltip.types";
 import { useDisclosure, useOutsideClick } from "@/hooks";
 
 const ANIMATION_TIME = 150;

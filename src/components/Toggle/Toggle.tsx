@@ -1,8 +1,7 @@
 import { HTMLProps } from "react";
 import styled from "styled-components";
+import { ANIMATION_TIME } from "./Toggle.constants";
 import { theme } from "@/components/App";
-
-const ANIMATION_TIME = 300;
 
 export interface ToggleProps {
   onChange: HTMLProps<HTMLInputElement>["onChange"];
