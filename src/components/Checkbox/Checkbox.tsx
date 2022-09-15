@@ -11,11 +11,19 @@ type CheckboxProps = {
   children?: ReactNode;
   checkboxSize?: SizeType;
   position?: PositionType;
+  color?: string;
 };
 
 export const Checkbox: FunctionComponent<
   CheckboxProps & InputHTMLAttributes<HTMLInputElement>
-> = ({ children, checkboxSize = "sm", position = "right", checked, ...restProps }) => {
+> = ({
+  children,
+  checkboxSize = "sm",
+  position = "right",
+  checked,
+  color = theme.colors.blue,
+  ...restProps
+}) => {
   const size = SIZES[checkboxSize];
 
   const icon = checked ? CheckboxChecked : CheckboxUnchecked;
@@ -25,7 +33,7 @@ export const Checkbox: FunctionComponent<
       <HiddenInput type="checkbox" checked={checked} {...restProps} />
       <Container>
         <Wrapper position={position}>
-          <Icon icon={icon} color={theme.colors.blue} size={size} />
+          <Icon icon={icon} color={color} size={size} />
         </Wrapper>
         {children && <Label position={position}>{children}</Label>}
       </Container>

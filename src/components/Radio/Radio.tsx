@@ -11,6 +11,7 @@ type RadioProps = {
   children?: ReactNode;
   radioSize?: SizeType;
   position?: PositionType;
+  color?: string;
 };
 
 export const Radio: FunctionComponent<RadioProps & InputHTMLAttributes<HTMLInputElement>> = ({
@@ -18,6 +19,7 @@ export const Radio: FunctionComponent<RadioProps & InputHTMLAttributes<HTMLInput
   radioSize = "sm",
   position = "right",
   checked,
+  color = theme.colors.blue,
   ...restProps
 }) => {
   const size = SIZES[radioSize];
@@ -29,7 +31,7 @@ export const Radio: FunctionComponent<RadioProps & InputHTMLAttributes<HTMLInput
       <HiddenInput type="radio" checked={checked} {...restProps} />
       <Container>
         <Wrapper position={position}>
-          <Icon icon={icon} color={theme.colors.blue} size={size} />
+          <Icon icon={icon} color={color} size={size} />
         </Wrapper>
         {children && <Label position={position}>{children}</Label>}
       </Container>
