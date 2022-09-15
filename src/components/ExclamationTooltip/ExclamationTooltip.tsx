@@ -1,6 +1,7 @@
 import { FunctionComponent } from "react";
+import { ExclamationCircle } from "@styled-icons/heroicons-outline/ExclamationCircle";
 import styled from "styled-components";
-import { Icon } from "../Icon";
+import { StyledIcon } from "../StyledIcon";
 import { Tooltip, TooltipProps } from "../Tooltip/Tooltip";
 
 type ExclamationTooltip = {
@@ -13,7 +14,7 @@ export const ExclamationTooltip: FunctionComponent<ExclamationTooltip> = ({
   ...restProps
 }) => (
   <CustomTooltip {...restProps}>
-    <Icon icon="exclamation" size={size} />
+    <StyledIcon icon={ExclamationCircle} size={size} />
   </CustomTooltip>
 );
 
