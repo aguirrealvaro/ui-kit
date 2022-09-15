@@ -8,10 +8,11 @@ import {
   SetStateAction,
   MouseEvent,
 } from "react";
+import { ChevronDown } from "@styled-icons/boxicons-regular/ChevronDown";
+import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import styled, { css } from "styled-components";
 import { LabelValue } from "./types";
-import { Icon, Spinner } from "@/components";
-import { theme } from "@/components/App";
+import { Spinner, StyledIcon } from "@/components";
 import { useOutsideClick } from "@/hooks";
 
 const ANIMATION_TIME = 200;
@@ -83,10 +84,12 @@ export const Select: FunctionComponent<SelectProps> = ({
           {isLoading && <Spinner size="sm" />}
           {isSelected && clearValue && (
             <ButtonClear onClick={handleClearValue}>
-              <Icon icon="close" size="14px" color={theme.colors.grey} />
+              <StyledIcon icon={CloseOutline} color="grey" size="20px" />
             </ButtonClear>
           )}
-          <Chevron active={isOpen} icon="chevron_down" size="14px" color={theme.colors.grey} />
+          <ChevronWrapper active={isOpen}>
+            <StyledIcon icon={ChevronDown} size="20px" />
+          </ChevronWrapper>
         </SideContainer>
       </SelectContainer>
       {isOpen && (
@@ -243,7 +246,7 @@ const BottomText = styled.div<{ error: boolean }>`
   color: ${({ error, theme }) => theme.colors[error ? "red" : "grey"]};
 `;
 
-const Chevron = styled(Icon)<{ active: boolean }>`
+const ChevronWrapper = styled.div<{ active: boolean }>`
   transform: ${({ active }) => `rotate(${active ? "-180" : 0}deg)`};
   transition: transform ${ANIMATION_TIME}ms ease;
 `;
