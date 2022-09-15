@@ -7,7 +7,7 @@ export type ToastOptions = {
   variant?: ToastVariantType;
 };
 
-export type ToastType = {
+export type ToastProps = {
   children?: ReactNode;
   id: number;
   content: string;

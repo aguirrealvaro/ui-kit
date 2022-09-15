@@ -1,10 +1,10 @@
 import { FunctionComponent } from "react";
 import { createPortal } from "react-dom";
 import styled from "styled-components";
-import { Toast, ToastType } from ".";
+import { Toast, ToastProps } from ".";
 
 type ToastContainerProps = {
-  toasts: ToastType[];
+  toasts: ToastProps[];
 };
 
 export const ToastContainer: FunctionComponent<ToastContainerProps> = ({ toasts }) => {

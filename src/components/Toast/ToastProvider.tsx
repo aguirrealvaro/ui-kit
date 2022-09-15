@@ -6,7 +6,7 @@ import {
   useState,
   ReactNode,
 } from "react";
-import { ToastType, ToastOptions } from ".";
+import { ToastProps, ToastOptions } from ".";
 import { ToastContainer } from "./ToastContainer";
 
 export type ToastContextType = {
@@ -22,7 +22,7 @@ type ToastProviderProps = {
 
 export const ToastProvider: FunctionComponent<ToastProviderProps> = ({ children }) => {
   const toastIdRef = useRef<number>(0);
-  const [toasts, setToast] = useState<ToastType[]>([]);
+  const [toasts, setToast] = useState<ToastProps[]>([]);
 
   const open = useCallback(
     (content: string, options: ToastOptions = { permanent: false, variant: "default" }) => {

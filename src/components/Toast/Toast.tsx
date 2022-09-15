@@ -1,12 +1,10 @@
 import { FunctionComponent, useEffect, useRef, useState } from "react";
 import styled, { css, keyframes } from "styled-components";
-import { ToastVariantType, ToastType } from "./types";
+import { ANIMATION_TIME, DURATION_TIME } from "./Toast.contants";
+import { ToastVariantType, ToastProps } from "./Toast.types";
 import { useToast } from "./useToast";
 
-const ANIMATION_TIME = 200;
-const DURATION_TIME = 3000;
-
-export const Toast: FunctionComponent<ToastType> = ({ children, id, permanent, variant }) => {
+export const Toast: FunctionComponent<ToastProps> = ({ children, id, permanent, variant }) => {
   const [isClosing, setIsClosing] = useState<boolean>(false);
   const timeoutRef = useRef<number>(0);
 
