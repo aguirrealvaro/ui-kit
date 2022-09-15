@@ -1,36 +1,31 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, ReactNode } from "react";
 import styled from "styled-components";
 
-export const Table: FunctionComponent = () => {
+type TableProps = {
+  columns: ReactNode[];
+  data: ReactNode[][];
+};
+
+export const Table: FunctionComponent<TableProps> = ({ columns, data }) => {
   return (
     <Container>
       <thead>
         <TableRow>
-          <TableHead>Header 1</TableHead>
-          <TableHead>Header 2</TableHead>
-          <TableHead>Header 3</TableHead>
-          <TableHead>Header 4</TableHead>
-          <TableHead>Header 5</TableHead>
-          <TableHead>Header 6</TableHead>
+          {columns.map((column) => {
+            return <TableHead>{column}</TableHead>;
+          })}
         </TableRow>
       </thead>
       <tbody>
-        <TableRow>
-          <TableData>data</TableData>
-          <TableData>data</TableData>
-          <TableData>data</TableData>
-          <TableData>data</TableData>
-          <TableData>data</TableData>
-          <TableData>data</TableData>
-        </TableRow>
-        <TableRow>
-          <TableData>data</TableData>
-          <TableData>data</TableData>
-          <TableData>data</TableData>
-          <TableData>data</TableData>
-          <TableData>data</TableData>
-          <TableData>data</TableData>
-        </TableRow>
+        {data.map((row) => {
+          return (
+            <TableRow>
+              {row.map((rowData) => {
+                return <TableData>{rowData}</TableData>;
+              })}
+            </TableRow>
+          );
+        })}
       </tbody>
     </Container>
   );
