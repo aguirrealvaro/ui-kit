@@ -1,5 +1,6 @@
 import { FunctionComponent } from "react";
 import { StyledIcon } from "styled-icons/types";
+import { theme } from "@/components/App";
 
 type IconProps = {
   icon: StyledIcon;
@@ -10,7 +11,7 @@ type IconProps = {
 export const Icon: FunctionComponent<IconProps> = ({
   icon: IconComponent,
   size = "30px",
-  color = "#000",
+  color = theme.colors.black,
 }) => {
   return <IconComponent size={size} style={{ color }} />;
 };

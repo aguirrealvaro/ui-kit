@@ -4,6 +4,7 @@ import styled, { css, keyframes } from "styled-components";
 import { ANIMATION_TIME } from "../constants";
 import { NavbarItem } from "../types";
 import { Icon } from "@/components";
+import { theme } from "@/components/App";
 import { useOutsideClick } from "@/hooks";
 
 type MobileMenuProps = {
@@ -26,7 +27,7 @@ export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
     <Backdrop isUnmounting={isUnmounting}>
       <Container isUnmounting={isUnmounting} ref={ref}>
         <CloseButton onClick={onClose}>
-          <Icon icon={CloseOutline} color="grey" size="25px" />
+          <Icon icon={CloseOutline} color={theme.colors.grey} size="25px" />
         </CloseButton>
         <div>
           {items

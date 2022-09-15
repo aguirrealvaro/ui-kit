@@ -13,6 +13,7 @@ import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import styled, { css } from "styled-components";
 import { LabelValue } from "./types";
 import { Spinner, Icon } from "@/components";
+import { theme } from "@/components/App";
 import { useOutsideClick } from "@/hooks";
 
 const ANIMATION_TIME = 200;
@@ -84,7 +85,7 @@ export const Select: FunctionComponent<SelectProps> = ({
           {isLoading && <Spinner size="sm" />}
           {isSelected && clearValue && (
             <ButtonClear onClick={handleClearValue}>
-              <Icon icon={CloseOutline} color="grey" size="20px" />
+              <Icon icon={CloseOutline} color={theme.colors.grey} size="20px" />
             </ButtonClear>
           )}
           <ChevronWrapper active={isOpen}>

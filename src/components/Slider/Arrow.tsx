@@ -5,6 +5,7 @@ import styled, { css } from "styled-components";
 import { StyledIcon } from "styled-icons/types";
 import { Direction } from ".";
 import { Icon } from "@/components";
+import { theme } from "@/components/App";
 
 type ArrowProps = {
   direction: Direction;
@@ -20,7 +21,7 @@ export const Arrow: FunctionComponent<ArrowProps> = ({ direction, handleArrow, d
 
   return (
     <Button onClick={() => handleArrow(direction)} direction={direction} disabled={disabled}>
-      <Icon icon={chevronIcon[direction]} color="#666666" size="22px" />
+      <Icon icon={chevronIcon[direction]} color={theme.colors.grey} size="22px" />
     </Button>
   );
 };
