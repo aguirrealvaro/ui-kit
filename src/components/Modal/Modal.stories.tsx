@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import styled from "styled-components";
+import { ModalHeader, ModalContent, ModalFooter } from "./Modal.layout";
 import { Modal } from "@/components";
 import { useDisclosure } from "@/hooks";
 
@@ -15,7 +16,9 @@ export const Primary: ComponentStory<typeof Modal> = () => {
     <>
       <Button onClick={onOpen}>open modal</Button>
       <Modal isOpen={isOpen} onClose={onClose} isUnmounting={isUnmounting} size="sm">
-        Modal
+        <ModalHeader>Header</ModalHeader>
+        <ModalContent>Content</ModalContent>
+        <ModalFooter>Footer</ModalFooter>
       </Modal>
     </>
   );

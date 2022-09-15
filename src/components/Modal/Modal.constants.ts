@@ -1,4 +1,4 @@
-import { SizeType } from "./types";
+import { SizeType } from "./Modal.types";
 
 export const ANIMATION_TIME = 200;
 

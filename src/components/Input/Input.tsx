@@ -10,10 +10,9 @@ import {
 import { CheckCircleFill } from "@styled-icons/bootstrap/CheckCircleFill";
 import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
 import styled, { css } from "styled-components";
+import { ANIMATION_TIME } from "./Input.constants";
 import { Spinner, Icon } from "@/components";
 import { theme } from "@/components/App";
-
-const ANIMATION_TIME = 200;
 
 type InputProps = {
   helpText?: ReactNode;
