@@ -38,20 +38,37 @@ export const Table: FunctionComponent = () => {
 
 const Container = styled.table`
   min-width: 100%;
+  border: 1px solid;
+  border-spacing: 0;
 `;
 
 const TableRow = styled.tr`
   display: flex;
-  padding: 1rem 0;
-  gap: 1rem;
+  border-bottom: 1px solid;
+  &:last-child {
+    border-bottom: 0;
+  }
+  &:first-child {
+    border-bottom: 1px solid;
+  }
 `;
 
 const TableHead = styled.th`
   flex: 1;
   text-align: left;
+  border-right: 1px solid;
+  padding: 1rem;
+  &:last-child {
+    border-right: 0;
+  }
 `;
 
 const TableData = styled.td`
   flex: 1;
   text-align: left;
+  border-right: 1px solid;
+  padding: 1rem;
+  &:last-child {
+    border-right: 0;
+  }
 `;
