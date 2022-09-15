@@ -23,7 +23,6 @@ const Pill = styled.span<{ checked: boolean }>`
   display: inline-flex;
   cursor: pointer;
   position: relative;
-  padding: 2px;
   width: 50px;
   height: 25px;
   border-radius: 100px;
@@ -45,13 +44,12 @@ const Pill = styled.span<{ checked: boolean }>`
 
 const Ball = styled.span<{ checked: boolean }>`
   position: absolute;
-  top: 50%;
+  top: 0;
   left: ${({ checked }) => (checked ? "25px" : 0)};
-  transform: translateY(-50%) scale(1.1);
+  transform: scale(0.8);
   background: #fff;
   width: 25px;
   height: 25px;
   border-radius: 100px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
   transition: left ${ANIMATION_TIME}ms ease;
 `;
