@@ -47,10 +47,10 @@ const Pill = styled.span<{ checked: boolean; size: number; position: PositionTyp
   height: ${({ size }) => `${size}px`};
   border-radius: 100px;
   transition: background-color ${ANIMATION_TIME}ms ease, box-shadow ${ANIMATION_TIME}ms ease;
-  ${({ checked }) => {
+  ${({ checked, theme }) => {
     if (checked) {
       return css`
-        background-color: #0072ff;
+        background-color: ${theme.colors.blue};
         box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
       `;
     } else {
@@ -68,7 +68,7 @@ const Ball = styled.span<{ checked: boolean; size: number }>`
   left: ${({ checked, size }) => (checked ? `${size}px` : 0)};
   transform: scale(0.8);
   //box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
-  background: #fff;
+  background-color: ${({ theme }) => theme.colors.white};
   width: ${({ size }) => `${size}px`};
   height: ${({ size }) => `${size}px`};
   border-radius: 100px;
