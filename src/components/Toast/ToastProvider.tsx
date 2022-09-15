@@ -6,7 +6,7 @@ import {
   useState,
   ReactNode,
 } from "react";
-import { ToastProps, ToastOptions } from ".";
+import { ToastOptions, ToastProps } from "./Toast.types";
 import { ToastContainer } from "./ToastContainer";
 
 export type ToastContextType = {
