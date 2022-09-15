@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import styled, { css } from "styled-components";
 
-type SizeType = "sm" | "md" | "lg";
+type SizeType = "xs" | "sm" | "md" | "lg";
 
 type SpinnerProps = {
   color?: string;
@@ -34,9 +34,10 @@ const Container = styled.div<{ fullHeight?: boolean }>`
 `;
 
 const sizes: Record<SizeType, number> = {
-  sm: 18,
-  md: 25,
-  lg: 35,
+  xs: 18,
+  sm: 22,
+  md: 26,
+  lg: 30,
 };
 
 const Loader = styled.div<SpinnerProps>`

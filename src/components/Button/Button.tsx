@@ -47,7 +47,7 @@ export const Button: FunctionComponent<
       shape={shape}
       {...restProps}
     >
-      {isLoading ? <Spinner size="sm" /> : children}
+      {isLoading ? <Spinner size="xs" /> : children}
     </CustomButton>
   );
 };

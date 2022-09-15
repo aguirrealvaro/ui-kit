@@ -9,9 +9,10 @@ export default {
 export const Primary: ComponentStory<typeof Spinner> = () => {
   return (
     <div>
-      <Spinner size="sm" color="blue" background="lightgrey" />
-      <Spinner size="md" color="blue" background="lightgrey" />
-      <Spinner size="lg" color="blue" background="lightgrey" />
+      <Spinner size="xs" />
+      <Spinner size="sm" />
+      <Spinner size="md" />
+      <Spinner size="lg" />
     </div>
   );
 };

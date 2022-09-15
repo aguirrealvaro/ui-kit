@@ -82,7 +82,7 @@ export const Select: FunctionComponent<SelectProps> = ({
           <SelectedValue isSelected={isSelected}>{selectedValue}</SelectedValue>
         </InnerContainer>
         <SideContainer>
-          {isLoading && <Spinner size="sm" />}
+          {isLoading && <Spinner size="xs" />}
           {isSelected && clearValue && (
             <ButtonClear onClick={handleClearValue}>
               <Icon icon={CloseOutline} color={theme.colors.grey} size={20} />
