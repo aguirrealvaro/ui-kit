@@ -19,9 +19,11 @@ export const Switch: FunctionComponent<
     <label>
       <HiddenInput type="checkbox" checked={checked} {...restProps} />
       <Container>
-        <Pill checked={checked || false} size={size} position={position}>
-          <Ball checked={checked || false} size={size} />
-        </Pill>
+        <Wrapper position={position}>
+          <Pill checked={checked || false} size={size}>
+            <Ball checked={checked || false} size={size} />
+          </Pill>
+        </Wrapper>
         {children && <Label position={position}>{children}</Label>}
       </Container>
     </label>
@@ -38,11 +40,14 @@ const Container = styled.div`
   gap: 0.5rem;
 `;
 
-const Pill = styled.span<{ checked: boolean; size: number; position: PositionType }>`
+const Wrapper = styled.div<{ position: PositionType }>`
+  order: ${({ position }) => (position === "left" ? 1 : 2)};
+`;
+
+const Pill = styled.span<{ checked: boolean; size: number }>`
   display: inline-flex;
   cursor: pointer;
   position: relative;
-  order: ${({ position }) => (position === "left" ? 1 : 2)};
   width: ${({ size }) => `${size * 2}px`};
   height: ${({ size }) => `${size}px`};
   border-radius: 100px;

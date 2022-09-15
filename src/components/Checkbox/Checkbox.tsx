@@ -24,7 +24,9 @@ export const Checkbox: FunctionComponent<
     <label>
       <HiddenInput type="checkbox" checked={checked} {...restProps} />
       <Container>
-        <Icon icon={icon} color={theme.colors.blue} size={size} />
+        <Wrapper position={position}>
+          <Icon icon={icon} color={theme.colors.blue} size={size} />
+        </Wrapper>
         {children && <Label position={position}>{children}</Label>}
       </Container>
     </label>
@@ -39,6 +41,10 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+`;
+
+const Wrapper = styled.div<{ position: PositionType }>`
+  order: ${({ position }) => (position === "left" ? 1 : 2)};
 `;
 
 const Label = styled.div<{ position: PositionType }>`
