@@ -1,7 +1,9 @@
 import { FunctionComponent } from "react";
+import { ChevronDown } from "@styled-icons/boxicons-regular/ChevronDown";
+import { UserCircle } from "@styled-icons/boxicons-solid/UserCircle";
 import styled from "styled-components";
 import { NavbarItem } from "../types";
-import { Icon, Dropdown } from "@/components";
+import { Dropdown, StyledIcon } from "@/components";
 
 type MainMenuProps = { user: string; items: NavbarItem[] };
 
@@ -22,9 +24,9 @@ export const DropdownMenu: FunctionComponent<MainMenuProps> = ({ user, items }) 
     <Container>
       <Dropdown content={dropdownContent} placement="right">
         <Profile>
-          <Icon icon="user" size="18px" marginRight="9px" />
+          <StyledIcon icon={UserCircle} size="20px" />
           <span>{user}</span>
-          <Icon icon="chevron_down" size="12px" marginLeft="9px" />
+          <StyledIcon icon={ChevronDown} size="23px" />
         </Profile>
       </Dropdown>
     </Container>
@@ -40,6 +42,7 @@ const Container = styled.div`
 const Profile = styled.button`
   display: flex;
   align-items: center;
+  gap: 8px;
 `;
 
 const DropdownContent = styled.div`
