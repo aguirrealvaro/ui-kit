@@ -1,14 +1,9 @@
 import { FunctionComponent, ButtonHTMLAttributes } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { theme } from "../App";
+import { ANIMATION_TIME } from "../Navbar";
 import { Spinner } from "../Spinner";
-
-const ANIMATION_TIME = 300;
-
-type KindType = "solid" | "outlined" | "ghost" | "link";
-type SizeType = "xs" | "sm" | "md" | "lg";
-type VariantType = "default" | "positive" | "negative" | "warning" | "neutral";
-type ShapeType = "default" | "pill" | "circle" | "rectangle";
+import { KindType, SizeType, VariantType, ShapeType } from "./Button.types";
 
 type ButtonProps = {
   block?: boolean;

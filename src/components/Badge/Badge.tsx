@@ -1,8 +1,7 @@
 import { FunctionComponent, ReactNode } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { theme } from "../App";
-
-type VariantType = "default" | "positive" | "negative" | "warning" | "neutral";
+import { VariantType } from "./Badge.types";
 
 type BadeProps = {
   children: ReactNode;
