@@ -8,10 +8,9 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 import styled, { css, keyframes } from "styled-components";
-import { PlacementType, CoordinatesType, TriggerType } from ".";
+import { ANIMATION_TIME } from "./Dropdown.constants";
+import { PlacementType, CoordinatesType, TriggerType } from "./Dropdown.types";
 import { useDisclosure, useOutsideClick } from "@/hooks";
-
-const ANIMATION_TIME = 200;
 
 export type DropdownProps = {
   children: ReactNode;
