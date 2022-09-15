@@ -2,9 +2,9 @@ import { FunctionComponent } from "react";
 import { ChevronLeft } from "@styled-icons/boxicons-regular/ChevronLeft";
 import { ChevronRight } from "@styled-icons/boxicons-regular/ChevronRight";
 import styled, { css } from "styled-components";
-import { StyledIcon as StyledIconType } from "styled-icons/types";
+import { StyledIcon } from "styled-icons/types";
 import { Direction } from ".";
-import { StyledIcon } from "@/components";
+import { Icon } from "@/components";
 
 type ArrowProps = {
   direction: Direction;
@@ -13,14 +13,14 @@ type ArrowProps = {
 };
 
 export const Arrow: FunctionComponent<ArrowProps> = ({ direction, handleArrow, disabled }) => {
-  const chevronIcon: Record<Direction, StyledIconType> = {
+  const chevronIcon: Record<Direction, StyledIcon> = {
     left: ChevronLeft,
     right: ChevronRight,
   };
 
   return (
     <Button onClick={() => handleArrow(direction)} direction={direction} disabled={disabled}>
-      <StyledIcon icon={chevronIcon[direction]} color="#666666" size="22px" />
+      <Icon icon={chevronIcon[direction]} color="#666666" size="22px" />
     </Button>
   );
 };

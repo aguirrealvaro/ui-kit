@@ -1,7 +1,7 @@
 import { useState, useRef, FunctionComponent, ReactNode } from "react";
 import { ChevronDown } from "@styled-icons/boxicons-regular/ChevronDown";
 import styled, { css } from "styled-components";
-import { StyledIcon } from "@/components";
+import { Icon } from "@/components";
 
 const ANIMATION_TIME = 200;
 
@@ -31,7 +31,7 @@ export const Accordion: FunctionComponent<AccordionProps> = ({
       <Button onClick={toggle} disabled={disabled}>
         <div>{title}</div>
         <ChevronWrapper active={active}>
-          <StyledIcon icon={ChevronDown} size="20px" />
+          <Icon icon={ChevronDown} size="20px" />
         </ChevronWrapper>
       </Button>
       <Content ref={ref} height={height} active={active}>

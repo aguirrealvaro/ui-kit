@@ -3,7 +3,7 @@ import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import styled, { css, keyframes } from "styled-components";
 import { ANIMATION_TIME } from "../constants";
 import { NavbarItem } from "../types";
-import { StyledIcon } from "@/components";
+import { Icon } from "@/components";
 import { useOutsideClick } from "@/hooks";
 
 type MobileMenuProps = {
@@ -26,7 +26,7 @@ export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
     <Backdrop isUnmounting={isUnmounting}>
       <Container isUnmounting={isUnmounting} ref={ref}>
         <CloseButton onClick={onClose}>
-          <StyledIcon icon={CloseOutline} color="grey" size="25px" />
+          <Icon icon={CloseOutline} color="grey" size="25px" />
         </CloseButton>
         <div>
           {items

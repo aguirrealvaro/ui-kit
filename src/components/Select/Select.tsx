@@ -12,7 +12,7 @@ import { ChevronDown } from "@styled-icons/boxicons-regular/ChevronDown";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import styled, { css } from "styled-components";
 import { LabelValue } from "./types";
-import { Spinner, StyledIcon } from "@/components";
+import { Spinner, Icon } from "@/components";
 import { useOutsideClick } from "@/hooks";
 
 const ANIMATION_TIME = 200;
@@ -84,11 +84,11 @@ export const Select: FunctionComponent<SelectProps> = ({
           {isLoading && <Spinner size="sm" />}
           {isSelected && clearValue && (
             <ButtonClear onClick={handleClearValue}>
-              <StyledIcon icon={CloseOutline} color="grey" size="20px" />
+              <Icon icon={CloseOutline} color="grey" size="20px" />
             </ButtonClear>
           )}
           <ChevronWrapper active={isOpen}>
-            <StyledIcon icon={ChevronDown} size="20px" />
+            <Icon icon={ChevronDown} size="20px" />
           </ChevronWrapper>
         </SideContainer>
       </SelectContainer>

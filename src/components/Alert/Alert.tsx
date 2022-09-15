@@ -4,9 +4,9 @@ import { InfoCircleFill } from "@styled-icons/bootstrap/InfoCircleFill";
 import { Alert as AlertIcon } from "@styled-icons/remix-fill/Alert";
 import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
-import { StyledIcon as StyledIconType } from "styled-icons/types";
+import { StyledIcon } from "styled-icons/types";
 import { theme } from "../App";
-import { StyledIcon } from "../StyledIcon";
+import { Icon } from "@/components";
 
 type VariantType = "default" | "positive" | "negative" | "warning" | "neutral";
 
@@ -20,7 +20,7 @@ export const Alert: FunctionComponent<AlertProps> = ({ children, variant = "defa
     <Container variant={variant}>
       <span>{children}</span>
       <div>
-        <StyledIcon
+        <Icon
           icon={variantIcons[variant].icon}
           size="18px"
           color={variantIcons[variant].color}
@@ -30,7 +30,7 @@ export const Alert: FunctionComponent<AlertProps> = ({ children, variant = "defa
   );
 };
 
-const variantIcons: Record<VariantType, { icon: StyledIconType; color: string }> = {
+const variantIcons: Record<VariantType, { icon: StyledIcon; color: string }> = {
   default: { icon: InfoCircleFill, color: theme.colors.blue },
   positive: { icon: CheckCircleFill, color: theme.colors.green },
   warning: { icon: AlertIcon, color: theme.colors.yellow },

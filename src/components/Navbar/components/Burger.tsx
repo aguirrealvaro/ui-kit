@@ -1,13 +1,13 @@
 import { FunctionComponent } from "react";
 import { MenuOutline } from "@styled-icons/evaicons-outline/MenuOutline";
 import styled from "styled-components";
-import { StyledIcon } from "@/components";
+import { Icon } from "@/components";
 
 type BurgerProps = { onClick: () => void };
 
 export const Burger: FunctionComponent<BurgerProps> = ({ onClick }) => (
   <CustomButton onClick={onClick}>
-    <StyledIcon icon={MenuOutline} />
+    <Icon icon={MenuOutline} />
   </CustomButton>
 );
 

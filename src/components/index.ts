@@ -13,7 +13,7 @@ export { Toggle } from "./Toggle";
 export { Select } from "./Select";
 export { Button } from "./Button";
 export { Link } from "./Link";
-export { StyledIcon } from "./StyledIcon";
+export { Icon } from "./Icon";
 export { GrowingNumber } from "./GrowingNumber";
 export { Masonry } from "./Masonry";
 export { Layout } from "./Layout";

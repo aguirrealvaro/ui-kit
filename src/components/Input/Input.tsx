@@ -10,8 +10,8 @@ import {
 import { CheckCircleFill } from "@styled-icons/bootstrap/CheckCircleFill";
 import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
 import styled, { css } from "styled-components";
-import { Spinner, StyledIcon } from "..";
-import { theme } from "../App";
+import { Spinner, Icon } from "@/components";
+import { theme } from "@/components/App";
 
 const ANIMATION_TIME = 200;
 
@@ -88,9 +88,9 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
         {showSideContainer && (
           <SideContainer ref={sideContainerRef}>
             {isLoading && <Spinner size="sm" />}
-            {error && <StyledIcon icon={CloseCircle} size="18px" color={theme.colors.red} />}
+            {error && <Icon icon={CloseCircle} size="18px" color={theme.colors.red} />}
             {isSuccess && (
-              <StyledIcon icon={CheckCircleFill} size="18px" color={theme.colors.green} />
+              <Icon icon={CheckCircleFill} size="18px" color={theme.colors.green} />
             )}
           </SideContainer>
         )}

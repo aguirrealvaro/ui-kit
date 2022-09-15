@@ -3,7 +3,7 @@ import { ChevronDown } from "@styled-icons/boxicons-regular/ChevronDown";
 import { UserCircle } from "@styled-icons/boxicons-solid/UserCircle";
 import styled from "styled-components";
 import { NavbarItem } from "../types";
-import { Dropdown, StyledIcon } from "@/components";
+import { Dropdown, Icon } from "@/components";
 
 type MainMenuProps = { user: string; items: NavbarItem[] };
 
@@ -24,9 +24,9 @@ export const DropdownMenu: FunctionComponent<MainMenuProps> = ({ user, items }) 
     <Container>
       <Dropdown content={dropdownContent} placement="right">
         <Profile>
-          <StyledIcon icon={UserCircle} size="20px" />
+          <Icon icon={UserCircle} size="20px" />
           <span>{user}</span>
-          <StyledIcon icon={ChevronDown} size="23px" />
+          <Icon icon={ChevronDown} size="23px" />
         </Profile>
       </Dropdown>
     </Container>
