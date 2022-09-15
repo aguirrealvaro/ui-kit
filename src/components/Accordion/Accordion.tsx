@@ -1,6 +1,7 @@
 import { useState, useRef, FunctionComponent, ReactNode } from "react";
+import { ChevronDown } from "@styled-icons/boxicons-regular/ChevronDown";
 import styled, { css } from "styled-components";
-import { Icon } from "@/components";
+import { StyledIcon } from "@/components";
 
 const ANIMATION_TIME = 200;
 
@@ -29,7 +30,9 @@ export const Accordion: FunctionComponent<AccordionProps> = ({
     <Container className={className} showBorder={showBorder}>
       <Button onClick={toggle} disabled={disabled}>
         <div>{title}</div>
-        <Chevron icon="chevron_down" active={active} size="14px" marginLeft="10px" />
+        <ChevronWrapper active={active}>
+          <StyledIcon icon={ChevronDown} size="20px" />
+        </ChevronWrapper>
       </Button>
       <Content ref={ref} height={height} active={active}>
         {children}
@@ -63,7 +66,7 @@ const Button = styled.button`
   }
 `;
 
-const Chevron = styled(Icon)<{ active: boolean }>`
+const ChevronWrapper = styled.div<{ active: boolean }>`
   transform: ${({ active }) => `rotate(${active ? "-180" : 0}deg)`};
   transition: transform ${ANIMATION_TIME}ms ease;
 `;

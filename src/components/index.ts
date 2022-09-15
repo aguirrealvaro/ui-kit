@@ -1,7 +1,7 @@
 export { Spinner } from "./Spinner";
 export { Input } from "./Input";
 export { Modal, ModalHeader, ModalContent, ModalFooter } from "./Modal";
-export { Icon } from "./Icon";
+export { SVGIcon } from "./SVGIcon";
 export { Tooltip } from "./Tooltip";
 export { ExclamationTooltip } from "./ExclamationTooltip";
 export { Dropdown } from "./Dropdown";

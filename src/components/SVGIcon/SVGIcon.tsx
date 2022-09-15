@@ -12,28 +12,30 @@ type IconProps = {
   className?: string;
 };
 
-export const Icon: FunctionComponent<IconProps> = ({
+export const SVGIcon: FunctionComponent<IconProps> = ({
   icon,
   color = theme.colors.black,
   size = "20px",
   marginRight,
   marginLeft,
   className,
-}) => (
-  <SVG
-    className={className}
-    width={size}
-    height={size}
-    viewBox={viewBox[icon]}
-    version="1.1"
-    xmlns="http://www.w3.org/2000/svg"
-    xmlnsXlink="http://www.w3.org/1999/xlink"
-    marginRight={marginRight}
-    marginLeft={marginLeft}
-  >
-    {paths[icon](color)}
-  </SVG>
-);
+}) => {
+  return (
+    <SVG
+      className={className}
+      width={size}
+      height={size}
+      viewBox={viewBox[icon]}
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+      marginRight={marginRight}
+      marginLeft={marginLeft}
+    >
+      {paths[icon](color)}
+    </SVG>
+  );
+};
 
 const SVG = styled.svg<{ marginRight?: string; marginLeft?: string }>`
   margin-right: ${({ marginRight }) => marginRight};
