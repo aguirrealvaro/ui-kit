@@ -11,7 +11,7 @@ import {
 import { ChevronDown } from "@styled-icons/boxicons-regular/ChevronDown";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import styled, { css } from "styled-components";
-import { LabelValue } from "./types";
+import { LabelValue } from "./Select.types";
 import { Spinner, Icon } from "@/components";
 import { theme } from "@/components/App";
 import { useOutsideClick } from "@/hooks";
