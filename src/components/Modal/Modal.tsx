@@ -47,11 +47,13 @@ export const Modal: FunctionComponent<ModalProps> = ({
 
   const fadeOut = isUnmounting && !isMobile;
 
+  const modalSize = SIZES[size];
+
   if (!isOpen) return null;
 
   const Component = (
     <Backdrop isOpen={isOpen} fadeOut={fadeOut} className={className}>
-      <Content size={size} ref={contentRef} fadeOut={fadeOut}>
+      <Content size={modalSize} ref={contentRef} fadeOut={fadeOut}>
         <CloseButton onClick={onClose}>
           <Icon icon={CloseOutline} color={theme.colors.grey} size={25} />
         </CloseButton>
@@ -99,9 +101,9 @@ const Backdrop = styled.div<{ isOpen: boolean; fadeOut: boolean }>`
   }
 `;
 
-const Content = styled.div<{ size: SizeType; fadeOut: boolean }>`
+const Content = styled.div<{ size: number; fadeOut: boolean }>`
   position: relative;
-  width: ${({ size }) => SIZES[size]}px;
+  width: ${({ size }) => size}px;
   min-height: 100px;
   padding: 2rem;
   animation: ${fadeInScale} ${ANIMATION_TIME}ms ease-out;
