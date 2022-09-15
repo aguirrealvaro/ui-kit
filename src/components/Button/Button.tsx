@@ -56,22 +56,22 @@ const getSizeStyles = (size: SizeType): FlattenSimpleInterpolation => {
   const sizeOptions: Record<SizeType, FlattenSimpleInterpolation> = {
     xs: css`
       height: 24px;
-      padding: 0rem 0.5rem;
+      padding: 0rem 8px;
       font-size: 12px;
     `,
     sm: css`
-      height: 34px;
-      padding: 0 1rem;
+      height: 32px;
+      padding: 0 12px;
       font-size: 14px;
     `,
     md: css`
-      height: 44px;
-      padding: 0 1.5rem;
+      height: 40px;
+      padding: 0 16px;
       font-size: 16px;
     `,
     lg: css`
-      height: 54px;
-      padding: 0 2rem;
+      height: 48px;
+      padding: 0 20px;
       font-size: 18px;
     `,
   };
