@@ -24,9 +24,9 @@ export const DropdownMenu: FunctionComponent<MainMenuProps> = ({ user, items }) 
     <Container>
       <Dropdown content={dropdownContent} placement="right">
         <Profile>
-          <Icon icon={UserCircle} size="20px" />
+          <Icon icon={UserCircle} size={25} />
           <span>{user}</span>
-          <Icon icon={ChevronDown} size="23px" />
+          <Icon icon={ChevronDown} size={23} />
         </Profile>
       </Dropdown>
     </Container>

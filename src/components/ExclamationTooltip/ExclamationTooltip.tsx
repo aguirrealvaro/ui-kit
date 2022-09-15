@@ -5,12 +5,12 @@ import { TooltipProps } from "../Tooltip/Tooltip";
 import { Icon, Tooltip } from "@/components";
 
 type ExclamationTooltip = {
-  size?: string;
+  size?: number;
   className?: string;
 } & TooltipProps;
 
 export const ExclamationTooltip: FunctionComponent<ExclamationTooltip> = ({
-  size = "15px",
+  size = 15,
   ...restProps
 }) => (
   <CustomTooltip {...restProps}>

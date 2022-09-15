@@ -31,7 +31,7 @@ export const Accordion: FunctionComponent<AccordionProps> = ({
       <Button onClick={toggle} disabled={disabled}>
         <div>{title}</div>
         <ChevronWrapper active={active}>
-          <Icon icon={ChevronDown} size="20px" />
+          <Icon icon={ChevronDown} size={20} />
         </ChevronWrapper>
       </Button>
       <Content ref={ref} height={height} active={active}>

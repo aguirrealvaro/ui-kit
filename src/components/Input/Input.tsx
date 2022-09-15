@@ -88,10 +88,8 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
         {showSideContainer && (
           <SideContainer ref={sideContainerRef}>
             {isLoading && <Spinner size="sm" />}
-            {error && <Icon icon={CloseCircle} size="18px" color={theme.colors.red} />}
-            {isSuccess && (
-              <Icon icon={CheckCircleFill} size="18px" color={theme.colors.green} />
-            )}
+            {error && <Icon icon={CloseCircle} size={18} color={theme.colors.red} />}
+            {isSuccess && <Icon icon={CheckCircleFill} size={18} color={theme.colors.green} />}
           </SideContainer>
         )}
       </InputContainer>

@@ -22,7 +22,7 @@ export const Alert: FunctionComponent<AlertProps> = ({ children, variant = "defa
       <div>
         <Icon
           icon={variantIcons[variant].icon}
-          size="18px"
+          size={18}
           color={variantIcons[variant].color}
         />
       </div>

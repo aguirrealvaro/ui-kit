@@ -53,7 +53,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
     <Backdrop isOpen={isOpen} fadeOut={fadeOut} className={className}>
       <Content size={size} ref={contentRef} fadeOut={fadeOut}>
         <CloseButton onClick={onClose}>
-          <Icon icon={CloseOutline} color={theme.colors.grey} size="25px" />
+          <Icon icon={CloseOutline} color={theme.colors.grey} size={25} />
         </CloseButton>
         {children}
       </Content>

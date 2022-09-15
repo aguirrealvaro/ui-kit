@@ -11,8 +11,8 @@ export default {
 export const Primary: ComponentStory<typeof Icon> = () => {
   return (
     <div>
-      <Icon icon={Close} size="70" color="blue" />
-      <Icon icon={Menu} size="70" color="red" />
+      <Icon icon={Close} size={70} color="blue" />
+      <Icon icon={Menu} size={70} color="red" />
     </div>
   );
 };

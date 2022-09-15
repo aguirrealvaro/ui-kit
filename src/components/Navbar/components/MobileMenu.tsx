@@ -27,7 +27,7 @@ export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
     <Backdrop isUnmounting={isUnmounting}>
       <Container isUnmounting={isUnmounting} ref={ref}>
         <CloseButton onClick={onClose}>
-          <Icon icon={CloseOutline} color={theme.colors.grey} size="25px" />
+          <Icon icon={CloseOutline} color={theme.colors.grey} size={25} />
         </CloseButton>
         <div>
           {items

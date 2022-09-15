@@ -24,5 +24,5 @@ export const Primary: ComponentStory<typeof ExclamationTooltip> = () => {
     </>
   );
 
-  return <ExclamationTooltip content={content} placement="right" size="25px" />;
+  return <ExclamationTooltip content={content} placement="right" size={25} />;
 };
