@@ -22,3 +22,4 @@ export { Badge } from "./Badge";
 export { Breadcrumbs } from "./Breadcrumbs";
 export { Switch } from "./Switch";
 export { Checkbox } from "./Checkbox";
+export { Radio } from "./Radio";
