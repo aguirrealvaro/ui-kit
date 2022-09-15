@@ -1,8 +1,9 @@
 import { FunctionComponent, useRef } from "react";
+import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import styled, { css, keyframes } from "styled-components";
 import { ANIMATION_TIME } from "../constants";
 import { NavbarItem } from "../types";
-import { Icon } from "@/components/Icon";
+import { StyledIcon } from "@/components";
 import { useOutsideClick } from "@/hooks";
 
 type MobileMenuProps = {
@@ -25,7 +26,7 @@ export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
     <Backdrop isUnmounting={isUnmounting}>
       <Container isUnmounting={isUnmounting} ref={ref}>
         <CloseButton onClick={onClose}>
-          <Icon icon="close" />
+          <StyledIcon icon={CloseOutline} color="grey" size="25px" />
         </CloseButton>
         <div>
           {items
