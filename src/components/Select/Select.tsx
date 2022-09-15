@@ -85,11 +85,11 @@ export const Select: FunctionComponent<SelectProps> = ({
           {isLoading && <Spinner size="xs" />}
           {isSelected && clearValue && (
             <ButtonClear onClick={handleClearValue}>
-              <Icon icon={CloseOutline} color={theme.colors.grey} size={20} />
+              <Icon icon={CloseOutline} color={theme.colors.grey} size={18} />
             </ButtonClear>
           )}
           <ChevronWrapper active={isOpen}>
-            <Icon icon={ChevronDown} size={20} />
+            <Icon icon={ChevronDown} color={theme.colors.grey} size={23} />
           </ChevronWrapper>
         </SideContainer>
       </SelectContainer>

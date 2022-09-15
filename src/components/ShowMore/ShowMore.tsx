@@ -8,6 +8,7 @@ import {
   useCallback,
 } from "react";
 import styled, { css } from "styled-components";
+import { Button } from "../Button";
 
 const ANIMATION_TIME = 200;
 
@@ -48,7 +49,7 @@ export const ShowMore: FunctionComponent<ShowMoreProps> = ({
   }, [handleStates]);
 
   return (
-    <div>
+    <Container>
       <Paragraph
         ref={containerRef}
         showMore={showMore}
@@ -59,11 +60,19 @@ export const ShowMore: FunctionComponent<ShowMoreProps> = ({
         {children}
       </Paragraph>
       {showMoreEnabled && (
-        <Button onClick={toggleShowMore}>{showMore ? showLessLegend : showMoreLegend}</Button>
+        <Button onClick={toggleShowMore} kind="link">
+          {showMore ? showLessLegend : showMoreLegend}
+        </Button>
       )}
-    </div>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const Paragraph = styled.p<{
   showMore: boolean;
@@ -81,11 +90,4 @@ const Paragraph = styled.p<{
       `;
     }
   }}
-`;
-
-const Button = styled.button`
-  display: flex;
-  margin: 0 auto;
-  color: ${({ theme }) => theme.colors.blue};
-  font-size: 15px;
 `;
