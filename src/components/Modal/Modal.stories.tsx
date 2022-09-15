@@ -14,7 +14,7 @@ export const Primary: ComponentStory<typeof Modal> = () => {
   return (
     <>
       <Button onClick={onOpen}>open modal</Button>
-      <Modal isOpen={isOpen} onClose={onClose} isUnmounting={isUnmounting}>
+      <Modal isOpen={isOpen} onClose={onClose} isUnmounting={isUnmounting} size="xs">
         Modal
       </Modal>
     </>
