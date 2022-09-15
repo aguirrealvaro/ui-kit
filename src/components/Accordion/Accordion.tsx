@@ -1,9 +1,8 @@
 import { useState, useRef, FunctionComponent, ReactNode } from "react";
 import { ChevronDown } from "@styled-icons/boxicons-regular/ChevronDown";
 import styled, { css } from "styled-components";
+import { ANIMATION_TIME } from "./Accordion.constants";
 import { Icon } from "@/components";
-
-const ANIMATION_TIME = 200;
 
 type AccordionProps = {
   title: ReactNode;
