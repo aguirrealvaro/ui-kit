@@ -1,6 +1,6 @@
 import { FunctionComponent, ReactNode } from "react";
 import styled, { css } from "styled-components";
-import { PADDINGS_SIZES } from "./Table.constants";
+import { BORDER_COLOR, PADDINGS_SIZES } from "./Table.constants";
 import { DividerType, SizeType } from "./Table.types";
 
 type TableProps = {
@@ -14,7 +14,7 @@ export const Table: FunctionComponent<TableProps> = ({
   columns,
   data,
   size = "md",
-  divider = "vertical",
+  divider = "grid",
 }) => {
   const padding = PADDINGS_SIZES[size];
 
@@ -55,13 +55,14 @@ const Container = styled.table<{ divider: DividerType }>`
   width: 100%;
   overflow: scroll;
   border-spacing: 0;
+  border-color: rgba(0, 0, 0, 0.12);
   ${({ divider }) => {
     if (divider === "clean") return;
     if (divider === "horizontal") return;
     if (divider === "vertical") return;
     if (divider === "grid") {
       return css`
-        border: 1px solid;
+        border: 1px solid ${BORDER_COLOR};
       `;
     }
   }}
@@ -69,19 +70,20 @@ const Container = styled.table<{ divider: DividerType }>`
 
 const TableRowHeader = styled.tr<{ divider: DividerType }>`
   display: flex;
+  border-color: rgba(0, 0, 0, 0.12);
   ${({ divider }) => {
     if (divider === "clean") return;
     if (divider === "horizontal")
       return css`
-        border-bottom: 1px solid;
+        border-bottom: 1px solid ${BORDER_COLOR};
       `;
     if (divider === "vertical")
       return css`
-        border-bottom: 1px solid;
+        border-bottom: 1px solid ${BORDER_COLOR};
       `;
     if (divider === "grid") {
       return css`
-        border-bottom: 1px solid;
+        border-bottom: 1px solid ${BORDER_COLOR};
       `;
     }
   }}
@@ -91,19 +93,20 @@ const TableHead = styled.th<{ size: number; divider: DividerType }>`
   flex: 1;
   text-align: left;
   padding: ${({ size }) => `${size}px`};
+  border-color: rgba(0, 0, 0, 0.12);
   ${({ divider }) => {
     if (divider === "clean") return;
     if (divider === "horizontal") return;
     if (divider === "vertical")
       return css`
-        border-right: 1px solid;
+        border-right: 1px solid ${BORDER_COLOR};
         &:last-child {
           border-right: 0;
         }
       `;
     if (divider === "grid") {
       return css`
-        border-right: 1px solid;
+        border-right: 1px solid ${BORDER_COLOR};
         &:last-child {
           border-right: 0;
         }
@@ -114,11 +117,12 @@ const TableHead = styled.th<{ size: number; divider: DividerType }>`
 
 const TableRowData = styled.tr<{ divider: DividerType }>`
   display: flex;
+  border-color: rgba(0, 0, 0, 0.12);
   ${({ divider }) => {
     if (divider === "clean") return;
     if (divider === "horizontal")
       return css`
-        border-bottom: 1px solid;
+        border-bottom: 1px solid ${BORDER_COLOR};
         &:last-child {
           border-bottom: 0;
         }
@@ -126,7 +130,7 @@ const TableRowData = styled.tr<{ divider: DividerType }>`
     if (divider === "vertical") return;
     if (divider === "grid") {
       return css`
-        border-bottom: 1px solid;
+        border-bottom: 1px solid ${BORDER_COLOR};
         &:last-child {
           border-bottom: 0;
         }
@@ -145,12 +149,13 @@ const TableData = styled.td<{ size: number; divider: DividerType }>`
   flex: 1;
   text-align: left;
   padding: ${({ size }) => `${size}px`};
+  border-color: rgba(0, 0, 0, 0.12);
   ${({ divider }) => {
     if (divider === "clean") return;
     if (divider === "horizontal") return;
     if (divider === "vertical") {
       return css`
-        border-right: 1px solid;
+        border-right: 1px solid ${BORDER_COLOR};
         &:last-child {
           border-right: 0;
         }
@@ -158,7 +163,7 @@ const TableData = styled.td<{ size: number; divider: DividerType }>`
     }
     if (divider === "grid") {
       return css`
-        border-right: 1px solid;
+        border-right: 1px solid ${BORDER_COLOR};
         &:last-child {
           border-right: 0;
         }
