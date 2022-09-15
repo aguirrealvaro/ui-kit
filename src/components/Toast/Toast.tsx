@@ -1,8 +1,8 @@
 import { FunctionComponent, useEffect, useRef, useState } from "react";
 import styled, { css, keyframes } from "styled-components";
 import { ANIMATION_TIME, DURATION_TIME } from "./Toast.contants";
+import { useToast } from "./Toast.hooks";
 import { ToastVariantType, ToastProps } from "./Toast.types";
-import { useToast } from "./useToast";
 
 export const Toast: FunctionComponent<ToastProps> = ({ children, id, permanent, variant }) => {
   const [isClosing, setIsClosing] = useState<boolean>(false);
