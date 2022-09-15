@@ -19,10 +19,10 @@ export const Primary: ComponentStory<typeof Checkbox> = () => {
       <Checkbox checked={checked} onChange={setChecked.toggle} checkboxSize="lg" />
 
       <Checkbox checked={checked} onChange={setChecked.toggle} position="left">
-        Children at left
+        Input at left
       </Checkbox>
       <Checkbox checked={checked} onChange={setChecked.toggle} position="right">
-        Children at right
+        Input at right
       </Checkbox>
     </Conatiner>
   );

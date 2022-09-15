@@ -24,7 +24,7 @@ export const Primary: ComponentStory<typeof Radio> = () => {
         onChange={onChange}
         radioSize="xs"
       >
-        Children at left 1
+        Input at left 1
       </Radio>
       <Radio
         value={"2"}
@@ -33,7 +33,7 @@ export const Primary: ComponentStory<typeof Radio> = () => {
         onChange={onChange}
         radioSize="sm"
       >
-        Children at right 2
+        Input at right 2
       </Radio>
       <Radio
         value={"3"}
@@ -42,7 +42,7 @@ export const Primary: ComponentStory<typeof Radio> = () => {
         onChange={onChange}
         radioSize="md"
       >
-        Children at left 3
+        Input at left 3
       </Radio>
       <Radio
         value={"4"}
@@ -51,7 +51,7 @@ export const Primary: ComponentStory<typeof Radio> = () => {
         onChange={onChange}
         radioSize="lg"
       >
-        Children at right 4
+        Input at right 4
       </Radio>
     </Conatiner>
   );
