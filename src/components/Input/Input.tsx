@@ -87,7 +87,7 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
         </InnerContainer>
         {showSideContainer && (
           <SideContainer ref={sideContainerRef}>
-            {isLoading && <Spinner size="mini" />}
+            {isLoading && <Spinner size="sm" />}
             {error && <StyledIcon icon={CloseCircle} size="18px" color={theme.colors.red} />}
             {isSuccess && (
               <StyledIcon icon={CheckCircleFill} size="18px" color={theme.colors.green} />
