@@ -1,5 +1,6 @@
 import { FunctionComponent, InputHTMLAttributes } from "react";
 import styled, { css } from "styled-components";
+import { hiddenStyles } from "../App";
 
 const ANIMATION_TIME = 200;
 
@@ -17,7 +18,9 @@ export const Switch: FunctionComponent<InputHTMLAttributes<HTMLInputElement>> = 
   );
 };
 
-const HiddenInput = styled.input``;
+const HiddenInput = styled.input`
+  ${hiddenStyles};
+`;
 
 const Pill = styled.span<{ checked: boolean }>`
   display: inline-flex;
