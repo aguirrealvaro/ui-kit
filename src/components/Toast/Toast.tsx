@@ -1,10 +1,22 @@
 import { FunctionComponent, useEffect, useRef, useState } from "react";
+import { CheckCircleFill } from "@styled-icons/bootstrap/CheckCircleFill";
+import { InfoCircleFill } from "@styled-icons/bootstrap/InfoCircleFill";
+import { Alert } from "@styled-icons/remix-fill/Alert";
+import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
 import styled, { css, keyframes } from "styled-components";
+import { StyledIcon } from "styled-icons/types";
 import { ANIMATION_TIME, DURATION_TIME } from "./Toast.contants";
 import { useToast } from "./Toast.hooks";
 import { ToastVariantType, ToastProps } from "./Toast.types";
+import { theme } from "@/components/App";
+import { Icon } from "@/components/Icon";
 
-export const Toast: FunctionComponent<ToastProps> = ({ children, id, permanent, variant }) => {
+export const Toast: FunctionComponent<ToastProps> = ({
+  children,
+  id,
+  permanent,
+  variant = "default",
+}) => {
   const [isClosing, setIsClosing] = useState<boolean>(false);
   const timeoutRef = useRef<number>(0);
 
@@ -38,7 +50,8 @@ export const Toast: FunctionComponent<ToastProps> = ({ children, id, permanent, 
 
   return (
     <Container onClick={closeToast} isClosing={isClosing} variant={variant}>
-      {children}
+      <Icon icon={variantIcons[variant]} size={18} color={theme.colors.white} />
+      <div>{children}</div>
     </Container>
   );
 };
@@ -48,9 +61,15 @@ const translate = keyframes`
   to { transform: translateX(0); }
 `;
 
-const Container = styled.div<{ isClosing: boolean; variant: ToastVariantType | undefined }>`
+const Container = styled.div<{ isClosing: boolean; variant: ToastVariantType }>`
+  position: relative;
+  display: flex;
+  gap: 8px;
+  padding: 1rem;
+  color: ${({ theme }) => theme.colors.white};
+  border-radius: 8px;
+  margin-bottom: 1rem;
   background-color: ${({ theme, variant }) => {
-    if (!variant) return "black";
     const backgroundColor: Record<ToastVariantType, string> = {
       default: "blue",
       positive: "green",
@@ -61,10 +80,6 @@ const Container = styled.div<{ isClosing: boolean; variant: ToastVariantType | u
 
     return theme.colors[backgroundColor[variant]];
   }};
-  padding: 1rem;
-  color: ${({ theme }) => theme.colors.white};
-  border-radius: 8px;
-  margin-bottom: 1rem;
   &:last-child {
     margin-bottom: 0;
   }
@@ -76,3 +91,11 @@ const Container = styled.div<{ isClosing: boolean; variant: ToastVariantType | u
       transition: transform ${ANIMATION_TIME}ms linear;
     `}
 `;
+
+const variantIcons: Record<ToastVariantType, StyledIcon> = {
+  default: InfoCircleFill,
+  positive: CheckCircleFill,
+  warning: Alert,
+  negative: CloseCircle,
+  neutral: InfoCircleFill,
+};
