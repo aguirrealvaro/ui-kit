@@ -50,6 +50,7 @@ const Ball = styled.span<{ checked: boolean }>`
   top: 0;
   left: ${({ checked }) => (checked ? "25px" : 0)};
   transform: scale(0.8);
+  //box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
   background: #fff;
   width: 25px;
   height: 25px;
