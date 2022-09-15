@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import { createPortal } from "react-dom";
 import styled from "styled-components";
-import { Toast } from ".";
+import { Toast } from "./Toast";
 import { ToastProps } from "./Toast.types";
 
 type ToastContainerProps = {
