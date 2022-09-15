@@ -1,7 +1,8 @@
 import { FunctionComponent } from "react";
 import styled from "styled-components";
-import { ANIMATION_TIME, NavbarItem } from ".";
 import { Logo, MainMenu, DropdownMenu, Burger, MobileMenu } from "./components";
+import { ANIMATION_TIME } from "./Navbar.constants";
+import { NavbarItem } from "./Navbar.types";
 import { useDisclosure, useDisableScroll } from "@/hooks";
 
 type NavbarProps = {

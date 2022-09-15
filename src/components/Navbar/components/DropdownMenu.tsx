@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 import { ChevronDown } from "@styled-icons/boxicons-regular/ChevronDown";
 import { UserCircle } from "@styled-icons/boxicons-solid/UserCircle";
 import styled from "styled-components";
-import { NavbarItem } from "../types";
+import { NavbarItem } from "../Navbar.types";
 import { Dropdown, Icon } from "@/components";
 
 type MainMenuProps = { user: string; items: NavbarItem[] };

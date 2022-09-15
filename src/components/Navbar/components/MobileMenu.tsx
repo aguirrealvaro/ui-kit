@@ -1,8 +1,8 @@
 import { FunctionComponent, useRef } from "react";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import styled, { css, keyframes } from "styled-components";
-import { ANIMATION_TIME } from "../constants";
-import { NavbarItem } from "../types";
+import { ANIMATION_TIME } from "../Navbar.constants";
+import { NavbarItem } from "../Navbar.types";
 import { Icon } from "@/components";
 import { theme } from "@/components/App";
 import { useOutsideClick } from "@/hooks";

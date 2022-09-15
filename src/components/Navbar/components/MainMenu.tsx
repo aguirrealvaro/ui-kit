@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import styled from "styled-components";
-import { NavbarItem } from "../types";
+import { NavbarItem } from "../Navbar.types";
 
 type MainMenuProps = { items: NavbarItem[] };
 
