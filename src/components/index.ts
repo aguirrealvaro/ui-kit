@@ -21,3 +21,4 @@ export { ShowMore } from "./ShowMore";
 export { Alert } from "./Alert";
 export { Badge } from "./Badge";
 export { Breadcrumbs } from "./Breadcrumbs";
+export { Switch } from "./Switch";
