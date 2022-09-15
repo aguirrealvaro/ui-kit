@@ -37,7 +37,7 @@ const Container = styled.div<{ size: number; isError: boolean }>`
       width: ${size}px;
       height: ${size}px;
     `;
-  }}
+  }};
   ${({ isError, theme }) => {
     if (isError) {
       return css`
@@ -49,7 +49,7 @@ const Container = styled.div<{ size: number; isError: boolean }>`
         overflow: hidden;
       `;
     }
-  }}
+  }};
 `;
 
 const Name = styled.span`
