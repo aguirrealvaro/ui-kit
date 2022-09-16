@@ -4,19 +4,18 @@ import styled from "styled-components";
 import { TooltipProps } from "../Tooltip/Tooltip";
 import { Icon, Tooltip } from "@/components";
 
-type ExclamationTooltip = {
+type InfotipProps = {
   size?: number;
   className?: string;
 } & TooltipProps;
 
-export const ExclamationTooltip: FunctionComponent<ExclamationTooltip> = ({
-  size = 15,
-  ...restProps
-}) => (
-  <CustomTooltip {...restProps}>
-    <Icon icon={ExclamationCircle} size={size} />
-  </CustomTooltip>
-);
+export const Infotip: FunctionComponent<InfotipProps> = ({ size = 15, ...restProps }) => {
+  return (
+    <CustomTooltip {...restProps}>
+      <Icon icon={ExclamationCircle} size={size} />
+    </CustomTooltip>
+  );
+};
 
 const CustomTooltip = styled(Tooltip)`
   line-height: 0;

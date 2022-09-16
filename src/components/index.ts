@@ -3,7 +3,7 @@ export { Input } from "./Input";
 export { Modal, ModalHeader, ModalContent, ModalFooter } from "./Modal";
 export { SVGIcon } from "./SVGIcon";
 export { Tooltip } from "./Tooltip";
-export { ExclamationTooltip } from "./ExclamationTooltip";
+export { Infotip } from "./Infotip";
 export { Dropdown } from "./Dropdown";
 export { Navbar } from "./Navbar";
 export { Accordion } from "./Accordion";

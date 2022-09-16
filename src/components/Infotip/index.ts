@@ -1,0 +1,1 @@
+export { Infotip } from "./Infotip";
