@@ -23,6 +23,7 @@ export const Primary: ComponentStory<typeof Radio> = () => {
         position="left"
         onChange={onChange}
         radioSize="xs"
+        disabled
       >
         Input at left 1
       </Radio>

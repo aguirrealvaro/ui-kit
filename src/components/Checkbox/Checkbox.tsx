@@ -44,7 +44,7 @@ export const Checkbox: FunctionComponent<
 };
 
 const HiddenInput = styled.input`
-  /* ${hiddenStyles}; */
+  ${hiddenStyles};
 `;
 
 const Container = styled.div`
