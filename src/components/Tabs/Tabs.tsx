@@ -47,6 +47,8 @@ const TabList = styled.div`
   display: flex;
   margin-bottom: 1rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  //overflow-y: hidden;
+  flex-wrap: wrap;
 `;
 
 const TabItem = styled.div<{ active: boolean }>`

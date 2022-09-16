@@ -12,6 +12,10 @@ export const Primary: ComponentStory<typeof Tabs> = () => {
       <Tab title="Title 1">Panel 1</Tab>
       <Tab title="Title 2">Panel 2</Tab>
       <Tab title="Title 3">Panel 3</Tab>
+      <Tab title="Title 4">Panel 4</Tab>
+      <Tab title="Title 5">Panel 5</Tab>
+      <Tab title="Title 6">Panel 6</Tab>
+      <Tab title="Title 7">Panel 7</Tab>
     </Tabs>
   );
 };
