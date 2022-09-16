@@ -1,7 +1,7 @@
 import { FunctionComponent, InputHTMLAttributes, ReactNode } from "react";
 import { Checkbox as CheckboxUnchecked } from "@styled-icons/boxicons-regular/Checkbox";
 import { CheckboxChecked } from "@styled-icons/boxicons-solid/CheckboxChecked";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { hiddenStyles, theme } from "../App";
 import { Icon } from "../Icon";
 import { SIZES } from "./Checkbox.constants";
@@ -12,6 +12,7 @@ type CheckboxProps = {
   checkboxSize?: SizeType;
   position?: PositionType;
   color?: string;
+  disabled?: boolean;
 };
 
 export const Checkbox: FunctionComponent<
@@ -22,6 +23,7 @@ export const Checkbox: FunctionComponent<
   position = "right",
   checked,
   color = theme.colors.blue,
+  disabled = false,
   ...restProps
 }) => {
   const size = SIZES[checkboxSize];
@@ -30,10 +32,10 @@ export const Checkbox: FunctionComponent<
 
   return (
     <label>
-      <HiddenInput type="checkbox" checked={checked} {...restProps} />
+      <HiddenInput type="checkbox" checked={checked} {...restProps} disabled={disabled} />
       <Container>
-        <Wrapper position={position}>
-          <Icon icon={icon} color={color} size={size} />
+        <Wrapper position={position} disabled={disabled}>
+          <Icon icon={icon} color={disabled ? "#cecece" : color} size={size} />
         </Wrapper>
         {children && <Label position={position}>{children}</Label>}
       </Container>
@@ -42,7 +44,7 @@ export const Checkbox: FunctionComponent<
 };
 
 const HiddenInput = styled.input`
-  ${hiddenStyles};
+  /* ${hiddenStyles}; */
 `;
 
 const Container = styled.div`
@@ -51,8 +53,15 @@ const Container = styled.div`
   gap: 0.5rem;
 `;
 
-const Wrapper = styled.div<{ position: PositionType }>`
+const Wrapper = styled.div<{ position: PositionType; disabled: boolean }>`
   order: ${({ position }) => (position === "left" ? 1 : 2)};
+  ${({ disabled }) => {
+    if (disabled) {
+      return css`
+        cursor: not-allowed;
+      `;
+    }
+  }}
 `;
 
 const Label = styled.div<{ position: PositionType }>`
