@@ -1,11 +1,11 @@
 import { FunctionComponent } from "react";
 import styled, { css } from "styled-components";
-import { SIZES } from "./Spinner.constants";
-import { SizeType } from "./Spinner.types";
+import { BACKGROUND_COLOR, SIZES } from "./Spinner.constants";
+import { SizeType, BackgroundType } from "./Spinner.types";
 
 type SpinnerProps = {
   color?: string;
-  background?: string;
+  background?: BackgroundType;
   size?: SizeType;
   fullHeight?: boolean;
   className?: string;
@@ -13,14 +13,16 @@ type SpinnerProps = {
 
 export const Spinner: FunctionComponent<SpinnerProps> = ({
   color = "black",
-  background = "rgba(0, 0, 0, 0.2)",
+  background = "dark",
   size = "md",
   fullHeight = false,
   className,
 }) => {
+  const backgroundColor = BACKGROUND_COLOR[background];
+
   return (
     <Container fullHeight={fullHeight} className={className}>
-      <Loader color={color} background={background} size={size} />
+      <Loader color={color} background={backgroundColor} size={size} />
     </Container>
   );
 };
@@ -33,7 +35,7 @@ const Container = styled.div<{ fullHeight?: boolean }>`
   height: ${({ fullHeight }) => fullHeight && "100vh"};
 `;
 
-const Loader = styled.div<SpinnerProps>`
+const Loader = styled.div<{ size: SizeType; color: string; background: string }>`
   border-radius: 50%;
   animation: spin 1.5s linear infinite;
   ${({ size, color, background }) => {

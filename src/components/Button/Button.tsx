@@ -1,5 +1,6 @@
 import { FunctionComponent, ButtonHTMLAttributes } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
+import { StyledIcon } from "styled-icons/types";
 import { theme } from "../App";
 import { Spinner } from "../Spinner";
 import { ANIMATION_TIME } from "./Button.constants";
@@ -12,6 +13,7 @@ type ButtonProps = {
   size?: SizeType;
   variant?: VariantType;
   shape?: ShapeType;
+  icon?: StyledIcon;
 };
 
 export const Button: FunctionComponent<
@@ -32,6 +34,11 @@ export const Button: FunctionComponent<
     onClick?.(e);
   };
 
+  const renderChildren = () => {
+    if (isLoading) return <Spinner size="xs" background="light" />;
+    return children;
+  };
+
   return (
     <CustomButton
       block={block}
@@ -42,7 +49,7 @@ export const Button: FunctionComponent<
       shape={shape}
       {...restProps}
     >
-      {isLoading ? <Spinner size="xs" /> : children}
+      {renderChildren()}
     </CustomButton>
   );
 };

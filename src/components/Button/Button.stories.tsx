@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Button } from "@/components";
+import { Button, Spinner } from "@/components";
 
 export default {
   title: "Components/Button",
@@ -67,6 +67,11 @@ export const Primary: ComponentStory<typeof Button> = () => {
         <Button shape="pill">Pill</Button>
         <Button shape="circle">Circle</Button>
         <Button shape="rectangle">Rectangle</Button>
+      </div>
+      <div>
+        <Button shape="default" isLoading>
+          Default
+        </Button>
       </div>
     </div>
   );
