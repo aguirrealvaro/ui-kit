@@ -8,16 +8,21 @@ export default {
 } as ComponentMeta<typeof NumberInput>;
 
 export const Primary: ComponentStory<typeof NumberInput> = () => {
-  const [name, setName] = useState<string>("");
+  const [quantity, setQuantity] = useState<number | undefined>(undefined);
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value);
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setQuantity(Number(e.target.value));
+  };
 
   return (
     <NumberInput
       placeholder="Placeholder"
       onChange={onChange}
-      value={name}
-      helpText="Help text"
+      value={quantity}
+      helpText="This is a number input"
+      //max={100}
+      //min={1}
+      //step={1}
     />
   );
 };

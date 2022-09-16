@@ -8,6 +8,8 @@ import {
   useState,
 } from "react";
 import { CheckCircleFill } from "@styled-icons/bootstrap/CheckCircleFill";
+import { Minus } from "@styled-icons/boxicons-regular/Minus";
+import { Plus } from "@styled-icons/boxicons-regular/Plus";
 import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
 import styled, { css } from "styled-components";
 import { ANIMATION_TIME } from "./NumberInput.constants";
@@ -53,17 +55,13 @@ export const NumberInput: FunctionComponent<
     ...restProps,
   };
 
-  const showSideContainer = isLoading || !!error || isSuccess || false;
-
   const sideContainerRef = useRef<HTMLDivElement>(null);
 
   const [sideContainerWidth, setSideContainerWidth] = useState<number | undefined>(undefined);
 
   useLayoutEffect(() => {
-    if (!showSideContainer) return;
-
     setSideContainerWidth(sideContainerRef.current?.offsetWidth);
-  }, [showSideContainer]);
+  }, []);
 
   return (
     <div className={className}>
@@ -87,13 +85,19 @@ export const NumberInput: FunctionComponent<
           />
           <Placeholder htmlFor={inputId}>{placeholder}</Placeholder>
         </InnerContainer>
-        {showSideContainer && (
-          <SideContainer ref={sideContainerRef}>
-            {isLoading && <Spinner size="xs" />}
-            {error && <Icon icon={CloseCircle} size={18} color={theme.colors.red} />}
-            {isSuccess && <Icon icon={CheckCircleFill} size={18} color={theme.colors.green} />}
-          </SideContainer>
-        )}
+        <SideContainer ref={sideContainerRef}>
+          {isLoading && <Spinner size="xs" />}
+          {error && <Icon icon={CloseCircle} size={18} color={theme.colors.red} />}
+          {isSuccess && <Icon icon={CheckCircleFill} size={18} color={theme.colors.green} />}
+          <StepContainer>
+            <StepButton onClick={() => inputRef.current?.stepDown()}>
+              <Icon icon={Minus} size={22} color={theme.colors.black} />
+            </StepButton>
+            <StepButton onClick={() => inputRef.current?.stepUp()}>
+              <Icon icon={Plus} size={22} color={theme.colors.black} />
+            </StepButton>
+          </StepContainer>
+        </SideContainer>
       </InputContainer>
       {(helpText || error) && <BottomText error={!!error}>{error || helpText}</BottomText>}
     </div>
@@ -149,6 +153,7 @@ const SideContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
+  align-items: stretch;
 `;
 
 const Placeholder = styled.label`
@@ -223,10 +228,29 @@ const CustomInput = styled.input<{
   &:disabled {
     cursor: not-allowed;
   }
+
+  ::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type="number"] {
+    -moz-appearance: textfield;
+  }
 `;
 
 const BottomText = styled.div<{ error: boolean }>`
   font-size: 13px;
   margin: 0.5rem 1rem 0 1rem;
   color: ${({ error, theme }) => theme.colors[error ? "red" : "grey"]};
+`;
+
+const StepContainer = styled.div`
+  display: flex;
+  gap: 8px;
+`;
+
+const StepButton = styled.button`
+  line-height: 0;
 `;
