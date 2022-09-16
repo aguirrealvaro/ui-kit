@@ -51,7 +51,7 @@ export const Slider: FunctionComponent<SliderProps> = ({
   }, [translate]);
 
   return (
-    <Container>
+    <Container role="slider">
       <Overflow>
         <SlideContainer translate={translate} ref={sliderRef} gap={parsedGap}>
           {Children.map(children, (child) => (

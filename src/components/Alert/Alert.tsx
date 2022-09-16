@@ -16,7 +16,7 @@ type AlertProps = {
 
 export const Alert: FunctionComponent<AlertProps> = ({ children, variant = "default" }) => {
   return (
-    <Container variant={variant}>
+    <Container variant={variant} role="alert">
       <span>{children}</span>
       <div>
         <Icon

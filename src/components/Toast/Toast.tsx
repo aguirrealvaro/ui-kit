@@ -49,7 +49,7 @@ export const Toast: FunctionComponent<ToastProps> = ({
   }, []);
 
   return (
-    <Container onClick={closeToast} isClosing={isClosing} variant={variant}>
+    <Container onClick={closeToast} isClosing={isClosing} variant={variant} role="alert">
       <Icon icon={variantIcons[variant]} size={18} color={theme.colors.white} />
       <div>{children}</div>
     </Container>
