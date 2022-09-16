@@ -75,6 +75,7 @@ export const NumberInput: FunctionComponent<
       >
         <InnerContainer>
           <CustomInput
+            type="number"
             id={inputId}
             hasPlaceholder={!!placeholder}
             ref={inputRef}

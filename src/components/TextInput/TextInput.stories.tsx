@@ -18,7 +18,6 @@ export const Primary: ComponentStory<typeof TextInput> = () => {
       onChange={onChange}
       value={name}
       helpText="Help text"
-      //isLoading
     />
   );
 };
