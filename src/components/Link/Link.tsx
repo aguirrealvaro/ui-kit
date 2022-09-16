@@ -1,7 +1,7 @@
 import { FunctionComponent, AnchorHTMLAttributes, ReactNode } from "react";
 import styled, { css } from "styled-components";
 
-type LinkProps = {
+export type LinkProps = {
   children: ReactNode;
   hideUnderline?: boolean;
   disabled?: boolean;

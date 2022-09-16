@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Breadcrumbs, Link } from "@/components";
+import { Breadcrumbs, BreadcrumbItem } from "@/components";
 
 export default {
   title: "Components/Breadcrumbs",
@@ -9,9 +9,9 @@ export default {
 export const Primary: ComponentStory<typeof Breadcrumbs> = () => {
   return (
     <Breadcrumbs>
-      <Link href="#parent">Parent Page</Link>
-      <Link href="#sub">Sub-Parent Page</Link>
-      <span>Current page</span>
+      <BreadcrumbItem href="#parent">Parent Page</BreadcrumbItem>
+      <BreadcrumbItem href="#sub">Sub-Parent Page</BreadcrumbItem>
+      <BreadcrumbItem isCurrentPage>Current page</BreadcrumbItem>
     </Breadcrumbs>
   );
 };
