@@ -3,7 +3,7 @@ import { ChevronLeft } from "@styled-icons/boxicons-regular/ChevronLeft";
 import { ChevronRight } from "@styled-icons/boxicons-regular/ChevronRight";
 import styled, { css } from "styled-components";
 import { StyledIcon } from "styled-icons/types";
-import { DirectionType } from "../Slider.types";
+import { DirectionType } from "../Caroussel.types";
 import { Icon } from "@/components";
 import { theme } from "@/components/App";
 

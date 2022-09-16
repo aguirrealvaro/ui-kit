@@ -1,12 +1,12 @@
 import { FunctionComponent, Children, useState, useRef, useEffect, ReactNode } from "react";
 import styled from "styled-components";
+import { useDisableRightArrow } from "./Caroussel.hooks";
+import { DirectionType } from "./Caroussel.types";
 import { Arrow } from "./components";
-import { useDisableRightArrow } from "./Slider.hooks";
-import { DirectionType } from "./Slider.types";
 
 const ANIMATION_TIME = 400;
 
-type SliderProps = {
+type CarousselProps = {
   children: ReactNode;
   gap?: number;
   callbackLeft?: () => void;
@@ -14,7 +14,7 @@ type SliderProps = {
   fullWidth?: boolean;
 };
 
-export const Slider: FunctionComponent<SliderProps> = ({
+export const Caroussel: FunctionComponent<CarousselProps> = ({
   children,
   gap = 16,
   callbackLeft,
@@ -22,14 +22,14 @@ export const Slider: FunctionComponent<SliderProps> = ({
   fullWidth = false,
 }) => {
   const [translate, setTranslate] = useState<number>(0);
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const disabledRightArrow = useDisableRightArrow(translate, sliderRef);
+  const carousselRef = useRef<HTMLDivElement>(null);
+  const disabledRightArrow = useDisableRightArrow(translate, carousselRef);
 
   const parsedGap = fullWidth ? 0 : gap;
 
   const handleArrow = (direction: DirectionType) => {
-    const sliderWidth = sliderRef.current?.scrollWidth || 0;
-    const clientWidth = sliderRef.current?.clientWidth || 0;
+    const carousselWidth = carousselRef.current?.scrollWidth || 0;
+    const clientWidth = carousselRef.current?.clientWidth || 0;
 
     if (direction === "left") {
       const result = translate - clientWidth;
@@ -37,7 +37,7 @@ export const Slider: FunctionComponent<SliderProps> = ({
       callbackLeft?.();
     } else {
       const result = translate + clientWidth;
-      const limit = sliderWidth - clientWidth;
+      const limit = carousselWidth - clientWidth;
       setTranslate(result >= limit ? limit : result);
       callbackRight?.();
     }
@@ -53,7 +53,7 @@ export const Slider: FunctionComponent<SliderProps> = ({
   return (
     <Container role="slider">
       <Overflow>
-        <SlideContainer translate={translate} ref={sliderRef} gap={parsedGap}>
+        <SlideContainer translate={translate} ref={carousselRef} gap={parsedGap}>
           {Children.map(children, (child) => (
             <Slide fullWidth={fullWidth}>{child}</Slide>
           ))}

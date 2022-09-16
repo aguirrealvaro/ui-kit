@@ -1,21 +1,21 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import styled from "styled-components";
-import { Slider } from "@/components";
+import { Caroussel } from "@/components";
 
 export default {
-  title: "Components/Slider",
-  component: Slider,
-} as ComponentMeta<typeof Slider>;
+  title: "Components/Caroussel",
+  component: Caroussel,
+} as ComponentMeta<typeof Caroussel>;
 
-export const Primary: ComponentStory<typeof Slider> = () => {
+export const Primary: ComponentStory<typeof Caroussel> = () => {
   const array = [...Array(50).keys()];
 
   return (
-    <Slider>
+    <Caroussel>
       {array.map((item, i) => (
         <Container key={i}>{item}</Container>
       ))}
-    </Slider>
+    </Caroussel>
   );
 };
 
