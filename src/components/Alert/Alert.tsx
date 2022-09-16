@@ -72,19 +72,19 @@ const variantStyles: Record<VariantType, FlattenSimpleInterpolation> = {
 
 const sizeStyles: Record<SizeType, FlattenSimpleInterpolation> = {
   xs: css`
-    padding: 8px;
+    padding: 8px 12px;
     font-size: 12px;
   `,
   sm: css`
-    padding: 12px;
+    padding: 12px 16px;
     font-size: 14px;
   `,
   md: css`
-    padding: 16px;
+    padding: 16px 20px;
     font-size: 16px;
   `,
   lg: css`
-    padding: 20px;
+    padding: 20px 24px;
     font-size: 18px;
   `,
 };
