@@ -1,5 +1,6 @@
 import { FunctionComponent, Children, ReactNode, useState, isValidElement } from "react";
 import styled, { css } from "styled-components";
+import { TabProps } from "./components/Tab";
 
 type TabsProps = {
   children: ReactNode;
@@ -8,21 +9,19 @@ type TabsProps = {
 export const Tabs: FunctionComponent<TabsProps> = ({ children }) => {
   const [activeKey, setActiveKey] = useState<number>(0);
 
-  const handleClickTab = (tab: number) => {
-    setActiveKey(tab);
-  };
-
   return (
     <div>
       <TabList role="tablist">
         {Children.map(children, (child, index) => {
           if (!isValidElement(child)) return;
+
           const { title } = child.props as TabProps;
+
           return (
             <TabItem
               role="tab"
               active={activeKey === index}
-              onClick={() => handleClickTab(index)}
+              onClick={() => setActiveKey(index)}
             >
               {title}
             </TabItem>
@@ -32,22 +31,16 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children }) => {
       <div>
         {Children.map(children, (child, index) => {
           if (!isValidElement(child)) return;
+
           const { children } = child.props as TabProps;
+
           if (activeKey !== index) return null;
+
           return <div role="tabpanel">{children}</div>;
         })}
       </div>
     </div>
   );
-};
-
-type TabProps = {
-  children: ReactNode;
-  title: string;
-};
-
-export const Tab: FunctionComponent<TabProps> = ({ children }) => {
-  return <div>{children}</div>;
 };
 
 const TabList = styled.div`
