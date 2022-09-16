@@ -5,18 +5,23 @@ import { Alert as AlertIcon } from "@styled-icons/remix-fill/Alert";
 import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { StyledIcon } from "styled-icons/types";
-import { VariantType } from "./Alert.types";
+import { SizeType, VariantType } from "./Alert.types";
 import { Icon } from "@/components";
 import { theme } from "@/components/App";
 
 type AlertProps = {
   children: ReactNode;
   variant?: VariantType;
+  size?: SizeType;
 };
 
-export const Alert: FunctionComponent<AlertProps> = ({ children, variant = "default" }) => {
+export const Alert: FunctionComponent<AlertProps> = ({
+  children,
+  variant = "default",
+  size = "sm",
+}) => {
   return (
-    <Container variant={variant} role="alert">
+    <Container variant={variant} size={size} role="alert">
       <span>{children}</span>
       <div>
         <Icon
@@ -65,10 +70,30 @@ const variantStyles: Record<VariantType, FlattenSimpleInterpolation> = {
   `,
 };
 
-const Container = styled.div<{ variant: VariantType }>`
-  padding: 1rem 1.25rem;
+const sizeStyles: Record<SizeType, FlattenSimpleInterpolation> = {
+  xs: css`
+    padding: 8px;
+    font-size: 12px;
+  `,
+  sm: css`
+    padding: 12px;
+    font-size: 14px;
+  `,
+  md: css`
+    padding: 16px;
+    font-size: 16px;
+  `,
+  lg: css`
+    padding: 20px;
+    font-size: 18px;
+  `,
+};
+
+const Container = styled.div<{ variant: VariantType; size: SizeType }>`
   border-radius: 8px;
   ${({ variant }) => variantStyles[variant]};
+  ${({ size }) => sizeStyles[size]};
+
   display: flex;
   justify-content: space-between;
   align-items: center;
