@@ -2,7 +2,7 @@ import { FunctionComponent, ReactNode } from "react";
 
 export type TabProps = {
   children: ReactNode;
-  title: string;
+  title: ReactNode;
 };
 
 export const Tab: FunctionComponent<TabProps> = ({ children }) => {

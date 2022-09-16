@@ -1,2 +1,2 @@
 export { Modal } from "./Modal";
-export { ModalHeader, ModalContent, ModalFooter } from "./Modal.layout";
+export { ModalHeader, ModalContent, ModalFooter } from "./components";

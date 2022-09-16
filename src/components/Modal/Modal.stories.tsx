@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import styled from "styled-components";
-import { ModalHeader, ModalContent, ModalFooter } from "./Modal.layout";
+import { ModalHeader, ModalContent, ModalFooter } from "./components";
 import { Modal } from "@/components";
 import { useDisclosure } from "@/hooks";
 
