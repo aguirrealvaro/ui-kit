@@ -9,6 +9,7 @@ type SwitchProps = {
   switchSize?: SizeType;
   position?: PositionType;
   color?: string;
+  disabled?: boolean;
 };
 
 export const Switch: FunctionComponent<
@@ -19,16 +20,17 @@ export const Switch: FunctionComponent<
   position = "right",
   checked,
   color = theme.colors.blue,
+  disabled = false,
   ...restProps
 }) => {
   const size = SIZES[switchSize];
 
   return (
     <label>
-      <HiddenInput type="checkbox" checked={checked} {...restProps} />
-      <Container>
+      <HiddenInput type="checkbox" checked={checked} disabled={disabled} {...restProps} />
+      <Container disabled={disabled}>
         <Wrapper position={position}>
-          <Pill checked={checked || false} size={size} color={color}>
+          <Pill checked={checked || false} size={size} color={color} disabled={disabled}>
             <Ball checked={checked || false} size={size} />
           </Pill>
         </Wrapper>
@@ -42,17 +44,25 @@ const HiddenInput = styled.input`
   ${hiddenStyles};
 `;
 
-const Container = styled.div`
+const Container = styled.div<{ disabled: boolean }>`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  ${({ disabled }) => {
+    if (disabled) {
+      return css`
+        cursor: not-allowed;
+        color: #cecece;
+      `;
+    }
+  }}
 `;
 
 const Wrapper = styled.div<{ position: PositionType }>`
   order: ${({ position }) => (position === "left" ? 1 : 2)};
 `;
 
-const Pill = styled.span<{ checked: boolean; size: number; color: string }>`
+const Pill = styled.span<{ checked: boolean; size: number; color: string; disabled: boolean }>`
   display: inline-flex;
   cursor: pointer;
   position: relative;
@@ -70,6 +80,14 @@ const Pill = styled.span<{ checked: boolean; size: number; color: string }>`
       return css`
         background-color: #c6c6c6;
         box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+      `;
+    }
+  }}
+  ${({ disabled }) => {
+    if (disabled) {
+      return css`
+        cursor: not-allowed;
+        opacity: 0.5;
       `;
     }
   }}

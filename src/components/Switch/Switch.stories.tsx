@@ -13,12 +13,12 @@ export const Primary: ComponentStory<typeof Switch> = () => {
 
   return (
     <Conatiner>
-      <Switch checked={checked} onChange={setChecked.toggle} switchSize="xs" />
+      <Switch checked={checked} onChange={setChecked.toggle} switchSize="xs" disabled />
       <Switch checked={checked} onChange={setChecked.toggle} switchSize="sm" />
       <Switch checked={checked} onChange={setChecked.toggle} switchSize="md" />
       <Switch checked={checked} onChange={setChecked.toggle} switchSize="lg" />
 
-      <Switch checked={checked} onChange={setChecked.toggle} position="left">
+      <Switch checked={checked} onChange={setChecked.toggle} position="left" disabled>
         Input at left
       </Switch>
       <Switch checked={checked} onChange={setChecked.toggle} position="right">

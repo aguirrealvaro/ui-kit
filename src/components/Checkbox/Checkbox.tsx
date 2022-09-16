@@ -33,8 +33,8 @@ export const Checkbox: FunctionComponent<
   return (
     <label>
       <HiddenInput type="checkbox" checked={checked} {...restProps} disabled={disabled} />
-      <Container>
-        <Wrapper position={position} disabled={disabled}>
+      <Container disabled={disabled}>
+        <Wrapper position={position}>
           <Icon icon={icon} color={disabled ? "#cecece" : color} size={size} />
         </Wrapper>
         {children && <Label position={position}>{children}</Label>}
@@ -47,21 +47,22 @@ const HiddenInput = styled.input`
   ${hiddenStyles};
 `;
 
-const Container = styled.div`
+const Container = styled.div<{ disabled: boolean }>`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-`;
-
-const Wrapper = styled.div<{ position: PositionType; disabled: boolean }>`
-  order: ${({ position }) => (position === "left" ? 1 : 2)};
   ${({ disabled }) => {
     if (disabled) {
       return css`
         cursor: not-allowed;
+        color: #cecece;
       `;
     }
   }}
+`;
+
+const Wrapper = styled.div<{ position: PositionType }>`
+  order: ${({ position }) => (position === "left" ? 1 : 2)};
 `;
 
 const Label = styled.div<{ position: PositionType }>`

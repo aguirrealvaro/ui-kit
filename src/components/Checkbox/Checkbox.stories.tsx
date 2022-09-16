@@ -18,7 +18,7 @@ export const Primary: ComponentStory<typeof Checkbox> = () => {
       <Checkbox checked={checked} onChange={setChecked.toggle} checkboxSize="md" />
       <Checkbox checked={checked} onChange={setChecked.toggle} checkboxSize="lg" />
 
-      <Checkbox checked={checked} onChange={setChecked.toggle} position="left">
+      <Checkbox checked={checked} onChange={setChecked.toggle} position="left" disabled>
         Input at left
       </Checkbox>
       <Checkbox checked={checked} onChange={setChecked.toggle} position="right">
