@@ -89,19 +89,12 @@ const getSizeStyles = (size: SizeType): FlattenSimpleInterpolation => {
 };
 
 const getShapeStyles = (shape: ShapeType): FlattenSimpleInterpolation => {
-  const shapeOptions = {
+  const shapeOptions: Record<ShapeType, FlattenSimpleInterpolation> = {
     default: css`
       border-radius: 4px;
     `,
     pill: css`
       border-radius: 42px;
-    `,
-    circle: css`
-      border-radius: 100%;
-      width: 56px;
-      height: 56px;
-      padding: 0;
-      text-align: center;
     `,
     rectangle: css`
       border-radius: 0px;

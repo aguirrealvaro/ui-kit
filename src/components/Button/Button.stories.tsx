@@ -67,7 +67,6 @@ export const Primary: ComponentStory<typeof Button> = () => {
       <Flex>
         <Button shape="default">Default</Button>
         <Button shape="pill">Pill</Button>
-        <Button shape="circle">Circle</Button>
         <Button shape="rectangle">Rectangle</Button>
       </Flex>
       <Flex>
@@ -86,4 +85,5 @@ const Flex = styled.div`
   display: flex;
   gap: 1rem;
   align-items: center;
+  margin-bottom: 1rem;
 `;
