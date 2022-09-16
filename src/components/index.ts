@@ -1,5 +1,5 @@
 export { Spinner } from "./Spinner";
-export { Input } from "./Input";
+export { TextInput } from "./TextInput";
 export { Modal, ModalHeader, ModalContent, ModalFooter } from "./Modal";
 export { SVGIcon } from "./SVGIcon";
 export { Tooltip } from "./Tooltip";

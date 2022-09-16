@@ -79,7 +79,9 @@ export const Select: FunctionComponent<SelectProps> = ({
           <Placeholder shouldAnimate={isSelected ? true : isOpen} isOpen={isOpen}>
             {placeholder}
           </Placeholder>
-          <SelectedValue isSelected={isSelected}>{selectedValue}</SelectedValue>
+          {selectedValue && (
+            <SelectedValue isSelected={isSelected}>{selectedValue}</SelectedValue>
+          )}
         </InnerContainer>
         <SideContainer>
           {isLoading && <Spinner size="xs" />}

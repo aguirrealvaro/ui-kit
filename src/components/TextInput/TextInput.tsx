@@ -10,11 +10,11 @@ import {
 import { CheckCircleFill } from "@styled-icons/bootstrap/CheckCircleFill";
 import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
 import styled, { css } from "styled-components";
-import { ANIMATION_TIME } from "./Input.constants";
+import { ANIMATION_TIME } from "./TextInput.constants";
 import { Spinner, Icon } from "@/components";
 import { theme } from "@/components/App";
 
-type InputProps = {
+type TextInputProps = {
   helpText?: ReactNode;
   error?: string;
   isSuccess?: boolean;
@@ -23,7 +23,9 @@ type InputProps = {
   isLoading?: boolean;
 };
 
-export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInputElement>> = ({
+export const TextInput: FunctionComponent<
+  TextInputProps & InputHTMLAttributes<HTMLInputElement>
+> = ({
   placeholder,
   onChange,
   helpText,
@@ -139,7 +141,6 @@ const InputContainer = styled.div<{
 
 const InnerContainer = styled.div`
   width: 100%;
-  padding: 0 1rem;
 `;
 
 const SideContainer = styled.div`
@@ -176,6 +177,7 @@ const CustomInput = styled.input<{
   border: none;
   background-color: transparent;
   position: absolute;
+  padding: 0 1rem;
   width: ${({ sideWidth }) => {
     if (sideWidth) {
       return `calc(100% - ${sideWidth}px - 20px)`;
