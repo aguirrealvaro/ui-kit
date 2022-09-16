@@ -2,6 +2,7 @@ import { FunctionComponent, ButtonHTMLAttributes } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { StyledIcon } from "styled-icons/types";
 import { theme } from "../App";
+import { Icon } from "../Icon";
 import { Spinner } from "../Spinner";
 import { ANIMATION_TIME } from "./Button.constants";
 import { KindType, SizeType, VariantType, ShapeType } from "./Button.types";
@@ -27,6 +28,7 @@ export const Button: FunctionComponent<
   size = "md",
   variant = "default",
   shape = "default",
+  icon,
   ...restProps
 }) => {
   const handleOnClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -36,7 +38,12 @@ export const Button: FunctionComponent<
 
   const renderChildren = () => {
     if (isLoading) return <Spinner size="xs" background="light" />;
-    return children;
+    return (
+      <InnerContainer>
+        {icon && <Icon icon={icon} color={theme.colors.white} size={20} />}
+        <div>{children}</div>
+      </InnerContainer>
+    );
   };
 
   return (
@@ -284,4 +291,10 @@ const CustomButton = styled.button<{
     cursor: not-allowed;
     color: #afafaf;
   }
+`;
+
+const InnerContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
 `;
