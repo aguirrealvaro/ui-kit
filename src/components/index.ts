@@ -27,3 +27,4 @@ export { Avatar } from "./Avatar";
 export { Table } from "./Table";
 export { Tabs, Tab } from "./Tabs";
 export { List, ListItem } from "./List";
+export { NumberInput } from "./NumberInput";
