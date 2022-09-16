@@ -111,8 +111,8 @@ const getColorStyles = (variant: VariantType, kind: KindType): FlattenSimpleInte
       color: ${theme.colors.white};
       border-color: ${theme.colors.blue};
       &:hover {
-        background-color: #014ca7;
-        border-color: #014ca7;
+        background-color: #328eff;
+        border-color: #328eff;
       }
     `,
     positive: css`
@@ -120,8 +120,8 @@ const getColorStyles = (variant: VariantType, kind: KindType): FlattenSimpleInte
       color: ${theme.colors.white};
       border-color: ${theme.colors.green};
       &:hover {
-        background-color: #03753e;
-        border-color: #03753e;
+        background-color: #04aa5a;
+        border-color: #04aa5a;
       }
     `,
     warning: css`
@@ -129,8 +129,8 @@ const getColorStyles = (variant: VariantType, kind: KindType): FlattenSimpleInte
       color: ${theme.colors.black};
       border-color: ${theme.colors.yellow};
       &:hover {
-        background-color: #dda534;
-        border-color: #dda534;
+        background-color: #f5cf82;
+        border-color: #f5cf82;
       }
     `,
     negative: css`
@@ -138,14 +138,18 @@ const getColorStyles = (variant: VariantType, kind: KindType): FlattenSimpleInte
       color: ${theme.colors.white};
       border-color: ${theme.colors.red};
       &:hover {
-        background-color: #b33844;
-        border-color: #b33844;
+        background-color: #e06470;
+        border-color: #e06470;
       }
     `,
     neutral: css`
       background-color: ${theme.colors.black};
       color: ${theme.colors.white};
       border-color: ${theme.colors.black};
+      &:hover {
+        background-color: #303030;
+        border-color: #303030;
+      }
     `,
   };
 
