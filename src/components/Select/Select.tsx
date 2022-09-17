@@ -253,6 +253,8 @@ const BottomText = styled.div<{ error: boolean }>`
 const ChevronWrapper = styled.div<{ active: boolean }>`
   transform: ${({ active }) => `rotate(${active ? "-180" : 0}deg)`};
   transition: transform ${ANIMATION_TIME}ms ease;
+  display: flex;
+  align-items: center;
 `;
 
 const ButtonClear = styled.button`
