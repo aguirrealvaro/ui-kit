@@ -68,19 +68,19 @@ export const Popover: FunctionComponent<PopoverProps> = ({
 
     const positions: Record<PlacementType, CoordsType> = {
       top: {
-        top: childTop - popoverHeight - gap,
+        top: childTop - popoverHeight - gap + window.scrollY,
         left: childLeft + (childWidth - popoverWidth) / 2,
       },
       right: {
-        top: childTop + (childHeight - popoverHeight) / 2,
+        top: childTop + (childHeight - popoverHeight) / 2 + window.scrollY,
         left: childLeft + childWidth + gap,
       },
       bottom: {
-        top: childTop + childHeight + gap,
+        top: childTop + childHeight + gap + window.scrollY,
         left: childLeft + (childWidth - popoverWidth) / 2,
       },
       left: {
-        top: childTop + (childHeight - popoverHeight) / 2,
+        top: childTop + (childHeight - popoverHeight) / 2 + window.scrollY,
         left: childLeft - popoverWidth - gap,
       },
     };

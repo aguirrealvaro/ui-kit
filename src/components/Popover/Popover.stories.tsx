@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Popover } from "@/components";
 
 export default {
-  title: "Components/Popover2",
+  title: "Components/Popover",
   component: Popover,
 } as ComponentMeta<typeof Popover>;
 
@@ -29,7 +29,7 @@ export const Primary: ComponentStory<typeof Popover> = () => {
 };
 
 const Container = styled.div`
-  margin: 200px 250px;
+  margin: 1000px 250px;
   display: flex;
   gap: 3rem;
 `;
