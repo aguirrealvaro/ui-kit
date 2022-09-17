@@ -1,7 +1,5 @@
-import { FunctionComponent, ReactNode, useEffect, useRef, useState } from "react";
-import { createPortal } from "react-dom";
+import { FunctionComponent, ReactNode, useRef } from "react";
 import styled, { css, keyframes } from "styled-components";
-import { getPopoverPosition } from "../Popover/Popover.utils";
 import { PlacementType, TriggerType } from "./Popover2.types";
 import { useDisclosure, useOutsideClick } from "@/hooks";
 
@@ -17,11 +15,6 @@ export type PopoverProps = {
   gap?: number;
 };
 
-type CoordsType = {
-  top: number;
-  left: number;
-};
-
 export const Popover2: FunctionComponent<PopoverProps> = ({
   children,
   content,
@@ -34,8 +27,6 @@ export const Popover2: FunctionComponent<PopoverProps> = ({
   const childRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
 
-  const [coords, setCoords] = useState<CoordsType | undefined>(undefined);
-
   const { isOpen, onOpen, onClose, onToggle, isUnmounting } = useDisclosure({
     timeout: ANIMATION_TIME,
   });
@@ -46,54 +37,28 @@ export const Popover2: FunctionComponent<PopoverProps> = ({
       : { onClick: onToggle }),
   };
 
-  useOutsideClick({
+  /* useOutsideClick({
     ref: popoverRef,
     handler: onClose,
     enabled: isOpen && trigger === "click",
-  });
-
-  useEffect(() => {
-    if (!childRef.current || !popoverRef.current) return;
-
-    /* if (hasChildrenWidth) {
-      const { width: childWidth } = childRef.current.getBoundingClientRect();
-      popoverRef.current.style.width = `${childWidth}px`;
-    } */
-
-    const { top, left } = getPopoverPosition(
-      childRef.current,
-      popoverRef.current,
-      placement,
-      gap
-    );
-
-    setCoords({ top, left });
-
-    /* if (!popoverRef.current) return;
-
-    popoverRef.current.style.top = `${top}px`;
-    popoverRef.current.style.left = `${left}px`; */
-  }, [placement, isOpen, gap, hasChildrenWidth]);
+  }); */
 
   return (
-    <>
-      <Container className={className} {...openProps} ref={childRef}>
+    <Container>
+      <div className={className} /*  {...openProps} */ ref={childRef}>
         {children}
-      </Container>
-      {isOpen &&
-        createPortal(
-          <Content ref={popoverRef} fadeOut={isUnmounting} coords={coords}>
-            {content}
-          </Content>,
-          document.body
-        )}
-    </>
+      </div>
+      {true && (
+        <Content ref={popoverRef} fadeOut={isUnmounting}>
+          {content}
+        </Content>
+      )}
+    </Container>
   );
 };
 
 const Container = styled.div`
-  align-self: baseline;
-  display: inline-block;
+  position: relative;
 `;
 
 const fadeInScale = keyframes`
@@ -103,19 +68,9 @@ const fadeInScale = keyframes`
 
 const Content = styled.div<{
   fadeOut: boolean;
-  coords: CoordsType | undefined;
 }>`
   position: absolute;
   animation: ${fadeInScale} ${ANIMATION_TIME}ms ease-out;
-  ${({ coords }) => {
-    if (coords) {
-      const { top, left } = coords;
-      return css`
-        top: ${top}px;
-        left: ${left}px;
-      `;
-    }
-  }};
   ${({ fadeOut }) =>
     fadeOut &&
     css`

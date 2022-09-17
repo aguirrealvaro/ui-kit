@@ -13,16 +13,16 @@ export const Primary: ComponentStory<typeof Popover2> = () => {
   return (
     <Container>
       <Popover2 content={content} placement="top">
-        <div>Hover to see base popover</div>
+        Hover to see base popover
       </Popover2>
       <Popover2 content={content} placement="right">
-        <div>Hover to see base popover</div>
+        Hover to see base popover
       </Popover2>
       <Popover2 content={content} placement="bottom">
-        <div>Hover to see base popover</div>
+        Hover to see base popover
       </Popover2>
       <Popover2 content={content} placement="left">
-        <div>Hover to see base popover</div>
+        Hover to see base popover
       </Popover2>
     </Container>
   );
