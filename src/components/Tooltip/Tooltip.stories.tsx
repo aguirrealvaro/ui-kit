@@ -9,22 +9,28 @@ export default {
 
 export const Primary: ComponentStory<typeof Tooltip> = () => {
   const content = (
-    <Container>
+    <Content>
       Lorem t amet consectetur adipisicing elit. Quod incidunt maioressint, illo recusandae
       dolore ipsum quae nulla molestias. Rem, volipsum dolor, siuptates similique aliquid
       impedit earum dolorum excepturi quos amet doloribus.
-    </Container>
+    </Content>
   );
 
   return (
-    <Tooltip content={content} placement="right">
-      Hover it
-    </Tooltip>
+    <Container>
+      <Tooltip content={content} placement="right">
+        Hover it
+      </Tooltip>
+    </Container>
   );
 };
 
-const Container = styled.div`
+const Content = styled.div`
   max-width: 150px;
   word-wrap: break-word;
   white-space: normal;
+`;
+
+const Container = styled.div`
+  margin: 200px;
 `;

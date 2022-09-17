@@ -1,6 +1,14 @@
-import { FunctionComponent, ReactNode, useLayoutEffect, useRef, useState } from "react";
+import {
+  FunctionComponent,
+  ReactNode,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import { createPortal } from "react-dom";
 import styled, { css, keyframes } from "styled-components";
+import { getTooltipPosition } from "./getTooltipPosition";
 import { PlacementType, TriggerType, CoordinatesType } from "./Tooltip.types";
 import { useDisclosure, useOutsideClick } from "@/hooks";
 
@@ -21,8 +29,8 @@ export const Tooltip: FunctionComponent<TooltipProps> = ({
   trigger = "hover",
   className,
 }) => {
-  const triggerRef = useRef<HTMLDivElement>(null);
-  const hoverRef = useRef<HTMLDivElement>(null);
+  const childRef = useRef<HTMLDivElement>(null);
+  const tooltipRef = useRef<HTMLDivElement>(null);
 
   const [coords, setCoords] = useState<CoordinatesType>({ top: 0, left: 0 });
 
@@ -37,44 +45,35 @@ export const Tooltip: FunctionComponent<TooltipProps> = ({
   };
 
   useOutsideClick({
-    ref: hoverRef,
+    ref: tooltipRef,
     handler: onClose,
     enabled: isOpen && trigger === "click",
   });
 
-  useLayoutEffect(() => {
-    const bounding = triggerRef.current?.getBoundingClientRect();
-    const hoverWidth = hoverRef.current?.offsetWidth || 0;
-    const hoverHeight = hoverRef.current?.offsetHeight || 0;
+  useEffect(() => {
+    if (!childRef.current || !tooltipRef.current) return;
 
-    if (!bounding) return;
+    const { left, top } = getTooltipPosition(
+      childRef.current,
+      tooltipRef.current,
+      placement,
+      16
+    );
 
-    const gapX = 7;
-    const gapY = 5;
+    if (!tooltipRef.current) return;
 
-    const { x, y, width, height } = bounding;
-
-    const verticalTop = x + width / 2 - hoverWidth / 2;
-    const horizontalLeft = y - height / 2 + window.scrollY;
-
-    const positions: Record<PlacementType, CoordinatesType> = {
-      top: { top: verticalTop, left: y - hoverHeight - gapY + window.scrollY },
-      right: { top: x + width + gapX + window.scrollX, left: horizontalLeft },
-      bottom: { top: verticalTop, left: y + height + gapY + window.scrollY },
-      left: { top: x - hoverWidth - gapX + window.scrollX, left: horizontalLeft },
-    };
-
-    setCoords(positions[placement]);
-  }, [triggerRef, placement, isOpen]);
+    tooltipRef.current.style.left = `${left}px`;
+    tooltipRef.current.style.top = `${top}px`;
+  }, [placement, isOpen]);
 
   return (
     <>
-      <Container className={className} {...openProps} ref={triggerRef}>
+      <Container className={className} {...openProps} ref={childRef}>
         {children}
       </Container>
       {isOpen &&
         createPortal(
-          <Content coords={coords} ref={hoverRef} fadeOut={isUnmounting}>
+          <Content ref={tooltipRef} fadeOut={isUnmounting}>
             {content}
           </Content>,
           document.body
@@ -94,13 +93,9 @@ const fadeInScale = keyframes`
 `;
 
 const Content = styled.div<{
-  coords: CoordinatesType;
   fadeOut: boolean;
 }>`
   position: absolute;
-  top: ${({ coords }) => coords.left}px;
-  left: ${({ coords }) => coords.top}px;
-
   animation: ${fadeInScale} ${ANIMATION_TIME}ms ease-out;
   ${({ fadeOut }) =>
     fadeOut &&
