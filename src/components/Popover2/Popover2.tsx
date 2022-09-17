@@ -81,7 +81,10 @@ export const Popover2: FunctionComponent<PopoverProps> = ({
     }; */
 
     const positions: Record<PlacementType, CoordsType> = {
-      top: { top: childTop + (childHeight - popoverHeight) / 2, left: 0 },
+      top: {
+        top: childTop + (childHeight - popoverHeight) / 2,
+        left: childLeft - popoverWidth,
+      },
       right: { top: 0, left: 0 },
       bottom: { top: 0, left: 0 },
       left: { top: 0, left: 0 },
@@ -95,7 +98,7 @@ export const Popover2: FunctionComponent<PopoverProps> = ({
       <Container className={className} {...openProps} ref={childRef}>
         {children}
       </Container>
-      {true && (
+      {isOpen && (
         <Content ref={popoverRef} fadeOut={isUnmounting} coords={coords}>
           {content}
         </Content>
