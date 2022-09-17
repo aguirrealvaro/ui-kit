@@ -1,44 +1,44 @@
 import { PlacementType } from "./Popover.types";
 
 export const getPopoverPosition = (
-  el: HTMLDivElement,
+  child: HTMLDivElement,
   popover: HTMLDivElement,
   position: PlacementType,
   gap: number
 ) => {
   const {
-    top: elTop,
-    left: elLeft,
-    height: elHeight,
-    width: elWidth,
-  } = el.getBoundingClientRect();
+    top: childTop,
+    left: childLeft,
+    height: childHeight,
+    width: childWidth,
+  } = child.getBoundingClientRect();
 
   const { width: popoverWidth, height: popoverHeight } = popover.getBoundingClientRect();
 
-  let correctedLeft = elLeft;
+  let correctedLeft = childLeft;
 
-  let correctedTop = elTop;
+  let correctedTop = childTop;
 
   switch (position) {
     case "top": {
-      correctedLeft = correctedLeft + elWidth / 2 - popoverWidth / 2;
+      correctedLeft = correctedLeft + childWidth / 2 - popoverWidth / 2;
       correctedTop = correctedTop - gap - popoverHeight;
       break;
     }
     case "left": {
-      correctedLeft = elLeft - gap - popoverWidth;
-      correctedTop = correctedTop + elHeight / 2 - popoverHeight / 2;
+      correctedLeft = childLeft - gap - popoverWidth;
+      correctedTop = correctedTop + childHeight / 2 - popoverHeight / 2;
       break;
     }
     case "right": {
-      correctedLeft = correctedLeft + elWidth + gap;
-      correctedTop = correctedTop + elHeight / 2 - popoverHeight / 2;
+      correctedLeft = correctedLeft + childWidth + gap;
+      correctedTop = correctedTop + childHeight / 2 - popoverHeight / 2;
       break;
     }
     case "bottom":
     default:
-      correctedLeft = correctedLeft + elWidth / 2 - popoverWidth / 2;
-      correctedTop = correctedTop + elHeight + gap;
+      correctedLeft = correctedLeft + childWidth / 2 - popoverWidth / 2;
+      correctedTop = correctedTop + childHeight + gap;
   }
   return {
     left: correctedLeft,

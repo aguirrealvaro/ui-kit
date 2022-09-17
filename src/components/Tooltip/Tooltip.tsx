@@ -2,9 +2,7 @@ import { FunctionComponent } from "react";
 import styled from "styled-components";
 import { Popover, PopoverProps } from "../Popover";
 
-type TooltipProps = Pick<PopoverProps, "children" | "placement" | "trigger" | "content">;
-
-export const Tooltip: FunctionComponent<TooltipProps> = ({
+export const Tooltip: FunctionComponent<PopoverProps> = ({
   children,
   content,
   ...restProps

@@ -28,7 +28,7 @@ export const Primary: ComponentStory<typeof Tooltip> = () => {
         Hover bottom
       </Tooltip>
       <Tooltip content={content} placement="left">
-        Hover leftaaa as a
+        Hover left
       </Tooltip>
     </Container>
   );
