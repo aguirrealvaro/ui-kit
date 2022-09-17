@@ -1,29 +1,31 @@
 import { FunctionComponent, ReactNode, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import styled, { css, keyframes } from "styled-components";
-import { getTooltipPosition } from "./getTooltipPosition";
-import { PlacementType, TriggerType } from "./Tooltip.types";
+import { PlacementType, TriggerType } from "./Popover.types";
+import { getPopoverPosition } from "./Popover.utils";
 import { useDisclosure, useOutsideClick } from "@/hooks";
 
 const ANIMATION_TIME = 150;
 
-export type TooltipProps = {
+export type PopoverProps = {
   children?: ReactNode;
   content: ReactNode;
   placement?: PlacementType;
   trigger?: TriggerType;
   className?: string;
+  gap?: number;
 };
 
-export const Tooltip: FunctionComponent<TooltipProps> = ({
+export const Popover: FunctionComponent<PopoverProps> = ({
   children,
   content,
   placement = "bottom",
   trigger = "hover",
+  gap = 0,
   className,
 }) => {
   const childRef = useRef<HTMLDivElement>(null);
-  const tooltipRef = useRef<HTMLDivElement>(null);
+  const popoverRef = useRef<HTMLDivElement>(null);
 
   const { isOpen, onOpen, onClose, onToggle, isUnmounting } = useDisclosure({
     timeout: ANIMATION_TIME,
@@ -36,26 +38,27 @@ export const Tooltip: FunctionComponent<TooltipProps> = ({
   };
 
   useOutsideClick({
-    ref: tooltipRef,
+    ref: popoverRef,
     handler: onClose,
     enabled: isOpen && trigger === "click",
   });
 
   useEffect(() => {
-    if (!childRef.current || !tooltipRef.current) return;
+    if (!childRef.current || !popoverRef.current) return;
 
-    const { left, top } = getTooltipPosition(
+    const { top, left } = getPopoverPosition(
       childRef.current,
-      tooltipRef.current,
+      popoverRef.current,
       placement,
-      16
+      gap
     );
 
-    if (!tooltipRef.current) return;
+    if (!popoverRef.current) return;
 
-    tooltipRef.current.style.left = `${left}px`;
-    tooltipRef.current.style.top = `${top}px`;
-  }, [placement, isOpen]);
+    popoverRef.current.style.top = `${top}px`;
+
+    popoverRef.current.style.left = `${left}px`;
+  }, [placement, isOpen, gap]);
 
   return (
     <>
@@ -64,7 +67,7 @@ export const Tooltip: FunctionComponent<TooltipProps> = ({
       </Container>
       {isOpen &&
         createPortal(
-          <Content ref={tooltipRef} fadeOut={isUnmounting}>
+          <Content ref={popoverRef} fadeOut={isUnmounting}>
             {content}
           </Content>,
           document.body
