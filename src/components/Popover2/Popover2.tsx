@@ -69,6 +69,10 @@ export const Popover2: FunctionComponent<PopoverProps> = ({
     const popoverWidth = popoverRef.current.offsetWidth;
     const popoverHeight = popoverRef.current.offsetHeight;
 
+    console.log(childRef.current.getBoundingClientRect());
+    console.log({ popoverWidth, popoverHeight });
+    console.log("--");
+
     /* const positions: Record<PlacementType, CoordsType> = {
       top: { top: verticalTop, left: y - hoverHeight - gapY + window.scrollY },
       right: { top: x + width + gapX + window.scrollX, left: horizontalLeft },
@@ -77,7 +81,7 @@ export const Popover2: FunctionComponent<PopoverProps> = ({
     }; */
 
     const positions: Record<PlacementType, CoordsType> = {
-      top: { top: 0, left: 0 },
+      top: { top: childTop + (childHeight - popoverHeight) / 2, left: 0 },
       right: { top: 0, left: 0 },
       bottom: { top: 0, left: 0 },
       left: { top: 0, left: 0 },
@@ -91,7 +95,7 @@ export const Popover2: FunctionComponent<PopoverProps> = ({
       <Container className={className} {...openProps} ref={childRef}>
         {children}
       </Container>
-      {isOpen && (
+      {true && (
         <Content ref={popoverRef} fadeOut={isUnmounting} coords={coords}>
           {content}
         </Content>
@@ -116,9 +120,7 @@ const Content = styled.div<{
 }>`
   position: absolute;
   animation: ${fadeInScale} ${ANIMATION_TIME}ms ease-out;
-  top: 0;
-  left: 0;
-  /* ${({ coords }) => {
+  ${({ coords }) => {
     if (coords) {
       const { top, left } = coords;
       return css`
@@ -126,7 +128,7 @@ const Content = styled.div<{
         left: ${left}px;
       `;
     }
-  }}; */
+  }};
   ${({ fadeOut }) => {
     if (fadeOut) {
       return css`
