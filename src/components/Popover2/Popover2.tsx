@@ -73,21 +73,17 @@ export const Popover2: FunctionComponent<PopoverProps> = ({
     console.log({ popoverWidth, popoverHeight });
     console.log("--");
 
-    /* const positions: Record<PlacementType, CoordsType> = {
-      top: { top: verticalTop, left: y - hoverHeight - gapY + window.scrollY },
-      right: { top: x + width + gapX + window.scrollX, left: horizontalLeft },
-      bottom: { top: verticalTop, left: y + height + gapY + window.scrollY },
-      left: { top: x - hoverWidth - gapX + window.scrollX, left: horizontalLeft },
-    }; */
-
     const positions: Record<PlacementType, CoordsType> = {
-      top: {
+      top: { top: 0, left: 0 },
+      right: {
+        top: childTop + (childHeight - popoverHeight) / 2,
+        left: childLeft + childWidth + gap,
+      },
+      bottom: { top: 0, left: 0 },
+      left: {
         top: childTop + (childHeight - popoverHeight) / 2,
         left: childLeft - popoverWidth - gap,
       },
-      right: { top: 0, left: 0 },
-      bottom: { top: 0, left: 0 },
-      left: { top: 0, left: 0 },
     };
 
     setCoords(positions[placement]);
@@ -98,7 +94,7 @@ export const Popover2: FunctionComponent<PopoverProps> = ({
       <Container className={className} {...openProps} ref={childRef}>
         {children}
       </Container>
-      {isOpen && (
+      {true && (
         <Content ref={popoverRef} fadeOut={isUnmounting} coords={coords}>
           {content}
         </Content>
