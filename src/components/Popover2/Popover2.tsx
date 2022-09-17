@@ -1,5 +1,6 @@
-import { FunctionComponent, ReactNode, useRef, useState, useEffect } from "react";
-import styled, { css, keyframes, FlattenSimpleInterpolation } from "styled-components";
+import { FunctionComponent, ReactNode, useLayoutEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import styled, { css, keyframes } from "styled-components";
 import { PlacementType, TriggerType } from "./Popover2.types";
 import { useDisclosure, useOutsideClick } from "@/hooks";
 
@@ -15,6 +16,11 @@ export type PopoverProps = {
   gap?: number;
 };
 
+type CoordsType = {
+  top: number;
+  left: number;
+};
+
 export const Popover2: FunctionComponent<PopoverProps> = ({
   children,
   content,
@@ -27,7 +33,7 @@ export const Popover2: FunctionComponent<PopoverProps> = ({
   const childRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
 
-  const [coords, setCoords] = useState<FlattenSimpleInterpolation | undefined>(undefined);
+  const [coords, setCoords] = useState<CoordsType | undefined>(undefined);
 
   const { isOpen, onOpen, onClose, onToggle, isUnmounting } = useDisclosure({
     timeout: ANIMATION_TIME,
@@ -39,60 +45,56 @@ export const Popover2: FunctionComponent<PopoverProps> = ({
       : { onClick: onToggle }),
   };
 
-  /* useOutsideClick({
+  useOutsideClick({
     ref: popoverRef,
     handler: onClose,
     enabled: isOpen && trigger === "click",
-  }); */
+  });
 
-  useEffect(() => {
-    if (!popoverRef.current) return;
+  useLayoutEffect(() => {
+    const bounding = childRef.current?.getBoundingClientRect();
+    const hoverWidth = popoverRef.current?.offsetWidth || 0;
+    const hoverHeight = popoverRef.current?.offsetHeight || 0;
 
-    const popoverWidth = popoverRef.current.offsetWidth;
-    const popoverHeight = popoverRef.current.offsetHeight;
+    if (!bounding) return;
 
-    const styles: Record<PlacementType, FlattenSimpleInterpolation> = {
-      top: css`
-        top: -${popoverHeight}px;
-        left: 50%;
-        transform: translateX(-50%);
-      `,
-      right: css`
-        top: 50%;
-        right: -${popoverWidth}px;
-        transform: translateY(-50%);
-      `,
-      bottom: css`
-        bottom: -${popoverHeight}px;
-        left: 50%;
-        transform: translateX(-50%);
-      `,
-      left: css`
-        top: 50%;
-        left: -${popoverWidth}px;
-        transform: translateY(-50%);
-      `,
+    const gapX = 7;
+    const gapY = 5;
+
+    const { x, y, width, height } = bounding;
+
+    const verticalTop = x + width / 2 - hoverWidth / 2;
+    const horizontalLeft = y - height / 2 + window.scrollY;
+
+    const positions: Record<PlacementType, CoordsType> = {
+      top: { top: verticalTop, left: y - hoverHeight - gapY + window.scrollY },
+      right: { top: x + width + gapX + window.scrollX, left: horizontalLeft },
+      bottom: { top: verticalTop, left: y + height + gapY + window.scrollY },
+      left: { top: x - hoverWidth - gapX + window.scrollX, left: horizontalLeft },
     };
 
-    setCoords(styles[placement]);
-  }, [placement, isOpen]);
+    setCoords(positions[placement]);
+  }, [childRef, placement, isOpen]);
 
   return (
-    <Container>
-      <div className={className} {...openProps} ref={childRef}>
+    <>
+      <Container className={className} {...openProps} ref={childRef}>
         {children}
-      </div>
-      {isOpen && (
-        <Content ref={popoverRef} fadeOut={isUnmounting} coords={coords}>
-          {content}
-        </Content>
-      )}
-    </Container>
+      </Container>
+      {isOpen &&
+        createPortal(
+          <Content ref={popoverRef} fadeOut={isUnmounting} coords={coords}>
+            {content}
+          </Content>,
+          document.body
+        )}
+    </>
   );
 };
 
 const Container = styled.div`
-  position: relative;
+  align-self: baseline;
+  display: inline-block;
 `;
 
 const fadeInScale = keyframes`
@@ -102,12 +104,18 @@ const fadeInScale = keyframes`
 
 const Content = styled.div<{
   fadeOut: boolean;
-  coords: FlattenSimpleInterpolation | undefined;
+  coords: CoordsType | undefined;
 }>`
   position: absolute;
   animation: ${fadeInScale} ${ANIMATION_TIME}ms ease-out;
   ${({ coords }) => {
-    if (coords) return coords;
+    if (coords) {
+      const { top, left } = coords;
+      return css`
+        top: ${top}px;
+        left: ${left}px;
+      `;
+    }
   }};
   ${({ fadeOut }) =>
     fadeOut &&
