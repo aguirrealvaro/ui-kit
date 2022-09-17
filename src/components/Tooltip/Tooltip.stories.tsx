@@ -1,4 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
+import styled from "styled-components";
 import { Tooltip } from "@/components";
 
 export default {
@@ -8,20 +9,11 @@ export default {
 
 export const Primary: ComponentStory<typeof Tooltip> = () => {
   const content = (
-    <>
-      content
-      <br />
-      content
-      <br />
-      content
-      <br />
-      content
-      <br />
-      content
-      <br />
-      content
-      <br />
-    </>
+    <Container>
+      Lorem t amet consectetur adipisicing elit. Quod incidunt maioressint, illo recusandae
+      dolore ipsum quae nulla molestias. Rem, volipsum dolor, siuptates similique aliquid
+      impedit earum dolorum excepturi quos amet doloribus.
+    </Container>
   );
 
   return (
@@ -30,3 +22,9 @@ export const Primary: ComponentStory<typeof Tooltip> = () => {
     </Tooltip>
   );
 };
+
+const Container = styled.div`
+  max-width: 150px;
+  word-wrap: break-word;
+  white-space: normal;
+`;

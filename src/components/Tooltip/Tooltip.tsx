@@ -26,9 +26,10 @@ export const Tooltip: FunctionComponent<TooltipProps> = ({
 
   const [coords, setCoords] = useState<CoordinatesType>({ top: 0, left: 0 });
 
-  const { isOpen, onOpen, onClose, onToggle, isUnmounting } = useDisclosure({
+  const { /* isOpen */ onOpen, onClose, onToggle, isUnmounting } = useDisclosure({
     timeout: ANIMATION_TIME,
   });
+  const isOpen = true;
 
   const openProps = {
     ...(trigger === "hover"
@@ -67,8 +68,6 @@ export const Tooltip: FunctionComponent<TooltipProps> = ({
     setCoords(positions[placement]);
   }, [triggerRef, placement, isOpen]);
 
-  const isStringContent = typeof content === "string";
-
   return (
     <>
       <Container className={className} {...openProps} ref={triggerRef}>
@@ -76,12 +75,7 @@ export const Tooltip: FunctionComponent<TooltipProps> = ({
       </Container>
       {isOpen &&
         createPortal(
-          <Content
-            coords={coords}
-            ref={hoverRef}
-            fadeOut={isUnmounting}
-            isStringContent={isStringContent}
-          >
+          <Content coords={coords} ref={hoverRef} fadeOut={isUnmounting}>
             {content}
           </Content>,
           document.body
@@ -103,16 +97,11 @@ const fadeInScale = keyframes`
 const Content = styled.div<{
   coords: CoordinatesType;
   fadeOut: boolean;
-  isStringContent: boolean;
 }>`
   position: absolute;
   top: ${({ coords }) => coords.left}px;
   left: ${({ coords }) => coords.top}px;
-  padding: 0.7rem;
-  background-color: ${({ theme }) => theme.colors.black};
-  color: ${({ theme }) => theme.colors.white};
-  border-radius: 4px;
-  font-size: 0.8rem;
+
   animation: ${fadeInScale} ${ANIMATION_TIME}ms ease-out;
   ${({ fadeOut }) =>
     fadeOut &&
@@ -120,12 +109,10 @@ const Content = styled.div<{
       opacity: 0;
       transform: scale(0.9);
       transition: all ${ANIMATION_TIME}ms ease-out;
-    `}
-  ${({ isStringContent }) =>
-    isStringContent &&
-    css`
-      max-width: 150px;
-      word-wrap: break-word;
-      white-space: normal;
-    `}
+    `};
+  padding: 0.7rem;
+  background-color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.white};
+  border-radius: 4px;
+  font-size: 0.8rem;
 `;
