@@ -1,8 +1,8 @@
 import { FunctionComponent, ReactNode, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import styled, { css, keyframes } from "styled-components";
-import { PlacementType, TriggerType } from "./Popover.types";
-import { getPopoverPosition } from "./Popover.utils";
+import { getPopoverPosition } from "../Popover/Popover.utils";
+import { PlacementType, TriggerType } from "./Popover2.types";
 import { useDisclosure, useOutsideClick } from "@/hooks";
 
 const ANIMATION_TIME = 150;
@@ -22,7 +22,7 @@ type CoordsType = {
   left: number;
 };
 
-export const Popover: FunctionComponent<PopoverProps> = ({
+export const Popover2: FunctionComponent<PopoverProps> = ({
   children,
   content,
   placement = "bottom",
@@ -68,6 +68,11 @@ export const Popover: FunctionComponent<PopoverProps> = ({
     );
 
     setCoords({ top, left });
+
+    /* if (!popoverRef.current) return;
+
+    popoverRef.current.style.top = `${top}px`;
+    popoverRef.current.style.left = `${left}px`; */
   }, [placement, isOpen, gap, hasChildrenWidth]);
 
   return (

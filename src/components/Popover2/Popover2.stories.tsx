@@ -1,29 +1,29 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import styled from "styled-components";
-import { Popover } from "@/components";
+import { Popover2 } from "@/components";
 
 export default {
-  title: "Components/Popover",
-  component: Popover,
-} as ComponentMeta<typeof Popover>;
+  title: "Components/Popover2",
+  component: Popover2,
+} as ComponentMeta<typeof Popover2>;
 
-export const Primary: ComponentStory<typeof Popover> = () => {
+export const Primary: ComponentStory<typeof Popover2> = () => {
   const content = <Content>Popver</Content>;
 
   return (
     <Container>
-      <Popover content={content} placement="top">
+      <Popover2 content={content} placement="top">
         <div>Hover to see base popover</div>
-      </Popover>
-      <Popover content={content} placement="right">
+      </Popover2>
+      <Popover2 content={content} placement="right">
         <div>Hover to see base popover</div>
-      </Popover>
-      <Popover content={content} placement="bottom">
+      </Popover2>
+      <Popover2 content={content} placement="bottom">
         <div>Hover to see base popover</div>
-      </Popover>
-      <Popover content={content} placement="left">
+      </Popover2>
+      <Popover2 content={content} placement="left">
         <div>Hover to see base popover</div>
-      </Popover>
+      </Popover2>
     </Container>
   );
 };

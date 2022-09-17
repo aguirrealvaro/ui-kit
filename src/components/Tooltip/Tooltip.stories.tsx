@@ -8,13 +8,7 @@ export default {
 } as ComponentMeta<typeof Tooltip>;
 
 export const Primary: ComponentStory<typeof Tooltip> = () => {
-  const content = (
-    <Content>
-      Lorem t amet consectetur adipisicing elit. Quod incidunt maioressint, illo recusandae
-      dolore ipsum quae nulla molestias. Rem, volipsum dolor, siuptates similique aliquid
-      impedit earum dolorum excepturi quos amet doloribus.
-    </Content>
-  );
+  const content = <div>This is a tooltip</div>;
 
   return (
     <Container>
@@ -38,9 +32,4 @@ const Container = styled.div`
   margin: 200px;
   display: flex;
   gap: 3rem;
-`;
-
-const Content = styled.div`
-  max-width: 500px;
-  word-break: break-all;
 `;
