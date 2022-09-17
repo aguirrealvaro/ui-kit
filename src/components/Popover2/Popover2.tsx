@@ -26,7 +26,7 @@ export const Popover2: FunctionComponent<PopoverProps> = ({
   content,
   placement = "bottom",
   trigger = "hover",
-  //gap = 0,
+  gap = 0,
   //hasChildrenWidth = false,
   className,
 }) => {
@@ -83,7 +83,7 @@ export const Popover2: FunctionComponent<PopoverProps> = ({
     const positions: Record<PlacementType, CoordsType> = {
       top: {
         top: childTop + (childHeight - popoverHeight) / 2,
-        left: childLeft - popoverWidth,
+        left: childLeft - popoverWidth - gap,
       },
       right: { top: 0, left: 0 },
       bottom: { top: 0, left: 0 },
@@ -91,7 +91,7 @@ export const Popover2: FunctionComponent<PopoverProps> = ({
     };
 
     setCoords(positions[placement]);
-  }, [placement, isOpen]);
+  }, [placement, isOpen, gap]);
 
   return (
     <>
