@@ -26,8 +26,8 @@ export const Popover2: FunctionComponent<PopoverProps> = ({
   content,
   placement = "bottom",
   trigger = "hover",
-  gap = 0,
-  hasChildrenWidth = false,
+  //gap = 0,
+  //hasChildrenWidth = false,
   className,
 }) => {
   const childRef = useRef<HTMLDivElement>(null);
@@ -52,9 +52,15 @@ export const Popover2: FunctionComponent<PopoverProps> = ({
   });
 
   useLayoutEffect(() => {
-    const bounding = childRef.current?.getBoundingClientRect();
-    const hoverWidth = popoverRef.current?.offsetWidth || 0;
-    const hoverHeight = popoverRef.current?.offsetHeight || 0;
+    console.log(1);
+
+    if (!childRef.current || !popoverRef.current) return;
+    console.log(2);
+
+    const bounding = childRef.current.getBoundingClientRect();
+
+    const hoverWidth = popoverRef.current.offsetWidth;
+    const hoverHeight = popoverRef.current.offsetHeight;
 
     if (!bounding) return;
 
@@ -66,11 +72,18 @@ export const Popover2: FunctionComponent<PopoverProps> = ({
     const verticalTop = x + width / 2 - hoverWidth / 2;
     const horizontalLeft = y - height / 2 + window.scrollY;
 
-    const positions: Record<PlacementType, CoordsType> = {
+    /* const positions: Record<PlacementType, CoordsType> = {
       top: { top: verticalTop, left: y - hoverHeight - gapY + window.scrollY },
       right: { top: x + width + gapX + window.scrollX, left: horizontalLeft },
       bottom: { top: verticalTop, left: y + height + gapY + window.scrollY },
       left: { top: x - hoverWidth - gapX + window.scrollX, left: horizontalLeft },
+    }; */
+
+    const positions: Record<PlacementType, CoordsType> = {
+      top: { top: 0, left: 0 },
+      right: { top: 0, left: 0 },
+      bottom: { top: 0, left: 0 },
+      left: { top: 0, left: 0 },
     };
 
     setCoords(positions[placement]);
@@ -81,7 +94,7 @@ export const Popover2: FunctionComponent<PopoverProps> = ({
       <Container className={className} {...openProps} ref={childRef}>
         {children}
       </Container>
-      {isOpen &&
+      {true &&
         createPortal(
           <Content ref={popoverRef} fadeOut={isUnmounting} coords={coords}>
             {content}
@@ -117,11 +130,13 @@ const Content = styled.div<{
       `;
     }
   }};
-  ${({ fadeOut }) =>
-    fadeOut &&
-    css`
-      opacity: 0;
-      transform: scale(0.9);
-      transition: all ${ANIMATION_TIME}ms ease-out;
-    `};
+  ${({ fadeOut }) => {
+    if (fadeOut) {
+      return css`
+        opacity: 0;
+        transform: scale(0.9);
+        transition: all ${ANIMATION_TIME}ms ease-out;
+      `;
+    }
+  }}
 `;
