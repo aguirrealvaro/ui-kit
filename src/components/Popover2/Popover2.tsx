@@ -63,15 +63,8 @@ export const Popover2: FunctionComponent<PopoverProps> = ({
       height: childHeight,
     } = childRef.current.getBoundingClientRect();
 
-    /* const { width: popoverWidth, height: popoverHeight } =
-      popoverRef.current.getBoundingClientRect(); */
-
     const popoverWidth = popoverRef.current.offsetWidth;
     const popoverHeight = popoverRef.current.offsetHeight;
-
-    console.log(childRef.current.getBoundingClientRect());
-    console.log({ popoverWidth, popoverHeight });
-    console.log("--");
 
     const positions: Record<PlacementType, CoordsType> = {
       top: {
@@ -100,11 +93,13 @@ export const Popover2: FunctionComponent<PopoverProps> = ({
       <Container className={className} {...openProps} ref={childRef}>
         {children}
       </Container>
-      {true && (
-        <Content ref={popoverRef} fadeOut={isUnmounting} coords={coords}>
-          {content}
-        </Content>
-      )}
+      {isOpen &&
+        createPortal(
+          <Content ref={popoverRef} fadeOut={isUnmounting} coords={coords}>
+            {content}
+          </Content>,
+          document.body
+        )}
     </>
   );
 };
