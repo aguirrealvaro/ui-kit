@@ -10,7 +10,7 @@ export const Tooltip: FunctionComponent<PopoverProps> = ({
   const popoverContent = <Content>{content}</Content>;
 
   return (
-    <Popover content={popoverContent} gap={16} {...restProps}>
+    <Popover content={popoverContent} gap={8} {...restProps}>
       {children}
     </Popover>
   );

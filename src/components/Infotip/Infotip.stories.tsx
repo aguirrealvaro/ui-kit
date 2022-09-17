@@ -38,4 +38,5 @@ export const Primary: ComponentStory<typeof Infotip> = () => {
 const Container = styled.div`
   display: flex;
   gap: 2rem;
+  margin: 200px;
 `;
