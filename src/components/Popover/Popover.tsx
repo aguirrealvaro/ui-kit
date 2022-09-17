@@ -48,6 +48,11 @@ export const Popover: FunctionComponent<PopoverProps> = ({
   useEffect(() => {
     if (!childRef.current || !popoverRef.current) return;
 
+    if (hasChildrenWidth) {
+      const { width: childWidth } = childRef.current.getBoundingClientRect();
+      popoverRef.current.style.width = `${childWidth}px`;
+    }
+
     const { top, left } = getPopoverPosition(
       childRef.current,
       popoverRef.current,
@@ -59,15 +64,7 @@ export const Popover: FunctionComponent<PopoverProps> = ({
 
     popoverRef.current.style.top = `${top}px`;
     popoverRef.current.style.left = `${left}px`;
-  }, [placement, isOpen, gap]);
-
-  useEffect(() => {
-    if (!hasChildrenWidth) return;
-    if (!childRef.current || !popoverRef.current) return;
-
-    const { width: childWidth } = childRef.current.getBoundingClientRect();
-    popoverRef.current.style.width = `${childWidth}px`;
-  }, [hasChildrenWidth]);
+  }, [placement, isOpen, gap, hasChildrenWidth]);
 
   return (
     <>
@@ -88,7 +85,6 @@ export const Popover: FunctionComponent<PopoverProps> = ({
 const Container = styled.div`
   align-self: baseline;
   display: inline-block;
-  background-color: red;
 `;
 
 const fadeInScale = keyframes`

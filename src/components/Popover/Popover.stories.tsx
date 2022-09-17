@@ -8,11 +8,11 @@ export default {
 } as ComponentMeta<typeof Popover>;
 
 export const Primary: ComponentStory<typeof Popover> = () => {
-  const content = <div style={{ background: "red" }}>soy un contenido cualquiera</div>;
+  const content = <Content>Popver</Content>;
 
   return (
     <Container>
-      <Popover content={content} placement="bottom">
+      <Popover content={content} placement="top">
         Hover to see base popover
       </Popover>
     </Container>
@@ -21,4 +21,10 @@ export const Primary: ComponentStory<typeof Popover> = () => {
 
 const Container = styled.div`
   margin: 200px;
+  background-color: red;
+  display: inline-block;
+`;
+
+const Content = styled.div`
+  background-color: red;
 `;
