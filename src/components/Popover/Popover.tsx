@@ -1,7 +1,7 @@
 import { FunctionComponent, ReactNode, useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import styled, { css, keyframes } from "styled-components";
-import { PlacementType, TriggerType } from "./Popover2.types";
+import { PlacementType, TriggerType } from "./Popover.types";
 import { useDisclosure, useOutsideClick } from "@/hooks";
 
 const ANIMATION_TIME = 150;
@@ -21,7 +21,7 @@ type CoordsType = {
   left: number;
 };
 
-export const Popover2: FunctionComponent<PopoverProps> = ({
+export const Popover: FunctionComponent<PopoverProps> = ({
   children,
   content,
   placement = "bottom",

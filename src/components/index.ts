@@ -29,4 +29,3 @@ export { Tabs, Tab } from "./Tabs";
 export { List, ListItem } from "./List";
 export { NumberInput } from "./NumberInput";
 export { Popover } from "./Popover";
-export { Popover2 } from "./Popover2";
