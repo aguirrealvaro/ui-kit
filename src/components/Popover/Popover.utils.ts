@@ -22,11 +22,11 @@ export const getPopoverPosition = (
   switch (position) {
     case "top": {
       correctedLeft = correctedLeft + elWidth / 2 - popoverWidth / 2;
-      correctedTop = correctedTop - gap * 2 - popoverHeight;
+      correctedTop = correctedTop - gap - popoverHeight;
       break;
     }
     case "left": {
-      correctedLeft = elLeft - gap * 2 - popoverWidth;
+      correctedLeft = elLeft - gap - popoverWidth;
       correctedTop = correctedTop + elHeight / 2 - popoverHeight / 2;
       break;
     }

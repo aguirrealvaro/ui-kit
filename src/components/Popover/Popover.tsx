@@ -98,9 +98,4 @@ const Content = styled.div<{
       transform: scale(0.9);
       transition: all ${ANIMATION_TIME}ms ease-out;
     `};
-  padding: 0.7rem;
-  background-color: ${({ theme }) => theme.colors.black};
-  color: ${({ theme }) => theme.colors.white};
-  border-radius: 4px;
-  font-size: 0.8rem;
 `;

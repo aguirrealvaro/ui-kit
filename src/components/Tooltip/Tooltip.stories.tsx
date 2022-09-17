@@ -18,19 +18,29 @@ export const Primary: ComponentStory<typeof Tooltip> = () => {
 
   return (
     <Container>
+      <Tooltip content={content} placement="top">
+        Hover top
+      </Tooltip>
       <Tooltip content={content} placement="right">
-        Hover it
+        Hover right
+      </Tooltip>
+      <Tooltip content={content} placement="bottom">
+        Hover bottom
+      </Tooltip>
+      <Tooltip content={content} placement="left">
+        Hover leftaaa as a
       </Tooltip>
     </Container>
   );
 };
 
-const Content = styled.div`
-  max-width: 150px;
-  word-wrap: break-word;
-  white-space: normal;
-`;
-
 const Container = styled.div`
   margin: 200px;
+  display: flex;
+  gap: 3rem;
+`;
+
+const Content = styled.div`
+  max-width: 500px;
+  word-break: break-all;
 `;
