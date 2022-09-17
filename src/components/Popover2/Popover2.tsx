@@ -74,7 +74,10 @@ export const Popover2: FunctionComponent<PopoverProps> = ({
     console.log("--");
 
     const positions: Record<PlacementType, CoordsType> = {
-      top: { top: 0, left: 0 },
+      top: {
+        top: childTop - popoverHeight - gap,
+        left: childLeft + (childWidth - popoverWidth) / 2,
+      },
       right: {
         top: childTop + (childHeight - popoverHeight) / 2,
         left: childLeft + childWidth + gap,

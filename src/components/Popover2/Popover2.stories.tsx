@@ -12,12 +12,12 @@ export const Primary: ComponentStory<typeof Popover2> = () => {
 
   return (
     <Container>
-      {/* <Popover2 content={content} placement="top" >
+      <Popover2 content={content} placement="top" gap={8}>
         <Child>Hover top</Child>
-      </Popover2> */}
-      <Popover2 content={content} placement="right">
-        <Child>Hover right</Child>
       </Popover2>
+      {/* <Popover2 content={content} placement="right" gap={8}>
+        <Child>Hover right</Child>
+      </Popover2> */}
       {/* <Popover2 content={content} placement="bottom">
         <Child>Hover bottom</Child>
       </Popover2> */}
