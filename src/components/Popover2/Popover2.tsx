@@ -82,7 +82,10 @@ export const Popover2: FunctionComponent<PopoverProps> = ({
         top: childTop + (childHeight - popoverHeight) / 2,
         left: childLeft + childWidth + gap,
       },
-      bottom: { top: 0, left: 0 },
+      bottom: {
+        top: childTop + childHeight + gap,
+        left: childLeft + (childWidth - popoverWidth) / 2,
+      },
       left: {
         top: childTop + (childHeight - popoverHeight) / 2,
         left: childLeft - popoverWidth - gap,
