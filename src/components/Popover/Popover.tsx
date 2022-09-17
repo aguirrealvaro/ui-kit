@@ -13,6 +13,7 @@ export type PopoverProps = {
   placement?: PlacementType;
   trigger?: TriggerType;
   className?: string;
+  hasChildrenWidth?: boolean;
   gap?: number;
 };
 
@@ -22,6 +23,7 @@ export const Popover: FunctionComponent<PopoverProps> = ({
   placement = "bottom",
   trigger = "hover",
   gap = 0,
+  hasChildrenWidth = false,
   className,
 }) => {
   const childRef = useRef<HTMLDivElement>(null);
@@ -56,9 +58,16 @@ export const Popover: FunctionComponent<PopoverProps> = ({
     if (!popoverRef.current) return;
 
     popoverRef.current.style.top = `${top}px`;
-
     popoverRef.current.style.left = `${left}px`;
   }, [placement, isOpen, gap]);
+
+  useEffect(() => {
+    if (!hasChildrenWidth) return;
+    if (!childRef.current || !popoverRef.current) return;
+
+    const { width: childWidth } = childRef.current.getBoundingClientRect();
+    popoverRef.current.style.width = `${childWidth}px`;
+  }, [hasChildrenWidth]);
 
   return (
     <>
@@ -79,6 +88,7 @@ export const Popover: FunctionComponent<PopoverProps> = ({
 const Container = styled.div`
   align-self: baseline;
   display: inline-block;
+  background-color: red;
 `;
 
 const fadeInScale = keyframes`

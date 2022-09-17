@@ -40,6 +40,7 @@ export const getPopoverPosition = (
       correctedLeft = correctedLeft + childWidth / 2 - popoverWidth / 2;
       correctedTop = correctedTop + childHeight + gap;
   }
+
   return {
     left: correctedLeft,
     top: correctedTop,
