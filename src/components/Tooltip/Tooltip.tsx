@@ -26,10 +26,9 @@ export const Tooltip: FunctionComponent<TooltipProps> = ({
 
   const [coords, setCoords] = useState<CoordinatesType>({ top: 0, left: 0 });
 
-  const { /* isOpen */ onOpen, onClose, onToggle, isUnmounting } = useDisclosure({
+  const { isOpen, onOpen, onClose, onToggle, isUnmounting } = useDisclosure({
     timeout: ANIMATION_TIME,
   });
-  const isOpen = true;
 
   const openProps = {
     ...(trigger === "hover"
