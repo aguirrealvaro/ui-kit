@@ -15,7 +15,7 @@ export const Primary: ComponentStory<typeof Popover2> = () => {
       <Popover2 content={content} placement="top">
         Hover top
       </Popover2>
-      <Popover2 content={content} placement="right">
+      {/* <Popover2 content={content} placement="right">
         Hover right
       </Popover2>
       <Popover2 content={content} placement="bottom">
@@ -23,7 +23,7 @@ export const Primary: ComponentStory<typeof Popover2> = () => {
       </Popover2>
       <Popover2 content={content} placement="left">
         Hover left
-      </Popover2>
+      </Popover2> */}
     </Container>
   );
 };

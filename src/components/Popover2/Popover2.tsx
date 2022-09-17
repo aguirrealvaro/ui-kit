@@ -51,26 +51,23 @@ export const Popover2: FunctionComponent<PopoverProps> = ({
     enabled: isOpen && trigger === "click",
   });
 
+  //console.log(popoverRef.current?.getBoundingClientRect());
+
   useLayoutEffect(() => {
-    console.log(1);
-
     if (!childRef.current || !popoverRef.current) return;
-    console.log(2);
 
-    const bounding = childRef.current.getBoundingClientRect();
+    const {
+      top: childTop,
+      left: childLeft,
+      width: childWidth,
+      height: childHeight,
+    } = childRef.current.getBoundingClientRect();
 
-    const hoverWidth = popoverRef.current.offsetWidth;
-    const hoverHeight = popoverRef.current.offsetHeight;
+    /* const { width: popoverWidth, height: popoverHeight } =
+      popoverRef.current.getBoundingClientRect(); */
 
-    if (!bounding) return;
-
-    const gapX = 7;
-    const gapY = 5;
-
-    const { x, y, width, height } = bounding;
-
-    const verticalTop = x + width / 2 - hoverWidth / 2;
-    const horizontalLeft = y - height / 2 + window.scrollY;
+    const popoverWidth = popoverRef.current.offsetWidth;
+    const popoverHeight = popoverRef.current.offsetHeight;
 
     /* const positions: Record<PlacementType, CoordsType> = {
       top: { top: verticalTop, left: y - hoverHeight - gapY + window.scrollY },
@@ -87,20 +84,18 @@ export const Popover2: FunctionComponent<PopoverProps> = ({
     };
 
     setCoords(positions[placement]);
-  }, [childRef, placement, isOpen]);
+  }, [placement, isOpen]);
 
   return (
     <>
       <Container className={className} {...openProps} ref={childRef}>
         {children}
       </Container>
-      {true &&
-        createPortal(
-          <Content ref={popoverRef} fadeOut={isUnmounting} coords={coords}>
-            {content}
-          </Content>,
-          document.body
-        )}
+      {isOpen && (
+        <Content ref={popoverRef} fadeOut={isUnmounting} coords={coords}>
+          {content}
+        </Content>
+      )}
     </>
   );
 };
@@ -121,7 +116,9 @@ const Content = styled.div<{
 }>`
   position: absolute;
   animation: ${fadeInScale} ${ANIMATION_TIME}ms ease-out;
-  ${({ coords }) => {
+  top: 0;
+  left: 0;
+  /* ${({ coords }) => {
     if (coords) {
       const { top, left } = coords;
       return css`
@@ -129,7 +126,7 @@ const Content = styled.div<{
         left: ${left}px;
       `;
     }
-  }};
+  }}; */
   ${({ fadeOut }) => {
     if (fadeOut) {
       return css`
