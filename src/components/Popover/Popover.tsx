@@ -12,7 +12,7 @@ export type PopoverProps = {
   placement?: PlacementType;
   trigger?: TriggerType;
   className?: string;
-  hasChildrenWidth?: boolean;
+  withTriggerWidth?: boolean;
   gap?: number;
 };
 
@@ -27,10 +27,10 @@ export const Popover: FunctionComponent<PopoverProps> = ({
   placement = "bottom",
   trigger = "hover",
   gap = 0,
-  //hasChildrenWidth = false,
+  //withTriggerWidth = false,
   className,
 }) => {
-  const childRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
 
   const [coords, setCoords] = useState<CoordsType | undefined>(undefined);
@@ -54,34 +54,34 @@ export const Popover: FunctionComponent<PopoverProps> = ({
   //console.log(popoverRef.current?.getBoundingClientRect());
 
   useLayoutEffect(() => {
-    if (!childRef.current || !popoverRef.current) return;
+    if (!triggerRef.current || !popoverRef.current) return;
 
     const {
-      top: childTop,
-      left: childLeft,
-      width: childWidth,
-      height: childHeight,
-    } = childRef.current.getBoundingClientRect();
+      top: triggerTop,
+      left: triggerLeft,
+      width: triggerWidth,
+      height: triggerHeight,
+    } = triggerRef.current.getBoundingClientRect();
 
     const popoverWidth = popoverRef.current.offsetWidth;
     const popoverHeight = popoverRef.current.offsetHeight;
 
     const positions: Record<PlacementType, CoordsType> = {
       top: {
-        top: childTop - popoverHeight - gap + window.scrollY,
-        left: childLeft + (childWidth - popoverWidth) / 2 + window.scrollX,
+        top: triggerTop - popoverHeight - gap + window.scrollY,
+        left: triggerLeft + (triggerWidth - popoverWidth) / 2 + window.scrollX,
       },
       right: {
-        top: childTop + (childHeight - popoverHeight) / 2 + window.scrollY,
-        left: childLeft + childWidth + gap + window.scrollX,
+        top: triggerTop + (triggerHeight - popoverHeight) / 2 + window.scrollY,
+        left: triggerLeft + triggerWidth + gap + window.scrollX,
       },
       bottom: {
-        top: childTop + childHeight + gap + window.scrollY,
-        left: childLeft + (childWidth - popoverWidth) / 2 + window.scrollX,
+        top: triggerTop + triggerHeight + gap + window.scrollY,
+        left: triggerLeft + (triggerWidth - popoverWidth) / 2 + window.scrollX,
       },
       left: {
-        top: childTop + (childHeight - popoverHeight) / 2 + window.scrollY,
-        left: childLeft - popoverWidth - gap + window.scrollX,
+        top: triggerTop + (triggerHeight - popoverHeight) / 2 + window.scrollY,
+        left: triggerLeft - popoverWidth - gap + window.scrollX,
       },
     };
 
@@ -90,7 +90,7 @@ export const Popover: FunctionComponent<PopoverProps> = ({
 
   return (
     <>
-      <Container className={className} {...openProps} ref={childRef}>
+      <Container className={className} {...openProps} ref={triggerRef}>
         {children}
       </Container>
       {isOpen &&

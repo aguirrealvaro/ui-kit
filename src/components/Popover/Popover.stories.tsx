@@ -29,7 +29,7 @@ export const Primary: ComponentStory<typeof Popover> = () => {
 };
 
 const Container = styled.div`
-  margin: 200px 1500px;
+  margin: 100px;
   display: flex;
   gap: 3rem;
 `;
