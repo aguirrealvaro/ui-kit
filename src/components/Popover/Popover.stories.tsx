@@ -12,7 +12,7 @@ export const Primary: ComponentStory<typeof Popover> = () => {
 
   return (
     <Container>
-      {/* <Popover content={content} placement="top" gap={8}>
+      <Popover content={content} placement="top" gap={8}>
         <Child>Hover top</Child>
       </Popover>
       <Popover content={content} placement="right" gap={8}>
@@ -23,8 +23,8 @@ export const Primary: ComponentStory<typeof Popover> = () => {
       </Popover>
       <Popover content={content} placement="left" gap={8}>
         <Child>Hover left</Child>
-      </Popover> */}
-      {/* <Popover content={content} placement="top-left" gap={8}>
+      </Popover>
+      <Popover content={content} placement="top-left" gap={8}>
         <Child>Hover top-left</Child>
       </Popover>
       <Popover content={content} placement="top-right" gap={8}>
@@ -35,7 +35,7 @@ export const Primary: ComponentStory<typeof Popover> = () => {
       </Popover>
       <Popover content={content} placement="right-bottom" gap={8}>
         <Child>Hover right bottom</Child>
-      </Popover> */}
+      </Popover>
       <Popover content={content} placement="bottom-left" gap={8}>
         <Child>Hover bottom-left</Child>
       </Popover>
