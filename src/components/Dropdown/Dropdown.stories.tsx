@@ -17,7 +17,7 @@ export const Primary: ComponentStory<typeof Dropdown> = () => {
   );
 
   return (
-    <Dropdown content={content} placement="bottom-left">
+    <Dropdown content={content} position="bottom-left">
       Click to open dropdown
     </Dropdown>
   );

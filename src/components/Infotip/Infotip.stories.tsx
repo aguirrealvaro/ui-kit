@@ -27,10 +27,10 @@ export const Primary: ComponentStory<typeof Infotip> = () => {
 
   return (
     <Container>
-      <Infotip content={content} placement="right" size={"xs"} />
-      <Infotip content={content} placement="right" size={"sm"} />
-      <Infotip content={content} placement="right" size={"md"} />
-      <Infotip content={content} placement="right" size={"lg"} />
+      <Infotip content={content} position="right" size={"xs"} />
+      <Infotip content={content} position="right" size={"sm"} />
+      <Infotip content={content} position="right" size={"md"} />
+      <Infotip content={content} position="right" size={"lg"} />
     </Container>
   );
 };

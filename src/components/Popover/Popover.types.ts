@@ -1,4 +1,4 @@
-export type PlacementType =
+export type PositionType =
   | "top"
   | "right"
   | "bottom"

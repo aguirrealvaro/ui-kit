@@ -1,7 +1,7 @@
 import { FunctionComponent, ReactNode, useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import styled, { css, keyframes } from "styled-components";
-import { PlacementType, TriggerType } from "./Popover.types";
+import { PositionType, TriggerType } from "./Popover.types";
 import { useDisclosure, useOutsideClick } from "@/hooks";
 
 const ANIMATION_TIME = 150;
@@ -9,7 +9,7 @@ const ANIMATION_TIME = 150;
 export type PopoverProps = {
   children?: ReactNode;
   content: ReactNode;
-  placement?: PlacementType;
+  position?: PositionType;
   trigger?: TriggerType;
   className?: string;
   withTriggerWidth?: boolean;
@@ -24,7 +24,7 @@ type CoordsType = {
 export const Popover: FunctionComponent<PopoverProps> = ({
   children,
   content,
-  placement = "bottom",
+  position = "bottom",
   trigger = "hover",
   gap = 0,
   //withTriggerWidth = false,
@@ -64,7 +64,7 @@ export const Popover: FunctionComponent<PopoverProps> = ({
     const popoverWidth = popoverRef.current.offsetWidth;
     const popoverHeight = popoverRef.current.offsetHeight;
 
-    const positions: Record<PlacementType, CoordsType> = {
+    const positions: Record<PositionType, CoordsType> = {
       top: {
         top: triggerTop - popoverHeight - gap,
         left: triggerLeft + (triggerWidth - popoverWidth) / 2,
@@ -115,8 +115,8 @@ export const Popover: FunctionComponent<PopoverProps> = ({
       },
     };
 
-    setCoords(positions[placement]);
-  }, [placement, isOpen, gap]);
+    setCoords(positions[position]);
+  }, [position, isOpen, gap]);
 
   return (
     <>
