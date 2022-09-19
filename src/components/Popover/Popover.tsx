@@ -51,8 +51,6 @@ export const Popover: FunctionComponent<PopoverProps> = ({
     enabled: isOpen && trigger === "click",
   });
 
-  //console.log(popoverRef.current?.getBoundingClientRect());
-
   useLayoutEffect(() => {
     if (!triggerRef.current || !popoverRef.current) return;
 
@@ -146,6 +144,11 @@ const fadeInScale = keyframes`
   to { opacity: 1; transform: scale(1);}
 `;
 
+const fadeInDown = keyframes`
+  from { opacity: 0; transform: translateY(-5%); }
+  to { opacity: 1; transform: translateY(0);}
+`;
+
 const Content = styled.div<{
   fadeOut: boolean;
   coords: CoordsType | undefined;
@@ -167,6 +170,11 @@ const Content = styled.div<{
         opacity: 0;
         transform: scale(0.9);
         transition: all ${ANIMATION_TIME}ms ease-out;
+
+        /* opacity: 0;
+        transform: translateY(-5%);
+        transition: opacity ${ANIMATION_TIME}ms ease-out,
+          transform ${ANIMATION_TIME}ms ease-out; */
       `;
     }
   }}

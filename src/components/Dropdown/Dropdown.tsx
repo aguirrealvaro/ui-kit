@@ -1,115 +1,30 @@
-import {
-  FunctionComponent,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-  ReactNode,
-} from "react";
-import { createPortal } from "react-dom";
-import styled, { css, keyframes } from "styled-components";
-import { ANIMATION_TIME } from "./Dropdown.constants";
-import { PlacementType, CoordinatesType, TriggerType } from "./Dropdown.types";
-import { useDisclosure, useOutsideClick } from "@/hooks";
+import { FunctionComponent } from "react";
+import styled from "styled-components";
+import { Popover, PopoverProps } from "../Popover";
 
-export type DropdownProps = {
-  children: ReactNode;
-  content: ReactNode;
-  placement?: PlacementType;
-  trigger?: TriggerType;
-  className?: string;
-};
-
-export const Dropdown: FunctionComponent<DropdownProps> = ({
+export const Dropdown: FunctionComponent<PopoverProps> = ({
   children,
   content,
-  placement = "left",
-  trigger = "click",
-  className,
+  ...restProps
 }) => {
-  const triggerRef = useRef<HTMLDivElement>(null);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
-  const [coords, setCoords] = useState<CoordinatesType>({ top: 0, left: 0 });
-
-  const { isOpen, onOpen, onClose, onToggle, isUnmounting } = useDisclosure({
-    timeout: ANIMATION_TIME,
-  });
-
-  const openProps = {
-    ...(trigger === "hover"
-      ? { onMouseEnter: onOpen, onMouseLeave: onClose }
-      : { onClick: onToggle }),
-  };
-
-  useOutsideClick({
-    ref: dropdownRef,
-    handler: onClose,
-    enabled: isOpen && trigger === "click",
-  });
-
-  useLayoutEffect(() => {
-    const bounding = triggerRef.current?.getBoundingClientRect();
-    const dropdownWidth = dropdownRef.current?.offsetWidth || 0;
-
-    if (!bounding) return;
-
-    const gap = 7;
-    const { x, y, width, height } = bounding;
-
-    const positions: Record<PlacementType, CoordinatesType> = {
-      right: { top: x + width - dropdownWidth, left: y + height + gap + window.scrollY },
-      left: { top: x, left: y + height + gap + window.scrollY },
-      center: {
-        top: x + width / 2 - dropdownWidth / 2,
-        left: y + height + gap + window.scrollY,
-      },
-    };
-
-    setCoords(positions[placement]);
-  }, [triggerRef, placement, isOpen]);
-
-  useEffect(() => {
-    window.addEventListener("resize", onClose);
-    return () => window.removeEventListener("resize", onClose);
-  }, [onClose]);
+  const popoverContent = <Content>{content}</Content>;
 
   return (
-    <>
-      <Container className={className} {...openProps} ref={triggerRef}>
-        {children}
-      </Container>
-      {isOpen &&
-        createPortal(
-          <Content coords={coords} ref={dropdownRef} fadeOut={isUnmounting}>
-            {content}
-          </Content>,
-          document.body
-        )}
-    </>
+    <Popover
+      content={popoverContent}
+      gap={8}
+      placement="bottom"
+      trigger="click"
+      {...restProps}
+    >
+      {children}
+    </Popover>
   );
 };
 
-const Container = styled.div`
-  align-self: baseline;
-  display: inline-block;
-`;
-
-const fadeInDown = keyframes`
-  from { opacity: 0; transform: translateY(-5%); }
-  to { opacity: 1; transform: translateY(0);}
-`;
-
-const Content = styled.div<{ coords: CoordinatesType; fadeOut: boolean }>`
-  position: absolute;
-  top: ${({ coords }) => coords.left}px;
-  left: ${({ coords }) => coords.top}px;
-  animation: ${fadeInDown} ${ANIMATION_TIME}ms ease-out;
-  ${({ fadeOut }) =>
-    fadeOut &&
-    css`
-      opacity: 0;
-      transform: translateY(-5%);
-      transition: opacity ${ANIMATION_TIME}ms ease-out, transform ${ANIMATION_TIME}ms ease-out;
-    `}
+const Content = styled.div`
+  background-color: ${({ theme }) => theme.colors.white};
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
+  border-radius: 9px;
+  padding: 1.2rem;
 `;

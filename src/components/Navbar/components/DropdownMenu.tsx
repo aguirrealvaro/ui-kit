@@ -9,7 +9,7 @@ type MainMenuProps = { user: string; items: NavbarItem[] };
 
 export const DropdownMenu: FunctionComponent<MainMenuProps> = ({ user, items }) => {
   const dropdownContent = (
-    <DropdownContent>
+    <div>
       {items
         .filter(({ show = true }) => show)
         .map(({ label, onClick, disabled = false }, i) => (
@@ -17,12 +17,12 @@ export const DropdownMenu: FunctionComponent<MainMenuProps> = ({ user, items }) 
             {label}
           </Item>
         ))}
-    </DropdownContent>
+    </div>
   );
 
   return (
     <Container>
-      <Dropdown content={dropdownContent} placement="right">
+      <Dropdown content={dropdownContent} placement="bottom-right">
         <Profile>
           <Icon icon={UserCircle} size={25} />
           <span>{user}</span>
@@ -43,13 +43,6 @@ const Profile = styled.button`
   display: flex;
   align-items: center;
   gap: 8px;
-`;
-
-const DropdownContent = styled.div`
-  background-color: ${({ theme }) => theme.colors.white};
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
-  border-radius: 9px;
-  padding: 1.2rem;
 `;
 
 const Item = styled.button`

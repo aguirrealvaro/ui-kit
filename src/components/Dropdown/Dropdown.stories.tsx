@@ -16,7 +16,11 @@ export const Primary: ComponentStory<typeof Dropdown> = () => {
     </Content>
   );
 
-  return <Dropdown content={content}>Click to open dropdown</Dropdown>;
+  return (
+    <Dropdown content={content} placement="bottom-left">
+      Click to open dropdown
+    </Dropdown>
+  );
 };
 
 const Content = styled.div`
