@@ -100,12 +100,12 @@ export const Popover: FunctionComponent<PopoverProps> = ({
         left: triggerLeft + triggerWidth + gap,
       },
       "bottom-left": {
-        top: 0,
-        left: 0,
+        top: triggerTop + triggerHeight + gap,
+        left: triggerLeft,
       },
       "bottom-right": {
-        top: 0,
-        left: 0,
+        top: triggerTop + triggerHeight + gap,
+        left: triggerLeft + triggerWidth - popoverWidth,
       },
       "left-top": {
         top: 0,
