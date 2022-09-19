@@ -68,36 +68,36 @@ export const Popover: FunctionComponent<PopoverProps> = ({
 
     const positions: Record<PlacementType, CoordsType> = {
       top: {
-        top: triggerTop - popoverHeight - gap + window.scrollY,
-        left: triggerLeft + (triggerWidth - popoverWidth) / 2 + window.scrollX,
+        top: triggerTop - popoverHeight - gap,
+        left: triggerLeft + (triggerWidth - popoverWidth) / 2,
       },
       right: {
-        top: triggerTop + (triggerHeight - popoverHeight) / 2 + window.scrollY,
-        left: triggerLeft + triggerWidth + gap + window.scrollX,
+        top: triggerTop + (triggerHeight - popoverHeight) / 2,
+        left: triggerLeft + triggerWidth + gap,
       },
       bottom: {
-        top: triggerTop + triggerHeight + gap + window.scrollY,
-        left: triggerLeft + (triggerWidth - popoverWidth) / 2 + window.scrollX,
+        top: triggerTop + triggerHeight + gap,
+        left: triggerLeft + (triggerWidth - popoverWidth) / 2,
       },
       left: {
-        top: triggerTop + (triggerHeight - popoverHeight) / 2 + window.scrollY,
-        left: triggerLeft - popoverWidth - gap + window.scrollX,
+        top: triggerTop + (triggerHeight - popoverHeight) / 2,
+        left: triggerLeft - popoverWidth - gap,
       },
       "top-left": {
-        top: triggerTop - popoverHeight - gap + window.scrollY,
-        left: triggerLeft + window.scrollX,
+        top: triggerTop - popoverHeight - gap,
+        left: triggerLeft,
       },
       "top-right": {
-        top: triggerTop - popoverHeight - gap + window.scrollY,
-        left: triggerLeft + triggerWidth - popoverWidth + window.scrollX,
+        top: triggerTop - popoverHeight - gap,
+        left: triggerLeft + triggerWidth - popoverWidth,
       },
       "right-top": {
-        top: triggerTop + window.scrollY,
-        left: triggerLeft + triggerWidth + gap + window.scrollX,
+        top: triggerTop,
+        left: triggerLeft + triggerWidth + gap,
       },
       "right-bottom": {
-        top: triggerTop + triggerHeight - popoverHeight + window.scrollY,
-        left: triggerLeft + triggerWidth + gap + window.scrollX,
+        top: triggerTop + triggerHeight - popoverHeight,
+        left: triggerLeft + triggerWidth + gap,
       },
       "bottom-left": {
         top: 0,
@@ -156,8 +156,8 @@ const Content = styled.div<{
     if (coords) {
       const { top, left } = coords;
       return css`
-        top: ${top}px;
-        left: ${left}px;
+        top: ${top + window.scrollY}px;
+        left: ${left + window.scrollX}px;
       `;
     }
   }};
