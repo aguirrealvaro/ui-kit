@@ -23,7 +23,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
     onToggle,
     onClose,
     isUnmounting,
-  } = useDisclosure({ timeout: ANIMATION_TIME });
+  } = useDisclosure({ timeout: ANIMATION_TIME, closeOnResize: true });
 
   useDisableScroll(isMobileMenuOpen);
 

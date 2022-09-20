@@ -9,7 +9,7 @@ export default {
 } as ComponentMeta<typeof Modal>;
 
 export const Primary: ComponentStory<typeof Modal> = () => {
-  const { isOpen, onOpen, onClose, isUnmounting } = useDisclosure({ closeOnResize: false });
+  const { isOpen, onOpen, onClose, isUnmounting } = useDisclosure();
 
   return (
     <>

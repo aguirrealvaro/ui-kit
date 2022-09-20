@@ -45,6 +45,7 @@ export const Popover: FunctionComponent<PopoverProps> = ({
 
   const { isOpen, onOpen, onClose, onToggle, isUnmounting } = useDisclosure({
     timeout: ANIMATION_TIME,
+    closeOnResize: true,
   });
 
   const openProps = {
