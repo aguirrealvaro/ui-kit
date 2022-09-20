@@ -259,11 +259,55 @@ const getColorStyles = (variant: VariantType, kind: KindType): FlattenSimpleInte
     `,
   };
 
+  const variantPrimaryOptions: Record<VariantType, FlattenSimpleInterpolation> = {
+    default: css`
+      border-color: #d9d9d9;
+      color: ${theme.colors.grey};
+      &:hover {
+        color: ${theme.colors.blue};
+        border-color: ${theme.colors.blue};
+      }
+    `,
+    positive: css`
+      border-color: #d9d9d9;
+      color: ${theme.colors.grey};
+      &:hover {
+        color: ${theme.colors.green};
+        border-color: ${theme.colors.green};
+      }
+    `,
+    warning: css`
+      border-color: #d9d9d9;
+      color: ${theme.colors.grey};
+      &:hover {
+        color: ${theme.colors.yellow};
+        border-color: ${theme.colors.yellow};
+      }
+    `,
+    negative: css`
+      border-color: #d9d9d9;
+      color: ${theme.colors.grey};
+      &:hover {
+        color: ${theme.colors.red};
+        border-color: ${theme.colors.red};
+      }
+    `,
+    neutral: css`
+      border-color: #d9d9d9;
+      color: ${theme.colors.grey};
+      &:hover {
+        color: ${theme.colors.black};
+        border-color: ${theme.colors.black};
+      }
+    `,
+  };
+
   const colorOptions: Record<KindType, FlattenSimpleInterpolation> = {
     solid: variantSolidOptions[variant],
     outlined: variantOutlinedOptions[variant],
     ghost: variantGhostOptions[variant],
     link: variantLinkOptions[variant],
+    primary: variantPrimaryOptions[variant],
   };
 
   return colorOptions[kind];

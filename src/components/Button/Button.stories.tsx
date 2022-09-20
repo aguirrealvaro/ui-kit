@@ -16,6 +16,7 @@ export const Primary: ComponentStory<typeof Button> = () => {
         <Button kind="outlined">Outlined</Button>
         <Button kind="ghost">Ghost</Button>
         <Button kind="link">Link</Button>
+        <Button kind="primary">Primary</Button>
       </Flex>
       <Flex>
         <Button size="xs">Mini</Button>
@@ -75,6 +76,23 @@ export const Primary: ComponentStory<typeof Button> = () => {
         </Button>
         <Button shape="default" icon={Download}>
           Download
+        </Button>
+      </Flex>
+      <Flex>
+        <Button variant="default" kind="primary">
+          Default
+        </Button>
+        <Button variant="positive" kind="primary">
+          Positive
+        </Button>
+        <Button variant="negative" kind="primary">
+          Negative
+        </Button>
+        <Button variant="warning" kind="primary">
+          Warning
+        </Button>
+        <Button variant="neutral" kind="primary">
+          Neutral
         </Button>
       </Flex>
     </div>
