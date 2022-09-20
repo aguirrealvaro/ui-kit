@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
 export const ModalFooter = styled.div`
-  margin-top: 1.5rem;
+  padding: 1rem;
+  border-top: 1px solid #dee2e6;
 `;

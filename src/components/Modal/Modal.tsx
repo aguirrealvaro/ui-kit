@@ -6,7 +6,7 @@ import { SIZES, ANIMATION_TIME } from "./Modal.constants";
 import { SizeType } from "./Modal.types";
 import { Icon } from "@/components";
 import { theme } from "@/components/App";
-import { useDisableScroll, useOutsideClick, useKeyPress, useMediaQuery } from "@/hooks";
+import { useDisableScroll, useOutsideClick, useKeyPress } from "@/hooks";
 
 export type ModalProps = {
   children: ReactNode;
@@ -43,17 +43,13 @@ export const Modal: FunctionComponent<ModalProps> = ({
     enabled: isOpen && closeOnInteractions,
   });
 
-  const isMobile = useMediaQuery(768);
-
-  const fadeOut = isUnmounting && !isMobile;
-
   const modalSize = SIZES[size];
 
   if (!isOpen) return null;
 
   const Component = (
-    <Backdrop isOpen={isOpen} fadeOut={fadeOut} className={className}>
-      <Content size={modalSize} ref={contentRef} fadeOut={fadeOut} role="dialog">
+    <Backdrop isOpen={isOpen} fadeOut={isUnmounting} className={className}>
+      <Content size={modalSize} ref={contentRef} fadeOut={isUnmounting} role="dialog">
         <CloseButton onClick={onClose}>
           <Icon icon={CloseOutline} color={theme.colors.grey} size={25} />
         </CloseButton>
@@ -95,17 +91,13 @@ const Backdrop = styled.div<{ isOpen: boolean; fadeOut: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  ${({ theme }) => theme.breakpoint("md")} {
-    animation: none;
-    align-items: baseline;
-  }
 `;
 
 const Content = styled.div<{ size: number; fadeOut: boolean }>`
   position: relative;
   width: ${({ size }) => size}px;
   min-height: 100px;
-  padding: 2rem;
+  max-height: 80vh;
   animation: ${fadeInScale} ${ANIMATION_TIME}ms ease-out;
   ${({ fadeOut }) =>
     fadeOut &&
@@ -119,14 +111,7 @@ const Content = styled.div<{ size: number; fadeOut: boolean }>`
   box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.11);
   display: flex;
   flex-direction: column;
-  ${({ theme }) => theme.breakpoint("md")} {
-    border-radius: 0;
-    width: 100%;
-    margin: 0;
-    min-height: 100vh;
-    animation: none;
-    padding: 4rem 2rem;
-  }
+  margin: 0 1rem;
 `;
 
 const CloseButton = styled.button`
