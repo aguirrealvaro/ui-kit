@@ -10,7 +10,7 @@ export const Dropdown: FunctionComponent<PopoverProps> = ({
   const popoverContent = <Content>{content}</Content>;
 
   return (
-    <Popover content={popoverContent} gap={8} position="bottom" trigger="click" {...restProps}>
+    <Popover content={popoverContent} gap={8} trigger="click" {...restProps}>
       {children}
     </Popover>
   );
