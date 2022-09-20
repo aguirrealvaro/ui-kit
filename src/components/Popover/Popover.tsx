@@ -59,7 +59,7 @@ export const Popover: FunctionComponent<PopoverProps> = ({
     enabled: isOpen && trigger === "click",
   });
 
-  // Close popover if stayed open
+  // Close popover if stayed open  (fast move)
   useEffect(() => {
     if (!isOpen || trigger === "click") return;
 
