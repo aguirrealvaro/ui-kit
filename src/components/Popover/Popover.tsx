@@ -34,13 +34,14 @@ export const Popover: FunctionComponent<PopoverProps> = ({
   position = "bottom",
   trigger = "hover",
   gap = 0,
-  //withTriggerWidth = false,
+  withTriggerWidth = false,
   className,
 }) => {
   const triggerRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
 
   const [coords, setCoords] = useState<CoordsType | undefined>(undefined);
+  const [triggerWidth, setTriggerWidth] = useState<number | undefined>(undefined);
 
   const { isOpen, onOpen, onClose, onToggle, isUnmounting } = useDisclosure({
     timeout: ANIMATION_TIME,
@@ -139,6 +140,11 @@ export const Popover: FunctionComponent<PopoverProps> = ({
     setCoords(positions[position]);
   }, [position, isOpen, gap]);
 
+  useEffect(() => {
+    if (!triggerRef.current || !withTriggerWidth) return;
+    setTriggerWidth(triggerRef.current.offsetWidth);
+  }, [withTriggerWidth]);
+
   return (
     <>
       <Container className={className} {...openProps} ref={triggerRef}>
@@ -146,7 +152,12 @@ export const Popover: FunctionComponent<PopoverProps> = ({
       </Container>
       {isOpen &&
         createPortal(
-          <Content ref={popoverRef} fadeOut={isUnmounting} coords={coords}>
+          <Content
+            ref={popoverRef}
+            fadeOut={isUnmounting}
+            coords={coords}
+            triggerWidth={triggerWidth}
+          >
             {content}
           </Content>,
           document.body
@@ -173,6 +184,7 @@ const fadeInScale = keyframes`
 const Content = styled.div<{
   fadeOut: boolean;
   coords: CoordsType | undefined;
+  triggerWidth: number | undefined;
 }>`
   position: absolute;
   animation: ${fadeInScale} ${ANIMATION_TIME}ms ease-out;
@@ -198,5 +210,12 @@ const Content = styled.div<{
           transform ${ANIMATION_TIME}ms ease-out; */
       `;
     }
-  }}
+  }};
+  ${({ triggerWidth }) => {
+    if (triggerWidth) {
+      return css`
+        width: ${triggerWidth}px;
+      `;
+    }
+  }};
 `;
