@@ -14,7 +14,8 @@ type ButtonProps = {
   size?: SizeType;
   variant?: VariantType;
   shape?: ShapeType;
-  icon?: StyledIcon;
+  leftIcon?: StyledIcon;
+  rightIcon?: StyledIcon;
 };
 
 export const Button: FunctionComponent<
@@ -28,7 +29,8 @@ export const Button: FunctionComponent<
   size = "md",
   variant = "default",
   shape = "default",
-  icon,
+  leftIcon,
+  rightIcon,
   ...restProps
 }) => {
   const handleOnClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -40,8 +42,9 @@ export const Button: FunctionComponent<
     if (isLoading) return <Spinner size="xs" background="light" />;
     return (
       <InnerContainer>
-        {icon && <Icon icon={icon} color={theme.colors.white} size={20} />}
+        {leftIcon && <Icon icon={leftIcon} color={theme.colors.white} size={20} />}
         <div>{children}</div>
+        {rightIcon && <Icon icon={rightIcon} color={theme.colors.white} size={20} />}
       </InnerContainer>
     );
   };

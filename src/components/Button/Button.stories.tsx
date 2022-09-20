@@ -74,7 +74,10 @@ export const Primary: ComponentStory<typeof Button> = () => {
         <Button shape="default" isLoading>
           Default
         </Button>
-        <Button shape="default" icon={Download}>
+        <Button shape="default" leftIcon={Download}>
+          Download
+        </Button>
+        <Button shape="default" rightIcon={Download}>
           Download
         </Button>
       </Flex>
