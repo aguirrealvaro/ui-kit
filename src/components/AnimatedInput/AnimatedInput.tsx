@@ -11,7 +11,6 @@ import { CheckCircleFill } from "@styled-icons/bootstrap/CheckCircleFill";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
 import styled, { css } from "styled-components";
-import { StyledIcon } from "styled-icons/types";
 import { ANIMATION_TIME } from "./AnimatedInput.constants";
 import { Spinner, Icon } from "@/components";
 import { theme } from "@/components/App";
@@ -24,7 +23,7 @@ type AnimatedInputProps = {
   inputId?: string;
   isLoading?: boolean;
   clearValue?: () => void;
-  icon?: StyledIcon;
+  icon?: ReactNode;
 };
 
 export const AnimatedInput: FunctionComponent<
@@ -97,7 +96,7 @@ export const AnimatedInput: FunctionComponent<
         </InnerContainer>
         {showSideContainer && (
           <SideContainer ref={sideContainerRef}>
-            {icon && <Icon icon={icon} color={theme.colors.grey} size={20} />}
+            {icon ? icon : null}
             {isLoading && <Spinner size="xs" />}
             {value && clearValue && (
               <ButtonClear onClick={clearValue}>

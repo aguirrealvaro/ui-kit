@@ -1,7 +1,6 @@
 import { FunctionComponent, ButtonHTMLAttributes, ReactNode } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { theme } from "../App";
-import { Icon } from "../Icon";
 import { Spinner } from "../Spinner";
 import { ANIMATION_TIME } from "./Button.constants";
 import { KindType, SizeType, VariantType, ShapeType } from "./Button.types";
@@ -15,7 +14,6 @@ type ButtonProps = {
   shape?: ShapeType;
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
-  colorIcon?: string;
 };
 
 export const Button: FunctionComponent<
