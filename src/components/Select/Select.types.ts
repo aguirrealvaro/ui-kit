@@ -1,4 +1,4 @@
-export type LabelValue = {
+export type SelectFieldType = {
   label: string;
   value: string;
   disabled?: boolean;

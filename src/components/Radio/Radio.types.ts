@@ -1,3 +1,3 @@
-export type SizeType = "xs" | "sm" | "md" | "lg";
+export type RadioSizeType = "xs" | "sm" | "md" | "lg";
 
-export type PositionType = "left" | "right";
+export type RadioPositionType = "left" | "right";

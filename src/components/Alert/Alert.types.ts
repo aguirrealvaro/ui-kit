@@ -1,3 +1,3 @@
-export type VariantType = "default" | "positive" | "negative" | "warning" | "neutral";
+export type AlertVariantType = "default" | "positive" | "negative" | "warning" | "neutral";
 
-export type SizeType = "xs" | "sm" | "md" | "lg";
+export type AlertSizeType = "xs" | "sm" | "md" | "lg";

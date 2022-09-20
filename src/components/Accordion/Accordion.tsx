@@ -2,7 +2,7 @@ import { useState, useRef, FunctionComponent, ReactNode } from "react";
 import { ChevronDown } from "@styled-icons/boxicons-regular/ChevronDown";
 import styled, { css } from "styled-components";
 import { ANIMATION_TIME } from "./Accordion.constants";
-import { ArrowPosition } from "./Accordion.types";
+import { AccordionArrowPosition } from "./Accordion.types";
 import { Icon } from "@/components";
 
 type AccordionProps = {
@@ -11,7 +11,7 @@ type AccordionProps = {
   disabled?: boolean;
   className?: string;
   showBorder?: boolean;
-  arrowPosition?: ArrowPosition;
+  arrowPosition?: AccordionArrowPosition;
 };
 
 export const Accordion: FunctionComponent<AccordionProps> = ({
@@ -56,7 +56,7 @@ const Container = styled.div<{ showBorder: boolean }>`
   }}
 `;
 
-const Button = styled.button<{ arrowPosition: ArrowPosition }>`
+const Button = styled.button<{ arrowPosition: AccordionArrowPosition }>`
   display: flex;
   align-items: center;
   ${({ arrowPosition }) => {
@@ -78,11 +78,11 @@ const Button = styled.button<{ arrowPosition: ArrowPosition }>`
   }
 `;
 
-const Title = styled.div<{ arrowPosition: ArrowPosition }>`
+const Title = styled.div<{ arrowPosition: AccordionArrowPosition }>`
   order: ${({ arrowPosition }) => (arrowPosition === "right" ? 1 : 2)};
 `;
 
-const ChevronWrapper = styled.div<{ active: boolean; arrowPosition: ArrowPosition }>`
+const ChevronWrapper = styled.div<{ active: boolean; arrowPosition: AccordionArrowPosition }>`
   transform: ${({ active }) => `rotate(${active ? "-180" : 0}deg)`};
   transition: transform ${ANIMATION_TIME}ms ease;
   order: ${({ arrowPosition }) => (arrowPosition === "right" ? 2 : 1)};

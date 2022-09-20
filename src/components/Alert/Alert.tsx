@@ -5,14 +5,14 @@ import { Alert as AlertIcon } from "@styled-icons/remix-fill/Alert";
 import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { StyledIcon } from "styled-icons/types";
-import { SizeType, VariantType } from "./Alert.types";
+import { AlertSizeType, AlertVariantType } from "./Alert.types";
 import { Icon } from "@/components";
 import { theme } from "@/components/App";
 
 type AlertProps = {
   children: ReactNode;
-  variant?: VariantType;
-  size?: SizeType;
+  variant?: AlertVariantType;
+  size?: AlertSizeType;
 };
 
 export const Alert: FunctionComponent<AlertProps> = ({
@@ -34,7 +34,7 @@ export const Alert: FunctionComponent<AlertProps> = ({
   );
 };
 
-const variantIcons: Record<VariantType, { icon: StyledIcon; color: string }> = {
+const variantIcons: Record<AlertVariantType, { icon: StyledIcon; color: string }> = {
   default: { icon: InfoCircleFill, color: theme.colors.blue },
   positive: { icon: CheckCircleFill, color: theme.colors.green },
   warning: { icon: AlertIcon, color: theme.colors.yellow },
@@ -42,7 +42,7 @@ const variantIcons: Record<VariantType, { icon: StyledIcon; color: string }> = {
   neutral: { icon: InfoCircleFill, color: theme.colors.black },
 };
 
-const variantStyles: Record<VariantType, FlattenSimpleInterpolation> = {
+const variantStyles: Record<AlertVariantType, FlattenSimpleInterpolation> = {
   default: css`
     color: #004085;
     background-color: #cce5ff;
@@ -70,7 +70,7 @@ const variantStyles: Record<VariantType, FlattenSimpleInterpolation> = {
   `,
 };
 
-const sizeStyles: Record<SizeType, FlattenSimpleInterpolation> = {
+const sizeStyles: Record<AlertSizeType, FlattenSimpleInterpolation> = {
   xs: css`
     padding: 8px 12px;
     font-size: 12px;
@@ -89,7 +89,7 @@ const sizeStyles: Record<SizeType, FlattenSimpleInterpolation> = {
   `,
 };
 
-const Container = styled.div<{ variant: VariantType; size: SizeType }>`
+const Container = styled.div<{ variant: AlertVariantType; size: AlertSizeType }>`
   border-radius: 8px;
   ${({ variant }) => variantStyles[variant]};
   ${({ size }) => sizeStyles[size]};

@@ -1,13 +1,13 @@
 import { FunctionComponent, ReactNode } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { BORDER_COLOR, PADDINGS_SIZES } from "./Table.constants";
-import { DividerType, SizeType } from "./Table.types";
+import { TableDividerType, TableSizeType } from "./Table.types";
 
 type TableProps = {
   columns: ReactNode[];
   data: ReactNode[][];
-  size?: SizeType;
-  divider?: DividerType;
+  size?: TableSizeType;
+  divider?: TableDividerType;
 };
 
 export const Table: FunctionComponent<TableProps> = ({
@@ -50,14 +50,14 @@ export const Table: FunctionComponent<TableProps> = ({
   );
 };
 
-const Container = styled.table<{ divider: DividerType }>`
+const Container = styled.table<{ divider: TableDividerType }>`
   min-width: 600px;
   width: 100%;
   //overflow-x: scroll;
   border-spacing: 0;
   border-color: rgba(0, 0, 0, 0.12);
   ${({ divider }) => {
-    const dividerStyles: Record<DividerType, FlattenSimpleInterpolation | undefined> = {
+    const dividerStyles: Record<TableDividerType, FlattenSimpleInterpolation | undefined> = {
       clean: undefined,
       horizontal: undefined,
       vertical: undefined,
@@ -69,11 +69,11 @@ const Container = styled.table<{ divider: DividerType }>`
   }};
 `;
 
-const TableRowHeader = styled.tr<{ divider: DividerType }>`
+const TableRowHeader = styled.tr<{ divider: TableDividerType }>`
   display: flex;
   border-color: rgba(0, 0, 0, 0.12);
   ${({ divider }) => {
-    const dividerStyles: Record<DividerType, FlattenSimpleInterpolation | undefined> = {
+    const dividerStyles: Record<TableDividerType, FlattenSimpleInterpolation | undefined> = {
       clean: undefined,
       horizontal: css`
         border-bottom: 1px solid ${BORDER_COLOR};
@@ -89,13 +89,13 @@ const TableRowHeader = styled.tr<{ divider: DividerType }>`
   }}
 `;
 
-const TableHead = styled.th<{ size: number; divider: DividerType }>`
+const TableHead = styled.th<{ size: number; divider: TableDividerType }>`
   flex: 1;
   text-align: left;
   padding: ${({ size }) => `${size}px`};
   border-color: rgba(0, 0, 0, 0.12);
   ${({ divider }) => {
-    const dividerStyles: Record<DividerType, FlattenSimpleInterpolation | undefined> = {
+    const dividerStyles: Record<TableDividerType, FlattenSimpleInterpolation | undefined> = {
       clean: undefined,
       horizontal: undefined,
       vertical: css`
@@ -115,7 +115,7 @@ const TableHead = styled.th<{ size: number; divider: DividerType }>`
   }}
 `;
 
-const TableRowData = styled.tr<{ divider: DividerType }>`
+const TableRowData = styled.tr<{ divider: TableDividerType }>`
   display: flex;
   border-color: rgba(0, 0, 0, 0.12);
   &:nth-child(even) {
@@ -125,7 +125,7 @@ const TableRowData = styled.tr<{ divider: DividerType }>`
     background-color: rgba(0, 0, 0, 0.08);
   }
   ${({ divider }) => {
-    const dividerStyles: Record<DividerType, FlattenSimpleInterpolation | undefined> = {
+    const dividerStyles: Record<TableDividerType, FlattenSimpleInterpolation | undefined> = {
       clean: undefined,
       horizontal: css`
         border-bottom: 1px solid ${BORDER_COLOR};
@@ -145,13 +145,13 @@ const TableRowData = styled.tr<{ divider: DividerType }>`
   }}
 `;
 
-const TableData = styled.td<{ size: number; divider: DividerType }>`
+const TableData = styled.td<{ size: number; divider: TableDividerType }>`
   flex: 1;
   text-align: left;
   padding: ${({ size }) => `${size}px`};
   border-color: rgba(0, 0, 0, 0.12);
   ${({ divider }) => {
-    const dividerStyles: Record<DividerType, FlattenSimpleInterpolation | undefined> = {
+    const dividerStyles: Record<TableDividerType, FlattenSimpleInterpolation | undefined> = {
       clean: undefined,
       horizontal: undefined,
       vertical: css`

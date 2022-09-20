@@ -1,4 +1,4 @@
-export type PositionType =
+export type PopoverPositionType =
   | "top"
   | "right"
   | "bottom"
@@ -12,4 +12,4 @@ export type PositionType =
   | "left-top"
   | "left-bottom";
 
-export type TriggerType = "hover" | "click";
+export type PopoverTriggerType = "hover" | "click";

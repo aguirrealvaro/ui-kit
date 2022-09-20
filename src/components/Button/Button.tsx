@@ -3,15 +3,20 @@ import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { theme } from "../App";
 import { Spinner } from "../Spinner";
 import { ANIMATION_TIME } from "./Button.constants";
-import { KindType, SizeType, VariantType, ShapeType } from "./Button.types";
+import {
+  ButtonKindType,
+  ButtonSizeType,
+  ButtonVariantType,
+  ButtonShapeType,
+} from "./Button.types";
 
 type ButtonProps = {
   block?: boolean;
   isLoading?: boolean;
-  kind?: KindType;
-  size?: SizeType;
-  variant?: VariantType;
-  shape?: ShapeType;
+  kind?: ButtonKindType;
+  size?: ButtonSizeType;
+  variant?: ButtonVariantType;
+  shape?: ButtonShapeType;
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
 };
@@ -62,8 +67,8 @@ export const Button: FunctionComponent<
   );
 };
 
-const getSizeStyles = (size: SizeType): FlattenSimpleInterpolation => {
-  const sizeOptions: Record<SizeType, FlattenSimpleInterpolation> = {
+const getSizeStyles = (size: ButtonSizeType): FlattenSimpleInterpolation => {
+  const sizeOptions: Record<ButtonSizeType, FlattenSimpleInterpolation> = {
     xs: css`
       height: 24px;
       padding: 0rem 8px;
@@ -89,8 +94,8 @@ const getSizeStyles = (size: SizeType): FlattenSimpleInterpolation => {
   return sizeOptions[size];
 };
 
-const getShapeStyles = (shape: ShapeType): FlattenSimpleInterpolation => {
-  const shapeOptions: Record<ShapeType, FlattenSimpleInterpolation> = {
+const getShapeStyles = (shape: ButtonShapeType): FlattenSimpleInterpolation => {
+  const shapeOptions: Record<ButtonShapeType, FlattenSimpleInterpolation> = {
     default: css`
       border-radius: 4px;
     `,
@@ -105,8 +110,11 @@ const getShapeStyles = (shape: ShapeType): FlattenSimpleInterpolation => {
   return shapeOptions[shape];
 };
 
-const getColorStyles = (variant: VariantType, kind: KindType): FlattenSimpleInterpolation => {
-  const variantSolidOptions: Record<VariantType, FlattenSimpleInterpolation> = {
+const getColorStyles = (
+  variant: ButtonVariantType,
+  kind: ButtonKindType
+): FlattenSimpleInterpolation => {
+  const variantSolidOptions: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
     default: css`
       background-color: ${theme.colors.blue};
       color: ${theme.colors.white};
@@ -156,7 +164,7 @@ const getColorStyles = (variant: VariantType, kind: KindType): FlattenSimpleInte
 
   const outlinedHover = "#ebebeb";
 
-  const variantOutlinedOptions: Record<VariantType, FlattenSimpleInterpolation> = {
+  const variantOutlinedOptions: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
     default: css`
       color: ${theme.colors.blue};
       border-color: ${theme.colors.blue};
@@ -194,7 +202,7 @@ const getColorStyles = (variant: VariantType, kind: KindType): FlattenSimpleInte
     `,
   };
 
-  const variantGhostOptions: Record<VariantType, FlattenSimpleInterpolation> = {
+  const variantGhostOptions: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
     default: css`
       color: ${theme.colors.blue};
       &:hover {
@@ -227,7 +235,7 @@ const getColorStyles = (variant: VariantType, kind: KindType): FlattenSimpleInte
     `,
   };
 
-  const variantLinkOptions: Record<VariantType, FlattenSimpleInterpolation> = {
+  const variantLinkOptions: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
     default: css`
       color: ${theme.colors.blue};
       &:hover {
@@ -260,7 +268,7 @@ const getColorStyles = (variant: VariantType, kind: KindType): FlattenSimpleInte
     `,
   };
 
-  const variantPrimaryOptions: Record<VariantType, FlattenSimpleInterpolation> = {
+  const variantPrimaryOptions: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
     default: css`
       border-color: #d9d9d9;
       color: ${theme.colors.grey};
@@ -303,7 +311,7 @@ const getColorStyles = (variant: VariantType, kind: KindType): FlattenSimpleInte
     `,
   };
 
-  const colorOptions: Record<KindType, FlattenSimpleInterpolation> = {
+  const colorOptions: Record<ButtonKindType, FlattenSimpleInterpolation> = {
     solid: variantSolidOptions[variant],
     outlined: variantOutlinedOptions[variant],
     ghost: variantGhostOptions[variant],
@@ -316,10 +324,10 @@ const getColorStyles = (variant: VariantType, kind: KindType): FlattenSimpleInte
 
 const CustomButton = styled.button<{
   block?: boolean;
-  kind: KindType;
-  size: SizeType;
-  variant: VariantType;
-  shape: ShapeType;
+  kind: ButtonKindType;
+  size: ButtonSizeType;
+  variant: ButtonVariantType;
+  shape: ButtonShapeType;
 }>`
   width: ${({ block }) => (block ? "100%" : "auto")};
   border: 1px solid transparent;

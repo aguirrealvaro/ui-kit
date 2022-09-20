@@ -5,12 +5,12 @@ import styled, { css } from "styled-components";
 import { hiddenStyles, theme } from "../App";
 import { Icon } from "../Icon";
 import { SIZES } from "./Checkbox.constants";
-import { PositionType, SizeType } from "./Checkbox.types";
+import { CheckboxPositionType, CheckboxSizeType } from "./Checkbox.types";
 
 type CheckboxProps = {
   children?: ReactNode;
-  checkboxSize?: SizeType;
-  position?: PositionType;
+  checkboxSize?: CheckboxSizeType;
+  position?: CheckboxPositionType;
   color?: string;
   disabled?: boolean;
 };
@@ -61,10 +61,10 @@ const Container = styled.div<{ disabled: boolean }>`
   }}
 `;
 
-const Wrapper = styled.div<{ position: PositionType }>`
+const Wrapper = styled.div<{ position: CheckboxPositionType }>`
   order: ${({ position }) => (position === "left" ? 1 : 2)};
 `;
 
-const Label = styled.div<{ position: PositionType }>`
+const Label = styled.div<{ position: CheckboxPositionType }>`
   order: ${({ position }) => (position === "left" ? 2 : 1)};
 `;

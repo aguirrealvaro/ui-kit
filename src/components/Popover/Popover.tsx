@@ -8,7 +8,7 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 import styled, { css, keyframes } from "styled-components";
-import { PositionType, TriggerType } from "./Popover.types";
+import { PopoverPositionType, PopoverTriggerType } from "./Popover.types";
 import { useDisclosure, useOutsideClick } from "@/hooks";
 
 const ANIMATION_TIME = 200;
@@ -16,8 +16,8 @@ const ANIMATION_TIME = 200;
 export type PopoverProps = {
   children?: ReactNode;
   content: ReactNode;
-  position: PositionType;
-  trigger?: TriggerType;
+  position: PopoverPositionType;
+  trigger?: PopoverTriggerType;
   className?: string;
   withTriggerWidth?: boolean;
   gap?: number;
@@ -87,7 +87,7 @@ export const Popover: FunctionComponent<PopoverProps> = ({
     const popoverWidth = popoverRef.current.offsetWidth;
     const popoverHeight = popoverRef.current.offsetHeight;
 
-    const positions: Record<PositionType, CoordsType> = {
+    const positions: Record<PopoverPositionType, CoordsType> = {
       top: {
         top: triggerTop - popoverHeight - gap,
         left: triggerLeft + (triggerWidth - popoverWidth) / 2,

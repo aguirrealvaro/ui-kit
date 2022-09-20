@@ -6,7 +6,7 @@ import {
   ReactElement,
 } from "react";
 import styled from "styled-components";
-import { VariantType } from "../Button/Button.types";
+import { ButtonVariantType } from "../Button/Button.types";
 import { Modal, ModalHeader, ModalContent, ModalFooter, Button } from "@/components";
 import { useDisclosure } from "@/hooks";
 
@@ -15,7 +15,7 @@ type ModalConfirmProps = {
   header: ReactNode;
   content: ReactNode;
   onConfirm: () => void;
-  buttonVariant?: VariantType;
+  buttonVariant?: ButtonVariantType;
 };
 
 export const ModalConfirm: FunctionComponent<ModalConfirmProps> = ({

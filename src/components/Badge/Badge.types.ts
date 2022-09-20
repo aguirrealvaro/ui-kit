@@ -1,1 +1,1 @@
-export type VariantType = "default" | "positive" | "negative" | "warning" | "neutral";
+export type BadgeVariantType = "default" | "positive" | "negative" | "warning" | "neutral";

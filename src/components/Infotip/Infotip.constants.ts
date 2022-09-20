@@ -1,6 +1,6 @@
-import { SizeType } from "./Infotip.types";
+import { InfotipSizeType } from "./Infotip.types";
 
-export const SIZES: Record<SizeType, number> = {
+export const SIZES: Record<InfotipSizeType, number> = {
   xs: 15,
   sm: 20,
   md: 25,

@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import styled, { css, keyframes } from "styled-components";
 import { SIZES, ANIMATION_TIME } from "./Modal.constants";
-import { SizeType } from "./Modal.types";
+import { ModalSizeType } from "./Modal.types";
 import { Icon } from "@/components";
 import { theme } from "@/components/App";
 import { useDisableScroll, useOutsideClick, useKeyPress } from "@/hooks";
@@ -12,7 +12,7 @@ export type ModalProps = {
   children: ReactNode;
   isOpen: boolean;
   onClose: () => void;
-  size?: SizeType;
+  size?: ModalSizeType;
   closeOnInteractions?: boolean;
   isUnmounting?: boolean;
   className?: string;

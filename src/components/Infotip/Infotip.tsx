@@ -4,11 +4,11 @@ import styled from "styled-components";
 import { theme } from "../App";
 import { PopoverProps } from "../Popover";
 import { SIZES } from "./Infotip.constants";
-import { SizeType } from "./Infotip.types";
+import { InfotipSizeType } from "./Infotip.types";
 import { Icon, Tooltip } from "@/components";
 
 type InfotipProps = {
-  size?: SizeType;
+  size?: InfotipSizeType;
   className?: string;
 } & PopoverProps;
 

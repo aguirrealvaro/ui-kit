@@ -1,3 +1,3 @@
-export type SizeType = "sm" | "md" | "lg";
+export type TableSizeType = "sm" | "md" | "lg";
 
-export type DividerType = "horizontal" | "vertical" | "grid" | "clean";
+export type TableDividerType = "horizontal" | "vertical" | "grid" | "clean";

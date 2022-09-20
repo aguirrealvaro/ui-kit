@@ -1,8 +1,8 @@
-import { SizeType } from "./Modal.types";
+import { ModalSizeType } from "./Modal.types";
 
 export const ANIMATION_TIME = 200;
 
-export const SIZES: Record<SizeType, number> = {
+export const SIZES: Record<ModalSizeType, number> = {
   xs: 300,
   sm: 450,
   md: 600,

@@ -1,6 +1,6 @@
-import { SizeType } from "./Avatar.types";
+import { AvatarSizeType } from "./Avatar.types";
 
-export const SIZES: Record<SizeType, number> = {
+export const SIZES: Record<AvatarSizeType, number> = {
   xxs: 30,
   xs: 48,
   sm: 64,

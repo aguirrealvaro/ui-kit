@@ -10,7 +10,7 @@ export const List: FunctionComponent<ListProps> = ({ children, nested = false })
   return <Container nested={nested}>{children}</Container>;
 };
 
-const Container = styled.ol<{ nested: boolean }>`
+const Container = styled.ul<{ nested: boolean }>`
   ${({ nested }) => {
     if (nested) {
       return css`

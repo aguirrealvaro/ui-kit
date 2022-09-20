@@ -1,1 +1,1 @@
-export type ArrowPosition = "left" | "right";
+export type AccordionArrowPosition = "left" | "right";

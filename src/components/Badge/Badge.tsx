@@ -1,11 +1,11 @@
 import { FunctionComponent, ReactNode } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { theme } from "../App";
-import { VariantType } from "./Badge.types";
+import { BadgeVariantType } from "./Badge.types";
 
 type BadeProps = {
   children: ReactNode;
-  variant?: VariantType;
+  variant?: BadgeVariantType;
 };
 
 export const Badge: FunctionComponent<BadeProps> = ({ children, variant = "default" }) => {
@@ -16,7 +16,7 @@ export const Badge: FunctionComponent<BadeProps> = ({ children, variant = "defau
   );
 };
 
-const variantStyles: Record<VariantType, FlattenSimpleInterpolation> = {
+const variantStyles: Record<BadgeVariantType, FlattenSimpleInterpolation> = {
   default: css`
     color: ${theme.colors.white};
     background-color: ${theme.colors.blue};
@@ -39,7 +39,7 @@ const variantStyles: Record<VariantType, FlattenSimpleInterpolation> = {
   `,
 };
 
-const Container = styled.div<{ variant: VariantType }>`
+const Container = styled.div<{ variant: BadgeVariantType }>`
   padding: 0.25em 0.4em;
   border-radius: 4px;
   ${({ variant }) => variantStyles[variant]};

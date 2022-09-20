@@ -1,13 +1,13 @@
 import { FunctionComponent } from "react";
 import styled, { css } from "styled-components";
 import { SIZES } from "./Avatar.constants";
-import { SizeType } from "./Avatar.types";
+import { AvatarSizeType } from "./Avatar.types";
 import { useBoolean } from "@/hooks";
 
 type AvatarProps = {
   src: string;
   name: string;
-  size?: SizeType;
+  size?: AvatarSizeType;
 };
 
 export const Avatar: FunctionComponent<AvatarProps> = ({ src, name, size = "sm" }) => {

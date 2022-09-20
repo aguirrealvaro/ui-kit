@@ -1,3 +1,3 @@
-export type SizeType = "xs" | "sm" | "md" | "lg";
+export type SpinnerSizeType = "xs" | "sm" | "md" | "lg";
 
-export type BackgroundType = "light" | "dark";
+export type SpinnerBackgroundType = "light" | "dark";

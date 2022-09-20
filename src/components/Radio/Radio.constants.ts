@@ -1,6 +1,6 @@
-import { SizeType } from "./Radio.types";
+import { RadioSizeType } from "./Radio.types";
 
-export const SIZES: Record<SizeType, number> = {
+export const SIZES: Record<RadioSizeType, number> = {
   xs: 20,
   sm: 25,
   md: 30,

@@ -1,8 +1,8 @@
-import { SizeType } from "./Switch.types";
+import { SwitchSizeType } from "./Switch.types";
 
 export const ANIMATION_TIME = 200;
 
-export const SIZES: Record<SizeType, number> = {
+export const SIZES: Record<SwitchSizeType, number> = {
   xs: 15,
   sm: 20,
   md: 25,

@@ -1,3 +1,2 @@
-export type SizeType = "xs" | "sm" | "md" | "lg";
-
-export type PositionType = "left" | "right";
+export type CheckboxSizeType = "xs" | "sm" | "md" | "lg";
+export type CheckboxPositionType = "left" | "right";

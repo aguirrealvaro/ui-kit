@@ -1,12 +1,12 @@
 import { FunctionComponent } from "react";
 import styled, { css } from "styled-components";
 import { BACKGROUND_COLOR, SIZES } from "./Spinner.constants";
-import { SizeType, BackgroundType } from "./Spinner.types";
+import { SpinnerSizeType, SpinnerBackgroundType } from "./Spinner.types";
 
 type SpinnerProps = {
   color?: string;
-  background?: BackgroundType;
-  size?: SizeType;
+  background?: SpinnerBackgroundType;
+  size?: SpinnerSizeType;
   fullHeight?: boolean;
   className?: string;
 };
@@ -35,7 +35,7 @@ const Container = styled.div<{ fullHeight?: boolean }>`
   height: ${({ fullHeight }) => fullHeight && "100vh"};
 `;
 
-const Loader = styled.div<{ size: SizeType; color: string; background: string }>`
+const Loader = styled.div<{ size: SpinnerSizeType; color: string; background: string }>`
   border-radius: 50%;
   animation: spin 1.5s linear infinite;
   ${({ size, color, background }) => {

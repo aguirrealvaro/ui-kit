@@ -2,12 +2,12 @@ import { FunctionComponent, InputHTMLAttributes, ReactNode } from "react";
 import styled, { css } from "styled-components";
 import { hiddenStyles, theme } from "../App";
 import { ANIMATION_TIME, SIZES } from "./Switch.constants";
-import { PositionType, SizeType } from "./Switch.types";
+import { SwitchPositionType, SwitchSizeType } from "./Switch.types";
 
 type SwitchProps = {
   children?: ReactNode;
-  switchSize?: SizeType;
-  position?: PositionType;
+  switchSize?: SwitchSizeType;
+  position?: SwitchPositionType;
   color?: string;
   disabled?: boolean;
 };
@@ -58,7 +58,7 @@ const Container = styled.div<{ disabled: boolean }>`
   }}
 `;
 
-const Wrapper = styled.div<{ position: PositionType }>`
+const Wrapper = styled.div<{ position: SwitchPositionType }>`
   order: ${({ position }) => (position === "left" ? 1 : 2)};
 `;
 
@@ -106,6 +106,6 @@ const Ball = styled.span<{ checked: boolean; size: number }>`
   transition: left ${ANIMATION_TIME}ms ease;
 `;
 
-const Label = styled.div<{ position: PositionType }>`
+const Label = styled.div<{ position: SwitchPositionType }>`
   order: ${({ position }) => (position === "left" ? 2 : 1)};
 `;

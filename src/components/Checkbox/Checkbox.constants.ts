@@ -1,6 +1,6 @@
-import { SizeType } from "./Checkbox.types";
+import { CheckboxSizeType } from "./Checkbox.types";
 
-export const SIZES: Record<SizeType, number> = {
+export const SIZES: Record<CheckboxSizeType, number> = {
   xs: 20,
   sm: 25,
   md: 30,

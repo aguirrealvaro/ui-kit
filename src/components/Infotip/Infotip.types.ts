@@ -1,1 +1,1 @@
-export type SizeType = "xs" | "sm" | "md" | "lg";
+export type InfotipSizeType = "xs" | "sm" | "md" | "lg";

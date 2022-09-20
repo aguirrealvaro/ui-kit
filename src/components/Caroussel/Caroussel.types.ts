@@ -1,1 +1,1 @@
-export type DirectionType = "left" | "right";
+export type CarousselDirectionType = "left" | "right";

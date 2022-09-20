@@ -1,7 +1,7 @@
 import { FunctionComponent, Children, useState, useRef, useEffect, ReactNode } from "react";
 import styled from "styled-components";
 import { useDisableRightArrow } from "./Caroussel.hooks";
-import { DirectionType } from "./Caroussel.types";
+import { CarousselDirectionType } from "./Caroussel.types";
 import { Arrow } from "./components";
 
 const ANIMATION_TIME = 400;
@@ -27,7 +27,7 @@ export const Caroussel: FunctionComponent<CarousselProps> = ({
 
   const parsedGap = fullWidth ? 0 : gap;
 
-  const handleArrow = (direction: DirectionType) => {
+  const handleArrow = (direction: CarousselDirectionType) => {
     const carousselWidth = carousselRef.current?.scrollWidth || 0;
     const clientWidth = carousselRef.current?.clientWidth || 0;
 
