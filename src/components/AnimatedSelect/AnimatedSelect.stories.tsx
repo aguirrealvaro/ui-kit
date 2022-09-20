@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Select } from "@/components";
+import { AnimatedSelect } from "@/components";
 
 export default {
-  title: "Components/Select",
-  component: Select,
-} as ComponentMeta<typeof Select>;
+  title: "Components/AnimatedSelect",
+  component: AnimatedSelect,
+} as ComponentMeta<typeof AnimatedSelect>;
 
-export const Primary: ComponentStory<typeof Select> = () => {
+export const Primary: ComponentStory<typeof AnimatedSelect> = () => {
   const [option, setOption] = useState<string | undefined>(undefined);
 
   const options = [
@@ -22,7 +22,7 @@ export const Primary: ComponentStory<typeof Select> = () => {
   };
 
   return (
-    <Select
+    <AnimatedSelect
       value={option}
       options={options}
       onChange={setOption}

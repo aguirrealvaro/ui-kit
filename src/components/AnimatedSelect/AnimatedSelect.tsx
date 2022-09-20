@@ -11,14 +11,14 @@ import {
 import { ChevronDown } from "@styled-icons/boxicons-regular/ChevronDown";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import styled, { css } from "styled-components";
-import { SelectFieldType } from "./Select.types";
+import { SelectFieldType } from "./AnimatedSelect.types";
 import { Spinner, Icon } from "@/components";
 import { theme } from "@/components/App";
 import { useOutsideClick } from "@/hooks";
 
 const ANIMATION_TIME = 200;
 
-type SelectProps = {
+type AnimatedSelectProps = {
   placeholder: string;
   value: string | undefined;
   onChange: Dispatch<SetStateAction<string | undefined>>;
@@ -30,7 +30,7 @@ type SelectProps = {
   clearValue?: () => void;
 };
 
-export const Select: FunctionComponent<SelectProps> = ({
+export const AnimatedSelect: FunctionComponent<AnimatedSelectProps> = ({
   placeholder,
   value,
   onChange,
