@@ -16,6 +16,7 @@ type ButtonProps = {
   shape?: ShapeType;
   leftIcon?: StyledIcon;
   rightIcon?: StyledIcon;
+  colorIcon?: string;
 };
 
 export const Button: FunctionComponent<
@@ -31,6 +32,7 @@ export const Button: FunctionComponent<
   shape = "default",
   leftIcon,
   rightIcon,
+  colorIcon,
   ...restProps
 }) => {
   const handleOnClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -42,9 +44,13 @@ export const Button: FunctionComponent<
     if (isLoading) return <Spinner size="xs" background="light" />;
     return (
       <InnerContainer>
-        {leftIcon && <Icon icon={leftIcon} color={theme.colors.white} size={20} />}
+        {leftIcon && (
+          <Icon icon={leftIcon} color={colorIcon || theme.colors.white} size={20} />
+        )}
         <div>{children}</div>
-        {rightIcon && <Icon icon={rightIcon} color={theme.colors.white} size={20} />}
+        {rightIcon && (
+          <Icon icon={rightIcon} color={colorIcon || theme.colors.white} size={20} />
+        )}
       </InnerContainer>
     );
   };
