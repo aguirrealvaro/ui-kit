@@ -2,6 +2,7 @@ import { useState, useRef, FunctionComponent, ReactNode } from "react";
 import { ChevronDown } from "@styled-icons/boxicons-regular/ChevronDown";
 import styled, { css } from "styled-components";
 import { ANIMATION_TIME } from "./Accordion.constants";
+import { ArrowPosition } from "./Accordion.types";
 import { Icon } from "@/components";
 
 type AccordionProps = {
@@ -10,6 +11,7 @@ type AccordionProps = {
   disabled?: boolean;
   className?: string;
   showBorder?: boolean;
+  arrowPosition?: ArrowPosition;
 };
 
 export const Accordion: FunctionComponent<AccordionProps> = ({
@@ -18,6 +20,7 @@ export const Accordion: FunctionComponent<AccordionProps> = ({
   disabled,
   className,
   showBorder = false,
+  arrowPosition = "right",
 }) => {
   const [active, setActive] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -27,9 +30,9 @@ export const Accordion: FunctionComponent<AccordionProps> = ({
 
   return (
     <Container className={className} showBorder={showBorder}>
-      <Button onClick={toggle} disabled={disabled}>
-        <div>{title}</div>
-        <ChevronWrapper active={active}>
+      <Button onClick={toggle} disabled={disabled} arrowPosition={arrowPosition}>
+        <Title arrowPosition={arrowPosition}>{title}</Title>
+        <ChevronWrapper active={active} arrowPosition={arrowPosition}>
           <Icon icon={ChevronDown} size={20} />
         </ChevronWrapper>
       </Button>
@@ -53,10 +56,20 @@ const Container = styled.div<{ showBorder: boolean }>`
   }}
 `;
 
-const Button = styled.button`
+const Button = styled.button<{ arrowPosition: ArrowPosition }>`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  ${({ arrowPosition }) => {
+    if (arrowPosition === "right") {
+      return css`
+        justify-content: space-between;
+      `;
+    } else {
+      return css`
+        gap: 8px;
+      `;
+    }
+  }}
   width: 100%;
   padding: 1rem 0;
   &:disabled {
@@ -65,9 +78,14 @@ const Button = styled.button`
   }
 `;
 
-const ChevronWrapper = styled.div<{ active: boolean }>`
+const Title = styled.div<{ arrowPosition: ArrowPosition }>`
+  order: ${({ arrowPosition }) => (arrowPosition === "right" ? 1 : 2)};
+`;
+
+const ChevronWrapper = styled.div<{ active: boolean; arrowPosition: ArrowPosition }>`
   transform: ${({ active }) => `rotate(${active ? "-180" : 0}deg)`};
   transition: transform ${ANIMATION_TIME}ms ease;
+  order: ${({ arrowPosition }) => (arrowPosition === "right" ? 2 : 1)};
 `;
 
 const Content = styled.div<{ height: number; active: boolean }>`
