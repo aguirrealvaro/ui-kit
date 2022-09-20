@@ -61,7 +61,7 @@ export const Popover: FunctionComponent<PopoverProps> = ({
 
   // Close popover if stayed open
   useEffect(() => {
-    if (!isOpen) return;
+    if (!isOpen || trigger === "click") return;
 
     const listener = (e: MouseEvent | TouchEvent) => {
       if (!triggerRef.current?.contains(e.target as Node)) onClose();
@@ -71,7 +71,7 @@ export const Popover: FunctionComponent<PopoverProps> = ({
     return () => {
       document.removeEventListener("mousemove", listener);
     };
-  }, [isOpen, onClose]);
+  }, [isOpen, onClose, trigger]);
 
   useLayoutEffect(() => {
     if (!triggerRef.current || !popoverRef.current) return;
