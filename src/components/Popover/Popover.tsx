@@ -11,7 +11,7 @@ import styled, { css, keyframes } from "styled-components";
 import { PositionType, TriggerType } from "./Popover.types";
 import { useDisclosure, useOutsideClick } from "@/hooks";
 
-const ANIMATION_TIME = 150;
+const ANIMATION_TIME = 200;
 
 export type PopoverProps = {
   children?: ReactNode;

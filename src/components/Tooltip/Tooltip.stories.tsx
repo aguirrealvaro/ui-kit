@@ -12,10 +12,10 @@ export const Primary: ComponentStory<typeof Tooltip> = () => {
 
   return (
     <Container>
-      <Tooltip content={content} position="top">
+      <Tooltip content={content} position="top" trigger="click">
         Hover top
       </Tooltip>
-      <Tooltip content={content} position="right">
+      {/* <Tooltip content={content} position="right">
         Hover right
       </Tooltip>
       <Tooltip content={content} position="bottom">
@@ -23,7 +23,7 @@ export const Primary: ComponentStory<typeof Tooltip> = () => {
       </Tooltip>
       <Tooltip content={content} position="left">
         Hover left
-      </Tooltip>
+      </Tooltip> */}
     </Container>
   );
 };
