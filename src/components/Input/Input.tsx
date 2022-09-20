@@ -6,10 +6,11 @@ import {
   useRef,
   useLayoutEffect,
   useState,
-  HTMLInputTypeAttribute,
+  MouseEvent,
 } from "react";
 import { CheckCircleFill } from "@styled-icons/bootstrap/CheckCircleFill";
 import { EyeFill } from "@styled-icons/bootstrap/EyeFill";
+import { EyeSlashFill } from "@styled-icons/bootstrap/EyeSlashFill";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
 import styled, { css } from "styled-components";
@@ -44,9 +45,7 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
   type,
   ...restProps
 }) => {
-  const [parsedType, setParsedType] = useState<HTMLInputTypeAttribute | undefined>(
-    () => type || undefined
-  );
+  const [seePassword, setSeePassword] = useState<boolean>(false);
 
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -68,6 +67,8 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
     !!rightIcon ||
     type === "password";
 
+  const showBottom: boolean = !!helpText || !!error;
+
   const rightContainerRef = useRef<HTMLDivElement>(null);
 
   const [rightContainerWidth, setRightContainerWidth] = useState<number | undefined>(
@@ -80,8 +81,10 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
     setRightContainerWidth(rightContainerRef.current?.offsetWidth);
   }, [showRightContainer]);
 
-  const handleSeePassword = () => {
-    setParsedType("text");
+  const handleSeePassword = (e: MouseEvent<HTMLButtonElement>) => {
+    if (type !== "password") return;
+    e.stopPropagation();
+    setSeePassword(!seePassword);
   };
 
   return (
@@ -101,7 +104,7 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
           sideWidth={rightContainerWidth}
           value={value}
           onChange={onValidChange}
-          type={parsedType}
+          type={seePassword ? "text" : type}
           {...restProps}
         />
         {showRightContainer && (
@@ -117,13 +120,17 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
             {isSuccess && <Icon icon={CheckCircleFill} size={18} color={theme.colors.green} />}
             {type === "password" && (
               <ButtonIcon onClick={handleSeePassword}>
-                <Icon icon={EyeFill} size={18} color={theme.colors.grey} />
+                <Icon
+                  icon={seePassword ? EyeSlashFill : EyeFill}
+                  size={18}
+                  color={theme.colors.grey}
+                />
               </ButtonIcon>
             )}
           </RightContainer>
         )}
       </InputContainer>
-      {(helpText || error) && <BottomText error={!!error}>{error || helpText}</BottomText>}
+      {showBottom && <BottomText error={!!error}>{error || helpText}</BottomText>}
     </div>
   );
 };
