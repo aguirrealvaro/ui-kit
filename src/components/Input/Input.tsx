@@ -11,11 +11,11 @@ import { CheckCircleFill } from "@styled-icons/bootstrap/CheckCircleFill";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
 import styled, { css } from "styled-components";
-import { ANIMATION_TIME } from "./AnimatedInput.constants";
+import { ANIMATION_TIME } from "./Input.constants";
 import { Spinner, Icon } from "@/components";
 import { theme } from "@/components/App";
 
-type AnimatedInputProps = {
+type InputProps = {
   helpText?: ReactNode;
   error?: string;
   isSuccess?: boolean;
@@ -26,9 +26,7 @@ type AnimatedInputProps = {
   icon?: ReactNode;
 };
 
-export const AnimatedInput: FunctionComponent<
-  AnimatedInputProps & InputHTMLAttributes<HTMLInputElement>
-> = ({
+export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInputElement>> = ({
   placeholder,
   onChange,
   helpText,
@@ -51,6 +49,11 @@ export const AnimatedInput: FunctionComponent<
 
   const onValidChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.validity.valid) onChange?.(e);
+  };
+
+  const inputProps = {
+    onChange: onValidChange,
+    ...restProps,
   };
 
   const showSideContainer: boolean =
@@ -84,9 +87,7 @@ export const AnimatedInput: FunctionComponent<
             disabled={disabled}
             sideWidth={sideContainerWidth}
             value={value}
-            placeholder=" "
-            onChange={onValidChange}
-            {...restProps}
+            {...inputProps}
           />
           <Placeholder htmlFor={inputId}>{placeholder}</Placeholder>
         </InnerContainer>
