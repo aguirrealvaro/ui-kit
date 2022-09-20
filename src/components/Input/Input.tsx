@@ -14,7 +14,6 @@ import { EyeSlashFill } from "@styled-icons/bootstrap/EyeSlashFill";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
 import styled, { css } from "styled-components";
-import { INPUT_SIZES } from "./Input.constants";
 import { InputSizeType } from "./Input.types";
 import { Spinner, Icon } from "@/components";
 import { theme } from "@/components/App";
@@ -91,7 +90,7 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
     setSeePassword(!seePassword);
   };
 
-  const size = INPUT_SIZES[inputSize];
+  const size = inputSize;
 
   return (
     <div>
@@ -101,6 +100,7 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
         error={!!error}
         isSuccess={isSuccess || false}
         onClick={focusInput}
+        inputSize={size}
       >
         {showLeftContainer && <LeftContainer>{leftIcon ? leftIcon : null}</LeftContainer>}
         <CustomInput
@@ -111,7 +111,7 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
           value={value}
           onChange={onValidChange}
           type={seePassword ? "text" : type}
-          size={size}
+          inputSize={size}
           {...restProps}
         />
         {showRightContainer && (
@@ -152,6 +152,7 @@ const InputContainer = styled.div<{
   disabled: boolean;
   error: boolean;
   isSuccess: boolean;
+  inputSize: InputSizeType;
 }>`
   display: flex;
   justify-content: space-between;
@@ -175,6 +176,14 @@ const InputContainer = styled.div<{
         border: 1px solid ${theme.colors.blue};
       }
     `;
+  }};
+  height: ${({ inputSize }) => {
+    const sizes: Record<InputSizeType, string> = {
+      sm: "32px",
+      md: "40px",
+      lg: "48px",
+    };
+    return sizes[inputSize];
   }};
   ${({ disabled }) =>
     disabled &&
@@ -201,6 +210,7 @@ const RightContainer = styled.div`
 
 const CustomInput = styled.input<{
   sideWidth: number | undefined;
+  inputSize: InputSizeType;
 }>`
   font-size: 16px;
   outline: none;
@@ -213,6 +223,14 @@ const CustomInput = styled.input<{
     } else {
       return "100%";
     }
+  }};
+  font-size: ${({ inputSize }) => {
+    const sizes: Record<InputSizeType, string> = {
+      sm: "14px",
+      md: "16px",
+      lg: "18px",
+    };
+    return sizes[inputSize];
   }};
   &:disabled {
     cursor: not-allowed;

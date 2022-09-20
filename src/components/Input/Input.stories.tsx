@@ -18,19 +18,38 @@ export const Primary: ComponentStory<typeof Input> = () => {
   const searchIcon = <Icon icon={Search} color={theme.colors.grey} size={20} />;
 
   return (
-    <Input
-      inputId="input"
-      label="Label"
-      placeholder="Placeholder"
-      onChange={onChange}
-      value={value}
-      helpText="Help text"
-      clearValue={clearValue}
-      leftIcon={searchIcon}
-      //type="password"
-      //isSuccess
-      //isLoading
-      //disabled
-    />
+    <>
+      <Input
+        inputId="input"
+        label="Label"
+        placeholder="Small"
+        onChange={onChange}
+        value={value}
+        helpText="Help text"
+        clearValue={clearValue}
+        leftIcon={searchIcon}
+        inputSize="sm"
+      />
+      <Input
+        inputId="input"
+        label="Label"
+        placeholder="Medium"
+        onChange={onChange}
+        value={value}
+        helpText="Help text"
+        clearValue={clearValue}
+        inputSize="md"
+      />
+      <Input
+        inputId="input"
+        label="Label"
+        placeholder="Large"
+        onChange={onChange}
+        value={value}
+        helpText="Help text"
+        clearValue={clearValue}
+        inputSize="lg"
+      />
+    </>
   );
 };

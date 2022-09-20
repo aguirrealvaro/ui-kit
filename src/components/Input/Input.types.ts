@@ -1,1 +1,1 @@
-export type InputSizeType = "xs" | "sm" | "md" | "lg";
+export type InputSizeType = "sm" | "md" | "lg";
