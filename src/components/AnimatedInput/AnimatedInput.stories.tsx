@@ -8,16 +8,19 @@ export default {
 } as ComponentMeta<typeof AnimatedInput>;
 
 export const Primary: ComponentStory<typeof AnimatedInput> = () => {
-  const [name, setName] = useState<string>("");
+  const [value, setValue] = useState<string>("");
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value);
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value);
+  const clearValue = () => setValue("");
 
   return (
     <AnimatedInput
       placeholder="Placeholder"
       onChange={onChange}
-      value={name}
+      value={value}
       helpText="Help text"
+      clearValue={clearValue}
+      isLoading
     />
   );
 };

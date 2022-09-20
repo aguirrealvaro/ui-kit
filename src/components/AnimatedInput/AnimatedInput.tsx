@@ -8,6 +8,7 @@ import {
   useState,
 } from "react";
 import { CheckCircleFill } from "@styled-icons/bootstrap/CheckCircleFill";
+import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
 import styled, { css } from "styled-components";
 import { ANIMATION_TIME } from "./AnimatedInput.constants";
@@ -21,6 +22,7 @@ type AnimatedInputProps = {
   className?: string;
   inputId?: string;
   isLoading?: boolean;
+  clearValue?: () => void;
 };
 
 export const AnimatedInput: FunctionComponent<
@@ -35,6 +37,8 @@ export const AnimatedInput: FunctionComponent<
   disabled,
   inputId,
   isLoading,
+  value,
+  clearValue,
   ...restProps
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -53,7 +57,7 @@ export const AnimatedInput: FunctionComponent<
     ...restProps,
   };
 
-  const showSideContainer = isLoading || !!error || isSuccess || false;
+  const showSideContainer = isLoading || !!error || isSuccess || (!!value && !!clearValue);
 
   const sideContainerRef = useRef<HTMLDivElement>(null);
 
@@ -82,6 +86,7 @@ export const AnimatedInput: FunctionComponent<
             isSuccess={isSuccess || false}
             disabled={disabled}
             sideWidth={sideContainerWidth}
+            value={value}
             {...inputProps}
           />
           <Placeholder htmlFor={inputId}>{placeholder}</Placeholder>
@@ -89,6 +94,11 @@ export const AnimatedInput: FunctionComponent<
         {showSideContainer && (
           <SideContainer ref={sideContainerRef}>
             {isLoading && <Spinner size="xs" />}
+            {value && clearValue && (
+              <ButtonClear onClick={clearValue}>
+                <Icon icon={CloseOutline} color={theme.colors.grey} size={18} />
+              </ButtonClear>
+            )}
             {error && <Icon icon={CloseCircle} size={18} color={theme.colors.red} />}
             {isSuccess && <Icon icon={CheckCircleFill} size={18} color={theme.colors.green} />}
           </SideContainer>
@@ -229,4 +239,8 @@ const BottomText = styled.div<{ error: boolean }>`
   font-size: 13px;
   margin: 0.5rem 1rem 0 1rem;
   color: ${({ error, theme }) => theme.colors[error ? "red" : "grey"]};
+`;
+
+const ButtonClear = styled.button`
+  line-height: 0;
 `;
