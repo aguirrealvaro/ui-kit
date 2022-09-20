@@ -140,7 +140,7 @@ export const Popover: FunctionComponent<PopoverProps> = ({
     setCoords(positions[position]);
   }, [position, isOpen, gap]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!triggerRef.current || !withTriggerWidth) return;
     setTriggerWidth(triggerRef.current.offsetWidth);
   }, [withTriggerWidth]);
