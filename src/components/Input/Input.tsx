@@ -11,34 +11,33 @@ import { CheckCircleFill } from "@styled-icons/bootstrap/CheckCircleFill";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
 import styled, { css } from "styled-components";
-import { ANIMATION_TIME } from "./Input.constants";
 import { Spinner, Icon } from "@/components";
 import { theme } from "@/components/App";
 
 type InputProps = {
+  label?: ReactNode;
   helpText?: ReactNode;
   error?: string;
   isSuccess?: boolean;
-  className?: string;
   inputId?: string;
   isLoading?: boolean;
   clearValue?: () => void;
-  icon?: ReactNode;
+  rightIcon?: ReactNode;
+  leftIcon?: ReactNode;
 };
 
 export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInputElement>> = ({
-  placeholder,
-  onChange,
+  label,
   helpText,
   error,
   isSuccess,
-  className,
-  disabled,
   inputId,
   isLoading,
-  value,
   clearValue,
-  icon,
+  rightIcon,
+  onChange,
+  disabled,
+  value,
   ...restProps
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -51,49 +50,42 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
     if (e.target.validity.valid) onChange?.(e);
   };
 
-  const inputProps = {
-    onChange: onValidChange,
-    ...restProps,
-  };
+  const showRightContainer: boolean =
+    isLoading || !!error || isSuccess || (!!value && !!clearValue) || !!rightIcon;
 
-  const showSideContainer: boolean =
-    isLoading || !!error || isSuccess || (!!value && !!clearValue) || !!icon;
+  const rightContainerRef = useRef<HTMLDivElement>(null);
 
-  const sideContainerRef = useRef<HTMLDivElement>(null);
-
-  const [sideContainerWidth, setSideContainerWidth] = useState<number | undefined>(undefined);
+  const [rightContainerWidth, setRightContainerWidth] = useState<number | undefined>(
+    undefined
+  );
 
   useLayoutEffect(() => {
-    if (!showSideContainer) return;
+    if (!showRightContainer) return;
 
-    setSideContainerWidth(sideContainerRef.current?.offsetWidth);
-  }, [showSideContainer]);
+    setRightContainerWidth(rightContainerRef.current?.offsetWidth);
+  }, [showRightContainer]);
 
   return (
-    <div className={className}>
+    <div>
+      <Label htmlFor={inputId}>{label}</Label>
       <InputContainer
         disabled={disabled || false}
         error={!!error}
         isSuccess={isSuccess || false}
         onClick={focusInput}
       >
-        <InnerContainer>
-          <CustomInput
-            id={inputId}
-            hasPlaceholder={!!placeholder}
-            ref={inputRef}
-            error={!!error}
-            isSuccess={isSuccess || false}
-            disabled={disabled}
-            sideWidth={sideContainerWidth}
-            value={value}
-            {...inputProps}
-          />
-          <Placeholder htmlFor={inputId}>{placeholder}</Placeholder>
-        </InnerContainer>
-        {showSideContainer && (
-          <SideContainer ref={sideContainerRef}>
-            {icon ? icon : null}
+        <CustomInput
+          id={inputId}
+          ref={inputRef}
+          disabled={disabled}
+          sideWidth={rightContainerWidth}
+          value={value}
+          onChange={onValidChange}
+          {...restProps}
+        />
+        {showRightContainer && (
+          <RightContainer ref={rightContainerRef}>
+            {rightIcon ? rightIcon : null}
             {isLoading && <Spinner size="xs" />}
             {value && clearValue && (
               <ButtonClear onClick={clearValue}>
@@ -102,13 +94,19 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
             )}
             {error && <Icon icon={CloseCircle} size={18} color={theme.colors.red} />}
             {isSuccess && <Icon icon={CheckCircleFill} size={18} color={theme.colors.green} />}
-          </SideContainer>
+          </RightContainer>
         )}
       </InputContainer>
       {(helpText || error) && <BottomText error={!!error}>{error || helpText}</BottomText>}
     </div>
   );
 };
+
+const Label = styled.label`
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+`;
 
 const InputContainer = styled.div<{
   disabled: boolean;
@@ -118,7 +116,6 @@ const InputContainer = styled.div<{
   display: flex;
   justify-content: space-between;
   font-family: inherit;
-  position: relative;
   height: 55px;
   border-radius: 4px;
   ${({ error, isSuccess, theme }) => {
@@ -127,13 +124,11 @@ const InputContainer = styled.div<{
         border: 1px solid ${theme.colors.red};
       `;
     }
-
     if (isSuccess) {
       return css`
         border: 1px solid ${theme.colors.green};
       `;
     }
-
     return css`
       border: 1px solid rgba(0, 0, 0, 0.36);
       &:focus-within {
@@ -150,44 +145,20 @@ const InputContainer = styled.div<{
     `};
 `;
 
-const InnerContainer = styled.div`
-  width: 100%;
-`;
-
-const SideContainer = styled.div`
+const RightContainer = styled.div`
   margin-right: 1.5rem;
   display: flex;
   align-items: center;
   gap: 1rem;
 `;
 
-const Placeholder = styled.label`
-  position: absolute;
-  top: 50%;
-  left: 1rem;
-  transform: translateY(-50%);
-  transition: all ${ANIMATION_TIME}ms ease;
-  pointer-events: none;
-  color: ${({ theme }) => theme.colors.grey};
-`;
-
-const getFocusedLabelStyles = css`
-  top: 7px;
-  transform: none;
-  font-size: 0.75rem;
-`;
-
 const CustomInput = styled.input<{
-  error: boolean;
-  hasPlaceholder: boolean;
-  isSuccess: boolean;
   sideWidth: number | undefined;
 }>`
   font-size: 16px;
   outline: none;
   border: none;
   background-color: transparent;
-  position: absolute;
   padding: 0 1rem;
   width: ${({ sideWidth }) => {
     if (sideWidth) {
@@ -196,40 +167,6 @@ const CustomInput = styled.input<{
       return "100%";
     }
   }};
-  height: ${({ hasPlaceholder }) => (hasPlaceholder ? "72%" : "100%")};
-  bottom: 0;
-  &:focus + label {
-    ${getFocusedLabelStyles};
-    color: ${({ theme, error, isSuccess }) => {
-      if (error) {
-        return theme.colors.red;
-      }
-
-      if (isSuccess) {
-        return theme.colors.green;
-      }
-
-      return theme.colors.blue;
-    }};
-  }
-  &:not(:placeholder-shown) {
-    &:not(:focus) {
-      + label {
-        ${getFocusedLabelStyles};
-        color: ${({ theme, error, isSuccess }) => {
-          if (error) {
-            return theme.colors.red;
-          }
-
-          if (isSuccess) {
-            return theme.colors.green;
-          }
-
-          return theme.colors.grey;
-        }};
-      }
-    }
-  }
   &:disabled {
     cursor: not-allowed;
   }

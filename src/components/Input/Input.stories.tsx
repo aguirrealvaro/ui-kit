@@ -19,12 +19,15 @@ export const Primary: ComponentStory<typeof Input> = () => {
 
   return (
     <Input
+      inputId="input"
+      label="Label"
       placeholder="Placeholder"
       onChange={onChange}
       value={value}
       helpText="Help text"
       clearValue={clearValue}
-      icon={searchIcon}
+      rightIcon={searchIcon}
+      //disabled
     />
   );
 };
