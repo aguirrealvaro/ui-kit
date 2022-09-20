@@ -63,13 +63,10 @@ export const Popover: FunctionComponent<PopoverProps> = ({
     if (!isOpen) return;
 
     const listener = (e: MouseEvent | TouchEvent) => {
-      if (!triggerRef.current?.contains(e.target as Node)) {
-        onClose();
-      }
+      if (!triggerRef.current?.contains(e.target as Node)) onClose();
     };
 
     document.addEventListener("mousemove", listener);
-
     return () => {
       document.removeEventListener("mousemove", listener);
     };
