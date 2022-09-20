@@ -1,6 +1,5 @@
-import { FunctionComponent, ButtonHTMLAttributes } from "react";
+import { FunctionComponent, ButtonHTMLAttributes, ReactNode } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
-import { StyledIcon } from "styled-icons/types";
 import { theme } from "../App";
 import { Icon } from "../Icon";
 import { Spinner } from "../Spinner";
@@ -14,8 +13,8 @@ type ButtonProps = {
   size?: SizeType;
   variant?: VariantType;
   shape?: ShapeType;
-  leftIcon?: StyledIcon;
-  rightIcon?: StyledIcon;
+  leftIcon?: ReactNode;
+  rightIcon?: ReactNode;
   colorIcon?: string;
 };
 
@@ -32,7 +31,6 @@ export const Button: FunctionComponent<
   shape = "default",
   leftIcon,
   rightIcon,
-  colorIcon,
   ...restProps
 }) => {
   const handleOnClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -44,13 +42,9 @@ export const Button: FunctionComponent<
     if (isLoading) return <Spinner size="xs" background="light" />;
     return (
       <InnerContainer>
-        {leftIcon && (
-          <Icon icon={leftIcon} color={colorIcon || theme.colors.white} size={20} />
-        )}
+        {leftIcon ? leftIcon : null}
         <div>{children}</div>
-        {rightIcon && (
-          <Icon icon={rightIcon} color={colorIcon || theme.colors.white} size={20} />
-        )}
+        {rightIcon ? rightIcon : null}
       </InnerContainer>
     );
   };

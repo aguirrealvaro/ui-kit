@@ -1,7 +1,8 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Download } from "@styled-icons/evaicons-solid/Download";
 import styled from "styled-components";
-import { Button } from "@/components";
+import { theme } from "../App";
+import { Button, Icon } from "@/components";
 
 export default {
   title: "Components/Button",
@@ -9,6 +10,8 @@ export default {
 } as ComponentMeta<typeof Button>;
 
 export const Primary: ComponentStory<typeof Button> = () => {
+  const icon = <Icon icon={Download} color={theme.colors.white} size={20} />;
+
   return (
     <div>
       <Flex>
@@ -74,10 +77,10 @@ export const Primary: ComponentStory<typeof Button> = () => {
         <Button shape="default" isLoading>
           Default
         </Button>
-        <Button shape="default" leftIcon={Download}>
+        <Button shape="default" leftIcon={icon}>
           Download
         </Button>
-        <Button shape="default" rightIcon={Download}>
+        <Button shape="default" rightIcon={icon}>
           Download
         </Button>
       </Flex>
