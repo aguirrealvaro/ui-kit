@@ -3,7 +3,7 @@ import { ExclamationCircle } from "@styled-icons/heroicons-outline/ExclamationCi
 import styled from "styled-components";
 import { theme } from "../App";
 import { PopoverProps } from "../Popover";
-import { SIZES } from "./Infotip.constants";
+import { INFOTIP_SIZES } from "./Infotip.constants";
 import { InfotipSizeType } from "./Infotip.types";
 import { Icon, Tooltip } from "@/components";
 
@@ -12,7 +12,7 @@ type InfotipProps = {
 } & PopoverProps;
 
 export const Infotip: FunctionComponent<InfotipProps> = ({ size = "sm", ...restProps }) => {
-  const infotipSize = SIZES[size];
+  const infotipSize = INFOTIP_SIZES[size];
 
   return (
     <CustomTooltip {...restProps}>

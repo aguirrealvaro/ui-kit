@@ -1,7 +1,7 @@
 import { FunctionComponent, InputHTMLAttributes, ReactNode } from "react";
 import styled, { css } from "styled-components";
 import { hiddenStyles, theme } from "../App";
-import { ANIMATION_TIME, SIZES } from "./Switch.constants";
+import { ANIMATION_TIME, SWICTH_SIZES } from "./Switch.constants";
 import { SwitchPositionType, SwitchSizeType } from "./Switch.types";
 
 type SwitchProps = {
@@ -23,7 +23,7 @@ export const Switch: FunctionComponent<
   disabled = false,
   ...restProps
 }) => {
-  const size = SIZES[switchSize];
+  const size = SWICTH_SIZES[switchSize];
 
   return (
     <label>

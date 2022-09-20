@@ -2,7 +2,7 @@ import { FunctionComponent, useRef, ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import styled, { css, keyframes } from "styled-components";
-import { SIZES, ANIMATION_TIME } from "./Modal.constants";
+import { MODAL_SIZES, ANIMATION_TIME } from "./Modal.constants";
 import { ModalSizeType } from "./Modal.types";
 import { Icon } from "@/components";
 import { theme } from "@/components/App";
@@ -41,7 +41,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
     enabled: isOpen && closeOnInteractions,
   });
 
-  const modalSize = SIZES[size];
+  const modalSize = MODAL_SIZES[size];
 
   if (!isOpen) return null;
 

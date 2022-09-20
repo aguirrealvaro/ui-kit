@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import styled, { css } from "styled-components";
-import { SIZES } from "./Avatar.constants";
+import { AVATAR_SIZES } from "./Avatar.constants";
 import { AvatarSizeType } from "./Avatar.types";
 import { useBoolean } from "@/hooks";
 
@@ -12,7 +12,7 @@ type AvatarProps = {
 
 export const Avatar: FunctionComponent<AvatarProps> = ({ src, name, size = "sm" }) => {
   const [isError, setError] = useBoolean();
-  const sizeNumber = SIZES[size];
+  const sizeNumber = AVATAR_SIZES[size];
 
   const handleError = () => {
     setError.on();

@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import styled, { css } from "styled-components";
-import { BACKGROUND_COLOR, SIZES } from "./Spinner.constants";
+import { SPINNER_BACKGROUND_COLOR, SPINER_SIZES } from "./Spinner.constants";
 import { SpinnerSizeType, SpinnerBackgroundType } from "./Spinner.types";
 
 type SpinnerProps = {
@@ -16,7 +16,7 @@ export const Spinner: FunctionComponent<SpinnerProps> = ({
   size = "md",
   fullHeight = false,
 }) => {
-  const backgroundColor = BACKGROUND_COLOR[background];
+  const backgroundColor = SPINNER_BACKGROUND_COLOR[background];
 
   return (
     <Container fullHeight={fullHeight}>
@@ -37,7 +37,7 @@ const Loader = styled.div<{ size: SpinnerSizeType; color: string; background: st
   border-radius: 50%;
   animation: spin 1.5s linear infinite;
   ${({ size, color, background }) => {
-    const numberSize = size ? SIZES[size] : 30;
+    const numberSize = size ? SPINER_SIZES[size] : 30;
     const borderSize = (numberSize * 3.9) / 32;
 
     return css`

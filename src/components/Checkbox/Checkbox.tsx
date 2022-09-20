@@ -4,7 +4,7 @@ import { CheckboxChecked } from "@styled-icons/boxicons-solid/CheckboxChecked";
 import styled, { css } from "styled-components";
 import { hiddenStyles, theme } from "../App";
 import { Icon } from "../Icon";
-import { SIZES } from "./Checkbox.constants";
+import { CHECKBOX_SIZES } from "./Checkbox.constants";
 import { CheckboxPositionType, CheckboxSizeType } from "./Checkbox.types";
 
 type CheckboxProps = {
@@ -26,7 +26,7 @@ export const Checkbox: FunctionComponent<
   disabled = false,
   ...restProps
 }) => {
-  const size = SIZES[checkboxSize];
+  const size = CHECKBOX_SIZES[checkboxSize];
 
   const icon = checked ? CheckboxChecked : CheckboxUnchecked;
 

@@ -4,7 +4,7 @@ import { RadioCircleMarked } from "@styled-icons/boxicons-regular/RadioCircleMar
 import styled, { css } from "styled-components";
 import { hiddenStyles, theme } from "../App";
 import { Icon } from "../Icon";
-import { SIZES } from "./Radio.constants";
+import { RADIO_SIZES } from "./Radio.constants";
 import { RadioPositionType, RadioSizeType } from "./Radio.types";
 
 type RadioProps = {
@@ -24,7 +24,7 @@ export const Radio: FunctionComponent<RadioProps & InputHTMLAttributes<HTMLInput
   disabled = false,
   ...restProps
 }) => {
-  const size = SIZES[radioSize];
+  const size = RADIO_SIZES[radioSize];
 
   const icon = checked ? RadioCircleMarked : RadioCircle;
 
