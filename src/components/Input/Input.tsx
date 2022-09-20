@@ -79,7 +79,7 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
     if (!showRightContainer) return;
 
     setRightContainerWidth(rightContainerRef.current?.offsetWidth);
-  }, [showRightContainer]);
+  }, [showRightContainer, value]);
 
   const handleSeePassword = (e: MouseEvent<HTMLButtonElement>) => {
     if (type !== "password") return;

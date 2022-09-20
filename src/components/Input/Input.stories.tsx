@@ -27,7 +27,7 @@ export const Primary: ComponentStory<typeof Input> = () => {
       helpText="Help text"
       clearValue={clearValue}
       leftIcon={searchIcon}
-      type="password"
+      //type="password"
       //isSuccess
       //isLoading
       //disabled

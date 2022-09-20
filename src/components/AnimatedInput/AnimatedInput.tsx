@@ -6,8 +6,11 @@ import {
   useRef,
   useLayoutEffect,
   useState,
+  MouseEvent,
 } from "react";
 import { CheckCircleFill } from "@styled-icons/bootstrap/CheckCircleFill";
+import { EyeFill } from "@styled-icons/bootstrap/EyeFill";
+import { EyeSlashFill } from "@styled-icons/bootstrap/EyeSlashFill";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
 import styled, { css } from "styled-components";
@@ -34,15 +37,17 @@ export const AnimatedInput: FunctionComponent<
   helpText,
   error,
   isSuccess,
-  className,
   disabled,
   inputId,
   isLoading,
   value,
   clearValue,
   icon,
+  type,
   ...restProps
 }) => {
+  const [seePassword, setSeePassword] = useState<boolean>(false);
+
   const inputRef = useRef<HTMLInputElement>(null);
 
   const focusInput = () => {
@@ -54,7 +59,14 @@ export const AnimatedInput: FunctionComponent<
   };
 
   const showSideContainer: boolean =
-    isLoading || !!error || isSuccess || (!!value && !!clearValue) || !!icon;
+    isLoading ||
+    !!error ||
+    isSuccess ||
+    (!!value && !!clearValue) ||
+    !!icon ||
+    type === "password";
+
+  const showBottom: boolean = !!helpText || !!error;
 
   const sideContainerRef = useRef<HTMLDivElement>(null);
 
@@ -64,10 +76,16 @@ export const AnimatedInput: FunctionComponent<
     if (!showSideContainer) return;
 
     setSideContainerWidth(sideContainerRef.current?.offsetWidth);
-  }, [showSideContainer]);
+  }, [showSideContainer, value]);
+
+  const handleSeePassword = (e: MouseEvent<HTMLButtonElement>) => {
+    if (type !== "password") return;
+    e.stopPropagation();
+    setSeePassword(!seePassword);
+  };
 
   return (
-    <div className={className}>
+    <div>
       <InputContainer
         disabled={disabled || false}
         error={!!error}
@@ -85,6 +103,7 @@ export const AnimatedInput: FunctionComponent<
             sideWidth={sideContainerWidth}
             value={value}
             placeholder=" "
+            type={seePassword ? "text" : type}
             onChange={onValidChange}
             {...restProps}
           />
@@ -95,16 +114,25 @@ export const AnimatedInput: FunctionComponent<
             {icon ? icon : null}
             {isLoading && <Spinner size="xs" />}
             {value && clearValue && (
-              <ButtonClear onClick={clearValue}>
+              <ButtonIcon onClick={clearValue}>
                 <Icon icon={CloseOutline} color={theme.colors.grey} size={18} />
-              </ButtonClear>
+              </ButtonIcon>
             )}
             {error && <Icon icon={CloseCircle} size={18} color={theme.colors.red} />}
             {isSuccess && <Icon icon={CheckCircleFill} size={18} color={theme.colors.green} />}
+            {type === "password" && (
+              <ButtonIcon onClick={handleSeePassword}>
+                <Icon
+                  icon={seePassword ? EyeSlashFill : EyeFill}
+                  size={18}
+                  color={theme.colors.grey}
+                />
+              </ButtonIcon>
+            )}
           </SideContainer>
         )}
       </InputContainer>
-      {(helpText || error) && <BottomText error={!!error}>{error || helpText}</BottomText>}
+      {showBottom && <BottomText error={!!error}>{error || helpText}</BottomText>}
     </div>
   );
 };
@@ -240,6 +268,6 @@ const BottomText = styled.div<{ error: boolean }>`
   color: ${({ error, theme }) => theme.colors[error ? "red" : "grey"]};
 `;
 
-const ButtonClear = styled.button`
+const ButtonIcon = styled.button`
   line-height: 0;
 `;
