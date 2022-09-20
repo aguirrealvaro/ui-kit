@@ -15,7 +15,6 @@ export type ModalProps = {
   size?: ModalSizeType;
   closeOnInteractions?: boolean;
   isUnmounting?: boolean;
-  className?: string;
 };
 
 export const Modal: FunctionComponent<ModalProps> = ({
@@ -25,7 +24,6 @@ export const Modal: FunctionComponent<ModalProps> = ({
   size = "sm",
   closeOnInteractions = true,
   isUnmounting = false,
-  className,
 }) => {
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -48,7 +46,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
   if (!isOpen) return null;
 
   const Component = (
-    <Backdrop isOpen={isOpen} fadeOut={isUnmounting} className={className}>
+    <Backdrop isOpen={isOpen} fadeOut={isUnmounting}>
       <Content size={modalSize} ref={contentRef} fadeOut={isUnmounting} role="dialog">
         <CloseButton onClick={onClose}>
           <Icon icon={CloseOutline} color={theme.colors.grey} size={25} />

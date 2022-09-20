@@ -9,7 +9,6 @@ type AccordionProps = {
   title: ReactNode;
   children: ReactNode;
   disabled?: boolean;
-  className?: string;
   showBorder?: boolean;
   arrowPosition?: AccordionArrowPosition;
 };
@@ -18,7 +17,6 @@ export const Accordion: FunctionComponent<AccordionProps> = ({
   title,
   children,
   disabled,
-  className,
   showBorder = false,
   arrowPosition = "right",
 }) => {
@@ -29,7 +27,7 @@ export const Accordion: FunctionComponent<AccordionProps> = ({
   const height = ref.current?.scrollHeight || 0;
 
   return (
-    <Container className={className} showBorder={showBorder}>
+    <Container showBorder={showBorder}>
       <Button onClick={toggle} disabled={disabled} arrowPosition={arrowPosition}>
         <Title arrowPosition={arrowPosition}>{title}</Title>
         <ChevronWrapper active={active} arrowPosition={arrowPosition}>

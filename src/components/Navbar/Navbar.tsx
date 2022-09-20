@@ -9,15 +9,9 @@ type NavbarProps = {
   user: string;
   mainItems: NavbarItem[];
   dropdownItems: NavbarItem[];
-  className?: string;
 };
 
-export const Navbar: FunctionComponent<NavbarProps> = ({
-  user,
-  mainItems,
-  dropdownItems,
-  className,
-}) => {
+export const Navbar: FunctionComponent<NavbarProps> = ({ user, mainItems, dropdownItems }) => {
   const {
     isOpen: isMobileMenuOpen,
     onToggle,
@@ -28,7 +22,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
   useDisableScroll(isMobileMenuOpen);
 
   return (
-    <Container className={className}>
+    <Container>
       <Wrapper>
         <InnerContainer>
           <Logo />

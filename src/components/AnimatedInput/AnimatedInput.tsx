@@ -22,7 +22,6 @@ type AnimatedInputProps = {
   helpText?: ReactNode;
   error?: string;
   isSuccess?: boolean;
-  className?: string;
   inputId?: string;
   isLoading?: boolean;
   clearValue?: () => void;

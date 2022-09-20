@@ -9,7 +9,6 @@ import { Icon, Tooltip } from "@/components";
 
 type InfotipProps = {
   size?: InfotipSizeType;
-  className?: string;
 } & PopoverProps;
 
 export const Infotip: FunctionComponent<InfotipProps> = ({ size = "sm", ...restProps }) => {

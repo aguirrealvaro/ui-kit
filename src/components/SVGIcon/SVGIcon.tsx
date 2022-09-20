@@ -9,7 +9,6 @@ type IconProps = {
   color?: string;
   marginRight?: string;
   marginLeft?: string;
-  className?: string;
 };
 
 export const SVGIcon: FunctionComponent<IconProps> = ({
@@ -18,11 +17,9 @@ export const SVGIcon: FunctionComponent<IconProps> = ({
   size = "20px",
   marginRight,
   marginLeft,
-  className,
 }) => {
   return (
     <SVG
-      className={className}
       width={size}
       height={size}
       viewBox={viewBox[icon]}

@@ -18,7 +18,6 @@ export type PopoverProps = {
   content: ReactNode;
   position: PopoverPositionType;
   trigger?: PopoverTriggerType;
-  className?: string;
   withTriggerWidth?: boolean;
   gap?: number;
 };
@@ -35,7 +34,6 @@ export const Popover: FunctionComponent<PopoverProps> = ({
   trigger = "hover",
   gap = 0,
   withTriggerWidth = false,
-  className,
 }) => {
   const triggerRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
@@ -148,7 +146,7 @@ export const Popover: FunctionComponent<PopoverProps> = ({
 
   return (
     <>
-      <div className={className} {...openProps} ref={triggerRef}>
+      <div {...openProps} ref={triggerRef}>
         {children}
       </div>
       {isOpen &&
