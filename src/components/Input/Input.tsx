@@ -14,6 +14,8 @@ import { EyeSlashFill } from "@styled-icons/bootstrap/EyeSlashFill";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
 import styled, { css } from "styled-components";
+import { INPUT_SIZES } from "./Input.constants";
+import { InputSizeType } from "./Input.types";
 import { Spinner, Icon } from "@/components";
 import { theme } from "@/components/App";
 
@@ -27,6 +29,7 @@ type InputProps = {
   clearValue?: () => void;
   rightIcon?: ReactNode;
   leftIcon?: ReactNode;
+  inputSize?: InputSizeType;
 };
 
 export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInputElement>> = ({
@@ -43,6 +46,7 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
   disabled,
   value,
   type,
+  inputSize = "md",
   ...restProps
 }) => {
   const [seePassword, setSeePassword] = useState<boolean>(false);
@@ -87,6 +91,8 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
     setSeePassword(!seePassword);
   };
 
+  const size = INPUT_SIZES[inputSize];
+
   return (
     <div>
       <Label htmlFor={inputId}>{label}</Label>
@@ -105,6 +111,7 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
           value={value}
           onChange={onValidChange}
           type={seePassword ? "text" : type}
+          size={size}
           {...restProps}
         />
         {showRightContainer && (
