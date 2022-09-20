@@ -28,3 +28,4 @@ export { Table } from "./Table";
 export { Tabs, Tab } from "./Tabs";
 export { List, ListItem } from "./List";
 export { Popover } from "./Popover";
+export { ModalConfirm } from "./ModalConfirm";

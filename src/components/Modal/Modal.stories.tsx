@@ -1,7 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import styled from "styled-components";
 import { ModalHeader, ModalContent, ModalFooter } from "./components";
-import { Modal } from "@/components";
+import { Modal, Button } from "@/components";
 import { useDisclosure } from "@/hooks";
 
 export default {
@@ -23,8 +22,3 @@ export const Primary: ComponentStory<typeof Modal> = () => {
     </>
   );
 };
-
-const Button = styled.button`
-  padding: 1rem;
-  border: 1px solid ${({ theme }) => theme.colors.lightGrey};
-`;
