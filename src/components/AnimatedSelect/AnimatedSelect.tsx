@@ -169,7 +169,6 @@ const SideContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
-  align-items: stretch;
 `;
 
 const Placeholder = styled.span<{ shouldAnimate: boolean; isOpen: boolean }>`
