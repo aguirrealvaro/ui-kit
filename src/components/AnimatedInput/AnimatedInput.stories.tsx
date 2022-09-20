@@ -20,7 +20,6 @@ export const Primary: ComponentStory<typeof AnimatedInput> = () => {
       value={value}
       helpText="Help text"
       clearValue={clearValue}
-      isLoading
     />
   );
 };
