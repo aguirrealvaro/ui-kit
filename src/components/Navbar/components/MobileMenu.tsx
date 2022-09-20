@@ -100,9 +100,6 @@ const CloseButton = styled.button`
   border-radius: 5px;
   transition: background-color 200ms linear;
   background-color: transparent;
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-  }
 `;
 
 const Item = styled.button`

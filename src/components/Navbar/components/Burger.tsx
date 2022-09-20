@@ -18,9 +18,6 @@ const CustomButton = styled.button`
   border-radius: 5px;
   transition: background-color 200ms linear;
   background-color: transparent;
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-  }
   ${({ theme }) => theme.breakpoint("lg")} {
     display: block;
   }

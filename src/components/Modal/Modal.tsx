@@ -137,7 +137,4 @@ const CloseButton = styled.button`
   padding: 6px;
   border-radius: 50px;
   transition: background-color ${ANIMATION_TIME}ms linear;
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-  }
 `;
