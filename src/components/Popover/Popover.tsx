@@ -16,7 +16,7 @@ const ANIMATION_TIME = 150;
 export type PopoverProps = {
   children?: ReactNode;
   content: ReactNode;
-  position?: PositionType;
+  position: PositionType;
   trigger?: TriggerType;
   className?: string;
   withTriggerWidth?: boolean;
@@ -31,7 +31,7 @@ type CoordsType = {
 export const Popover: FunctionComponent<PopoverProps> = ({
   children,
   content,
-  position = "bottom",
+  position,
   trigger = "hover",
   gap = 0,
   withTriggerWidth = false,
@@ -147,9 +147,9 @@ export const Popover: FunctionComponent<PopoverProps> = ({
 
   return (
     <>
-      <Container className={className} {...openProps} ref={triggerRef}>
+      <div className={className} {...openProps} ref={triggerRef}>
         {children}
-      </Container>
+      </div>
       {isOpen &&
         createPortal(
           <Content
@@ -165,11 +165,6 @@ export const Popover: FunctionComponent<PopoverProps> = ({
     </>
   );
 };
-
-const Container = styled.div`
-  align-self: baseline;
-  display: inline-block;
-`;
 
 const fadeInScale = keyframes`
   from { opacity: 0; transform: scale(0.9); }
