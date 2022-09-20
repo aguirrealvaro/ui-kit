@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { Search } from "@styled-icons/evaicons-solid/Search";
 import { AnimatedInput } from "@/components";
 
 export default {
@@ -20,6 +21,7 @@ export const Primary: ComponentStory<typeof AnimatedInput> = () => {
       value={value}
       helpText="Help text"
       clearValue={clearValue}
+      icon={Search}
     />
   );
 };
