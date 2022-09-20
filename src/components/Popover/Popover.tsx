@@ -1,4 +1,11 @@
-import { FunctionComponent, ReactNode, useLayoutEffect, useRef, useState } from "react";
+import {
+  FunctionComponent,
+  ReactNode,
+  useLayoutEffect,
+  useRef,
+  useState,
+  useEffect,
+} from "react";
 import { createPortal } from "react-dom";
 import styled, { css, keyframes } from "styled-components";
 import { PositionType, TriggerType } from "./Popover.types";
@@ -50,6 +57,23 @@ export const Popover: FunctionComponent<PopoverProps> = ({
     handler: onClose,
     enabled: isOpen && trigger === "click",
   });
+
+  // Close popover if stayed open
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const listener = (e: MouseEvent | TouchEvent) => {
+      if (!triggerRef.current?.contains(e.target as Node)) {
+        onClose();
+      }
+    };
+
+    document.addEventListener("mousemove", listener);
+
+    return () => {
+      document.removeEventListener("mousemove", listener);
+    };
+  }, [isOpen, onClose]);
 
   useLayoutEffect(() => {
     if (!triggerRef.current || !popoverRef.current) return;
@@ -144,10 +168,10 @@ const fadeInScale = keyframes`
   to { opacity: 1; transform: scale(1);}
 `;
 
-const fadeInDown = keyframes`
+/* const fadeInDown = keyframes`
   from { opacity: 0; transform: translateY(-5%); }
   to { opacity: 1; transform: translateY(0);}
-`;
+`; */
 
 const Content = styled.div<{
   fadeOut: boolean;
