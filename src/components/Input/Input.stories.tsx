@@ -26,7 +26,8 @@ export const Primary: ComponentStory<typeof Input> = () => {
       value={value}
       helpText="Help text"
       clearValue={clearValue}
-      rightIcon={searchIcon}
+      leftIcon={searchIcon}
+      isSuccess
       //disabled
     />
   );

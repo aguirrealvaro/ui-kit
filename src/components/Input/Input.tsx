@@ -35,6 +35,7 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
   isLoading,
   clearValue,
   rightIcon,
+  leftIcon,
   onChange,
   disabled,
   value,
@@ -49,6 +50,8 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
   const onValidChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.validity.valid) onChange?.(e);
   };
+
+  const showLeftContainer = !!leftIcon;
 
   const showRightContainer: boolean =
     isLoading || !!error || isSuccess || (!!value && !!clearValue) || !!rightIcon;
@@ -74,6 +77,7 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
         isSuccess={isSuccess || false}
         onClick={focusInput}
       >
+        {showLeftContainer && <LeftContainer>{leftIcon ? leftIcon : null}</LeftContainer>}
         <CustomInput
           id={inputId}
           ref={inputRef}
@@ -143,6 +147,13 @@ const InputContainer = styled.div<{
       border: 1px solid transparent;
       cursor: not-allowed;
     `};
+`;
+
+const LeftContainer = styled.div`
+  margin-left: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 `;
 
 const RightContainer = styled.div`
