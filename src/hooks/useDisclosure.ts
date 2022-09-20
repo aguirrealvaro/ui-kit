@@ -4,6 +4,7 @@ type PhasesType = "unmounted" | "mounting" | "mounted" | "unmounting";
 
 type UseDisclosureParams = {
   timeout?: number;
+  closeOnResize?: boolean;
 };
 
 type UseDisclosureReturn = {
@@ -14,9 +15,11 @@ type UseDisclosureReturn = {
   isUnmounting: boolean;
 };
 
-export const useDisclosure = (
-  { timeout }: UseDisclosureParams = { timeout: 200 }
-): UseDisclosureReturn => {
+export const useDisclosure = (objParams: UseDisclosureParams = {}): UseDisclosureReturn => {
+  const defaultParams: UseDisclosureParams = { timeout: 200, closeOnResize: false };
+  const params: UseDisclosureParams = { ...defaultParams, ...objParams };
+  const { timeout, closeOnResize } = params;
+
   const [phase, setPhase] = useState<PhasesType>("unmounted");
   const timeoutId = useRef<number>(0);
 
@@ -47,13 +50,14 @@ export const useDisclosure = (
     };
   }, [phase, timeout]);
 
-  useEffect(() => {
-    window.addEventListener("resize", onClose);
-    return () => window.removeEventListener("resize", onClose);
-  }, [onClose]);
-
   const isOpen = phase !== "unmounted";
   const isUnmounting = phase === "unmounting";
+
+  useEffect(() => {
+    if (!isOpen || !closeOnResize) return;
+    window.addEventListener("resize", onClose);
+    return () => window.removeEventListener("resize", onClose);
+  }, [closeOnResize, isOpen, onClose]);
 
   return { isOpen, onOpen, onClose, onToggle, isUnmounting };
 };
