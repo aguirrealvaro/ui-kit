@@ -75,7 +75,6 @@ export const TextInput: FunctionComponent<
       >
         <InnerContainer>
           <CustomInput
-            type="text"
             id={inputId}
             hasPlaceholder={!!placeholder}
             ref={inputRef}
