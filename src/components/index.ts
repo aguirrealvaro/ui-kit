@@ -1,5 +1,5 @@
 export { Spinner } from "./Spinner";
-export { TextInput } from "./TextInput";
+export { AnimatedInput } from "./AnimatedInput";
 export { Modal, ModalHeader, ModalContent, ModalFooter } from "./Modal";
 export { SVGIcon } from "./SVGIcon";
 export { Tooltip } from "./Tooltip";
@@ -27,5 +27,4 @@ export { Avatar } from "./Avatar";
 export { Table } from "./Table";
 export { Tabs, Tab } from "./Tabs";
 export { List, ListItem } from "./List";
-export { NumberInput } from "./NumberInput";
 export { Popover } from "./Popover";

@@ -10,11 +10,11 @@ import {
 import { CheckCircleFill } from "@styled-icons/bootstrap/CheckCircleFill";
 import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
 import styled, { css } from "styled-components";
-import { ANIMATION_TIME } from "./TextInput.constants";
+import { ANIMATION_TIME } from "./AnimatedInput.constants";
 import { Spinner, Icon } from "@/components";
 import { theme } from "@/components/App";
 
-type TextInputProps = {
+type AnimatedInputProps = {
   helpText?: ReactNode;
   error?: string;
   isSuccess?: boolean;
@@ -23,8 +23,8 @@ type TextInputProps = {
   isLoading?: boolean;
 };
 
-export const TextInput: FunctionComponent<
-  TextInputProps & InputHTMLAttributes<HTMLInputElement>
+export const AnimatedInput: FunctionComponent<
+  AnimatedInputProps & InputHTMLAttributes<HTMLInputElement>
 > = ({
   placeholder,
   onChange,

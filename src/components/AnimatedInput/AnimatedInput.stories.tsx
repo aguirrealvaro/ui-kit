@@ -1,19 +1,19 @@
 import { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { TextInput } from "@/components";
+import { AnimatedInput } from "@/components";
 
 export default {
-  title: "Components/TextInput",
-  component: TextInput,
-} as ComponentMeta<typeof TextInput>;
+  title: "Components/AnimatedInput",
+  component: AnimatedInput,
+} as ComponentMeta<typeof AnimatedInput>;
 
-export const Primary: ComponentStory<typeof TextInput> = () => {
+export const Primary: ComponentStory<typeof AnimatedInput> = () => {
   const [name, setName] = useState<string>("");
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value);
 
   return (
-    <TextInput
+    <AnimatedInput
       placeholder="Placeholder"
       onChange={onChange}
       value={name}

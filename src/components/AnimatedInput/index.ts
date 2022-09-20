@@ -1,0 +1,1 @@
+export { AnimatedInput } from "./AnimatedInput";
