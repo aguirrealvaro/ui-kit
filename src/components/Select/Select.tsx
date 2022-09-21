@@ -71,6 +71,8 @@ export const Select: FunctionComponent<SelectProps> = ({
     clearValue?.();
   };
 
+  const showBottom: boolean = !!helpText || !!error;
+
   return (
     <Container ref={containerRef}>
       {label && <Label size={size}>{label}</Label>}
@@ -115,7 +117,7 @@ export const Select: FunctionComponent<SelectProps> = ({
           })}
         </Dropdown>
       )}
-      {(helpText || error) && (
+      {showBottom && (
         <BottomText error={!!error} size={size}>
           {error || helpText}
         </BottomText>

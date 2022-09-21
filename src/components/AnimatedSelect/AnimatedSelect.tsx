@@ -66,6 +66,8 @@ export const AnimatedSelect: FunctionComponent<AnimatedSelectProps> = ({
     clearValue?.();
   };
 
+  const showBottom: boolean = !!helpText || !!error;
+
   return (
     <Container ref={containerRef}>
       <SelectContainer
@@ -113,7 +115,7 @@ export const AnimatedSelect: FunctionComponent<AnimatedSelectProps> = ({
           })}
         </Dropdown>
       )}
-      {(helpText || error) && <BottomText error={!!error}>{error || helpText}</BottomText>}
+      {showBottom && <BottomText error={!!error}>{error || helpText}</BottomText>}
     </Container>
   );
 };
