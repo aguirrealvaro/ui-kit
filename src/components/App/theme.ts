@@ -1,4 +1,4 @@
-type Size = "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+type Size = "xs" | "sm" | "md" | "lg";
 
 type WidthPx = `${number}px`;
 
@@ -11,13 +11,10 @@ export type ThemeType = {
 };
 
 const sizes: Record<Size, WidthPx> = {
-  xxs: "400px",
   xs: "480px",
-  sm: "600px",
-  md: "768px",
-  lg: "900px",
-  xl: "1024px",
-  xxl: "1200px",
+  sm: "768px",
+  md: "992px",
+  lg: "1280px",
 };
 
 export const theme: ThemeType = {
