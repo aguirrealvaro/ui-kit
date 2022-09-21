@@ -6,32 +6,32 @@ import { SwitchPositionType, SwitchSizeType } from "./Switch.types";
 
 type SwitchProps = {
   children?: ReactNode;
-  switchSize?: SwitchSizeType;
+  size?: SwitchSizeType;
   position?: SwitchPositionType;
   color?: string;
   disabled?: boolean;
 };
 
 export const Switch: FunctionComponent<
-  SwitchProps & InputHTMLAttributes<HTMLInputElement>
+  SwitchProps & Omit<InputHTMLAttributes<HTMLInputElement>, "size">
 > = ({
   children,
-  switchSize = "sm",
+  size = "sm",
   position = "right",
   checked,
   color = theme.colors.blue,
   disabled = false,
   ...restProps
 }) => {
-  const size = SWICTH_SIZES[switchSize];
+  const switchSize = SWICTH_SIZES[size];
 
   return (
     <label>
       <HiddenInput type="checkbox" checked={checked} disabled={disabled} {...restProps} />
       <Container disabled={disabled}>
         <Wrapper position={position}>
-          <Pill checked={checked || false} size={size} color={color} disabled={disabled}>
-            <Ball checked={checked || false} size={size} />
+          <Pill checked={checked || false} size={switchSize} color={color} disabled={disabled}>
+            <Ball checked={checked || false} size={switchSize} />
           </Pill>
         </Wrapper>
         {children && <Label position={position}>{children}</Label>}
