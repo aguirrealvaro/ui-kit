@@ -1,5 +1,4 @@
-import React from "react";
-import { theme, GlobalStyles } from "@/components/App";
+import { GlobalStyles } from "@/components/App";
 import { ToastProvider } from "@/components";
 import { ThemeProvider } from "@/contexts";
 
