@@ -30,3 +30,4 @@ export { List, ListItem } from "./List";
 export { Popover } from "./Popover";
 export { ModalConfirm } from "./ModalConfirm";
 export { Input } from "./Input";
+export { Select } from "./Select";

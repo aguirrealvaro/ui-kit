@@ -262,7 +262,7 @@ const CustomInput = styled.input<{
 `;
 
 const BottomText = styled.div<{ error: boolean }>`
-  font-size: 13px;
+  font-size: 14px;
   margin: 0.5rem 1rem 0 1rem;
   color: ${({ error, theme }) => theme.colors[error ? "red" : "grey"]};
 `;
