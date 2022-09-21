@@ -98,7 +98,7 @@ export const Select: FunctionComponent<SelectProps> = ({
         </SideContainer>
       </SelectContainer>
       {isOpen && (
-        <Dropdown>
+        <Dropdown size={size}>
           {options.map((option, i) => {
             const onClick = () => onChange(option.value);
             const isSelected = value === option.value;
@@ -206,7 +206,7 @@ const SideContainer = styled.div`
   gap: 1rem;
 `;
 
-const Dropdown = styled.div`
+const Dropdown = styled.div<{ size: SelectSizeType }>`
   position: absolute;
   z-index: 1;
   padding: 0.5rem;
@@ -220,6 +220,14 @@ const Dropdown = styled.div`
   flex-direction: column;
   overflow-y: auto;
   transform: translateY(5px);
+  font-size: ${({ size }) => {
+    const sizes: Record<SelectSizeType, string> = {
+      sm: "14px",
+      md: "16px",
+      lg: "18px",
+    };
+    return sizes[size];
+  }};
 `;
 
 const Option = styled.button<{ isSelected: boolean }>`
