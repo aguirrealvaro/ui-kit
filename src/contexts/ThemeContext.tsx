@@ -2,7 +2,7 @@ import { createContext, FunctionComponent, ReactNode, useState } from "react";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import { theme } from "@/components/App";
 
-export type ThemeProviderType = {
+export type ThemeContextType = {
   darkMode: boolean;
   toggleDarkMode: () => void;
 };
@@ -11,7 +11,7 @@ type ThemeProviderProps = {
   children: ReactNode;
 };
 
-const ThemeContext = createContext<ThemeProviderType>({} as unknown as ThemeProviderType);
+export const ThemeContext = createContext<ThemeContextType>({} as ThemeContextType);
 
 export const ThemeProvider: FunctionComponent<ThemeProviderProps> = ({ children }) => {
   const [darkMode, setDarkMode] = useState<boolean>(false);

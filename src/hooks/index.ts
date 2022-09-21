@@ -10,3 +10,4 @@ export { useLocalStorage } from "./useLocalStorage";
 export { useScrollIntoView } from "./useScrollIntoView";
 export { useIntersectViewport } from "./useIntersectViewport";
 export { useBoolean } from "./useBoolean";
+export { useTheme } from "./useTheme";
