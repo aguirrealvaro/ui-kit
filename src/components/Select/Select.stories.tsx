@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
+import styled from "styled-components";
 import { Select } from "@/components";
 
 export default {
@@ -22,14 +23,43 @@ export const Primary: ComponentStory<typeof Select> = () => {
   };
 
   return (
-    <Select
-      label="Label"
-      value={option}
-      options={options}
-      onChange={setOption}
-      placeholder="Select option"
-      helpText="Help text"
-      clearValue={clearValue}
-    />
+    <Container>
+      <Select
+        label="Small"
+        value={option}
+        options={options}
+        onChange={setOption}
+        placeholder="Select option"
+        helpText="Help text"
+        clearValue={clearValue}
+        size="sm"
+      />
+      <Select
+        label="Medium"
+        value={option}
+        options={options}
+        onChange={setOption}
+        placeholder="Select option"
+        helpText="Help text"
+        clearValue={clearValue}
+        size="md"
+      />
+      <Select
+        label="Large"
+        value={option}
+        options={options}
+        onChange={setOption}
+        placeholder="Select option"
+        helpText="Help text"
+        clearValue={clearValue}
+        size="lg"
+      />
+    </Container>
   );
 };
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;

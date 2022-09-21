@@ -12,7 +12,7 @@ import {
 import { ChevronDown } from "@styled-icons/boxicons-regular/ChevronDown";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import styled, { css } from "styled-components";
-import { SelectFieldType } from "./Select.types";
+import { SelectFieldType, SelectSizeType } from "./Select.types";
 import { Spinner, Icon } from "@/components";
 import { theme } from "@/components/App";
 import { useOutsideClick } from "@/hooks";
@@ -30,6 +30,7 @@ type SelectProps = {
   error?: string;
   isLoading?: boolean;
   clearValue?: () => void;
+  size?: SelectSizeType;
 };
 
 export const Select: FunctionComponent<SelectProps> = ({
@@ -43,6 +44,7 @@ export const Select: FunctionComponent<SelectProps> = ({
   error,
   isLoading,
   clearValue,
+  size = "md",
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -71,15 +73,16 @@ export const Select: FunctionComponent<SelectProps> = ({
 
   return (
     <Container ref={containerRef}>
-      <Label>{label}</Label>
+      <Label size={size}>{label}</Label>
       <SelectContainer
         disabled={disabled || false}
         isSelected={isSelected}
         error={!!error}
         isOpen={isOpen}
+        size={size}
         onClick={handleDropdown}
       >
-        <InnerContainer>
+        <InnerContainer size={size}>
           <span>{selectedValue || placeholder}</span>
         </InnerContainer>
         <SideContainer>
@@ -112,7 +115,11 @@ export const Select: FunctionComponent<SelectProps> = ({
           })}
         </Dropdown>
       )}
-      {(helpText || error) && <BottomText error={!!error}>{error || helpText}</BottomText>}
+      {(helpText || error) && (
+        <BottomText error={!!error} size={size}>
+          {error || helpText}
+        </BottomText>
+      )}
     </Container>
   );
 };
@@ -121,11 +128,18 @@ const Container = styled.div`
   position: relative;
 `;
 
-const Label = styled.label`
+const Label = styled.label<{ size: SelectSizeType }>`
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 500;
-  font-size: 14px;
+  font-size: ${({ size }) => {
+    const sizes: Record<SelectSizeType, string> = {
+      sm: "14px",
+      md: "16px",
+      lg: "18px",
+    };
+    return sizes[size];
+  }};
 `;
 
 const SelectContainer = styled.div<{
@@ -133,12 +147,20 @@ const SelectContainer = styled.div<{
   error: boolean;
   disabled: boolean;
   isOpen: boolean;
+  size: SelectSizeType;
 }>`
   display: flex;
   justify-content: space-between;
   border-radius: 4px;
   color: ${({ theme, isSelected }) => theme.colors[isSelected ? "black" : "grey"]};
-  height: 55px;
+  height: ${({ size }) => {
+    const sizes: Record<SelectSizeType, string> = {
+      sm: "32px",
+      md: "40px",
+      lg: "48px",
+    };
+    return sizes[size];
+  }};
   cursor: pointer;
   border: 1px solid
     ${({ theme, error, isOpen }) => {
@@ -163,10 +185,18 @@ const SelectContainer = styled.div<{
   }};
 `;
 
-const InnerContainer = styled.div`
+const InnerContainer = styled.div<{ size: SelectSizeType }>`
   padding: 0 1rem;
   display: flex;
   align-items: center;
+  font-size: ${({ size }) => {
+    const sizes: Record<SelectSizeType, string> = {
+      sm: "14px",
+      md: "16px",
+      lg: "18px",
+    };
+    return sizes[size];
+  }};
 `;
 
 const SideContainer = styled.div`
@@ -219,10 +249,17 @@ const Option = styled.button<{ isSelected: boolean }>`
   }
 `;
 
-const BottomText = styled.div<{ error: boolean }>`
-  font-size: 13px;
+const BottomText = styled.div<{ error: boolean; size: SelectSizeType }>`
   margin: 0.5rem 1rem 0 1rem;
   color: ${({ error, theme }) => theme.colors[error ? "red" : "grey"]};
+  font-size: ${({ size }) => {
+    const sizes: Record<SelectSizeType, string> = {
+      sm: "12px",
+      md: "14px",
+      lg: "16px",
+    };
+    return sizes[size];
+  }};
 `;
 
 const ChevronWrapper = styled.div<{ active: boolean }>`

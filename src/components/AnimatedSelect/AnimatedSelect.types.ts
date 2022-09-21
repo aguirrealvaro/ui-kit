@@ -1,5 +1,7 @@
+import { ReactNode } from "react";
+
 export type SelectFieldType = {
-  label: string;
+  label: ReactNode;
   value: string;
   disabled?: boolean;
 };
