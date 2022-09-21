@@ -94,7 +94,9 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
 
   return (
     <div>
-      <Label htmlFor={inputId}>{label}</Label>
+      <Label htmlFor={inputId} inputSize={size}>
+        {label}
+      </Label>
       <InputContainer
         disabled={disabled || false}
         error={!!error}
@@ -142,10 +144,18 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
   );
 };
 
-const Label = styled.label`
+const Label = styled.label<{ inputSize: InputSizeType }>`
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 500;
+  font-size: ${({ inputSize }) => {
+    const sizes: Record<InputSizeType, string> = {
+      sm: "14px",
+      md: "16px",
+      lg: "18px",
+    };
+    return sizes[inputSize];
+  }};
 `;
 
 const InputContainer = styled.div<{
@@ -157,7 +167,6 @@ const InputContainer = styled.div<{
   display: flex;
   justify-content: space-between;
   font-family: inherit;
-  height: 55px;
   border-radius: 4px;
   ${({ error, isSuccess, theme }) => {
     if (error) {
