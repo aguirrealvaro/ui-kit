@@ -21,7 +21,7 @@ export const Primary: ComponentStory<typeof Input> = () => {
   return (
     <Container>
       <Input
-        inputId="input"
+        inputId="input1"
         label="Label"
         placeholder="Small"
         onChange={onChange}
@@ -32,7 +32,7 @@ export const Primary: ComponentStory<typeof Input> = () => {
         size="sm"
       />
       <Input
-        inputId="input"
+        inputId="input2"
         label="Label"
         placeholder="Medium"
         onChange={onChange}
@@ -42,7 +42,7 @@ export const Primary: ComponentStory<typeof Input> = () => {
         size="md"
       />
       <Input
-        inputId="input"
+        inputId="input3"
         label="Label"
         placeholder="Large"
         onChange={onChange}
