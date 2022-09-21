@@ -1,12 +1,12 @@
 import { FunctionComponent } from "react";
-import { ThemeProvider } from "styled-components";
 import { Layout } from "./components";
+import { ThemeProvider } from "./contexts";
 import { ToastProvider } from "@/components";
-import { theme, GlobalStyles } from "@/components/App";
+import { GlobalStyles } from "@/components/App";
 
 const App: FunctionComponent = () => {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider>
       <ToastProvider>
         <Layout>App</Layout>
         <GlobalStyles />
