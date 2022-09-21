@@ -23,6 +23,7 @@ export const Primary: ComponentStory<typeof Select> = () => {
 
   return (
     <Select
+      label="Label"
       value={option}
       options={options}
       onChange={setOption}

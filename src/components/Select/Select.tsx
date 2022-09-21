@@ -7,6 +7,7 @@ import {
   Dispatch,
   SetStateAction,
   MouseEvent,
+  ReactNode,
 } from "react";
 import { ChevronDown } from "@styled-icons/boxicons-regular/ChevronDown";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
@@ -19,6 +20,7 @@ import { useOutsideClick } from "@/hooks";
 const ANIMATION_TIME = 200;
 
 type SelectProps = {
+  label?: ReactNode;
   placeholder: string;
   value: string | undefined;
   onChange: Dispatch<SetStateAction<string | undefined>>;
@@ -31,6 +33,7 @@ type SelectProps = {
 };
 
 export const Select: FunctionComponent<SelectProps> = ({
+  label,
   placeholder,
   value,
   onChange,
@@ -68,6 +71,7 @@ export const Select: FunctionComponent<SelectProps> = ({
 
   return (
     <Container ref={containerRef}>
+      <Label>{label}</Label>
       <SelectContainer
         disabled={disabled || false}
         isSelected={isSelected}
@@ -76,12 +80,7 @@ export const Select: FunctionComponent<SelectProps> = ({
         onClick={handleDropdown}
       >
         <InnerContainer>
-          <Placeholder shouldAnimate={isSelected ? true : isOpen} isOpen={isOpen}>
-            {placeholder}
-          </Placeholder>
-          {selectedValue && (
-            <SelectedValue isSelected={isSelected}>{selectedValue}</SelectedValue>
-          )}
+          <span>{selectedValue || placeholder}</span>
         </InnerContainer>
         <SideContainer>
           {isLoading && <Spinner size="xs" />}
@@ -122,6 +121,13 @@ const Container = styled.div`
   position: relative;
 `;
 
+const Label = styled.label`
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 14px;
+`;
+
 const SelectContainer = styled.div<{
   isSelected: boolean;
   error: boolean;
@@ -132,7 +138,6 @@ const SelectContainer = styled.div<{
   justify-content: space-between;
   border-radius: 4px;
   color: ${({ theme, isSelected }) => theme.colors[isSelected ? "black" : "grey"]};
-  width: 100%;
   height: 55px;
   cursor: pointer;
   border: 1px solid
@@ -159,9 +164,9 @@ const SelectContainer = styled.div<{
 `;
 
 const InnerContainer = styled.div`
-  width: 100%;
   padding: 0 1rem;
-  position: relative;
+  display: flex;
+  align-items: center;
 `;
 
 const SideContainer = styled.div`
@@ -169,35 +174,6 @@ const SideContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
-`;
-
-const Placeholder = styled.span<{ shouldAnimate: boolean; isOpen: boolean }>`
-  display: inline-block;
-  color: ${({ theme, isOpen }) => theme.colors[isOpen ? "blue" : "grey"]};
-  position: absolute;
-  transition: font-size ${ANIMATION_TIME}ms ease, top ${ANIMATION_TIME}ms ease,
-    transform ${ANIMATION_TIME}ms ease;
-  ${({ shouldAnimate }) => {
-    if (shouldAnimate) {
-      return css`
-        top: 7px;
-        font-size: 0.75rem;
-      `;
-    } else {
-      return css`
-        top: 50%;
-        transform: translateY(-50%);
-      `;
-    }
-  }}
-`;
-
-const SelectedValue = styled.span<{ isSelected: boolean }>`
-  position: absolute;
-  height: ${({ isSelected }) => (isSelected ? "72%" : "100%")};
-  bottom: 0;
-  display: flex;
-  align-items: center;
 `;
 
 const Dropdown = styled.div`
