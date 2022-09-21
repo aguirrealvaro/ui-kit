@@ -13,11 +13,10 @@ export const Primary: ComponentStory<typeof Checkbox> = () => {
 
   return (
     <Conatiner>
-      <Checkbox checked={checked} onChange={setChecked.toggle} checkboxSize="xs" disabled />
-      <Checkbox checked={checked} onChange={setChecked.toggle} checkboxSize="sm" />
-      <Checkbox checked={checked} onChange={setChecked.toggle} checkboxSize="md" />
-      <Checkbox checked={checked} onChange={setChecked.toggle} checkboxSize="lg" />
-
+      <Checkbox checked={checked} onChange={setChecked.toggle} size="xs" disabled />
+      <Checkbox checked={checked} onChange={setChecked.toggle} size="sm" />
+      <Checkbox checked={checked} onChange={setChecked.toggle} size="md" />
+      <Checkbox checked={checked} onChange={setChecked.toggle} size="lg" />
       <Checkbox checked={checked} onChange={setChecked.toggle} position="left" disabled>
         Input at left
       </Checkbox>

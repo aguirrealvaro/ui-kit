@@ -28,8 +28,8 @@ export const Primary: ComponentStory<typeof Input> = () => {
         value={value}
         helpText="Help text"
         clearValue={clearValue}
-        leftIcon={searchIcon}
-        inputSize="sm"
+        rightIcon={searchIcon}
+        size="sm"
       />
       <Input
         inputId="input"
@@ -39,7 +39,7 @@ export const Primary: ComponentStory<typeof Input> = () => {
         value={value}
         helpText="Help text"
         clearValue={clearValue}
-        inputSize="md"
+        size="md"
       />
       <Input
         inputId="input"
@@ -49,7 +49,7 @@ export const Primary: ComponentStory<typeof Input> = () => {
         value={value}
         helpText="Help text"
         clearValue={clearValue}
-        inputSize="lg"
+        size="lg"
       />
     </Container>
   );

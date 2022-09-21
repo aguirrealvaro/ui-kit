@@ -28,10 +28,12 @@ type InputProps = {
   clearValue?: () => void;
   rightIcon?: ReactNode;
   leftIcon?: ReactNode;
-  inputSize?: InputSizeType;
+  size?: InputSizeType;
 };
 
-export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInputElement>> = ({
+export const Input: FunctionComponent<
+  InputProps & Omit<InputHTMLAttributes<HTMLInputElement>, "size">
+> = ({
   label,
   helpText,
   error,
@@ -45,7 +47,7 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
   disabled,
   value,
   type,
-  inputSize = "md",
+  size = "md",
   ...restProps
 }) => {
   const [seePassword, setSeePassword] = useState<boolean>(false);
@@ -90,11 +92,9 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
     setSeePassword(!seePassword);
   };
 
-  const size = inputSize;
-
   return (
     <div>
-      <Label htmlFor={inputId} inputSize={size}>
+      <Label htmlFor={inputId} size={size}>
         {label}
       </Label>
       <InputContainer
@@ -102,7 +102,7 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
         error={!!error}
         isSuccess={isSuccess || false}
         onClick={focusInput}
-        inputSize={size}
+        size={size}
       >
         {showLeftContainer && <LeftContainer>{leftIcon ? leftIcon : null}</LeftContainer>}
         <CustomInput
@@ -144,17 +144,17 @@ export const Input: FunctionComponent<InputProps & InputHTMLAttributes<HTMLInput
   );
 };
 
-const Label = styled.label<{ inputSize: InputSizeType }>`
+const Label = styled.label<{ size: InputSizeType }>`
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 500;
-  font-size: ${({ inputSize }) => {
+  font-size: ${({ size }) => {
     const sizes: Record<InputSizeType, string> = {
       sm: "14px",
       md: "16px",
       lg: "18px",
     };
-    return sizes[inputSize];
+    return sizes[size];
   }};
 `;
 
@@ -162,7 +162,7 @@ const InputContainer = styled.div<{
   disabled: boolean;
   error: boolean;
   isSuccess: boolean;
-  inputSize: InputSizeType;
+  size: InputSizeType;
 }>`
   display: flex;
   justify-content: space-between;
@@ -186,13 +186,13 @@ const InputContainer = styled.div<{
       }
     `;
   }};
-  height: ${({ inputSize }) => {
+  height: ${({ size }) => {
     const sizes: Record<InputSizeType, string> = {
       sm: "32px",
       md: "40px",
       lg: "48px",
     };
-    return sizes[inputSize];
+    return sizes[size];
   }};
   ${({ disabled }) =>
     disabled &&

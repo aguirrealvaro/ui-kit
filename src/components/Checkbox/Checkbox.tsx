@@ -9,24 +9,24 @@ import { CheckboxPositionType, CheckboxSizeType } from "./Checkbox.types";
 
 type CheckboxProps = {
   children?: ReactNode;
-  checkboxSize?: CheckboxSizeType;
+  size?: CheckboxSizeType;
   position?: CheckboxPositionType;
   color?: string;
   disabled?: boolean;
 };
 
 export const Checkbox: FunctionComponent<
-  CheckboxProps & InputHTMLAttributes<HTMLInputElement>
+  CheckboxProps & Omit<InputHTMLAttributes<HTMLInputElement>, "size">
 > = ({
   children,
-  checkboxSize = "sm",
+  size = "sm",
   position = "right",
   checked,
   color = theme.colors.blue,
   disabled = false,
   ...restProps
 }) => {
-  const size = CHECKBOX_SIZES[checkboxSize];
+  const checkboxSize1 = CHECKBOX_SIZES[size];
 
   const icon = checked ? CheckboxChecked : CheckboxUnchecked;
 
@@ -35,7 +35,7 @@ export const Checkbox: FunctionComponent<
       <HiddenInput type="checkbox" checked={checked} {...restProps} disabled={disabled} />
       <Container disabled={disabled}>
         <Wrapper position={position}>
-          <Icon icon={icon} color={disabled ? "#cecece" : color} size={size} />
+          <Icon icon={icon} color={disabled ? "#cecece" : color} size={checkboxSize1} />
         </Wrapper>
         {children && <Label position={position}>{children}</Label>}
       </Container>
