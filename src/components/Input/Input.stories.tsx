@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Search } from "@styled-icons/evaicons-solid/Search";
+import styled from "styled-components";
 import { theme } from "../App";
 import { Input, Icon } from "@/components";
 
@@ -18,7 +19,7 @@ export const Primary: ComponentStory<typeof Input> = () => {
   const searchIcon = <Icon icon={Search} color={theme.colors.grey} size={20} />;
 
   return (
-    <>
+    <Container>
       <Input
         inputId="input"
         label="Label"
@@ -50,6 +51,12 @@ export const Primary: ComponentStory<typeof Input> = () => {
         clearValue={clearValue}
         inputSize="lg"
       />
-    </>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;

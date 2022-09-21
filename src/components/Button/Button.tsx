@@ -114,7 +114,7 @@ const getColorStyles = (
   variant: ButtonVariantType,
   kind: ButtonKindType
 ): FlattenSimpleInterpolation => {
-  const variantSolidOptions: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
+  const solidStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
     default: css`
       background-color: ${theme.colors.blue};
       color: ${theme.colors.white};
@@ -164,7 +164,7 @@ const getColorStyles = (
 
   const outlinedHover = "#ebebeb";
 
-  const variantOutlinedOptions: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
+  const outlinedStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
     default: css`
       color: ${theme.colors.blue};
       border-color: ${theme.colors.blue};
@@ -202,7 +202,7 @@ const getColorStyles = (
     `,
   };
 
-  const variantGhostOptions: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
+  const ghostStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
     default: css`
       color: ${theme.colors.blue};
       &:hover {
@@ -235,7 +235,7 @@ const getColorStyles = (
     `,
   };
 
-  const variantLinkOptions: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
+  const linkStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
     default: css`
       color: ${theme.colors.blue};
       &:hover {
@@ -268,7 +268,7 @@ const getColorStyles = (
     `,
   };
 
-  const variantPrimaryOptions: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
+  const primaryStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
     default: css`
       border-color: #d9d9d9;
       color: ${theme.colors.grey};
@@ -312,11 +312,11 @@ const getColorStyles = (
   };
 
   const colorOptions: Record<ButtonKindType, FlattenSimpleInterpolation> = {
-    solid: variantSolidOptions[variant],
-    outlined: variantOutlinedOptions[variant],
-    ghost: variantGhostOptions[variant],
-    link: variantLinkOptions[variant],
-    primary: variantPrimaryOptions[variant],
+    solid: solidStyles[variant],
+    outlined: outlinedStyles[variant],
+    ghost: ghostStyles[variant],
+    link: linkStyles[variant],
+    primary: primaryStyles[variant],
   };
 
   return colorOptions[kind];
