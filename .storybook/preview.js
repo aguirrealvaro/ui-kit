@@ -1,6 +1,5 @@
 import { GlobalStyles } from "@/components/App";
-import { ToastProvider } from "@/components";
-import { ThemeProvider } from "@/contexts";
+import { ThemeProvider, ToastProvider } from "@/contexts";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

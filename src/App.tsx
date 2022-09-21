@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
-import { Layout, ToastProvider } from "./components";
+import { Layout } from "./components";
 import { GlobalStyles } from "@/components/App";
-import { ThemeProvider } from "@/contexts";
+import { ThemeProvider, ToastProvider } from "@/contexts";
 
 const App: FunctionComponent = () => {
   return (
