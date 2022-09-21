@@ -73,7 +73,7 @@ export const Select: FunctionComponent<SelectProps> = ({
 
   return (
     <Container ref={containerRef}>
-      <Label size={size}>{label}</Label>
+      {label && <Label size={size}>{label}</Label>}
       <SelectContainer
         disabled={disabled || false}
         isSelected={isSelected}

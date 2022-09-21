@@ -94,9 +94,11 @@ export const Input: FunctionComponent<
 
   return (
     <div>
-      <Label htmlFor={inputId} size={size}>
-        {label}
-      </Label>
+      {label && (
+        <Label htmlFor={inputId} size={size}>
+          {label}
+        </Label>
+      )}
       <InputContainer
         disabled={disabled || false}
         error={!!error}
