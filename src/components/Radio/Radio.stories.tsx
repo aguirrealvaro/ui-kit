@@ -22,7 +22,7 @@ export const Primary: ComponentStory<typeof Radio> = () => {
         checked={value === "1"}
         position="left"
         onChange={onChange}
-        radioSize="xs"
+        size="xs"
         disabled
       >
         Input at left 1
@@ -32,17 +32,11 @@ export const Primary: ComponentStory<typeof Radio> = () => {
         checked={value === "2"}
         position="right"
         onChange={onChange}
-        radioSize="sm"
+        size="sm"
       >
         Input at right 2
       </Radio>
-      <Radio
-        value={"3"}
-        checked={value === "3"}
-        position="left"
-        onChange={onChange}
-        radioSize="md"
-      >
+      <Radio value={"3"} checked={value === "3"} position="left" onChange={onChange} size="md">
         Input at left 3
       </Radio>
       <Radio
@@ -50,7 +44,7 @@ export const Primary: ComponentStory<typeof Radio> = () => {
         checked={value === "4"}
         position="right"
         onChange={onChange}
-        radioSize="lg"
+        size="lg"
       >
         Input at right 4
       </Radio>
