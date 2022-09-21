@@ -180,7 +180,7 @@ const InputContainer = styled.div<{
       `;
     }
     return css`
-      border: 1px solid rgba(0, 0, 0, 0.36);
+      border: 1px solid rgba(0, 0, 0, 0.2);
       &:focus-within {
         border: 1px solid ${theme.colors.blue};
       }

@@ -145,7 +145,7 @@ const SelectContainer = styled.div<{
         return theme.colors.red;
       }
 
-      return "rgba(0, 0, 0, 0.36)";
+      return "rgba(0, 0, 0, 0.2)";
     }};
   ${({ disabled }) => {
     if (disabled) {
