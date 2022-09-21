@@ -139,7 +139,11 @@ export const Input: FunctionComponent<
           </RightContainer>
         )}
       </InputContainer>
-      {showBottom && <BottomText error={!!error}>{error || helpText}</BottomText>}
+      {showBottom && (
+        <BottomText error={!!error} size={size}>
+          {error || helpText}
+        </BottomText>
+      )}
     </div>
   );
 };
@@ -246,10 +250,17 @@ const CustomInput = styled.input<{
   }
 `;
 
-const BottomText = styled.div<{ error: boolean }>`
-  font-size: 13px;
+const BottomText = styled.div<{ error: boolean; size: InputSizeType }>`
   margin: 0.5rem 1rem 0 1rem;
   color: ${({ error, theme }) => theme.colors[error ? "red" : "grey"]};
+  font-size: ${({ size }) => {
+    const sizes: Record<InputSizeType, string> = {
+      sm: "12px",
+      md: "14px",
+      lg: "16px",
+    };
+    return sizes[size];
+  }};
 `;
 
 const ButtonIcon = styled.button`

@@ -28,7 +28,6 @@ export const Primary: ComponentStory<typeof Input> = () => {
         value={value}
         helpText="Help text"
         clearValue={clearValue}
-        rightIcon={searchIcon}
         size="sm"
       />
       <Input
@@ -50,6 +49,7 @@ export const Primary: ComponentStory<typeof Input> = () => {
         helpText="Help text"
         clearValue={clearValue}
         size="lg"
+        rightIcon={searchIcon}
       />
     </Container>
   );
