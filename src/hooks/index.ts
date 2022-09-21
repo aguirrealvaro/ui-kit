@@ -11,3 +11,4 @@ export { useScrollIntoView } from "./useScrollIntoView";
 export { useIntersectViewport } from "./useIntersectViewport";
 export { useBoolean } from "./useBoolean";
 export { useTheme } from "./useTheme";
+export { useToast } from "./useToast";

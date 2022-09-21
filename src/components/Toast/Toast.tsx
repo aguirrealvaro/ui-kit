@@ -6,10 +6,10 @@ import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
 import styled, { css, keyframes } from "styled-components";
 import { StyledIcon } from "styled-icons/types";
 import { ANIMATION_TIME, DURATION_TIME } from "./Toast.contants";
-import { useToast } from "./Toast.hooks";
 import { ToastVariantType, ToastProps } from "./Toast.types";
 import { theme } from "@/components/App";
 import { Icon } from "@/components/Icon";
+import { useToast } from "@/hooks";
 
 export const Toast: FunctionComponent<ToastProps> = ({
   children,
