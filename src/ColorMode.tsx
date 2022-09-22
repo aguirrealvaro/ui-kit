@@ -15,6 +15,5 @@ export const ColorMode: FunctionComponent = () => {
 };
 
 const Container = styled.div`
-  background-color: ${({ theme }) => theme.palette.grey[2]};
-  color: ${({ theme }) => theme.palette.grey[10]};
+  color: ${({ theme }) => theme.palette.grey[5]};
 `;
