@@ -2,10 +2,10 @@ import { FunctionComponent, InputHTMLAttributes, ReactNode } from "react";
 import { RadioCircle } from "@styled-icons/boxicons-regular/RadioCircle";
 import { RadioCircleMarked } from "@styled-icons/boxicons-regular/RadioCircleMarked";
 import styled, { css } from "styled-components";
-import { hiddenStyles } from "../App";
 import { Icon } from "../Icon";
 import { RADIO_SIZES } from "./Radio.constants";
 import { RadioPositionType, RadioSizeType } from "./Radio.types";
+import { hiddenStyles } from "@/css";
 import { useTheme } from "@/hooks";
 
 type RadioProps = {

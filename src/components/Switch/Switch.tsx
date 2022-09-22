@@ -1,8 +1,8 @@
 import { FunctionComponent, InputHTMLAttributes, ReactNode } from "react";
 import styled, { css } from "styled-components";
-import { hiddenStyles } from "../App";
 import { ANIMATION_TIME, SWICTH_SIZES } from "./Switch.constants";
 import { SwitchPositionType, SwitchSizeType } from "./Switch.types";
+import { hiddenStyles } from "@/css";
 import { useTheme } from "@/hooks";
 
 type SwitchProps = {

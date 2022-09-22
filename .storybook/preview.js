@@ -1,4 +1,4 @@
-import { GlobalStyles } from "@/components/App";
+import { GlobalStyles } from "@/css";
 import { ThemeProvider, ToastProvider } from "@/contexts";
 
 export const parameters = {

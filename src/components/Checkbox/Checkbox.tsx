@@ -2,10 +2,10 @@ import { FunctionComponent, InputHTMLAttributes, ReactNode } from "react";
 import { Checkbox as CheckboxUnchecked } from "@styled-icons/boxicons-regular/Checkbox";
 import { CheckboxChecked } from "@styled-icons/boxicons-solid/CheckboxChecked";
 import styled, { css } from "styled-components";
-import { hiddenStyles } from "../App";
 import { Icon } from "../Icon";
 import { CHECKBOX_SIZES } from "./Checkbox.constants";
 import { CheckboxPositionType, CheckboxSizeType } from "./Checkbox.types";
+import { hiddenStyles } from "@/css";
 import { useTheme } from "@/hooks";
 
 type CheckboxProps = {
