@@ -5,6 +5,7 @@ type WidthPx = `${number}px`;
 type Colors = "black" | "white" | "blue" | "red" | "green" | "yellow" | "grey" | "lightGrey";
 
 type Pallets =
+  | "grey"
   | "red"
   | "vulcano"
   | "orange"
@@ -48,6 +49,19 @@ export const theme: ThemeType = {
     lightGrey: "#d3d3d3",
   },
   palette: {
+    grey: {
+      base: "#f5222d",
+      1: "rgba(0, 0, 0, 0.04)",
+      2: "rgba(0, 0, 0, 0.06)",
+      3: "rgba(0, 0, 0, 0.08)",
+      4: "rgba(0, 0, 0, 0.16)",
+      5: "rgba(0, 0, 0, 0.24)",
+      6: "rgba(0, 0, 0, 0.36)",
+      7: "rgba(0, 0, 0, 0.48)",
+      8: "rgba(0, 0, 0, 0.64)",
+      9: "rgba(0, 0, 0, 0.80)",
+      10: "rgba(0, 0, 0, 0.92)",
+    },
     red: {
       base: "#f5222d",
       1: "#fff1f0",
