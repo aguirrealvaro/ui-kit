@@ -1,11 +1,10 @@
-type Size = "xs" | "sm" | "md" | "lg";
+type BreakpointSize = "xs" | "sm" | "md" | "lg";
 
 type WidthPx = `${number}px`;
 
 type Colors = "black" | "white" | "blue" | "red" | "green" | "yellow" | "grey" | "lightGrey";
 
 type Pallets =
-  | "grey"
   | "red"
   | "vulcano"
   | "orange"
@@ -19,16 +18,19 @@ type Pallets =
   | "purple"
   | "pink";
 
-type Variants = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+type Variants = "base" | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+type GreyVariants = Variants | 11 | 12 | 13;
+type Hexadecimal = `#${string}`;
 
 export type ThemeType = {
   fontFamily: string;
-  breakpoint: (size: Size) => string;
+  breakpoint: (size: BreakpointSize) => string;
   colors: Record<Colors, string>;
-  palette: Record<Pallets, Record<"base" | Variants, string>>;
+  palette: Record<Pallets, Record<Variants, Hexadecimal>> &
+    Record<"grey", Record<GreyVariants, Hexadecimal>>;
 };
 
-const sizes: Record<Size, WidthPx> = {
+const sizes: Record<BreakpointSize, WidthPx> = {
   xs: "480px",
   sm: "768px",
   md: "992px",
@@ -50,17 +52,20 @@ export const darkTheme: ThemeType = {
   },
   palette: {
     grey: {
-      base: "rgba(255, 255, 255, 0.36)",
-      1: "rgba(255, 255, 255, 0.04)",
-      2: "rgba(255, 255, 255, 0.06)",
-      3: "rgba(255, 255, 255, 0.08)",
-      4: "rgba(255, 255, 255, 0.16)",
-      5: "rgba(255, 255, 255, 0.24)",
-      6: "rgba(255, 255, 255, 0.36)",
-      7: "rgba(255, 255, 255, 0.48)",
-      8: "rgba(255, 255, 255, 0.64)",
-      9: "rgba(255, 255, 255, 0.80)",
-      10: "rgba(255, 255, 255, 0.92)",
+      base: "#8c8c8c",
+      1: "#000000",
+      2: "#141414",
+      3: "#1f1f1f",
+      4: "#262626",
+      5: "#434343",
+      6: "#595959",
+      7: "#8c8c8c",
+      8: "#bfbfbf",
+      9: "#d9d9d9",
+      10: "#f0f0f0",
+      11: "#f5f5f5",
+      12: "#fafafa",
+      13: "#ffffff",
     },
     red: {
       base: "#d32029",

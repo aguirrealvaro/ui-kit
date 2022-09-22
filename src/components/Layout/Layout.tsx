@@ -24,4 +24,5 @@ const Container = styled.div`
 
 const Main = styled.main`
   flex: 1;
+  background-color: ${({ theme }) => theme.palette.grey[4]};
 `;
