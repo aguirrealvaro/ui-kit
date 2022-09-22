@@ -24,7 +24,7 @@ export type ThemeType = {
   fontFamily: string;
   breakpoint: (size: Size) => string;
   colors: Record<Colors, string>;
-  palette: Record<Pallets, Record<Variants, string>>;
+  palette: Record<Pallets, Record<"base" | Variants, string>>;
 };
 
 const sizes: Record<Size, WidthPx> = {
@@ -49,6 +49,7 @@ export const theme: ThemeType = {
   },
   palette: {
     red: {
+      base: "#f5222d",
       1: "#fff1f0",
       2: "#ffccc7",
       3: "#ffa39e",
@@ -61,6 +62,7 @@ export const theme: ThemeType = {
       10: "#5c0011",
     },
     vulcano: {
+      base: "#fa541c",
       1: "#fff2e8",
       2: "#ffd8bf",
       3: "#ffbb96",
@@ -73,6 +75,7 @@ export const theme: ThemeType = {
       10: "#610b00",
     },
     orange: {
+      base: "#fa8c16",
       1: "#fff7e6",
       2: "#ffe7ba",
       3: "#ffd591",
@@ -85,6 +88,7 @@ export const theme: ThemeType = {
       10: "#612500",
     },
     gold: {
+      base: "#faad14",
       1: "#fffbe6",
       2: "#fff1b8",
       3: "#ffe58f",
@@ -97,6 +101,7 @@ export const theme: ThemeType = {
       10: "#613400",
     },
     yellow: {
+      base: "#fadb14",
       1: "#feffe6",
       2: "#ffffb8",
       3: "#fffb8f",
@@ -109,6 +114,7 @@ export const theme: ThemeType = {
       10: "#614700",
     },
     lime: {
+      base: "#a0d911",
       1: "#fcffe6",
       2: "#f4ffb8",
       3: "#eaff8f",
@@ -121,6 +127,7 @@ export const theme: ThemeType = {
       10: "#254000",
     },
     green: {
+      base: "#52c41a",
       1: "#f6ffed",
       2: "#d9f7be",
       3: "#b7eb8f",
@@ -133,6 +140,7 @@ export const theme: ThemeType = {
       10: "#092b00",
     },
     cyan: {
+      base: "#13c2c2",
       1: "#e6fffb",
       2: "#b5f5ec",
       3: "#87e8de",
@@ -145,6 +153,7 @@ export const theme: ThemeType = {
       10: "#002329",
     },
     blue: {
+      base: "#1890ff",
       1: "#e6f7ff",
       2: "#bae7ff",
       3: "#91d5ff",
@@ -157,6 +166,7 @@ export const theme: ThemeType = {
       10: "#002766",
     },
     geekblue: {
+      base: "#2f54eb",
       1: "#f0f5ff",
       2: "#d6e4ff",
       3: "#adc6ff",
@@ -169,6 +179,7 @@ export const theme: ThemeType = {
       10: "#030852",
     },
     purple: {
+      base: "#722ed1",
       1: "#f9f0ff",
       2: "#efdbff",
       3: "#d3adf7",
@@ -181,6 +192,7 @@ export const theme: ThemeType = {
       10: "#120338",
     },
     pink: {
+      base: "#eb2f96",
       1: "#fff0f6",
       2: "#ffd6e7",
       3: "#ffadd2",

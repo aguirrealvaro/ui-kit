@@ -14,9 +14,11 @@ export const Primary = () => {
             <Title>{palette}</Title>
             <div>
               {Object.entries(colors).map(([variant, color]) => {
+                if (variant === "base") return null;
+
                 return (
                   <Color color={color}>
-                    {variant} - {color}
+                    {variant} - {color} {Number(variant) === 6 ? "(Base)" : ""}
                   </Color>
                 );
               })}
@@ -47,4 +49,5 @@ const Palette = styled.div`
 
 const Color = styled.div<{ color: string }>`
   background-color: ${({ color }) => color};
+  padding: 1rem;
 `;
