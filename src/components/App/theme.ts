@@ -50,7 +50,7 @@ export const theme: ThemeType = {
   },
   palette: {
     grey: {
-      base: "#f5222d",
+      base: "rgba(0, 0, 0, 0.36)",
       1: "rgba(0, 0, 0, 0.04)",
       2: "rgba(0, 0, 0, 0.06)",
       3: "rgba(0, 0, 0, 0.08)",

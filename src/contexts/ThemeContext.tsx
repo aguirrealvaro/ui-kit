@@ -2,9 +2,11 @@ import { createContext, FunctionComponent, ReactNode, useState } from "react";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import { theme } from "@/components/App";
 
+type ModeType = "light" | "dark";
+
 export type ThemeContextType = {
-  darkMode: boolean;
-  toggleDarkMode: () => void;
+  colorMode: ModeType;
+  toggleColorMode: () => void;
 };
 
 type ThemeProviderProps = {
@@ -14,12 +16,14 @@ type ThemeProviderProps = {
 export const ThemeContext = createContext<ThemeContextType>({} as ThemeContextType);
 
 export const ThemeProvider: FunctionComponent<ThemeProviderProps> = ({ children }) => {
-  const [darkMode, setDarkMode] = useState<boolean>(false);
+  const [colorMode, setColorMode] = useState<ModeType>("light");
 
-  const toggleDarkMode = () => setDarkMode(!darkMode);
+  const toggleColorMode = () => {
+    setColorMode(colorMode === "light" ? "dark" : "light");
+  };
 
   return (
-    <ThemeContext.Provider value={{ darkMode, toggleDarkMode }}>
+    <ThemeContext.Provider value={{ colorMode, toggleColorMode }}>
       <StyledThemeProvider theme={theme}>{children}</StyledThemeProvider>
     </ThemeContext.Provider>
   );
