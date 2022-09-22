@@ -21,24 +21,24 @@ const Container = styled.div<{ variant: BadgeVariantType }>`
   ${({ variant, theme }) => {
     const variantStyles: Record<BadgeVariantType, FlattenSimpleInterpolation> = {
       default: css`
-        color: ${theme.colors.white};
-        background-color: ${theme.colors.blue};
+        color: ${theme.palette.grey[1]};
+        background-color: ${theme.palette.blue.base};
       `,
       positive: css`
-        color: ${theme.colors.white};
-        background-color: ${theme.colors.green};
+        color: ${theme.palette.grey[1]};
+        background-color: ${theme.palette.green.base};
       `,
       negative: css`
-        color: ${theme.colors.white};
-        background-color: ${theme.colors.red};
+        color: ${theme.palette.grey[1]};
+        background-color: ${theme.palette.red.base};
       `,
       warning: css`
-        color: ${theme.colors.black};
-        background-color: ${theme.colors.yellow};
+        color: ${theme.palette.grey[13]};
+        background-color: ${theme.palette.yellow.base};
       `,
       neutral: css`
-        color: ${theme.colors.white};
-        background-color: ${theme.colors.black};
+        color: ${theme.palette.grey[1]};
+        background-color: ${theme.palette.grey[13]};
       `,
     };
     return variantStyles[variant];
