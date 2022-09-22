@@ -4,16 +4,6 @@ export type BreakpointSize = "xs" | "sm" | "md" | "lg";
 
 export type WidthPx = `${number}px`;
 
-export type Colors =
-  | "black"
-  | "white"
-  | "blue"
-  | "red"
-  | "green"
-  | "yellow"
-  | "grey"
-  | "lightGrey";
-
 export type Pallets =
   | "red"
   | "vulcano"
@@ -38,6 +28,5 @@ export type PalleteType = Record<Pallets, Record<Variants, Hexadecimal>> &
 export type ThemeType = {
   fontFamily: string;
   breakpoint: (size: BreakpointSize) => string;
-  colors: Record<Colors, string>;
   palette: PalleteType;
 };

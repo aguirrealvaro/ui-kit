@@ -15,16 +15,6 @@ export const getTheme = (colorMode: ColorModeType): ThemeType => {
   return {
     fontFamily: "Arial",
     breakpoint: (size) => `@media (max-width: ${sizes[size]})`,
-    colors: {
-      black: "#000000",
-      white: "#ffffff",
-      blue: "#0072FF",
-      red: "#FF4658",
-      green: "#05944F",
-      yellow: "#FFC043",
-      grey: "#626262",
-      lightGrey: "#d3d3d3",
-    },
     palette: colors,
   };
 };
