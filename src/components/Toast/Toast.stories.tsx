@@ -18,5 +18,5 @@ export const Primary: FunctionComponent = () => {
 
 const Button = styled.button`
   padding: 1rem;
-  border: 1px solid ${({ theme }) => theme.colors.lightGrey};
+  border: 1px solid ${({ theme }) => theme.palette.grey[5]};
 `;

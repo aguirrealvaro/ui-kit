@@ -50,7 +50,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
     <Backdrop isOpen={isOpen} fadeOut={isUnmounting}>
       <Content size={modalSize} ref={contentRef} fadeOut={isUnmounting} role="dialog">
         <CloseButton onClick={onClose}>
-          <Icon icon={CloseOutline} color={theme.colors.grey} size={25} />
+          <Icon icon={CloseOutline} color={theme.palette.grey.base} size={25} />
         </CloseButton>
         {children}
       </Content>
@@ -105,7 +105,7 @@ const Content = styled.div<{ size: number; fadeOut: boolean }>`
       transform: scale(0.9);
       transition: all ${ANIMATION_TIME}ms ease-out;
     `}
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.palette.grey[1]};
   border-radius: 8px;
   box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.11);
   display: flex;

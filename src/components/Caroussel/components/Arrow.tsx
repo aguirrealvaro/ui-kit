@@ -23,7 +23,7 @@ export const Arrow: FunctionComponent<ArrowProps> = ({ direction, handleArrow, d
 
   return (
     <Button onClick={() => handleArrow(direction)} direction={direction} disabled={disabled}>
-      <Icon icon={chevronIcon[direction]} color={theme.colors.grey} size={22} />
+      <Icon icon={chevronIcon[direction]} color={theme.palette.grey.base} size={22} />
     </Button>
   );
 };
@@ -34,10 +34,10 @@ const Button = styled.button<{ direction: CarousselDirectionType }>`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  ${({ direction }) =>
+  ${({ direction, theme }) =>
     css`
       padding: 17px;
-      background: #fff;
+      background: ${theme.palette.grey[1]};
       box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.11);
       border-radius: 50%;
       ${direction === "left"

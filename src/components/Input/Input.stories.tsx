@@ -18,7 +18,7 @@ export const Primary: ComponentStory<typeof Input> = () => {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value);
   const clearValue = () => setValue("");
 
-  const searchIcon = <Icon icon={Search} color={theme.colors.grey} size={20} />;
+  const searchIcon = <Icon icon={Search} color={theme.palette.grey.base} size={20} />;
 
   return (
     <Container>

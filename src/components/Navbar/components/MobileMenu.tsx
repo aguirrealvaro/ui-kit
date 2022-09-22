@@ -27,7 +27,7 @@ export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
     <Backdrop isUnmounting={isUnmounting}>
       <Container isUnmounting={isUnmounting} ref={ref}>
         <CloseButton onClick={onClose}>
-          <Icon icon={CloseOutline} color={theme.colors.grey} size={25} />
+          <Icon icon={CloseOutline} color={theme.palette.grey.base} size={25} />
         </CloseButton>
         <div>
           {items
@@ -76,7 +76,7 @@ const Container = styled.div<{ isUnmounting: boolean }>`
   right: 0;
   bottom: 0;
   width: 70%;
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.palette.grey[1]};
   box-shadow: 0px 4px 4px rgba(209, 196, 196, 0.12);
   animation: ${translate} ${ANIMATION_TIME}ms ease-out;
   padding: 4rem 0;

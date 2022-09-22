@@ -20,10 +20,10 @@ export const Primary: ComponentStory<typeof Caroussel> = () => {
 };
 
 const Container = styled.div`
-  background-color: ${({ theme }) => theme.colors.lightGrey};
+  background-color: ${({ theme }) => theme.palette.grey[5]};
   padding: 2px 20px;
   border-radius: 10px;
   width: 80px;
-  border: 1px solid ${({ theme }) => theme.colors.grey};
+  border: 1px solid ${({ theme }) => theme.palette.grey.base};
   text-align: center;
 `;
