@@ -4,8 +4,7 @@ import styled, { css, keyframes } from "styled-components";
 import { ANIMATION_TIME } from "../Navbar.constants";
 import { NavbarItem } from "../Navbar.types";
 import { Icon } from "@/components";
-import { theme } from "@/components/App";
-import { useOutsideClick } from "@/hooks";
+import { useOutsideClick, useTheme } from "@/hooks";
 
 type MobileMenuProps = {
   isMobileMenuOpen: boolean;
@@ -20,6 +19,7 @@ export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
   isUnmounting,
   items,
 }) => {
+  const { theme } = useTheme();
   const ref = useRef<HTMLDivElement>(null);
   useOutsideClick({ ref, handler: onClose, enabled: isMobileMenuOpen });
 

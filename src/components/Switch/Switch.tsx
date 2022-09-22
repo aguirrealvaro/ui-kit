@@ -1,8 +1,9 @@
 import { FunctionComponent, InputHTMLAttributes, ReactNode } from "react";
 import styled, { css } from "styled-components";
-import { hiddenStyles, theme } from "../App";
+import { hiddenStyles } from "../App";
 import { ANIMATION_TIME, SWICTH_SIZES } from "./Switch.constants";
 import { SwitchPositionType, SwitchSizeType } from "./Switch.types";
+import { useTheme } from "@/hooks";
 
 type SwitchProps = {
   children?: ReactNode;
@@ -19,10 +20,11 @@ export const Switch: FunctionComponent<
   size = "sm",
   position = "right",
   checked,
-  color = theme.colors.blue,
+  color,
   disabled = false,
   ...restProps
 }) => {
+  const { theme } = useTheme();
   const switchSize = SWICTH_SIZES[size];
 
   return (
@@ -30,7 +32,12 @@ export const Switch: FunctionComponent<
       <HiddenInput type="checkbox" checked={checked} disabled={disabled} {...restProps} />
       <Container disabled={disabled}>
         <Wrapper position={position}>
-          <Pill checked={checked || false} size={switchSize} color={color} disabled={disabled}>
+          <Pill
+            checked={checked || false}
+            size={switchSize}
+            color={color || theme.colors.blue}
+            disabled={disabled}
+          >
             <Ball checked={checked || false} size={switchSize} />
           </Pill>
         </Wrapper>

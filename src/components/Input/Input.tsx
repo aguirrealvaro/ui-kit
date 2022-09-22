@@ -16,7 +16,7 @@ import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
 import styled, { css } from "styled-components";
 import { InputSizeType } from "./Input.types";
 import { Spinner, Icon } from "@/components";
-import { theme } from "@/components/App";
+import { useTheme } from "@/hooks";
 
 type InputProps = {
   label?: ReactNode;
@@ -50,6 +50,7 @@ export const Input: FunctionComponent<
   size = "md",
   ...restProps
 }) => {
+  const { theme } = useTheme();
   const [seePassword, setSeePassword] = useState<boolean>(false);
 
   const inputRef = useRef<HTMLInputElement>(null);

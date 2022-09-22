@@ -1,11 +1,12 @@
 import styled from "styled-components";
-import { theme } from "./theme";
-
+import { useTheme } from "@/hooks";
 export default {
   title: "Theme/Colors",
 };
 
 export const Primary = () => {
+  const { theme } = useTheme();
+
   return (
     <Container>
       {Object.entries(theme.palette).map(([palette, colors]) => {

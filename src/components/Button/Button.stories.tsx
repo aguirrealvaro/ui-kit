@@ -1,8 +1,8 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Download } from "@styled-icons/evaicons-solid/Download";
 import styled from "styled-components";
-import { theme } from "../App";
 import { Button, Icon } from "@/components";
+import { useTheme } from "@/hooks";
 
 export default {
   title: "Components/Button",
@@ -10,6 +10,8 @@ export default {
 } as ComponentMeta<typeof Button>;
 
 export const Primary: ComponentStory<typeof Button> = () => {
+  const { theme } = useTheme();
+
   const icon = <Icon icon={Download} color={theme.colors.white} size={20} />;
 
   return (

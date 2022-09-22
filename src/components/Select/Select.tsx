@@ -14,8 +14,7 @@ import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import styled, { css } from "styled-components";
 import { SelectFieldType, SelectSizeType } from "./Select.types";
 import { Spinner, Icon } from "@/components";
-import { theme } from "@/components/App";
-import { useOutsideClick } from "@/hooks";
+import { useOutsideClick, useTheme } from "@/hooks";
 
 const ANIMATION_TIME = 200;
 
@@ -46,6 +45,8 @@ export const Select: FunctionComponent<SelectProps> = ({
   clearValue,
   size = "md",
 }) => {
+  const { theme } = useTheme();
+
   const containerRef = useRef<HTMLDivElement>(null);
 
   const [isOpen, setIsOpen] = useState<boolean>(false);

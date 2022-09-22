@@ -5,7 +5,7 @@ import styled, { css } from "styled-components";
 import { StyledIcon } from "styled-icons/types";
 import { CarousselDirectionType } from "../Caroussel.types";
 import { Icon } from "@/components";
-import { theme } from "@/components/App";
+import { useTheme } from "@/hooks";
 
 type ArrowProps = {
   direction: CarousselDirectionType;
@@ -14,6 +14,8 @@ type ArrowProps = {
 };
 
 export const Arrow: FunctionComponent<ArrowProps> = ({ direction, handleArrow, disabled }) => {
+  const { theme } = useTheme();
+
   const chevronIcon: Record<CarousselDirectionType, StyledIcon> = {
     left: ChevronLeft,
     right: ChevronRight,

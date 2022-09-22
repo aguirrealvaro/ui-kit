@@ -16,7 +16,7 @@ import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
 import styled, { css } from "styled-components";
 import { ANIMATION_TIME } from "./AnimatedInput.constants";
 import { Spinner, Icon } from "@/components";
-import { theme } from "@/components/App";
+import { useTheme } from "@/hooks";
 
 type AnimatedInputProps = {
   helpText?: ReactNode;
@@ -45,6 +45,8 @@ export const AnimatedInput: FunctionComponent<
   type,
   ...restProps
 }) => {
+  const { theme } = useTheme();
+
   const [seePassword, setSeePassword] = useState<boolean>(false);
 
   const inputRef = useRef<HTMLInputElement>(null);

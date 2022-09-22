@@ -1,4 +1,3 @@
 export { GlobalStyles } from "./globalStyles";
-export { theme } from "./theme";
-export { darkTheme } from "./darkTheme";
+export { darkColors } from "./darkColors";
 export * from "./commonStyles";

@@ -1,6 +1,6 @@
 import { FunctionComponent, ButtonHTMLAttributes, ReactNode } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
-import { theme } from "../App";
+import { ThemeType } from "../App/types";
 import { Spinner } from "../Spinner";
 import { ANIMATION_TIME } from "./Button.constants";
 import {
@@ -112,7 +112,8 @@ const getShapeStyles = (shape: ButtonShapeType): FlattenSimpleInterpolation => {
 
 const getColorStyles = (
   variant: ButtonVariantType,
-  kind: ButtonKindType
+  kind: ButtonKindType,
+  theme: ThemeType
 ): FlattenSimpleInterpolation => {
   const solidStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
     default: css`
@@ -333,7 +334,7 @@ const CustomButton = styled.button<{
   border: 1px solid transparent;
   ${({ size }) => getSizeStyles(size)};
   ${({ shape }) => getShapeStyles(shape)};
-  ${({ variant, kind }) => getColorStyles(variant, kind)};
+  ${({ variant, kind, theme }) => getColorStyles(variant, kind, theme)};
   transition: all ${ANIMATION_TIME}ms ease;
   &:disabled {
     background: #e9e9e9;

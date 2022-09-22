@@ -1,10 +1,9 @@
 import { FunctionComponent, Children, useState, useRef, useEffect, ReactNode } from "react";
 import styled from "styled-components";
+import { ANIMATION_TIME } from "./Caroussel.constants";
 import { useDisableRightArrow } from "./Caroussel.hooks";
 import { CarousselDirectionType } from "./Caroussel.types";
 import { Arrow } from "./components";
-
-const ANIMATION_TIME = 400;
 
 type CarousselProps = {
   children: ReactNode;

@@ -7,7 +7,7 @@ import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { StyledIcon } from "styled-icons/types";
 import { AlertSizeType, AlertVariantType } from "./Alert.types";
 import { Icon } from "@/components";
-import { theme } from "@/components/App";
+import { useTheme } from "@/hooks";
 
 type AlertProps = {
   children: ReactNode;
@@ -20,6 +20,16 @@ export const Alert: FunctionComponent<AlertProps> = ({
   variant = "default",
   size = "sm",
 }) => {
+  const { theme } = useTheme();
+
+  const variantIcons: Record<AlertVariantType, { icon: StyledIcon; color: string }> = {
+    default: { icon: InfoCircleFill, color: theme.colors.blue },
+    positive: { icon: CheckCircleFill, color: theme.colors.green },
+    warning: { icon: AlertIcon, color: theme.colors.yellow },
+    negative: { icon: CloseCircle, color: theme.colors.red },
+    neutral: { icon: InfoCircleFill, color: theme.colors.black },
+  };
+
   return (
     <Container variant={variant} size={size} role="alert">
       <span>{children}</span>
@@ -32,14 +42,6 @@ export const Alert: FunctionComponent<AlertProps> = ({
       </div>
     </Container>
   );
-};
-
-const variantIcons: Record<AlertVariantType, { icon: StyledIcon; color: string }> = {
-  default: { icon: InfoCircleFill, color: theme.colors.blue },
-  positive: { icon: CheckCircleFill, color: theme.colors.green },
-  warning: { icon: AlertIcon, color: theme.colors.yellow },
-  negative: { icon: CloseCircle, color: theme.colors.red },
-  neutral: { icon: InfoCircleFill, color: theme.colors.black },
 };
 
 const variantStyles: Record<AlertVariantType, FlattenSimpleInterpolation> = {

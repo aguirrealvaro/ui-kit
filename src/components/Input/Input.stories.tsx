@@ -2,8 +2,8 @@ import { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Search } from "@styled-icons/evaicons-solid/Search";
 import styled from "styled-components";
-import { theme } from "../App";
 import { Input, Icon } from "@/components";
+import { useTheme } from "@/hooks";
 
 export default {
   title: "Components/Input",
@@ -11,6 +11,8 @@ export default {
 } as ComponentMeta<typeof Input>;
 
 export const Primary: ComponentStory<typeof Input> = () => {
+  const { theme } = useTheme();
+
   const [value, setValue] = useState<string>("");
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value);

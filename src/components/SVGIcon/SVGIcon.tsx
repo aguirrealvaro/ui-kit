@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import styled from "styled-components";
 import { paths, viewBox, IconType } from ".";
-import { theme } from "@/components/App";
+import { useTheme } from "@/hooks";
 
 type IconProps = {
   icon: IconType;
@@ -13,11 +13,13 @@ type IconProps = {
 
 export const SVGIcon: FunctionComponent<IconProps> = ({
   icon,
-  color = theme.colors.black,
+  color,
   size = "20px",
   marginRight,
   marginLeft,
 }) => {
+  const { theme } = useTheme();
+
   return (
     <SVG
       width={size}
@@ -29,7 +31,7 @@ export const SVGIcon: FunctionComponent<IconProps> = ({
       marginRight={marginRight}
       marginLeft={marginLeft}
     >
-      {paths[icon](color)}
+      {paths[icon](color || theme.colors.black)}
     </SVG>
   );
 };

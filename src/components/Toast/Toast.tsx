@@ -7,9 +7,8 @@ import styled, { css, keyframes } from "styled-components";
 import { StyledIcon } from "styled-icons/types";
 import { ANIMATION_TIME, DURATION_TIME } from "./Toast.contants";
 import { ToastVariantType, ToastProps } from "./Toast.types";
-import { theme } from "@/components/App";
 import { Icon } from "@/components/Icon";
-import { useToast } from "@/hooks";
+import { useTheme, useToast } from "@/hooks";
 
 export const Toast: FunctionComponent<ToastProps> = ({
   children,
@@ -17,6 +16,8 @@ export const Toast: FunctionComponent<ToastProps> = ({
   permanent,
   variant = "default",
 }) => {
+  const { theme } = useTheme();
+
   const [isClosing, setIsClosing] = useState<boolean>(false);
   const timeoutRef = useRef<number>(0);
 

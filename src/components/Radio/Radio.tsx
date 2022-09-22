@@ -2,10 +2,11 @@ import { FunctionComponent, InputHTMLAttributes, ReactNode } from "react";
 import { RadioCircle } from "@styled-icons/boxicons-regular/RadioCircle";
 import { RadioCircleMarked } from "@styled-icons/boxicons-regular/RadioCircleMarked";
 import styled, { css } from "styled-components";
-import { hiddenStyles, theme } from "../App";
+import { hiddenStyles } from "../App";
 import { Icon } from "../Icon";
 import { RADIO_SIZES } from "./Radio.constants";
 import { RadioPositionType, RadioSizeType } from "./Radio.types";
+import { useTheme } from "@/hooks";
 
 type RadioProps = {
   children?: ReactNode;
@@ -22,20 +23,23 @@ export const Radio: FunctionComponent<
   size = "sm",
   position = "right",
   checked,
-  color = theme.colors.blue,
+  color,
   disabled = false,
   ...restProps
 }) => {
+  const { theme } = useTheme();
+
   const radioSize = RADIO_SIZES[size];
 
   const icon = checked ? RadioCircleMarked : RadioCircle;
+  const iconColor = color || theme.colors.blue;
 
   return (
     <label>
       <HiddenInput type="radio" checked={checked} disabled={disabled} {...restProps} />
       <Container disabled={disabled}>
         <Wrapper position={position}>
-          <Icon icon={icon} color={disabled ? "#cecece" : color} size={radioSize} />
+          <Icon icon={icon} color={disabled ? "#cecece" : iconColor} size={radioSize} />
         </Wrapper>
         {children && <Label position={position}>{children}</Label>}
       </Container>

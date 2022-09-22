@@ -5,8 +5,7 @@ import styled, { css, keyframes } from "styled-components";
 import { MODAL_SIZES, ANIMATION_TIME } from "./Modal.constants";
 import { ModalSizeType } from "./Modal.types";
 import { Icon } from "@/components";
-import { theme } from "@/components/App";
-import { useDisableScroll, useOutsideClick, useKeyPress } from "@/hooks";
+import { useDisableScroll, useOutsideClick, useKeyPress, useTheme } from "@/hooks";
 
 export type ModalProps = {
   children: ReactNode;
@@ -25,6 +24,8 @@ export const Modal: FunctionComponent<ModalProps> = ({
   closeOnInteractions = true,
   isUnmounting = false,
 }) => {
+  const { theme } = useTheme();
+
   const contentRef = useRef<HTMLDivElement>(null);
 
   useDisableScroll(isOpen);
