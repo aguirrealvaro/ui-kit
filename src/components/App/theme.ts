@@ -27,7 +27,7 @@ export type ThemeType = {
   breakpoint: (size: BreakpointSize) => string;
   colors: Record<Colors, string>;
   palette: Record<Pallets, Record<Variants, Hexadecimal>> &
-    Record<"grey", Record<GreyVariants, Hexadecimal>>;
+    Record<"grey", Record<GreyVariants, Hexadecimal>> & { brand: Hexadecimal };
 };
 
 const sizes: Record<BreakpointSize, WidthPx> = {
@@ -51,6 +51,7 @@ export const theme: ThemeType = {
     lightGrey: "#d3d3d3",
   },
   palette: {
+    brand: "#1890ff",
     grey: {
       base: "#8c8c8c",
       1: "#ffffff",

@@ -1,6 +1,7 @@
 import { createContext, FunctionComponent, ReactNode, useState } from "react";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import { theme, darkTheme } from "@/components/App";
+
 type ModeType = "light" | "dark";
 
 export type ThemeContextType = {
