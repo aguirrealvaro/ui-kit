@@ -72,14 +72,14 @@ const Container = styled.div<{ isClosing: boolean; variant: ToastVariantType }>`
   margin-bottom: 1rem;
   background-color: ${({ theme, variant }) => {
     const backgroundColor: Record<ToastVariantType, string> = {
-      default: "blue",
-      positive: "green",
-      warning: "yellow",
-      negative: "red",
-      neutral: "black",
+      default: theme.palette.blue.base,
+      positive: theme.palette.green.base,
+      warning: theme.palette.yellow.base,
+      negative: theme.palette.red.base,
+      neutral: theme.palette.grey[13],
     };
 
-    return theme.colors[backgroundColor[variant]];
+    return backgroundColor[variant];
   }};
   &:last-child {
     margin-bottom: 0;
