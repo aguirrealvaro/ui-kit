@@ -10,20 +10,18 @@ export const Primary = () => {
     <Container>
       {Object.entries(theme.palette).map(([palette, colors]) => {
         return (
-          <Palette>
+          <div>
             <Title>{palette}</Title>
             <div>
               {Object.entries(colors).map(([variant, color]) => {
-                if (variant === "base") return null;
-
                 return (
                   <Color color={color}>
-                    {variant} - {color} {Number(variant) === 6 ? "(Base)" : ""}
+                    {variant} - {color}
                   </Color>
                 );
               })}
             </div>
-          </Palette>
+          </div>
         );
       })}
     </Container>
@@ -31,9 +29,9 @@ export const Primary = () => {
 };
 
 const Container = styled.div`
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 2rem;
 `;
 
 const Title = styled.span`
@@ -41,10 +39,6 @@ const Title = styled.span`
   margin-bottom: 1rem;
   text-align: center;
   font-size: 1.2rem;
-`;
-
-const Palette = styled.div`
-  width: 30%;
 `;
 
 const Color = styled.div<{ color: string }>`
