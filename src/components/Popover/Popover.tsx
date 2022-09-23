@@ -9,7 +9,7 @@ import {
 import { createPortal } from "react-dom";
 import styled, { css, keyframes } from "styled-components";
 import { PopoverPositionType, PopoverTriggerType } from "./Popover.types";
-import { useDisclosure, useOutsideClick } from "@/hooks";
+import { useDisclosure, useOutsideClick, useTheme } from "@/hooks";
 
 export type PopoverProps = {
   children?: ReactNode;
@@ -25,8 +25,6 @@ type CoordsType = {
   left: number;
 };
 
-const ANIMATION_TIME = 200;
-
 export const Popover: FunctionComponent<PopoverProps> = ({
   children,
   content,
@@ -35,6 +33,9 @@ export const Popover: FunctionComponent<PopoverProps> = ({
   gap = 0,
   withTriggerWidth = false,
 }) => {
+  const { theme } = useTheme();
+  const transitionTime = theme.transitions.normal;
+
   const triggerRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
 
@@ -42,7 +43,7 @@ export const Popover: FunctionComponent<PopoverProps> = ({
   const [triggerWidth, setTriggerWidth] = useState<number | undefined>(undefined);
 
   const { isOpen, onOpen, onClose, onToggle, isUnmounting } = useDisclosure({
-    timeout: ANIMATION_TIME,
+    timeout: transitionTime,
     closeOnResize: true,
   });
 
@@ -156,6 +157,7 @@ export const Popover: FunctionComponent<PopoverProps> = ({
             fadeOut={isUnmounting}
             coords={coords}
             triggerWidth={triggerWidth}
+            transitionTime={transitionTime}
           >
             {content}
           </Content>,
@@ -174,9 +176,10 @@ const Content = styled.div<{
   fadeOut: boolean;
   coords: CoordsType | undefined;
   triggerWidth: number | undefined;
+  transitionTime: number;
 }>`
   position: absolute;
-  animation: ${fadeInScale} ${({ theme }) => theme.transitions.normal}ms ease-out;
+  animation: ${fadeInScale} ${({ transitionTime }) => transitionTime}ms ease-out;
   ${({ coords }) => {
     if (coords) {
       const { top, left } = coords;
@@ -186,12 +189,12 @@ const Content = styled.div<{
       `;
     }
   }};
-  ${({ fadeOut }) => {
+  ${({ fadeOut, transitionTime }) => {
     if (fadeOut) {
       return css`
         opacity: 0;
         transform: scale(0.9);
-        transition: all ${({ theme }) => theme.transitions.normal}ms ease-out;
+        transition: all ${transitionTime}ms ease-out;
       `;
     }
   }};

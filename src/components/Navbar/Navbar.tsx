@@ -2,9 +2,7 @@ import { FunctionComponent } from "react";
 import styled from "styled-components";
 import { Logo, MainMenu, DropdownMenu, Burger, MobileMenu } from "./components";
 import { NavbarItem } from "./Navbar.types";
-import { useDisclosure, useDisableScroll } from "@/hooks";
-
-const ANIMATION_TIME = 200;
+import { useDisclosure, useDisableScroll, useTheme } from "@/hooks";
 
 type NavbarProps = {
   user: string;
@@ -13,12 +11,15 @@ type NavbarProps = {
 };
 
 export const Navbar: FunctionComponent<NavbarProps> = ({ user, mainItems, dropdownItems }) => {
+  const { theme } = useTheme();
+  const transitionTime = theme.transitions.normal;
+
   const {
     isOpen: isMobileMenuOpen,
     onToggle,
     onClose,
     isUnmounting,
-  } = useDisclosure({ timeout: ANIMATION_TIME, closeOnResize: true });
+  } = useDisclosure({ timeout: transitionTime, closeOnResize: true });
 
   useDisableScroll(isMobileMenuOpen);
 
@@ -36,6 +37,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({ user, mainItems, dropdo
               onClose={onClose}
               isUnmounting={isUnmounting}
               items={mainItems.concat(dropdownItems)}
+              transitionTime={transitionTime}
             />
           )}
         </InnerContainer>

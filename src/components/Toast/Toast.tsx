@@ -9,8 +9,7 @@ import { ToastVariantType, ToastProps } from "./Toast.types";
 import { Icon } from "@/components/Icon";
 import { useTheme, useToast } from "@/hooks";
 
-export const ANIMATION_TIME = 200;
-export const DURATION_TIME = 3000;
+const DURATION = 3000;
 
 export const Toast: FunctionComponent<ToastProps> = ({
   children,
@@ -19,6 +18,7 @@ export const Toast: FunctionComponent<ToastProps> = ({
   variant = "default",
 }) => {
   const { theme } = useTheme();
+  const transitionTime = theme.transitions.normal;
 
   const [isClosing, setIsClosing] = useState<boolean>(false);
   const timeoutRef = useRef<number>(0);
@@ -33,16 +33,16 @@ export const Toast: FunctionComponent<ToastProps> = ({
       timeoutRef.current = window.setTimeout(() => {
         setIsClosing(false);
         toast.remove(id);
-      }, ANIMATION_TIME);
-    }, DURATION_TIME);
-  }, [id, toast, permanent]);
+      }, transitionTime);
+    }, DURATION);
+  }, [id, toast, permanent, transitionTime]);
 
   const closeToast = () => {
     setIsClosing(true);
     timeoutRef.current = window.setTimeout(() => {
       setIsClosing(false);
       toast.remove(id);
-    }, ANIMATION_TIME);
+    }, transitionTime);
   };
 
   useEffect(() => {
@@ -52,7 +52,13 @@ export const Toast: FunctionComponent<ToastProps> = ({
   }, []);
 
   return (
-    <Container onClick={closeToast} isClosing={isClosing} variant={variant} role="alert">
+    <Container
+      onClick={closeToast}
+      isClosing={isClosing}
+      variant={variant}
+      role="alert"
+      transitionTime={transitionTime}
+    >
       <Icon icon={variantIcons[variant]} size={18} color={theme.colors.grey[1]} />
       <div>{children}</div>
     </Container>
@@ -64,7 +70,11 @@ const translate = keyframes`
   to { transform: translateX(0); }
 `;
 
-const Container = styled.div<{ isClosing: boolean; variant: ToastVariantType }>`
+const Container = styled.div<{
+  isClosing: boolean;
+  variant: ToastVariantType;
+  transitionTime: number;
+}>`
   position: relative;
   display: flex;
   gap: 8px;
@@ -86,12 +96,12 @@ const Container = styled.div<{ isClosing: boolean; variant: ToastVariantType }>`
   &:last-child {
     margin-bottom: 0;
   }
-  animation: ${translate} ${({ theme }) => theme.transitions.normal}ms linear;
-  ${({ isClosing }) =>
+  animation: ${translate} ${({ transitionTime }) => transitionTime}ms linear;
+  ${({ isClosing, transitionTime }) =>
     isClosing &&
     css`
       transform: translateY(-100%);
-      transition: transform ${({ theme }) => theme.transitions.normal}ms linear;
+      transition: transform ${transitionTime}ms linear;
     `}
 `;
 

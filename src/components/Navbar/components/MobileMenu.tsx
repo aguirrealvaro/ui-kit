@@ -10,6 +10,7 @@ type MobileMenuProps = {
   onClose: () => void;
   isUnmounting: boolean;
   items: NavbarItem[];
+  transitionTime: number;
 };
 
 export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
@@ -17,6 +18,7 @@ export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
   onClose,
   isUnmounting,
   items,
+  transitionTime,
 }) => {
   const { theme } = useTheme();
   const ref = useRef<HTMLDivElement>(null);
@@ -24,7 +26,7 @@ export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
 
   return (
     <Backdrop isUnmounting={isUnmounting}>
-      <Container isUnmounting={isUnmounting} ref={ref}>
+      <Container isUnmounting={isUnmounting} ref={ref} transitionTime={transitionTime}>
         <CloseButton onClick={onClose}>
           <Icon icon={CloseOutline} color={theme.colors.grey.base} size={25} />
         </CloseButton>
@@ -69,7 +71,7 @@ const Backdrop = styled.div<{ isUnmounting: boolean }>`
     `}
 `;
 
-const Container = styled.div<{ isUnmounting: boolean }>`
+const Container = styled.div<{ isUnmounting: boolean; transitionTime: number }>`
   position: fixed;
   top: 0;
   right: 0;
@@ -77,16 +79,16 @@ const Container = styled.div<{ isUnmounting: boolean }>`
   width: 70%;
   background-color: ${({ theme }) => theme.colors.grey[1]};
   box-shadow: ${({ theme }) => theme.shadows.sm};
-  animation: ${translate} ${({ theme }) => theme.transitions.normal}ms ease-out;
+  animation: ${translate} ${({ transitionTime }) => transitionTime}ms ease-out;
   padding: 4rem 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  ${({ isUnmounting }) =>
+  ${({ isUnmounting, transitionTime }) =>
     isUnmounting &&
     css`
       transform: translateX(100%);
-      transition: transform ${({ theme }) => theme.transitions.normal}ms ease-out;
+      transition: transform ${transitionTime}ms ease-out;
     `}
 `;
 
