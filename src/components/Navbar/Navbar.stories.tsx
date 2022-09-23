@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Navbar } from "@/components";
 
