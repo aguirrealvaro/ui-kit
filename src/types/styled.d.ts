@@ -1,4 +1,4 @@
-import { ThemeType } from "@/css/theme";
+import { ThemeType } from "@/css";
 import "styled-components";
 
 declare module "styled-components" {

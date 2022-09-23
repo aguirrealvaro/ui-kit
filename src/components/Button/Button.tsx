@@ -8,7 +8,7 @@ import {
   ButtonVariantType,
   ButtonShapeType,
 } from "./Button.types";
-import { ThemeType } from "@/css/theme";
+import { ThemeType } from "@/css";
 
 type ButtonProps = {
   block?: boolean;
