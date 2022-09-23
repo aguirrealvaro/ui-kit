@@ -10,7 +10,7 @@ import { zIndices, ZIndexType } from "./zIndices";
 
 // Asset colors: title, primary text, secondary text, disable, border, dividers, background, transparency
 
-export type ColorModeType = "light" | "dark";
+export type ThemeModeType = "light" | "dark";
 
 export type ThemeType = {
   typography: TypographyType;
@@ -22,7 +22,7 @@ export type ThemeType = {
   transitions: TransitionsType;
 };
 
-export const getTheme = (themeMode: ColorModeType): ThemeType => {
+export const getTheme = (themeMode: ThemeModeType): ThemeType => {
   const colors = themeMode === "light" ? lightColors : darkColors;
 
   return {

@@ -1,1 +1,1 @@
-export { getTheme, type ThemeType, type ColorModeType } from "./theme";
+export { getTheme, type ThemeType, type ThemeModeType } from "./theme";

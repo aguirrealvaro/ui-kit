@@ -1,11 +1,11 @@
 import { createContext, FunctionComponent, ReactNode, useState } from "react";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import { COLOR_MODE_KEY } from "@/constants";
-import { ColorModeType, getTheme, ThemeType } from "@/css";
+import { ThemeModeType, getTheme, ThemeType } from "@/css";
 
 export type ThemeContextType = {
   theme: ThemeType;
-  themeMode: ColorModeType;
+  themeMode: ThemeModeType;
   toggleColorMode: () => void;
 };
 
@@ -16,8 +16,8 @@ type ThemeProviderProps = {
 export const ThemeContext = createContext<ThemeContextType>({} as ThemeContextType);
 
 export const ThemeProvider: FunctionComponent<ThemeProviderProps> = ({ children }) => {
-  const [themeMode, setThemeMode] = useState<ColorModeType>(() => {
-    return (localStorage.getItem(COLOR_MODE_KEY) || "light") as ColorModeType;
+  const [themeMode, setThemeMode] = useState<ThemeModeType>(() => {
+    return (localStorage.getItem(COLOR_MODE_KEY) || "light") as ThemeModeType;
   });
 
   const toggleColorMode = () => {
