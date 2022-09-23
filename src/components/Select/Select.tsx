@@ -238,6 +238,7 @@ const Option = styled.button<{ isSelected: boolean }>`
   padding: 8px 12px;
   margin-bottom: 4px;
   text-align: left;
+  color: ${({ theme }) => theme.colors.grey[13]};
   &:last-child {
     margin-bottom: 0;
   }
@@ -251,6 +252,7 @@ const Option = styled.button<{ isSelected: boolean }>`
       : css`
           &:hover {
             background-color: ${theme.colors.blue.base};
+            color: ${({ theme }) => theme.colors.grey[1]};
           }
         `};
   &:disabled {
