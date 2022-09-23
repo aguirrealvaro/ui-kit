@@ -276,7 +276,7 @@ const getColorStyles = (
     `,
   };
 
-  const primaryStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
+  const outlined2Styles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
     default: css`
       border-color: ${theme.colors.grey[5]};
       color: ${theme.colors.grey.base};
@@ -324,7 +324,7 @@ const getColorStyles = (
     outlined: outlinedStyles[variant],
     ghost: ghostStyles[variant],
     link: linkStyles[variant],
-    primary: primaryStyles[variant],
+    outlined2: outlined2Styles[variant],
   };
 
   return colorOptions[kind];
