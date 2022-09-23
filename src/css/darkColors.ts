@@ -1,6 +1,6 @@
-import { PalleteType } from "./types";
+import { CollorsType } from "./types";
 
-export const darkColors: PalleteType = {
+export const darkColors: CollorsType = {
   brand: "#177ddc",
   grey: {
     base: "#8c8c8c",
