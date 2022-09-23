@@ -6,7 +6,7 @@ import { ColorModeType, ThemeType } from "@/css/types";
 
 export type ThemeContextType = {
   theme: ThemeType;
-  colorMode: ColorModeType;
+  themeMode: ColorModeType;
   toggleColorMode: () => void;
 };
 
@@ -17,20 +17,20 @@ type ThemeProviderProps = {
 export const ThemeContext = createContext<ThemeContextType>({} as ThemeContextType);
 
 export const ThemeProvider: FunctionComponent<ThemeProviderProps> = ({ children }) => {
-  const [colorMode, setColorMode] = useState<ColorModeType>(() => {
+  const [themeMode, setThemeMode] = useState<ColorModeType>(() => {
     return (localStorage.getItem(COLOR_MODE_KEY) || "dark") as ColorModeType;
   });
 
   const toggleColorMode = () => {
-    const mode = colorMode === "light" ? "dark" : "light";
-    setColorMode(mode);
+    const mode = themeMode === "light" ? "dark" : "light";
+    setThemeMode(mode);
     localStorage.setItem(COLOR_MODE_KEY, mode);
   };
 
-  const theme = getTheme(colorMode);
+  const theme = getTheme(themeMode);
 
   return (
-    <ThemeContext.Provider value={{ theme, colorMode, toggleColorMode }}>
+    <ThemeContext.Provider value={{ theme, themeMode, toggleColorMode }}>
       <StyledThemeProvider theme={theme}>{children}</StyledThemeProvider>
     </ThemeContext.Provider>
   );

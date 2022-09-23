@@ -9,8 +9,8 @@ const sizes: Record<BreakpointSize, WidthPx> = {
   lg: "1280px",
 };
 
-export const getTheme = (colorMode: ColorModeType): ThemeType => {
-  const colors = colorMode === "light" ? lightColors : darkColors;
+export const getTheme = (themeMode: ColorModeType): ThemeType => {
+  const colors = themeMode === "light" ? lightColors : darkColors;
 
   return {
     fontFamily: "Arial",
