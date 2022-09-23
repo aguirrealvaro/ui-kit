@@ -8,7 +8,6 @@ export { Dropdown } from "./Dropdown";
 export { Navbar } from "./Navbar";
 export { Accordion } from "./Accordion";
 export { Caroussel } from "./Caroussel";
-export { AnimatedSelect } from "./AnimatedSelect";
 export { Button } from "./Button";
 export { Link } from "./Link";
 export { Icon } from "./Icon";
