@@ -41,7 +41,7 @@ export const Button: FunctionComponent<
   };
 
   const renderChildren = () => {
-    if (isLoading) return <Spinner size="xs" background="light" />;
+    if (isLoading) return <Spinner size="xs" />;
     return (
       <InnerContainer>
         {leftIcon ? leftIcon : null}

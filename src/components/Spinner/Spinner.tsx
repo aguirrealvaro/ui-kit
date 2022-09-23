@@ -1,26 +1,25 @@
 import { FunctionComponent } from "react";
 import styled, { css } from "styled-components";
-import { SPINNER_BACKGROUND_COLOR, SPINER_SIZES } from "./Spinner.constants";
-import { SpinnerSizeType, SpinnerBackgroundType } from "./Spinner.types";
+import { SPINER_SIZES } from "./Spinner.constants";
+import { SpinnerSizeType } from "./Spinner.types";
+import { useTheme } from "@/hooks";
 
 type SpinnerProps = {
   color?: string;
-  background?: SpinnerBackgroundType;
   size?: SpinnerSizeType;
   fullHeight?: boolean;
 };
 
 export const Spinner: FunctionComponent<SpinnerProps> = ({
-  color = "black",
-  background = "dark",
+  color,
   size = "md",
   fullHeight = false,
 }) => {
-  const backgroundColor = SPINNER_BACKGROUND_COLOR[background];
+  const { theme } = useTheme();
 
   return (
     <Container fullHeight={fullHeight}>
-      <Loader color={color} background={backgroundColor} size={size} />
+      <Loader color={color || theme.colors.grey[13]} size={size} />
     </Container>
   );
 };
@@ -33,15 +32,15 @@ const Container = styled.div<{ fullHeight?: boolean }>`
   height: ${({ fullHeight }) => fullHeight && "100vh"};
 `;
 
-const Loader = styled.div<{ size: SpinnerSizeType; color: string; background: string }>`
+const Loader = styled.div<{ size: SpinnerSizeType; color: string }>`
   border-radius: ${({ theme }) => theme.borderRadius.full};
   animation: spin 1.5s linear infinite;
-  ${({ size, color, background }) => {
+  ${({ size, color, theme }) => {
     const numberSize = size ? SPINER_SIZES[size] : 30;
     const borderSize = (numberSize * 3.9) / 32;
 
     return css`
-      border: ${borderSize}px solid ${background};
+      border: ${borderSize}px solid ${theme.colors.grey[6]};
       border-top: ${borderSize}px solid ${color};
       width: ${numberSize}px;
       height: ${numberSize}px;
