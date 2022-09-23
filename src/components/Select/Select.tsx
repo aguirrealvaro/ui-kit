@@ -176,7 +176,7 @@ const SelectContainer = styled.div<{
         return theme.colors.red.base;
       }
 
-      return "rgba(0, 0, 0, 0.2)";
+      return theme.colors.grey[6];
     }};
   ${({ disabled, theme }) => {
     if (disabled) {
@@ -215,7 +215,7 @@ const Dropdown = styled.div<{ size: SelectSizeType }>`
   z-index: 1;
   padding: 0.5rem;
   border: 1px solid ${({ theme }) => theme.colors.grey[5]};
-  background: ${({ theme }) => theme.colors.grey[1]};
+  background-color: ${({ theme }) => theme.colors.grey[4]};
   box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.11);
   border-radius: 4px;
   width: 100%;
@@ -250,7 +250,11 @@ const Option = styled.button<{ isSelected: boolean }>`
         `
       : css`
           &:hover {
+<<<<<<< Updated upstream
             background-color: ${theme.colors.grey[4]};
+=======
+            background-color: ${theme.colors.blue.base};
+>>>>>>> Stashed changes
           }
         `};
   &:disabled {

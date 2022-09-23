@@ -10,14 +10,16 @@ export default {
 } as ComponentMeta<typeof Button>;
 
 export const Primary: ComponentStory<typeof Button> = () => {
-  const { theme } = useTheme();
+  const { theme, toggleColorMode } = useTheme();
 
   const icon = <Icon icon={Download} color={theme.colors.grey[1]} size={20} />;
 
   return (
     <div>
       <Flex>
-        <Button kind="solid">Solid</Button>
+        <Button kind="solid" onClick={toggleColorMode}>
+          Solid
+        </Button>
         <Button kind="outlined">Outlined</Button>
         <Button kind="ghost">Ghost</Button>
         <Button kind="link">Link</Button>

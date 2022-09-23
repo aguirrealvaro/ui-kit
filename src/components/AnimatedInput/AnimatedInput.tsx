@@ -165,7 +165,7 @@ const InputContainer = styled.div<{
     }
 
     return css`
-      border: 1px solid rgba(0, 0, 0, 0.2);
+      border: 1px solid ${({ theme }) => theme.colors.grey[5]};
       &:focus-within {
         border: 1px solid ${theme.colors.blue.base};
       }
@@ -228,6 +228,7 @@ const CustomInput = styled.input<{
   }};
   height: ${({ hasPlaceholder }) => (hasPlaceholder ? "72%" : "100%")};
   bottom: 0;
+  color: ${({ theme }) => theme.colors.grey[12]};
   &:focus + label {
     ${getFocusedLabelStyles};
     color: ${({ theme, error, isSuccess }) => {

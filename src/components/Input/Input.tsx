@@ -189,7 +189,7 @@ const InputContainer = styled.div<{
       `;
     }
     return css`
-      border: 1px solid rgba(0, 0, 0, 0.2);
+      border: 1px solid ${({ theme }) => theme.colors.grey[5]};
       &:focus-within {
         border: 1px solid ${theme.colors.blue.base};
       }
@@ -235,6 +235,7 @@ const CustomInput = styled.input<{
   border: none;
   background-color: transparent;
   padding: 0 1rem;
+  color: ${({ theme }) => theme.colors.grey[12]};
   width: ${({ sideWidth }) => {
     if (sideWidth) {
       return `calc(100% - ${sideWidth}px - 20px)`;
