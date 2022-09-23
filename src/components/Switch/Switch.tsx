@@ -17,7 +17,7 @@ export const Switch: FunctionComponent<
   SwitchProps & Omit<InputHTMLAttributes<HTMLInputElement>, "size">
 > = ({
   children,
-  size = "sm",
+  size = "md",
   position = "right",
   checked,
   color,
@@ -41,7 +41,11 @@ export const Switch: FunctionComponent<
             <Ball checked={checked || false} size={switchSize} />
           </Pill>
         </Wrapper>
-        {children && <Label position={position}>{children}</Label>}
+        {children && (
+          <Label position={position} size={size}>
+            {children}
+          </Label>
+        )}
       </Container>
     </label>
   );
@@ -67,6 +71,7 @@ const Container = styled.div<{ disabled: boolean }>`
 
 const Wrapper = styled.div<{ position: SwitchPositionType }>`
   order: ${({ position }) => (position === "left" ? 1 : 2)};
+  line-height: 0;
 `;
 
 const Pill = styled.span<{ checked: boolean; size: number; color: string; disabled: boolean }>`
@@ -113,6 +118,15 @@ const Ball = styled.span<{ checked: boolean; size: number }>`
   transition: left ${({ theme }) => theme.transitions.normal}ms ease;
 `;
 
-const Label = styled.div<{ position: SwitchPositionType }>`
+const Label = styled.div<{ position: SwitchPositionType; size: SwitchSizeType }>`
   order: ${({ position }) => (position === "left" ? 2 : 1)};
+  font-size: ${({ size, theme }) => {
+    const sizes: Record<SwitchSizeType, string> = {
+      xs: theme.typography.fontSizes.xs,
+      sm: theme.typography.fontSizes.sm,
+      md: theme.typography.fontSizes.md,
+      lg: theme.typography.fontSizes.lg,
+    };
+    return sizes[size];
+  }};
 `;
