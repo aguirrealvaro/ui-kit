@@ -308,11 +308,7 @@ const getColorStyles = (
       }
     `,
     neutral: css`
-<<<<<<< Updated upstream
-      border-color: ${theme.colors.grey[5]};
-=======
       border-color: #d9d9d9;
->>>>>>> Stashed changes
       color: ${theme.colors.grey.base};
       &:hover {
         color: ${theme.colors.grey[13]};
