@@ -11,7 +11,7 @@ export const Primary: ComponentStory<typeof Masonry> = () => {
   return (
     <Masonry breakpointCols={3} gap={2}>
       {[...Array(10).keys()].map((_, index) => {
-        return <Card>{index}</Card>;
+        return <Card key={index}>{index}</Card>;
       })}
     </Masonry>
   );
@@ -26,7 +26,7 @@ const heights = [250, 300, 350, 400];
 
 const Card = styled.div`
   height: ${() => getRandomItem(heights)}px;
-  background-color: ${({ theme }) => theme.colors.grey[1]};
+  background-color: ${({ theme }) => theme.colors.grey[5]};
   color: black;
   display: flex;
   justify-content: center;
