@@ -20,7 +20,7 @@ export const Radio: FunctionComponent<
   RadioProps & Omit<InputHTMLAttributes<HTMLInputElement>, "size">
 > = ({
   children,
-  size = "sm",
+  size = "md",
   position = "right",
   checked,
   color,
@@ -45,7 +45,11 @@ export const Radio: FunctionComponent<
             size={radioSize}
           />
         </Wrapper>
-        {children && <Label position={position}>{children}</Label>}
+        {children && (
+          <Label position={position} size={size}>
+            {children}
+          </Label>
+        )}
       </Container>
     </label>
   );
@@ -73,6 +77,15 @@ const Wrapper = styled.div<{ position: RadioPositionType }>`
   order: ${({ position }) => (position === "left" ? 1 : 2)};
 `;
 
-const Label = styled.div<{ position: RadioPositionType }>`
+const Label = styled.div<{ position: RadioPositionType; size: RadioSizeType }>`
   order: ${({ position }) => (position === "left" ? 2 : 1)};
+  font-size: ${({ size, theme }) => {
+    const sizes: Record<RadioSizeType, string> = {
+      xs: theme.typography.fontSizes.xs,
+      sm: theme.typography.fontSizes.sm,
+      md: theme.typography.fontSizes.md,
+      lg: theme.typography.fontSizes.lg,
+    };
+    return sizes[size];
+  }};
 `;
