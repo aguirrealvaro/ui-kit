@@ -1,13 +1,9 @@
 import { darkColors } from "./darkColors";
 import { lightColors } from "./lightColors";
 import { BreakpointSize, ColorModeType, ThemeType, WidthPx } from "./types";
+import { typography } from "./typography";
 
-/* antd */
-// Typography: font family, font size, line height, font weight
 // Asset colors: title, primary text, secondary text, disable, border, dividers, background, transparency
-
-/* chakra */
-// Typography: font family, font size, line height, font weight, letter spacing
 // border radius
 // z index
 // box shadows
@@ -24,7 +20,7 @@ export const getTheme = (themeMode: ColorModeType): ThemeType => {
   const colors = themeMode === "light" ? lightColors : darkColors;
 
   return {
-    fontFamily: `Arial, "Segoe UI"`,
+    typography,
     breakpoint: (size) => `@media (max-width: ${breakpoints[size]})`,
     colors,
   };

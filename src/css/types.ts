@@ -1,3 +1,5 @@
+import { TypographyType } from "./typography";
+
 export type ColorModeType = "light" | "dark";
 
 export type BreakpointSize = "xs" | "sm" | "md" | "lg";
@@ -20,13 +22,12 @@ type Colors =
 
 type Variants = "base" | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 type GreyVariants = Variants | 11 | 12 | 13;
-type Hexadecimal = `#${string}`;
 
-export type PalleteType = Record<Colors, Record<Variants, Hexadecimal>> &
-  Record<"grey", Record<GreyVariants, Hexadecimal>> & { brand: Hexadecimal };
+export type PalleteType = Record<Colors, Record<Variants, string>> &
+  Record<"grey", Record<GreyVariants, string>> & { brand: string };
 
 export type ThemeType = {
-  fontFamily: string;
+  typography: TypographyType;
   breakpoint: (size: BreakpointSize) => string;
   colors: PalleteType;
 };

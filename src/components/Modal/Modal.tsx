@@ -84,7 +84,7 @@ const Backdrop = styled.div<{ isOpen: boolean; fadeOut: boolean }>`
     css`
       opacity: 0;
       transition: all ${ANIMATION_TIME}ms ease-out;
-    `}
+    `};
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
