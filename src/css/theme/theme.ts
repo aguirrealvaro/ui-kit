@@ -1,10 +1,8 @@
 import { borderRadius, BorderRadiusType } from "./borderRadius";
 import { breakpoints, BreakpointSize } from "./breakpoints";
-import { darkColors } from "./darkColors";
-import { lightColors } from "./lightColors";
+import { type CollorsType, lightColors, darkColors } from "./colors";
 import { shadows, ShadowsType } from "./shadows";
 import { transitions, TransitionsType } from "./transitions";
-import { CollorsType } from "./types";
 import { typography, TypographyType } from "./typography";
 import { zIndices, ZIndexType } from "./zIndices";
 
