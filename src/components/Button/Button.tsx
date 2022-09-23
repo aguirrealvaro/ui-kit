@@ -1,6 +1,5 @@
 import { FunctionComponent, ButtonHTMLAttributes, ReactNode } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
-import { ThemeType } from "../../css/types";
 import { Spinner } from "../Spinner";
 import { ANIMATION_TIME } from "./Button.constants";
 import {
@@ -9,6 +8,7 @@ import {
   ButtonVariantType,
   ButtonShapeType,
 } from "./Button.types";
+import { ThemeType } from "@/css/theme";
 
 type ButtonProps = {
   block?: boolean;
