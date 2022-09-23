@@ -6,8 +6,8 @@ export const zIndices: ZIndexType = {
   hide: -1,
   auto: "auto",
   base: 0,
-  dropdown: 1000,
-  modal: 1400,
-  popover: 1500,
-  toast: 1700,
+  dropdown: 1,
+  modal: 2,
+  popover: 3,
+  toast: 4,
 };
