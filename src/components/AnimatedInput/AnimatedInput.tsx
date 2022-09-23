@@ -166,7 +166,7 @@ const InputContainer = styled.div<{
     return css`
       border: 1px solid ${({ theme }) => theme.colors.grey[5]};
       &:focus-within {
-        border: 1px solid ${theme.colors.blue.base};
+        border: 1px solid ${theme.colors.brand};
       }
     `;
   }};
@@ -239,7 +239,7 @@ const CustomInput = styled.input<{
         return theme.colors.green.base;
       }
 
-      return theme.colors.blue.base;
+      return theme.colors.brand;
     }};
   }
   &:not(:placeholder-shown) {

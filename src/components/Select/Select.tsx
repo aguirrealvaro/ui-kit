@@ -166,7 +166,7 @@ const SelectContainer = styled.div<{
   border: 1px solid
     ${({ theme, error, isOpen }) => {
       if (isOpen) {
-        return theme.colors.blue.base;
+        return theme.colors.brand;
       }
 
       if (error) {
@@ -243,12 +243,12 @@ const Option = styled.button<{ isSelected: boolean }>`
   ${({ isSelected, theme }) =>
     isSelected
       ? css`
-          background-color: ${theme.colors.blue.base};
+          background-color: ${theme.colors.brand};
           color: ${theme.colors.grey[1]};
         `
       : css`
           &:hover {
-            background-color: ${theme.colors.blue.base};
+            background-color: ${theme.colors.brand};
             color: ${({ theme }) => theme.colors.grey[1]};
           }
         `};

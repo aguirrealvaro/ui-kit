@@ -84,7 +84,7 @@ const Container = styled.div<{
   margin-bottom: 1rem;
   background-color: ${({ theme, variant }) => {
     const backgroundColor: Record<ToastVariantType, string> = {
-      default: theme.colors.blue.base,
+      default: theme.colors.brand,
       positive: theme.colors.green.base,
       warning: theme.colors.yellow.base,
       negative: theme.colors.red.base,

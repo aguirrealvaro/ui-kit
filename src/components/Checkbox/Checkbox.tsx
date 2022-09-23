@@ -31,7 +31,7 @@ export const Checkbox: FunctionComponent<
 
   const iconSize = CHECKBOX_ICON_SIZES[size];
   const icon = checked ? CheckboxChecked : CheckboxUnchecked;
-  const iconColor = color || theme.colors.blue.base;
+  const iconColor = color || theme.colors.brand;
 
   return (
     <label>

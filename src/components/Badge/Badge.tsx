@@ -22,7 +22,7 @@ const Container = styled.div<{ variant: BadgeVariantType }>`
     const variantStyles: Record<BadgeVariantType, FlattenSimpleInterpolation> = {
       default: css`
         color: ${theme.colors.grey[1]};
-        background-color: ${theme.colors.blue.base};
+        background-color: ${theme.colors.brand};
       `,
       positive: css`
         color: ${theme.colors.grey[1]};
