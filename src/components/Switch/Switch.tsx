@@ -81,12 +81,12 @@ const Pill = styled.span<{ checked: boolean; size: number; color: string; disabl
     if (checked) {
       return css`
         background-color: ${color};
-        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+        box-shadow: ${({ theme }) => theme.shadows.inset};
       `;
     } else {
       return css`
         background-color: ${theme.colors.grey[6]};
-        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+        box-shadow: ${({ theme }) => theme.shadows.inset};
       `;
     }
   }}
@@ -105,7 +105,6 @@ const Ball = styled.span<{ checked: boolean; size: number }>`
   top: 0;
   left: ${({ checked, size }) => (checked ? `${size}px` : 0)};
   transform: scale(0.8);
-  //box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
   background-color: ${({ theme }) => theme.colors.grey[1]};
   width: ${({ size }) => `${size}px`};
   height: ${({ size }) => `${size}px`};

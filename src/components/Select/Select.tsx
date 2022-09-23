@@ -216,7 +216,7 @@ const Dropdown = styled.div<{ size: SelectSizeType }>`
   padding: 0.5rem;
   border: 1px solid ${({ theme }) => theme.colors.grey[5]};
   background-color: ${({ theme }) => theme.colors.grey[4]};
-  box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.11);
+  box-shadow: ${({ theme }) => theme.shadows.sm};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   width: 100%;
   max-height: 250px;

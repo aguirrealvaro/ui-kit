@@ -105,7 +105,7 @@ const Content = styled.div<{ size: number; fadeOut: boolean }>`
     `}
   background-color: ${({ theme }) => theme.colors.grey[1]};
   border-radius: ${({ theme }) => theme.borderRadius.sm};
-  box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.11);
+  box-shadow: ${({ theme }) => theme.shadows.sm};
   display: flex;
   flex-direction: column;
   margin: 0 1rem;

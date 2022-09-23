@@ -77,7 +77,7 @@ const Container = styled.div<{ isUnmounting: boolean }>`
   bottom: 0;
   width: 70%;
   background-color: ${({ theme }) => theme.colors.grey[1]};
-  box-shadow: 0px 4px 4px rgba(209, 196, 196, 0.12);
+  box-shadow: ${({ theme }) => theme.shadows.sm};
   animation: ${translate} ${ANIMATION_TIME}ms ease-out;
   padding: 4rem 0;
   display: flex;

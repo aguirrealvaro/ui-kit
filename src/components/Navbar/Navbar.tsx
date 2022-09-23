@@ -52,7 +52,7 @@ const Container = styled.div`
   align-items: center;
   height: 80px;
   background-color: ${({ theme }) => theme.colors.grey[1]};
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
+  box-shadow: ${({ theme }) => theme.shadows.sm};
 `;
 
 const Wrapper = styled.div`
