@@ -2,14 +2,13 @@ import { borderRadius, BorderRadiusType } from "./borderRadius";
 import { breakpoints, BreakpointSize } from "./breakpoints";
 import { darkColors } from "./darkColors";
 import { lightColors } from "./lightColors";
+import { shadows, ShadowsType } from "./shadows";
+import { transitions, TransitionsType } from "./transitions";
 import { CollorsType } from "./types";
 import { typography, TypographyType } from "./typography";
 import { zIndices, ZIndexType } from "./zIndices";
 
 // Asset colors: title, primary text, secondary text, disable, border, dividers, background, transparency
-// z index
-// box shadows
-// transitions
 
 export type ColorModeType = "light" | "dark";
 
@@ -19,6 +18,8 @@ export type ThemeType = {
   colors: CollorsType;
   borderRadius: BorderRadiusType;
   zIndices: ZIndexType;
+  shadows: ShadowsType;
+  transitions: TransitionsType;
 };
 
 export const getTheme = (themeMode: ColorModeType): ThemeType => {
@@ -30,5 +31,7 @@ export const getTheme = (themeMode: ColorModeType): ThemeType => {
     colors,
     borderRadius,
     zIndices,
+    shadows,
+    transitions,
   };
 };
