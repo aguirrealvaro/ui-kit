@@ -206,7 +206,7 @@ const SelectedValue = styled.span<{ isSelected: boolean }>`
 
 const Dropdown = styled.div`
   position: absolute;
-  z-index: 1;
+  z-index: ${({ theme }) => theme.zIndices.dropdown};
   padding: 0.5rem;
   border: 1px solid ${({ theme }) => theme.colors.grey[5]};
   background-color: ${({ theme }) => theme.colors.grey[4]};
