@@ -1,6 +1,6 @@
 import { FunctionComponent, ReactNode } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
-import { BORDER_COLOR, PADDINGS_SIZES } from "./Table.constants";
+import { PADDINGS_SIZES } from "./Table.constants";
 import { TableDividerType, TableSizeType } from "./Table.types";
 
 type TableProps = {
@@ -55,14 +55,14 @@ const Container = styled.table<{ divider: TableDividerType }>`
   width: 100%;
   //overflow-x: scroll;
   border-spacing: 0;
-  border-color: rgba(0, 0, 0, 0.12);
-  ${({ divider }) => {
+  border-color: ${({ theme }) => theme.colors.grey[6]};
+  ${({ divider, theme }) => {
     const dividerStyles: Record<TableDividerType, FlattenSimpleInterpolation | undefined> = {
       clean: undefined,
       horizontal: undefined,
       vertical: undefined,
       grid: css`
-        border: 1px solid ${BORDER_COLOR};
+        border: 1px solid ${theme.colors.grey[6]};
       `,
     };
     return dividerStyles[divider];
@@ -71,18 +71,19 @@ const Container = styled.table<{ divider: TableDividerType }>`
 
 const TableRowHeader = styled.tr<{ divider: TableDividerType }>`
   display: flex;
-  border-color: rgba(0, 0, 0, 0.12);
-  ${({ divider }) => {
+  border-color: ${({ theme }) => theme.colors.grey[6]};
+  background-color: ${({ theme }) => theme.colors.grey[5]};
+  ${({ divider, theme }) => {
     const dividerStyles: Record<TableDividerType, FlattenSimpleInterpolation | undefined> = {
       clean: undefined,
       horizontal: css`
-        border-bottom: 1px solid ${BORDER_COLOR};
+        border-bottom: 1px solid ${theme.colors.grey[6]};
       `,
       vertical: css`
-        border-bottom: 1px solid ${BORDER_COLOR};
+        border-bottom: 1px solid ${theme.colors.grey[6]};
       `,
       grid: css`
-        border-bottom: 1px solid ${BORDER_COLOR};
+        border-bottom: 1px solid ${theme.colors.grey[6]};
       `,
     };
     return dividerStyles[divider];
@@ -93,19 +94,19 @@ const TableHead = styled.th<{ size: number; divider: TableDividerType }>`
   flex: 1;
   text-align: left;
   padding: ${({ size }) => `${size}px`};
-  border-color: rgba(0, 0, 0, 0.12);
-  ${({ divider }) => {
+  border-color: ${({ theme }) => theme.colors.grey[6]};
+  ${({ divider, theme }) => {
     const dividerStyles: Record<TableDividerType, FlattenSimpleInterpolation | undefined> = {
       clean: undefined,
       horizontal: undefined,
       vertical: css`
-        border-right: 1px solid ${BORDER_COLOR};
+        border-right: 1px solid ${theme.colors.grey[6]}
         &:last-child {
           border-right: 0;
         }
       `,
       grid: css`
-        border-right: 1px solid ${BORDER_COLOR};
+        border-right: 1px solid ${theme.colors.grey[6]}
         &:last-child {
           border-right: 0;
         }
@@ -117,25 +118,28 @@ const TableHead = styled.th<{ size: number; divider: TableDividerType }>`
 
 const TableRowData = styled.tr<{ divider: TableDividerType }>`
   display: flex;
-  border-color: rgba(0, 0, 0, 0.12);
+  border-color: ${({ theme }) => theme.colors.grey[6]};
+  &:nth-child(odd) {
+    background-color: ${({ theme }) => theme.colors.grey[1]};
+  }
   &:nth-child(even) {
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: ${({ theme }) => theme.colors.grey[3]};
   }
   &:hover {
-    background-color: rgba(0, 0, 0, 0.08);
+    background-color: ${({ theme }) => theme.colors.grey[4]};
   }
-  ${({ divider }) => {
+  ${({ divider, theme }) => {
     const dividerStyles: Record<TableDividerType, FlattenSimpleInterpolation | undefined> = {
       clean: undefined,
       horizontal: css`
-        border-bottom: 1px solid ${BORDER_COLOR};
+        border-bottom: 1px solid ${theme.colors.grey[6]};
         &:last-child {
           border-bottom: 0;
         }
       `,
       vertical: undefined,
       grid: css`
-        border-bottom: 1px solid ${BORDER_COLOR};
+        border-bottom: 1px solid ${theme.colors.grey[6]};
         &:last-child {
           border-bottom: 0;
         }
@@ -149,19 +153,19 @@ const TableData = styled.td<{ size: number; divider: TableDividerType }>`
   flex: 1;
   text-align: left;
   padding: ${({ size }) => `${size}px`};
-  border-color: rgba(0, 0, 0, 0.12);
-  ${({ divider }) => {
+  border-color: ${({ theme }) => theme.colors.grey[6]};
+  ${({ divider, theme }) => {
     const dividerStyles: Record<TableDividerType, FlattenSimpleInterpolation | undefined> = {
       clean: undefined,
       horizontal: undefined,
       vertical: css`
-        border-right: 1px solid ${BORDER_COLOR};
+        border-right: 1px solid ${theme.colors.grey[6]};
         &:last-child {
           border-right: 0;
         }
       `,
       grid: css`
-        border-right: 1px solid ${BORDER_COLOR};
+        border-right: 1px solid ${theme.colors.grey[6]};
         &:last-child {
           border-right: 0;
         }
