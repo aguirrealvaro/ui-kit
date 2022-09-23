@@ -57,12 +57,12 @@ const TabItem = styled.div<{ active: boolean }>`
   ${({ active, theme }) => {
     if (active) {
       return css`
-        color: ${theme.palette.blue.base};
-        border-bottom: 2px solid ${theme.palette.blue.base};
+        color: ${theme.colors.blue.base};
+        border-bottom: 2px solid ${theme.colors.blue.base};
       `;
     } else {
       return css`
-        color: ${theme.palette.grey[13]};
+        color: ${theme.colors.grey[13]};
         border-bottom: 2px solid transparent;
       `;
     }

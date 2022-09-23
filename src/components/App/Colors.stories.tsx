@@ -9,7 +9,7 @@ export const Primary = () => {
 
   return (
     <Container>
-      {Object.entries(theme.palette).map(([palette, colors]) => {
+      {Object.entries(theme.colors).map(([palette, colors]) => {
         if (palette === "brand") null;
 
         return (

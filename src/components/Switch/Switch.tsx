@@ -35,7 +35,7 @@ export const Switch: FunctionComponent<
           <Pill
             checked={checked || false}
             size={switchSize}
-            color={color || theme.palette.blue.base}
+            color={color || theme.colors.blue.base}
             disabled={disabled}
           >
             <Ball checked={checked || false} size={switchSize} />
@@ -106,7 +106,7 @@ const Ball = styled.span<{ checked: boolean; size: number }>`
   left: ${({ checked, size }) => (checked ? `${size}px` : 0)};
   transform: scale(0.8);
   //box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
-  background-color: ${({ theme }) => theme.palette.grey[1]};
+  background-color: ${({ theme }) => theme.colors.grey[1]};
   width: ${({ size }) => `${size}px`};
   height: ${({ size }) => `${size}px`};
   border-radius: 100px;

@@ -15,6 +15,6 @@ export const getTheme = (colorMode: ColorModeType): ThemeType => {
   return {
     fontFamily: "Arial",
     breakpoint: (size) => `@media (max-width: ${sizes[size]})`,
-    palette: colors,
+    colors,
   };
 };

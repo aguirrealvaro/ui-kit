@@ -116,19 +116,19 @@ export const AnimatedInput: FunctionComponent<
             {isLoading && <Spinner size="xs" />}
             {value && clearValue && (
               <ButtonIcon onClick={clearValue}>
-                <Icon icon={CloseOutline} color={theme.palette.grey.base} size={18} />
+                <Icon icon={CloseOutline} color={theme.colors.grey.base} size={18} />
               </ButtonIcon>
             )}
-            {error && <Icon icon={CloseCircle} size={18} color={theme.palette.red.base} />}
+            {error && <Icon icon={CloseCircle} size={18} color={theme.colors.red.base} />}
             {isSuccess && (
-              <Icon icon={CheckCircleFill} size={18} color={theme.palette.green.base} />
+              <Icon icon={CheckCircleFill} size={18} color={theme.colors.green.base} />
             )}
             {type === "password" && (
               <ButtonIcon onClick={handleSeePassword}>
                 <Icon
                   icon={seePassword ? EyeSlashFill : EyeFill}
                   size={18}
-                  color={theme.palette.grey.base}
+                  color={theme.colors.grey.base}
                 />
               </ButtonIcon>
             )}
@@ -154,20 +154,20 @@ const InputContainer = styled.div<{
   ${({ error, isSuccess, theme }) => {
     if (error) {
       return css`
-        border: 1px solid ${theme.palette.red.base};
+        border: 1px solid ${theme.colors.red.base};
       `;
     }
 
     if (isSuccess) {
       return css`
-        border: 1px solid ${theme.palette.green.base};
+        border: 1px solid ${theme.colors.green.base};
       `;
     }
 
     return css`
       border: 1px solid rgba(0, 0, 0, 0.2);
       &:focus-within {
-        border: 1px solid ${theme.palette.blue.base};
+        border: 1px solid ${theme.colors.blue.base};
       }
     `;
   }};
@@ -198,7 +198,7 @@ const Placeholder = styled.label`
   transform: translateY(-50%);
   transition: all ${ANIMATION_TIME}ms ease;
   pointer-events: none;
-  color: ${({ theme }) => theme.palette.grey.base};
+  color: ${({ theme }) => theme.colors.grey.base};
 `;
 
 const getFocusedLabelStyles = css`
@@ -232,14 +232,14 @@ const CustomInput = styled.input<{
     ${getFocusedLabelStyles};
     color: ${({ theme, error, isSuccess }) => {
       if (error) {
-        return theme.palette.red.base;
+        return theme.colors.red.base;
       }
 
       if (isSuccess) {
-        return theme.palette.green.base;
+        return theme.colors.green.base;
       }
 
-      return theme.palette.blue.base;
+      return theme.colors.blue.base;
     }};
   }
   &:not(:placeholder-shown) {
@@ -248,14 +248,14 @@ const CustomInput = styled.input<{
         ${getFocusedLabelStyles};
         color: ${({ theme, error, isSuccess }) => {
           if (error) {
-            return theme.palette.red.base;
+            return theme.colors.red.base;
           }
 
           if (isSuccess) {
-            return theme.palette.green.base;
+            return theme.colors.green.base;
           }
 
-          return theme.palette.grey.base;
+          return theme.colors.grey.base;
         }};
       }
     }
@@ -268,7 +268,7 @@ const CustomInput = styled.input<{
 const BottomText = styled.div<{ error: boolean }>`
   font-size: 14px;
   margin: 0.5rem 1rem 0 1rem;
-  color: ${({ error, theme }) => theme.palette[error ? "red" : "grey"].base};
+  color: ${({ error, theme }) => theme.colors[error ? "red" : "grey"].base};
 `;
 
 const ButtonIcon = styled.button`

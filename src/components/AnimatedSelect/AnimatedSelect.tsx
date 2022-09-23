@@ -90,11 +90,11 @@ export const AnimatedSelect: FunctionComponent<AnimatedSelectProps> = ({
           {isLoading && <Spinner size="xs" />}
           {isSelected && clearValue && (
             <ButtonClear onClick={handleClearValue}>
-              <Icon icon={CloseOutline} color={theme.palette.grey.base} size={18} />
+              <Icon icon={CloseOutline} color={theme.colors.grey.base} size={18} />
             </ButtonClear>
           )}
           <ChevronWrapper active={isOpen}>
-            <Icon icon={ChevronDown} color={theme.palette.grey.base} size={23} />
+            <Icon icon={ChevronDown} color={theme.colors.grey.base} size={23} />
           </ChevronWrapper>
         </SideContainer>
       </SelectContainer>
@@ -135,21 +135,21 @@ const SelectContainer = styled.div<{
   justify-content: space-between;
   border-radius: 4px;
   color: ${({ theme, isSelected }) =>
-    isSelected ? theme.palette.grey[13] : theme.palette.grey.base};
+    isSelected ? theme.colors.grey[13] : theme.colors.grey.base};
   width: 100%;
   height: 55px;
   cursor: pointer;
   border: 1px solid
     ${({ theme, error, isOpen }) => {
       if (isOpen) {
-        return theme.palette.blue.base;
+        return theme.colors.blue.base;
       }
 
       if (error) {
-        return theme.palette.red.base;
+        return theme.colors.red.base;
       }
 
-      return theme.palette.grey[6];
+      return theme.colors.grey[6];
     }};
   ${({ disabled }) => {
     if (disabled) {
@@ -177,7 +177,7 @@ const SideContainer = styled.div`
 
 const Placeholder = styled.span<{ shouldAnimate: boolean; isOpen: boolean }>`
   display: inline-block;
-  color: ${({ theme, isOpen }) => theme.palette[isOpen ? "blue" : "grey"].base};
+  color: ${({ theme, isOpen }) => theme.colors[isOpen ? "blue" : "grey"].base};
   position: absolute;
   transition: font-size ${ANIMATION_TIME}ms ease, top ${ANIMATION_TIME}ms ease,
     transform ${ANIMATION_TIME}ms ease;
@@ -208,7 +208,7 @@ const Dropdown = styled.div`
   position: absolute;
   z-index: 1;
   padding: 0.5rem;
-  border: 1px solid ${({ theme }) => theme.palette.grey[6]};
+  border: 1px solid ${({ theme }) => theme.colors.grey[6]};
   background: #fff;
   box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.11);
   border-radius: 4px;
@@ -231,8 +231,8 @@ const Option = styled.button<{ isSelected: boolean }>`
   ${({ isSelected, theme }) =>
     isSelected
       ? css`
-          background-color: ${theme.palette.blue.base};
-          color: ${theme.palette.grey[1]};
+          background-color: ${theme.colors.blue.base};
+          color: ${theme.colors.grey[1]};
         `
       : css`
           &:hover {
@@ -250,7 +250,7 @@ const Option = styled.button<{ isSelected: boolean }>`
 const BottomText = styled.div<{ error: boolean }>`
   font-size: 13px;
   margin: 0.5rem 1rem 0 1rem;
-  color: ${({ error, theme }) => theme.palette[error ? "red" : "grey"].base};
+  color: ${({ error, theme }) => theme.colors[error ? "red" : "grey"].base};
 `;
 
 const ChevronWrapper = styled.div<{ active: boolean }>`

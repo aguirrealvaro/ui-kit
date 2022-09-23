@@ -4,7 +4,7 @@ export type BreakpointSize = "xs" | "sm" | "md" | "lg";
 
 export type WidthPx = `${number}px`;
 
-export type Pallets =
+type Colors =
   | "red"
   | "vulcano"
   | "orange"
@@ -18,15 +18,15 @@ export type Pallets =
   | "purple"
   | "pink";
 
-export type Variants = "base" | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
-export type GreyVariants = Variants | 11 | 12 | 13;
-export type Hexadecimal = `#${string}`;
+type Variants = "base" | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+type GreyVariants = Variants | 11 | 12 | 13;
+type Hexadecimal = `#${string}`;
 
-export type PalleteType = Record<Pallets, Record<Variants, Hexadecimal>> &
+export type PalleteType = Record<Colors, Record<Variants, Hexadecimal>> &
   Record<"grey", Record<GreyVariants, Hexadecimal>> & { brand: Hexadecimal };
 
 export type ThemeType = {
   fontFamily: string;
   breakpoint: (size: BreakpointSize) => string;
-  palette: PalleteType;
+  colors: PalleteType;
 };

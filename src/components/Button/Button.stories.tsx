@@ -12,7 +12,7 @@ export default {
 export const Primary: ComponentStory<typeof Button> = () => {
   const { theme } = useTheme();
 
-  const icon = <Icon icon={Download} color={theme.palette.grey[1]} size={20} />;
+  const icon = <Icon icon={Download} color={theme.colors.grey[1]} size={20} />;
 
   return (
     <div>

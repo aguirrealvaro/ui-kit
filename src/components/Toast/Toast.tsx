@@ -51,7 +51,7 @@ export const Toast: FunctionComponent<ToastProps> = ({
 
   return (
     <Container onClick={closeToast} isClosing={isClosing} variant={variant} role="alert">
-      <Icon icon={variantIcons[variant]} size={18} color={theme.palette.grey[1]} />
+      <Icon icon={variantIcons[variant]} size={18} color={theme.colors.grey[1]} />
       <div>{children}</div>
     </Container>
   );
@@ -67,16 +67,16 @@ const Container = styled.div<{ isClosing: boolean; variant: ToastVariantType }>`
   display: flex;
   gap: 8px;
   padding: 1rem;
-  color: ${({ theme }) => theme.palette.grey[1]};
+  color: ${({ theme }) => theme.colors.grey[1]};
   border-radius: 8px;
   margin-bottom: 1rem;
   background-color: ${({ theme, variant }) => {
     const backgroundColor: Record<ToastVariantType, string> = {
-      default: theme.palette.blue.base,
-      positive: theme.palette.green.base,
-      warning: theme.palette.yellow.base,
-      negative: theme.palette.red.base,
-      neutral: theme.palette.grey[13],
+      default: theme.colors.blue.base,
+      positive: theme.colors.green.base,
+      warning: theme.colors.yellow.base,
+      negative: theme.colors.red.base,
+      neutral: theme.colors.grey[13],
     };
 
     return backgroundColor[variant];

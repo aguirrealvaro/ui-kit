@@ -23,11 +23,11 @@ export const Alert: FunctionComponent<AlertProps> = ({
   const { theme } = useTheme();
 
   const variantIcons: Record<AlertVariantType, { icon: StyledIcon; color: string }> = {
-    default: { icon: InfoCircleFill, color: theme.palette.blue.base },
-    positive: { icon: CheckCircleFill, color: theme.palette.green.base },
-    warning: { icon: AlertIcon, color: theme.palette.yellow.base },
-    negative: { icon: CloseCircle, color: theme.palette.red.base },
-    neutral: { icon: InfoCircleFill, color: theme.palette.grey[13] },
+    default: { icon: InfoCircleFill, color: theme.colors.blue.base },
+    positive: { icon: CheckCircleFill, color: theme.colors.green.base },
+    warning: { icon: AlertIcon, color: theme.colors.yellow.base },
+    negative: { icon: CloseCircle, color: theme.colors.red.base },
+    neutral: { icon: InfoCircleFill, color: theme.colors.grey[13] },
   };
 
   return (

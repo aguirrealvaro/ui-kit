@@ -45,7 +45,7 @@ const Container = styled.div<{ showBorder: boolean }>`
   ${({ showBorder }) => {
     if (showBorder) {
       return css`
-        border-bottom: 1px solid ${({ theme }) => theme.palette.grey[5]};
+        border-bottom: 1px solid ${({ theme }) => theme.colors.grey[5]};
         &:last-child {
           border-bottom: none;
         }

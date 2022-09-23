@@ -33,7 +33,7 @@ export const Checkbox: FunctionComponent<
 
   const icon = checked ? CheckboxChecked : CheckboxUnchecked;
 
-  const iconColor = color || theme.palette.blue.base;
+  const iconColor = color || theme.colors.blue.base;
 
   return (
     <label>
