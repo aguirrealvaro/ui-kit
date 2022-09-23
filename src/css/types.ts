@@ -1,3 +1,4 @@
+import { BorderRadiusType } from "./borderRadius";
 import { TypographyType } from "./typography";
 
 export type ColorModeType = "light" | "dark";
@@ -30,4 +31,5 @@ export type ThemeType = {
   typography: TypographyType;
   breakpoint: (size: BreakpointSize) => string;
   colors: PalleteType;
+  borderRadius: BorderRadiusType;
 };

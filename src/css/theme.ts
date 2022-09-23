@@ -1,3 +1,4 @@
+import { borderRadius } from "./borderRadius";
 import { breakpoints } from "./breakpoints";
 import { darkColors } from "./darkColors";
 import { lightColors } from "./lightColors";
@@ -17,5 +18,6 @@ export const getTheme = (themeMode: ColorModeType): ThemeType => {
     typography,
     breakpoint: (size) => `@media (max-width: ${breakpoints[size]})`,
     colors,
+    borderRadius,
   };
 };
