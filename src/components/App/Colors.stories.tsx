@@ -41,7 +41,7 @@ const Title = styled.span`
   display: block;
   margin-bottom: 1rem;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: ${({ theme }) => theme.typography.fontSizes.lg};
 `;
 
 const Color = styled.div<{ color: string }>`

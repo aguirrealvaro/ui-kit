@@ -44,25 +44,6 @@ export const Alert: FunctionComponent<AlertProps> = ({
   );
 };
 
-const sizeStyles: Record<AlertSizeType, FlattenSimpleInterpolation> = {
-  xs: css`
-    padding: 8px 12px;
-    font-size: 12px;
-  `,
-  sm: css`
-    padding: 12px 16px;
-    font-size: 14px;
-  `,
-  md: css`
-    padding: 16px 20px;
-    font-size: 16px;
-  `,
-  lg: css`
-    padding: 20px 24px;
-    font-size: 18px;
-  `,
-};
-
 const Container = styled.div<{ variant: AlertVariantType; size: AlertSizeType }>`
   border-radius: ${({ theme }) => theme.borderRadius.sm};
   ${({ variant, theme }) => {
@@ -95,7 +76,27 @@ const Container = styled.div<{ variant: AlertVariantType; size: AlertSizeType }>
     };
     return variantStyles[variant];
   }};
-  ${({ size }) => sizeStyles[size]};
+  ${({ size, theme }) => {
+    const sizeStyles: Record<AlertSizeType, FlattenSimpleInterpolation> = {
+      xs: css`
+        padding: 8px 12px;
+        font-size: ${theme.typography.fontSizes.xs};
+      `,
+      sm: css`
+        padding: 12px 16px;
+        font-size: ${theme.typography.fontSizes.sm};
+      `,
+      md: css`
+        padding: 16px 20px;
+        font-size: ${theme.typography.fontSizes.md};
+      `,
+      lg: css`
+        padding: 20px 24px;
+        font-size: ${theme.typography.fontSizes.lg};
+      `,
+    };
+    return sizeStyles[size];
+  }};
 
   display: flex;
   justify-content: space-between;

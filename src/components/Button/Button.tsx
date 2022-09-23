@@ -66,27 +66,27 @@ export const Button: FunctionComponent<
   );
 };
 
-const getSizeStyles = (size: ButtonSizeType): FlattenSimpleInterpolation => {
+const getSizeStyles = (size: ButtonSizeType, theme: ThemeType): FlattenSimpleInterpolation => {
   const sizeOptions: Record<ButtonSizeType, FlattenSimpleInterpolation> = {
     xs: css`
       height: 24px;
       padding: 0rem 8px;
-      font-size: 12px;
+      font-size: ${theme.typography.fontSizes.xs};
     `,
     sm: css`
       height: 32px;
       padding: 0 12px;
-      font-size: 14px;
+      font-size: ${theme.typography.fontSizes.sm};
     `,
     md: css`
       height: 40px;
       padding: 0 16px;
-      font-size: 16px;
+      font-size: ${theme.typography.fontSizes.md};
     `,
     lg: css`
       height: 48px;
       padding: 0 20px;
-      font-size: 18px;
+      font-size: ${theme.typography.fontSizes.lg};
     `,
   };
 
@@ -339,7 +339,7 @@ const CustomButton = styled.button<{
 }>`
   width: ${({ block }) => (block ? "100%" : "auto")};
   border: 1px solid transparent;
-  ${({ size }) => getSizeStyles(size)};
+  ${({ size, theme }) => getSizeStyles(size, theme)};
   ${({ shape, theme }) => getShapeStyles(shape, theme)};
   ${({ variant, kind, theme }) => getColorStyles(variant, kind, theme)};
   transition: all ${({ theme }) => theme.transitions.normal}ms ease;

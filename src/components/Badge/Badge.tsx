@@ -43,5 +43,5 @@ const Container = styled.div<{ variant: BadgeVariantType }>`
     };
     return variantStyles[variant];
   }};
-  font-size: 12px;
+  font-size: ${({ theme }) => theme.typography.fontSizes.xs};
 `;

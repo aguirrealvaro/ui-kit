@@ -203,7 +203,7 @@ const Placeholder = styled.label`
 const getFocusedLabelStyles = css`
   top: 7px;
   transform: none;
-  font-size: 0.75rem;
+  font-size: ${({ theme }) => theme.typography.fontSizes.xs};
 `;
 
 const CustomInput = styled.input<{
@@ -212,7 +212,7 @@ const CustomInput = styled.input<{
   isSuccess: boolean;
   sideWidth: number | undefined;
 }>`
-  font-size: 16px;
+  font-size: ${({ theme }) => theme.typography.fontSizes.md};
   outline: none;
   border: none;
   background-color: transparent;
@@ -266,7 +266,7 @@ const CustomInput = styled.input<{
 `;
 
 const BottomText = styled.div<{ error: boolean }>`
-  font-size: 14px;
+  font-size: ${({ theme }) => theme.typography.fontSizes.sm};
   margin: 0.5rem 1rem 0 1rem;
   color: ${({ error, theme }) => theme.colors[error ? "red" : "grey"].base};
 `;
