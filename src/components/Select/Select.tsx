@@ -163,29 +163,30 @@ const SelectContainer = styled.div<{
     return sizes[size];
   }};
   cursor: pointer;
+  border: 1px solid transparent;
   ${({ theme, error, isOpen }) => {
     if (isOpen) {
       return css`
-        border: 1px solid transparent;
+        border-color: transparent;
         box-shadow: ${({ theme }) => theme.shadows.outline};
       `;
     }
 
     if (error) {
       return css`
-        border: 1px solid ${theme.colors.red.base};
+        border-color: ${theme.colors.red.base};
       `;
     }
 
     return css`
-      border: 1px solid ${theme.colors.grey[6]};
+      border-color: ${theme.colors.grey[6]};
     `;
   }};
   ${({ disabled, theme }) => {
     if (disabled) {
       return css`
         background: ${theme.colors.grey[5]};
-        border: 1px solid transparent;
+        border-color: transparent;
         cursor: not-allowed;
       `;
     }

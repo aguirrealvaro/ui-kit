@@ -100,13 +100,13 @@ const TableHead = styled.th<{ size: number; divider: TableDividerType }>`
       clean: undefined,
       horizontal: undefined,
       vertical: css`
-        border-right: 1px solid ${theme.colors.grey[6]}
+        border-right: 1px solid ${theme.colors.grey[6]};
         &:last-child {
           border-right: 0;
         }
       `,
       grid: css`
-        border-right: 1px solid ${theme.colors.grey[6]}
+        border-right: 1px solid ${theme.colors.grey[6]};
         &:last-child {
           border-right: 0;
         }

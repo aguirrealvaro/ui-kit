@@ -176,22 +176,23 @@ const InputContainer = styled.div<{
   justify-content: space-between;
   font-family: inherit;
   border-radius: ${({ theme }) => theme.borderRadius.xs};
+  border: 1px solid transparent;
   ${({ error, isSuccess, theme }) => {
     if (error) {
       return css`
-        border: 1px solid ${theme.colors.red.base};
+        border-color: ${theme.colors.red.base};
       `;
     }
     if (isSuccess) {
       return css`
-        border: 1px solid ${theme.colors.green.base};
+        border-color: ${theme.colors.green.base};
       `;
     }
     return css`
-      border: 1px solid ${({ theme }) => theme.colors.grey[5]};
+      border-color: ${({ theme }) => theme.colors.grey[5]};
       &:focus-within {
         box-shadow: ${({ theme }) => theme.shadows.outline};
-        border: 1px solid transparent;
+        border-color: transparent;
       }
     `;
   }};
@@ -207,7 +208,7 @@ const InputContainer = styled.div<{
     disabled &&
     css`
       background: ${theme.colors.grey[5]};
-      border: 1px solid transparent;
+      border: transparent;
       cursor: not-allowed;
     `};
 `;

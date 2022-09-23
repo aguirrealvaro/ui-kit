@@ -53,32 +53,33 @@ export const Alert: FunctionComponent<AlertProps> = ({
 
 const Container = styled.div<{ variant: AlertVariantType; size: AlertSizeType }>`
   border-radius: ${({ theme }) => theme.borderRadius.sm};
+  border: 1px solid transparent;
   ${({ variant, theme }) => {
     const variantStyles: Record<AlertVariantType, FlattenSimpleInterpolation> = {
       default: css`
         color: ${theme.colors.blue[9]};
         background-color: ${theme.colors.blue[2]};
-        border: 1px solid ${theme.colors.blue[3]};
+        border-color: ${theme.colors.blue[3]};
       `,
       positive: css`
         color: ${theme.colors.green[9]};
         background-color: ${theme.colors.green[2]};
-        border: 1px solid ${theme.colors.green[3]};
+        border-color: ${theme.colors.green[3]};
       `,
       negative: css`
         color: ${theme.colors.red[9]};
         background-color: ${theme.colors.red[2]};
-        border: 1px solid ${theme.colors.red[3]};
+        border-color: ${theme.colors.red[3]};
       `,
       warning: css`
         color: ${theme.colors.yellow[9]};
         background-color: ${theme.colors.yellow[2]};
-        border: 1px solid ${theme.colors.yellow[5]};
+        border-color: ${theme.colors.yellow[5]};
       `,
       neutral: css`
         color: ${theme.colors.grey[9]};
         background-color: ${theme.colors.grey[5]};
-        border: 1px solid ${theme.colors.grey[6]};
+        border-color: ${theme.colors.grey[6]};
       `,
     };
     return variantStyles[variant];
