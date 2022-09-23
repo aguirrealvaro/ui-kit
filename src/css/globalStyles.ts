@@ -24,9 +24,4 @@ export const GlobalStyles = createGlobalStyle<{ theme: ThemeType }>`
     all: unset;
     cursor: pointer;
   }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
 `;
