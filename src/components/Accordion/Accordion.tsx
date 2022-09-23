@@ -81,14 +81,14 @@ const Title = styled.div<{ arrowPosition: AccordionArrowPosition }>`
 
 const ChevronWrapper = styled.div<{ active: boolean; arrowPosition: AccordionArrowPosition }>`
   transform: ${({ active }) => `rotate(${active ? "-180" : 0}deg)`};
-  transition: transform ${({ theme }) => theme.transitions.normal} ease;
+  transition: transform ${({ theme }) => theme.transitions.normal}ms ease;
   order: ${({ arrowPosition }) => (arrowPosition === "right" ? 2 : 1)};
 `;
 
 const Content = styled.div<{ height: number; active: boolean }>`
   max-height: ${({ active, height }) => `${active ? height : 0}px`};
   overflow: hidden;
-  transition: all ${({ theme }) => theme.transitions.normal} ease;
+  transition: all ${({ theme }) => theme.transitions.normal}ms ease;
   margin-left: 1rem;
   margin-bottom: ${({ active }) => active && "1rem"};
 `;

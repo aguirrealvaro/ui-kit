@@ -176,7 +176,7 @@ const Content = styled.div<{
   triggerWidth: number | undefined;
 }>`
   position: absolute;
-  animation: ${fadeInScale} ${({ theme }) => theme.transitions.normal} ease-out;
+  animation: ${fadeInScale} ${({ theme }) => theme.transitions.normal}ms ease-out;
   ${({ coords }) => {
     if (coords) {
       const { top, left } = coords;
@@ -191,7 +191,7 @@ const Content = styled.div<{
       return css`
         opacity: 0;
         transform: scale(0.9);
-        transition: all ${({ theme }) => theme.transitions.normal} ease-out;
+        transition: all ${({ theme }) => theme.transitions.normal}ms ease-out;
       `;
     }
   }};

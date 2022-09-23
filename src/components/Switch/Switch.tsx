@@ -76,8 +76,8 @@ const Pill = styled.span<{ checked: boolean; size: number; color: string; disabl
   width: ${({ size }) => `${size * 2}px`};
   height: ${({ size }) => `${size}px`};
   border-radius: ${({ theme }) => theme.borderRadius.full};
-  transition: background-color ${({ theme }) => theme.transitions.normal} ease,
-    box-shadow ${({ theme }) => theme.transitions.normal} ease;
+  transition: background-color ${({ theme }) => theme.transitions.normal}ms ease,
+    box-shadow ${({ theme }) => theme.transitions.normal}ms ease;
   ${({ checked, color, theme }) => {
     if (checked) {
       return css`
@@ -110,7 +110,7 @@ const Ball = styled.span<{ checked: boolean; size: number }>`
   width: ${({ size }) => `${size}px`};
   height: ${({ size }) => `${size}px`};
   border-radius: ${({ theme }) => theme.borderRadius.full};
-  transition: left ${({ theme }) => theme.transitions.normal} ease;
+  transition: left ${({ theme }) => theme.transitions.normal}ms ease;
 `;
 
 const Label = styled.div<{ position: SwitchPositionType }>`

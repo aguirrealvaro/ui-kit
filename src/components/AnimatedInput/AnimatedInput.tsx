@@ -195,7 +195,7 @@ const Placeholder = styled.label`
   top: 50%;
   left: 1rem;
   transform: translateY(-50%);
-  transition: all ${({ theme }) => theme.transitions.normal} ease;
+  transition: all ${({ theme }) => theme.transitions.normal}ms ease;
   pointer-events: none;
   color: ${({ theme }) => theme.colors.grey.base};
 `;

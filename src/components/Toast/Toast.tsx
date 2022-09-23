@@ -86,12 +86,12 @@ const Container = styled.div<{ isClosing: boolean; variant: ToastVariantType }>`
   &:last-child {
     margin-bottom: 0;
   }
-  animation: ${translate} ${({ theme }) => theme.transitions.normal} linear;
+  animation: ${translate} ${({ theme }) => theme.transitions.normal}ms linear;
   ${({ isClosing }) =>
     isClosing &&
     css`
       transform: translateY(-100%);
-      transition: transform ${({ theme }) => theme.transitions.normal} linear;
+      transition: transform ${({ theme }) => theme.transitions.normal}ms linear;
     `}
 `;
 

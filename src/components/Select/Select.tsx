@@ -275,7 +275,7 @@ const BottomText = styled.div<{ error: boolean; size: SelectSizeType }>`
 
 const ChevronWrapper = styled.div<{ active: boolean }>`
   transform: ${({ active }) => `rotate(${active ? "-180" : 0}deg)`};
-  transition: transform ${({ theme }) => theme.transitions.normal} ease;
+  transition: transform ${({ theme }) => theme.transitions.normal}ms ease;
   display: flex;
   align-items: center;
 `;

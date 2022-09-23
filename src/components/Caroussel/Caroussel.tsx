@@ -76,7 +76,7 @@ const Overflow = styled.div`
 const SlideContainer = styled.div<{ translate?: any; gap: number }>`
   display: flex;
   transform: ${({ translate }) => `translateX(-${translate}px)`};
-  transition: transform ${({ theme }) => theme.transitions.normal} ease;
+  transition: transform ${({ theme }) => theme.transitions.normal}ms ease;
   gap: ${({ gap }) => `${gap}px`};
   align-items: center;
 `;
