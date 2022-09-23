@@ -22,6 +22,7 @@ export const Primary: ComponentStory<typeof Button> = () => {
         <Button kind="ghost">Ghost</Button>
         <Button kind="link">Link</Button>
         <Button kind="primary">Primary</Button>
+        <Button disabled>Primary</Button>
       </Flex>
       <Flex>
         <Button size="xs">Mini</Button>

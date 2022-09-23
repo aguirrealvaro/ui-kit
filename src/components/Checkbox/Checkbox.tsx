@@ -40,7 +40,11 @@ export const Checkbox: FunctionComponent<
       <HiddenInput type="checkbox" checked={checked} {...restProps} disabled={disabled} />
       <Container disabled={disabled}>
         <Wrapper position={position}>
-          <Icon icon={icon} color={disabled ? "#cecece" : iconColor} size={checkboxSize1} />
+          <Icon
+            icon={icon}
+            color={disabled ? theme.colors.grey[5] : iconColor}
+            size={checkboxSize1}
+          />
         </Wrapper>
         {children && <Label position={position}>{children}</Label>}
       </Container>
@@ -56,11 +60,11 @@ const Container = styled.div<{ disabled: boolean }>`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  ${({ disabled }) => {
+  ${({ disabled, theme }) => {
     if (disabled) {
       return css`
         cursor: not-allowed;
-        color: #cecece;
+        color: ${theme.colors.grey[5]};
       `;
     }
   }}

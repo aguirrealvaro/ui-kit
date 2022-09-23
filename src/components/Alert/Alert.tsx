@@ -44,34 +44,6 @@ export const Alert: FunctionComponent<AlertProps> = ({
   );
 };
 
-const variantStyles: Record<AlertVariantType, FlattenSimpleInterpolation> = {
-  default: css`
-    color: #004085;
-    background-color: #cce5ff;
-    border: 1px solid #b8daff;
-  `,
-  positive: css`
-    color: #155724;
-    background-color: #d4edda;
-    border: 1px solid #c3e6cb;
-  `,
-  negative: css`
-    color: #721c24;
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
-  `,
-  warning: css`
-    color: #856404;
-    background-color: #fff3cd;
-    border: 1px solid #ffeeba;
-  `,
-  neutral: css`
-    color: #1b1e21;
-    background-color: #d6d8d9;
-    border: 1px solid #c6c8ca;
-  `,
-};
-
 const sizeStyles: Record<AlertSizeType, FlattenSimpleInterpolation> = {
   xs: css`
     padding: 8px 12px;
@@ -93,7 +65,36 @@ const sizeStyles: Record<AlertSizeType, FlattenSimpleInterpolation> = {
 
 const Container = styled.div<{ variant: AlertVariantType; size: AlertSizeType }>`
   border-radius: 8px;
-  ${({ variant }) => variantStyles[variant]};
+  ${({ variant, theme }) => {
+    const variantStyles: Record<AlertVariantType, FlattenSimpleInterpolation> = {
+      default: css`
+        color: ${theme.colors.blue[9]};
+        background-color: ${theme.colors.blue[2]};
+        border: 1px solid ${theme.colors.blue[3]};
+      `,
+      positive: css`
+        color: ${theme.colors.green[9]};
+        background-color: ${theme.colors.green[2]};
+        border: 1px solid ${theme.colors.green[3]};
+      `,
+      negative: css`
+        color: ${theme.colors.red[9]};
+        background-color: ${theme.colors.red[2]};
+        border: 1px solid ${theme.colors.red[3]};
+      `,
+      warning: css`
+        color: ${theme.colors.yellow[9]};
+        background-color: ${theme.colors.yellow[2]};
+        border: 1px solid ${theme.colors.yellow[5]};
+      `,
+      neutral: css`
+        color: ${theme.colors.grey[9]};
+        background-color: ${theme.colors.grey[5]};
+        border: 1px solid ${theme.colors.grey[6]};
+      `,
+    };
+    return variantStyles[variant];
+  }};
   ${({ size }) => sizeStyles[size]};
 
   display: flex;

@@ -121,8 +121,8 @@ const getColorStyles = (
       color: ${theme.colors.grey[1]};
       border-color: ${theme.colors.blue.base};
       &:hover {
-        background-color: #328eff;
-        border-color: #328eff;
+        background-color: ${theme.colors.blue[5]};
+        border-color: ${theme.colors.blue[5]};
       }
     `,
     positive: css`
@@ -130,8 +130,8 @@ const getColorStyles = (
       color: ${theme.colors.grey[1]};
       border-color: ${theme.colors.green.base};
       &:hover {
-        background-color: #04aa5a;
-        border-color: #04aa5a;
+        background-color: ${theme.colors.green[5]};
+        border-color: ${theme.colors.green[5]};
       }
     `,
     warning: css`
@@ -139,8 +139,8 @@ const getColorStyles = (
       color: ${theme.colors.grey[13]};
       border-color: ${theme.colors.yellow.base};
       &:hover {
-        background-color: #f5cf82;
-        border-color: #f5cf82;
+        background-color: ${theme.colors.yellow[5]};
+        border-color: ${theme.colors.yellow[5]};
       }
     `,
     negative: css`
@@ -148,8 +148,8 @@ const getColorStyles = (
       color: ${theme.colors.grey[1]};
       border-color: ${theme.colors.red.base};
       &:hover {
-        background-color: #e06470;
-        border-color: #e06470;
+        background-color: ${theme.colors.red[5]};
+        border-color: ${theme.colors.red[5]};
       }
     `,
     neutral: css`
@@ -157,13 +157,13 @@ const getColorStyles = (
       color: ${theme.colors.grey[1]};
       border-color: ${theme.colors.grey[13]};
       &:hover {
-        background-color: #303030;
-        border-color: #303030;
+        background-color: ${theme.colors.grey[10]};
+        border-color: ${theme.colors.grey[10]};
       }
     `,
   };
 
-  const outlinedHover = "#ebebeb";
+  const outlinedHover = theme.colors.grey[4];
 
   const outlinedStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
     default: css`
@@ -207,31 +207,31 @@ const getColorStyles = (
     default: css`
       color: ${theme.colors.blue.base};
       &:hover {
-        background-color: #e3efff;
+        background-color: ${theme.colors.blue[1]};
       }
     `,
     positive: css`
       color: ${theme.colors.green.base};
       &:hover {
-        background-color: #e1fcef;
+        background-color: ${theme.colors.green[1]};
       }
     `,
     warning: css`
       color: ${theme.colors.yellow.base};
       &:hover {
-        background-color: #faf5ec;
+        background-color: ${theme.colors.yellow[1]};
       }
     `,
     negative: css`
       color: ${theme.colors.red.base};
       &:hover {
-        background-color: #fcedee;
+        background-color: ${theme.colors.red[1]};
       }
     `,
     neutral: css`
       color: ${theme.colors.grey[13]};
       &:hover {
-        background-color: #ebebeb;
+        background-color: ${theme.colors.grey[4]};
       }
     `,
   };
@@ -271,15 +271,15 @@ const getColorStyles = (
 
   const primaryStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
     default: css`
-      border-color: #d9d9d9;
+      border-color: ${theme.colors.grey[5]};
       color: ${theme.colors.grey.base};
       &:hover {
-        color: ${theme.colors.blue};
+        color: ${theme.colors.blue.base};
         border-color: ${theme.colors.blue.base};
       }
     `,
     positive: css`
-      border-color: #d9d9d9;
+      border-color: ${theme.colors.grey[5]};
       color: ${theme.colors.grey.base};
       &:hover {
         color: ${theme.colors.green.base};
@@ -287,7 +287,7 @@ const getColorStyles = (
       }
     `,
     warning: css`
-      border-color: #d9d9d9;
+      border-color: ${theme.colors.grey[5]};
       color: ${theme.colors.grey.base};
       &:hover {
         color: ${theme.colors.yellow.base};
@@ -295,16 +295,16 @@ const getColorStyles = (
       }
     `,
     negative: css`
-      border-color: #d9d9d9;
+      border-color: ${theme.colors.grey[5]};
       color: ${theme.colors.grey.base};
       &:hover {
-        color: ${theme.colors.red};
+        color: ${theme.colors.red.base};
         border-color: ${theme.colors.red.base};
       }
     `,
     neutral: css`
-      border-color: #d9d9d9;
-      color: ${theme.colors.grey};
+      border-color: ${theme.colors.grey[5]};
+      color: ${theme.colors.grey.base};
       &:hover {
         color: ${theme.colors.grey[13]};
         border-color: ${theme.colors.grey[13]};
@@ -337,10 +337,10 @@ const CustomButton = styled.button<{
   ${({ variant, kind, theme }) => getColorStyles(variant, kind, theme)};
   transition: all ${ANIMATION_TIME}ms ease;
   &:disabled {
-    background: #e9e9e9;
+    background: ${({ theme }) => theme.colors.grey[5]};
     border: 1px solid transparent;
     cursor: not-allowed;
-    color: #afafaf;
+    color: ${({ theme }) => theme.colors.grey[7]};
   }
 `;
 

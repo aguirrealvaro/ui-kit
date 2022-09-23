@@ -54,6 +54,17 @@ export const Primary: ComponentStory<typeof Select> = () => {
         clearValue={clearValue}
         size="lg"
       />
+      <Select
+        label="Large"
+        value={option}
+        options={options}
+        onChange={setOption}
+        placeholder="Select option"
+        helpText="Help text"
+        clearValue={clearValue}
+        size="lg"
+        disabled
+      />
     </Container>
   );
 };

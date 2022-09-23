@@ -53,6 +53,17 @@ export const Primary: ComponentStory<typeof Input> = () => {
         size="lg"
         rightIcon={searchIcon}
       />
+      <Input
+        inputId="input3"
+        label="Medium disabled"
+        placeholder="Large"
+        onChange={onChange}
+        value={value}
+        helpText="Help text"
+        clearValue={clearValue}
+        size="sm"
+        disabled
+      />
     </Container>
   );
 };

@@ -55,11 +55,11 @@ const Container = styled.div<{ disabled: boolean }>`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  ${({ disabled }) => {
+  ${({ disabled, theme }) => {
     if (disabled) {
       return css`
         cursor: not-allowed;
-        color: #cecece;
+        color: ${theme.colors.grey[5]};
       `;
     }
   }}
@@ -77,7 +77,7 @@ const Pill = styled.span<{ checked: boolean; size: number; color: string; disabl
   height: ${({ size }) => `${size}px`};
   border-radius: 100px;
   transition: background-color ${ANIMATION_TIME}ms ease, box-shadow ${ANIMATION_TIME}ms ease;
-  ${({ checked, color }) => {
+  ${({ checked, color, theme }) => {
     if (checked) {
       return css`
         background-color: ${color};
@@ -85,7 +85,7 @@ const Pill = styled.span<{ checked: boolean; size: number; color: string; disabl
       `;
     } else {
       return css`
-        background-color: #c6c6c6;
+        background-color: ${theme.colors.grey[6]};
         box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
       `;
     }

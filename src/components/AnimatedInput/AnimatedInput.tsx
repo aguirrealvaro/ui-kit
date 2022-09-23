@@ -171,10 +171,10 @@ const InputContainer = styled.div<{
       }
     `;
   }};
-  ${({ disabled }) =>
+  ${({ disabled, theme }) =>
     disabled &&
     css`
-      background: #e9e9e9;
+      background: ${theme.colors.grey[5]};
       border: 1px solid transparent;
       cursor: not-allowed;
     `};

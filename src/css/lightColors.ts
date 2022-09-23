@@ -8,9 +8,9 @@ export const lightColors: PalleteType = {
     2: "#fafafa",
     3: "#f5f5f5",
     4: "#f0f0f0",
-    5: "#d9d9d9",
-    6: "#bfbfbf",
-    7: "#8c8c8c",
+    5: "#d9d9d9", // disabled
+    6: "#bfbfbf", // border
+    7: "#8c8c8c", // base
     8: "#595959",
     9: "#434343",
     10: "#262626",
