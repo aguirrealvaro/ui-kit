@@ -1,8 +1,7 @@
 import { createContext, FunctionComponent, ReactNode, useState } from "react";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import { COLOR_MODE_KEY } from "@/constants";
-import { getTheme } from "@/css/theme";
-import { ColorModeType, ThemeType } from "@/css/types";
+import { ColorModeType, getTheme, ThemeType } from "@/css/theme";
 
 export type ThemeContextType = {
   theme: ThemeType;

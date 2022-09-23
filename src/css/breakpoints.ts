@@ -1,4 +1,4 @@
-type BreakpointSize = "xs" | "sm" | "md" | "lg";
+export type BreakpointSize = "xs" | "sm" | "md" | "lg";
 
 export const breakpoints: Record<BreakpointSize, string> = {
   xs: "480px",
