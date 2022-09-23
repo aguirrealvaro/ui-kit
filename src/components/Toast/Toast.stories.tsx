@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import styled from "styled-components";
+import { Button } from "@/components";
 import { useToast } from "@/hooks";
 
 export default {
@@ -15,8 +15,3 @@ export const Primary: FunctionComponent = () => {
     </Button>
   );
 };
-
-const Button = styled.button`
-  padding: 1rem;
-  border: 1px solid ${({ theme }) => theme.colors.grey[5]};
-`;
