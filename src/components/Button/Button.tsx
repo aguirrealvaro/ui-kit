@@ -169,7 +169,7 @@ const getColorStyles = (
     default: css`
       color: ${theme.colors.blue.base};
       border-color: ${theme.colors.blue.base};
-      background-color: ${theme.colors.grey[1]};
+      background-color: ${theme.colors.grey[4]};
       &:hover {
         background-color: ${outlinedHover};
       }
@@ -177,7 +177,7 @@ const getColorStyles = (
     positive: css`
       color: ${theme.colors.green.base};
       border-color: ${theme.colors.green.base};
-      background-color: ${theme.colors.grey[1]};
+      background-color: ${theme.colors.grey[4]};
       &:hover {
         background-color: ${outlinedHover};
       }
@@ -185,7 +185,7 @@ const getColorStyles = (
     warning: css`
       color: ${theme.colors.yellow.base};
       border-color: ${theme.colors.yellow.base};
-      background-color: ${theme.colors.grey[1]};
+      background-color: ${theme.colors.grey[4]};
       &:hover {
         background-color: ${outlinedHover};
       }
@@ -193,7 +193,7 @@ const getColorStyles = (
     negative: css`
       color: ${theme.colors.red.base};
       border-color: ${theme.colors.red.base};
-      background-color: ${theme.colors.grey[1]};
+      background-color: ${theme.colors.grey[4]};
       &:hover {
         background-color: ${outlinedHover};
       }
@@ -201,7 +201,7 @@ const getColorStyles = (
     neutral: css`
       color: ${theme.colors.grey[13]};
       border-color: ${theme.colors.grey[13]};
-      background-color: ${theme.colors.grey[1]};
+      background-color: ${theme.colors.grey[4]};
       &:hover {
         background-color: ${outlinedHover};
       }
@@ -236,7 +236,7 @@ const getColorStyles = (
     neutral: css`
       color: ${theme.colors.grey[13]};
       &:hover {
-        background-color: ${theme.colors.grey[4]};
+        background-color: ${theme.colors.grey[3]};
       }
     `,
   };
@@ -308,7 +308,7 @@ const getColorStyles = (
       }
     `,
     neutral: css`
-      border-color: #d9d9d9;
+      border-color: ${theme.colors.grey[5]};
       color: ${theme.colors.grey.base};
       &:hover {
         color: ${theme.colors.grey[13]};

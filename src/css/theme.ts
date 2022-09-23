@@ -2,7 +2,7 @@ import { darkColors } from "./darkColors";
 import { lightColors } from "./lightColors";
 import { BreakpointSize, ColorModeType, ThemeType, WidthPx } from "./types";
 
-const sizes: Record<BreakpointSize, WidthPx> = {
+const breakpoints: Record<BreakpointSize, WidthPx> = {
   xs: "480px",
   sm: "768px",
   md: "992px",
@@ -14,7 +14,7 @@ export const getTheme = (themeMode: ColorModeType): ThemeType => {
 
   return {
     fontFamily: "Arial",
-    breakpoint: (size) => `@media (max-width: ${sizes[size]})`,
+    breakpoint: (size) => `@media (max-width: ${breakpoints[size]})`,
     colors,
   };
 };
