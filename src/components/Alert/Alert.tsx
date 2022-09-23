@@ -22,6 +22,13 @@ export const Alert: FunctionComponent<AlertProps> = ({
 }) => {
   const { theme } = useTheme();
 
+  const sizeIcons: Record<AlertSizeType, number> = {
+    xs: 14,
+    sm: 16,
+    md: 18,
+    lg: 20,
+  };
+
   const variantIcons: Record<AlertVariantType, { icon: StyledIcon; color: string }> = {
     default: { icon: InfoCircleFill, color: theme.colors.blue.base },
     positive: { icon: CheckCircleFill, color: theme.colors.green.base },
@@ -36,7 +43,7 @@ export const Alert: FunctionComponent<AlertProps> = ({
       <div>
         <Icon
           icon={variantIcons[variant].icon}
-          size={18}
+          size={sizeIcons[size]}
           color={variantIcons[variant].color}
         />
       </div>
