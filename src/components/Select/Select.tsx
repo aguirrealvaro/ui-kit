@@ -254,7 +254,7 @@ const Option = styled.button<{ isSelected: boolean }>`
           color: ${theme.colors.grey[1]};
         `
       : css`
-          &:hover {
+          &:hover:not([disabled]) {
             background-color: ${theme.colors.brand};
             color: ${({ theme }) => theme.colors.grey[1]};
           }

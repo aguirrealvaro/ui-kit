@@ -122,7 +122,7 @@ const getColorStyles = (
       background-color: ${theme.colors.brand};
       color: ${theme.colors.grey[1]};
       border-color: ${theme.colors.brand};
-      &:hover {
+      &:hover:not([disabled]) {
         background-color: ${theme.colors.blue[5]};
         border-color: ${theme.colors.blue[5]};
       }
@@ -131,7 +131,7 @@ const getColorStyles = (
       background-color: ${theme.colors.green.base};
       color: ${theme.colors.grey[1]};
       border-color: ${theme.colors.green.base};
-      &:hover {
+      &:hover:not([disabled]) {
         background-color: ${theme.colors.green[5]};
         border-color: ${theme.colors.green[5]};
       }
@@ -140,7 +140,7 @@ const getColorStyles = (
       background-color: ${theme.colors.yellow.base};
       color: ${theme.colors.grey[13]};
       border-color: ${theme.colors.yellow.base};
-      &:hover {
+      &:hover:not([disabled]) {
         background-color: ${theme.colors.yellow[5]};
         border-color: ${theme.colors.yellow[5]};
       }
@@ -149,7 +149,7 @@ const getColorStyles = (
       background-color: ${theme.colors.red.base};
       color: ${theme.colors.grey[1]};
       border-color: ${theme.colors.red.base};
-      &:hover {
+      &:hover:not([disabled]) {
         background-color: ${theme.colors.red[5]};
         border-color: ${theme.colors.red[5]};
       }
@@ -158,7 +158,7 @@ const getColorStyles = (
       background-color: ${theme.colors.grey[13]};
       color: ${theme.colors.grey[1]};
       border-color: ${theme.colors.grey[13]};
-      &:hover {
+      &:hover:not([disabled]) {
         background-color: ${theme.colors.grey[10]};
         border-color: ${theme.colors.grey[10]};
       }
@@ -172,7 +172,7 @@ const getColorStyles = (
       color: ${theme.colors.brand};
       border-color: ${theme.colors.brand};
       background-color: ${theme.colors.grey[4]};
-      &:hover {
+      &:hover:not([disabled]) {
         background-color: ${outlinedHover};
       }
     `,
@@ -180,7 +180,7 @@ const getColorStyles = (
       color: ${theme.colors.green.base};
       border-color: ${theme.colors.green.base};
       background-color: ${theme.colors.grey[4]};
-      &:hover {
+      &:hover:not([disabled]) {
         background-color: ${outlinedHover};
       }
     `,
@@ -188,7 +188,7 @@ const getColorStyles = (
       color: ${theme.colors.yellow.base};
       border-color: ${theme.colors.yellow.base};
       background-color: ${theme.colors.grey[4]};
-      &:hover {
+      &:hover:not([disabled]) {
         background-color: ${outlinedHover};
       }
     `,
@@ -196,7 +196,7 @@ const getColorStyles = (
       color: ${theme.colors.red.base};
       border-color: ${theme.colors.red.base};
       background-color: ${theme.colors.grey[4]};
-      &:hover {
+      &:hover:not([disabled]) {
         background-color: ${outlinedHover};
       }
     `,
@@ -204,7 +204,7 @@ const getColorStyles = (
       color: ${theme.colors.grey[13]};
       border-color: ${theme.colors.grey[13]};
       background-color: ${theme.colors.grey[4]};
-      &:hover {
+      &:hover:not([disabled]) {
         background-color: ${outlinedHover};
       }
     `,
@@ -213,31 +213,31 @@ const getColorStyles = (
   const ghostStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
     default: css`
       color: ${theme.colors.brand};
-      &:hover {
+      &:hover:not([disabled]) {
         background-color: ${theme.colors.blue[1]};
       }
     `,
     positive: css`
       color: ${theme.colors.green.base};
-      &:hover {
+      &:hover:not([disabled]) {
         background-color: ${theme.colors.green[1]};
       }
     `,
     warning: css`
       color: ${theme.colors.yellow.base};
-      &:hover {
+      &:hover:not([disabled]) {
         background-color: ${theme.colors.yellow[1]};
       }
     `,
     negative: css`
       color: ${theme.colors.red.base};
-      &:hover {
+      &:hover:not([disabled]) {
         background-color: ${theme.colors.red[1]};
       }
     `,
     neutral: css`
       color: ${theme.colors.grey[13]};
-      &:hover {
+      &:hover:not([disabled]) {
         background-color: ${theme.colors.grey[3]};
       }
     `,
@@ -246,31 +246,31 @@ const getColorStyles = (
   const linkStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
     default: css`
       color: ${theme.colors.brand};
-      &:hover {
+      &:hover:not([disabled]) {
         text-decoration: underline;
       }
     `,
     positive: css`
       color: ${theme.colors.green.base};
-      &:hover {
+      &:hover:not([disabled]) {
         text-decoration: underline;
       }
     `,
     warning: css`
       color: ${theme.colors.yellow.base};
-      &:hover {
+      &:hover:not([disabled]) {
         text-decoration: underline;
       }
     `,
     negative: css`
       color: ${theme.colors.red.base};
-      &:hover {
+      &:hover:not([disabled]) {
         text-decoration: underline;
       }
     `,
     neutral: css`
       color: ${theme.colors.grey[13]};
-      &:hover {
+      &:hover:not([disabled]) {
         text-decoration: underline;
       }
     `,
@@ -280,7 +280,7 @@ const getColorStyles = (
     default: css`
       border-color: ${theme.colors.grey[5]};
       color: ${theme.colors.grey.base};
-      &:hover {
+      &:hover:not([disabled]) {
         color: ${theme.colors.brand};
         border-color: ${theme.colors.brand};
       }
@@ -288,7 +288,7 @@ const getColorStyles = (
     positive: css`
       border-color: ${theme.colors.grey[5]};
       color: ${theme.colors.grey.base};
-      &:hover {
+      &:hover:not([disabled]) {
         color: ${theme.colors.green.base};
         border-color: ${theme.colors.green.base};
       }
@@ -296,7 +296,7 @@ const getColorStyles = (
     warning: css`
       border-color: ${theme.colors.grey[5]};
       color: ${theme.colors.grey.base};
-      &:hover {
+      &:hover:not([disabled]) {
         color: ${theme.colors.yellow.base};
         border-color: ${theme.colors.yellow.base};
       }
@@ -304,7 +304,7 @@ const getColorStyles = (
     negative: css`
       border-color: ${theme.colors.grey[5]};
       color: ${theme.colors.grey.base};
-      &:hover {
+      &:hover:not([disabled]) {
         color: ${theme.colors.red.base};
         border-color: ${theme.colors.red.base};
       }
@@ -312,7 +312,7 @@ const getColorStyles = (
     neutral: css`
       border-color: ${theme.colors.grey[5]};
       color: ${theme.colors.grey.base};
-      &:hover {
+      &:hover:not([disabled]) {
         color: ${theme.colors.grey[13]};
         border-color: ${theme.colors.grey[13]};
       }

@@ -125,7 +125,7 @@ const TableRowData = styled.tr<{ divider: TableDividerType }>`
   &:nth-child(even) {
     background-color: ${({ theme }) => theme.colors.grey[3]};
   }
-  &:hover {
+  &:hover:not([disabled]) {
     background-color: ${({ theme }) => theme.colors.grey[4]};
   }
   ${({ divider, theme }) => {
