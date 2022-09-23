@@ -1,11 +1,13 @@
-type BorderRadius = "none" | "sm" | "md" | "lg" | "full";
+type BorderRadius = "none" | "xs" | "sm" | "md" | "lg" | "xl" | "full";
 
 export type BorderRadiusType = Record<BorderRadius, string>;
 
 export const borderRadius: BorderRadiusType = {
   none: "0",
-  sm: "0.5rem",
-  md: "0.75rem",
-  lg: "1rem",
+  xs: "0.25rem", // 4px
+  sm: "0.5rem", // 8px
+  md: "0.75rem", // 12px
+  lg: "1rem", // 16px
+  xl: "2rem", // 16px
   full: "9999px",
 };

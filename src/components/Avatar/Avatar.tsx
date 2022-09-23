@@ -31,7 +31,7 @@ export const Avatar: FunctionComponent<AvatarProps> = ({ src, name, size = "sm" 
 };
 
 const Container = styled.div<{ size: number; isError: boolean }>`
-  border-radius: 50%;
+  border-radius: ${({ theme }) => theme.borderRadius.full};
   ${({ size }) => {
     return css`
       width: ${size}px;

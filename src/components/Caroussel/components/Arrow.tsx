@@ -39,7 +39,7 @@ const Button = styled.button<{ direction: CarousselDirectionType }>`
       padding: 17px;
       background: ${theme.colors.grey[1]};
       box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.11);
-      border-radius: 50%;
+      border-radius: ${theme.borderRadius.full};
       ${direction === "left"
         ? css`
             left: -32px;
@@ -47,7 +47,7 @@ const Button = styled.button<{ direction: CarousselDirectionType }>`
         : css`
             right: -32px;
           `}
-    `}
+    `};
   &:disabled {
     display: none;
   }

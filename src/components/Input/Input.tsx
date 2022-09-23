@@ -176,7 +176,7 @@ const InputContainer = styled.div<{
   display: flex;
   justify-content: space-between;
   font-family: inherit;
-  border-radius: 4px;
+  border-radius: ${({ theme }) => theme.borderRadius.xs};
   ${({ error, isSuccess, theme }) => {
     if (error) {
       return css`

@@ -22,7 +22,7 @@ export const Primary: ComponentStory<typeof Caroussel> = () => {
 const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.grey[5]};
   padding: 2px 20px;
-  border-radius: 10px;
+  border-radius: ${({ theme }) => theme.borderRadius.md};
   width: 80px;
   border: 1px solid ${({ theme }) => theme.colors.grey.base};
   text-align: center;

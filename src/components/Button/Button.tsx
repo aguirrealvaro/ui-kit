@@ -94,16 +94,19 @@ const getSizeStyles = (size: ButtonSizeType): FlattenSimpleInterpolation => {
   return sizeOptions[size];
 };
 
-const getShapeStyles = (shape: ButtonShapeType): FlattenSimpleInterpolation => {
+const getShapeStyles = (
+  shape: ButtonShapeType,
+  theme: ThemeType
+): FlattenSimpleInterpolation => {
   const shapeOptions: Record<ButtonShapeType, FlattenSimpleInterpolation> = {
     default: css`
-      border-radius: 4px;
+      border-radius: ${theme.borderRadius.sm};
     `,
     pill: css`
-      border-radius: 42px;
+      border-radius: ${theme.borderRadius.xl};
     `,
     rectangle: css`
-      border-radius: 0px;
+      border-radius: ${theme.borderRadius.none};
     `,
   };
 
@@ -338,7 +341,7 @@ const CustomButton = styled.button<{
   width: ${({ block }) => (block ? "100%" : "auto")};
   border: 1px solid transparent;
   ${({ size }) => getSizeStyles(size)};
-  ${({ shape }) => getShapeStyles(shape)};
+  ${({ shape, theme }) => getShapeStyles(shape, theme)};
   ${({ variant, kind, theme }) => getColorStyles(variant, kind, theme)};
   transition: all ${ANIMATION_TIME}ms ease;
   &:disabled {

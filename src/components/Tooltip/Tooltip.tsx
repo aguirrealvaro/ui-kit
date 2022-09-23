@@ -20,6 +20,6 @@ const Content = styled.div`
   padding: 0.7rem;
   background-color: ${({ theme }) => theme.colors.grey[13]};
   color: ${({ theme }) => theme.colors.grey[1]};
-  border-radius: 4px;
+  border-radius: ${({ theme }) => theme.borderRadius.xs};
   font-size: 0.8rem;
 `;

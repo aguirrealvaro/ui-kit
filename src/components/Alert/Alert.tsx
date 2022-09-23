@@ -64,7 +64,7 @@ const sizeStyles: Record<AlertSizeType, FlattenSimpleInterpolation> = {
 };
 
 const Container = styled.div<{ variant: AlertVariantType; size: AlertSizeType }>`
-  border-radius: 8px;
+  border-radius: ${({ theme }) => theme.borderRadius.sm};
   ${({ variant, theme }) => {
     const variantStyles: Record<AlertVariantType, FlattenSimpleInterpolation> = {
       default: css`

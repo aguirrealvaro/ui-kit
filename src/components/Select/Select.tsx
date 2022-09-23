@@ -154,7 +154,7 @@ const SelectContainer = styled.div<{
 }>`
   display: flex;
   justify-content: space-between;
-  border-radius: 4px;
+  border-radius: ${({ theme }) => theme.borderRadius.xs};
   color: ${({ theme, isSelected }) =>
     isSelected ? theme.colors.grey[13] : theme.colors.grey.base};
   height: ${({ size }) => {
@@ -217,7 +217,7 @@ const Dropdown = styled.div<{ size: SelectSizeType }>`
   border: 1px solid ${({ theme }) => theme.colors.grey[5]};
   background-color: ${({ theme }) => theme.colors.grey[4]};
   box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.11);
-  border-radius: 4px;
+  border-radius: ${({ theme }) => theme.borderRadius.xs};
   width: 100%;
   max-height: 250px;
   display: flex;
@@ -241,7 +241,7 @@ const Option = styled.button<{ isSelected: boolean }>`
   &:last-child {
     margin-bottom: 0;
   }
-  border-radius: 4px;
+  border-radius: ${({ theme }) => theme.borderRadius.xs};
   ${({ isSelected, theme }) =>
     isSelected
       ? css`
@@ -250,11 +250,7 @@ const Option = styled.button<{ isSelected: boolean }>`
         `
       : css`
           &:hover {
-<<<<<<< Updated upstream
-            background-color: ${theme.colors.grey[4]};
-=======
             background-color: ${theme.colors.blue.base};
->>>>>>> Stashed changes
           }
         `};
   &:disabled {

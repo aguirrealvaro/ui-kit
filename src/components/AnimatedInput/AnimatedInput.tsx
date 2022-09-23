@@ -150,7 +150,7 @@ const InputContainer = styled.div<{
   font-family: inherit;
   position: relative;
   height: 55px;
-  border-radius: 4px;
+  border-radius: ${({ theme }) => theme.borderRadius.xs};
   ${({ error, isSuccess, theme }) => {
     if (error) {
       return css`

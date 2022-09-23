@@ -17,7 +17,7 @@ export const Badge: FunctionComponent<BadeProps> = ({ children, variant = "defau
 
 const Container = styled.div<{ variant: BadgeVariantType }>`
   padding: 0.25em 0.4em;
-  border-radius: 4px;
+  border-radius: ${({ theme }) => theme.borderRadius.xs};
   ${({ variant, theme }) => {
     const variantStyles: Record<BadgeVariantType, FlattenSimpleInterpolation> = {
       default: css`

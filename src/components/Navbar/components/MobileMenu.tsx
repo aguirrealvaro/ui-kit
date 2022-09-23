@@ -97,9 +97,6 @@ const CloseButton = styled.button`
   right: 2.1rem;
   line-height: 0px;
   padding: 6px;
-  border-radius: 5px;
-  transition: background-color 200ms linear;
-  background-color: transparent;
 `;
 
 const Item = styled.button`

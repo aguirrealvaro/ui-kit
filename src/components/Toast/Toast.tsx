@@ -68,7 +68,7 @@ const Container = styled.div<{ isClosing: boolean; variant: ToastVariantType }>`
   gap: 8px;
   padding: 1rem;
   color: ${({ theme }) => theme.colors.grey[1]};
-  border-radius: 8px;
+  border-radius: ${({ theme }) => theme.borderRadius.sm};
   margin-bottom: 1rem;
   background-color: ${({ theme, variant }) => {
     const backgroundColor: Record<ToastVariantType, string> = {

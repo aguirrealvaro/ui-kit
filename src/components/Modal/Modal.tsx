@@ -104,7 +104,7 @@ const Content = styled.div<{ size: number; fadeOut: boolean }>`
       transition: all ${ANIMATION_TIME}ms ease-out;
     `}
   background-color: ${({ theme }) => theme.colors.grey[1]};
-  border-radius: 8px;
+  border-radius: ${({ theme }) => theme.borderRadius.sm};
   box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.11);
   display: flex;
   flex-direction: column;
@@ -117,6 +117,4 @@ const CloseButton = styled.button`
   top: 12px;
   right: 12px;
   padding: 6px;
-  border-radius: 50px;
-  transition: background-color ${ANIMATION_TIME}ms linear;
 `;

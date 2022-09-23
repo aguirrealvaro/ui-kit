@@ -34,7 +34,7 @@ const Container = styled.div<{ fullHeight?: boolean }>`
 `;
 
 const Loader = styled.div<{ size: SpinnerSizeType; color: string; background: string }>`
-  border-radius: 50%;
+  border-radius: ${({ theme }) => theme.borderRadius.full};
   animation: spin 1.5s linear infinite;
   ${({ size, color, background }) => {
     const numberSize = size ? SPINER_SIZES[size] : 30;

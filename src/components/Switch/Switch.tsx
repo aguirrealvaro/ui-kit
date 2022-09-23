@@ -75,7 +75,7 @@ const Pill = styled.span<{ checked: boolean; size: number; color: string; disabl
   position: relative;
   width: ${({ size }) => `${size * 2}px`};
   height: ${({ size }) => `${size}px`};
-  border-radius: 100px;
+  border-radius: ${({ theme }) => theme.borderRadius.full};
   transition: background-color ${ANIMATION_TIME}ms ease, box-shadow ${ANIMATION_TIME}ms ease;
   ${({ checked, color, theme }) => {
     if (checked) {
@@ -109,7 +109,7 @@ const Ball = styled.span<{ checked: boolean; size: number }>`
   background-color: ${({ theme }) => theme.colors.grey[1]};
   width: ${({ size }) => `${size}px`};
   height: ${({ size }) => `${size}px`};
-  border-radius: 100px;
+  border-radius: ${({ theme }) => theme.borderRadius.full};
   transition: left ${ANIMATION_TIME}ms ease;
 `;
 

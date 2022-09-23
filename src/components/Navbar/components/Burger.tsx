@@ -15,9 +15,6 @@ const CustomButton = styled.button`
   line-height: 0px;
   display: none;
   padding: 6px;
-  border-radius: 5px;
-  transition: background-color 200ms linear;
-  background-color: transparent;
   ${({ theme }) => theme.breakpoint("lg")} {
     display: block;
   }
