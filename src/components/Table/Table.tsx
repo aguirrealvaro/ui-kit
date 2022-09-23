@@ -22,9 +22,9 @@ export const Table: FunctionComponent<TableProps> = ({
     <Container divider={divider}>
       <thead>
         <TableRowHeader divider={divider}>
-          {columns.map((column) => {
+          {columns.map((column, index) => {
             return (
-              <TableHead size={padding} divider={divider}>
+              <TableHead size={padding} divider={divider} key={index}>
                 {column}
               </TableHead>
             );
@@ -32,12 +32,12 @@ export const Table: FunctionComponent<TableProps> = ({
         </TableRowHeader>
       </thead>
       <tbody>
-        {data.map((row) => {
+        {data.map((row, index) => {
           return (
-            <TableRowData divider={divider}>
-              {row.map((rowData) => {
+            <TableRowData divider={divider} key={index}>
+              {row.map((rowData, index) => {
                 return (
-                  <TableData size={padding} divider={divider}>
+                  <TableData size={padding} divider={divider} key={index}>
                     {rowData}
                   </TableData>
                 );

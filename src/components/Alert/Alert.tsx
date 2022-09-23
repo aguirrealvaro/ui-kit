@@ -74,7 +74,7 @@ const Container = styled.div<{ variant: AlertVariantType; size: AlertSizeType }>
       warning: css`
         color: ${theme.colors.yellow[9]};
         background-color: ${theme.colors.yellow[2]};
-        border-color: ${theme.colors.yellow[5]};
+        border-color: ${theme.colors.yellow[3]};
       `,
       neutral: css`
         color: ${theme.colors.grey[9]};

@@ -54,7 +54,7 @@ export const Primary: ComponentStory<typeof Input> = () => {
         rightIcon={searchIcon}
       />
       <Input
-        inputId="input3"
+        inputId="input4"
         label="Medium disabled"
         placeholder="Large"
         onChange={onChange}
