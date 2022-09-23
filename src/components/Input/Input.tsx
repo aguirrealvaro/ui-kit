@@ -156,11 +156,11 @@ export const Input: FunctionComponent<
 const Label = styled.label<{ size: InputSizeType }>`
   display: block;
   margin-bottom: 0.5rem;
-  font-size: ${({ size }) => {
+  font-size: ${({ size, theme }) => {
     const sizes: Record<InputSizeType, string> = {
-      sm: "14px",
-      md: "16px",
-      lg: "18px",
+      sm: theme.typography.fontSizes.sm,
+      md: theme.typography.fontSizes.md,
+      lg: theme.typography.fontSizes.lg,
     };
     return sizes[size];
   }};
@@ -229,7 +229,6 @@ const CustomInput = styled.input<{
   sideWidth: number | undefined;
   inputSize: InputSizeType;
 }>`
-  font-size: 16px;
   outline: none;
   border: none;
   background-color: transparent;
@@ -242,11 +241,11 @@ const CustomInput = styled.input<{
       return "100%";
     }
   }};
-  font-size: ${({ inputSize }) => {
+  font-size: ${({ inputSize, theme }) => {
     const sizes: Record<InputSizeType, string> = {
-      sm: "14px",
-      md: "16px",
-      lg: "18px",
+      sm: theme.typography.fontSizes.sm,
+      md: theme.typography.fontSizes.md,
+      lg: theme.typography.fontSizes.lg,
     };
     return sizes[inputSize];
   }};
@@ -258,11 +257,11 @@ const CustomInput = styled.input<{
 const BottomText = styled.div<{ error: boolean; size: InputSizeType }>`
   margin: 0.5rem 1rem 0 1rem;
   color: ${({ error, theme }) => theme.colors[error ? "red" : "grey"].base};
-  font-size: ${({ size }) => {
+  font-size: ${({ size, theme }) => {
     const sizes: Record<InputSizeType, string> = {
-      sm: "12px",
-      md: "14px",
-      lg: "16px",
+      sm: theme.typography.fontSizes.xs,
+      md: theme.typography.fontSizes.sm,
+      lg: theme.typography.fontSizes.md,
     };
     return sizes[size];
   }};

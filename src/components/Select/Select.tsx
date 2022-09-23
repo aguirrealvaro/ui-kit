@@ -132,11 +132,11 @@ const Container = styled.div`
 const Label = styled.label<{ size: SelectSizeType }>`
   display: block;
   margin-bottom: 0.5rem;
-  font-size: ${({ size }) => {
+  font-size: ${({ size, theme }) => {
     const sizes: Record<SelectSizeType, string> = {
-      sm: "14px",
-      md: "16px",
-      lg: "18px",
+      sm: theme.typography.fontSizes.sm,
+      md: theme.typography.fontSizes.md,
+      lg: theme.typography.fontSizes.lg,
     };
     return sizes[size];
   }};
@@ -190,11 +190,11 @@ const InnerContainer = styled.div<{ size: SelectSizeType }>`
   padding: 0 1rem;
   display: flex;
   align-items: center;
-  font-size: ${({ size }) => {
+  font-size: ${({ size, theme }) => {
     const sizes: Record<SelectSizeType, string> = {
-      sm: "14px",
-      md: "16px",
-      lg: "18px",
+      sm: theme.typography.fontSizes.sm,
+      md: theme.typography.fontSizes.md,
+      lg: theme.typography.fontSizes.lg,
     };
     return sizes[size];
   }};
@@ -221,11 +221,11 @@ const Dropdown = styled.div<{ size: SelectSizeType }>`
   flex-direction: column;
   overflow-y: auto;
   transform: translateY(5px);
-  font-size: ${({ size }) => {
+  font-size: ${({ size, theme }) => {
     const sizes: Record<SelectSizeType, string> = {
-      sm: "14px",
-      md: "16px",
-      lg: "18px",
+      sm: theme.typography.fontSizes.sm,
+      md: theme.typography.fontSizes.md,
+      lg: theme.typography.fontSizes.lg,
     };
     return sizes[size];
   }};
@@ -262,11 +262,11 @@ const Option = styled.button<{ isSelected: boolean }>`
 const BottomText = styled.div<{ error: boolean; size: SelectSizeType }>`
   margin: 0.5rem 1rem 0 1rem;
   color: ${({ error, theme }) => theme.colors[error ? "red" : "grey"].base};
-  font-size: ${({ size }) => {
+  font-size: ${({ size, theme }) => {
     const sizes: Record<SelectSizeType, string> = {
-      sm: "12px",
-      md: "14px",
-      lg: "16px",
+      sm: theme.typography.fontSizes.xs,
+      md: theme.typography.fontSizes.sm,
+      lg: theme.typography.fontSizes.md,
     };
     return sizes[size];
   }};

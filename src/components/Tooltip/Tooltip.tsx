@@ -21,5 +21,5 @@ const Content = styled.div`
   background-color: ${({ theme }) => theme.colors.grey[13]};
   color: ${({ theme }) => theme.colors.grey[1]};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
-  font-size: 0.8rem;
+  font-size: ${({ theme }) => theme.typography.fontSizes.sm};
 `;

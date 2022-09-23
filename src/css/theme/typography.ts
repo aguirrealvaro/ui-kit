@@ -4,7 +4,7 @@ type FontFamilyType = {
   mono: string;
 };
 
-type FontSize = "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+type FontSize = "xs" | "sm" | "md" | "lg" | "xl" | "xxl" | "xxxl";
 
 type FontSizeType = Record<FontSize, string>;
 
@@ -32,6 +32,7 @@ export const typography: TypographyType = {
     lg: "1.125rem", // 18px
     xl: "1.25rem", // 20px
     xxl: "2rem", // 32px
+    xxxl: "2.5rem", //40px
   },
 
   fontWeights: {

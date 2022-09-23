@@ -32,5 +32,5 @@ const Card = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: ${({ theme }) => theme.borderRadius.sm};
-  font-size: 32px;
+  font-size: ${({ theme }) => theme.typography.fontSizes.xxl};
 `;
