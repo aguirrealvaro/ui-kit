@@ -4,18 +4,7 @@ type FontFamilyType = {
   mono: string;
 };
 
-type FontSize =
-  | "3xs"
-  | "2xs"
-  | "xs"
-  | "sm"
-  | "md"
-  | "lg"
-  | "xl"
-  | "2xl"
-  | "3xl"
-  | "4xl"
-  | "5xl";
+type FontSize = "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
 
 type FontSizeType = Record<FontSize, string>;
 
@@ -37,17 +26,12 @@ export const typography: TypographyType = {
   },
 
   fontSizes: {
-    "3xs": "0.45rem",
-    "2xs": "0.625rem",
-    xs: "0.75rem",
-    sm: "0.875rem",
-    md: "1rem",
-    lg: "1.125rem",
-    xl: "1.25rem",
-    "2xl": "1.5rem",
-    "3xl": "1.875rem",
-    "4xl": "2.25rem",
-    "5xl": "3rem",
+    xs: "0.75rem", // 12px
+    sm: "0.875rem", // 14px
+    md: "1rem", // 16px
+    lg: "1.125rem", // 18px
+    xl: "1.25rem", // 20px
+    xxl: "2rem", // 32px
   },
 
   fontWeights: {
