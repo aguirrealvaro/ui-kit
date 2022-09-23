@@ -72,7 +72,6 @@ const fadeInScale = keyframes`
 
 const Backdrop = styled.div<{ isOpen: boolean; fadeOut: boolean }>`
   position: fixed;
-  font-family: inherit;
   top: 0;
   left: 0;
   width: 100vw;
