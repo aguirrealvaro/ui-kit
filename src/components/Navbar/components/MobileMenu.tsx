@@ -1,7 +1,6 @@
 import { FunctionComponent, useRef } from "react";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import styled, { css, keyframes } from "styled-components";
-import { ANIMATION_TIME } from "../Navbar.constants";
 import { NavbarItem } from "../Navbar.types";
 import { Icon } from "@/components";
 import { useOutsideClick, useTheme } from "@/hooks";
@@ -56,7 +55,7 @@ const translate = keyframes`
 const Backdrop = styled.div<{ isUnmounting: boolean }>`
   position: fixed;
   background-color: rgba(0, 0, 0, 0.5);
-  animation: ${fadeIn} ${ANIMATION_TIME}ms ease-out;
+  animation: ${fadeIn} ${({ theme }) => theme.transitions.normal} ease-out;
   transition: all 200ms linear;
   top: 0;
   right: 0;
@@ -66,7 +65,7 @@ const Backdrop = styled.div<{ isUnmounting: boolean }>`
     isUnmounting &&
     css`
       opacity: 0;
-      transition: opacity ${ANIMATION_TIME}ms ease-out;
+      transition: opacity ${({ theme }) => theme.transitions.normal} ease-out;
     `}
 `;
 
@@ -78,7 +77,7 @@ const Container = styled.div<{ isUnmounting: boolean }>`
   width: 70%;
   background-color: ${({ theme }) => theme.colors.grey[1]};
   box-shadow: ${({ theme }) => theme.shadows.sm};
-  animation: ${translate} ${ANIMATION_TIME}ms ease-out;
+  animation: ${translate} ${({ theme }) => theme.transitions.normal} ease-out;
   padding: 4rem 0;
   display: flex;
   flex-direction: column;
@@ -87,7 +86,7 @@ const Container = styled.div<{ isUnmounting: boolean }>`
     isUnmounting &&
     css`
       transform: translateX(100%);
-      transition: transform ${ANIMATION_TIME}ms ease-out;
+      transition: transform ${({ theme }) => theme.transitions.normal} ease-out;
     `}
 `;
 

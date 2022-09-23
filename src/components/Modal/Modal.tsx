@@ -2,7 +2,7 @@ import { FunctionComponent, useRef, ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import styled, { css, keyframes } from "styled-components";
-import { MODAL_SIZES, ANIMATION_TIME } from "./Modal.constants";
+import { MODAL_SIZES } from "./Modal.constants";
 import { ModalSizeType } from "./Modal.types";
 import { Icon } from "@/components";
 import { useDisableScroll, useOutsideClick, useKeyPress, useTheme } from "@/hooks";
@@ -77,12 +77,12 @@ const Backdrop = styled.div<{ isOpen: boolean; fadeOut: boolean }>`
   width: 100vw;
   height: 100vh;
   overflow-y: auto;
-  animation: ${fadeIn} ${ANIMATION_TIME}ms ease-out;
+  animation: ${fadeIn} ${({ theme }) => theme.transitions.normal} ease-out;
   ${({ fadeOut }) =>
     fadeOut &&
     css`
       opacity: 0;
-      transition: all ${ANIMATION_TIME}ms ease-out;
+      transition: all ${({ theme }) => theme.transitions.normal} ease-out;
     `};
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
@@ -95,13 +95,13 @@ const Content = styled.div<{ size: number; fadeOut: boolean }>`
   width: ${({ size }) => size}px;
   min-height: 100px;
   max-height: 80vh;
-  animation: ${fadeInScale} ${ANIMATION_TIME}ms ease-out;
+  animation: ${fadeInScale} ${({ theme }) => theme.transitions.normal} ease-out;
   ${({ fadeOut }) =>
     fadeOut &&
     css`
       opacity: 0;
       transform: scale(0.9);
-      transition: all ${ANIMATION_TIME}ms ease-out;
+      transition: all ${({ theme }) => theme.transitions.normal} ease-out;
     `}
   background-color: ${({ theme }) => theme.colors.grey[1]};
   border-radius: ${({ theme }) => theme.borderRadius.sm};

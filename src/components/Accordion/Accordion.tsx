@@ -1,7 +1,6 @@
 import { useState, useRef, FunctionComponent, ReactNode } from "react";
 import { ChevronDown } from "@styled-icons/boxicons-regular/ChevronDown";
 import styled, { css } from "styled-components";
-import { ANIMATION_TIME } from "./Accordion.constants";
 import { AccordionArrowPosition } from "./Accordion.types";
 import { Icon } from "@/components";
 
@@ -82,14 +81,14 @@ const Title = styled.div<{ arrowPosition: AccordionArrowPosition }>`
 
 const ChevronWrapper = styled.div<{ active: boolean; arrowPosition: AccordionArrowPosition }>`
   transform: ${({ active }) => `rotate(${active ? "-180" : 0}deg)`};
-  transition: transform ${ANIMATION_TIME}ms ease;
+  transition: transform ${({ theme }) => theme.transitions.normal} ease;
   order: ${({ arrowPosition }) => (arrowPosition === "right" ? 2 : 1)};
 `;
 
 const Content = styled.div<{ height: number; active: boolean }>`
   max-height: ${({ active, height }) => `${active ? height : 0}px`};
   overflow: hidden;
-  transition: all ${ANIMATION_TIME}ms ease;
+  transition: all ${({ theme }) => theme.transitions.normal} ease;
   margin-left: 1rem;
   margin-bottom: ${({ active }) => active && "1rem"};
 `;

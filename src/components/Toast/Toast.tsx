@@ -5,10 +5,12 @@ import { Alert } from "@styled-icons/remix-fill/Alert";
 import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
 import styled, { css, keyframes } from "styled-components";
 import { StyledIcon } from "styled-icons/types";
-import { ANIMATION_TIME, DURATION_TIME } from "./Toast.contants";
 import { ToastVariantType, ToastProps } from "./Toast.types";
 import { Icon } from "@/components/Icon";
 import { useTheme, useToast } from "@/hooks";
+
+export const ANIMATION_TIME = 200;
+export const DURATION_TIME = 3000;
 
 export const Toast: FunctionComponent<ToastProps> = ({
   children,
@@ -84,12 +86,12 @@ const Container = styled.div<{ isClosing: boolean; variant: ToastVariantType }>`
   &:last-child {
     margin-bottom: 0;
   }
-  animation: ${translate} ${ANIMATION_TIME}ms linear;
+  animation: ${translate} ${({ theme }) => theme.transitions.normal} linear;
   ${({ isClosing }) =>
     isClosing &&
     css`
       transform: translateY(-100%);
-      transition: transform ${ANIMATION_TIME}ms linear;
+      transition: transform ${({ theme }) => theme.transitions.normal} linear;
     `}
 `;
 

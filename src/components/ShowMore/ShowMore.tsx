@@ -10,8 +10,6 @@ import {
 import styled, { css } from "styled-components";
 import { Button } from "../Button";
 
-const ANIMATION_TIME = 200;
-
 type ShowMoreProps = {
   children: ReactNode;
   minHeight: number;
@@ -86,7 +84,7 @@ const Paragraph = styled.p<{
         height: ${showMore ? containerHeight : minHeight}px;
         margin-bottom: 1rem;
         overflow-y: hidden;
-        transition: height ${ANIMATION_TIME}ms ease;
+        transition: height ${({ theme }) => theme.transitions.normal} ease;
       `;
     }
   }}

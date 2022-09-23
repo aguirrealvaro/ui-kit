@@ -16,8 +16,6 @@ import { SelectFieldType, SelectSizeType } from "./Select.types";
 import { Spinner, Icon } from "@/components";
 import { useOutsideClick, useTheme } from "@/hooks";
 
-const ANIMATION_TIME = 200;
-
 type SelectProps = {
   label?: ReactNode;
   placeholder: string;
@@ -277,7 +275,7 @@ const BottomText = styled.div<{ error: boolean; size: SelectSizeType }>`
 
 const ChevronWrapper = styled.div<{ active: boolean }>`
   transform: ${({ active }) => `rotate(${active ? "-180" : 0}deg)`};
-  transition: transform ${ANIMATION_TIME}ms ease;
+  transition: transform ${({ theme }) => theme.transitions.normal} ease;
   display: flex;
   align-items: center;
 `;

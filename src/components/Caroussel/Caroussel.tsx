@@ -1,6 +1,5 @@
 import { FunctionComponent, Children, useState, useRef, useEffect, ReactNode } from "react";
 import styled from "styled-components";
-import { ANIMATION_TIME } from "./Caroussel.constants";
 import { useDisableRightArrow } from "./Caroussel.hooks";
 import { CarousselDirectionType } from "./Caroussel.types";
 import { Arrow } from "./components";
@@ -77,7 +76,7 @@ const Overflow = styled.div`
 const SlideContainer = styled.div<{ translate?: any; gap: number }>`
   display: flex;
   transform: ${({ translate }) => `translateX(-${translate}px)`};
-  transition: transform ${ANIMATION_TIME}ms ease;
+  transition: transform ${({ theme }) => theme.transitions.normal} ease;
   gap: ${({ gap }) => `${gap}px`};
   align-items: center;
 `;

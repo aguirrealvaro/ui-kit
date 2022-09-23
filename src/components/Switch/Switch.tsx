@@ -1,6 +1,6 @@
 import { FunctionComponent, InputHTMLAttributes, ReactNode } from "react";
 import styled, { css } from "styled-components";
-import { ANIMATION_TIME, SWICTH_SIZES } from "./Switch.constants";
+import { SWICTH_SIZES } from "./Switch.constants";
 import { SwitchPositionType, SwitchSizeType } from "./Switch.types";
 import { hiddenStyles } from "@/css";
 import { useTheme } from "@/hooks";
@@ -76,7 +76,8 @@ const Pill = styled.span<{ checked: boolean; size: number; color: string; disabl
   width: ${({ size }) => `${size * 2}px`};
   height: ${({ size }) => `${size}px`};
   border-radius: ${({ theme }) => theme.borderRadius.full};
-  transition: background-color ${ANIMATION_TIME}ms ease, box-shadow ${ANIMATION_TIME}ms ease;
+  transition: background-color ${({ theme }) => theme.transitions.normal} ease,
+    box-shadow ${({ theme }) => theme.transitions.normal} ease;
   ${({ checked, color, theme }) => {
     if (checked) {
       return css`
@@ -109,7 +110,7 @@ const Ball = styled.span<{ checked: boolean; size: number }>`
   width: ${({ size }) => `${size}px`};
   height: ${({ size }) => `${size}px`};
   border-radius: ${({ theme }) => theme.borderRadius.full};
-  transition: left ${ANIMATION_TIME}ms ease;
+  transition: left ${({ theme }) => theme.transitions.normal} ease;
 `;
 
 const Label = styled.div<{ position: SwitchPositionType }>`

@@ -1,7 +1,6 @@
 import { FunctionComponent, ButtonHTMLAttributes, ReactNode } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { Spinner } from "../Spinner";
-import { ANIMATION_TIME } from "./Button.constants";
 import {
   ButtonKindType,
   ButtonSizeType,
@@ -343,7 +342,7 @@ const CustomButton = styled.button<{
   ${({ size }) => getSizeStyles(size)};
   ${({ shape, theme }) => getShapeStyles(shape, theme)};
   ${({ variant, kind, theme }) => getColorStyles(variant, kind, theme)};
-  transition: all ${ANIMATION_TIME}ms ease;
+  transition: all ${({ theme }) => theme.transitions.normal} ease;
   &:disabled {
     background: ${({ theme }) => theme.colors.grey[5]};
     border: 1px solid transparent;

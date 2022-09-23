@@ -14,7 +14,6 @@ import { EyeSlashFill } from "@styled-icons/bootstrap/EyeSlashFill";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
 import styled, { css } from "styled-components";
-import { ANIMATION_TIME } from "./AnimatedInput.constants";
 import { Spinner, Icon } from "@/components";
 import { useTheme } from "@/hooks";
 
@@ -196,7 +195,7 @@ const Placeholder = styled.label`
   top: 50%;
   left: 1rem;
   transform: translateY(-50%);
-  transition: all ${ANIMATION_TIME}ms ease;
+  transition: all ${({ theme }) => theme.transitions.normal} ease;
   pointer-events: none;
   color: ${({ theme }) => theme.colors.grey.base};
 `;
