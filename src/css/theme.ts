@@ -4,9 +4,9 @@ import { darkColors } from "./darkColors";
 import { lightColors } from "./lightColors";
 import { CollorsType } from "./types";
 import { typography, TypographyType } from "./typography";
+import { zIndices, ZIndexType } from "./zIndices";
 
 // Asset colors: title, primary text, secondary text, disable, border, dividers, background, transparency
-// border radius
 // z index
 // box shadows
 // transitions
@@ -18,6 +18,7 @@ export type ThemeType = {
   breakpoint: (size: BreakpointSize) => string;
   colors: CollorsType;
   borderRadius: BorderRadiusType;
+  zIndices: ZIndexType;
 };
 
 export const getTheme = (themeMode: ColorModeType): ThemeType => {
@@ -28,5 +29,6 @@ export const getTheme = (themeMode: ColorModeType): ThemeType => {
     breakpoint: (size) => `@media (max-width: ${breakpoints[size]})`,
     colors,
     borderRadius,
+    zIndices,
   };
 };

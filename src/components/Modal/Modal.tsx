@@ -77,7 +77,6 @@ const Backdrop = styled.div<{ isOpen: boolean; fadeOut: boolean }>`
   width: 100vw;
   height: 100vh;
   overflow-y: auto;
-  z-index: 1;
   animation: ${fadeIn} ${ANIMATION_TIME}ms ease-out;
   ${({ fadeOut }) =>
     fadeOut &&
