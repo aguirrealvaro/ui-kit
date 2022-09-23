@@ -132,7 +132,6 @@ const Container = styled.div`
 const Label = styled.label<{ size: SelectSizeType }>`
   display: block;
   margin-bottom: 0.5rem;
-  font-weight: 500;
   font-size: ${({ size }) => {
     const sizes: Record<SelectSizeType, string> = {
       sm: "14px",

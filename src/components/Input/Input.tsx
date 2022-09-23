@@ -156,7 +156,6 @@ export const Input: FunctionComponent<
 const Label = styled.label<{ size: InputSizeType }>`
   display: block;
   margin-bottom: 0.5rem;
-  font-weight: 500;
   font-size: ${({ size }) => {
     const sizes: Record<InputSizeType, string> = {
       sm: "14px",
