@@ -3,7 +3,7 @@ import { CollorsType } from "./types";
 export const darkColors: CollorsType = {
   brand: "#177ddc",
   grey: {
-    base: "#8c8c8c",
+    base: "#808080",
     1: "#000000",
     2: "#121212",
     3: "#242424",

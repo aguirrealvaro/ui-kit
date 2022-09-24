@@ -6,8 +6,6 @@ import { transitions, TransitionsType } from "./transitions";
 import { typography, TypographyType } from "./typography";
 import { zIndices, ZIndexType } from "./zIndices";
 
-// Asset colors: title, primary text, secondary text, disable, border, dividers, background, transparency
-
 export type ThemeModeType = "light" | "dark";
 
 export type ThemeType = {
