@@ -3,19 +3,19 @@ import { CollorsType } from "./types";
 export const lightColors: CollorsType = {
   brand: "#1890ff",
   grey: {
-    base: "#8c8c8c",
-    1: "#ffffff",
-    2: "#fafafa",
-    3: "#f5f5f5",
-    4: "#f0f0f0",
-    5: "#d9d9d9", // disabled
-    6: "#bfbfbf", // border
-    7: "#8c8c8c", // base
-    8: "#595959",
-    9: "#434343",
-    10: "#262626",
-    11: "#1f1f1f",
-    12: "#141414",
+    base: "#8E8E8E",
+    1: "#FFFFFF",
+    2: "#ECECEC",
+    3: "#D9D9D9",
+    4: "#C6C6C6",
+    5: "#B3B3B3", // disabled
+    6: "#A1A1A1", // border
+    7: "#8E8E8E", // base
+    8: "#7B7B7B",
+    9: "#686868",
+    10: "#555555",
+    11: "#393939",
+    12: "#1C1C1C",
     13: "#000000",
   },
   red: {

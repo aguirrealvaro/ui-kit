@@ -27,5 +27,4 @@ export const decorators = [
 
 const Main = styled.main`
   padding: 2rem;
-  background-color: ${({ theme }) => theme.colors.grey[4]};
 `;
