@@ -39,47 +39,40 @@ export const Alert: FunctionComponent<AlertProps> = ({
 
   return (
     <Container variant={variant} size={size} role="alert">
+      <Icon
+        icon={variantIcons[variant].icon}
+        size={sizeIcons[size]}
+        color={variantIcons[variant].color}
+      />
       <span>{children}</span>
-      <div>
-        <Icon
-          icon={variantIcons[variant].icon}
-          size={sizeIcons[size]}
-          color={variantIcons[variant].color}
-        />
-      </div>
     </Container>
   );
 };
 
 const Container = styled.div<{ variant: AlertVariantType; size: AlertSizeType }>`
+  display: flex;
+  gap: 1rem;
   border-radius: ${({ theme }) => theme.borderRadius.sm};
-  border: 1px solid transparent;
+  border-width: 1px 1px 1px 4px;
+  border-style: solid;
+  background-color: ${({ theme }) => theme.colors.grey[3]};
+  color: ${({ theme }) => theme.colors.grey[12]};
   ${({ variant, theme }) => {
     const variantStyles: Record<AlertVariantType, FlattenSimpleInterpolation> = {
       default: css`
-        color: ${theme.colors.blue[9]};
-        background-color: ${theme.colors.blue[2]};
-        border-color: ${theme.colors.blue[3]};
+        border-color: ${theme.colors.blue.base};
       `,
       positive: css`
-        color: ${theme.colors.green[9]};
-        background-color: ${theme.colors.green[2]};
-        border-color: ${theme.colors.green[3]};
+        border-color: ${theme.colors.green.base};
       `,
       negative: css`
-        color: ${theme.colors.red[9]};
-        background-color: ${theme.colors.red[2]};
-        border-color: ${theme.colors.red[3]};
+        border-color: ${theme.colors.red.base};
       `,
       warning: css`
-        color: ${theme.colors.yellow[9]};
-        background-color: ${theme.colors.yellow[2]};
-        border-color: ${theme.colors.yellow[3]};
+        border-color: ${theme.colors.yellow.base};
       `,
       neutral: css`
-        color: ${theme.colors.grey[9]};
-        background-color: ${theme.colors.grey[5]};
-        border-color: ${theme.colors.grey[6]};
+        border-color: ${theme.colors.grey.base};
       `,
     };
     return variantStyles[variant];
@@ -105,8 +98,4 @@ const Container = styled.div<{ variant: AlertVariantType; size: AlertSizeType }>
     };
     return sizeStyles[size];
   }};
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 `;
