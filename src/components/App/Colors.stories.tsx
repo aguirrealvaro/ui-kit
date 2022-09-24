@@ -9,16 +9,16 @@ export const Primary = () => {
 
   return (
     <Container>
-      {Object.entries(theme.colors).map(([palette, colors]) => {
+      {Object.entries(theme.colors).map(([palette, colors], index) => {
         if (palette === "brand") null;
 
         return (
-          <div>
+          <div key={index}>
             <Title>{palette}</Title>
             <div>
-              {Object.entries(colors).map(([variant, color]) => {
+              {Object.entries(colors).map(([variant, color], index) => {
                 return (
-                  <Color color={color}>
+                  <Color color={color} key={index}>
                     {variant} - {color}
                   </Color>
                 );
