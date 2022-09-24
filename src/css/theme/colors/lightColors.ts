@@ -184,6 +184,6 @@ export const lightAssets: AssetsType = {
   title: lightColors.grey[15],
   primaryText: lightColors.grey[14],
   secondaryText: lightColors.grey[13],
-  disabled: lightColors.grey[7],
+  disabled: lightColors.grey[4],
   border: lightColors.grey[4],
 };

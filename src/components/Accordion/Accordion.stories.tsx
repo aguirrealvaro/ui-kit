@@ -27,7 +27,7 @@ export const Primary: ComponentStory<typeof Accordion> = () => {
         praesentium ipsa quia vero odio quidem.Lorem ipsum dolor sit amet, consectetur
         adipisicing elit. Placeat maxime corporis ullam voluptate quasi amet accusamus quae at
       </Accordion>
-      <Accordion title="Click me 3" showBorder>
+      <Accordion title="Click me 3" showBorder disabled>
         Lorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetur adipisicing elit.
         Placeat maxime corporis ullam voluptate quasi amet accusamus quae at laborum! Autem
         voluptas dolorum libero laboriosam praesentium ipsa quia vero odio quidem.Lorem ipsum

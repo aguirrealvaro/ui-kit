@@ -30,7 +30,7 @@ const Item = styled.button`
     margin-right: 0rem;
   }
   &:disabled {
-    opacity: 0.5;
+    color: ${({ theme }) => theme.assets.disabled};
     cursor: not-allowed;
   }
 `;

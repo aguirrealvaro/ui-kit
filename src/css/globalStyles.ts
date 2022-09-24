@@ -13,7 +13,7 @@ export const GlobalStyles = createGlobalStyle<{ theme: ThemeType }>`
   body {
     font-family: ${({ theme }) => theme.typography.fontFamilies.body};
     font-size: ${({ theme }) => theme.typography.fontSizes.md};
-    color: ${({ theme }) => theme.colors.grey[15]};
+    color: ${({ theme }) => theme.assets.primaryText};
     background-color: ${({ theme }) => theme.colors.grey[2]};
   }
   

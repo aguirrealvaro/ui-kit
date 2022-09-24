@@ -63,7 +63,7 @@ const Container = styled.div<{ disabled: boolean }>`
     if (disabled) {
       return css`
         cursor: not-allowed;
-        color: ${theme.colors.grey[5]};
+        color: ${theme.assets.disabled};
       `;
     }
   }}
@@ -91,16 +91,17 @@ const Pill = styled.span<{ checked: boolean; size: number; color: string; disabl
       `;
     } else {
       return css`
-        background-color: ${theme.colors.grey[6]};
+        background-color: ${theme.colors.grey[7]};
         box-shadow: ${({ theme }) => theme.shadows.inset};
       `;
     }
   }}
-  ${({ disabled }) => {
+  ${({ disabled, theme }) => {
     if (disabled) {
       return css`
         cursor: not-allowed;
-        opacity: 0.5;
+        background-color: ${theme.assets.disabled};
+        //opacity: 0.5;
       `;
     }
   }}

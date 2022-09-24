@@ -70,8 +70,8 @@ const Button = styled.button<{ arrowPosition: AccordionArrowPosition }>`
   width: 100%;
   padding: 1rem 0;
   &:disabled {
-    opacity: 0.5;
     cursor: not-allowed;
+    color: ${({ theme }) => theme.assets.disabled};
   }
 `;
 
