@@ -9,12 +9,12 @@ import { ToastVariantType, ToastProps } from "./Toast.types";
 import { Icon } from "@/components/Icon";
 import { useTheme, useToast } from "@/hooks";
 
-const DURATION = 3000;
+const TOAST_DURATION = 3000;
 
 export const Toast: FunctionComponent<ToastProps> = ({
   children,
   id,
-  permanent,
+  duration = TOAST_DURATION,
   variant = "default",
 }) => {
   const { theme } = useTheme();
@@ -26,7 +26,7 @@ export const Toast: FunctionComponent<ToastProps> = ({
   const toast = useToast();
 
   useEffect(() => {
-    if (permanent) return;
+    if (duration === "infinite") return;
 
     timeoutRef.current = window.setTimeout(() => {
       setIsClosing(true);
@@ -34,8 +34,8 @@ export const Toast: FunctionComponent<ToastProps> = ({
         setIsClosing(false);
         toast.remove(id);
       }, transitionTime);
-    }, DURATION);
-  }, [id, toast, permanent, transitionTime]);
+    }, duration);
+  }, [id, toast, transitionTime, duration]);
 
   const closeToast = () => {
     setIsClosing(true);

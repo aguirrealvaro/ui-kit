@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 export type ToastVariantType = "default" | "positive" | "negative" | "warning" | "neutral";
 
 export type ToastOptions = {
-  permanent?: boolean;
+  duration?: number | "infinite";
   variant?: ToastVariantType;
 };
 
