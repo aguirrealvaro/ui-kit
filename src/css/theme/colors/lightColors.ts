@@ -10,9 +10,9 @@ export const lightColors: CollorsType = {
     2: "#EDEDED",
     3: "#DBDBDB",
     4: "#C8C8C8",
-    5: "#B6B6B6", // disabled
-    6: "#A4A4A4", // border
-    7: "#929292", // base
+    5: "#B6B6B6",
+    6: "#A4A4A4",
+    7: "#929292",
     8: "#808080",
     9: "#6D6D6D",
     10: "#5B5B5B",
