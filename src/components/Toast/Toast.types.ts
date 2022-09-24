@@ -10,5 +10,5 @@ export type ToastOptions = {
 export type ToastProps = {
   children?: ReactNode;
   id: number;
-  content: string;
+  content: ReactNode;
 } & ToastOptions;

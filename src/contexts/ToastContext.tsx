@@ -10,7 +10,7 @@ import { ToastOptions, ToastProps } from "@/components/Toast/Toast.types";
 import { ToastContainer } from "@/components/Toast/ToastContainer";
 
 export type ToastContextType = {
-  open: (content: string, options?: ToastOptions) => void;
+  open: (content: ReactNode, options?: ToastOptions) => void;
   remove: (id: number) => void;
 };
 
@@ -24,12 +24,9 @@ export const ToastProvider: FunctionComponent<ToastProviderProps> = ({ children 
   const toastIdRef = useRef<number>(0);
   const [toasts, setToast] = useState<ToastProps[]>([]);
 
-  const open = useCallback(
-    (content: string, options: ToastOptions = { permanent: false, variant: "default" }) => {
-      setToast((toasts) => [...toasts, { id: toastIdRef.current++, content, ...options }]);
-    },
-    []
-  );
+  const open = useCallback((content: ReactNode, options?: ToastOptions) => {
+    setToast((toasts) => [...toasts, { id: toastIdRef.current++, content, ...options }]);
+  }, []);
 
   const remove = useCallback((id: number) => {
     setToast((toasts) => toasts.filter((toast) => toast.id !== id));
