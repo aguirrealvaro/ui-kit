@@ -9,12 +9,10 @@ import { ToastVariantType, ToastProps } from "./Toast.types";
 import { Icon } from "@/components/Icon";
 import { useTheme, useToast } from "@/hooks";
 
-const TOAST_DURATION = 3000;
-
 export const Toast: FunctionComponent<ToastProps> = ({
   children,
   id,
-  duration = TOAST_DURATION,
+  duration = 3000,
   variant = "default",
 }) => {
   const { theme } = useTheme();
