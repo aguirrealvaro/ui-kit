@@ -219,7 +219,7 @@ const Dropdown = styled.div<{ size: SelectSizeType }>`
   z-index: ${({ theme }) => theme.zIndices.dropdown};
   padding: 0.5rem;
   border: 1px solid ${({ theme }) => theme.colors.grey[5]};
-  background-color: ${({ theme }) => theme.colors.grey[4]};
+  background-color: ${({ theme }) => theme.colors.grey[3]};
   box-shadow: ${({ theme }) => theme.shadows.sm};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   width: 100%;
