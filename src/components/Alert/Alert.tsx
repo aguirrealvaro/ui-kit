@@ -34,7 +34,7 @@ export const Alert: FunctionComponent<AlertProps> = ({
     positive: { icon: CheckCircleFill, color: theme.colors.green.base },
     warning: { icon: AlertIcon, color: theme.colors.yellow.base },
     negative: { icon: CloseCircle, color: theme.colors.red.base },
-    neutral: { icon: InfoCircleFill, color: theme.colors.grey[13] },
+    neutral: { icon: InfoCircleFill, color: theme.colors.grey[15] },
   };
 
   return (

@@ -31,7 +31,7 @@ export const SVGIcon: FunctionComponent<IconProps> = ({
       marginRight={marginRight}
       marginLeft={marginLeft}
     >
-      {paths[icon](color || theme.colors.grey[13])}
+      {paths[icon](color || theme.colors.grey[15])}
     </SVG>
   );
 };

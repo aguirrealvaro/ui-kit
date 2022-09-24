@@ -88,7 +88,7 @@ const Container = styled.div<{
       positive: theme.colors.green.base,
       warning: theme.colors.yellow.base,
       negative: theme.colors.red.base,
-      neutral: theme.colors.grey[13],
+      neutral: theme.colors.grey[15],
     };
 
     return backgroundColor[variant];

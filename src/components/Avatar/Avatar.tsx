@@ -44,7 +44,7 @@ const Container = styled.div<{ size: number; isError: boolean }>`
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: ${theme.colors.grey[13]};
+        background-color: ${theme.colors.grey[15]};
         color: ${theme.colors.grey[1]};
         overflow: hidden;
       `;

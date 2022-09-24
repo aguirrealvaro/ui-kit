@@ -62,7 +62,7 @@ const TabItem = styled.div<{ active: boolean }>`
       `;
     } else {
       return css`
-        color: ${theme.colors.grey[13]};
+        color: ${theme.colors.grey[15]};
         border-bottom: 2px solid transparent;
       `;
     }

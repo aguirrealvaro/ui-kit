@@ -18,7 +18,7 @@ export const Tooltip: FunctionComponent<PopoverProps> = ({
 
 const Content = styled.div`
   padding: 0.7rem;
-  background-color: ${({ theme }) => theme.colors.grey[13]};
+  background-color: ${({ theme }) => theme.colors.grey[15]};
   color: ${({ theme }) => theme.colors.grey[1]};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   font-size: ${({ theme }) => theme.typography.fontSizes.sm};
