@@ -72,7 +72,7 @@ const Container = styled.table<{ divider: TableDividerType }>`
 const TableRowHeader = styled.tr<{ divider: TableDividerType }>`
   display: flex;
   border-color: ${({ theme }) => theme.colors.grey[6]};
-  background-color: ${({ theme }) => theme.colors.grey[5]};
+  background-color: ${({ theme }) => theme.colors.grey[4]};
   ${({ divider, theme }) => {
     const dividerStyles: Record<TableDividerType, FlattenSimpleInterpolation | undefined> = {
       clean: undefined,
@@ -123,10 +123,10 @@ const TableRowData = styled.tr<{ divider: TableDividerType }>`
     background-color: ${({ theme }) => theme.colors.grey[1]};
   }
   &:nth-child(even) {
-    background-color: ${({ theme }) => theme.colors.grey[3]};
+    background-color: ${({ theme }) => theme.colors.grey[2]};
   }
   &:hover:not([disabled]) {
-    background-color: ${({ theme }) => theme.colors.grey[4]};
+    background-color: ${({ theme }) => theme.colors.grey[3]};
   }
   ${({ divider, theme }) => {
     const dividerStyles: Record<TableDividerType, FlattenSimpleInterpolation | undefined> = {
