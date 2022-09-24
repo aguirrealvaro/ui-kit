@@ -9,9 +9,9 @@ export const Primary = () => {
 
   return (
     <Container>
-      {Object.entries(theme.shadows).map(([size, shadow]) => {
+      {Object.entries(theme.shadows).map(([size, shadow], index) => {
         return (
-          <div>
+          <div key={index}>
             <Title>{size}</Title>
             <ShadowBox shadow={shadow}></ShadowBox>
           </div>
