@@ -1,4 +1,4 @@
-import { CollorsType } from "./types";
+import { AssetsType, CollorsType } from "./types";
 
 // Asset colors: title, primary text, secondary text, disable, border, dividers, background, transparency
 
@@ -178,4 +178,12 @@ export const lightColors: CollorsType = {
     9: "#780650",
     10: "#520339",
   },
+};
+
+export const lightAssets: AssetsType = {
+  title: lightColors.grey[15],
+  primaryText: lightColors.grey[14],
+  secondaryText: lightColors.grey[13],
+  disabled: lightColors.grey[7],
+  border: lightColors.grey[4],
 };

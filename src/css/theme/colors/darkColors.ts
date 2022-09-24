@@ -1,4 +1,4 @@
-import { CollorsType } from "./types";
+import { AssetsType, CollorsType } from "./types";
 
 export const darkColors: CollorsType = {
   brand: "#177ddc",
@@ -176,4 +176,12 @@ export const darkColors: CollorsType = {
     9: "#f8a8cc",
     10: "#fad2e3",
   },
+};
+
+export const darkAssets: AssetsType = {
+  title: darkColors.grey[15],
+  primaryText: darkColors.grey[14],
+  secondaryText: darkColors.grey[13],
+  disabled: darkColors.grey[7],
+  border: darkColors.grey[4],
 };

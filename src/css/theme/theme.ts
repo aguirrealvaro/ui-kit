@@ -1,6 +1,9 @@
 import { borderRadius, BorderRadiusType } from "./borderRadius";
 import { breakpoints, BreakpointSize } from "./breakpoints";
 import { type CollorsType, lightColors, darkColors } from "./colors";
+import { darkAssets } from "./colors/darkColors";
+import { lightAssets } from "./colors/lightColors";
+import { AssetsType } from "./colors/types";
 import { shadows, ShadowsType } from "./shadows";
 import { transitions, TransitionsType } from "./transitions";
 import { typography, TypographyType } from "./typography";
@@ -16,10 +19,12 @@ export type ThemeType = {
   zIndices: ZIndexType;
   shadows: ShadowsType;
   transitions: TransitionsType;
+  assets: AssetsType;
 };
 
 export const getTheme = (themeMode: ThemeModeType): ThemeType => {
   const colors = themeMode === "light" ? lightColors : darkColors;
+  const assets = themeMode === "light" ? lightAssets : darkAssets;
 
   return {
     typography,
@@ -29,5 +34,6 @@ export const getTheme = (themeMode: ThemeModeType): ThemeType => {
     zIndices,
     shadows,
     transitions,
+    assets,
   };
 };
