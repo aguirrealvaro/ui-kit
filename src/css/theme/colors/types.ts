@@ -18,6 +18,6 @@ type GreyVariants = Variants | 11 | 12 | 13 | 14 | 15;
 export type CollorsType = Record<Colors, Record<Variants, string>> &
   Record<"grey", Record<GreyVariants, string>> & { brand: string };
 
-type Assets = "title" | "primaryText" | "secondaryText" | "disabled" | "border";
+type Assets = "title" | "primaryText" | "secondaryText" | "disabled" | "border" | "background";
 
 export type AssetsType = Record<Assets, string>;
