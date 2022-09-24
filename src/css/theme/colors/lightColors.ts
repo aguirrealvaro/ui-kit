@@ -1,7 +1,5 @@
 import { AssetsType, CollorsType } from "./types";
 
-// Asset colors: title, primary text, secondary text, disable, border, dividers, background, transparency
-
 export const lightColors: CollorsType = {
   brand: "#1890ff",
   grey: {
