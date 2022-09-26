@@ -7,3 +7,5 @@ export const breakpoints: Record<BreakpointSize, string> = {
   lg: "1280px",
   xl: "1440px",
 };
+
+export const BREAKPOINTS_ORDER: BreakpointSize[] = ["md", "sm", "sm", "lg", "xl"];

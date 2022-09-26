@@ -1,6 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Title } from "@/components";
-import { useTheme } from "@/hooks";
 
 export default {
   title: "Components/Title",
@@ -8,8 +7,6 @@ export default {
 } as ComponentMeta<typeof Title>;
 
 export const Primary: ComponentStory<typeof Title> = () => {
-  const { theme } = useTheme();
-
   const breakpoints = {
     xs: "480px",
     sm: "768px",
@@ -26,16 +23,8 @@ export const Primary: ComponentStory<typeof Title> = () => {
     xl: "50px",
   };
 
-  const sizes2 = {
-    xl: "50px",
-    lg: "40px",
-    md: "30px",
-    sm: "20px",
-    xs: "10px",
-  };
-
   return (
-    <Title as="h2" /* size="xxxl" */ weight="bold" size={sizes1}>
+    <Title as="h2" /* size="3xl" */ weight="bold" size={sizes1}>
       titulo
     </Title>
   );

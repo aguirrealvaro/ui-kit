@@ -1,7 +1,7 @@
 import { FunctionComponent, ReactNode } from "react";
 import styled, { css } from "styled-components";
 import { TitleSizeType, TitleType } from "./Title.types";
-import { BreakpointSize } from "@/css/theme/breakpoints";
+import { BreakpointSize, BREAKPOINTS_ORDER } from "@/css/theme/breakpoints";
 import { FontWeight } from "@/css/theme/typography";
 
 type TitleProps = {
@@ -29,13 +29,28 @@ const Container = styled.div<{ size: TitleSizeType; weight: FontWeight }>`
       `;
     } else {
       let styles = "";
-      Object.entries(size).forEach(([key, value]) => {
-        styles += `
+      Object.entries(size)
+        .sort(([, a], [, b]) => {
+          const asd =
+            BREAKPOINTS_ORDER.indexOf(a as BreakpointSize) -
+            BREAKPOINTS_ORDER.indexOf(b as BreakpointSize);
+
+          console.log(asd);
+
+          return (
+            BREAKPOINTS_ORDER.indexOf(a as BreakpointSize) +
+            BREAKPOINTS_ORDER.indexOf(b as BreakpointSize)
+          );
+        })
+        .forEach(([key, value]) => {
+          styles += `
           ${theme.breakpoint(key as BreakpointSize)} {
             font-size: ${value};
           }
         `;
-      });
+        });
+
+      console.log(styles);
       return css`
         ${styles}
       `;
