@@ -4,11 +4,11 @@ type FontFamilyType = {
   mono: string;
 };
 
-type FontSize = "xs" | "sm" | "md" | "lg" | "xl" | "xxl" | "xxxl";
+export type FontSize = "xs" | "sm" | "md" | "lg" | "xl" | "xxl" | "xxxl";
 
 type FontSizeType = Record<FontSize, string>;
 
-type FontWeight = "normal" | "medium" | "semibold" | "bold";
+export type FontWeight = "normal" | "medium" | "semibold" | "bold";
 
 type FontWeightType = Record<FontWeight, number>;
 
