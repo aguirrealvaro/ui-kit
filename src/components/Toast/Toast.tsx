@@ -1,6 +1,7 @@
 import { FunctionComponent, useEffect, useRef, useState } from "react";
 import { CheckCircleFill } from "@styled-icons/bootstrap/CheckCircleFill";
 import { InfoCircleFill } from "@styled-icons/bootstrap/InfoCircleFill";
+import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import { Alert } from "@styled-icons/remix-fill/Alert";
 import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
 import styled, { css, keyframes } from "styled-components";
@@ -54,7 +55,6 @@ export const Toast: FunctionComponent<ToastProps> = ({
 
   return (
     <Container
-      onClick={closeToast}
       isClosing={isClosing}
       variant={variant}
       role="alert"
@@ -62,8 +62,18 @@ export const Toast: FunctionComponent<ToastProps> = ({
     >
       <Icon icon={variantIcons[variant]} size={18} color={iconColor[variant]} />
       <div>{children}</div>
+      <CloseButton onClick={closeToast}>
+        <Icon icon={CloseOutline} color={theme.colors.grey.base} size={15} />
+      </CloseButton>
     </Container>
   );
+};
+const variantIcons: Record<ToastVariantType, StyledIcon> = {
+  default: InfoCircleFill,
+  positive: CheckCircleFill,
+  warning: Alert,
+  negative: CloseCircle,
+  neutral: InfoCircleFill,
 };
 
 const getColorValues = (theme: ThemeType) => {
@@ -91,7 +101,7 @@ const Container = styled.div<{
   position: relative;
   display: flex;
   gap: 8px;
-  padding: 1rem;
+  padding: 1rem 3rem 1rem 1rem;
   color: ${({ theme }) => theme.colors.grey[15]};
   border-radius: ${({ theme }) => theme.borderRadius.sm};
   margin-bottom: 1rem;
@@ -117,10 +127,9 @@ const Container = styled.div<{
   }};
 `;
 
-const variantIcons: Record<ToastVariantType, StyledIcon> = {
-  default: InfoCircleFill,
-  positive: CheckCircleFill,
-  warning: Alert,
-  negative: CloseCircle,
-  neutral: InfoCircleFill,
-};
+const CloseButton = styled.button`
+  line-height: 0;
+  position: absolute;
+  top: 6px;
+  right: 6px;
+`;
