@@ -6,7 +6,7 @@ import {
   useState,
   ReactNode,
 } from "react";
-import { ToastOptions, ToastProps } from "@/components/Toast/Toast.types";
+import { ToastOptions, ToastPositionType, ToastProps } from "@/components/Toast/Toast.types";
 import { ToastContainer } from "@/components/Toast/ToastContainer";
 
 export type ToastContextType = {
@@ -18,9 +18,13 @@ export const ToastContext = createContext<ToastContextType>({} as ToastContextTy
 
 type ToastProviderProps = {
   children: ReactNode;
+  position?: ToastPositionType;
 };
 
-export const ToastProvider: FunctionComponent<ToastProviderProps> = ({ children }) => {
+export const ToastProvider: FunctionComponent<ToastProviderProps> = ({
+  children,
+  position = "top",
+}) => {
   const toastIdRef = useRef<number>(0);
   const [toasts, setToast] = useState<ToastProps[]>([]);
 
@@ -34,7 +38,7 @@ export const ToastProvider: FunctionComponent<ToastProviderProps> = ({ children 
 
   return (
     <ToastContext.Provider value={{ open, remove }}>
-      {!!toasts.length && <ToastContainer toasts={toasts} />}
+      {!!toasts.length && <ToastContainer toasts={toasts} position={position} />}
       {children}
     </ToastContext.Provider>
   );

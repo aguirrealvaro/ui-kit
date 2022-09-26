@@ -63,9 +63,9 @@ export const Toast: FunctionComponent<ToastProps> = ({
   );
 };
 
-const translate = keyframes`
-  from { transform: translateY(-100%); }
-  to { transform: translateX(0); }
+const fadeInScale = keyframes`
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1);}
 `;
 
 const Container = styled.div<{
@@ -94,13 +94,16 @@ const Container = styled.div<{
   &:last-child {
     margin-bottom: 0;
   }
-  animation: ${translate} ${({ transitionTime }) => transitionTime}ms linear;
-  ${({ isClosing, transitionTime }) =>
-    isClosing &&
-    css`
-      transform: translateY(-100%);
-      transition: transform ${transitionTime}ms linear;
-    `}
+  animation: ${fadeInScale} ${({ transitionTime }) => transitionTime}ms linear;
+  ${({ isClosing, transitionTime }) => {
+    if (isClosing) {
+      return css`
+        opacity: 0;
+        transform: scale(0.9);
+        transition: all ${transitionTime}ms ease-out;
+      `;
+    }
+  }};
 `;
 
 const variantIcons: Record<ToastVariantType, StyledIcon> = {
