@@ -7,14 +7,6 @@ export default {
 } as ComponentMeta<typeof Title>;
 
 export const Primary: ComponentStory<typeof Title> = () => {
-  const breakpoints = {
-    xs: "480px",
-    sm: "768px",
-    md: "992px",
-    lg: "1280px",
-    xl: "1440px",
-  };
-
   const sizes1 = {
     xs: "10px",
     sm: "20px",

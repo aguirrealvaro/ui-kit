@@ -30,15 +30,9 @@ const Container = styled.div<{ size: TitleSizeType; weight: FontWeight }>`
     } else {
       let styles = "";
       Object.entries(size)
-        .sort(([, a], [, b]) => {
-          const asd =
-            BREAKPOINTS_ORDER.indexOf(a as BreakpointSize) -
-            BREAKPOINTS_ORDER.indexOf(b as BreakpointSize);
-
-          console.log(asd);
-
+        .sort(([a], [b]) => {
           return (
-            BREAKPOINTS_ORDER.indexOf(a as BreakpointSize) +
+            BREAKPOINTS_ORDER.indexOf(a as BreakpointSize) -
             BREAKPOINTS_ORDER.indexOf(b as BreakpointSize)
           );
         })
