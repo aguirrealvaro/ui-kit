@@ -1,12 +1,13 @@
 import { FunctionComponent, ReactNode } from "react";
-import styled from "styled-components";
-import { TitleType } from "./Title.types";
-import { FontSize, FontWeight } from "@/css/theme/typography";
+import styled, { css } from "styled-components";
+import { TitleSizeType, TitleType } from "./Title.types";
+import { BreakpointSize } from "@/css/theme/breakpoints";
+import { FontWeight } from "@/css/theme/typography";
 
 type TitleProps = {
   children: ReactNode;
   as: TitleType;
-  size: FontSize;
+  size: TitleSizeType;
   weight: FontWeight;
 };
 
@@ -18,8 +19,26 @@ export const Title: FunctionComponent<TitleProps> = ({ children, as, size, weigh
   );
 };
 
-const Container = styled.div<{ size: FontSize; weight: FontWeight }>`
+const Container = styled.div<{ size: TitleSizeType; weight: FontWeight }>`
   font-family: ${({ theme }) => theme.typography.fontFamilies.heading};
-  font-size: ${({ theme, size }) => theme.typography.fontSizes[size]};
   font-weight: ${({ theme, weight }) => theme.typography.fontWeights[weight]};
+  ${({ size, theme }) => {
+    if (typeof size === "string") {
+      return css`
+        font-size: ${theme.typography.fontSizes[size]};
+      `;
+    } else {
+      let styles = "";
+      Object.entries(size).forEach(([key, value]) => {
+        styles += `
+          ${theme.breakpoint(key as BreakpointSize)} {
+            font-size: ${value};
+          }
+        `;
+      });
+      return css`
+        ${styles}
+      `;
+    }
+  }};
 `;
