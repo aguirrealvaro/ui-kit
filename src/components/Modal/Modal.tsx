@@ -114,7 +114,7 @@ const Content = styled.div<{ size: number; fadeOut: boolean }>`
 const CloseButton = styled.button`
   line-height: 0;
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 6px;
+  right: 6px;
   padding: 6px;
 `;

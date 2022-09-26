@@ -1,11 +1,11 @@
 import { FunctionComponent, ReactNode } from "react";
 import styled from "styled-components";
-import { HeadingType } from "./Title.types";
+import { TitleType } from "./Title.types";
 import { FontSize, FontWeight } from "@/css/theme/typography";
 
 type TitleProps = {
   children: ReactNode;
-  as: HeadingType;
+  as: TitleType;
   size: FontSize;
   weight: FontWeight;
 };
