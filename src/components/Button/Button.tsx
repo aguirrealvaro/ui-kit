@@ -159,8 +159,8 @@ const getColorStyles = (
       color: ${theme.colors.grey[1]};
       border-color: ${theme.colors.grey[15]};
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.grey[10]};
-        border-color: ${theme.colors.grey[10]};
+        background-color: ${theme.colors.grey[13]};
+        border-color: ${theme.colors.grey[13]};
       }
     `,
   };
