@@ -1,10 +1,10 @@
 import { AvatarSizeType } from "./Avatar.types";
 
 export const AVATAR_SIZES: Record<AvatarSizeType, number> = {
-  xxs: 30,
-  xs: 48,
-  sm: 64,
-  md: 80,
-  lg: 96,
-  xl: 112,
+  xs: 30,
+  sm: 48,
+  md: 64,
+  lg: 80,
+  xl: 96,
+  "2xl": 112,
 };
