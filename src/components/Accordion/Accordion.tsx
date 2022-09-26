@@ -3,6 +3,7 @@ import { ChevronDown } from "@styled-icons/boxicons-regular/ChevronDown";
 import styled, { css } from "styled-components";
 import { AccordionArrowPosition } from "./Accordion.types";
 import { Icon } from "@/components";
+import { useTheme } from "@/hooks";
 
 type AccordionProps = {
   title: ReactNode;
@@ -19,6 +20,7 @@ export const Accordion: FunctionComponent<AccordionProps> = ({
   showBorder = false,
   arrowPosition = "right",
 }) => {
+  const { theme } = useTheme();
   const [active, setActive] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -30,7 +32,11 @@ export const Accordion: FunctionComponent<AccordionProps> = ({
       <Button onClick={toggle} disabled={disabled} arrowPosition={arrowPosition}>
         <Title arrowPosition={arrowPosition}>{title}</Title>
         <ChevronWrapper active={active} arrowPosition={arrowPosition}>
-          <Icon icon={ChevronDown} size={20} />
+          <Icon
+            icon={ChevronDown}
+            size={20}
+            {...(disabled && { color: theme.assets.disabled })}
+          />
         </ChevronWrapper>
       </Button>
       <Content ref={ref} height={height} active={active}>
