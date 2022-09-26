@@ -8,6 +8,7 @@ import {
   ButtonShapeType,
 } from "./Button.types";
 import { ThemeType } from "@/css";
+import { useTheme } from "@/hooks";
 
 type ButtonProps = {
   block?: boolean;
@@ -35,13 +36,16 @@ export const Button: FunctionComponent<
   rightIcon,
   ...restProps
 }) => {
+  const { theme } = useTheme();
+
   const handleOnClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (isLoading) return;
     onClick?.(e);
   };
 
   const renderChildren = () => {
-    if (isLoading) return <Spinner size="xs" />;
+    if (isLoading) return <Spinner size="xs" color={theme.colors.grey[15]} />;
+
     return (
       <InnerContainer>
         {leftIcon ? leftIcon : null}
