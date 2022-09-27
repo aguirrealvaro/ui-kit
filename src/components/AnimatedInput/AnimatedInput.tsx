@@ -229,7 +229,7 @@ const CustomInput = styled.input<{
   }};
   height: ${({ hasPlaceholder }) => (hasPlaceholder ? "72%" : "100%")};
   bottom: 0;
-  color: ${({ theme }) => theme.colors.grey[12]};
+  color: ${({ theme }) => theme.colors.grey[9]};
   &:focus + label {
     ${getFocusedLabelStyles};
     color: ${({ theme, error, isSuccess }) => {

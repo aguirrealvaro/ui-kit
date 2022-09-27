@@ -33,12 +33,12 @@ const Container = styled.div<{ variant: BadgeVariantType }>`
         background-color: ${theme.colors.red.base};
       `,
       warning: css`
-        color: ${theme.colors.grey[15]};
+        color: ${theme.colors.grey[10]};
         background-color: ${theme.colors.yellow.base};
       `,
       neutral: css`
         color: ${theme.colors.grey[1]};
-        background-color: ${theme.colors.grey[15]};
+        background-color: ${theme.colors.grey[10]};
       `,
     };
     return variantStyles[variant];

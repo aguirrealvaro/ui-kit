@@ -44,7 +44,7 @@ export const Button: FunctionComponent<
   };
 
   const renderChildren = () => {
-    if (isLoading) return <Spinner size="xs" color={theme.colors.grey[15]} />;
+    if (isLoading) return <Spinner size="xs" color={theme.colors.grey[10]} />;
 
     return (
       <InnerContainer>
@@ -142,7 +142,7 @@ const getColorStyles = (
     `,
     warning: css`
       background-color: ${theme.colors.yellow.base};
-      color: ${theme.colors.grey[15]};
+      color: ${theme.colors.grey[10]};
       border-color: ${theme.colors.yellow.base};
       &:hover:not([disabled]) {
         background-color: ${theme.colors.yellow[5]};
@@ -159,12 +159,12 @@ const getColorStyles = (
       }
     `,
     neutral: css`
-      background-color: ${theme.colors.grey[15]};
+      background-color: ${theme.colors.grey[10]};
       color: ${theme.colors.grey[1]};
-      border-color: ${theme.colors.grey[15]};
+      border-color: ${theme.colors.grey[10]};
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.grey[13]};
-        border-color: ${theme.colors.grey[13]};
+        background-color: ${theme.colors.grey[9]};
+        border-color: ${theme.colors.grey[9]};
       }
     `,
   };
@@ -205,8 +205,8 @@ const getColorStyles = (
       }
     `,
     neutral: css`
-      color: ${theme.colors.grey[15]};
-      border-color: ${theme.colors.grey[15]};
+      color: ${theme.colors.grey[10]};
+      border-color: ${theme.colors.grey[10]};
       background-color: transparent;
       &:hover:not([disabled]) {
         background-color: ${outlinedHover};
@@ -240,7 +240,7 @@ const getColorStyles = (
       }
     `,
     neutral: css`
-      color: ${theme.colors.grey[15]};
+      color: ${theme.colors.grey[10]};
       &:hover:not([disabled]) {
         background-color: ${theme.colors.grey[3]};
       }
@@ -273,7 +273,7 @@ const getColorStyles = (
       }
     `,
     neutral: css`
-      color: ${theme.colors.grey[15]};
+      color: ${theme.colors.grey[10]};
       &:hover:not([disabled]) {
         text-decoration: underline;
       }
@@ -317,8 +317,8 @@ const getColorStyles = (
       border-color: ${theme.colors.grey[5]};
       color: ${theme.colors.grey.base};
       &:hover:not([disabled]) {
-        color: ${theme.colors.grey[15]};
-        border-color: ${theme.colors.grey[15]};
+        color: ${theme.colors.grey[10]};
+        border-color: ${theme.colors.grey[10]};
       }
     `,
   };

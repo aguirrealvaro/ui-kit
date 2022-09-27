@@ -82,7 +82,7 @@ const getColorValues = (theme: ThemeType) => {
     positive: theme.colors.green.base,
     warning: theme.colors.yellow.base,
     negative: theme.colors.red.base,
-    neutral: theme.colors.grey[15],
+    neutral: theme.colors.grey[10],
   };
 
   return colorValues;
@@ -102,7 +102,7 @@ const Container = styled.div<{
   display: flex;
   gap: 8px;
   padding: 1rem 3rem 1rem 1rem;
-  color: ${({ theme }) => theme.colors.grey[15]};
+  color: ${({ theme }) => theme.colors.grey[10]};
   border-radius: ${({ theme }) => theme.borderRadius.sm};
   margin-bottom: 1rem;
   background-color: ${({ theme }) => theme.colors.grey[1]};
