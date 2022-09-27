@@ -28,24 +28,41 @@ const Container = styled.div<{ size: TitleSizeType; weight: FontWeight }>`
         font-size: ${theme.typography.fontSizes[size]};
       `;
     } else {
-      let breakpointStyles = "";
-      Object.entries(size)
-        .sort(([a], [b]) => {
-          return (
-            BREAKPOINTS_ORDER.indexOf(a as BreakpointSize) -
-            BREAKPOINTS_ORDER.indexOf(b as BreakpointSize)
-          );
-        })
-        .forEach(([key, value]) => {
-          breakpointStyles += `
-          ${theme.breakpoint(key as BreakpointSize)} {
-            font-size: ${value};
-          }
-        `;
+      const baseFontSize = (() => {
+        const prioritySize = BREAKPOINTS_ORDER.find((bp) => {
+          return Object.keys(size).includes(bp);
         });
 
+        if (prioritySize) {
+          return `font-size: ${size[prioritySize]};`;
+        } else {
+          return "";
+        }
+      })();
+
+      const breakpointFontSizes = (() => {
+        let breakpointStyles = "";
+
+        Object.entries(size)
+          .sort(([a], [b]) => {
+            return (
+              BREAKPOINTS_ORDER.indexOf(a as BreakpointSize) -
+              BREAKPOINTS_ORDER.indexOf(b as BreakpointSize)
+            );
+          })
+          .forEach(([key, value]) => {
+            breakpointStyles += `${theme.breakpoint(
+              key as BreakpointSize
+            )} {font-size: ${value};}
+        `;
+          });
+
+        return breakpointStyles;
+      })();
+
       return css`
-        ${breakpointStyles}
+        ${baseFontSize}
+        ${breakpointFontSizes}
       `;
     }
   }};

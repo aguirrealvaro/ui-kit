@@ -16,7 +16,7 @@ export const Primary: ComponentStory<typeof Title> = () => {
   };
 
   return (
-    <Title as="h2" /* size="3xl" */ weight="bold" size={{ md: "30px" }}>
+    <Title as="h2" /* size="3xl" */ weight="bold" size={breakSizes}>
       titulo
     </Title>
   );
