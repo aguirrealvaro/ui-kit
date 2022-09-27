@@ -46,7 +46,7 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children }) => {
 const TabList = styled.div`
   display: flex;
   margin-bottom: 1rem;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.grey[6]};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.grey[4]};
   //overflow-y: hidden;
   flex-wrap: wrap;
 `;

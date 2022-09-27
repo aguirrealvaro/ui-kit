@@ -16,7 +16,7 @@ export const darkColors: CollorsType = {
     10: "#F9FAFB",
   },
   red: {
-    base: "#cf494c",
+    base: "#e57775",
     1: "#271a28",
     2: "#3f212d",
     3: "#542934",
@@ -42,7 +42,7 @@ export const darkColors: CollorsType = {
     10: "#fad6bf",
   },
   yellow: {
-    base: "#a76a08",
+    base: "#845610",
     1: "#201e21",
     2: "#34291d",
     3: "#46351c",
@@ -81,7 +81,7 @@ export const darkColors: CollorsType = {
     10: "#8fd2d0",
   },
   blue: {
-    base: "#3873d9",
+    base: "#6097e9",
     1: "#121f3b",
     2: "#172b52",
     3: "#1f3866",

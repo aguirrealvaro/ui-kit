@@ -16,7 +16,7 @@ export const lightColors: CollorsType = {
     10: "#111827",
   },
   red: {
-    base: "#F05252",
+    base: "#E02424",
     1: "#FDF2F2",
     2: "#FDE8E8",
     3: "#FBD5D5",
@@ -42,7 +42,7 @@ export const lightColors: CollorsType = {
     10: "#771D1D",
   },
   yellow: {
-    base: "#C27803",
+    base: "#E3A008",
     1: "#FDFDEA",
     2: "#FDF6B2",
     3: "#FCE96A",
@@ -81,7 +81,7 @@ export const lightColors: CollorsType = {
     10: "#014451",
   },
   blue: {
-    base: "#3F83F8",
+    base: "#1C64F2",
     1: "#EBF5FF",
     2: "#E1EFFE",
     3: "#C3DDFD",

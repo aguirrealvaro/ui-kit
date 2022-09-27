@@ -40,7 +40,7 @@ const Loader = styled.div<{ size: SpinnerSizeType; color: string }>`
     const borderSize = (numberSize * 3.9) / 32;
 
     return css`
-      border: ${borderSize}px solid ${theme.colors.grey[3]};
+      border: ${borderSize}px solid ${theme.colors.grey[4]};
       border-top: ${borderSize}px solid ${color};
       width: ${numberSize}px;
       height: ${numberSize}px;

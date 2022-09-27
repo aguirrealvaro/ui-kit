@@ -91,7 +91,7 @@ const Pill = styled.span<{ checked: boolean; size: number; color: string; disabl
       `;
     } else {
       return css`
-        background-color: ${theme.colors.grey[7]};
+        background-color: ${theme.colors.grey[5]};
         box-shadow: ${({ theme }) => theme.shadows.inset};
       `;
     }
@@ -101,7 +101,7 @@ const Pill = styled.span<{ checked: boolean; size: number; color: string; disabl
       return css`
         cursor: not-allowed;
         background-color: ${theme.assets.disabled};
-        //opacity: 0.5;
+        box-shadow: ${({ theme }) => theme.shadows.none};
       `;
     }
   }}

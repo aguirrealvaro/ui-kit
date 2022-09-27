@@ -55,14 +55,14 @@ const Container = styled.table<{ divider: TableDividerType }>`
   width: 100%;
   //overflow-x: scroll;
   border-spacing: 0;
-  border-color: ${({ theme }) => theme.colors.grey[6]};
+  border-color: ${({ theme }) => theme.colors.grey[5]};
   ${({ divider, theme }) => {
     const dividerStyles: Record<TableDividerType, FlattenSimpleInterpolation | undefined> = {
       clean: undefined,
       horizontal: undefined,
       vertical: undefined,
       grid: css`
-        border: 1px solid ${theme.colors.grey[6]};
+        border: 1px solid ${theme.colors.grey[5]};
       `,
     };
     return dividerStyles[divider];
@@ -71,19 +71,19 @@ const Container = styled.table<{ divider: TableDividerType }>`
 
 const TableRowHeader = styled.tr<{ divider: TableDividerType }>`
   display: flex;
-  border-color: ${({ theme }) => theme.colors.grey[6]};
+  border-color: ${({ theme }) => theme.colors.grey[5]};
   background-color: ${({ theme }) => theme.colors.grey[4]};
   ${({ divider, theme }) => {
     const dividerStyles: Record<TableDividerType, FlattenSimpleInterpolation | undefined> = {
       clean: undefined,
       horizontal: css`
-        border-bottom: 1px solid ${theme.colors.grey[6]};
+        border-bottom: 1px solid ${theme.colors.grey[5]};
       `,
       vertical: css`
-        border-bottom: 1px solid ${theme.colors.grey[6]};
+        border-bottom: 1px solid ${theme.colors.grey[5]};
       `,
       grid: css`
-        border-bottom: 1px solid ${theme.colors.grey[6]};
+        border-bottom: 1px solid ${theme.colors.grey[5]};
       `,
     };
     return dividerStyles[divider];
@@ -94,19 +94,19 @@ const TableHead = styled.th<{ size: number; divider: TableDividerType }>`
   flex: 1;
   text-align: left;
   padding: ${({ size }) => `${size}px`};
-  border-color: ${({ theme }) => theme.colors.grey[6]};
+  border-color: ${({ theme }) => theme.colors.grey[5]};
   ${({ divider, theme }) => {
     const dividerStyles: Record<TableDividerType, FlattenSimpleInterpolation | undefined> = {
       clean: undefined,
       horizontal: undefined,
       vertical: css`
-        border-right: 1px solid ${theme.colors.grey[6]};
+        border-right: 1px solid ${theme.colors.grey[5]};
         &:last-child {
           border-right: 0;
         }
       `,
       grid: css`
-        border-right: 1px solid ${theme.colors.grey[6]};
+        border-right: 1px solid ${theme.colors.grey[5]};
         &:last-child {
           border-right: 0;
         }
@@ -118,7 +118,7 @@ const TableHead = styled.th<{ size: number; divider: TableDividerType }>`
 
 const TableRowData = styled.tr<{ divider: TableDividerType }>`
   display: flex;
-  border-color: ${({ theme }) => theme.colors.grey[6]};
+  border-color: ${({ theme }) => theme.colors.grey[5]};
   &:nth-child(odd) {
     background-color: ${({ theme }) => theme.colors.grey[1]};
   }
@@ -132,14 +132,14 @@ const TableRowData = styled.tr<{ divider: TableDividerType }>`
     const dividerStyles: Record<TableDividerType, FlattenSimpleInterpolation | undefined> = {
       clean: undefined,
       horizontal: css`
-        border-bottom: 1px solid ${theme.colors.grey[6]};
+        border-bottom: 1px solid ${theme.colors.grey[5]};
         &:last-child {
           border-bottom: 0;
         }
       `,
       vertical: undefined,
       grid: css`
-        border-bottom: 1px solid ${theme.colors.grey[6]};
+        border-bottom: 1px solid ${theme.colors.grey[5]};
         &:last-child {
           border-bottom: 0;
         }
@@ -153,19 +153,19 @@ const TableData = styled.td<{ size: number; divider: TableDividerType }>`
   flex: 1;
   text-align: left;
   padding: ${({ size }) => `${size}px`};
-  border-color: ${({ theme }) => theme.colors.grey[6]};
+  border-color: ${({ theme }) => theme.colors.grey[5]};
   ${({ divider, theme }) => {
     const dividerStyles: Record<TableDividerType, FlattenSimpleInterpolation | undefined> = {
       clean: undefined,
       horizontal: undefined,
       vertical: css`
-        border-right: 1px solid ${theme.colors.grey[6]};
+        border-right: 1px solid ${theme.colors.grey[5]};
         &:last-child {
           border-right: 0;
         }
       `,
       grid: css`
-        border-right: 1px solid ${theme.colors.grey[6]};
+        border-right: 1px solid ${theme.colors.grey[5]};
         &:last-child {
           border-right: 0;
         }
