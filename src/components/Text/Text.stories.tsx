@@ -15,6 +15,9 @@ export const Primary: ComponentStory<typeof Text> = () => {
         Text 3xl
       </Text>
       <Text as="span">Span</Text>
+      <Text as="span" color="blue">
+        colored span
+      </Text>
       <Text as="strong">Strong</Text>
       <Text as="i">Italic</Text>
       <Text as="u">Underline</Text>

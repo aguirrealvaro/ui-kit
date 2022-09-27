@@ -2,17 +2,21 @@ import { FunctionComponent, ReactNode } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { TextType } from "./Text.types";
 import { FontSize, FontWeight } from "@/css/theme/typography";
+import { useTheme } from "@/hooks";
 
 type TextProps = {
   children: ReactNode;
   size?: FontSize;
   weight?: FontWeight;
   as?: TextType;
+  color?: string;
 };
 
-export const Text: FunctionComponent<TextProps> = ({ children, size, weight, as }) => {
+export const Text: FunctionComponent<TextProps> = ({ children, size, weight, as, color }) => {
+  const { theme } = useTheme();
+
   return (
-    <Container as={as} size={size} weight={weight}>
+    <Container as={as} size={size} weight={weight} color={color || theme.assets.primaryText}>
       {children}
     </Container>
   );
@@ -27,6 +31,7 @@ const Container = styled.p<{
   font-family: ${({ theme }) => theme.typography.fontFamilies.body};
   font-weight: ${({ theme, weight }) => weight && theme.typography.fontWeights[weight]};
   font-size: ${({ theme, size }) => size && theme.typography.fontSizes[size]};
+  color: ${({ color }) => color};
 
   ${({ as, theme }) => {
     if (!as) return;
