@@ -22,7 +22,7 @@ export const typography: TypographyType = {
   fontFamilies: {
     heading: `Arial, "Segoe UI"`,
     body: `Arial, "Segoe UI"`,
-    mono: `SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace`,
+    mono: `monospace`,
   },
 
   fontSizes: {
