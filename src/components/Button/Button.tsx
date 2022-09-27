@@ -123,9 +123,9 @@ const getColorStyles = (
 ): FlattenSimpleInterpolation => {
   const solidStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
     default: css`
-      background-color: ${theme.colors.blue.base};
+      background-color: ${theme.colors.brand};
       color: ${theme.colors.grey[1]};
-      border-color: ${theme.colors.blue.base};
+      border-color: ${theme.colors.brand};
       &:hover:not([disabled]) {
         background-color: ${theme.colors.blue[6]};
         border-color: ${theme.colors.blue[6]};
@@ -173,8 +173,8 @@ const getColorStyles = (
 
   const outlinedStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
     default: css`
-      color: ${theme.colors.blue.base};
-      border-color: ${theme.colors.blue.base};
+      color: ${theme.colors.brand};
+      border-color: ${theme.colors.brand};
       background-color: transparent;
       &:hover:not([disabled]) {
         background-color: ${outlinedHover};
@@ -216,7 +216,7 @@ const getColorStyles = (
 
   const ghostStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
     default: css`
-      color: ${theme.colors.blue.base};
+      color: ${theme.colors.brand};
       &:hover:not([disabled]) {
         background-color: ${theme.colors.blue[2]};
       }
@@ -249,7 +249,7 @@ const getColorStyles = (
 
   const linkStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
     default: css`
-      color: ${theme.colors.blue.base};
+      color: ${theme.colors.brand};
       &:hover:not([disabled]) {
         text-decoration: underline;
       }
@@ -285,8 +285,8 @@ const getColorStyles = (
       border-color: ${theme.colors.grey[4]};
       color: ${theme.colors.grey[9]};
       &:hover:not([disabled]) {
-        color: ${theme.colors.blue.base};
-        border-color: ${theme.colors.blue.base};
+        color: ${theme.colors.brand};
+        border-color: ${theme.colors.brand};
       }
     `,
     positive: css`
