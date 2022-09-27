@@ -40,7 +40,7 @@ export const Checkbox: FunctionComponent<
         <Wrapper position={position}>
           <Icon
             icon={icon}
-            color={disabled ? theme.colors.grey[5] : iconColor}
+            color={disabled ? theme.assets.disabled : iconColor}
             size={iconSize}
           />
         </Wrapper>

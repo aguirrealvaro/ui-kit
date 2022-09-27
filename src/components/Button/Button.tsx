@@ -351,7 +351,7 @@ const CustomButton = styled.button<{
     background: ${({ theme }) => theme.assets.disabled};
     border-color: transparent;
     cursor: not-allowed;
-    color: ${({ theme }) => theme.colors.grey[7]};
+    color: ${({ theme }) => theme.colors.grey[5]};
   }
 `;
 

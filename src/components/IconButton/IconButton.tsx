@@ -27,7 +27,7 @@ const Container = styled.button<{ withHover: boolean }>`
     if (withHover) {
       return css`
         &:hover {
-          background-color: ${({ theme }) => theme.colors.grey[2]};
+          background-color: ${({ theme }) => theme.colors.grey[3]};
         }
       `;
     }
