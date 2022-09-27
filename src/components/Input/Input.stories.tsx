@@ -15,7 +15,10 @@ export const Primary: ComponentStory<typeof Input> = () => {
 
   const [value, setValue] = useState<string>("");
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value);
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
+
   const clearValue = () => setValue("");
 
   const searchIcon = <Icon icon={Search} color={theme.colors.grey.base} size={20} />;

@@ -32,3 +32,4 @@ export { Select } from "./Select";
 export { Title } from "./Title";
 export { Text } from "./Text";
 export { IconButton } from "./IconButton";
+export { NativeSelect } from "./NativeSelect";

@@ -38,5 +38,6 @@ export const getTheme = (themeMode: ThemeModeType): ThemeType => {
     transitions,
     assets,
     transparencies,
+    // spacing
   };
 };
