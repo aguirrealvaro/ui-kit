@@ -36,6 +36,10 @@ const Container = styled.p<{
   ${({ as, theme }) => {
     if (!as) return;
     const textStyles: Partial<Record<TextType, FlattenSimpleInterpolation | undefined>> = {
+      mark: css`
+        background-color: ${theme.colors.yellow.base};
+        color: ${theme.colors.grey[1]};
+      `,
       code: css`
         font-family: ${theme.typography.fontFamilies.mono};
         font-size: ${theme.typography.fontSizes.xs};
