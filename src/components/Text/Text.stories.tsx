@@ -8,6 +8,14 @@ export default {
 } as ComponentMeta<typeof Text>;
 
 export const Primary: ComponentStory<typeof Text> = () => {
+  const breakSizes = {
+    xs: "10px",
+    sm: "20px",
+    md: "30px",
+    lg: "40px",
+    xl: "50px",
+  };
+
   return (
     <Container>
       <Text>This a parragraph (default)</Text>
@@ -25,6 +33,8 @@ export const Primary: ComponentStory<typeof Text> = () => {
       <Text as="mark">Mark</Text>
       <Text as="code">code</Text>
       <Text as="kbd">Keyboard</Text>
+
+      <Text size={breakSizes}>This a parragraph with breakpoint sizes</Text>
     </Container>
   );
 };
