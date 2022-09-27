@@ -58,7 +58,7 @@ const translate = keyframes`
 
 const Backdrop = styled.div<{ isUnmounting: boolean }>`
   position: fixed;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: ${({ theme }) => theme.transparencies.medium};
   animation: ${fadeIn} ${({ theme }) => theme.transitions.normal}ms ease-out;
   transition: all 200ms linear;
   top: 0;

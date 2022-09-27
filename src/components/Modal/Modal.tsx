@@ -86,7 +86,7 @@ const Backdrop = styled.div<{ isOpen: boolean; fadeOut: boolean }>`
       opacity: 0;
       transition: all ${({ theme }) => theme.transitions.normal}ms ease-out;
     `};
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: ${({ theme }) => theme.transparencies.medium};
   display: flex;
   justify-content: center;
   align-items: center;

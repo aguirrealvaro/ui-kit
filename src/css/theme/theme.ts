@@ -6,6 +6,7 @@ import { lightAssets } from "./colors/lightColors";
 import { AssetsType } from "./colors/types";
 import { shadows, ShadowsType } from "./shadows";
 import { transitions, TransitionsType } from "./transitions";
+import { transparencies, TransparencyType } from "./transparencies";
 import { typography, TypographyType } from "./typography";
 import { zIndices, ZIndexType } from "./zIndices";
 
@@ -20,6 +21,7 @@ export type ThemeType = {
   shadows: ShadowsType;
   transitions: TransitionsType;
   assets: AssetsType;
+  transparencies: TransparencyType;
 };
 
 export const getTheme = (themeMode: ThemeModeType): ThemeType => {
@@ -35,5 +37,6 @@ export const getTheme = (themeMode: ThemeModeType): ThemeType => {
     shadows,
     transitions,
     assets,
+    transparencies,
   };
 };
