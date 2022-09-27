@@ -134,7 +134,7 @@ export const lightColors: CollorsType = {
 };
 
 export const lightAssets: AssetsType = {
-  brand: "#1C64F2",
+  brand: lightColors.blue.base,
   title: lightColors.grey[10],
   primaryText: lightColors.grey[9],
   secondaryText: lightColors.grey[8],
