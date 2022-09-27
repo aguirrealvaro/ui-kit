@@ -328,7 +328,7 @@ const getColorStyles = (
     outlined: outlinedStyles[variant],
     ghost: ghostStyles[variant],
     link: linkStyles[variant],
-    outlined2: outlined2Styles[variant],
+    alternative: outlined2Styles[variant],
   };
 
   return colorOptions[kind];
