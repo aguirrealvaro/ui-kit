@@ -21,7 +21,7 @@ export const Primary: ComponentStory<typeof Title> = () => {
       <Title as="h2" size="3xl" weight="bold">
         Title 3xl
       </Title>
-      <Title as="h3" weight="bold" size={breakSizes}>
+      <Title as="h3" weight="bold" size={breakSizes} color="tomato">
         Title with breakpoint font sizes
       </Title>
     </Container>

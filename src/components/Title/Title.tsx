@@ -3,25 +3,36 @@ import styled, { css } from "styled-components";
 import { TitleSizeType, TitleType } from "./Title.types";
 import { BreakpointSize, BREAKPOINTS_ORDER } from "@/css/theme/breakpoints";
 import { FontWeight } from "@/css/theme/typography";
+import { useTheme } from "@/hooks";
 
 type TitleProps = {
   children: ReactNode;
   as: TitleType;
   size: TitleSizeType;
-  weight: FontWeight;
+  weight?: FontWeight;
+  color?: string;
 };
 
-export const Title: FunctionComponent<TitleProps> = ({ children, as, size, weight }) => {
+export const Title: FunctionComponent<TitleProps> = ({
+  children,
+  as,
+  size,
+  weight = "semibold",
+  color,
+}) => {
+  const { theme } = useTheme();
+
   return (
-    <Container as={as} size={size} weight={weight}>
+    <Container as={as} size={size} weight={weight} color={color || theme.assets.title}>
       {children}
     </Container>
   );
 };
 
-const Container = styled.div<{ size: TitleSizeType; weight: FontWeight }>`
+const Container = styled.div<{ size: TitleSizeType; weight: FontWeight; color: string }>`
   font-family: ${({ theme }) => theme.typography.fontFamilies.heading};
   font-weight: ${({ theme, weight }) => theme.typography.fontWeights[weight]};
+  color: ${({ color }) => color};
   ${({ size, theme }) => {
     if (typeof size === "string") {
       return css`
