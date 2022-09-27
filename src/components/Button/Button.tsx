@@ -283,7 +283,7 @@ const getColorStyles = (
   const alernativeStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
     default: css`
       border-color: ${theme.colors.grey[4]};
-      color: ${theme.colors.grey[9]};
+      color: ${theme.colors.grey[6]};
       &:hover:not([disabled]) {
         color: ${theme.assets.brand};
         border-color: ${theme.assets.brand};
@@ -291,7 +291,7 @@ const getColorStyles = (
     `,
     positive: css`
       border-color: ${theme.colors.grey[4]};
-      color: ${theme.colors.grey[9]};
+      color: ${theme.colors.grey[6]};
       &:hover:not([disabled]) {
         color: ${theme.colors.green.base};
         border-color: ${theme.colors.green.base};
@@ -299,7 +299,7 @@ const getColorStyles = (
     `,
     warning: css`
       border-color: ${theme.colors.grey[4]};
-      color: ${theme.colors.grey[9]};
+      color: ${theme.colors.grey[6]};
       &:hover:not([disabled]) {
         color: ${theme.colors.yellow.base};
         border-color: ${theme.colors.yellow.base};
@@ -307,7 +307,7 @@ const getColorStyles = (
     `,
     negative: css`
       border-color: ${theme.colors.grey[4]};
-      color: ${theme.colors.grey[9]};
+      color: ${theme.colors.grey[6]};
       &:hover:not([disabled]) {
         color: ${theme.colors.red.base};
         border-color: ${theme.colors.red.base};
@@ -315,7 +315,7 @@ const getColorStyles = (
     `,
     neutral: css`
       border-color: ${theme.colors.grey[4]};
-      color: ${theme.colors.grey[9]};
+      color: ${theme.colors.grey[6]};
       &:hover:not([disabled]) {
         color: ${theme.colors.grey[10]};
         border-color: ${theme.colors.grey[10]};
