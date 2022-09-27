@@ -1,4 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
+import styled from "styled-components";
 import { Title } from "@/components";
 
 export default {
@@ -16,8 +17,19 @@ export const Primary: ComponentStory<typeof Title> = () => {
   };
 
   return (
-    <Title as="h2" /* size="3xl" */ weight="bold" size={breakSizes}>
-      titulo
-    </Title>
+    <Container>
+      <Title as="h2" size="3xl" weight="bold">
+        Title 3xl
+      </Title>
+      <Title as="h3" weight="bold" size={breakSizes}>
+        Title with breakpoint font sizes
+      </Title>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+`;
