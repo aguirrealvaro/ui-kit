@@ -30,3 +30,4 @@ export { ModalConfirm } from "./ModalConfirm";
 export { Input } from "./Input";
 export { Select } from "./Select";
 export { Title } from "./Title";
+export { Text } from "./Text";
