@@ -78,7 +78,7 @@ const variantIcons: Record<ToastVariantType, StyledIcon> = {
 
 const getColorValues = (theme: ThemeType) => {
   const colorValues: Record<ToastVariantType, string> = {
-    default: theme.colors.brand,
+    default: theme.assets.brand,
     positive: theme.colors.green.base,
     warning: theme.colors.yellow.base,
     negative: theme.colors.red.base,

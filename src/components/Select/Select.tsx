@@ -250,12 +250,12 @@ const Option = styled.button<{ isSelected: boolean }>`
   ${({ isSelected, theme }) =>
     isSelected
       ? css`
-          background-color: ${theme.colors.brand};
+          background-color: ${theme.assets.brand};
           color: ${theme.colors.grey[1]};
         `
       : css`
           &:hover:not([disabled]) {
-            background-color: ${theme.colors.brand};
+            background-color: ${theme.assets.brand};
             color: ${({ theme }) => theme.colors.grey[1]};
           }
         `};

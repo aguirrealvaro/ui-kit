@@ -32,7 +32,7 @@ const Anchor = styled.a<{ hideUnderline: boolean; disabled: boolean }>`
     } else {
       return css`
         cursor: pointer;
-        color: ${theme.colors.brand};
+        color: ${theme.assets.brand};
       `;
     }
   }}

@@ -241,7 +241,7 @@ const CustomInput = styled.input<{
         return theme.colors.green.base;
       }
 
-      return theme.colors.brand;
+      return theme.assets.brand;
     }};
   }
   &:not(:placeholder-shown) {
