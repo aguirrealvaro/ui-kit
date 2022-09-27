@@ -12,9 +12,9 @@ export const NativeSelect: FunctionComponent<
   console.log(value);
 
   return (
-    <div>
+    <Container>
       <SelectContainer value={value} onChange={onChange}>
-        <option selected value={undefined}>
+        <option selected disabled>
           {placeholder}
         </option>
         {options.map(({ label, value, disabled }) => {
@@ -25,16 +25,42 @@ export const NativeSelect: FunctionComponent<
           );
         })}
       </SelectContainer>
-    </div>
+    </Container>
   );
 };
 
+const Container = styled.div`
+  position: relative;
+  display: inline-block;
+  font-size: 14px;
+  color: #888;
+  width: 100%;
+  &::after {
+    content: "";
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent;
+    border-top-color: #222;
+    display: inline-block;
+    border-radius: 2px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+  }
+`;
+
 const SelectContainer = styled.select`
-  appearance: none;
+  display: block;
+  font-size: 16px;
+  width: 100%;
+  min-height: 35px;
+  background-color: transparent;
+  border-radius: ${({ theme }) => theme.borderRadius.sm};
   outline: none;
-  border: none;
-  background: none;
-  border-radius: ${({ theme }) => theme.borderRadius.xs};
-  border: 1px solid ${({ theme }) => theme.colors.grey[5]};
-  padding: 1rem;
+  padding: 0 1rem;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
 `;
