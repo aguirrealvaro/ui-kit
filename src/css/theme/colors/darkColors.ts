@@ -80,7 +80,7 @@ export const darkColors: CollorsType = {
     10: "#8fd2d0",
   },
   blue: {
-    base: "#6097e9",
+    base: "#3873d9",
     1: "#121f3b",
     2: "#172b52",
     3: "#1f3866",

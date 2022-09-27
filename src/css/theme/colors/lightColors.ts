@@ -80,7 +80,7 @@ export const lightColors: CollorsType = {
     10: "#014451",
   },
   blue: {
-    base: "#1C64F2",
+    base: "#3F83F8",
     1: "#EBF5FF",
     2: "#E1EFFE",
     3: "#C3DDFD",

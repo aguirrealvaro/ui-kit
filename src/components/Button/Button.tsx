@@ -127,8 +127,8 @@ const getColorStyles = (
       color: ${theme.colors.grey[1]};
       border-color: ${theme.assets.brand};
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.blue[6]};
-        border-color: ${theme.colors.blue[6]};
+        background-color: ${theme.colors.blue[5]};
+        border-color: ${theme.colors.blue[5]};
       }
     `,
     positive: css`
