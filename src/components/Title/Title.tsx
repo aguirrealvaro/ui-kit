@@ -28,7 +28,7 @@ const Container = styled.div<{ size: TitleSizeType; weight: FontWeight }>`
         font-size: ${theme.typography.fontSizes[size]};
       `;
     } else {
-      let styles = "";
+      let breakpointStyles = "";
       Object.entries(size)
         .sort(([a], [b]) => {
           return (
@@ -37,16 +37,15 @@ const Container = styled.div<{ size: TitleSizeType; weight: FontWeight }>`
           );
         })
         .forEach(([key, value]) => {
-          styles += `
+          breakpointStyles += `
           ${theme.breakpoint(key as BreakpointSize)} {
             font-size: ${value};
           }
         `;
         });
 
-      console.log(styles);
       return css`
-        ${styles}
+        ${breakpointStyles}
       `;
     }
   }};

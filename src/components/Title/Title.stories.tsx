@@ -7,7 +7,7 @@ export default {
 } as ComponentMeta<typeof Title>;
 
 export const Primary: ComponentStory<typeof Title> = () => {
-  const sizes1 = {
+  const breakSizes = {
     xs: "10px",
     sm: "20px",
     md: "30px",
@@ -16,7 +16,7 @@ export const Primary: ComponentStory<typeof Title> = () => {
   };
 
   return (
-    <Title as="h2" /* size="3xl" */ weight="bold" size={sizes1}>
+    <Title as="h2" /* size="3xl" */ weight="bold" size={breakSizes}>
       titulo
     </Title>
   );
