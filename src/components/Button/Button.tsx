@@ -123,39 +123,39 @@ const getColorStyles = (
 ): FlattenSimpleInterpolation => {
   const solidStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
     default: css`
-      background-color: ${theme.colors.brand};
+      background-color: ${theme.colors.blue[7]};
       color: ${theme.colors.grey[1]};
-      border-color: ${theme.colors.brand};
+      border-color: ${theme.colors.blue[7]};
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.blue[5]};
-        border-color: ${theme.colors.blue[5]};
+        background-color: ${theme.colors.blue[6]};
+        border-color: ${theme.colors.blue[6]};
       }
     `,
     positive: css`
-      background-color: ${theme.colors.green.base};
+      background-color: ${theme.colors.green[6]};
       color: ${theme.colors.grey[1]};
-      border-color: ${theme.colors.green.base};
+      border-color: ${theme.colors.green[6]};
       &:hover:not([disabled]) {
         background-color: ${theme.colors.green[5]};
         border-color: ${theme.colors.green[5]};
       }
     `,
     warning: css`
-      background-color: ${theme.colors.yellow.base};
-      color: ${theme.colors.grey[10]};
-      border-color: ${theme.colors.yellow.base};
+      background-color: ${theme.colors.yellow[5]};
+      color: ${theme.colors.grey[1]};
+      border-color: ${theme.colors.yellow[5]};
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.yellow[5]};
-        border-color: ${theme.colors.yellow[5]};
+        background-color: ${theme.colors.yellow[4]};
+        border-color: ${theme.colors.yellow[4]};
       }
     `,
     negative: css`
-      background-color: ${theme.colors.red.base};
+      background-color: ${theme.colors.red[7]};
       color: ${theme.colors.grey[1]};
-      border-color: ${theme.colors.red.base};
+      border-color: ${theme.colors.red[7]};
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.red[5]};
-        border-color: ${theme.colors.red[5]};
+        background-color: ${theme.colors.red[6]};
+        border-color: ${theme.colors.red[6]};
       }
     `,
     neutral: css`
@@ -173,32 +173,32 @@ const getColorStyles = (
 
   const outlinedStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
     default: css`
-      color: ${theme.colors.brand};
-      border-color: ${theme.colors.brand};
+      color: ${theme.colors.blue[7]};
+      border-color: ${theme.colors.blue[7]};
       background-color: transparent;
       &:hover:not([disabled]) {
         background-color: ${outlinedHover};
       }
     `,
     positive: css`
-      color: ${theme.colors.green.base};
-      border-color: ${theme.colors.green.base};
+      color: ${theme.colors.green[6]};
+      border-color: ${theme.colors.green[6]};
       background-color: transparent;
       &:hover:not([disabled]) {
         background-color: ${outlinedHover};
       }
     `,
     warning: css`
-      color: ${theme.colors.yellow.base};
-      border-color: ${theme.colors.yellow.base};
+      color: ${theme.colors.yellow[5]};
+      border-color: ${theme.colors.yellow[5]};
       background-color: transparent;
       &:hover:not([disabled]) {
         background-color: ${outlinedHover};
       }
     `,
     negative: css`
-      color: ${theme.colors.red.base};
-      border-color: ${theme.colors.red.base};
+      color: ${theme.colors.red[7]};
+      border-color: ${theme.colors.red[7]};
       background-color: transparent;
       &:hover:not([disabled]) {
         background-color: ${outlinedHover};
@@ -216,27 +216,27 @@ const getColorStyles = (
 
   const ghostStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
     default: css`
-      color: ${theme.colors.brand};
+      color: ${theme.colors.blue[7]};
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.blue[1]};
+        background-color: ${theme.colors.blue[2]};
       }
     `,
     positive: css`
-      color: ${theme.colors.green.base};
+      color: ${theme.colors.green[6]};
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.green[1]};
+        background-color: ${theme.colors.green[2]};
       }
     `,
     warning: css`
-      color: ${theme.colors.yellow.base};
+      color: ${theme.colors.yellow[5]};
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.yellow[1]};
+        background-color: ${theme.colors.yellow[2]};
       }
     `,
     negative: css`
-      color: ${theme.colors.red.base};
+      color: ${theme.colors.red[7]};
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.red[1]};
+        background-color: ${theme.colors.red[2]};
       }
     `,
     neutral: css`
@@ -249,25 +249,25 @@ const getColorStyles = (
 
   const linkStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
     default: css`
-      color: ${theme.colors.brand};
+      color: ${theme.colors.blue[7]};
       &:hover:not([disabled]) {
         text-decoration: underline;
       }
     `,
     positive: css`
-      color: ${theme.colors.green.base};
+      color: ${theme.colors.green[6]};
       &:hover:not([disabled]) {
         text-decoration: underline;
       }
     `,
     warning: css`
-      color: ${theme.colors.yellow.base};
+      color: ${theme.colors.yellow[5]};
       &:hover:not([disabled]) {
         text-decoration: underline;
       }
     `,
     negative: css`
-      color: ${theme.colors.red.base};
+      color: ${theme.colors.red[7]};
       &:hover:not([disabled]) {
         text-decoration: underline;
       }
@@ -280,42 +280,42 @@ const getColorStyles = (
     `,
   };
 
-  const outlined2Styles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
+  const alernativeStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
     default: css`
-      border-color: ${theme.colors.grey[5]};
-      color: ${theme.colors.grey.base};
+      border-color: ${theme.colors.grey[4]};
+      color: ${theme.colors.grey[9]};
       &:hover:not([disabled]) {
-        color: ${theme.colors.brand};
-        border-color: ${theme.colors.brand};
+        color: ${theme.colors.blue[7]};
+        border-color: ${theme.colors.blue[7]};
       }
     `,
     positive: css`
-      border-color: ${theme.colors.grey[5]};
-      color: ${theme.colors.grey.base};
+      border-color: ${theme.colors.grey[4]};
+      color: ${theme.colors.grey[9]};
       &:hover:not([disabled]) {
-        color: ${theme.colors.green.base};
-        border-color: ${theme.colors.green.base};
+        color: ${theme.colors.green[6]};
+        border-color: ${theme.colors.green[6]};
       }
     `,
     warning: css`
-      border-color: ${theme.colors.grey[5]};
-      color: ${theme.colors.grey.base};
+      border-color: ${theme.colors.grey[4]};
+      color: ${theme.colors.grey[9]};
       &:hover:not([disabled]) {
-        color: ${theme.colors.yellow.base};
-        border-color: ${theme.colors.yellow.base};
+        color: ${theme.colors.yellow[5]};
+        border-color: ${theme.colors.yellow[5]};
       }
     `,
     negative: css`
-      border-color: ${theme.colors.grey[5]};
-      color: ${theme.colors.grey.base};
+      border-color: ${theme.colors.grey[4]};
+      color: ${theme.colors.grey[9]};
       &:hover:not([disabled]) {
-        color: ${theme.colors.red.base};
-        border-color: ${theme.colors.red.base};
+        color: ${theme.colors.red[7]};
+        border-color: ${theme.colors.red[7]};
       }
     `,
     neutral: css`
-      border-color: ${theme.colors.grey[5]};
-      color: ${theme.colors.grey.base};
+      border-color: ${theme.colors.grey[4]};
+      color: ${theme.colors.grey[9]};
       &:hover:not([disabled]) {
         color: ${theme.colors.grey[10]};
         border-color: ${theme.colors.grey[10]};
@@ -328,7 +328,7 @@ const getColorStyles = (
     outlined: outlinedStyles[variant],
     ghost: ghostStyles[variant],
     link: linkStyles[variant],
-    alternative: outlined2Styles[variant],
+    alternative: alernativeStyles[variant],
   };
 
   return colorOptions[kind];
