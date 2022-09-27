@@ -2,7 +2,7 @@ import { FunctionComponent, useRef } from "react";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import styled, { css, keyframes } from "styled-components";
 import { NavbarItem } from "../Navbar.types";
-import { Icon } from "@/components";
+import { Icon, IconButton } from "@/components";
 import { useOutsideClick, useTheme } from "@/hooks";
 
 type MobileMenuProps = {
@@ -27,9 +27,11 @@ export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
   return (
     <Backdrop isUnmounting={isUnmounting}>
       <Container isUnmounting={isUnmounting} ref={ref} transitionTime={transitionTime}>
-        <CloseButton onClick={onClose}>
-          <Icon icon={CloseOutline} color={theme.colors.grey.base} size={25} />
-        </CloseButton>
+        <CloseButtonWrapper>
+          <IconButton onClick={onClose}>
+            <Icon icon={CloseOutline} color={theme.colors.grey.base} size={25} />
+          </IconButton>
+        </CloseButtonWrapper>
         <div>
           {items
             .filter(({ show = true }) => show)
@@ -92,12 +94,10 @@ const Container = styled.div<{ isUnmounting: boolean; transitionTime: number }>`
     `}
 `;
 
-const CloseButton = styled.button`
+const CloseButtonWrapper = styled.div`
   position: absolute;
   top: 1.5rem;
   right: 2.1rem;
-  line-height: 0px;
-  padding: 6px;
 `;
 
 const Item = styled.button`

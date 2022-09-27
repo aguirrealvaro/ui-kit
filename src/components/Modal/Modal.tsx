@@ -4,7 +4,7 @@ import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import styled, { css, keyframes } from "styled-components";
 import { MODAL_SIZES } from "./Modal.constants";
 import { ModalSizeType } from "./Modal.types";
-import { Icon } from "@/components";
+import { Icon, IconButton } from "@/components";
 import { useDisableScroll, useOutsideClick, useKeyPress, useTheme } from "@/hooks";
 
 export type ModalProps = {
@@ -49,9 +49,11 @@ export const Modal: FunctionComponent<ModalProps> = ({
   const Component = (
     <Backdrop isOpen={isOpen} fadeOut={isUnmounting}>
       <Content size={modalSize} ref={contentRef} fadeOut={isUnmounting} role="dialog">
-        <CloseButton onClick={onClose}>
-          <Icon icon={CloseOutline} color={theme.colors.grey.base} size={25} />
-        </CloseButton>
+        <CloseButtonWrapper>
+          <IconButton onClick={onClose}>
+            <Icon icon={CloseOutline} color={theme.colors.grey.base} size={25} />
+          </IconButton>
+        </CloseButtonWrapper>
         {children}
       </Content>
     </Backdrop>
@@ -111,10 +113,8 @@ const Content = styled.div<{ size: number; fadeOut: boolean }>`
   margin: 0 1rem;
 `;
 
-const CloseButton = styled.button`
-  line-height: 0;
+const CloseButtonWrapper = styled.div`
   position: absolute;
   top: 6px;
   right: 6px;
-  padding: 6px;
 `;
