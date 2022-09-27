@@ -51,28 +51,28 @@ export const Alert: FunctionComponent<AlertProps> = ({
 
 const Container = styled.div<{ variant: AlertVariantType; size: AlertSizeType }>`
   display: flex;
-  gap: 1rem;
   border-radius: ${({ theme }) => theme.borderRadius.sm};
-  border-width: 1px 1px 1px 4px;
-  border-style: solid;
-  background-color: ${({ theme }) => theme.colors.grey[3]};
-  color: ${({ theme }) => theme.colors.grey[9]};
   ${({ variant, theme }) => {
     const variantStyles: Record<AlertVariantType, FlattenSimpleInterpolation> = {
       default: css`
-        border-color: ${theme.colors.blue.base};
+        background-color: ${theme.colors.blue[2]};
+        color: ${theme.colors.blue[8]};
       `,
       positive: css`
-        border-color: ${theme.colors.green.base};
+        background-color: ${theme.colors.green[2]};
+        color: ${theme.colors.green[8]};
       `,
       negative: css`
-        border-color: ${theme.colors.red.base};
+        background-color: ${theme.colors.red[2]};
+        color: ${theme.colors.red[8]};
       `,
       warning: css`
-        border-color: ${theme.colors.yellow.base};
+        background-color: ${theme.colors.yellow[2]};
+        color: ${theme.colors.yellow[8]};
       `,
       neutral: css`
-        border-color: ${theme.colors.grey.base};
+        background-color: ${theme.colors.grey[3]};
+        color: ${theme.colors.grey[8]};
       `,
     };
     return variantStyles[variant];
@@ -82,18 +82,22 @@ const Container = styled.div<{ variant: AlertVariantType; size: AlertSizeType }>
       xs: css`
         padding: 8px 12px;
         font-size: ${theme.typography.fontSizes.xs};
+        gap: 10px;
       `,
       sm: css`
         padding: 12px 16px;
         font-size: ${theme.typography.fontSizes.sm};
+        gap: 12px;
       `,
       md: css`
         padding: 16px 20px;
         font-size: ${theme.typography.fontSizes.md};
+        gap: 14px;
       `,
       lg: css`
         padding: 20px 24px;
         font-size: ${theme.typography.fontSizes.lg};
+        gap: 16px;
       `,
     };
     return sizeStyles[size];

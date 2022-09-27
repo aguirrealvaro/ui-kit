@@ -138,6 +138,6 @@ export const darkAssets: AssetsType = {
   title: darkColors.grey[10],
   primaryText: darkColors.grey[9],
   secondaryText: darkColors.grey[8],
-  disabled: darkColors.grey[5],
+  disabled: darkColors.grey[4],
   background: darkColors.grey[2],
 };
