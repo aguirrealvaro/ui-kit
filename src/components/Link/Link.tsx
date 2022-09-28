@@ -26,7 +26,7 @@ const Anchor = styled.a<{ hideUnderline: boolean; disabled: boolean }>`
   ${({ disabled, theme }) => {
     if (disabled) {
       return css`
-        color: ${theme.assets.disabled};
+        color: ${theme.assets["disabled"]};
         cursor: not-allowed;
       `;
     } else {

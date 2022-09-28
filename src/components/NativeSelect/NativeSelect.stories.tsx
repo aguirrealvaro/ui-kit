@@ -27,6 +27,7 @@ export const Primary: ComponentStory<typeof NativeSelect> = () => {
 
   return (
     <NativeSelect
+      //disabled
       label="Native select"
       placeholder="Select option"
       value={option}

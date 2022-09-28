@@ -52,7 +52,7 @@ const Item = styled.button`
     margin-bottom: 0rem;
   }
   &:disabled {
-    color: ${({ theme }) => theme.assets.disabled};
+    color: ${({ theme }) => theme.assets["disabled"]};
     cursor: not-allowed;
   }
 `;

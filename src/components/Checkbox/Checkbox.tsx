@@ -40,7 +40,7 @@ export const Checkbox: FunctionComponent<
         <Wrapper position={position}>
           <Icon
             icon={icon}
-            color={disabled ? theme.assets.disabled : iconColor}
+            color={disabled ? theme.assets["disabled"] : iconColor}
             size={iconSize}
           />
         </Wrapper>
@@ -66,7 +66,7 @@ const Container = styled.div<{ disabled: boolean }>`
     if (disabled) {
       return css`
         cursor: not-allowed;
-        color: ${theme.assets.disabled};
+        color: ${theme.assets["disabled"]};
       `;
     }
   }}

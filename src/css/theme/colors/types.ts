@@ -20,6 +20,7 @@ type Assets =
   | "primary-text"
   | "secondary-text"
   | "disabled"
+  | "disabled-font"
   | "body-background"
   | "input-border"
   | "input-placeholder";

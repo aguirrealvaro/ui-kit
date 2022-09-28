@@ -15,7 +15,7 @@ type NativeSelectProps = {
 
 export const NativeSelect: FunctionComponent<
   NativeSelectProps & Omit<SelectHTMLAttributes<HTMLSelectElement>, "size">
-> = ({ value, onChange, options, placeholder, clearValue, label }) => {
+> = ({ value, onChange, options, placeholder, clearValue, label, disabled }) => {
   const { theme } = useTheme();
 
   const handleClearValue = (e: MouseEvent<HTMLButtonElement>) => {
@@ -29,7 +29,7 @@ export const NativeSelect: FunctionComponent<
     <div>
       {label && <Label>{label}</Label>}
       <SelectContainer>
-        <Select value={value} onChange={onChange}>
+        <Select value={value} onChange={onChange} disabled={disabled}>
           <Option hidden>{placeholder}</Option>
           {options.map(({ label, value, disabled }, index) => {
             return (
@@ -87,6 +87,11 @@ const Select = styled.select`
     border-color: transparent;
     box-shadow: ${({ theme }) => theme.shadows.outline};
   }
+  &:disabled {
+    background-color: ${({ theme }) => theme.assets["disabled"]};
+    color: ${({ theme }) => theme.assets["disabled-font"]};
+    cursor: not-allowed;
+  }
 `;
 
 const SideContainer = styled.div`
@@ -108,7 +113,7 @@ const ChevronWrapper = styled.div<{ active: boolean }>`
 
 const Option = styled.option`
   &:disabled {
-    color: ${({ theme }) => theme.assets.disabled};
+    color: ${({ theme }) => theme.assets["disabled"]};
   }
 `;
 

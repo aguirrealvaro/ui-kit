@@ -139,6 +139,7 @@ export const darkAssets: AssetsType = {
   "primary-text": darkColors.grey[9],
   "secondary-text": darkColors.grey[8],
   disabled: darkColors.grey[4],
+  "disabled-font": darkColors.grey[5],
   "body-background": darkColors.grey[2],
   "input-border": darkColors.grey[5],
   "input-placeholder": darkColors.grey[6],

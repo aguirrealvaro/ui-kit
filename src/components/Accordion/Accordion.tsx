@@ -35,7 +35,7 @@ export const Accordion: FunctionComponent<AccordionProps> = ({
           <Icon
             icon={ChevronDown}
             size={20}
-            {...(disabled && { color: theme.assets.disabled })}
+            {...(disabled && { color: theme.assets["disabled"] })}
           />
         </ChevronWrapper>
       </Button>
@@ -77,7 +77,7 @@ const Button = styled.button<{ arrowPosition: AccordionArrowPosition }>`
   padding: 1rem 0;
   &:disabled {
     cursor: not-allowed;
-    color: ${({ theme }) => theme.assets.disabled};
+    color: ${({ theme }) => theme.assets["disabled"]};
   }
 `;
 
