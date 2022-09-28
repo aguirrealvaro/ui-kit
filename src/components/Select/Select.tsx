@@ -26,6 +26,8 @@ type SelectProps = {
   helpText?: string;
   isError?: boolean;
   errorMessage?: string;
+  isSuccess?: boolean;
+  successMessage?: string;
   isLoading?: boolean;
   clearValue?: () => void;
   size?: SelectSizeType;
@@ -41,6 +43,8 @@ export const Select: FunctionComponent<SelectProps> = ({
   helpText,
   isError,
   errorMessage,
+  isSuccess,
+  successMessage,
   isLoading,
   clearValue,
   size = "md",
@@ -72,7 +76,7 @@ export const Select: FunctionComponent<SelectProps> = ({
     clearValue?.();
   };
 
-  const showBottom: boolean = !!helpText || !!errorMessage;
+  const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
 
   return (
     <Container ref={containerRef}>
@@ -81,6 +85,7 @@ export const Select: FunctionComponent<SelectProps> = ({
         disabled={disabled || false}
         isSelected={isSelected}
         isError={isError || false}
+        isSuccess={isSuccess || false}
         isOpen={isOpen}
         size={size}
         onClick={handleDropdown}
@@ -119,7 +124,11 @@ export const Select: FunctionComponent<SelectProps> = ({
         </Dropdown>
       )}
       {showBottom && (
-        <BottomText errorMessage={!!errorMessage} size={size}>
+        <BottomText
+          errorMessage={!!errorMessage}
+          successMessage={!!successMessage}
+          size={size}
+        >
           {errorMessage || helpText}
         </BottomText>
       )}
@@ -147,6 +156,7 @@ const Label = styled.label<{ size: SelectSizeType }>`
 const SelectContainer = styled.div<{
   isSelected: boolean;
   isError: boolean;
+  isSuccess: boolean;
   disabled: boolean;
   isOpen: boolean;
   size: SelectSizeType;
@@ -166,7 +176,7 @@ const SelectContainer = styled.div<{
   }};
   cursor: pointer;
   border: 1px solid transparent;
-  ${({ theme, isError, isOpen }) => {
+  ${({ theme, isError, isOpen, isSuccess }) => {
     if (isOpen) {
       return css`
         border-color: transparent;
@@ -177,6 +187,12 @@ const SelectContainer = styled.div<{
     if (isError) {
       return css`
         border-color: ${theme.assets.error};
+      `;
+    }
+
+    if (isSuccess) {
+      return css`
+        border-color: ${theme.assets.success};
       `;
     }
 
@@ -269,10 +285,22 @@ const Option = styled.button<{ isSelected: boolean }>`
   }
 `;
 
-const BottomText = styled.div<{ errorMessage: boolean; size: SelectSizeType }>`
+const BottomText = styled.div<{
+  errorMessage: boolean;
+  size: SelectSizeType;
+  successMessage: boolean;
+}>`
   margin: 0.5rem 1rem 0 1rem;
-  color: ${({ errorMessage, theme }) =>
-    errorMessage ? theme.assets.error : theme.assets["secondary-text"]};
+  color: ${({ errorMessage, theme, successMessage }) => {
+    if (errorMessage) {
+      return theme.assets.error;
+    }
+
+    if (successMessage) {
+      return theme.assets.success;
+    }
+    return theme.assets["secondary-text"];
+  }};
   font-size: ${({ size, theme }) => {
     const sizes: Record<SelectSizeType, string> = {
       sm: theme.typography.fontSizes.xs,

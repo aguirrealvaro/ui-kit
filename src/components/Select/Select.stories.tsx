@@ -33,6 +33,10 @@ export const Primary: ComponentStory<typeof Select> = () => {
         helpText="Help text"
         clearValue={clearValue}
         size="sm"
+        //isError
+        //errorMessage="errorMessage"
+        //isSuccess
+        //successMessage="successMessage"
       />
       <Select
         label="Medium"
