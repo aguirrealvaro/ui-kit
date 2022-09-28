@@ -1,3 +1,4 @@
+import React from "react";
 import { GlobalStyles } from "@/css";
 import { ThemeProvider, ToastProvider } from "@/contexts";
 import styled from "styled-components";
@@ -13,16 +14,18 @@ export const parameters = {
 };
 
 export const decorators = [
-  (Story) => (
-    <ThemeProvider>
-      <ToastProvider>
-        <Main>
-          <Story />
-        </Main>
-        <GlobalStyles />
-      </ToastProvider>
-    </ThemeProvider>
-  ),
+  (Story) => {
+    return (
+      <ThemeProvider>
+        <ToastProvider>
+          <Main>
+            <Story />
+          </Main>
+          <GlobalStyles />
+        </ToastProvider>
+      </ThemeProvider>
+    )
+  },
 ];
 
 const Main = styled.main`
