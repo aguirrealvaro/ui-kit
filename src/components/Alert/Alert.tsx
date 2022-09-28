@@ -55,7 +55,7 @@ export const Alert: FunctionComponent<AlertProps> = ({
 
 const Container = styled.div<{ variant: AlertVariantType; size: AlertSizeType }>`
   display: flex;
-  border-radius: ${({ theme }) => theme.borderRadius.sm};
+  border-radius: ${({ theme }) => theme.borderRadius.xs};
   ${({ variant, theme }) => {
     const variantStyles: Record<AlertVariantType, FlattenSimpleInterpolation> = {
       default: css`

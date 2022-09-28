@@ -103,7 +103,7 @@ const getShapeStyles = (
 ): FlattenSimpleInterpolation => {
   const shapeOptions: Record<ButtonShapeType, FlattenSimpleInterpolation> = {
     default: css`
-      border-radius: ${theme.borderRadius.sm};
+      border-radius: ${theme.borderRadius.xs};
     `,
     pill: css`
       border-radius: ${theme.borderRadius.xl};

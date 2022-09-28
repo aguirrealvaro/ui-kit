@@ -103,7 +103,7 @@ const Container = styled.div<{
   gap: 8px;
   padding: 1rem 3rem 1rem 1rem;
   color: ${({ theme }) => theme.assets["primary-text"]};
-  border-radius: ${({ theme }) => theme.borderRadius.sm};
+  border-radius: ${({ theme }) => theme.borderRadius.xs};
   margin-bottom: 1rem;
   background-color: ${({ theme }) => theme.colors.grey[1]};
   box-shadow: ${({ theme }) => theme.shadows.sm};

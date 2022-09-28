@@ -5,7 +5,7 @@ import styled, { css, keyframes } from "styled-components";
 import { MODAL_SIZES } from "./Modal.constants";
 import { ModalSizeType } from "./Modal.types";
 import { Icon, IconButton } from "@/components";
-import { useDisableScroll, useOutsideClick, useKeyPress, useTheme } from "@/hooks";
+import { useDisableScroll, useOutsideClick, useKeyPress } from "@/hooks";
 
 export type ModalProps = {
   children: ReactNode;
@@ -24,8 +24,6 @@ export const Modal: FunctionComponent<ModalProps> = ({
   closeOnInteractions = true,
   isUnmounting = false,
 }) => {
-  const { theme } = useTheme();
-
   const contentRef = useRef<HTMLDivElement>(null);
 
   useDisableScroll(isOpen);
@@ -106,7 +104,7 @@ const Content = styled.div<{ size: number; fadeOut: boolean }>`
       transition: all ${({ theme }) => theme.transitions.normal}ms ease-out;
     `}
   background-color: ${({ theme }) => theme.colors.grey[1]};
-  border-radius: ${({ theme }) => theme.borderRadius.sm};
+  border-radius: ${({ theme }) => theme.borderRadius.xs};
   box-shadow: ${({ theme }) => theme.shadows.sm};
   display: flex;
   flex-direction: column;
