@@ -1,6 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import styled from "styled-components";
 import { Text } from "@/components";
+import { useTheme } from "@/hooks";
 
 export default {
   title: "Components/Text",
@@ -8,6 +9,8 @@ export default {
 } as ComponentMeta<typeof Text>;
 
 export const Primary: ComponentStory<typeof Text> = () => {
+  const { theme } = useTheme();
+
   const breakSizes = {
     xs: "10px",
     sm: "20px",
@@ -20,6 +23,10 @@ export const Primary: ComponentStory<typeof Text> = () => {
     <Container>
       <Text>This a parragraph (default)</Text>
       <Text upppercase>This a uppercase parragraph</Text>
+      <Text color={theme.assets["primary-text"]}>This a parragraph with primary color</Text>
+      <Text color={theme.assets["secondary-text"]}>
+        This a parragraph with secondary color
+      </Text>
       <Text size="3xl" weight="bold">
         Text 3xl
       </Text>
