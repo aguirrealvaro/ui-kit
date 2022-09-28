@@ -4,11 +4,10 @@ import { InfoCircleFill } from "@styled-icons/bootstrap/InfoCircleFill";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import { Alert } from "@styled-icons/remix-fill/Alert";
 import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
-import styled, { css, keyframes } from "styled-components";
+import styled, { css, keyframes, FlattenSimpleInterpolation } from "styled-components";
 import { StyledIcon } from "styled-icons/types";
 import { ToastVariantType, ToastProps } from "./Toast.types";
 import { Icon } from "@/components/Icon";
-import { ThemeType } from "@/css";
 import { useTheme, useToast } from "@/hooks";
 
 export const Toast: FunctionComponent<ToastProps> = ({
@@ -51,8 +50,6 @@ export const Toast: FunctionComponent<ToastProps> = ({
     };
   }, []);
 
-  const iconColor = getColorValues(theme);
-
   return (
     <Container
       isClosing={isClosing}
@@ -60,32 +57,21 @@ export const Toast: FunctionComponent<ToastProps> = ({
       role="alert"
       transitionTime={transitionTime}
     >
-      <Icon icon={variantIcons[variant]} size={18} color={iconColor[variant]} />
+      <Icon icon={variantIcons[variant]} size={18} color={theme.colors.grey[1]} />
       <div>{children}</div>
       <CloseButton onClick={closeToast}>
-        <Icon icon={CloseOutline} size={15} />
+        <Icon icon={CloseOutline} size={15} color={theme.colors.grey[1]} />
       </CloseButton>
     </Container>
   );
 };
+
 const variantIcons: Record<ToastVariantType, StyledIcon> = {
   default: InfoCircleFill,
   positive: CheckCircleFill,
   warning: Alert,
   negative: CloseCircle,
   neutral: InfoCircleFill,
-};
-
-const getColorValues = (theme: ThemeType) => {
-  const colorValues: Record<ToastVariantType, string> = {
-    default: theme.assets.brand,
-    positive: theme.assets.success,
-    warning: theme.assets.warning,
-    negative: theme.assets.error,
-    neutral: theme.colors.grey[10],
-  };
-
-  return colorValues;
 };
 
 const fadeInScale = keyframes`
@@ -102,16 +88,32 @@ const Container = styled.div<{
   display: flex;
   gap: 8px;
   padding: 1rem 3rem 1rem 1rem;
-  color: ${({ theme }) => theme.assets["primary-text"]};
+  color: ${({ theme }) => theme.colors.grey[1]};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   margin-bottom: 1rem;
   background-color: ${({ theme }) => theme.colors.grey[1]};
   box-shadow: ${({ theme }) => theme.shadows.sm};
-  border-left: 4px solid transparent;
-  border-color: ${({ theme, variant }) => {
-    const backgroundColors = getColorValues(theme);
-    return backgroundColors[variant];
+  ${({ variant, theme }) => {
+    const variantStyles: Record<ToastVariantType, FlattenSimpleInterpolation> = {
+      default: css`
+        background-color: ${theme.colors.blue[6]};
+      `,
+      positive: css`
+        background-color: ${theme.colors.green[6]};
+      `,
+      negative: css`
+        background-color: ${theme.colors.red[6]};
+      `,
+      warning: css`
+        background-color: ${theme.colors.yellow[5]};
+      `,
+      neutral: css`
+        background-color: ${theme.colors.grey[10]};
+      `,
+    };
+    return variantStyles[variant];
   }};
+
   &:last-child {
     margin-bottom: 0;
   }
