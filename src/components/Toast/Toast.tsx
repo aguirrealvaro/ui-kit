@@ -14,7 +14,7 @@ import { useTheme, useToast } from "@/hooks";
 export const Toast: FunctionComponent<ToastProps> = ({
   children,
   id,
-  duration = 3000,
+  duration = 5000,
   variant = "default",
 }) => {
   const { theme } = useTheme();
