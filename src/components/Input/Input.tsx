@@ -38,9 +38,9 @@ export const Input: FunctionComponent<
 > = ({
   label,
   helpText,
-  isError,
+  isError = false,
   errorMessage,
-  isSuccess,
+  isSuccess = false,
   successMessage,
   inputId,
   isLoading,
@@ -106,8 +106,8 @@ export const Input: FunctionComponent<
       )}
       <InputContainer
         disabled={disabled || false}
-        isError={isError || false}
-        isSuccess={isSuccess || false}
+        isError={isError}
+        isSuccess={isSuccess}
         onClick={focusInput}
         size={size}
       >

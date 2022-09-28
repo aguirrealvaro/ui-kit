@@ -35,9 +35,9 @@ export const AnimatedInput: FunctionComponent<
   placeholder,
   onChange,
   helpText,
-  isError,
+  isError = false,
   errorMessage,
-  isSuccess,
+  isSuccess = false,
   successMessage,
   disabled,
   inputId,
@@ -92,8 +92,8 @@ export const AnimatedInput: FunctionComponent<
     <div>
       <InputContainer
         disabled={disabled || false}
-        isError={isError || false}
-        isSuccess={isSuccess || false}
+        isError={isError}
+        isSuccess={isSuccess}
         onClick={focusInput}
       >
         <InnerContainer>
@@ -101,8 +101,8 @@ export const AnimatedInput: FunctionComponent<
             id={inputId}
             hasPlaceholder={!!placeholder}
             ref={inputRef}
-            isError={isError || false}
-            isSuccess={isSuccess || false}
+            isError={isError}
+            isSuccess={isSuccess}
             disabled={disabled}
             sideWidth={sideContainerWidth}
             value={value}

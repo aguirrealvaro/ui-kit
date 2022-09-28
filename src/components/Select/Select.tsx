@@ -41,9 +41,9 @@ export const Select: FunctionComponent<SelectProps> = ({
   options,
   disabled,
   helpText,
-  isError,
+  isError = false,
   errorMessage,
-  isSuccess,
+  isSuccess = false,
   successMessage,
   isLoading,
   clearValue,
@@ -84,8 +84,8 @@ export const Select: FunctionComponent<SelectProps> = ({
       <SelectContainer
         disabled={disabled || false}
         isSelected={isSelected}
-        isError={isError || false}
-        isSuccess={isSuccess || false}
+        isError={isError}
+        isSuccess={isSuccess}
         isOpen={isOpen}
         size={size}
         onClick={handleDropdown}

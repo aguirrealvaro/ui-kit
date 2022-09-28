@@ -30,9 +30,9 @@ export const NativeSelect: FunctionComponent<
   label,
   disabled,
   helpText,
-  isError,
+  isError = false,
   errorMessage,
-  isSuccess,
+  isSuccess = false,
   successMessage,
   size = "md",
 }) => {
@@ -55,8 +55,8 @@ export const NativeSelect: FunctionComponent<
           value={value}
           onChange={onChange}
           disabled={disabled}
-          isError={isError || false}
-          isSuccess={isSuccess || false}
+          isError={isError}
+          isSuccess={isSuccess}
           selectSize={size}
           isSelected={isSelected}
         >
