@@ -313,7 +313,8 @@ const BottomText = styled.div<{
 
 const ChevronWrapper = styled.div<{ active: boolean }>`
   transform: ${({ active }) => `rotate(${active ? "-180" : 0}deg)`};
-  transition: transform ${({ theme }) => theme.transitions.durations.normal}ms ease-in;
+  transition: transform ${({ theme }) => theme.transitions.durations.normal}ms
+    ${({ theme }) => theme.transitions.timings.in};
   display: flex;
   align-items: center;
   pointer-events: none;

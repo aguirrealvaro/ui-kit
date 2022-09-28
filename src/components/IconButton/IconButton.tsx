@@ -22,7 +22,8 @@ const Container = styled.button<{ withHover: boolean }>`
   line-height: 0;
   padding: 6px;
   border-radius: ${({ theme }) => theme.borderRadius.full};
-  transition: background-color ${({ theme }) => theme.transitions.durations.normal}ms ease-in;
+  transition: background-color ${({ theme }) => theme.transitions.durations.normal}ms
+    ${({ theme }) => theme.transitions.timings.out};
   ${({ withHover }) => {
     if (withHover) {
       return css`

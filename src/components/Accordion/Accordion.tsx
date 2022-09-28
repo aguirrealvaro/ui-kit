@@ -87,14 +87,16 @@ const Title = styled.div<{ arrowPosition: AccordionArrowPosition }>`
 
 const ChevronWrapper = styled.div<{ active: boolean; arrowPosition: AccordionArrowPosition }>`
   transform: ${({ active }) => `rotate(${active ? "-180" : 0}deg)`};
-  transition: transform ${({ theme }) => theme.transitions.durations.normal}ms ease-in;
+  transition: transform ${({ theme }) => theme.transitions.durations.normal}ms
+    ${({ theme }) => theme.transitions.timings.out};
   order: ${({ arrowPosition }) => (arrowPosition === "right" ? 2 : 1)};
 `;
 
 const Content = styled.div<{ height: number; active: boolean }>`
   max-height: ${({ active, height }) => `${active ? height : 0}px`};
   overflow: hidden;
-  transition: all ${({ theme }) => theme.transitions.durations.normal}ms ease-in;
+  transition: all ${({ theme }) => theme.transitions.durations.fast}ms
+    ${({ theme }) => theme.transitions.timings.in};
   margin-left: 1rem;
   margin-bottom: ${({ active }) => active && "1rem"};
 `;

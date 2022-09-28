@@ -179,7 +179,8 @@ const Content = styled.div<{
   transitionTime: number;
 }>`
   position: absolute;
-  animation: ${fadeInScale} ${({ transitionTime }) => transitionTime}ms ease-in;
+  animation: ${fadeInScale} ${({ transitionTime }) => transitionTime}ms
+    ${({ theme }) => theme.transitions.timings.in};
   ${({ coords }) => {
     if (coords) {
       const { top, left } = coords;
@@ -194,7 +195,7 @@ const Content = styled.div<{
       return css`
         opacity: 0;
         transform: scale(0.9);
-        transition: all ${transitionTime}ms ease-in;
+        transition: all ${transitionTime}ms ${({ theme }) => theme.transitions.timings.in};
       `;
     }
   }};

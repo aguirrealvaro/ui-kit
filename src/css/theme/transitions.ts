@@ -1,10 +1,10 @@
 type Transition = "none" | "slow" | "normal" | "fast";
 
-type Timing = "default";
+type Timing = "linear" | "in" | "out";
 
 export type TransitionsType = {
   durations: Record<Transition, number>;
-  timing: Record<Timing, string>;
+  timings: Record<Timing, string>;
 };
 
 export const transitions: TransitionsType = {
@@ -14,7 +14,9 @@ export const transitions: TransitionsType = {
     normal: 200,
     fast: 100,
   },
-  timing: {
-    default: "ease-in",
+  timings: {
+    linear: "linear",
+    in: "ease-in",
+    out: "ease-out",
   },
 };

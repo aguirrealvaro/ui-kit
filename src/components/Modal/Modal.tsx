@@ -77,12 +77,14 @@ const Backdrop = styled.div<{ isOpen: boolean; fadeOut: boolean }>`
   width: 100vw;
   height: 100vh;
   overflow-y: auto;
-  animation: ${fadeIn} ${({ theme }) => theme.transitions.durations.normal}ms ease-in;
+  animation: ${fadeIn} ${({ theme }) => theme.transitions.durations.normal}ms
+    ${({ theme }) => theme.transitions.timings.in};
   ${({ fadeOut }) =>
     fadeOut &&
     css`
       opacity: 0;
-      transition: all ${({ theme }) => theme.transitions.durations.normal}ms ease-in;
+      transition: all ${({ theme }) => theme.transitions.durations.normal}ms
+        ${({ theme }) => theme.transitions.timings.in};
     `};
   background-color: ${({ theme }) => theme.transparencies.medium};
   display: flex;
@@ -95,13 +97,15 @@ const Content = styled.div<{ size: number; fadeOut: boolean }>`
   width: ${({ size }) => size}px;
   min-height: 100px;
   max-height: 80vh;
-  animation: ${fadeInScale} ${({ theme }) => theme.transitions.durations.normal}ms ease-in;
+  animation: ${fadeInScale} ${({ theme }) => theme.transitions.durations.normal}ms
+    ${({ theme }) => theme.transitions.timings.in};
   ${({ fadeOut }) =>
     fadeOut &&
     css`
       opacity: 0;
       transform: scale(0.9);
-      transition: all ${({ theme }) => theme.transitions.durations.normal}ms ease-in;
+      transition: all ${({ theme }) => theme.transitions.durations.normal}ms
+        ${({ theme }) => theme.transitions.timings.in};
     `}
   background-color: ${({ theme }) => theme.colors.grey[1]};
   border-radius: ${({ theme }) => theme.borderRadius.xs};

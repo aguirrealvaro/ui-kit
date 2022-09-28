@@ -26,6 +26,15 @@ export const Primary: ComponentStory<typeof Accordion> = () => {
         quasi amet accusamus quae at laborum! Autem voluptas dolorum libero laboriosam
         praesentium ipsa quia vero odio quidem.Lorem ipsum dolor sit amet, consectetur
         adipisicing elit. Placeat maxime corporis ullam voluptate quasi amet accusamus quae at
+        consectetur adipisicing elit. Placeat maxime corporis ullam voluptate quasi amet
+        accusamus quae at laborum! Autem voluptas dolorum libero laboriosam praesentium ipsa
+        quia vero odio quidem.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat
+        maxime corporis ullam voluptate quasi amet aum dolor sit ametLorem ipsum dolor sit
+        amet, consectetur adipisicing elit. Placeat maxime corporis ullam voluptate quasi amet
+        accusamus quae at laborum! Autem voluptas dolorum libero laboriosam praesentium ipsa
+        quia vero odio quidem.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat
+        maxime corporis ullam voluptate quasi amet a quidem.Lorem ipsum dolor sit amet,
+        consectetur adipisicing elit. Placeat maxime corporis ullam voluptate quasi amet
       </Accordion>
       <Accordion title="Click me 3" showBorder disabled>
         Lorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -33,8 +42,12 @@ export const Primary: ComponentStory<typeof Accordion> = () => {
         voluptas dolorum libero laboriosam praesentium ipsa quia vero odio quidem.Lorem ipsum
         dolor sit amet, consectetur adipisicing elit. Placeat maxime corporis ullam voluptate
         quasi amet accusamus quae at laborum! Autem voluptas dolorum libero laboriosam
-        praesentium ipsa quia vero odio quidem.Lorem ipsum dolor sit amet, consectetur
+        praesentium ipsa quia vero odioum dolor sit ametLorem ipsum dolor sit amet, consectetur
         adipisicing elit. Placeat maxime corporis ullam voluptate quasi amet accusamus quae at
+        laborum! Autem voluptas dolorum libero laboriosam praesentium ipsa quia vero odio
+        quidem.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat maxime
+        corporis ullam voluptate quasi amet aum dolor sit ametLorem ipsum dolor sit amet,
+        accusamus quae at
       </Accordion>
     </div>
   );

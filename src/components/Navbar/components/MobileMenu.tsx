@@ -58,8 +58,9 @@ const translate = keyframes`
 const Backdrop = styled.div<{ isUnmounting: boolean }>`
   position: fixed;
   background-color: ${({ theme }) => theme.transparencies.medium};
-  animation: ${fadeIn} ${({ theme }) => theme.transitions.durations.normal}ms ease-in;
-  transition: all 200ms ease-in;
+  animation: ${fadeIn} ${({ theme }) => theme.transitions.durations.normal}ms
+    ${({ theme }) => theme.transitions.timings.in};
+  transition: all 200ms ${({ theme }) => theme.transitions.timings.in};
   top: 0;
   right: 0;
   left: 0;
@@ -68,7 +69,8 @@ const Backdrop = styled.div<{ isUnmounting: boolean }>`
     isUnmounting &&
     css`
       opacity: 0;
-      transition: opacity ${({ theme }) => theme.transitions.durations.normal}ms ease-in;
+      transition: opacity ${({ theme }) => theme.transitions.durations.normal}ms
+        ${({ theme }) => theme.transitions.timings.in};
     `}
 `;
 
@@ -80,7 +82,8 @@ const Container = styled.div<{ isUnmounting: boolean; transitionTime: number }>`
   width: 70%;
   background-color: ${({ theme }) => theme.colors.grey[1]};
   box-shadow: ${({ theme }) => theme.shadows.sm};
-  animation: ${translate} ${({ transitionTime }) => transitionTime}ms ease-in;
+  animation: ${translate} ${({ transitionTime }) => transitionTime}ms
+    ${({ theme }) => theme.transitions.timings.in};
   padding: 4rem 0;
   display: flex;
   flex-direction: column;
@@ -89,7 +92,7 @@ const Container = styled.div<{ isUnmounting: boolean; transitionTime: number }>`
     isUnmounting &&
     css`
       transform: translateX(100%);
-      transition: transform ${transitionTime}ms ease-in;
+      transition: transform ${transitionTime}ms ${({ theme }) => theme.transitions.timings.in};
     `}
 `;
 

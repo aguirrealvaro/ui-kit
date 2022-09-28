@@ -84,7 +84,8 @@ const Paragraph = styled.p<{
         height: ${showMore ? containerHeight : minHeight}px;
         margin-bottom: 1rem;
         overflow-y: hidden;
-        transition: height ${({ theme }) => theme.transitions.durations.normal}ms ease-in;
+        transition: height ${({ theme }) => theme.transitions.durations.normal}ms
+          ${({ theme }) => theme.transitions.timings.out};
       `;
     }
   }}

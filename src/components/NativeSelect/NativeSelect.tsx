@@ -75,7 +75,7 @@ export const NativeSelect: FunctionComponent<
               <Icon icon={CloseOutline} color={theme.assets["input-border"]} size={18} />
             </ButtonClear>
           )}
-          <ChevronWrapper active={false}>
+          <ChevronWrapper>
             <Icon icon={ChevronDown} color={theme.assets["input-border"]} size={23} />
           </ChevronWrapper>
         </SideContainer>
@@ -189,9 +189,7 @@ const SideContainer = styled.div`
   transform: translateY(-50%);
 `;
 
-const ChevronWrapper = styled.div<{ active: boolean }>`
-  transform: ${({ active }) => `rotate(${active ? "-180" : 0}deg)`};
-  transition: transform ${({ theme }) => theme.transitions.durations.normal}ms ease-in;
+const ChevronWrapper = styled.div`
   display: flex;
   align-items: center;
 `;
