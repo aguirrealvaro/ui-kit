@@ -4,14 +4,7 @@ import { defineConfig, loadEnv } from "vite";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const PACKAGE = require("./package.json");
 
-const validEnvs = ["development", "production"];
-
 export default defineConfig(({ mode }) => {
-  if (!validEnvs.includes(mode)) {
-    const message = `Unsupported mode: "${mode}"`;
-    throw Error(message);
-  }
-
   return {
     plugins: [react()],
     server: {
