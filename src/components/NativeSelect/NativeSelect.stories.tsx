@@ -38,6 +38,10 @@ export const Primary: ComponentStory<typeof NativeSelect> = () => {
         clearValue={clearValue}
         helpText="Help text"
         size="sm"
+        //isError
+        //errorMessage="errorMessage"
+        //isSuccess
+        //successMessage="successMessage"
       />
       <NativeSelect
         label="Native select medium"

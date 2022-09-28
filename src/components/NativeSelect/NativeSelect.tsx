@@ -12,7 +12,10 @@ type NativeSelectProps = {
   options: NativeSelectFieldType[];
   clearValue?: () => void;
   helpText?: string;
-  error?: string;
+  isError?: boolean;
+  errorMessage?: string;
+  isSuccess?: boolean;
+  successMessage?: string;
   size?: SelectSizeType;
 };
 
@@ -27,7 +30,10 @@ export const NativeSelect: FunctionComponent<
   label,
   disabled,
   helpText,
-  error,
+  isError,
+  errorMessage,
+  isSuccess,
+  successMessage,
   size = "md",
 }) => {
   const { theme } = useTheme();
@@ -39,7 +45,7 @@ export const NativeSelect: FunctionComponent<
 
   const isSelected = !!value;
 
-  const showBottom: boolean = !!helpText || !!error;
+  const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
 
   return (
     <div>
@@ -49,7 +55,8 @@ export const NativeSelect: FunctionComponent<
           value={value}
           onChange={onChange}
           disabled={disabled}
-          error={!!error}
+          isError={isError || false}
+          isSuccess={isSuccess || false}
           selectSize={size}
           isSelected={isSelected}
         >
@@ -74,8 +81,12 @@ export const NativeSelect: FunctionComponent<
         </SideContainer>
       </SelectContainer>
       {showBottom && (
-        <BottomText error={!!error} size={size}>
-          {error || helpText}
+        <BottomText
+          errorMessage={!!errorMessage}
+          successMessage={!!successMessage}
+          size={size}
+        >
+          {errorMessage || helpText}
         </BottomText>
       )}
     </div>
@@ -102,7 +113,8 @@ const Label = styled.label<{ size: SelectSizeType }>`
 `;
 
 const Select = styled.select<{
-  error: boolean;
+  isError: boolean;
+  isSuccess: boolean;
   selectSize: SelectSizeType;
   isSelected: boolean;
 }>`
@@ -135,9 +147,13 @@ const Select = styled.select<{
   -moz-appearance: none;
   -ms-appearance: none;
   border: 1px solid transparent;
-  border-color: ${({ theme, error }) => {
-    if (error) {
+  border-color: ${({ theme, isError, isSuccess }) => {
+    if (isError) {
       return theme.assets.error;
+    }
+
+    if (isSuccess) {
+      return theme.assets.success;
     }
 
     return theme.assets["input-border"];
@@ -190,10 +206,22 @@ const ButtonClear = styled.button`
   line-height: 0;
 `;
 
-const BottomText = styled.div<{ error: boolean; size: SelectSizeType }>`
+const BottomText = styled.div<{
+  errorMessage: boolean;
+  size: SelectSizeType;
+  successMessage: boolean;
+}>`
   margin: 0.5rem 1rem 0 1rem;
-  color: ${({ error, theme }) =>
-    error ? theme.assets.error : theme.assets["secondary-text"]};
+  color: ${({ errorMessage, theme, successMessage }) => {
+    if (errorMessage) {
+      return theme.assets.error;
+    }
+
+    if (successMessage) {
+      return theme.assets.success;
+    }
+    return theme.assets["secondary-text"];
+  }};
   font-size: ${({ size, theme }) => {
     const sizes: Record<SelectSizeType, string> = {
       sm: theme.typography.fontSizes.xs,
