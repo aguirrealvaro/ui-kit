@@ -285,6 +285,7 @@ const ChevronWrapper = styled.div<{ active: boolean }>`
   transition: transform ${({ theme }) => theme.transitions.normal}ms ease;
   display: flex;
   align-items: center;
+  pointer-events: none;
 `;
 
 const ButtonClear = styled.button`

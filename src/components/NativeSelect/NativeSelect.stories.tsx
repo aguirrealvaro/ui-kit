@@ -14,11 +14,16 @@ export const Primary: ComponentStory<typeof NativeSelect> = () => {
     setOption(e.target.value);
   };
 
+  const clearValue = () => {
+    console.log("clear");
+    setOption(undefined);
+  };
+
   const options = [
-    { label: "Option 1", value: "option1" },
-    { label: "Option 2", value: "option2" },
-    { label: "Option 3", value: "option3", disabled: true },
-    { label: "Option 4", value: "option4" },
+    { label: "Option 1", value: "value1" },
+    { label: "Option 2", value: "value2" },
+    { label: "Option 3", value: "value3", disabled: true },
+    { label: "Option 4", value: "value4" },
   ];
 
   return (
@@ -27,6 +32,7 @@ export const Primary: ComponentStory<typeof NativeSelect> = () => {
       value={option}
       options={options}
       onChange={onChange}
+      clearValue={clearValue}
     />
   );
 };

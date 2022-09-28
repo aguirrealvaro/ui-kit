@@ -1,5 +1,6 @@
-import { FunctionComponent, SelectHTMLAttributes } from "react";
+import { FunctionComponent, MouseEvent, SelectHTMLAttributes } from "react";
 import { ChevronDown } from "@styled-icons/boxicons-regular/ChevronDown";
+import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import styled from "styled-components";
 import { Icon } from "../Icon";
 import { NativeSelectFieldType } from "./NativeSelect.types";
@@ -7,16 +8,24 @@ import { useTheme } from "@/hooks";
 
 type NativeSelectProps = {
   options: NativeSelectFieldType[];
+  clearValue?: () => void;
 };
 
 export const NativeSelect: FunctionComponent<
   NativeSelectProps & Omit<SelectHTMLAttributes<HTMLSelectElement>, "size">
-> = ({ value, onChange, options, placeholder }) => {
+> = ({ value, onChange, options, placeholder, clearValue }) => {
   const { theme } = useTheme();
+
+  const handleClearValue = (e: MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    clearValue?.();
+  };
+
+  const isSelected = !!value;
 
   return (
     <Container>
-      <SelectContainer value={value} onChange={onChange}>
+      <Select value={value} onChange={onChange}>
         <Option hidden>{placeholder}</Option>
         {options.map(({ label, value, disabled }, index) => {
           return (
@@ -25,8 +34,13 @@ export const NativeSelect: FunctionComponent<
             </Option>
           );
         })}
-      </SelectContainer>
+      </Select>
       <SideContainer>
+        {isSelected && clearValue && (
+          <ButtonClear onClick={handleClearValue}>
+            <Icon icon={CloseOutline} color={theme.assets["input-border"]} size={18} />
+          </ButtonClear>
+        )}
         <ChevronWrapper active={false}>
           <Icon icon={ChevronDown} color={theme.assets["input-border"]} size={23} />
         </ChevronWrapper>
@@ -42,7 +56,7 @@ const Container = styled.div`
   width: 100%;
 `;
 
-const SelectContainer = styled.select`
+const Select = styled.select`
   font-size: inherit;
   width: 100%;
   height: 40px;
@@ -86,4 +100,8 @@ const Option = styled.option`
   &:disabled {
     color: ${({ theme }) => theme.assets.disabled};
   }
+`;
+
+const ButtonClear = styled.button`
+  line-height: 0;
 `;
