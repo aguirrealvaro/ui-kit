@@ -18,7 +18,7 @@ type Assets =
   | "brand"
   | "success"
   | "warning"
-  | "error"
+  | "danger"
   | "title"
   | "primary-text"
   | "secondary-text"

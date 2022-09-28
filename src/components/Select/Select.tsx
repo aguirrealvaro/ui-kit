@@ -186,7 +186,7 @@ const SelectContainer = styled.div<{
 
     if (isError) {
       return css`
-        border-color: ${theme.assets.error};
+        border-color: ${theme.assets.danger};
       `;
     }
 
@@ -293,7 +293,7 @@ const BottomText = styled.div<{
   margin: 0.5rem 1rem 0 1rem;
   color: ${({ showErrorMessage, theme, showSuccessMessage }) => {
     if (showErrorMessage) {
-      return theme.assets.error;
+      return theme.assets.danger;
     }
 
     if (showSuccessMessage) {

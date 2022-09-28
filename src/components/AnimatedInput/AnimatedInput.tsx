@@ -122,7 +122,7 @@ export const AnimatedInput: FunctionComponent<
                 <Icon icon={CloseOutline} size={18} />
               </ButtonIcon>
             )}
-            {isError && <Icon icon={CloseCircle} size={18} color={theme.assets.error} />}
+            {isError && <Icon icon={CloseCircle} size={18} color={theme.assets.danger} />}
             {isSuccess && (
               <Icon icon={CheckCircleFill} size={18} color={theme.assets.success} />
             )}
@@ -158,7 +158,7 @@ const InputContainer = styled.div<{
   ${({ isError, isSuccess, theme }) => {
     if (isError) {
       return css`
-        border-color: ${theme.assets.error};
+        border-color: ${theme.assets.danger};
       `;
     }
 
@@ -238,7 +238,7 @@ const CustomInput = styled.input<{
     ${getFocusedLabelStyles};
     color: ${({ theme, isError, isSuccess }) => {
       if (isError) {
-        return theme.assets.error;
+        return theme.assets.danger;
       }
 
       if (isSuccess) {
@@ -254,7 +254,7 @@ const CustomInput = styled.input<{
         ${getFocusedLabelStyles};
         color: ${({ theme, isError, isSuccess }) => {
           if (isError) {
-            return theme.assets.error;
+            return theme.assets.danger;
           }
 
           if (isSuccess) {
@@ -276,7 +276,7 @@ const BottomText = styled.div<{ showErrorMessage: boolean; showSuccessMessage: b
   margin: 0.5rem 1rem 0 1rem;
   color: ${({ showErrorMessage, theme, showSuccessMessage }) => {
     if (showErrorMessage) {
-      return theme.assets.error;
+      return theme.assets.danger;
     }
 
     if (showSuccessMessage) {

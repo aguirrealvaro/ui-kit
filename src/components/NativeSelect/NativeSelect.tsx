@@ -149,7 +149,7 @@ const Select = styled.select<{
   border: 1px solid transparent;
   border-color: ${({ theme, isError, isSuccess }) => {
     if (isError) {
-      return theme.assets.error;
+      return theme.assets.danger;
     }
 
     if (isSuccess) {
@@ -212,7 +212,7 @@ const BottomText = styled.div<{
   margin: 0.5rem 1rem 0 1rem;
   color: ${({ showErrorMessage, theme, showSuccessMessage }) => {
     if (showErrorMessage) {
-      return theme.assets.error;
+      return theme.assets.danger;
     }
 
     if (showSuccessMessage) {
