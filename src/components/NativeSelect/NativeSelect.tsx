@@ -59,8 +59,13 @@ const SelectContainer = styled.select`
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
-  border: 1px solid ${({ theme }) => theme.assets["input-border"]};
+  border: 1px solid transparent;
+  border-color: ${({ theme }) => theme.assets["input-border"]};
   border-radius: ${({ theme }) => theme.borderRadius.sm};
+  &:focus {
+    border-color: transparent;
+    box-shadow: ${({ theme }) => theme.shadows.outline};
+  }
 `;
 
 const SideContainer = styled.div`
