@@ -19,7 +19,8 @@ import { useTheme } from "@/hooks";
 
 type AnimatedInputProps = {
   helpText?: ReactNode;
-  error?: string;
+  isError?: boolean;
+  errorMessage?: string;
   isSuccess?: boolean;
   inputId?: string;
   isLoading?: boolean;
@@ -33,7 +34,8 @@ export const AnimatedInput: FunctionComponent<
   placeholder,
   onChange,
   helpText,
-  error,
+  isError,
+  errorMessage,
   isSuccess,
   disabled,
   inputId,
@@ -60,13 +62,13 @@ export const AnimatedInput: FunctionComponent<
 
   const showSideContainer: boolean =
     isLoading ||
-    !!error ||
+    !!isError ||
     isSuccess ||
     (!!value && !!clearValue) ||
     !!icon ||
     type === "password";
 
-  const showBottom: boolean = !!helpText || !!error;
+  const showBottom: boolean = !!helpText || !!errorMessage;
 
   const sideContainerRef = useRef<HTMLDivElement>(null);
 
@@ -88,7 +90,7 @@ export const AnimatedInput: FunctionComponent<
     <div>
       <InputContainer
         disabled={disabled || false}
-        error={!!error}
+        isError={isError || false}
         isSuccess={isSuccess || false}
         onClick={focusInput}
       >
@@ -97,7 +99,7 @@ export const AnimatedInput: FunctionComponent<
             id={inputId}
             hasPlaceholder={!!placeholder}
             ref={inputRef}
-            error={!!error}
+            isError={isError || false}
             isSuccess={isSuccess || false}
             disabled={disabled}
             sideWidth={sideContainerWidth}
@@ -118,7 +120,7 @@ export const AnimatedInput: FunctionComponent<
                 <Icon icon={CloseOutline} size={18} />
               </ButtonIcon>
             )}
-            {error && <Icon icon={CloseCircle} size={18} color={theme.assets.error} />}
+            {isError && <Icon icon={CloseCircle} size={18} color={theme.assets.error} />}
             {isSuccess && (
               <Icon icon={CheckCircleFill} size={18} color={theme.assets.success} />
             )}
@@ -130,14 +132,16 @@ export const AnimatedInput: FunctionComponent<
           </SideContainer>
         )}
       </InputContainer>
-      {showBottom && <BottomText error={!!error}>{error || helpText}</BottomText>}
+      {showBottom && (
+        <BottomText errorMessage={!!errorMessage}>{errorMessage || helpText}</BottomText>
+      )}
     </div>
   );
 };
 
 const InputContainer = styled.div<{
   disabled: boolean;
-  error: boolean;
+  isError: boolean;
   isSuccess: boolean;
 }>`
   display: flex;
@@ -147,8 +151,8 @@ const InputContainer = styled.div<{
   height: 55px;
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   border: 1px solid transparent;
-  ${({ error, isSuccess, theme }) => {
-    if (error) {
+  ${({ isError, isSuccess, theme }) => {
+    if (isError) {
       return css`
         border-color: ${theme.assets.error};
       `;
@@ -205,7 +209,7 @@ const getFocusedLabelStyles = css`
 `;
 
 const CustomInput = styled.input<{
-  error: boolean;
+  isError: boolean;
   hasPlaceholder: boolean;
   isSuccess: boolean;
   sideWidth: number | undefined;
@@ -228,8 +232,8 @@ const CustomInput = styled.input<{
   color: ${({ theme }) => theme.assets["primary-text"]};
   &:focus + label {
     ${getFocusedLabelStyles};
-    color: ${({ theme, error, isSuccess }) => {
-      if (error) {
+    color: ${({ theme, isError, isSuccess }) => {
+      if (isError) {
         return theme.assets.error;
       }
 
@@ -244,8 +248,8 @@ const CustomInput = styled.input<{
     &:not(:focus) {
       + label {
         ${getFocusedLabelStyles};
-        color: ${({ theme, error, isSuccess }) => {
-          if (error) {
+        color: ${({ theme, isError, isSuccess }) => {
+          if (isError) {
             return theme.assets.error;
           }
 
@@ -263,11 +267,11 @@ const CustomInput = styled.input<{
   }
 `;
 
-const BottomText = styled.div<{ error: boolean }>`
+const BottomText = styled.div<{ errorMessage: boolean }>`
   font-size: ${({ theme }) => theme.typography.fontSizes.sm};
   margin: 0.5rem 1rem 0 1rem;
-  color: ${({ error, theme }) =>
-    error ? theme.assets.error : theme.assets["secondary-text"]};
+  color: ${({ errorMessage, theme }) =>
+    errorMessage ? theme.assets.error : theme.assets["secondary-text"]};
 `;
 
 const ButtonIcon = styled.button`
