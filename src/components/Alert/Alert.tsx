@@ -18,7 +18,7 @@ type AlertProps = {
 
 export const Alert: FunctionComponent<AlertProps> = ({
   children,
-  variant = "default",
+  variant = "info",
   size = "sm",
   showIcon = true,
 }) => {
@@ -32,10 +32,10 @@ export const Alert: FunctionComponent<AlertProps> = ({
   };
 
   const variantIcons: Record<AlertVariantType, { icon: StyledIcon; color: string }> = {
-    default: { icon: InfoCircleFill, color: theme.assets.brand },
-    positive: { icon: CheckCircleFill, color: theme.assets.success },
+    info: { icon: InfoCircleFill, color: theme.assets.brand },
+    success: { icon: CheckCircleFill, color: theme.assets.success },
     warning: { icon: AlertIcon, color: theme.assets.warning },
-    negative: { icon: CloseCircle, color: theme.assets.danger },
+    danger: { icon: CloseCircle, color: theme.assets.danger },
     neutral: { icon: InfoCircleFill, color: theme.colors.grey[6] },
   };
 
@@ -58,15 +58,15 @@ const Container = styled.div<{ variant: AlertVariantType; size: AlertSizeType }>
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   ${({ variant, theme }) => {
     const variantStyles: Record<AlertVariantType, FlattenSimpleInterpolation> = {
-      default: css`
+      info: css`
         background-color: ${theme.colors.blue[2]};
         color: ${theme.colors.blue[8]};
       `,
-      positive: css`
+      success: css`
         background-color: ${theme.colors.green[2]};
         color: ${theme.colors.green[8]};
       `,
-      negative: css`
+      danger: css`
         background-color: ${theme.colors.red[2]};
         color: ${theme.colors.red[8]};
       `,
