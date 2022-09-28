@@ -24,6 +24,7 @@ type InputProps = {
   isError?: boolean;
   errorMessage?: string;
   isSuccess?: boolean;
+  successMessage?: string;
   inputId?: string;
   isLoading?: boolean;
   clearValue?: () => void;
@@ -40,6 +41,7 @@ export const Input: FunctionComponent<
   isError,
   errorMessage,
   isSuccess,
+  successMessage,
   inputId,
   isLoading,
   clearValue,
@@ -75,7 +77,7 @@ export const Input: FunctionComponent<
     !!rightIcon ||
     type === "password";
 
-  const showBottom: boolean = !!helpText || !!errorMessage;
+  const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
 
   const rightContainerRef = useRef<HTMLDivElement>(null);
 
@@ -143,7 +145,11 @@ export const Input: FunctionComponent<
         )}
       </InputContainer>
       {showBottom && (
-        <BottomText errorMessage={!!errorMessage} size={size}>
+        <BottomText
+          errorMessage={!!errorMessage}
+          successMessage={!!successMessage}
+          size={size}
+        >
           {errorMessage || helpText}
         </BottomText>
       )}
@@ -257,10 +263,22 @@ const CustomInput = styled.input<{
   }
 `;
 
-const BottomText = styled.div<{ errorMessage: boolean; size: InputSizeType }>`
+const BottomText = styled.div<{
+  errorMessage: boolean;
+  size: InputSizeType;
+  successMessage: boolean;
+}>`
   margin: 0.5rem 1rem 0 1rem;
-  color: ${({ errorMessage, theme }) =>
-    errorMessage ? theme.assets.error : theme.assets["secondary-text"]};
+  color: ${({ errorMessage, theme, successMessage }) => {
+    if (errorMessage) {
+      return theme.assets.error;
+    }
+
+    if (successMessage) {
+      return theme.assets.success;
+    }
+    return theme.assets["secondary-text"];
+  }};
   font-size: ${({ size, theme }) => {
     const sizes: Record<InputSizeType, string> = {
       sm: theme.typography.fontSizes.xs,

@@ -34,6 +34,8 @@ export const Primary: ComponentStory<typeof Input> = () => {
         size="sm"
         //isError
         //errorMessage="errorMessage"
+        //isSuccess
+        //successMessage="successMessage"
       />
       <Input
         inputId="input2"
