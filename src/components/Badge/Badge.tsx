@@ -7,7 +7,7 @@ type BadeProps = {
   variant?: BadgeVariantType;
 };
 
-export const Badge: FunctionComponent<BadeProps> = ({ children, variant = "default" }) => {
+export const Badge: FunctionComponent<BadeProps> = ({ children, variant = "info" }) => {
   return (
     <Container variant={variant}>
       <span>{children}</span>
@@ -20,15 +20,15 @@ const Container = styled.div<{ variant: BadgeVariantType }>`
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   ${({ variant, theme }) => {
     const variantStyles: Record<BadgeVariantType, FlattenSimpleInterpolation> = {
-      default: css`
+      info: css`
         background-color: ${theme.colors.blue[2]};
         color: ${theme.colors.blue[8]};
       `,
-      positive: css`
+      success: css`
         background-color: ${theme.colors.green[2]};
         color: ${theme.colors.green[8]};
       `,
-      negative: css`
+      danger: css`
         background-color: ${theme.colors.red[2]};
         color: ${theme.colors.red[8]};
       `,
