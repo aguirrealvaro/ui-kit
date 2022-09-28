@@ -8,31 +8,45 @@ import { useTheme } from "@/hooks";
 type TitleProps = {
   children: ReactNode;
   as: TitleType;
-  size: TitleSizeType;
+  size?: TitleSizeType;
   weight?: FontWeight;
   color?: string;
+  upppercase?: boolean;
 };
 
 export const Title: FunctionComponent<TitleProps> = ({
   children,
   as,
-  size,
+  size = "xl",
   weight = "semibold",
   color,
+  upppercase = false,
 }) => {
   const { theme } = useTheme();
 
   return (
-    <Container as={as} size={size} weight={weight} color={color || theme.assets.title}>
+    <Container
+      as={as}
+      size={size}
+      weight={weight}
+      color={color || theme.assets.title}
+      upppercase={upppercase}
+    >
       {children}
     </Container>
   );
 };
 
-const Container = styled.div<{ size: TitleSizeType; weight: FontWeight; color: string }>`
+const Container = styled.div<{
+  size: TitleSizeType;
+  weight: FontWeight;
+  color: string;
+  upppercase: boolean;
+}>`
   font-family: ${({ theme }) => theme.typography.fontFamilies.heading};
   font-weight: ${({ theme, weight }) => theme.typography.fontWeights[weight]};
   color: ${({ color }) => color};
+  text-transform: ${({ upppercase }) => upppercase && "uppercase"};
   ${({ size, theme }) => {
     if (typeof size === "string") {
       return css`

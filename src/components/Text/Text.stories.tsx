@@ -19,6 +19,7 @@ export const Primary: ComponentStory<typeof Text> = () => {
   return (
     <Container>
       <Text>This a parragraph (default)</Text>
+      <Text upppercase>This a uppercase parragraph</Text>
       <Text size="3xl" weight="bold">
         Text 3xl
       </Text>

@@ -11,9 +11,17 @@ type TextProps = {
   weight?: FontWeight;
   as?: TextType;
   color?: string;
+  upppercase?: boolean;
 };
 
-export const Text: FunctionComponent<TextProps> = ({ children, size, weight, as, color }) => {
+export const Text: FunctionComponent<TextProps> = ({
+  children,
+  size,
+  weight,
+  as,
+  color,
+  upppercase = false,
+}) => {
   const { theme } = useTheme();
 
   return (
@@ -22,6 +30,7 @@ export const Text: FunctionComponent<TextProps> = ({ children, size, weight, as,
       size={size}
       weight={weight}
       color={color || theme.assets["primary-text"]}
+      upppercase={upppercase}
     >
       {children}
     </Container>
@@ -32,12 +41,13 @@ const Container = styled.p<{
   size: TextSizeType | undefined;
   weight: FontWeight | undefined;
   as: TextType | undefined;
+  upppercase: boolean;
 }>`
   margin: 0;
   font-family: ${({ theme }) => theme.typography.fontFamilies.body};
   font-weight: ${({ theme, weight }) => weight && theme.typography.fontWeights[weight]};
   color: ${({ color }) => color};
-
+  text-transform: ${({ upppercase }) => upppercase && "uppercase"};
   ${({ as, theme }) => {
     if (!as) return;
     const textStyles: Partial<Record<TextType, FlattenSimpleInterpolation | undefined>> = {

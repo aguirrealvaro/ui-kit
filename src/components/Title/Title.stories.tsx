@@ -18,6 +18,10 @@ export const Primary: ComponentStory<typeof Title> = () => {
 
   return (
     <Container>
+      <Title as="h1">Default</Title>
+      <Title as="h1" upppercase>
+        uppercase
+      </Title>
       <Title as="h2" size="3xl" weight="bold">
         Title 3xl
       </Title>
