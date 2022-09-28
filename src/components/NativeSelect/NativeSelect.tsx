@@ -51,6 +51,7 @@ export const NativeSelect: FunctionComponent<
           disabled={disabled}
           error={!!error}
           selectSize={size}
+          isSelected={isSelected}
         >
           <Option hidden>{placeholder}</Option>
           {options.map(({ label, value, disabled }, index) => {
@@ -100,7 +101,11 @@ const Label = styled.label<{ size: SelectSizeType }>`
   }};
 `;
 
-const Select = styled.select<{ error: boolean; selectSize: SelectSizeType }>`
+const Select = styled.select<{
+  error: boolean;
+  selectSize: SelectSizeType;
+  isSelected: boolean;
+}>`
   font-size: ${({ selectSize, theme }) => {
     const sizes: Record<SelectSizeType, string> = {
       sm: theme.typography.fontSizes.sm,
@@ -119,7 +124,8 @@ const Select = styled.select<{ error: boolean; selectSize: SelectSizeType }>`
     return sizes[selectSize];
   }};
   background-color: ${({ theme }) => theme.assets["body-background"]};
-  color: ${({ theme }) => theme.assets["primary-text"]};
+  color: ${({ theme, isSelected }) =>
+    isSelected ? theme.assets["primary-text"] : theme.assets["input-placeholder"]};
   border: none;
   outline: none;
   cursor: pointer;
