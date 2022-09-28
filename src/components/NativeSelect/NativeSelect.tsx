@@ -3,6 +3,7 @@ import { ChevronDown } from "@styled-icons/boxicons-regular/ChevronDown";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import styled from "styled-components";
 import { Icon } from "../Icon";
+import { SelectSizeType } from "../Select/Select.types";
 import { NativeSelectFieldType } from "./NativeSelect.types";
 import { useTheme } from "@/hooks";
 
@@ -12,6 +13,7 @@ type NativeSelectProps = {
   clearValue?: () => void;
   helpText?: string;
   error?: string;
+  size?: SelectSizeType;
 };
 
 export const NativeSelect: FunctionComponent<
@@ -26,6 +28,7 @@ export const NativeSelect: FunctionComponent<
   disabled,
   helpText,
   error,
+  size = "md",
 }) => {
   const { theme } = useTheme();
 
@@ -40,9 +43,15 @@ export const NativeSelect: FunctionComponent<
 
   return (
     <div>
-      {label && <Label>{label}</Label>}
+      {label && <Label size={size}>{label}</Label>}
       <SelectContainer>
-        <Select value={value} onChange={onChange} disabled={disabled} error={!!error}>
+        <Select
+          value={value}
+          onChange={onChange}
+          disabled={disabled}
+          error={!!error}
+          selectSize={size}
+        >
           <Option hidden>{placeholder}</Option>
           {options.map(({ label, value, disabled }, index) => {
             return (
@@ -63,7 +72,11 @@ export const NativeSelect: FunctionComponent<
           </ChevronWrapper>
         </SideContainer>
       </SelectContainer>
-      {showBottom && <BottomText error={!!error}>{error || helpText}</BottomText>}
+      {showBottom && (
+        <BottomText error={!!error} size={size}>
+          {error || helpText}
+        </BottomText>
+      )}
     </div>
   );
 };
@@ -71,19 +84,40 @@ export const NativeSelect: FunctionComponent<
 const SelectContainer = styled.div`
   position: relative;
   display: flex;
-  font-size: 16px;
   width: 100%;
 `;
 
-const Label = styled.label`
+const Label = styled.label<{ size: SelectSizeType }>`
   display: block;
   margin-bottom: 0.5rem;
+  font-size: ${({ size, theme }) => {
+    const sizes: Record<SelectSizeType, string> = {
+      sm: theme.typography.fontSizes.sm,
+      md: theme.typography.fontSizes.md,
+      lg: theme.typography.fontSizes.lg,
+    };
+    return sizes[size];
+  }};
 `;
 
-const Select = styled.select<{ error: boolean }>`
-  font-size: inherit;
+const Select = styled.select<{ error: boolean; selectSize: SelectSizeType }>`
+  font-size: ${({ selectSize, theme }) => {
+    const sizes: Record<SelectSizeType, string> = {
+      sm: theme.typography.fontSizes.sm,
+      md: theme.typography.fontSizes.md,
+      lg: theme.typography.fontSizes.lg,
+    };
+    return sizes[selectSize];
+  }};
   width: 100%;
-  height: 40px;
+  height: ${({ selectSize }) => {
+    const sizes: Record<SelectSizeType, string> = {
+      sm: "32px",
+      md: "40px",
+      lg: "48px",
+    };
+    return sizes[selectSize];
+  }};
   background-color: ${({ theme }) => theme.assets["body-background"]};
   color: ${({ theme }) => theme.assets["primary-text"]};
   border: none;
@@ -102,7 +136,14 @@ const Select = styled.select<{ error: boolean }>`
 
     return theme.assets["input-border"];
   }};
-
+  height: ${({ selectSize }) => {
+    const sizes: Record<SelectSizeType, string> = {
+      sm: "32px",
+      md: "40px",
+      lg: "48px",
+    };
+    return sizes[selectSize];
+  }};
   border-radius: ${({ theme }) => theme.borderRadius.sm};
   &:focus {
     border-color: transparent;
@@ -142,8 +183,16 @@ const ButtonClear = styled.button`
   line-height: 0;
 `;
 
-const BottomText = styled.div<{ error: boolean }>`
+const BottomText = styled.div<{ error: boolean; size: SelectSizeType }>`
   margin: 0.5rem 1rem 0 1rem;
   color: ${({ error, theme }) =>
     error ? theme.colors.red.base : theme.assets["secondary-text"]};
+  font-size: ${({ size, theme }) => {
+    const sizes: Record<SelectSizeType, string> = {
+      sm: theme.typography.fontSizes.xs,
+      md: theme.typography.fontSizes.sm,
+      lg: theme.typography.fontSizes.md,
+    };
+    return sizes[size];
+  }};
 `;
