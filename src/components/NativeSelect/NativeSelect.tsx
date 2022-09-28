@@ -43,15 +43,14 @@ const Container = styled.div`
   font-size: 16px;
   color: ${({ theme }) => theme.colors.grey[9]};
   width: 100%;
-  border: 1px solid ${({ theme }) => theme.assets["input-border"]};
-  border-radius: ${({ theme }) => theme.borderRadius.sm};
 `;
 
 const SelectContainer = styled.select`
   font-size: inherit;
   width: 100%;
   height: 40px;
-  background-color: transparent;
+  background-color: ${({ theme }) => theme.assets.background};
+  color: ${({ theme }) => theme.colors.grey[9]};
   border: none;
   outline: none;
   cursor: pointer;
@@ -60,6 +59,8 @@ const SelectContainer = styled.select`
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
+  border: 1px solid ${({ theme }) => theme.assets["input-border"]};
+  border-radius: ${({ theme }) => theme.borderRadius.sm};
 `;
 
 const SideContainer = styled.div`
