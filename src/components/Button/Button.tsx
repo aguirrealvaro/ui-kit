@@ -30,7 +30,7 @@ export const Button: FunctionComponent<
   isLoading,
   kind = "solid",
   size = "md",
-  variant = "default",
+  variant = "info",
   shape = "default",
   leftIcon,
   rightIcon,
@@ -122,7 +122,7 @@ const getColorStyles = (
   theme: ThemeType
 ): FlattenSimpleInterpolation => {
   const solidStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
-    default: css`
+    info: css`
       background-color: ${theme.assets.info};
       color: ${theme.colors.grey[1]};
       border-color: ${theme.assets.info};
@@ -131,7 +131,7 @@ const getColorStyles = (
         border-color: ${theme.colors.blue[5]};
       }
     `,
-    positive: css`
+    success: css`
       background-color: ${theme.assets.success};
       color: ${theme.colors.grey[1]};
       border-color: ${theme.assets.success};
@@ -149,7 +149,7 @@ const getColorStyles = (
         border-color: ${theme.colors.yellow[4]};
       }
     `,
-    negative: css`
+    danger: css`
       background-color: ${theme.assets.danger};
       color: ${theme.colors.grey[1]};
       border-color: ${theme.assets.danger};
@@ -172,7 +172,7 @@ const getColorStyles = (
   const outlinedHover = theme.colors.grey[3];
 
   const outlinedStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
-    default: css`
+    info: css`
       color: ${theme.assets.info};
       border-color: ${theme.assets.info};
       background-color: transparent;
@@ -180,7 +180,7 @@ const getColorStyles = (
         background-color: ${outlinedHover};
       }
     `,
-    positive: css`
+    success: css`
       color: ${theme.assets.success};
       border-color: ${theme.assets.success};
       background-color: transparent;
@@ -196,7 +196,7 @@ const getColorStyles = (
         background-color: ${outlinedHover};
       }
     `,
-    negative: css`
+    danger: css`
       color: ${theme.assets.danger};
       border-color: ${theme.assets.danger};
       background-color: transparent;
@@ -215,13 +215,13 @@ const getColorStyles = (
   };
 
   const ghostStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
-    default: css`
+    info: css`
       color: ${theme.assets.info};
       &:hover:not([disabled]) {
         background-color: ${theme.colors.blue[2]};
       }
     `,
-    positive: css`
+    success: css`
       color: ${theme.assets.success};
       &:hover:not([disabled]) {
         background-color: ${theme.colors.green[2]};
@@ -233,7 +233,7 @@ const getColorStyles = (
         background-color: ${theme.colors.yellow[2]};
       }
     `,
-    negative: css`
+    danger: css`
       color: ${theme.assets.danger};
       &:hover:not([disabled]) {
         background-color: ${theme.colors.red[2]};
@@ -248,13 +248,13 @@ const getColorStyles = (
   };
 
   const linkStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
-    default: css`
+    info: css`
       color: ${theme.assets.info};
       &:hover:not([disabled]) {
         text-decoration: underline;
       }
     `,
-    positive: css`
+    success: css`
       color: ${theme.assets.success};
       &:hover:not([disabled]) {
         text-decoration: underline;
@@ -266,7 +266,7 @@ const getColorStyles = (
         text-decoration: underline;
       }
     `,
-    negative: css`
+    danger: css`
       color: ${theme.assets.danger};
       &:hover:not([disabled]) {
         text-decoration: underline;
@@ -281,7 +281,7 @@ const getColorStyles = (
   };
 
   const alernativeStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
-    default: css`
+    info: css`
       border-color: ${theme.colors.grey[4]};
       color: ${theme.colors.grey[6]};
       &:hover:not([disabled]) {
@@ -289,7 +289,7 @@ const getColorStyles = (
         border-color: ${theme.assets.info};
       }
     `,
-    positive: css`
+    success: css`
       border-color: ${theme.colors.grey[4]};
       color: ${theme.colors.grey[6]};
       &:hover:not([disabled]) {
@@ -305,7 +305,7 @@ const getColorStyles = (
         border-color: ${theme.assets.warning};
       }
     `,
-    negative: css`
+    danger: css`
       border-color: ${theme.colors.grey[4]};
       color: ${theme.colors.grey[6]};
       &:hover:not([disabled]) {
