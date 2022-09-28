@@ -17,12 +17,12 @@ export const NativeSelect: FunctionComponent<
   return (
     <Container>
       <SelectContainer value={value} onChange={onChange}>
-        <option selected>{placeholder}</option>
-        {options.map(({ label, value, disabled }) => {
+        <Option hidden>{placeholder}</Option>
+        {options.map(({ label, value, disabled }, index) => {
           return (
-            <option value={value} disabled={disabled}>
+            <Option value={value} disabled={disabled} key={index}>
               {label}
-            </option>
+            </Option>
           );
         })}
       </SelectContainer>
@@ -46,7 +46,7 @@ const SelectContainer = styled.select`
   font-size: inherit;
   width: 100%;
   height: 40px;
-  //background-color: ${({ theme }) => theme.assets["body-background"]};
+  background-color: ${({ theme }) => theme.assets["body-background"]};
   color: ${({ theme }) => theme.assets["primary-text"]};
   border: none;
   outline: none;
@@ -80,4 +80,10 @@ const ChevronWrapper = styled.div<{ active: boolean }>`
   transition: transform ${({ theme }) => theme.transitions.normal}ms ease;
   display: flex;
   align-items: center;
+`;
+
+const Option = styled.option`
+  &:disabled {
+    color: ${({ theme }) => theme.assets.disabled};
+  }
 `;
