@@ -14,7 +14,7 @@ export const Toast: FunctionComponent<ToastProps> = ({
   children,
   id,
   duration = 5000,
-  variant = "default",
+  variant = "info",
 }) => {
   const { theme } = useTheme();
   const transitionTime = theme.transitions.durations.normal;
@@ -67,10 +67,10 @@ export const Toast: FunctionComponent<ToastProps> = ({
 };
 
 const variantIcons: Record<ToastVariantType, StyledIcon> = {
-  default: InfoCircleFill,
-  positive: CheckCircleFill,
+  info: InfoCircleFill,
+  success: CheckCircleFill,
   warning: Alert,
-  negative: CloseCircle,
+  danger: CloseCircle,
   neutral: InfoCircleFill,
 };
 
@@ -95,13 +95,13 @@ const Container = styled.div<{
   box-shadow: ${({ theme }) => theme.shadows.sm};
   ${({ variant, theme }) => {
     const variantStyles: Record<ToastVariantType, FlattenSimpleInterpolation> = {
-      default: css`
+      info: css`
         background-color: ${theme.colors.blue[6]};
       `,
-      positive: css`
+      success: css`
         background-color: ${theme.colors.green[6]};
       `,
-      negative: css`
+      danger: css`
         background-color: ${theme.colors.red[6]};
       `,
       warning: css`

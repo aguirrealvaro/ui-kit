@@ -10,10 +10,10 @@ export default {
 export const Primary: ComponentStory<typeof Badge> = () => {
   return (
     <Container>
-      <Badge variant="default">Default</Badge>
-      <Badge variant="positive">Positive</Badge>
+      <Badge variant="info">Info</Badge>
+      <Badge variant="success">Success</Badge>
       <Badge variant="warning">Warning</Badge>
-      <Badge variant="negative">Negative</Badge>
+      <Badge variant="danger">Danger</Badge>
       <Badge variant="neutral">Neutral</Badge>
     </Container>
   );

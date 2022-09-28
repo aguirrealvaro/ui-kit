@@ -33,21 +33,21 @@ export const Primary: ComponentStory<typeof Button> = () => {
         <Button size="lg">Large</Button>
       </Flex>
       <Flex>
-        <Button variant="default">Default</Button>
-        <Button variant="positive">Positive</Button>
-        <Button variant="negative">Negative</Button>
+        <Button variant="info">Info</Button>
+        <Button variant="success">Success</Button>
+        <Button variant="danger">Danger</Button>
         <Button variant="warning">Warning</Button>
         <Button variant="neutral">Neutral</Button>
       </Flex>
       <Flex>
-        <Button kind="ghost" variant="default">
-          Default
+        <Button kind="ghost" variant="info">
+          Info
         </Button>
-        <Button kind="ghost" variant="positive">
-          Positive
+        <Button kind="ghost" variant="success">
+          Success
         </Button>
-        <Button kind="ghost" variant="negative">
-          Negative
+        <Button kind="ghost" variant="danger">
+          Danger
         </Button>
         <Button kind="ghost" variant="warning">
           Warning
@@ -57,14 +57,14 @@ export const Primary: ComponentStory<typeof Button> = () => {
         </Button>
       </Flex>
       <Flex>
-        <Button variant="default" kind="outlined">
-          Default
+        <Button variant="info" kind="outlined">
+          Info
         </Button>
-        <Button variant="positive" kind="outlined">
-          Positive
+        <Button variant="success" kind="outlined">
+          Success
         </Button>
-        <Button variant="negative" kind="outlined">
-          Negative
+        <Button variant="danger" kind="outlined">
+          Danger
         </Button>
         <Button variant="warning" kind="outlined">
           Warning
@@ -90,14 +90,14 @@ export const Primary: ComponentStory<typeof Button> = () => {
         </Button>
       </Flex>
       <Flex>
-        <Button variant="default" kind="alternative">
+        <Button variant="info" kind="alternative">
           Default
         </Button>
-        <Button variant="positive" kind="alternative">
-          Positive
+        <Button variant="success" kind="alternative">
+          success
         </Button>
-        <Button variant="negative" kind="alternative">
-          Negative
+        <Button variant="danger" kind="alternative">
+          Danger
         </Button>
         <Button variant="warning" kind="alternative">
           Warning

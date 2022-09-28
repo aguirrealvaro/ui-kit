@@ -11,13 +11,13 @@ export const Primary: ComponentStory<typeof Alert> = () => {
   return (
     <div>
       <AlertWrapper>
-        <Alert variant="default" size="xs">
-          Default extra mini
+        <Alert variant="info" size="xs">
+          Info extra mini
         </Alert>
       </AlertWrapper>
       <AlertWrapper>
-        <Alert variant="positive" size="sm">
-          Positive small
+        <Alert variant="success" size="sm">
+          Success small
         </Alert>
       </AlertWrapper>
       <AlertWrapper>
@@ -26,8 +26,8 @@ export const Primary: ComponentStory<typeof Alert> = () => {
         </Alert>
       </AlertWrapper>
       <AlertWrapper>
-        <Alert variant="negative" size="lg" showIcon={false}>
-          Negative large without icon
+        <Alert variant="danger" size="lg" showIcon={false}>
+          Danger large without icon
         </Alert>
       </AlertWrapper>
       <AlertWrapper>

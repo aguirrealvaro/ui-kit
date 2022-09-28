@@ -40,7 +40,7 @@ export const ModalConfirm: FunctionComponent<ModalConfirmProps> = ({
         <ModalContent>{content}</ModalContent>
         <ModalFooter>
           <ButtonsContainer>
-            <Button kind="alternative" onClick={onClose} variant="negative">
+            <Button kind="alternative" onClick={onClose} variant="danger">
               Cancelar
             </Button>
             <Button kind="solid" onClick={onConfirm} variant={buttonVariant}>

@@ -18,7 +18,7 @@ export const Primary: ComponentStory<typeof ModalConfirm> = () => {
       content="Are you sure you want to delete?"
       onConfirm={onConfirm}
     >
-      <Button variant="negative">Delete profile</Button>
+      <Button variant="danger">Delete profile</Button>
     </ModalConfirm>
   );
 };
