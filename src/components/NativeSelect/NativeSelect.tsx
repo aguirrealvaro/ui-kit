@@ -191,7 +191,7 @@ const SideContainer = styled.div`
 
 const ChevronWrapper = styled.div<{ active: boolean }>`
   transform: ${({ active }) => `rotate(${active ? "-180" : 0}deg)`};
-  transition: transform ${({ theme }) => theme.transitions.normal}ms ease;
+  transition: transform ${({ theme }) => theme.transitions.normal}ms ease-in;
   display: flex;
   align-items: center;
 `;

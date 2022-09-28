@@ -123,7 +123,7 @@ const Container = styled.div<{
       return css`
         opacity: 0;
         transform: scale(0.9);
-        transition: all ${transitionTime}ms ease-out;
+        transition: all ${transitionTime}ms ease-in;
       `;
     }
   }};

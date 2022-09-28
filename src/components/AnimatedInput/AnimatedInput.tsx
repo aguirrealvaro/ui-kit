@@ -201,7 +201,7 @@ const Placeholder = styled.label`
   top: 50%;
   left: 1rem;
   transform: translateY(-50%);
-  transition: all ${({ theme }) => theme.transitions.normal}ms ease;
+  transition: all ${({ theme }) => theme.transitions.normal}ms ease-in;
   pointer-events: none;
   color: ${({ theme }) => theme.assets["input-placeholder"]};
 `;
