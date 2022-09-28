@@ -21,7 +21,8 @@ import { useTheme } from "@/hooks";
 type InputProps = {
   label?: ReactNode;
   helpText?: ReactNode;
-  error?: string;
+  isError?: boolean;
+  errorMessage?: string;
   isSuccess?: boolean;
   inputId?: string;
   isLoading?: boolean;
@@ -36,7 +37,8 @@ export const Input: FunctionComponent<
 > = ({
   label,
   helpText,
-  error,
+  isError,
+  errorMessage,
   isSuccess,
   inputId,
   isLoading,
@@ -67,13 +69,13 @@ export const Input: FunctionComponent<
 
   const showRightContainer: boolean =
     isLoading ||
-    !!error ||
+    isError ||
     isSuccess ||
     (!!value && !!clearValue) ||
     !!rightIcon ||
     type === "password";
 
-  const showBottom: boolean = !!helpText || !!error;
+  const showBottom: boolean = !!helpText || !!errorMessage;
 
   const rightContainerRef = useRef<HTMLDivElement>(null);
 
@@ -102,7 +104,7 @@ export const Input: FunctionComponent<
       )}
       <InputContainer
         disabled={disabled || false}
-        error={!!error}
+        isError={isError || false}
         isSuccess={isSuccess || false}
         onClick={focusInput}
         size={size}
@@ -128,7 +130,7 @@ export const Input: FunctionComponent<
                 <Icon icon={CloseOutline} size={18} />
               </ButtonIcon>
             )}
-            {error && <Icon icon={CloseCircle} size={18} color={theme.assets.error} />}
+            {isError && <Icon icon={CloseCircle} size={18} color={theme.assets.error} />}
             {isSuccess && (
               <Icon icon={CheckCircleFill} size={18} color={theme.assets.success} />
             )}
@@ -141,8 +143,8 @@ export const Input: FunctionComponent<
         )}
       </InputContainer>
       {showBottom && (
-        <BottomText error={!!error} size={size}>
-          {error || helpText}
+        <BottomText errorMessage={!!errorMessage} size={size}>
+          {errorMessage || helpText}
         </BottomText>
       )}
     </div>
@@ -164,7 +166,7 @@ const Label = styled.label<{ size: InputSizeType }>`
 
 const InputContainer = styled.div<{
   disabled: boolean;
-  error: boolean;
+  isError: boolean;
   isSuccess: boolean;
   size: InputSizeType;
 }>`
@@ -173,8 +175,8 @@ const InputContainer = styled.div<{
   font-family: inherit;
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   border: 1px solid transparent;
-  ${({ error, isSuccess, theme }) => {
-    if (error) {
+  ${({ isError, isSuccess, theme }) => {
+    if (isError) {
       return css`
         border-color: ${theme.assets.error};
       `;
@@ -255,10 +257,10 @@ const CustomInput = styled.input<{
   }
 `;
 
-const BottomText = styled.div<{ error: boolean; size: InputSizeType }>`
+const BottomText = styled.div<{ errorMessage: boolean; size: InputSizeType }>`
   margin: 0.5rem 1rem 0 1rem;
-  color: ${({ error, theme }) =>
-    error ? theme.assets.error : theme.assets["secondary-text"]};
+  color: ${({ errorMessage, theme }) =>
+    errorMessage ? theme.assets.error : theme.assets["secondary-text"]};
   font-size: ${({ size, theme }) => {
     const sizes: Record<InputSizeType, string> = {
       sm: theme.typography.fontSizes.xs,

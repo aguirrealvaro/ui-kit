@@ -11,8 +11,6 @@ export default {
 } as ComponentMeta<typeof Input>;
 
 export const Primary: ComponentStory<typeof Input> = () => {
-  const { theme } = useTheme();
-
   const [value, setValue] = useState<string>("");
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,6 +32,8 @@ export const Primary: ComponentStory<typeof Input> = () => {
         helpText="Help text"
         clearValue={clearValue}
         size="sm"
+        //isError
+        //errorMessage="errorMessage"
       />
       <Input
         inputId="input2"
