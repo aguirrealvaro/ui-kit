@@ -8,14 +8,25 @@ import { useTheme } from "@/hooks";
 
 type NativeSelectProps = {
   label?: ReactNode;
-
   options: NativeSelectFieldType[];
   clearValue?: () => void;
+  helpText?: string;
+  error?: string;
 };
 
 export const NativeSelect: FunctionComponent<
   NativeSelectProps & Omit<SelectHTMLAttributes<HTMLSelectElement>, "size">
-> = ({ value, onChange, options, placeholder, clearValue, label, disabled }) => {
+> = ({
+  value,
+  onChange,
+  options,
+  placeholder,
+  clearValue,
+  label,
+  disabled,
+  helpText,
+  error,
+}) => {
   const { theme } = useTheme();
 
   const handleClearValue = (e: MouseEvent<HTMLButtonElement>) => {
@@ -25,11 +36,13 @@ export const NativeSelect: FunctionComponent<
 
   const isSelected = !!value;
 
+  const showBottom: boolean = !!helpText || !!error;
+
   return (
     <div>
       {label && <Label>{label}</Label>}
       <SelectContainer>
-        <Select value={value} onChange={onChange} disabled={disabled}>
+        <Select value={value} onChange={onChange} disabled={disabled} error={!!error}>
           <Option hidden>{placeholder}</Option>
           {options.map(({ label, value, disabled }, index) => {
             return (
@@ -50,6 +63,7 @@ export const NativeSelect: FunctionComponent<
           </ChevronWrapper>
         </SideContainer>
       </SelectContainer>
+      {showBottom && <BottomText error={!!error}>{error || helpText}</BottomText>}
     </div>
   );
 };
@@ -66,7 +80,7 @@ const Label = styled.label`
   margin-bottom: 0.5rem;
 `;
 
-const Select = styled.select`
+const Select = styled.select<{ error: boolean }>`
   font-size: inherit;
   width: 100%;
   height: 40px;
@@ -81,7 +95,14 @@ const Select = styled.select`
   -moz-appearance: none;
   -ms-appearance: none;
   border: 1px solid transparent;
-  border-color: ${({ theme }) => theme.assets["input-border"]};
+  border-color: ${({ theme, error }) => {
+    if (error) {
+      return theme.colors.red.base;
+    }
+
+    return theme.assets["input-border"];
+  }};
+
   border-radius: ${({ theme }) => theme.borderRadius.sm};
   &:focus {
     border-color: transparent;
@@ -119,4 +140,10 @@ const Option = styled.option`
 
 const ButtonClear = styled.button`
   line-height: 0;
+`;
+
+const BottomText = styled.div<{ error: boolean }>`
+  margin: 0.5rem 1rem 0 1rem;
+  color: ${({ error, theme }) =>
+    error ? theme.colors.red.base : theme.assets["secondary-text"]};
 `;

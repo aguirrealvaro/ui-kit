@@ -34,6 +34,8 @@ export const Primary: ComponentStory<typeof NativeSelect> = () => {
       options={options}
       onChange={onChange}
       clearValue={clearValue}
+      helpText="Help text"
+      error="asd!"
     />
   );
 };
