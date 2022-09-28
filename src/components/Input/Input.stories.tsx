@@ -21,7 +21,7 @@ export const Primary: ComponentStory<typeof Input> = () => {
 
   const clearValue = () => setValue("");
 
-  const searchIcon = <Icon icon={Search} color={theme.assets.neutral} size={20} />;
+  const searchIcon = <Icon icon={Search} size={20} />;
 
   return (
     <Container>

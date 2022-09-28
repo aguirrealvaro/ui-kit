@@ -5,19 +5,17 @@ import { PopoverProps } from "../Popover";
 import { INFOTIP_SIZES } from "./Infotip.constants";
 import { InfotipSizeType } from "./Infotip.types";
 import { Icon, Tooltip } from "@/components";
-import { useTheme } from "@/hooks";
 
 type InfotipProps = {
   size?: InfotipSizeType;
 } & PopoverProps;
 
 export const Infotip: FunctionComponent<InfotipProps> = ({ size = "sm", ...restProps }) => {
-  const { theme } = useTheme();
   const infotipSize = INFOTIP_SIZES[size];
 
   return (
     <CustomTooltip {...restProps}>
-      <Icon icon={ExclamationCircle} size={infotipSize} color={theme.assets.neutral} />
+      <Icon icon={ExclamationCircle} size={infotipSize} />
     </CustomTooltip>
   );
 };

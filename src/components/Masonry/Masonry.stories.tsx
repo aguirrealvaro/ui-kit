@@ -26,8 +26,8 @@ const heights = [250, 300, 350, 400];
 
 const Card = styled.div`
   height: ${() => getRandomItem(heights)}px;
-  background-color: ${({ theme }) => theme.colors.grey[5]};
-  color: ${({ theme }) => theme.colors.grey[10]};
+  background-color: ${({ theme }) => theme.colors.grey[4]};
+  color: ${({ theme }) => theme.assets["primary-text"]};
   display: flex;
   justify-content: center;
   align-items: center;

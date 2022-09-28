@@ -128,7 +128,6 @@ export const lightAssets: AssetsType = {
   success: lightColors.green[6],
   warning: lightColors.yellow[5],
   error: lightColors.red[7],
-  neutral: lightColors.grey[6],
   title: lightColors.grey[10],
   "primary-text": lightColors.grey[8],
   "secondary-text": lightColors.grey[6],

@@ -3,7 +3,7 @@ import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import styled, { css, keyframes } from "styled-components";
 import { NavbarItem } from "../Navbar.types";
 import { Icon, IconButton } from "@/components";
-import { useOutsideClick, useTheme } from "@/hooks";
+import { useOutsideClick } from "@/hooks";
 
 type MobileMenuProps = {
   isMobileMenuOpen: boolean;
@@ -20,7 +20,6 @@ export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
   items,
   transitionTime,
 }) => {
-  const { theme } = useTheme();
   const ref = useRef<HTMLDivElement>(null);
   useOutsideClick({ ref, handler: onClose, enabled: isMobileMenuOpen });
 
@@ -29,7 +28,7 @@ export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
       <Container isUnmounting={isUnmounting} ref={ref} transitionTime={transitionTime}>
         <CloseButtonWrapper>
           <IconButton onClick={onClose}>
-            <Icon icon={CloseOutline} color={theme.assets.neutral} size={25} />
+            <Icon icon={CloseOutline} size={25} />
           </IconButton>
         </CloseButtonWrapper>
         <div>

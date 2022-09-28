@@ -115,7 +115,7 @@ export const AnimatedInput: FunctionComponent<
             {isLoading && <Spinner size="xs" />}
             {value && clearValue && (
               <ButtonIcon onClick={clearValue}>
-                <Icon icon={CloseOutline} color={theme.assets.neutral} size={18} />
+                <Icon icon={CloseOutline} size={18} />
               </ButtonIcon>
             )}
             {error && <Icon icon={CloseCircle} size={18} color={theme.assets.error} />}
@@ -124,11 +124,7 @@ export const AnimatedInput: FunctionComponent<
             )}
             {type === "password" && (
               <ButtonIcon onClick={handleSeePassword}>
-                <Icon
-                  icon={seePassword ? EyeSlashFill : EyeFill}
-                  size={18}
-                  color={theme.assets.neutral}
-                />
+                <Icon icon={seePassword ? EyeSlashFill : EyeFill} size={18} />
               </ButtonIcon>
             )}
           </SideContainer>
@@ -257,7 +253,7 @@ const CustomInput = styled.input<{
             return theme.assets.success;
           }
 
-          return theme.assets.neutral;
+          return theme.assets["primary-text"];
         }};
       }
     }

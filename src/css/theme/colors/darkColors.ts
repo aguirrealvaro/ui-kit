@@ -128,7 +128,6 @@ export const darkAssets: AssetsType = {
   success: darkColors.green[6],
   warning: darkColors.yellow[5],
   error: darkColors.red[7],
-  neutral: darkColors.grey[6],
   title: darkColors.grey[10],
   "primary-text": darkColors.grey[8],
   "secondary-text": darkColors.grey[6],

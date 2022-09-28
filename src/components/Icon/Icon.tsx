@@ -15,5 +15,5 @@ export const Icon: FunctionComponent<IconProps> = ({
 }) => {
   const { theme } = useTheme();
 
-  return <IconComponent size={size} style={{ color: color || theme.colors.grey[10] }} />;
+  return <IconComponent size={size} style={{ color: color || theme.colors.grey[6] }} />;
 };

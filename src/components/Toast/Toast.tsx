@@ -63,7 +63,7 @@ export const Toast: FunctionComponent<ToastProps> = ({
       <Icon icon={variantIcons[variant]} size={18} color={iconColor[variant]} />
       <div>{children}</div>
       <CloseButton onClick={closeToast}>
-        <Icon icon={CloseOutline} color={theme.assets.neutral} size={15} />
+        <Icon icon={CloseOutline} size={15} />
       </CloseButton>
     </Container>
   );
@@ -102,7 +102,7 @@ const Container = styled.div<{
   display: flex;
   gap: 8px;
   padding: 1rem 3rem 1rem 1rem;
-  color: ${({ theme }) => theme.colors.grey[10]};
+  color: ${({ theme }) => theme.assets["primary-text"]};
   border-radius: ${({ theme }) => theme.borderRadius.sm};
   margin-bottom: 1rem;
   background-color: ${({ theme }) => theme.colors.grey[1]};

@@ -19,7 +19,6 @@ type Assets =
   | "success"
   | "warning"
   | "error"
-  | "neutral"
   | "title"
   | "primary-text"
   | "secondary-text"
