@@ -23,7 +23,7 @@ export const Primary: ComponentStory<typeof Button> = () => {
         <Button kind="outlined">Outlined</Button>
         <Button kind="ghost">Ghost</Button>
         <Button kind="link">Link</Button>
-        <Button kind="alternative">Outlined2</Button>
+        <Button kind="alternative">Alternative</Button>
         <Button disabled>Disabled</Button>
       </Flex>
       <Flex>
