@@ -26,8 +26,8 @@ export const Primary: ComponentStory<typeof Alert> = () => {
         </Alert>
       </AlertWrapper>
       <AlertWrapper>
-        <Alert variant="negative" size="lg">
-          Negative large
+        <Alert variant="negative" size="lg" showIcon={false}>
+          Negative large without icon
         </Alert>
       </AlertWrapper>
       <AlertWrapper>

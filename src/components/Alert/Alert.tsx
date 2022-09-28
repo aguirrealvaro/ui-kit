@@ -13,12 +13,14 @@ type AlertProps = {
   children: ReactNode;
   variant?: AlertVariantType;
   size?: AlertSizeType;
+  showIcon?: boolean;
 };
 
 export const Alert: FunctionComponent<AlertProps> = ({
   children,
   variant = "default",
   size = "sm",
+  showIcon = true,
 }) => {
   const { theme } = useTheme();
 
@@ -39,11 +41,13 @@ export const Alert: FunctionComponent<AlertProps> = ({
 
   return (
     <Container variant={variant} size={size} role="alert">
-      <Icon
-        icon={variantIcons[variant].icon}
-        size={sizeIcons[size]}
-        color={variantIcons[variant].color}
-      />
+      {showIcon && (
+        <Icon
+          icon={variantIcons[variant].icon}
+          size={sizeIcons[size]}
+          color={variantIcons[variant].color}
+        />
+      )}
       <span>{children}</span>
     </Container>
   );
