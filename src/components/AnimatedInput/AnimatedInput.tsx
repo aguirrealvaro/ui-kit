@@ -22,6 +22,7 @@ type AnimatedInputProps = {
   isError?: boolean;
   errorMessage?: string;
   isSuccess?: boolean;
+  successMessage?: string;
   inputId?: string;
   isLoading?: boolean;
   clearValue?: () => void;
@@ -37,6 +38,7 @@ export const AnimatedInput: FunctionComponent<
   isError,
   errorMessage,
   isSuccess,
+  successMessage,
   disabled,
   inputId,
   isLoading,
@@ -62,13 +64,13 @@ export const AnimatedInput: FunctionComponent<
 
   const showSideContainer: boolean =
     isLoading ||
-    !!isError ||
+    isError ||
     isSuccess ||
     (!!value && !!clearValue) ||
     !!icon ||
     type === "password";
 
-  const showBottom: boolean = !!helpText || !!errorMessage;
+  const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
 
   const sideContainerRef = useRef<HTMLDivElement>(null);
 
@@ -133,7 +135,9 @@ export const AnimatedInput: FunctionComponent<
         )}
       </InputContainer>
       {showBottom && (
-        <BottomText errorMessage={!!errorMessage}>{errorMessage || helpText}</BottomText>
+        <BottomText errorMessage={!!errorMessage} successMessage={!!successMessage}>
+          {errorMessage || helpText}
+        </BottomText>
       )}
     </div>
   );
@@ -267,11 +271,20 @@ const CustomInput = styled.input<{
   }
 `;
 
-const BottomText = styled.div<{ errorMessage: boolean }>`
+const BottomText = styled.div<{ errorMessage: boolean; successMessage: boolean }>`
   font-size: ${({ theme }) => theme.typography.fontSizes.sm};
   margin: 0.5rem 1rem 0 1rem;
-  color: ${({ errorMessage, theme }) =>
-    errorMessage ? theme.assets.error : theme.assets["secondary-text"]};
+
+  color: ${({ errorMessage, theme, successMessage }) => {
+    if (errorMessage) {
+      return theme.assets.error;
+    }
+
+    if (successMessage) {
+      return theme.assets.success;
+    }
+    return theme.assets["secondary-text"];
+  }};
 `;
 
 const ButtonIcon = styled.button`

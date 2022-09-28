@@ -21,7 +21,9 @@ export const Primary: ComponentStory<typeof AnimatedInput> = () => {
       helpText="Help text"
       clearValue={clearValue}
       //isError
-      //errorMessage="asd"
+      //errorMessage="errorMessage"
+      //isSuccess
+      //successMessage="successMessage"
       //disabled
       //type="password"
     />
