@@ -59,6 +59,17 @@ export const Primary: ComponentStory<typeof NativeSelect> = () => {
         helpText="Help text"
         size="lg"
       />
+      <NativeSelect
+        label="Native select large"
+        placeholder="Select option"
+        value={option}
+        options={options}
+        onChange={onChange}
+        clearValue={clearValue}
+        helpText="Help text"
+        size="lg"
+        disabled
+      />
     </Container>
   );
 };

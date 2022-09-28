@@ -37,7 +37,7 @@ const Button = styled.button<{ direction: CarousselDirectionType }>`
   ${({ direction, theme }) =>
     css`
       padding: 17px;
-      background: ${theme.colors.grey[1]};
+      background-color: ${theme.colors.grey[1]};
       box-shadow: ${theme.shadows.sm};
       border-radius: ${theme.borderRadius.full};
       ${direction === "left"

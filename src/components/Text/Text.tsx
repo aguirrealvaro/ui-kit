@@ -50,7 +50,7 @@ const Container = styled.p<{
         font-size: ${theme.typography.fontSizes.xs};
         margin: 0 4px;
         padding: 2px 4px;
-        background: rgba(150, 150, 150, 0.1);
+        background-color: rgba(150, 150, 150, 0.1);
         border: 1px solid rgba(100, 100, 100, 0.2);
         border-radius: 3px;
       `,
@@ -59,7 +59,7 @@ const Container = styled.p<{
         font-size: ${theme.typography.fontSizes.xs};
         margin: 0 4px;
         padding: 2px 4px;
-        background: rgba(150, 150, 150, 0.1);
+        background-color: rgba(150, 150, 150, 0.1);
         border: 1px solid rgba(100, 100, 100, 0.2);
         border-radius: 3px;
       `,

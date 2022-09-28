@@ -207,7 +207,7 @@ const InputContainer = styled.div<{
   ${({ disabled, theme }) =>
     disabled &&
     css`
-      background: ${theme.assets["disabled"]};
+      background-color: ${theme.assets["disabled"]};
       border: transparent;
       cursor: not-allowed;
     `};

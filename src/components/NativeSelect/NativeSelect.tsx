@@ -150,15 +150,16 @@ const Select = styled.select<{
     };
     return sizes[selectSize];
   }};
-  border-radius: ${({ theme }) => theme.borderRadius.sm};
+  border-radius: ${({ theme }) => theme.borderRadius.xs};
   &:focus {
     border-color: transparent;
     box-shadow: ${({ theme }) => theme.shadows.outline};
   }
   &:disabled {
     background-color: ${({ theme }) => theme.assets["disabled"]};
-    color: ${({ theme }) => theme.assets["disabled-font"]};
+    border-color: transparent;
     cursor: not-allowed;
+    color: ${({ theme }) => theme.assets["disabled-font"]};
   }
 `;
 

@@ -348,7 +348,7 @@ const CustomButton = styled.button<{
   ${({ variant, kind, theme }) => getColorStyles(variant, kind, theme)};
   transition: all ${({ theme }) => theme.transitions.normal}ms ease;
   &:disabled {
-    background: ${({ theme }) => theme.assets["disabled"]};
+    background-color: ${({ theme }) => theme.assets["disabled"]};
     border-color: transparent;
     cursor: not-allowed;
     color: ${({ theme }) => theme.assets["disabled-font"]};
