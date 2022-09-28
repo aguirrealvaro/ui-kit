@@ -27,6 +27,7 @@ export const Primary: ComponentStory<typeof NativeSelect> = () => {
 
   return (
     <NativeSelect
+      label="Native select"
       placeholder="Select option"
       value={option}
       options={options}
