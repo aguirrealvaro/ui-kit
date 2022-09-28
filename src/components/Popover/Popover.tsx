@@ -34,7 +34,7 @@ export const Popover: FunctionComponent<PopoverProps> = ({
   withTriggerWidth = false,
 }) => {
   const { theme } = useTheme();
-  const transitionTime = theme.transitions.normal;
+  const transitionTime = theme.transitions.durations.normal;
 
   const triggerRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);

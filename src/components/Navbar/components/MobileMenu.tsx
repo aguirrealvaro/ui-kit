@@ -58,7 +58,7 @@ const translate = keyframes`
 const Backdrop = styled.div<{ isUnmounting: boolean }>`
   position: fixed;
   background-color: ${({ theme }) => theme.transparencies.medium};
-  animation: ${fadeIn} ${({ theme }) => theme.transitions.normal}ms ease-in;
+  animation: ${fadeIn} ${({ theme }) => theme.transitions.durations.normal}ms ease-in;
   transition: all 200ms ease-in;
   top: 0;
   right: 0;
@@ -68,7 +68,7 @@ const Backdrop = styled.div<{ isUnmounting: boolean }>`
     isUnmounting &&
     css`
       opacity: 0;
-      transition: opacity ${({ theme }) => theme.transitions.normal}ms ease-in;
+      transition: opacity ${({ theme }) => theme.transitions.durations.normal}ms ease-in;
     `}
 `;
 

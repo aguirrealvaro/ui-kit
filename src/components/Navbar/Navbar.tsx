@@ -12,7 +12,7 @@ type NavbarProps = {
 
 export const Navbar: FunctionComponent<NavbarProps> = ({ user, mainItems, dropdownItems }) => {
   const { theme } = useTheme();
-  const transitionTime = theme.transitions.normal;
+  const transitionTime = theme.transitions.durations.normal;
 
   const {
     isOpen: isMobileMenuOpen,

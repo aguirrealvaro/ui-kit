@@ -17,7 +17,7 @@ export const Toast: FunctionComponent<ToastProps> = ({
   variant = "default",
 }) => {
   const { theme } = useTheme();
-  const transitionTime = theme.transitions.normal;
+  const transitionTime = theme.transitions.durations.normal;
 
   const [isClosing, setIsClosing] = useState<boolean>(false);
   const timeoutRef = useRef<number>(0);
