@@ -43,7 +43,7 @@ const Container = styled.div`
   font-size: 16px;
   color: ${({ theme }) => theme.colors.grey[9]};
   width: 100%;
-  border: 1px solid ${({ theme }) => theme.colors.grey[5]};
+  border: 1px solid ${({ theme }) => theme.assets["input-border"]};
   border-radius: ${({ theme }) => theme.borderRadius.sm};
 `;
 

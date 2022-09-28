@@ -179,7 +179,7 @@ const SelectContainer = styled.div<{
     }
 
     return css`
-      border-color: ${theme.colors.grey[6]};
+      border-color: ${theme.assets["input-border"]};
     `;
   }};
   ${({ disabled, theme }) => {

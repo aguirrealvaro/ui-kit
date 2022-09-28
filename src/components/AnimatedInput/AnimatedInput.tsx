@@ -165,7 +165,7 @@ const InputContainer = styled.div<{
     }
 
     return css`
-      border-color: ${({ theme }) => theme.colors.grey[5]};
+      border-color: ${({ theme }) => theme.assets["input-border"]};
       &:focus-within {
         box-shadow: ${({ theme }) => theme.shadows.outline};
         border-color: transparent;
