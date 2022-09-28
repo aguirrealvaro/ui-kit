@@ -47,7 +47,7 @@ const SelectContainer = styled.select`
   width: 100%;
   height: 40px;
   //background-color: ${({ theme }) => theme.assets["body-background"]};
-  color: ${({ theme }) => theme.assets.primaryText};
+  color: ${({ theme }) => theme.assets["primary-text"]};
   border: none;
   outline: none;
   cursor: pointer;

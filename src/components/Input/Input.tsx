@@ -235,7 +235,7 @@ const CustomInput = styled.input<{
   border: none;
   background-color: transparent;
   padding: 0 1rem;
-  color: ${({ theme }) => theme.assets.primaryText};
+  color: ${({ theme }) => theme.assets["primary-text"]};
   width: ${({ sideWidth }) => {
     if (sideWidth) {
       return `calc(100% - ${sideWidth}px - 20px)`;
@@ -261,7 +261,8 @@ const CustomInput = styled.input<{
 
 const BottomText = styled.div<{ error: boolean; size: InputSizeType }>`
   margin: 0.5rem 1rem 0 1rem;
-  color: ${({ error, theme }) => theme.colors[error ? "red" : "grey"].base};
+  color: ${({ error, theme }) =>
+    error ? theme.colors.red.base : theme.assets["secondary-text"]};
   font-size: ${({ size, theme }) => {
     const sizes: Record<InputSizeType, string> = {
       sm: theme.typography.fontSizes.xs,

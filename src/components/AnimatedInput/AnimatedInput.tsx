@@ -229,7 +229,7 @@ const CustomInput = styled.input<{
   }};
   height: ${({ hasPlaceholder }) => (hasPlaceholder ? "72%" : "100%")};
   bottom: 0;
-  color: ${({ theme }) => theme.assets.primaryText};
+  color: ${({ theme }) => theme.assets["primary-text"]};
   &:focus + label {
     ${getFocusedLabelStyles};
     color: ${({ theme, error, isSuccess }) => {
@@ -270,7 +270,8 @@ const CustomInput = styled.input<{
 const BottomText = styled.div<{ error: boolean }>`
   font-size: ${({ theme }) => theme.typography.fontSizes.sm};
   margin: 0.5rem 1rem 0 1rem;
-  color: ${({ error, theme }) => theme.colors[error ? "red" : "grey"].base};
+  color: ${({ error, theme }) =>
+    error ? theme.colors.red.base : theme.assets["secondary-text"]};
 `;
 
 const ButtonIcon = styled.button`

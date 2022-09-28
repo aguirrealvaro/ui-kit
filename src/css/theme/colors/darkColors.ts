@@ -136,8 +136,8 @@ export const darkColors: CollorsType = {
 export const darkAssets: AssetsType = {
   brand: darkColors.blue.base,
   title: darkColors.grey[10],
-  primaryText: darkColors.grey[9],
-  secondaryText: darkColors.grey[8],
+  "primary-text": darkColors.grey[9],
+  "secondary-text": darkColors.grey[8],
   disabled: darkColors.grey[4],
   "body-background": darkColors.grey[2],
   "input-border": darkColors.grey[5],

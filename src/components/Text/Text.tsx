@@ -17,7 +17,12 @@ export const Text: FunctionComponent<TextProps> = ({ children, size, weight, as,
   const { theme } = useTheme();
 
   return (
-    <Container as={as} size={size} weight={weight} color={color || theme.assets.primaryText}>
+    <Container
+      as={as}
+      size={size}
+      weight={weight}
+      color={color || theme.assets["primary-text"]}
+    >
       {children}
     </Container>
   );
