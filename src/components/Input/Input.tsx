@@ -146,8 +146,8 @@ export const Input: FunctionComponent<
       </InputContainer>
       {showBottom && (
         <BottomText
-          errorMessage={!!errorMessage}
-          successMessage={!!successMessage}
+          showErrorMessage={!!errorMessage}
+          showSuccessMessage={!!successMessage}
           size={size}
         >
           {errorMessage || helpText}
@@ -264,17 +264,17 @@ const CustomInput = styled.input<{
 `;
 
 const BottomText = styled.div<{
-  errorMessage: boolean;
+  showErrorMessage: boolean;
   size: InputSizeType;
-  successMessage: boolean;
+  showSuccessMessage: boolean;
 }>`
   margin: 0.5rem 1rem 0 1rem;
-  color: ${({ errorMessage, theme, successMessage }) => {
-    if (errorMessage) {
+  color: ${({ showErrorMessage, theme, showSuccessMessage }) => {
+    if (showErrorMessage) {
       return theme.assets.error;
     }
 
-    if (successMessage) {
+    if (showSuccessMessage) {
       return theme.assets.success;
     }
     return theme.assets["secondary-text"];

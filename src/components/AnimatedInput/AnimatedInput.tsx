@@ -135,7 +135,7 @@ export const AnimatedInput: FunctionComponent<
         )}
       </InputContainer>
       {showBottom && (
-        <BottomText errorMessage={!!errorMessage} successMessage={!!successMessage}>
+        <BottomText showErrorMessage={!!errorMessage} showSuccessMessage={!!successMessage}>
           {errorMessage || helpText}
         </BottomText>
       )}
@@ -271,15 +271,15 @@ const CustomInput = styled.input<{
   }
 `;
 
-const BottomText = styled.div<{ errorMessage: boolean; successMessage: boolean }>`
+const BottomText = styled.div<{ showErrorMessage: boolean; showSuccessMessage: boolean }>`
   font-size: ${({ theme }) => theme.typography.fontSizes.sm};
   margin: 0.5rem 1rem 0 1rem;
-  color: ${({ errorMessage, theme, successMessage }) => {
-    if (errorMessage) {
+  color: ${({ showErrorMessage, theme, showSuccessMessage }) => {
+    if (showErrorMessage) {
       return theme.assets.error;
     }
 
-    if (successMessage) {
+    if (showSuccessMessage) {
       return theme.assets.success;
     }
     return theme.assets["secondary-text"];
