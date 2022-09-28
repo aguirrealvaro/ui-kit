@@ -3,17 +3,17 @@ import { ChevronLeft } from "@styled-icons/boxicons-regular/ChevronLeft";
 import { ChevronRight } from "@styled-icons/boxicons-regular/ChevronRight";
 import styled, { css } from "styled-components";
 import { StyledIcon } from "styled-icons/types";
-import { CarousselDirectionType } from "../Caroussel.types";
+import { CarouselDirectionType } from "../Carousel.types";
 import { Icon } from "@/components";
 
 type ArrowProps = {
-  direction: CarousselDirectionType;
-  handleArrow: (direction: CarousselDirectionType) => void;
+  direction: CarouselDirectionType;
+  handleArrow: (direction: CarouselDirectionType) => void;
   disabled: boolean;
 };
 
 export const Arrow: FunctionComponent<ArrowProps> = ({ direction, handleArrow, disabled }) => {
-  const chevronIcon: Record<CarousselDirectionType, StyledIcon> = {
+  const chevronIcon: Record<CarouselDirectionType, StyledIcon> = {
     left: ChevronLeft,
     right: ChevronRight,
   };
@@ -25,7 +25,7 @@ export const Arrow: FunctionComponent<ArrowProps> = ({ direction, handleArrow, d
   );
 };
 
-const Button = styled.button<{ direction: CarousselDirectionType }>`
+const Button = styled.button<{ direction: CarouselDirectionType }>`
   align-self: baseline;
   line-height: 0;
   position: absolute;

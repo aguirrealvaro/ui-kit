@@ -1,1 +1,0 @@
-export { Caroussel } from "./Caroussel";

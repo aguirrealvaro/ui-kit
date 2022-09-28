@@ -1,21 +1,21 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import styled from "styled-components";
-import { Caroussel } from "@/components";
+import { Carousel } from "@/components";
 
 export default {
-  title: "Components/Caroussel",
-  component: Caroussel,
-} as ComponentMeta<typeof Caroussel>;
+  title: "Components/Carousel",
+  component: Carousel,
+} as ComponentMeta<typeof Carousel>;
 
-export const Primary: ComponentStory<typeof Caroussel> = () => {
+export const Primary: ComponentStory<typeof Carousel> = () => {
   const array = [...Array(50).keys()];
 
   return (
-    <Caroussel>
+    <Carousel>
       {array.map((item, i) => (
         <Container key={i}>{item}</Container>
       ))}
-    </Caroussel>
+    </Carousel>
   );
 };
 
@@ -28,15 +28,15 @@ const Container = styled.div`
   text-align: center;
 `;
 
-export const FullWidth: ComponentStory<typeof Caroussel> = () => {
+export const FullWidth: ComponentStory<typeof Carousel> = () => {
   const array = [...Array(4).keys()];
 
   return (
-    <Caroussel fullWidth>
+    <Carousel fullWidth>
       {array.map((item, i) => (
         <FullWidthContainer key={i}>{item}</FullWidthContainer>
       ))}
-    </Caroussel>
+    </Carousel>
   );
 };
 

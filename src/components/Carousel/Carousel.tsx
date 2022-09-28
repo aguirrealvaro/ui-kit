@@ -1,10 +1,10 @@
 import { FunctionComponent, Children, useState, useRef, useEffect, ReactNode } from "react";
 import styled from "styled-components";
-import { useDisableRightArrow } from "./Caroussel.hooks";
-import { CarousselDirectionType } from "./Caroussel.types";
+import { useDisableRightArrow } from "./Carousel.hooks";
+import { CarouselDirectionType } from "./Carousel.types";
 import { Arrow } from "./components";
 
-type CarousselProps = {
+type CarouselProps = {
   children: ReactNode;
   gap?: number;
   callbackLeft?: () => void;
@@ -12,7 +12,7 @@ type CarousselProps = {
   fullWidth?: boolean;
 };
 
-export const Caroussel: FunctionComponent<CarousselProps> = ({
+export const Carousel: FunctionComponent<CarouselProps> = ({
   children,
   gap = 16,
   callbackLeft,
@@ -20,14 +20,14 @@ export const Caroussel: FunctionComponent<CarousselProps> = ({
   fullWidth = false,
 }) => {
   const [translate, setTranslate] = useState<number>(0);
-  const carousselRef = useRef<HTMLDivElement>(null);
-  const disabledRightArrow = useDisableRightArrow(translate, carousselRef);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const disabledRightArrow = useDisableRightArrow(translate, carouselRef);
 
   const parsedGap = fullWidth ? 0 : gap;
 
-  const handleArrow = (direction: CarousselDirectionType) => {
-    const carousselWidth = carousselRef.current?.scrollWidth || 0;
-    const clientWidth = carousselRef.current?.clientWidth || 0;
+  const handleArrow = (direction: CarouselDirectionType) => {
+    const carouselWidth = carouselRef.current?.scrollWidth || 0;
+    const clientWidth = carouselRef.current?.clientWidth || 0;
 
     if (direction === "left") {
       const result = translate - clientWidth;
@@ -35,7 +35,7 @@ export const Caroussel: FunctionComponent<CarousselProps> = ({
       callbackLeft?.();
     } else {
       const result = translate + clientWidth;
-      const limit = carousselWidth - clientWidth;
+      const limit = carouselWidth - clientWidth;
       setTranslate(result >= limit ? limit : result);
       callbackRight?.();
     }
@@ -51,7 +51,7 @@ export const Caroussel: FunctionComponent<CarousselProps> = ({
   return (
     <Container role="slider">
       <Overflow>
-        <SlideContainer translate={translate} ref={carousselRef} gap={parsedGap}>
+        <SlideContainer translate={translate} ref={carouselRef} gap={parsedGap}>
           {Children.map(children, (child) => (
             <Slide fullWidth={fullWidth}>{child}</Slide>
           ))}
