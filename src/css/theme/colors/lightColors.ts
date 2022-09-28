@@ -124,7 +124,7 @@ export const lightColors: CollorsType = {
 };
 
 export const lightAssets: AssetsType = {
-  brand: lightColors.blue[6],
+  info: lightColors.blue[6],
   success: lightColors.green[6],
   warning: lightColors.yellow[5],
   danger: lightColors.red[7],

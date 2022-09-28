@@ -32,7 +32,7 @@ export const Alert: FunctionComponent<AlertProps> = ({
   };
 
   const variantIcons: Record<AlertVariantType, { icon: StyledIcon; color: string }> = {
-    info: { icon: InfoCircleFill, color: theme.assets.brand },
+    info: { icon: InfoCircleFill, color: theme.assets.info },
     success: { icon: CheckCircleFill, color: theme.assets.success },
     warning: { icon: AlertIcon, color: theme.assets.warning },
     danger: { icon: CloseCircle, color: theme.assets.danger },

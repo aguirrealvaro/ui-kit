@@ -32,7 +32,7 @@ export const Radio: FunctionComponent<
   const radioSize = RADIO_SIZES[size];
 
   const icon = checked ? RadioCircleMarked : RadioCircle;
-  const iconColor = color || theme.assets.brand;
+  const iconColor = color || theme.assets.info;
 
   return (
     <label>

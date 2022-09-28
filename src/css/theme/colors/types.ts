@@ -15,7 +15,7 @@ type Variants = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 export type CollorsType = Record<Colors, Record<Variants, string>>;
 
 type Assets =
-  | "brand"
+  | "info"
   | "success"
   | "warning"
   | "danger"
