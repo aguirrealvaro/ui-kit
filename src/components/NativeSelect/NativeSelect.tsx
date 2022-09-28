@@ -17,9 +17,7 @@ export const NativeSelect: FunctionComponent<
   return (
     <Container>
       <SelectContainer value={value} onChange={onChange}>
-        <option selected disabled>
-          {placeholder}
-        </option>
+        <option selected>{placeholder}</option>
         {options.map(({ label, value, disabled }) => {
           return (
             <option value={value} disabled={disabled}>
@@ -30,7 +28,7 @@ export const NativeSelect: FunctionComponent<
       </SelectContainer>
       <SideContainer>
         <ChevronWrapper active={false}>
-          <Icon icon={ChevronDown} color={theme.colors.grey.base} size={23} />
+          <Icon icon={ChevronDown} color={theme.assets["input-border"]} size={23} />
         </ChevronWrapper>
       </SideContainer>
     </Container>
@@ -41,7 +39,6 @@ const Container = styled.div`
   position: relative;
   display: flex;
   font-size: 16px;
-  color: ${({ theme }) => theme.colors.grey[9]};
   width: 100%;
 `;
 
@@ -49,8 +46,8 @@ const SelectContainer = styled.select`
   font-size: inherit;
   width: 100%;
   height: 40px;
-  background-color: ${({ theme }) => theme.assets.background};
-  color: ${({ theme }) => theme.colors.grey[9]};
+  //background-color: ${({ theme }) => theme.assets["body-background"]};
+  color: ${({ theme }) => theme.assets.primaryText};
   border: none;
   outline: none;
   cursor: pointer;

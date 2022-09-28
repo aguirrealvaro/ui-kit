@@ -139,6 +139,7 @@ export const lightAssets: AssetsType = {
   primaryText: lightColors.grey[9],
   secondaryText: lightColors.grey[8],
   disabled: lightColors.grey[4],
-  background: lightColors.grey[2],
-  "input-border": lightColors.grey[4],
+  "body-background": lightColors.grey[2],
+  "input-border": lightColors.grey[5],
+  "input-placeholder": lightColors.grey[6],
 };

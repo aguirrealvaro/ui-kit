@@ -235,7 +235,7 @@ const CustomInput = styled.input<{
   border: none;
   background-color: transparent;
   padding: 0 1rem;
-  color: ${({ theme }) => theme.colors.grey[9]};
+  color: ${({ theme }) => theme.assets.primaryText};
   width: ${({ sideWidth }) => {
     if (sideWidth) {
       return `calc(100% - ${sideWidth}px - 20px)`;
@@ -253,6 +253,9 @@ const CustomInput = styled.input<{
   }};
   &:disabled {
     cursor: not-allowed;
+  }
+  &::placeholder {
+    color: ${({ theme }) => theme.assets["input-placeholder"]};
   }
 `;
 

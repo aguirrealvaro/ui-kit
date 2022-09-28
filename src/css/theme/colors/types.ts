@@ -20,7 +20,8 @@ type Assets =
   | "primaryText"
   | "secondaryText"
   | "disabled"
-  | "background"
-  | "input-border";
+  | "body-background"
+  | "input-border"
+  | "input-placeholder";
 
 export type AssetsType = Record<Assets, string>;

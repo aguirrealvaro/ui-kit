@@ -90,11 +90,11 @@ export const Select: FunctionComponent<SelectProps> = ({
           {isLoading && <Spinner size="xs" />}
           {isSelected && clearValue && (
             <ButtonClear onClick={handleClearValue}>
-              <Icon icon={CloseOutline} color={theme.colors.grey.base} size={18} />
+              <Icon icon={CloseOutline} color={theme.assets["input-border"]} size={18} />
             </ButtonClear>
           )}
           <ChevronWrapper active={isOpen}>
-            <Icon icon={ChevronDown} color={theme.colors.grey.base} size={23} />
+            <Icon icon={ChevronDown} color={theme.assets["input-border"]} size={23} />
           </ChevronWrapper>
         </SideContainer>
       </SelectContainer>
@@ -153,7 +153,7 @@ const SelectContainer = styled.div<{
   justify-content: space-between;
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   color: ${({ theme, isSelected }) =>
-    isSelected ? theme.colors.grey[10] : theme.colors.grey.base};
+    isSelected ? theme.colors.grey[10] : theme.assets.primaryText};
   height: ${({ size }) => {
     const sizes: Record<SelectSizeType, string> = {
       sm: "32px",

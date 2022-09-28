@@ -14,7 +14,7 @@ export const GlobalStyles = createGlobalStyle<{ theme: ThemeType }>`
     font-family: ${({ theme }) => theme.typography.fontFamilies.body};
     font-size: ${({ theme }) => theme.typography.fontSizes.md};
     color: ${({ theme }) => theme.assets.primaryText};
-    background-color: ${({ theme }) => theme.assets.background};
+    background-color: ${({ theme }) => theme.assets["body-background"]};
   }
   
   img {

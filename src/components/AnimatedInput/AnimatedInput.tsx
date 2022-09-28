@@ -199,7 +199,7 @@ const Placeholder = styled.label`
   transform: translateY(-50%);
   transition: all ${({ theme }) => theme.transitions.normal}ms ease;
   pointer-events: none;
-  color: ${({ theme }) => theme.colors.grey.base};
+  color: ${({ theme }) => theme.assets["input-placeholder"]};
 `;
 
 const getFocusedLabelStyles = css`
@@ -229,7 +229,7 @@ const CustomInput = styled.input<{
   }};
   height: ${({ hasPlaceholder }) => (hasPlaceholder ? "72%" : "100%")};
   bottom: 0;
-  color: ${({ theme }) => theme.colors.grey[9]};
+  color: ${({ theme }) => theme.assets.primaryText};
   &:focus + label {
     ${getFocusedLabelStyles};
     color: ${({ theme, error, isSuccess }) => {
