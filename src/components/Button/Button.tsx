@@ -132,27 +132,27 @@ const getColorStyles = (
       }
     `,
     positive: css`
-      background-color: ${theme.colors.green.base};
+      background-color: ${theme.assets.success};
       color: ${theme.colors.grey[1]};
-      border-color: ${theme.colors.green.base};
+      border-color: ${theme.assets.success};
       &:hover:not([disabled]) {
         background-color: ${theme.colors.green[5]};
         border-color: ${theme.colors.green[5]};
       }
     `,
     warning: css`
-      background-color: ${theme.colors.yellow.base};
+      background-color: ${theme.assets.warning};
       color: ${theme.colors.grey[1]};
-      border-color: ${theme.colors.yellow.base};
+      border-color: ${theme.assets.warning};
       &:hover:not([disabled]) {
         background-color: ${theme.colors.yellow[4]};
         border-color: ${theme.colors.yellow[4]};
       }
     `,
     negative: css`
-      background-color: ${theme.colors.red.base};
+      background-color: ${theme.assets.error};
       color: ${theme.colors.grey[1]};
-      border-color: ${theme.colors.red.base};
+      border-color: ${theme.assets.error};
       &:hover:not([disabled]) {
         background-color: ${theme.colors.red[6]};
         border-color: ${theme.colors.red[6]};
@@ -181,24 +181,24 @@ const getColorStyles = (
       }
     `,
     positive: css`
-      color: ${theme.colors.green.base};
-      border-color: ${theme.colors.green.base};
+      color: ${theme.assets.success};
+      border-color: ${theme.assets.success};
       background-color: transparent;
       &:hover:not([disabled]) {
         background-color: ${outlinedHover};
       }
     `,
     warning: css`
-      color: ${theme.colors.yellow.base};
-      border-color: ${theme.colors.yellow.base};
+      color: ${theme.assets.warning};
+      border-color: ${theme.assets.warning};
       background-color: transparent;
       &:hover:not([disabled]) {
         background-color: ${outlinedHover};
       }
     `,
     negative: css`
-      color: ${theme.colors.red.base};
-      border-color: ${theme.colors.red.base};
+      color: ${theme.assets.error};
+      border-color: ${theme.assets.error};
       background-color: transparent;
       &:hover:not([disabled]) {
         background-color: ${outlinedHover};
@@ -222,19 +222,19 @@ const getColorStyles = (
       }
     `,
     positive: css`
-      color: ${theme.colors.green.base};
+      color: ${theme.assets.success};
       &:hover:not([disabled]) {
         background-color: ${theme.colors.green[2]};
       }
     `,
     warning: css`
-      color: ${theme.colors.yellow.base};
+      color: ${theme.assets.warning};
       &:hover:not([disabled]) {
         background-color: ${theme.colors.yellow[2]};
       }
     `,
     negative: css`
-      color: ${theme.colors.red.base};
+      color: ${theme.assets.error};
       &:hover:not([disabled]) {
         background-color: ${theme.colors.red[2]};
       }
@@ -255,19 +255,19 @@ const getColorStyles = (
       }
     `,
     positive: css`
-      color: ${theme.colors.green.base};
+      color: ${theme.assets.success};
       &:hover:not([disabled]) {
         text-decoration: underline;
       }
     `,
     warning: css`
-      color: ${theme.colors.yellow.base};
+      color: ${theme.assets.warning};
       &:hover:not([disabled]) {
         text-decoration: underline;
       }
     `,
     negative: css`
-      color: ${theme.colors.red.base};
+      color: ${theme.assets.error};
       &:hover:not([disabled]) {
         text-decoration: underline;
       }
@@ -293,24 +293,24 @@ const getColorStyles = (
       border-color: ${theme.colors.grey[4]};
       color: ${theme.colors.grey[6]};
       &:hover:not([disabled]) {
-        color: ${theme.colors.green.base};
-        border-color: ${theme.colors.green.base};
+        color: ${theme.assets.success};
+        border-color: ${theme.assets.success};
       }
     `,
     warning: css`
       border-color: ${theme.colors.grey[4]};
       color: ${theme.colors.grey[6]};
       &:hover:not([disabled]) {
-        color: ${theme.colors.yellow.base};
-        border-color: ${theme.colors.yellow.base};
+        color: ${theme.assets.warning};
+        border-color: ${theme.assets.warning};
       }
     `,
     negative: css`
       border-color: ${theme.colors.grey[4]};
       color: ${theme.colors.grey[6]};
       &:hover:not([disabled]) {
-        color: ${theme.colors.red.base};
-        border-color: ${theme.colors.red.base};
+        color: ${theme.assets.error};
+        border-color: ${theme.assets.error};
       }
     `,
     neutral: css`

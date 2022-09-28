@@ -174,7 +174,7 @@ const SelectContainer = styled.div<{
 
     if (error) {
       return css`
-        border-color: ${theme.colors.red.base};
+        border-color: ${theme.assets.error};
       `;
     }
 
@@ -270,7 +270,7 @@ const Option = styled.button<{ isSelected: boolean }>`
 const BottomText = styled.div<{ error: boolean; size: SelectSizeType }>`
   margin: 0.5rem 1rem 0 1rem;
   color: ${({ error, theme }) =>
-    error ? theme.colors.red.base : theme.assets["secondary-text"]};
+    error ? theme.assets.error : theme.assets["secondary-text"]};
   font-size: ${({ size, theme }) => {
     const sizes: Record<SelectSizeType, string> = {
       sm: theme.typography.fontSizes.xs,

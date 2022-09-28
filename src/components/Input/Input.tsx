@@ -125,19 +125,19 @@ export const Input: FunctionComponent<
             {isLoading && <Spinner size="xs" />}
             {value && clearValue && (
               <ButtonIcon onClick={clearValue}>
-                <Icon icon={CloseOutline} color={theme.colors.grey.base} size={18} />
+                <Icon icon={CloseOutline} color={theme.assets.neutral} size={18} />
               </ButtonIcon>
             )}
-            {error && <Icon icon={CloseCircle} size={18} color={theme.colors.red.base} />}
+            {error && <Icon icon={CloseCircle} size={18} color={theme.assets.error} />}
             {isSuccess && (
-              <Icon icon={CheckCircleFill} size={18} color={theme.colors.green.base} />
+              <Icon icon={CheckCircleFill} size={18} color={theme.assets.success} />
             )}
             {type === "password" && (
               <ButtonIcon onClick={handleSeePassword}>
                 <Icon
                   icon={seePassword ? EyeSlashFill : EyeFill}
                   size={18}
-                  color={theme.colors.grey.base}
+                  color={theme.assets.neutral}
                 />
               </ButtonIcon>
             )}
@@ -180,12 +180,12 @@ const InputContainer = styled.div<{
   ${({ error, isSuccess, theme }) => {
     if (error) {
       return css`
-        border-color: ${theme.colors.red.base};
+        border-color: ${theme.assets.error};
       `;
     }
     if (isSuccess) {
       return css`
-        border-color: ${theme.colors.green.base};
+        border-color: ${theme.assets.success};
       `;
     }
     return css`
@@ -262,7 +262,7 @@ const CustomInput = styled.input<{
 const BottomText = styled.div<{ error: boolean; size: InputSizeType }>`
   margin: 0.5rem 1rem 0 1rem;
   color: ${({ error, theme }) =>
-    error ? theme.colors.red.base : theme.assets["secondary-text"]};
+    error ? theme.assets.error : theme.assets["secondary-text"]};
   font-size: ${({ size, theme }) => {
     const sizes: Record<InputSizeType, string> = {
       sm: theme.typography.fontSizes.xs,

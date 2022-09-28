@@ -29,7 +29,7 @@ export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
       <Container isUnmounting={isUnmounting} ref={ref} transitionTime={transitionTime}>
         <CloseButtonWrapper>
           <IconButton onClick={onClose}>
-            <Icon icon={CloseOutline} color={theme.colors.grey.base} size={25} />
+            <Icon icon={CloseOutline} color={theme.assets.neutral} size={25} />
           </IconButton>
         </CloseButtonWrapper>
         <div>

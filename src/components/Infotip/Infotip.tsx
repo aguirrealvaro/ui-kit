@@ -17,7 +17,7 @@ export const Infotip: FunctionComponent<InfotipProps> = ({ size = "sm", ...restP
 
   return (
     <CustomTooltip {...restProps}>
-      <Icon icon={ExclamationCircle} size={infotipSize} color={theme.colors.grey.base} />
+      <Icon icon={ExclamationCircle} size={infotipSize} color={theme.assets.neutral} />
     </CustomTooltip>
   );
 };

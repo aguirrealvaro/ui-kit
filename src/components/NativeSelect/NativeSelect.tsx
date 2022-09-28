@@ -137,7 +137,7 @@ const Select = styled.select<{
   border: 1px solid transparent;
   border-color: ${({ theme, error }) => {
     if (error) {
-      return theme.colors.red.base;
+      return theme.assets.error;
     }
 
     return theme.assets["input-border"];
@@ -193,7 +193,7 @@ const ButtonClear = styled.button`
 const BottomText = styled.div<{ error: boolean; size: SelectSizeType }>`
   margin: 0.5rem 1rem 0 1rem;
   color: ${({ error, theme }) =>
-    error ? theme.colors.red.base : theme.assets["secondary-text"]};
+    error ? theme.assets.error : theme.assets["secondary-text"]};
   font-size: ${({ size, theme }) => {
     const sizes: Record<SelectSizeType, string> = {
       sm: theme.typography.fontSizes.xs,

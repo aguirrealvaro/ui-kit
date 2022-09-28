@@ -23,7 +23,7 @@ export const Arrow: FunctionComponent<ArrowProps> = ({ direction, handleArrow, d
 
   return (
     <Button onClick={() => handleArrow(direction)} direction={direction} disabled={disabled}>
-      <Icon icon={chevronIcon[direction]} color={theme.colors.grey.base} size={22} />
+      <Icon icon={chevronIcon[direction]} color={theme.assets.neutral} size={22} />
     </Button>
   );
 };

@@ -2,7 +2,6 @@ import { AssetsType, CollorsType } from "./types";
 
 export const darkColors: CollorsType = {
   grey: {
-    base: "#9CA3AF",
     1: "#111827",
     2: "#1F2937",
     3: "#374151",
@@ -15,7 +14,6 @@ export const darkColors: CollorsType = {
     10: "#F9FAFB",
   },
   red: {
-    base: "#e57775",
     1: "#271a28",
     2: "#3f212d",
     3: "#542934",
@@ -28,7 +26,6 @@ export const darkColors: CollorsType = {
     10: "#faeeec",
   },
   orange: {
-    base: "#db5020",
     1: "#291a22",
     2: "#432221",
     3: "#582c25",
@@ -41,7 +38,6 @@ export const darkColors: CollorsType = {
     10: "#fad6bf",
   },
   yellow: {
-    base: "#845610",
     1: "#201e21",
     2: "#34291d",
     3: "#46351c",
@@ -54,7 +50,6 @@ export const darkColors: CollorsType = {
     10: "#f0dca0",
   },
   green: {
-    base: "#0e8b63",
     1: "#0e212a",
     2: "#0e3033",
     3: "#10413c",
@@ -67,7 +62,6 @@ export const darkColors: CollorsType = {
     10: "#96cdb4",
   },
   teal: {
-    base: "#088190",
     1: "#0e202e",
     2: "#0d2e3d",
     3: "#0e3d4c",
@@ -80,7 +74,6 @@ export const darkColors: CollorsType = {
     10: "#8fd2d0",
   },
   blue: {
-    base: "#3873d9",
     1: "#121f3b",
     2: "#172b52",
     3: "#1f3866",
@@ -93,7 +86,6 @@ export const darkColors: CollorsType = {
     10: "#dfedfb",
   },
   indigo: {
-    base: "#5b67d6",
     1: "#171d3a",
     2: "#202751",
     3: "#2b3465",
@@ -106,7 +98,6 @@ export const darkColors: CollorsType = {
     10: "#eceffb",
   },
   purple: {
-    base: "#7d56da",
     1: "#1b1c3b",
     2: "#292452",
     3: "#372e66",
@@ -119,7 +110,6 @@ export const darkColors: CollorsType = {
     10: "#f2ecfb",
   },
   pink: {
-    base: "#c73f84",
     1: "#261930",
     2: "#3d1e3c",
     3: "#512648",

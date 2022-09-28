@@ -52,7 +52,7 @@ const Container = styled.p<{
     if (!as) return;
     const textStyles: Partial<Record<TextType, FlattenSimpleInterpolation | undefined>> = {
       mark: css`
-        background-color: ${theme.colors.yellow.base};
+        background-color: ${theme.assets.warning};
         color: ${theme.colors.grey[1]};
       `,
       code: css`

@@ -63,7 +63,7 @@ export const Toast: FunctionComponent<ToastProps> = ({
       <Icon icon={variantIcons[variant]} size={18} color={iconColor[variant]} />
       <div>{children}</div>
       <CloseButton onClick={closeToast}>
-        <Icon icon={CloseOutline} color={theme.colors.grey.base} size={15} />
+        <Icon icon={CloseOutline} color={theme.assets.neutral} size={15} />
       </CloseButton>
     </Container>
   );
@@ -79,9 +79,9 @@ const variantIcons: Record<ToastVariantType, StyledIcon> = {
 const getColorValues = (theme: ThemeType) => {
   const colorValues: Record<ToastVariantType, string> = {
     default: theme.assets.brand,
-    positive: theme.colors.green.base,
-    warning: theme.colors.yellow.base,
-    negative: theme.colors.red.base,
+    positive: theme.assets.success,
+    warning: theme.assets.warning,
+    negative: theme.assets.error,
     neutral: theme.colors.grey[10],
   };
 

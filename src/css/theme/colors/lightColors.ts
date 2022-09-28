@@ -2,7 +2,6 @@ import { AssetsType, CollorsType } from "./types";
 
 export const lightColors: CollorsType = {
   grey: {
-    base: "#6B7280",
     1: "#F9FAFB",
     2: "#F3F4F6",
     3: "#E5E7EB",
@@ -15,7 +14,6 @@ export const lightColors: CollorsType = {
     10: "#111827",
   },
   red: {
-    base: "#E02424",
     1: "#FDF2F2",
     2: "#FDE8E8",
     3: "#FBD5D5",
@@ -28,7 +26,6 @@ export const lightColors: CollorsType = {
     10: "#771D1D",
   },
   orange: {
-    base: "#FF5A1F",
     1: "#FFF8F1",
     2: "#FEECDC",
     3: "#FCD9BD",
@@ -41,7 +38,6 @@ export const lightColors: CollorsType = {
     10: "#771D1D",
   },
   yellow: {
-    base: "#E3A008",
     1: "#FDFDEA",
     2: "#FDF6B2",
     3: "#FCE96A",
@@ -54,7 +50,6 @@ export const lightColors: CollorsType = {
     10: "#633112",
   },
   green: {
-    base: "#0E9F6E",
     1: "#F3FAF7",
     2: "#DEF7EC",
     3: "#BCF0DA",
@@ -67,7 +62,6 @@ export const lightColors: CollorsType = {
     10: "#014737",
   },
   teal: {
-    base: "#0694A2",
     1: "#EDFAFA",
     2: "#D5F5F6",
     3: "#AFECEF",
@@ -80,7 +74,6 @@ export const lightColors: CollorsType = {
     10: "#014451",
   },
   blue: {
-    base: "#3F83F8",
     1: "#EBF5FF",
     2: "#E1EFFE",
     3: "#C3DDFD",
@@ -93,7 +86,6 @@ export const lightColors: CollorsType = {
     10: "#233876",
   },
   indigo: {
-    base: "#6875F5",
     1: "#F0F5FF",
     2: "#E5EDFF",
     3: "#CDDBFE",
@@ -106,7 +98,6 @@ export const lightColors: CollorsType = {
     10: "#362F78",
   },
   purple: {
-    base: "#9061F9",
     1: "#F6F5FF",
     2: "#EDEBFE",
     3: "#DCD7FE",
@@ -119,7 +110,6 @@ export const lightColors: CollorsType = {
     10: "#4A1D96",
   },
   pink: {
-    base: "#E74694",
     1: "#FDF2F8",
     2: "#FCE8F3",
     3: "#FAD1E8",
