@@ -8,15 +8,14 @@ export default {
 } as ComponentMeta<typeof NativeSelect>;
 
 export const Primary: ComponentStory<typeof NativeSelect> = () => {
-  const [option, setOption] = useState<string | undefined>(undefined);
+  const [option, setOption] = useState<string>("");
 
   const onChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setOption(e.target.value);
   };
 
   const clearValue = () => {
-    console.log("clear");
-    setOption(undefined);
+    setOption("");
   };
 
   const options = [
