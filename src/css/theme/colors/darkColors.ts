@@ -134,7 +134,11 @@ export const darkColors: CollorsType = {
 };
 
 export const darkAssets: AssetsType = {
-  brand: darkColors.blue.base,
+  brand: darkColors.blue[6],
+  success: darkColors.green[6],
+  warning: darkColors.yellow[5],
+  error: darkColors.red[7],
+  neutral: darkColors.grey[6],
   title: darkColors.grey[10],
   "primary-text": darkColors.grey[9],
   "secondary-text": darkColors.grey[8],

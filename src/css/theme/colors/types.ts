@@ -16,6 +16,10 @@ export type CollorsType = Record<Colors, Record<Variants, string>>;
 
 type Assets =
   | "brand"
+  | "success"
+  | "warning"
+  | "error"
+  | "neutral"
   | "title"
   | "primary-text"
   | "secondary-text"
