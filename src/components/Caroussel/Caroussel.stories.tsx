@@ -27,3 +27,23 @@ const Container = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.grey[4]};
   text-align: center;
 `;
+
+export const FullWidth: ComponentStory<typeof Caroussel> = () => {
+  const array = [...Array(4).keys()];
+
+  return (
+    <Caroussel fullWidth>
+      {array.map((item, i) => (
+        <FullWidthContainer key={i}>{item}</FullWidthContainer>
+      ))}
+    </Caroussel>
+  );
+};
+
+const FullWidthContainer = styled.div`
+  background-color: ${({ theme }) => theme.colors.grey[3]};
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
