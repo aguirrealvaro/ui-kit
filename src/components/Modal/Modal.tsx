@@ -117,6 +117,6 @@ const Content = styled.div<{ size: number; fadeOut: boolean }>`
 
 const CloseButtonWrapper = styled.div`
   position: absolute;
-  top: 6px;
-  right: 6px;
+  top: ${({ theme }) => theme.spacing[1.5]};
+  right: ${({ theme }) => theme.spacing[1.5]};
 `;

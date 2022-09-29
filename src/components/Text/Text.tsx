@@ -58,8 +58,8 @@ const Container = styled.p<{
       code: css`
         font-family: ${theme.typography.fontFamilies.mono};
         font-size: ${theme.typography.fontSizes.xs};
-        margin: 0 4px;
-        padding: 2px 4px;
+        margin: ${`0 ${theme.spacing[0.5]}`};
+        padding: ${`${theme.spacing[0.5]} ${theme.spacing[1]}`};
         background-color: rgba(150, 150, 150, 0.1);
         border: 1px solid rgba(100, 100, 100, 0.2);
         border-radius: ${theme.borderRadius.xs};
@@ -67,8 +67,8 @@ const Container = styled.p<{
       kbd: css`
         font-family: ${theme.typography.fontFamilies.mono};
         font-size: ${theme.typography.fontSizes.xs};
-        margin: 0 4px;
-        padding: 2px 4px;
+        margin: ${`0 ${theme.spacing[0.5]}`};
+        padding: ${`${theme.spacing[0.5]} ${theme.spacing[1]}`};
         background-color: rgba(150, 150, 150, 0.1);
         border: 1px solid rgba(100, 100, 100, 0.2);
         border-radius: ${theme.borderRadius.xs};

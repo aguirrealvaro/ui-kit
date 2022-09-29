@@ -85,22 +85,22 @@ const Container = styled.div<{ variant: VariantType; size: AlertSizeType }>`
   ${({ size, theme }) => {
     const sizeStyles: Record<AlertSizeType, FlattenSimpleInterpolation> = {
       xs: css`
-        padding: 8px 12px;
+        padding: ${`${theme.spacing[2]} ${theme.spacing[3]}`};
         font-size: ${theme.typography.fontSizes.xs};
         gap: ${theme.spacing[2.5]};
       `,
       sm: css`
-        padding: 12px 16px;
+        padding: ${`${theme.spacing[3]} ${theme.spacing[4]}`};
         font-size: ${theme.typography.fontSizes.sm};
         gap: ${theme.spacing[3.0]};
       `,
       md: css`
-        padding: 16px 20px;
+        padding: ${`${theme.spacing[4]} ${theme.spacing[5]}`};
         font-size: ${theme.typography.fontSizes.md};
         gap: ${theme.spacing[3.5]};
       `,
       lg: css`
-        padding: 20px 24px;
+        padding: ${`${theme.spacing[5]} ${theme.spacing[6]}`};
         font-size: ${theme.typography.fontSizes.lg};
         gap: ${theme.spacing[4]};
       `,

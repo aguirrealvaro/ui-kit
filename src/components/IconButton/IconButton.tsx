@@ -20,7 +20,7 @@ const Container = styled.button<{ withHover: boolean }>`
   display: flex;
   align-self: baseline;
   line-height: 0;
-  padding: 6px;
+  padding: ${({ theme }) => theme.spacing[1.5]};
   border-radius: ${({ theme }) => theme.borderRadius.full};
   transition: background-color ${({ theme }) => theme.transitions.durations.normal}ms
     ${({ theme }) => theme.transitions.timings.out};

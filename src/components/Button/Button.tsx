@@ -70,22 +70,22 @@ const getSizeStyles = (size: ButtonSizeType, theme: ThemeType): FlattenSimpleInt
   const sizeOptions: Record<ButtonSizeType, FlattenSimpleInterpolation> = {
     xs: css`
       height: 24px;
-      padding: 0rem 8px;
+      padding: 0 ${`${theme.spacing[2]}`};
       font-size: ${theme.typography.fontSizes.xs};
     `,
     sm: css`
       height: 32px;
-      padding: 0 12px;
+      padding: 0 ${`${theme.spacing[3]}`};
       font-size: ${theme.typography.fontSizes.sm};
     `,
     md: css`
       height: 40px;
-      padding: 0 16px;
+      padding: 0 ${`${theme.spacing[4]}`};
       font-size: ${theme.typography.fontSizes.md};
     `,
     lg: css`
       height: 48px;
-      padding: 0 20px;
+      padding: 0 ${`${theme.spacing[5]}`};
       font-size: ${theme.typography.fontSizes.lg};
     `,
   };

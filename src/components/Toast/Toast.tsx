@@ -133,6 +133,6 @@ const Container = styled.div<{
 const CloseButton = styled.button`
   line-height: 0;
   position: absolute;
-  top: 6px;
-  right: 6px;
+  top: ${({ theme }) => theme.spacing[1.5]};
+  right: ${({ theme }) => theme.spacing[1.5]};
 `;

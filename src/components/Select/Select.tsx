@@ -258,8 +258,8 @@ const Dropdown = styled.div<{ size: SelectSizeType }>`
 `;
 
 const Option = styled.button<{ isSelected: boolean }>`
-  padding: 8px 12px;
-  margin-bottom: 4px;
+  padding: ${({ theme }) => `${theme.spacing[2]} ${theme.spacing[3]}`};
+  margin-bottom: ${({ theme }) => theme.spacing[1]};
   text-align: left;
   color: ${({ theme }) => theme.assets["primary-text"]};
   &:last-child {

@@ -11,7 +11,7 @@ export const Primary: ComponentStory<typeof SVGIcon> = () => {
   return (
     <Container>
       {ALL_ICONS.map((icon) => (
-        <SVGIcon icon={icon} key={icon} marginRight="10px" />
+        <SVGIcon icon={icon} key={icon} />
       ))}
     </Container>
   );
@@ -19,4 +19,5 @@ export const Primary: ComponentStory<typeof SVGIcon> = () => {
 
 const Container = styled.div`
   display: flex;
+  gap: 1rem;
 `;

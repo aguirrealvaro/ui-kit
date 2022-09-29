@@ -208,7 +208,7 @@ const Placeholder = styled.label`
 `;
 
 const getFocusedLabelStyles = css`
-  top: 7px;
+  top: ${({ theme }) => theme.spacing[2]};
   transform: none;
   font-size: ${({ theme }) => theme.typography.fontSizes.xs};
 `;

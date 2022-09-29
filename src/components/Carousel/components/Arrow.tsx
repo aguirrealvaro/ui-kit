@@ -33,16 +33,16 @@ const Button = styled.button<{ direction: CarouselDirectionType }>`
   transform: translateY(-50%);
   ${({ direction, theme }) =>
     css`
-      padding: 17px;
+      padding: ${theme.spacing[4]};
       background-color: ${theme.colors.grey[1]};
       box-shadow: ${theme.shadows.sm};
       border-radius: ${theme.borderRadius.full};
       ${direction === "left"
         ? css`
-            left: -32px;
+            left: ${theme.spacing[8]};
           `
         : css`
-            right: -32px;
+            right: -${theme.spacing[8]};
           `}
     `};
   &:disabled {
