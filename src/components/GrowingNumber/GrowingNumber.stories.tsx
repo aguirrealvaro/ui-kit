@@ -6,6 +6,12 @@ export default {
   component: GrowingNumber,
 } as ComponentMeta<typeof GrowingNumber>;
 
-export const Primary: ComponentStory<typeof GrowingNumber> = () => {
-  return <GrowingNumber number="200" duration="2" />;
+const Template: ComponentStory<typeof GrowingNumber> = (args) => {
+  return <GrowingNumber {...args} />;
+};
+
+export const Primary = Template.bind({});
+Primary.args = {
+  number: "200",
+  duration: "2",
 };
