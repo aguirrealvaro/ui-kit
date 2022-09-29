@@ -3,7 +3,6 @@ import { Checkbox as CheckboxUnchecked } from "@styled-icons/boxicons-regular/Ch
 import { CheckboxChecked } from "@styled-icons/boxicons-solid/CheckboxChecked";
 import styled, { css } from "styled-components";
 import { Icon } from "../Icon";
-import { CHECKBOX_ICON_SIZES } from "./Checkbox.constants";
 import { CheckboxPositionType, CheckboxSizeType } from "./Checkbox.types";
 import { hiddenStyles } from "@/css";
 import { useTheme } from "@/hooks";
@@ -29,7 +28,15 @@ export const Checkbox: FunctionComponent<
 }) => {
   const { theme } = useTheme();
 
-  const iconSize = CHECKBOX_ICON_SIZES[size];
+  const sizes: Record<CheckboxSizeType, string> = {
+    xs: theme.spacing[5],
+    sm: theme.spacing[6],
+    md: theme.spacing[7],
+    lg: theme.spacing[8],
+  };
+
+  const iconSize = sizes[size];
+
   const icon = checked ? CheckboxChecked : CheckboxUnchecked;
   const iconColor = color || theme.assets.info;
 

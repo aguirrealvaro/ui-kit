@@ -4,7 +4,7 @@ import { useTheme } from "@/hooks";
 
 type IconProps = {
   icon: StyledIcon;
-  size?: number;
+  size?: string | number;
   color?: string;
 };
 
