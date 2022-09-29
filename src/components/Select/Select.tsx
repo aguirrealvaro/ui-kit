@@ -23,11 +23,11 @@ type SelectProps = {
   onChange: Dispatch<SetStateAction<string | undefined>>;
   options: SelectFieldType[];
   disabled?: boolean;
-  helpText?: string;
+  helpText?: ReactNode;
   isError?: boolean;
-  errorMessage?: string;
+  errorMessage?: ReactNode;
   isSuccess?: boolean;
-  successMessage?: string;
+  successMessage?: ReactNode;
   isLoading?: boolean;
   clearValue?: () => void;
   size?: SelectSizeType;
@@ -129,7 +129,7 @@ export const Select: FunctionComponent<SelectProps> = ({
           showSuccessMessage={!!successMessage}
           size={size}
         >
-          {errorMessage || helpText}
+          {errorMessage || successMessage || helpText}
         </BottomText>
       )}
     </Container>

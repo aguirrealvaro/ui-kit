@@ -11,11 +11,11 @@ type NativeSelectProps = {
   label?: ReactNode;
   options: NativeSelectFieldType[];
   clearValue?: () => void;
-  helpText?: string;
+  helpText?: ReactNode;
   isError?: boolean;
-  errorMessage?: string;
+  errorMessage?: ReactNode;
   isSuccess?: boolean;
-  successMessage?: string;
+  successMessage?: ReactNode;
   size?: SelectSizeType;
 };
 
@@ -86,7 +86,7 @@ export const NativeSelect: FunctionComponent<
           showSuccessMessage={!!successMessage}
           size={size}
         >
-          {errorMessage || helpText}
+          {errorMessage || successMessage || helpText}
         </BottomText>
       )}
     </div>

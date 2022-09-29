@@ -22,9 +22,9 @@ type InputProps = {
   label?: ReactNode;
   helpText?: ReactNode;
   isError?: boolean;
-  errorMessage?: string;
+  errorMessage?: ReactNode;
   isSuccess?: boolean;
-  successMessage?: string;
+  successMessage?: ReactNode;
   inputId?: string;
   isLoading?: boolean;
   clearValue?: () => void;
@@ -150,7 +150,7 @@ export const Input: FunctionComponent<
           showSuccessMessage={!!successMessage}
           size={size}
         >
-          {errorMessage || helpText}
+          {errorMessage || successMessage || helpText}
         </BottomText>
       )}
     </div>

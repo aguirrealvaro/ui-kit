@@ -20,9 +20,9 @@ import { useTheme } from "@/hooks";
 type AnimatedInputProps = {
   helpText?: ReactNode;
   isError?: boolean;
-  errorMessage?: string;
+  errorMessage?: ReactNode;
   isSuccess?: boolean;
-  successMessage?: string;
+  successMessage?: ReactNode;
   inputId?: string;
   isLoading?: boolean;
   clearValue?: () => void;
@@ -136,7 +136,7 @@ export const AnimatedInput: FunctionComponent<
       </InputContainer>
       {showBottom && (
         <BottomText showErrorMessage={!!errorMessage} showSuccessMessage={!!successMessage}>
-          {errorMessage || helpText}
+          {errorMessage || successMessage || helpText}
         </BottomText>
       )}
     </div>
