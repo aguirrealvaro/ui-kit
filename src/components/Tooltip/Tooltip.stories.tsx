@@ -13,7 +13,7 @@ const Template: ComponentStory<typeof Tooltip> = ({ content: dummyContent, ...ar
   return (
     <Container>
       <Tooltip content={content} {...args}>
-        Hover top
+        Hover
       </Tooltip>
     </Container>
   );

@@ -4,6 +4,11 @@ import { Accordion } from "@/components";
 export default {
   title: "Components/Accordion",
   component: Accordion,
+  argTypes: {
+    title: {
+      control: "text",
+    },
+  },
 } as ComponentMeta<typeof Accordion>;
 
 const Template: ComponentStory<typeof Accordion> = (args) => {
