@@ -15,7 +15,7 @@ export const Toast: FunctionComponent<ToastProps> = ({
   children,
   id,
   duration = 5000,
-  variant = "info",
+  variant = "success",
 }) => {
   const { theme } = useTheme();
   const transitionTime = theme.transitions.durations.normal;
@@ -97,16 +97,16 @@ const Container = styled.div<{
   ${({ variant, theme }) => {
     const variantStyles: Record<VariantType, FlattenSimpleInterpolation> = {
       info: css`
-        background-color: ${theme.colors.blue[6]};
+        background-color: ${theme.assets.info};
       `,
       success: css`
-        background-color: ${theme.colors.green[6]};
+        background-color: ${theme.assets.success};
       `,
       danger: css`
-        background-color: ${theme.colors.red[6]};
+        background-color: ${theme.assets.danger};
       `,
       warning: css`
-        background-color: ${theme.colors.yellow[5]};
+        background-color: ${theme.assets.warning};
       `,
       neutral: css`
         background-color: ${theme.colors.grey[10]};

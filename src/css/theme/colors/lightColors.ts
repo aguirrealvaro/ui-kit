@@ -127,7 +127,7 @@ export const lightAssets: AssetsType = {
   info: lightColors.blue[6],
   success: lightColors.green[6],
   warning: lightColors.yellow[5],
-  danger: lightColors.red[7],
+  danger: lightColors.red[6],
   title: lightColors.grey[10],
   "primary-text": lightColors.grey[8],
   "secondary-text": lightColors.grey[6],

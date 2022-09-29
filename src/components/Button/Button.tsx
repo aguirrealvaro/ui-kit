@@ -150,8 +150,8 @@ const getColorStyles = (
       color: ${theme.colors.grey[1]};
       border-color: ${theme.assets.danger};
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.red[6]};
-        border-color: ${theme.colors.red[6]};
+        background-color: ${theme.colors.red[5]};
+        border-color: ${theme.colors.red[5]};
       }
     `,
     neutral: css`

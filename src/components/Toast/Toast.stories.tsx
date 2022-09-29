@@ -20,4 +20,3 @@ const Template: ComponentStory<typeof Toast> = () => {
 };
 
 export const Primary = Template.bind({});
-Primary.args = {};
