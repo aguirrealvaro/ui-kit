@@ -1,8 +1,7 @@
 import { FunctionComponent, InputHTMLAttributes, ReactNode } from "react";
 import styled, { css } from "styled-components";
-import { SWICTH_SIZES } from "./Switch.constants";
 import { SwitchPositionType, SwitchSizeType } from "./Switch.types";
-import { hiddenStyles } from "@/css";
+import { hiddenStyles, ThemeType } from "@/css";
 import { useTheme } from "@/hooks";
 
 type SwitchProps = {
@@ -25,7 +24,6 @@ export const Switch: FunctionComponent<
   ...restProps
 }) => {
   const { theme } = useTheme();
-  const switchSize = SWICTH_SIZES[size];
 
   return (
     <label>
@@ -34,11 +32,11 @@ export const Switch: FunctionComponent<
         <Wrapper position={position}>
           <Pill
             checked={checked || false}
-            size={switchSize}
+            size={size}
             color={color || theme.assets.info}
             disabled={disabled}
           >
-            <Ball checked={checked || false} size={switchSize} />
+            <Ball checked={checked || false} size={size} />
           </Pill>
         </Wrapper>
         {children && (
@@ -74,12 +72,33 @@ const Wrapper = styled.div<{ position: SwitchPositionType }>`
   line-height: 0;
 `;
 
-const Pill = styled.span<{ checked: boolean; size: number; color: string; disabled: boolean }>`
+const getSizes = (theme: ThemeType) => {
+  const sizes: Record<SwitchSizeType, string> = {
+    xs: theme.spacing[4],
+    sm: theme.spacing[5],
+    md: theme.spacing[6],
+    lg: theme.spacing[7],
+  };
+  return sizes;
+};
+
+const Pill = styled.span<{
+  checked: boolean;
+  size: SwitchSizeType;
+  color: string;
+  disabled: boolean;
+}>`
   display: inline-flex;
   cursor: pointer;
   position: relative;
-  width: ${({ size }) => `${size * 2}px`};
-  height: ${({ size }) => `${size}px`};
+  ${({ size, theme }) => {
+    const pillSize = getSizes(theme)[size];
+
+    return css`
+      width: ${`calc(${pillSize} * 2)`};
+      height: ${pillSize};
+    `;
+  }}
   border-radius: ${({ theme }) => theme.borderRadius.full};
   transition: background-color ${({ theme }) => theme.transitions.durations.normal}ms
       ${({ theme }) => theme.transitions.timings.out},
@@ -109,14 +128,22 @@ const Pill = styled.span<{ checked: boolean; size: number; color: string; disabl
   }}
 `;
 
-const Ball = styled.span<{ checked: boolean; size: number }>`
+const Ball = styled.span<{ checked: boolean; size: SwitchSizeType }>`
   position: absolute;
   top: 0;
-  left: ${({ checked, size }) => (checked ? `${size}px` : 0)};
+  left: ${({ checked, size, theme }) => {
+    const translate = getSizes(theme)[size];
+    return checked ? `${translate}` : 0;
+  }};
   transform: scale(0.8);
   background-color: ${({ theme }) => theme.colors.grey[1]};
-  width: ${({ size }) => `${size}px`};
-  height: ${({ size }) => `${size}px`};
+  ${({ size, theme }) => {
+    const pillSize = getSizes(theme)[size];
+    return css`
+      width: ${pillSize};
+      height: ${pillSize};
+    `;
+  }};
   border-radius: ${({ theme }) => theme.borderRadius.full};
   transition: left ${({ theme }) => theme.transitions.durations.normal}ms
     ${({ theme }) => theme.transitions.timings.in};
