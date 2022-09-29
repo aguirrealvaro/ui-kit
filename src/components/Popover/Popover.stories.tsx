@@ -13,7 +13,7 @@ const Template: ComponentStory<typeof Popover> = ({ content: dummyContent, ...ar
   return (
     <Container>
       <Popover content={content} {...args}>
-        <Child>Hover top</Child>
+        <Child>Hover</Child>
       </Popover>
     </Container>
   );
