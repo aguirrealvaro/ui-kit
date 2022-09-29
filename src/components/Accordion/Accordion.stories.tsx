@@ -6,49 +6,14 @@ export default {
   component: Accordion,
 } as ComponentMeta<typeof Accordion>;
 
-export const Primary: ComponentStory<typeof Accordion> = () => {
-  return (
-    <div>
-      <Accordion title="Click me 1" showBorder>
-        Lorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Placeat maxime corporis ullam voluptate quasi amet accusamus quae at laborum! Autem
-        voluptas dolorum libero laboriosam praesentium ipsa quia vero odio quidem.Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit. Placeat maxime corporis ullam voluptate
-        quasi amet accusamus quae at laborum! Autem voluptas dolorum libero laboriosam
-        praesentium ipsa quia vero odio quidem.Lorem ipsum dolor sit amet, consectetur
-        adipisicing elit. Placeat maxime corporis ullam voluptate quasi amet accusamus quae at
-      </Accordion>
-      <Accordion title="Click me 2" showBorder arrowPosition="left">
-        Lorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Placeat maxime corporis ullam voluptate quasi amet accusamus quae at laborum! Autem
-        voluptas dolorum libero laboriosam praesentium ipsa quia vero odio quidem.Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit. Placeat maxime corporis ullam voluptate
-        quasi amet accusamus quae at laborum! Autem voluptas dolorum libero laboriosam
-        praesentium ipsa quia vero odio quidem.Lorem ipsum dolor sit amet, consectetur
-        adipisicing elit. Placeat maxime corporis ullam voluptate quasi amet accusamus quae at
-        consectetur adipisicing elit. Placeat maxime corporis ullam voluptate quasi amet
-        accusamus quae at laborum! Autem voluptas dolorum libero laboriosam praesentium ipsa
-        quia vero odio quidem.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat
-        maxime corporis ullam voluptate quasi amet aum dolor sit ametLorem ipsum dolor sit
-        amet, consectetur adipisicing elit. Placeat maxime corporis ullam voluptate quasi amet
-        accusamus quae at laborum! Autem voluptas dolorum libero laboriosam praesentium ipsa
-        quia vero odio quidem.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat
-        maxime corporis ullam voluptate quasi amet a quidem.Lorem ipsum dolor sit amet,
-        consectetur adipisicing elit. Placeat maxime corporis ullam voluptate quasi amet
-      </Accordion>
-      <Accordion title="Click me 3" showBorder disabled>
-        Lorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Placeat maxime corporis ullam voluptate quasi amet accusamus quae at laborum! Autem
-        voluptas dolorum libero laboriosam praesentium ipsa quia vero odio quidem.Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit. Placeat maxime corporis ullam voluptate
-        quasi amet accusamus quae at laborum! Autem voluptas dolorum libero laboriosam
-        praesentium ipsa quia vero odioum dolor sit ametLorem ipsum dolor sit amet, consectetur
-        adipisicing elit. Placeat maxime corporis ullam voluptate quasi amet accusamus quae at
-        laborum! Autem voluptas dolorum libero laboriosam praesentium ipsa quia vero odio
-        quidem.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat maxime
-        corporis ullam voluptate quasi amet aum dolor sit ametLorem ipsum dolor sit amet,
-        accusamus quae at
-      </Accordion>
-    </div>
-  );
+const Template: ComponentStory<typeof Accordion> = (args) => {
+  return <Accordion {...args} />;
+};
+
+export const Primary = Template.bind({});
+Primary.args = {
+  title: "This is an Accordion",
+  children:
+    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint voluptatem ratione delectus laborum facilis blanditiis eaque, aspernatur saepe asperiores corrupti ullam ipsam ut quia ea ex non vitae voluptas doloribus!",
+  showBorder: true,
 };

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Alert } from "@/components";
 
