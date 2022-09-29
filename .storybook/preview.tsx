@@ -24,7 +24,7 @@ export const decorators = [
           <GlobalStyles />
         </ToastProvider>
       </ThemeProvider>
-    )
+    );
   },
 ];
 

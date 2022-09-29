@@ -1,80 +1,43 @@
-import { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Search } from "@styled-icons/evaicons-solid/Search";
-import styled from "styled-components";
-import { Input, Icon } from "@/components";
-import { useTheme } from "@/hooks";
+import { Input } from "@/components";
 
 export default {
   title: "Components/Input",
   component: Input,
+  argTypes: {
+    label: {
+      control: "text",
+    },
+    helpText: {
+      control: "text",
+    },
+    errorMessage: {
+      control: "text",
+    },
+    successMessage: {
+      control: "text",
+    },
+    leftIcon: {
+      options: {
+        icon: <span>Icon</span>,
+      },
+    },
+    rightIcon: {
+      options: {
+        icon: <span>Icon</span>,
+      },
+    },
+    disabled: {
+      control: "boolean",
+    },
+  },
 } as ComponentMeta<typeof Input>;
 
-export const Primary: ComponentStory<typeof Input> = () => {
-  const [value, setValue] = useState<string>("");
+const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-  };
-
-  const clearValue = () => setValue("");
-
-  const searchIcon = <Icon icon={Search} size={20} />;
-
-  return (
-    <Container>
-      <Input
-        inputId="input1"
-        label="Label"
-        placeholder="Small"
-        onChange={onChange}
-        value={value}
-        helpText="Help text"
-        clearValue={clearValue}
-        size="sm"
-        //isError
-        //errorMessage="errorMessage"
-        //isSuccess
-        //successMessage="successMessage"
-      />
-      <Input
-        inputId="input2"
-        label="Label"
-        placeholder="Medium"
-        onChange={onChange}
-        value={value}
-        helpText="Help text"
-        clearValue={clearValue}
-        size="md"
-      />
-      <Input
-        inputId="input3"
-        label="Label"
-        placeholder="Large"
-        onChange={onChange}
-        value={value}
-        helpText="Help text"
-        clearValue={clearValue}
-        size="lg"
-        rightIcon={searchIcon}
-      />
-      <Input
-        inputId="input4"
-        label="Medium disabled"
-        placeholder="Large"
-        onChange={onChange}
-        value={value}
-        helpText="Help text"
-        clearValue={clearValue}
-        size="sm"
-        disabled
-      />
-    </Container>
-  );
+export const Primary = Template.bind({});
+Primary.args = {
+  label: "Label:",
+  helpText: "Help text",
+  size: "md",
 };
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-`;
