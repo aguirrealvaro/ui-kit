@@ -82,11 +82,11 @@ export const typography: TypographyType = {
     "10": "2.5rem",
   },
   letterSpacings: {
-    tighter: "-0.05em",
-    tight: "-0.025em",
+    tighter: "-0.05rem",
+    tight: "-0.025rem",
     normal: "0",
-    wide: "0.025em",
-    wider: "0.05em",
-    widest: "0.1em",
+    wide: "0.025rem",
+    wider: "0.05rem",
+    widest: "0.1rem",
   },
 };
