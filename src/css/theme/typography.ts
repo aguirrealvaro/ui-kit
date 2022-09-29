@@ -12,10 +12,35 @@ export type FontWeight = "normal" | "medium" | "semibold" | "bold";
 
 type FontWeightType = Record<FontWeight, number>;
 
+type LetterSpacing = "tighter" | "tight" | "normal" | "wide" | "wider" | "widest";
+
+type LetterSpacingType = Record<LetterSpacing, string>;
+
+type LineHeight =
+  | "normal"
+  | "none"
+  | "shorter"
+  | "short"
+  | "base"
+  | "tall"
+  | "taller"
+  | 3
+  | 4
+  | 5
+  | 6
+  | 7
+  | 8
+  | 9
+  | 10;
+
+type LineHeightType = Record<LineHeight, string>;
+
 export type TypographyType = {
   fontFamilies: FontFamilyType;
   fontSizes: FontSizeType;
   fontWeights: FontWeightType;
+  lineHeights: LineHeightType;
+  letterSpacings: LetterSpacingType;
 };
 
 export const typography: TypographyType = {
@@ -24,7 +49,6 @@ export const typography: TypographyType = {
     body: `Arial, "Segoe UI"`,
     mono: `monospace`,
   },
-
   fontSizes: {
     xs: "0.75rem", // 12px
     sm: "0.875rem", // 14px
@@ -34,14 +58,35 @@ export const typography: TypographyType = {
     "2xl": "2rem", // 32px
     "3xl": "2.5rem", //40px
   },
-
   fontWeights: {
     normal: 400,
     medium: 500,
     semibold: 600,
     bold: 700,
   },
-
-  //lineHeights
-  //letterSpacings
+  lineHeights: {
+    normal: "normal",
+    none: "1",
+    shorter: "1.25",
+    short: "1.375",
+    base: "1.5",
+    tall: "1.625",
+    taller: "2",
+    "3": ".75rem",
+    "4": "1rem",
+    "5": "1.25rem",
+    "6": "1.5rem",
+    "7": "1.75rem",
+    "8": "2rem",
+    "9": "2.25rem",
+    "10": "2.5rem",
+  },
+  letterSpacings: {
+    tighter: "-0.05em",
+    tight: "-0.025em",
+    normal: "0",
+    wide: "0.025em",
+    wider: "0.05em",
+    widest: "0.1em",
+  },
 };
