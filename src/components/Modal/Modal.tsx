@@ -2,7 +2,6 @@ import { FunctionComponent, useRef, ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import styled, { css, keyframes } from "styled-components";
-import { MODAL_SIZES } from "./Modal.constants";
 import { ModalSizeType } from "./Modal.types";
 import { Icon, IconButton } from "@/components";
 import { useDisableScroll, useOutsideClick, useKeyPress } from "@/hooks";
@@ -40,13 +39,11 @@ export const Modal: FunctionComponent<ModalProps> = ({
     enabled: isOpen && closeOnInteractions,
   });
 
-  const modalSize = MODAL_SIZES[size];
-
   if (!isOpen) return null;
 
   const Component = (
     <Backdrop isOpen={isOpen} fadeOut={isUnmounting}>
-      <Content size={modalSize} ref={contentRef} fadeOut={isUnmounting} role="dialog">
+      <Content size={size} ref={contentRef} fadeOut={isUnmounting} role="dialog">
         <CloseButtonWrapper>
           <IconButton onClick={onClose}>
             <Icon icon={CloseOutline} size={25} />
@@ -92,9 +89,17 @@ const Backdrop = styled.div<{ isOpen: boolean; fadeOut: boolean }>`
   align-items: center;
 `;
 
-const Content = styled.div<{ size: number; fadeOut: boolean }>`
+const Content = styled.div<{ size: ModalSizeType; fadeOut: boolean }>`
   position: relative;
-  width: ${({ size }) => size}px;
+  width: ${({ size }) => {
+    const sizes: Record<ModalSizeType, string> = {
+      xs: "20rem",
+      sm: "28rem",
+      md: "36rem",
+      lg: "42rem",
+    };
+    return sizes[size];
+  }}px;
   min-height: ${({ theme }) => theme.sizes[28]};
   max-height: 80vh;
   animation: ${fadeInScale} ${({ theme }) => theme.transitions.durations.normal}ms
