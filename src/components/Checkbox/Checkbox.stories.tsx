@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import styled from "styled-components";
 import { Checkbox } from "@/components";
 import { useBoolean } from "@/hooks";
 
@@ -8,27 +7,14 @@ export default {
   component: Checkbox,
 } as ComponentMeta<typeof Checkbox>;
 
-export const Primary: ComponentStory<typeof Checkbox> = () => {
+const Template: ComponentStory<typeof Checkbox> = (args) => {
   const [checked, setChecked] = useBoolean();
 
-  return (
-    <Conatiner>
-      <Checkbox checked={checked} onChange={setChecked.toggle} size="xs" disabled />
-      <Checkbox checked={checked} onChange={setChecked.toggle} size="sm" />
-      <Checkbox checked={checked} onChange={setChecked.toggle} size="md" />
-      <Checkbox checked={checked} onChange={setChecked.toggle} size="lg" />
-      <Checkbox checked={checked} onChange={setChecked.toggle} position="left" disabled>
-        Input at left
-      </Checkbox>
-      <Checkbox checked={checked} onChange={setChecked.toggle} position="right">
-        Input at right
-      </Checkbox>
-    </Conatiner>
-  );
+  return <Checkbox checked={checked} onChange={setChecked.toggle} {...args} />;
 };
 
-const Conatiner = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-`;
+export const Primary = Template.bind({});
+Primary.args = {
+  children: "This is a checkbox",
+  position: "right",
+};

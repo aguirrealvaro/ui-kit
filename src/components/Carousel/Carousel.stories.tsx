@@ -7,7 +7,7 @@ export default {
   component: Carousel,
 } as ComponentMeta<typeof Carousel>;
 
-const Template: ComponentStory<typeof Carousel> = ({ ...args }) => {
+const Template: ComponentStory<typeof Carousel> = (args) => {
   const array = [...Array(50).keys()];
 
   return (
