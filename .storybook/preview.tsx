@@ -29,6 +29,5 @@ export const decorators = [
 ];
 
 const Main = styled.main`
-  display: flex;
   padding: 2rem;
 `;

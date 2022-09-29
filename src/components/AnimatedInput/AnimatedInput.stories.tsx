@@ -1,31 +1,37 @@
-import { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { AnimatedInput } from "@/components";
 
 export default {
   title: "Components/AnimatedInput",
   component: AnimatedInput,
+  argTypes: {
+    label: {
+      control: "text",
+    },
+    helpText: {
+      control: "text",
+    },
+    errorMessage: {
+      control: "text",
+    },
+    successMessage: {
+      control: "text",
+    },
+    icon: {
+      options: {
+        icon: <span>Icon</span>,
+      },
+    },
+    disabled: {
+      control: "boolean",
+    },
+  },
 } as ComponentMeta<typeof AnimatedInput>;
 
-export const Primary: ComponentStory<typeof AnimatedInput> = () => {
-  const [value, setValue] = useState<string>("");
+const Template: ComponentStory<typeof AnimatedInput> = (args) => <AnimatedInput {...args} />;
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value);
-  const clearValue = () => setValue("");
-
-  return (
-    <AnimatedInput
-      placeholder="Placeholder"
-      onChange={onChange}
-      value={value}
-      helpText="Help text"
-      clearValue={clearValue}
-      //isError
-      //errorMessage="errorMessage"
-      //isSuccess
-      //successMessage="successMessage"
-      //disabled
-      //type="password"
-    />
-  );
+export const Primary = Template.bind({});
+Primary.args = {
+  placeholder: "Placeholder",
+  helpText: "Help text",
 };
