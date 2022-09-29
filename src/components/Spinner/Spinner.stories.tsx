@@ -6,13 +6,11 @@ export default {
   component: Spinner,
 } as ComponentMeta<typeof Spinner>;
 
-export const Primary: ComponentStory<typeof Spinner> = () => {
-  return (
-    <div>
-      <Spinner size="xs" />
-      <Spinner size="sm" />
-      <Spinner size="md" />
-      <Spinner size="lg" />
-    </div>
-  );
+const Template: ComponentStory<typeof Spinner> = (args) => {
+  return <Spinner {...args} />;
+};
+
+export const Primary = Template.bind({});
+Primary.args = {
+  size: "md",
 };
