@@ -20,9 +20,9 @@ const Template: ComponentStory<typeof Dropdown> = ({ content: dummyContact, ...a
 
 export const Primary = Template.bind({});
 Primary.args = {
-  children: "This is a Dropdown",
+  children: "Click me",
   position: "bottom-left",
-  gap: 8,
+  gap: 16,
   trigger: "click",
   withTriggerWidth: false,
 };

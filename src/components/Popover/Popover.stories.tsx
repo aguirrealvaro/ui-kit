@@ -8,7 +8,7 @@ export default {
 } as ComponentMeta<typeof Popover>;
 
 const Template: ComponentStory<typeof Popover> = ({ content: dummyContent, ...args }) => {
-  const content = <Content>Popver</Content>;
+  const content = <Content>Popover</Content>;
 
   return (
     <Container>

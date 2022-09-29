@@ -69,22 +69,22 @@ export const Button: FunctionComponent<
 const getSizeStyles = (size: ButtonSizeType, theme: ThemeType): FlattenSimpleInterpolation => {
   const sizeOptions: Record<ButtonSizeType, FlattenSimpleInterpolation> = {
     xs: css`
-      height: 24px;
+      height: ${theme.sizes[1.5]};
       padding: 0 ${`${theme.spacing[2]}`};
       font-size: ${theme.typography.fontSizes.xs};
     `,
     sm: css`
-      height: 32px;
+      height: ${theme.sizes[2]};
       padding: 0 ${`${theme.spacing[3]}`};
       font-size: ${theme.typography.fontSizes.sm};
     `,
     md: css`
-      height: 40px;
+      height: ${theme.sizes[2.5]};
       padding: 0 ${`${theme.spacing[4]}`};
       font-size: ${theme.typography.fontSizes.md};
     `,
     lg: css`
-      height: 48px;
+      height: ${theme.sizes[3]};
       padding: 0 ${`${theme.spacing[5]}`};
       font-size: ${theme.typography.fontSizes.lg};
     `,

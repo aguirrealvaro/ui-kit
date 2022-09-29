@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Popover, PopoverProps } from "../Popover";
 
 export const Dropdown: FunctionComponent<PopoverProps> = ({
@@ -7,7 +7,9 @@ export const Dropdown: FunctionComponent<PopoverProps> = ({
   content,
   ...restProps
 }) => {
-  const popoverContent = <Content>{content}</Content>;
+  const popoverContent = (
+    <Content withTriggerWidth={restProps.withTriggerWidth || false}>{content}</Content>
+  );
 
   return (
     <Popover content={popoverContent} gap={8} trigger="click" {...restProps}>
@@ -16,10 +18,15 @@ export const Dropdown: FunctionComponent<PopoverProps> = ({
   );
 };
 
-const Content = styled.div`
+const Content = styled.div<{ withTriggerWidth: boolean }>`
   background-color: ${({ theme }) => theme.colors.grey[1]};
   box-shadow: ${({ theme }) => theme.shadows.sm};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   padding: 1.2rem;
-  width: 200px;
+  ${({ withTriggerWidth, theme }) => {
+    if (!withTriggerWidth)
+      return css`
+        max-width: ${theme.sizes[60]};
+      `;
+  }}
 `;

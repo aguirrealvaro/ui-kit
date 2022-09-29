@@ -25,7 +25,14 @@ export type Sizes =
   | 36
   | 40
   | 44
-  | 48;
+  | 48
+  | 52
+  | 56
+  | 60
+  | 64
+  | 72
+  | 80
+  | 96;
 
 export type SizesType = Record<Sizes, string>;
 
@@ -58,4 +65,11 @@ export const sizes: SizesType = {
   40: "10rem", // 160px
   44: "11rem", // 176px
   48: "12rem", // 192px
+  52: "13rem", //208px
+  56: "14rem", //224px
+  60: "15rem", //240px
+  64: "16rem", //256px
+  72: "18rem", //288px
+  80: "20rem", //320px
+  96: "24rem", //384px
 };
