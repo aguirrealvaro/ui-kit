@@ -6,9 +6,9 @@ export default {
   component: Tabs,
 } as ComponentMeta<typeof Tabs>;
 
-export const Primary: ComponentStory<typeof Tabs> = () => {
+const Template: ComponentStory<typeof Tabs> = (args) => {
   return (
-    <Tabs>
+    <Tabs {...args}>
       <Tab title="Title 1">Panel 1</Tab>
       <Tab title="Title 2">Panel 2</Tab>
       <Tab title="Title 3">Panel 3</Tab>
@@ -19,3 +19,6 @@ export const Primary: ComponentStory<typeof Tabs> = () => {
     </Tabs>
   );
 };
+
+export const Primary = Template.bind({});
+Primary.args = {};
