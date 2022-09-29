@@ -1,14 +1,33 @@
 import { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import styled from "styled-components";
 import { NativeSelect } from "@/components";
 
 export default {
   title: "Components/NativeSelect",
   component: NativeSelect,
+  argTypes: {
+    label: {
+      control: "text",
+    },
+    placeholder: {
+      control: "text",
+    },
+    helpText: {
+      control: "text",
+    },
+    errorMessage: {
+      control: "text",
+    },
+    successMessage: {
+      control: "text",
+    },
+    disabled: {
+      control: "boolean",
+    },
+  },
 } as ComponentMeta<typeof NativeSelect>;
 
-export const Primary: ComponentStory<typeof NativeSelect> = () => {
+const Template: ComponentStory<typeof NativeSelect> = ({ options, ...rest }) => {
   const [option, setOption] = useState<string>("");
 
   const onChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -19,7 +38,7 @@ export const Primary: ComponentStory<typeof NativeSelect> = () => {
     setOption("");
   };
 
-  const options = [
+  const sbOptions = [
     { label: "Option 1", value: "value1" },
     { label: "Option 2", value: "value2" },
     { label: "Option 3", value: "value3", disabled: true },
@@ -27,59 +46,20 @@ export const Primary: ComponentStory<typeof NativeSelect> = () => {
   ];
 
   return (
-    <Container>
-      <NativeSelect
-        //disabled
-        label="Native select small"
-        placeholder="Select option"
-        value={option}
-        options={options}
-        onChange={onChange}
-        clearValue={clearValue}
-        helpText="Help text"
-        size="sm"
-        //isError
-        //errorMessage="errorMessage"
-        //isSuccess
-        //successMessage="successMessage"
-      />
-      <NativeSelect
-        label="Native select medium"
-        placeholder="Select option"
-        value={option}
-        options={options}
-        onChange={onChange}
-        clearValue={clearValue}
-        helpText="Help text"
-        size="md"
-      />
-      <NativeSelect
-        label="Native select large"
-        placeholder="Select option"
-        value={option}
-        options={options}
-        onChange={onChange}
-        clearValue={clearValue}
-        helpText="Help text"
-        size="lg"
-      />
-      <NativeSelect
-        label="Native select large"
-        placeholder="Select option"
-        value={option}
-        options={options}
-        onChange={onChange}
-        clearValue={clearValue}
-        helpText="Help text"
-        size="lg"
-        disabled
-      />
-    </Container>
+    <NativeSelect
+      value={option}
+      clearValue={clearValue}
+      onChange={onChange}
+      options={sbOptions}
+      {...rest}
+    />
   );
 };
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-`;
+export const Primary = Template.bind({});
+Primary.args = {
+  placeholder: "Placeholder",
+  label: "Label:",
+  helpText: "Help text",
+  size: "md",
+};
