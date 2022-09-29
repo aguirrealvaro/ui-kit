@@ -53,7 +53,7 @@ const Container = styled.div`
   right: 0;
   display: flex;
   align-items: center;
-  height: 80px;
+  height: ${({ theme }) => theme.sizes[20]};
   background-color: ${({ theme }) => theme.colors.grey[1]};
   box-shadow: ${({ theme }) => theme.shadows.sm};
 `;

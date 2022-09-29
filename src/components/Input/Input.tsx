@@ -200,11 +200,11 @@ const InputContainer = styled.div<{
       }
     `;
   }};
-  height: ${({ size }) => {
+  height: ${({ size, theme }) => {
     const sizes: Record<InputSizeType, string> = {
-      sm: "32px",
-      md: "40px",
-      lg: "48px",
+      sm: theme.sizes[8],
+      md: theme.sizes[10],
+      lg: theme.sizes[12],
     };
     return sizes[size];
   }};

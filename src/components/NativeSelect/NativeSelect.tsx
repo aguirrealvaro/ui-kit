@@ -127,11 +127,11 @@ const Select = styled.select<{
     return sizes[selectSize];
   }};
   width: 100%;
-  height: ${({ selectSize }) => {
+  height: ${({ selectSize, theme }) => {
     const sizes: Record<SelectSizeType, string> = {
-      sm: "32px",
-      md: "40px",
-      lg: "48px",
+      sm: theme.sizes[8],
+      md: theme.sizes[10],
+      lg: theme.sizes[12],
     };
     return sizes[selectSize];
   }};
@@ -157,14 +157,6 @@ const Select = styled.select<{
     }
 
     return theme.assets["input-border"];
-  }};
-  height: ${({ selectSize }) => {
-    const sizes: Record<SelectSizeType, string> = {
-      sm: "32px",
-      md: "40px",
-      lg: "48px",
-    };
-    return sizes[selectSize];
   }};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   &:focus {

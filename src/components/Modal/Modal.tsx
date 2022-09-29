@@ -95,7 +95,7 @@ const Backdrop = styled.div<{ isOpen: boolean; fadeOut: boolean }>`
 const Content = styled.div<{ size: number; fadeOut: boolean }>`
   position: relative;
   width: ${({ size }) => size}px;
-  min-height: 100px;
+  min-height: ${({ theme }) => theme.sizes[28]};
   max-height: 80vh;
   animation: ${fadeInScale} ${({ theme }) => theme.transitions.durations.normal}ms
     ${({ theme }) => theme.transitions.timings.in};
