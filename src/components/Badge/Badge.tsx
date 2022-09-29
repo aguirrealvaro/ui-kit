@@ -8,14 +8,10 @@ type BadeProps = {
 };
 
 export const Badge: FunctionComponent<BadeProps> = ({ children, variant = "info" }) => {
-  return (
-    <Container variant={variant}>
-      <span>{children}</span>
-    </Container>
-  );
+  return <Container variant={variant}>{children}</Container>;
 };
 
-const Container = styled.div<{ variant: BadgeVariantType }>`
+const Container = styled.span<{ variant: BadgeVariantType }>`
   padding: 0.25em 0.4em;
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   ${({ variant, theme }) => {
