@@ -9,7 +9,7 @@ export const ColorMode: FunctionComponent = () => {
   return (
     <Container>
       <div>color mode: {themeMode}</div>
-      <Button onClick={toggleColorMode}>Toggle color!</Button>
+      <Button onClick={toggleColorMode}>Toggle color</Button>
     </Container>
   );
 };
