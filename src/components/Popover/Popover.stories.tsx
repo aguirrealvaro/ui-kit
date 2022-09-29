@@ -21,7 +21,6 @@ const Template: ComponentStory<typeof Popover> = ({ content: dummyContent, ...ar
 
 export const Primary = Template.bind({});
 Primary.args = {
-  children: "Popover",
   position: "bottom-left",
   gap: 8,
   trigger: "hover",

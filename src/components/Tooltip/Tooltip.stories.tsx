@@ -7,29 +7,29 @@ export default {
   component: Tooltip,
 } as ComponentMeta<typeof Tooltip>;
 
-export const Primary: ComponentStory<typeof Tooltip> = () => {
-  const content = <div>This is a tooltip</div>;
+const Template: ComponentStory<typeof Tooltip> = ({ content: dummyContent, ...args }) => {
+  const content = <div>This is a Tooltip</div>;
 
   return (
     <Container>
-      <Tooltip content={content} position="top">
+      <Tooltip content={content} {...args}>
         Hover top
-      </Tooltip>
-      <Tooltip content={content} position="right">
-        Hover right
-      </Tooltip>
-      <Tooltip content={content} position="bottom">
-        Hover bottom
-      </Tooltip>
-      <Tooltip content={content} position="left">
-        Hover left
       </Tooltip>
     </Container>
   );
 };
 
+export const Primary = Template.bind({});
+Primary.args = {
+  position: "right",
+  gap: 8,
+  trigger: "hover",
+  withTriggerWidth: false,
+};
+
 const Container = styled.div`
-  margin: 200px;
+  margin-top: 50px;
+  margin-left: 60px;
   display: flex;
   gap: 3rem;
 `;
