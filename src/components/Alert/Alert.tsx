@@ -19,7 +19,7 @@ type AlertProps = {
 export const Alert: FunctionComponent<AlertProps> = ({
   children,
   variant = "info",
-  size = "sm",
+  size = "md",
   showIcon = true,
 }) => {
   const { theme } = useTheme();
