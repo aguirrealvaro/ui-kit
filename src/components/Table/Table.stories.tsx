@@ -12,6 +12,7 @@ const Template: ComponentStory<typeof Table> = (args) => {
 
 export const Primary = Template.bind({});
 Primary.args = {
+  size: "md",
   columns: ["Name", "Age", "Address"],
   data: [
     ["Sarah Brown", 31, "100 Broadway St., New York City, New York"],

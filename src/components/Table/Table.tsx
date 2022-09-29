@@ -1,7 +1,7 @@
 import { FunctionComponent, ReactNode } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
-import { PADDINGS_SIZES } from "./Table.constants";
 import { TableDividerType, TableSizeType } from "./Table.types";
+import { useTheme } from "@/hooks";
 
 type TableProps = {
   columns: ReactNode[];
@@ -16,7 +16,15 @@ export const Table: FunctionComponent<TableProps> = ({
   size = "md",
   divider = "grid",
 }) => {
-  const padding = PADDINGS_SIZES[size];
+  const { theme } = useTheme();
+
+  const paddingSizes: Record<TableSizeType, string> = {
+    sm: theme.spacing[4],
+    md: theme.spacing[5],
+    lg: theme.spacing[6],
+  };
+
+  const padding = paddingSizes[size];
 
   return (
     <Container divider={divider}>
@@ -24,7 +32,7 @@ export const Table: FunctionComponent<TableProps> = ({
         <TableRowHeader divider={divider}>
           {columns.map((column, index) => {
             return (
-              <TableHead size={padding} divider={divider} key={index}>
+              <TableHead padding={padding} divider={divider} key={index}>
                 {column}
               </TableHead>
             );
@@ -37,7 +45,7 @@ export const Table: FunctionComponent<TableProps> = ({
             <TableRowData divider={divider} key={index}>
               {row.map((rowData, index) => {
                 return (
-                  <TableData size={padding} divider={divider} key={index}>
+                  <TableData padding={padding} divider={divider} key={index}>
                     {rowData}
                   </TableData>
                 );
@@ -90,10 +98,10 @@ const TableRowHeader = styled.tr<{ divider: TableDividerType }>`
   }}
 `;
 
-const TableHead = styled.th<{ size: number; divider: TableDividerType }>`
+const TableHead = styled.th<{ padding: string; divider: TableDividerType }>`
   flex: 1;
   text-align: left;
-  padding: ${({ size }) => `${size}px`};
+  padding: ${({ padding }) => padding};
   border-color: ${({ theme }) => theme.colors.grey[5]};
   ${({ divider, theme }) => {
     const dividerStyles: Record<TableDividerType, FlattenSimpleInterpolation | undefined> = {
@@ -149,10 +157,10 @@ const TableRowData = styled.tr<{ divider: TableDividerType }>`
   }}
 `;
 
-const TableData = styled.td<{ size: number; divider: TableDividerType }>`
+const TableData = styled.td<{ padding: string; divider: TableDividerType }>`
   flex: 1;
   text-align: left;
-  padding: ${({ size }) => `${size}px`};
+  padding: ${({ padding }) => padding};
   border-color: ${({ theme }) => theme.colors.grey[5]};
   ${({ divider, theme }) => {
     const dividerStyles: Record<TableDividerType, FlattenSimpleInterpolation | undefined> = {
