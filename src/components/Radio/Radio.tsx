@@ -3,7 +3,6 @@ import { RadioCircle } from "@styled-icons/boxicons-regular/RadioCircle";
 import { RadioCircleMarked } from "@styled-icons/boxicons-regular/RadioCircleMarked";
 import styled, { css } from "styled-components";
 import { Icon } from "../Icon";
-import { RADIO_SIZES } from "./Radio.constants";
 import { RadioPositionType, RadioSizeType } from "./Radio.types";
 import { hiddenStyles } from "@/css";
 import { useTheme } from "@/hooks";
@@ -29,7 +28,14 @@ export const Radio: FunctionComponent<
 }) => {
   const { theme } = useTheme();
 
-  const radioSize = RADIO_SIZES[size];
+  const sizes: Record<RadioSizeType, string> = {
+    xs: theme.spacing[5],
+    sm: theme.spacing[6],
+    md: theme.spacing[7],
+    lg: theme.spacing[8],
+  };
+
+  const radioSize = sizes[size];
 
   const icon = checked ? RadioCircleMarked : RadioCircle;
   const iconColor = color || theme.assets.info;
