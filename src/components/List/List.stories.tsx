@@ -6,9 +6,9 @@ export default {
   component: List,
 } as ComponentMeta<typeof List>;
 
-export const Primary: ComponentStory<typeof List> = () => {
+const Template: ComponentStory<typeof List> = (args) => {
   return (
-    <List>
+    <List {...args}>
       <ListItem>level 1 item 1</ListItem>
       <ListItem>
         level 1 item 2
@@ -29,3 +29,6 @@ export const Primary: ComponentStory<typeof List> = () => {
     </List>
   );
 };
+
+export const Primary = Template.bind({});
+Primary.args = {};

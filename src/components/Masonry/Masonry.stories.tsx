@@ -7,22 +7,35 @@ export default {
   component: Masonry,
 } as ComponentMeta<typeof Masonry>;
 
-export const Primary: ComponentStory<typeof Masonry> = () => {
+const Template: ComponentStory<typeof Masonry> = (args) => {
   return (
-    <Masonry breakpointCols={3} gap={2}>
+    <Masonry {...args}>
       {[...Array(10).keys()].map((_, index) => {
         return <Card key={index}>{index}</Card>;
       })}
     </Masonry>
   );
 };
+
+/* const breakpointCols = {
+  default: 3,
+  768: 2,
+  600: 1,
+}; */
+
+export const Primary = Template.bind({});
+Primary.args = {
+  breakpointCols: 3,
+  gap: 2,
+};
+
+const heights = [250, 300, 350, 400];
+
 const getRandomItem = (arr: number[]) => {
   const randomIndex = Math.floor(Math.random() * arr.length);
   const item = arr[randomIndex];
   return item;
 };
-
-const heights = [250, 300, 350, 400];
 
 const Card = styled.div`
   height: ${() => getRandomItem(heights)}px;
