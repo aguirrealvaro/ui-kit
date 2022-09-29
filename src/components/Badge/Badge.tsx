@@ -1,21 +1,21 @@
 import { FunctionComponent, ReactNode } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
-import { BadgeVariantType } from "./Badge.types";
+import { VariantType } from "@/types";
 
 type BadeProps = {
   children: ReactNode;
-  variant?: BadgeVariantType;
+  variant?: VariantType;
 };
 
 export const Badge: FunctionComponent<BadeProps> = ({ children, variant = "info" }) => {
   return <Container variant={variant}>{children}</Container>;
 };
 
-const Container = styled.span<{ variant: BadgeVariantType }>`
+const Container = styled.span<{ variant: VariantType }>`
   padding: 0.25em 0.4em;
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   ${({ variant, theme }) => {
-    const variantStyles: Record<BadgeVariantType, FlattenSimpleInterpolation> = {
+    const variantStyles: Record<VariantType, FlattenSimpleInterpolation> = {
       info: css`
         background-color: ${theme.colors.blue[2]};
         color: ${theme.colors.blue[8]};

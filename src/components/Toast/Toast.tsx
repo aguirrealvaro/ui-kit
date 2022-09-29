@@ -6,9 +6,10 @@ import { Alert } from "@styled-icons/remix-fill/Alert";
 import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
 import styled, { css, keyframes, FlattenSimpleInterpolation } from "styled-components";
 import { StyledIcon } from "styled-icons/types";
-import { ToastVariantType, ToastProps } from "./Toast.types";
+import { ToastProps } from "./Toast.types";
 import { Icon } from "@/components/Icon";
 import { useTheme, useToast } from "@/hooks";
+import { VariantType } from "@/types";
 
 export const Toast: FunctionComponent<ToastProps> = ({
   children,
@@ -66,7 +67,7 @@ export const Toast: FunctionComponent<ToastProps> = ({
   );
 };
 
-const variantIcons: Record<ToastVariantType, StyledIcon> = {
+const variantIcons: Record<VariantType, StyledIcon> = {
   info: InfoCircleFill,
   success: CheckCircleFill,
   warning: Alert,
@@ -81,7 +82,7 @@ const fadeInScale = keyframes`
 
 const Container = styled.div<{
   isClosing: boolean;
-  variant: ToastVariantType;
+  variant: VariantType;
   transitionTime: number;
 }>`
   position: relative;
@@ -94,7 +95,7 @@ const Container = styled.div<{
   background-color: ${({ theme }) => theme.colors.grey[1]};
   box-shadow: ${({ theme }) => theme.shadows.sm};
   ${({ variant, theme }) => {
-    const variantStyles: Record<ToastVariantType, FlattenSimpleInterpolation> = {
+    const variantStyles: Record<VariantType, FlattenSimpleInterpolation> = {
       info: css`
         background-color: ${theme.colors.blue[6]};
       `,

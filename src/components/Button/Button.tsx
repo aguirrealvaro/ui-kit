@@ -1,21 +1,17 @@
 import { FunctionComponent, ButtonHTMLAttributes, ReactNode } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { Spinner } from "../Spinner";
-import {
-  ButtonKindType,
-  ButtonSizeType,
-  ButtonVariantType,
-  ButtonShapeType,
-} from "./Button.types";
+import { ButtonKindType, ButtonSizeType, ButtonShapeType } from "./Button.types";
 import { ThemeType } from "@/css";
 import { useTheme } from "@/hooks";
+import { VariantType } from "@/types";
 
 type ButtonProps = {
   block?: boolean;
   isLoading?: boolean;
   kind?: ButtonKindType;
   size?: ButtonSizeType;
-  variant?: ButtonVariantType;
+  variant?: VariantType;
   shape?: ButtonShapeType;
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
@@ -117,11 +113,11 @@ const getShapeStyles = (
 };
 
 const getColorStyles = (
-  variant: ButtonVariantType,
+  variant: VariantType,
   kind: ButtonKindType,
   theme: ThemeType
 ): FlattenSimpleInterpolation => {
-  const solidStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
+  const solidStyles: Record<VariantType, FlattenSimpleInterpolation> = {
     info: css`
       background-color: ${theme.assets.info};
       color: ${theme.colors.grey[1]};
@@ -171,7 +167,7 @@ const getColorStyles = (
 
   const outlinedHover = theme.colors.grey[3];
 
-  const outlinedStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
+  const outlinedStyles: Record<VariantType, FlattenSimpleInterpolation> = {
     info: css`
       color: ${theme.assets.info};
       border-color: ${theme.assets.info};
@@ -214,7 +210,7 @@ const getColorStyles = (
     `,
   };
 
-  const ghostStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
+  const ghostStyles: Record<VariantType, FlattenSimpleInterpolation> = {
     info: css`
       color: ${theme.assets.info};
       &:hover:not([disabled]) {
@@ -247,7 +243,7 @@ const getColorStyles = (
     `,
   };
 
-  const linkStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
+  const linkStyles: Record<VariantType, FlattenSimpleInterpolation> = {
     info: css`
       color: ${theme.assets.info};
       &:hover:not([disabled]) {
@@ -280,7 +276,7 @@ const getColorStyles = (
     `,
   };
 
-  const alernativeStyles: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
+  const alernativeStyles: Record<VariantType, FlattenSimpleInterpolation> = {
     info: css`
       border-color: ${theme.colors.grey[4]};
       color: ${theme.colors.grey[6]};
@@ -338,7 +334,7 @@ const CustomButton = styled.button<{
   block?: boolean;
   kind: ButtonKindType;
   size: ButtonSizeType;
-  variant: ButtonVariantType;
+  variant: VariantType;
   shape: ButtonShapeType;
 }>`
   width: ${({ block }) => (block ? "100%" : "auto")};

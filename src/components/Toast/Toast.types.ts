@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
-
-export type ToastVariantType = "info" | "success" | "danger" | "warning" | "neutral";
+import { VariantType } from "@/types";
 
 export type ToastPositionType =
   | "top"
@@ -14,7 +13,7 @@ export type ToastPositionType =
 
 export type ToastOptions = {
   duration?: number | "infinite";
-  variant?: ToastVariantType;
+  variant?: VariantType;
 };
 
 export type ToastProps = {
