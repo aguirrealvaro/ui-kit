@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import styled from "styled-components";
 import { Dropdown } from "@/components";
 
 export default {
@@ -7,22 +6,21 @@ export default {
   component: Dropdown,
 } as ComponentMeta<typeof Dropdown>;
 
-export const Primary: ComponentStory<typeof Dropdown> = () => {
+const Template: ComponentStory<typeof Dropdown> = ({ content: dummyContact, ...args }) => {
   const content = (
-    <Content>
+    <>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum culpa cum quisquam
       ea autem nisi, necessitatibus hic assumenda? Asperiores, distinctio possimus minima vero
       sapiente ratione fugit? Inventore et magnam impedit.
-    </Content>
+    </>
   );
 
-  return (
-    <Dropdown content={content} position="bottom-left">
-      Click to open dropdown
-    </Dropdown>
-  );
+  return <Dropdown content={content} {...args} />;
 };
 
-const Content = styled.div`
-  width: 250px;
-`;
+export const Primary = Template.bind({});
+Primary.args = {
+  children: "This is a Dropdown",
+  position: "bottom-left",
+  gap: 8,
+};

@@ -147,9 +147,9 @@ export const Popover: FunctionComponent<PopoverProps> = ({
 
   return (
     <>
-      <div {...openProps} ref={triggerRef}>
+      <Children {...openProps} ref={triggerRef}>
         {children}
-      </div>
+      </Children>
       {isOpen &&
         createPortal(
           <Content
@@ -170,6 +170,10 @@ export const Popover: FunctionComponent<PopoverProps> = ({
 const fadeInScale = keyframes`
   from { opacity: 0; transform: scale(0.9); }
   to { opacity: 1; transform: scale(1);}
+`;
+
+const Children = styled.div`
+  display: inline-block;
 `;
 
 const Content = styled.div<{
