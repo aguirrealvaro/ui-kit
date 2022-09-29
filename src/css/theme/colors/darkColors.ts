@@ -123,6 +123,12 @@ export const darkColors: CollorsType = {
   },
 };
 
+/* 
+brand:
+react old: ##61dafb
+react beta: #087ea4
+*/
+
 export const darkAssets: AssetsType = {
   info: darkColors.blue[6],
   success: darkColors.green[6],
