@@ -1,6 +1,5 @@
 import { FunctionComponent } from "react";
 import styled, { css } from "styled-components";
-import { AVATAR_SIZES } from "./Avatar.constants";
 import { AvatarSizeType } from "./Avatar.types";
 import { useBoolean } from "@/hooks";
 
@@ -12,7 +11,6 @@ type AvatarProps = {
 
 export const Avatar: FunctionComponent<AvatarProps> = ({ src, name, size = "sm" }) => {
   const [isError, setError] = useBoolean();
-  const sizeNumber = AVATAR_SIZES[size];
 
   const handleError = () => {
     setError.on();
@@ -24,18 +22,27 @@ export const Avatar: FunctionComponent<AvatarProps> = ({ src, name, size = "sm" 
     .join("");
 
   return (
-    <Container size={sizeNumber} isError={isError}>
+    <Container size={size} isError={isError}>
       {isError ? <Name>{symbols}</Name> : <Image src={src} alt={name} onError={handleError} />}
     </Container>
   );
 };
 
-const Container = styled.div<{ size: number; isError: boolean }>`
+const Container = styled.div<{ size: AvatarSizeType; isError: boolean }>`
   border-radius: ${({ theme }) => theme.borderRadius.full};
-  ${({ size }) => {
+  ${({ size, theme }) => {
+    const sizes: Record<AvatarSizeType, string> = {
+      xs: theme.sizes[8],
+      sm: theme.sizes[12],
+      md: theme.sizes[16],
+      lg: theme.sizes[20],
+      xl: theme.sizes[24],
+      "2xl": theme.sizes[28],
+    };
+
     return css`
-      width: ${size}px;
-      height: ${size}px;
+      width: ${sizes[size]};
+      height: ${sizes[size]};
     `;
   }};
   ${({ isError, theme }) => {
