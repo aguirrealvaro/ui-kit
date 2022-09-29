@@ -7,21 +7,24 @@ export default {
   component: Navbar,
 } as ComponentMeta<typeof Navbar>;
 
-export const Primary: ComponentStory<typeof Navbar> = () => {
-  const mainItems = [
+const Template: ComponentStory<typeof Navbar> = (args) => {
+  return <Navbar {...args} />;
+};
+
+export const Primary = Template.bind({});
+Primary.args = {
+  user: "Usuario",
+  mainItems: [
     { label: "Item 1", onClick: () => console.log("Click"), disabled: true },
     { label: "Item 2", onClick: () => console.log("Click") },
     { label: "Item 3", onClick: () => console.log("Click") },
     { label: "Item 4", onClick: () => console.log("Click"), show: false },
     { label: "Item 5", onClick: () => console.log("Click") },
-  ];
-
-  const dropdownItems = [
+  ],
+  dropdownItems: [
     { label: "Item 1", onClick: () => console.log("Click"), show: false },
     { label: "Item 2", onClick: () => console.log("Click") },
     { label: "Item 4", onClick: () => console.log("Click") },
     { label: "Item 5", onClick: () => console.log("Click"), disabled: true },
-  ];
-
-  return <Navbar user="Usuario" mainItems={mainItems} dropdownItems={dropdownItems} />;
+  ],
 };
