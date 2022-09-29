@@ -62,7 +62,7 @@ const Container = styled.p<{
         padding: 2px 4px;
         background-color: rgba(150, 150, 150, 0.1);
         border: 1px solid rgba(100, 100, 100, 0.2);
-        border-radius: 3px;
+        border-radius: ${theme.borderRadius.xs};
       `,
       kbd: css`
         font-family: ${theme.typography.fontFamilies.mono};
@@ -71,7 +71,7 @@ const Container = styled.p<{
         padding: 2px 4px;
         background-color: rgba(150, 150, 150, 0.1);
         border: 1px solid rgba(100, 100, 100, 0.2);
-        border-radius: 3px;
+        border-radius: ${theme.borderRadius.xs};
       `,
     };
 

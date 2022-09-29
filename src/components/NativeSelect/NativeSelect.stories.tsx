@@ -27,7 +27,7 @@ export default {
   },
 } as ComponentMeta<typeof NativeSelect>;
 
-const Template: ComponentStory<typeof NativeSelect> = ({ options, ...rest }) => {
+const Template: ComponentStory<typeof NativeSelect> = ({ options: dummyOptions, ...rest }) => {
   const [option, setOption] = useState<string>("");
 
   const onChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -38,7 +38,7 @@ const Template: ComponentStory<typeof NativeSelect> = ({ options, ...rest }) => 
     setOption("");
   };
 
-  const sbOptions = [
+  const options = [
     { label: "Option 1", value: "value1" },
     { label: "Option 2", value: "value2" },
     { label: "Option 3", value: "value3", disabled: true },
@@ -50,7 +50,7 @@ const Template: ComponentStory<typeof NativeSelect> = ({ options, ...rest }) => 
       value={option}
       clearValue={clearValue}
       onChange={onChange}
-      options={sbOptions}
+      options={options}
       {...rest}
     />
   );
