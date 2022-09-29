@@ -1,59 +1,20 @@
-import { ChangeEvent, useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import styled from "styled-components";
 import { Radio } from "@/components";
+import { useBoolean } from "@/hooks";
 
 export default {
   title: "Components/Radio",
   component: Radio,
 } as ComponentMeta<typeof Radio>;
 
-export const Primary: ComponentStory<typeof Radio> = () => {
-  const [value, setValue] = useState<string | undefined>(undefined);
+const Template: ComponentStory<typeof Radio> = (args) => {
+  const [checked, setChecked] = useBoolean();
 
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setValue(e.currentTarget.value);
-  };
-
-  return (
-    <Conatiner>
-      <Radio
-        value={"1"}
-        checked={value === "1"}
-        position="left"
-        onChange={onChange}
-        size="xs"
-        disabled
-      >
-        Input at left 1
-      </Radio>
-      <Radio
-        value={"2"}
-        checked={value === "2"}
-        position="right"
-        onChange={onChange}
-        size="sm"
-      >
-        Input at right 2
-      </Radio>
-      <Radio value={"3"} checked={value === "3"} position="left" onChange={onChange} size="md">
-        Input at left 3
-      </Radio>
-      <Radio
-        value={"4"}
-        checked={value === "4"}
-        position="right"
-        onChange={onChange}
-        size="lg"
-      >
-        Input at right 4
-      </Radio>
-    </Conatiner>
-  );
+  return <Radio checked={checked} onChange={setChecked.toggle} {...args} />;
 };
 
-const Conatiner = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-`;
+export const Primary = Template.bind({});
+Primary.args = {
+  children: "This is a checkbox",
+  position: "right",
+};
