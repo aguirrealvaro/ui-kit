@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import styled from "styled-components";
 import { Link } from "@/components";
 
 export default {
@@ -7,19 +6,12 @@ export default {
   component: Link,
 } as ComponentMeta<typeof Link>;
 
-export const Primary: ComponentStory<typeof Link> = () => {
-  return (
-    <Container>
-      <Link href="https://www.google.com.ar/">Link</Link>
-      <Link href="https://www.google.com.ar/" disabled>
-        Link
-      </Link>
-    </Container>
-  );
+const Template: ComponentStory<typeof Link> = (args) => {
+  return <Link {...args} />;
 };
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-`;
+export const Primary = Template.bind({});
+Primary.args = {
+  children: "This is a link",
+  hideUnderline: false,
+};
