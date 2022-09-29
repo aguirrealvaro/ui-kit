@@ -1,6 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Menu } from "@styled-icons/heroicons-outline/Menu";
-import { Close } from "@styled-icons/ionicons-outline/Close";
 import { Icon } from "@/components";
 
 export default {
@@ -8,11 +7,12 @@ export default {
   component: Icon,
 } as ComponentMeta<typeof Icon>;
 
-export const Primary: ComponentStory<typeof Icon> = () => {
-  return (
-    <div>
-      <Icon icon={Close} size={70} color="blue" />
-      <Icon icon={Menu} size={70} color="red" />
-    </div>
-  );
+const Template: ComponentStory<typeof Icon> = ({ icon, ...args }) => {
+  return <Icon icon={Menu} {...args} />;
+};
+
+export const Primary = Template.bind({});
+Primary.args = {
+  color: "grey",
+  size: 40,
 };
