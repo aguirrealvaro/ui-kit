@@ -1,15 +1,21 @@
 import { FunctionComponent } from "react";
 import styled, { css } from "styled-components";
-import { AvatarSizeType } from "./Avatar.types";
+import { AvatarShapeType, AvatarSizeType } from "./Avatar.types";
 import { useBoolean } from "@/hooks";
 
 type AvatarProps = {
   src: string;
   name: string;
   size?: AvatarSizeType;
+  shape?: AvatarShapeType;
 };
 
-export const Avatar: FunctionComponent<AvatarProps> = ({ src, name, size = "sm" }) => {
+export const Avatar: FunctionComponent<AvatarProps> = ({
+  src,
+  name,
+  size = "sm",
+  shape = "circle",
+}) => {
   const [isError, setError] = useBoolean();
 
   const handleError = () => {
@@ -22,14 +28,25 @@ export const Avatar: FunctionComponent<AvatarProps> = ({ src, name, size = "sm" 
     .join("");
 
   return (
-    <Container size={size} isError={isError}>
+    <Container size={size} isError={isError} shape={shape}>
       {isError ? <Name>{symbols}</Name> : <Image src={src} alt={name} onError={handleError} />}
     </Container>
   );
 };
 
-const Container = styled.div<{ size: AvatarSizeType; isError: boolean }>`
-  border-radius: ${({ theme }) => theme.borderRadius.full};
+const Container = styled.div<{
+  size: AvatarSizeType;
+  isError: boolean;
+  shape: AvatarShapeType;
+}>`
+  border-radius: ${({ theme, shape }) => {
+    const shapes: Record<AvatarShapeType, string> = {
+      sqaure: theme.borderRadius.none,
+      rounded: theme.borderRadius.md,
+      circle: theme.borderRadius.full,
+    };
+    return shapes[shape];
+  }};
   ${({ size, theme }) => {
     const sizes: Record<AvatarSizeType, string> = {
       xs: theme.sizes[8],
@@ -38,6 +55,7 @@ const Container = styled.div<{ size: AvatarSizeType; isError: boolean }>`
       lg: theme.sizes[20],
       xl: theme.sizes[24],
       "2xl": theme.sizes[28],
+      "3xl": theme.sizes[32],
     };
 
     return css`

@@ -15,4 +15,5 @@ Primary.args = {
   src: "https://bit.ly/dan-abramov",
   size: "md",
   name: "Dan Abramov",
+  shape: "circle",
 };
