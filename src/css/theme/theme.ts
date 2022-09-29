@@ -4,11 +4,12 @@ import { type CollorsType, lightColors, darkColors } from "./colors";
 import { darkAssets } from "./colors/darkColors";
 import { lightAssets } from "./colors/lightColors";
 import { AssetsType } from "./colors/types";
-import { shadows, ShadowsType } from "./shadows";
-import { transitions, TransitionsType } from "./transitions";
-import { transparencies, TransparencyType } from "./transparencies";
-import { typography, TypographyType } from "./typography";
-import { zIndices, ZIndexType } from "./zIndices";
+import { shadows, type ShadowsType } from "./shadows";
+import { spacing, type SpacingType } from "./spacing";
+import { transitions, type TransitionsType } from "./transitions";
+import { transparencies, type TransparencyType } from "./transparencies";
+import { typography, type TypographyType } from "./typography";
+import { zIndices, type ZIndexType } from "./zIndices";
 
 export type ThemeModeType = "light" | "dark";
 
@@ -22,6 +23,7 @@ export type ThemeType = {
   transitions: TransitionsType;
   assets: AssetsType;
   transparencies: TransparencyType;
+  spacing: SpacingType;
 };
 
 export const getTheme = (themeMode: ThemeModeType): ThemeType => {
@@ -38,6 +40,6 @@ export const getTheme = (themeMode: ThemeModeType): ThemeType => {
     transitions,
     assets,
     transparencies,
-    // spacing
+    spacing,
   };
 };
