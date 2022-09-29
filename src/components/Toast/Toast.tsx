@@ -87,7 +87,7 @@ const Container = styled.div<{
 }>`
   position: relative;
   display: flex;
-  gap: 8px;
+  gap: ${({ theme }) => theme.spacing[2]};
   padding: 1rem 3rem 1rem 1rem;
   color: ${({ theme }) => theme.colors.grey[1]};
   border-radius: ${({ theme }) => theme.borderRadius.xs};

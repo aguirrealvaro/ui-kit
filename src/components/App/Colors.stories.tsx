@@ -32,7 +32,7 @@ export const Primary = () => {
 const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 2rem;
+  grid-gap: ${({ theme }) => theme.spacing[8]};
 `;
 
 const Title = styled.span`

@@ -87,22 +87,22 @@ const Container = styled.div<{ variant: VariantType; size: AlertSizeType }>`
       xs: css`
         padding: 8px 12px;
         font-size: ${theme.typography.fontSizes.xs};
-        gap: 10px;
+        gap: ${theme.spacing[2.5]};
       `,
       sm: css`
         padding: 12px 16px;
         font-size: ${theme.typography.fontSizes.sm};
-        gap: 12px;
+        gap: ${theme.spacing[3.0]};
       `,
       md: css`
         padding: 16px 20px;
         font-size: ${theme.typography.fontSizes.md};
-        gap: 14px;
+        gap: ${theme.spacing[3.5]};
       `,
       lg: css`
         padding: 20px 24px;
         font-size: ${theme.typography.fontSizes.lg};
-        gap: 16px;
+        gap: ${theme.spacing[4]};
       `,
     };
     return sizeStyles[size];

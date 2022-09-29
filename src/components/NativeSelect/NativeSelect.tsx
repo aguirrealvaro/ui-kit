@@ -183,7 +183,7 @@ const SideContainer = styled.div`
   position: absolute;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: ${({ theme }) => theme.spacing[4]};
   right: 1rem;
   top: 50%;
   transform: translateY(-50%);

@@ -230,7 +230,7 @@ const SideContainer = styled.div`
   margin-right: 1.5rem;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: ${({ theme }) => theme.spacing[4]};
 `;
 
 const Dropdown = styled.div<{ size: SelectSizeType }>`

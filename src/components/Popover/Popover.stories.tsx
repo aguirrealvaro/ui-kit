@@ -31,7 +31,7 @@ const Container = styled.div`
   margin-top: 50px;
   margin-left: 60px;
   display: flex;
-  gap: 3rem;
+  gap: ${({ theme }) => theme.spacing[8]};
 `;
 
 const Content = styled.div`

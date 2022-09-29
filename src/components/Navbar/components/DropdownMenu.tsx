@@ -42,7 +42,7 @@ const Container = styled.div`
 const Profile = styled.button`
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: ${({ theme }) => theme.spacing[2]};
 `;
 
 const Item = styled.button`

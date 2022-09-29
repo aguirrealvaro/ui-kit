@@ -55,6 +55,6 @@ export const ModalConfirm: FunctionComponent<ModalConfirmProps> = ({
 
 const ButtonsContainer = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: ${({ theme }) => theme.spacing[4]};
   justify-content: right;
 `;

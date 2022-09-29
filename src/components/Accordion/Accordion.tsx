@@ -62,14 +62,14 @@ const Container = styled.div<{ showBorder: boolean }>`
 const Button = styled.button<{ arrowPosition: AccordionArrowPosition }>`
   display: flex;
   align-items: center;
-  ${({ arrowPosition }) => {
+  ${({ arrowPosition, theme }) => {
     if (arrowPosition === "right") {
       return css`
         justify-content: space-between;
       `;
     } else {
       return css`
-        gap: 8px;
+        gap: ${theme.spacing[8]};
       `;
     }
   }}

@@ -221,14 +221,14 @@ const LeftContainer = styled.div`
   margin-left: 1.5rem;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: ${({ theme }) => theme.spacing[4]};
 `;
 
 const RightContainer = styled.div`
   margin-right: 1.5rem;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: ${({ theme }) => theme.spacing[4]};
 `;
 
 const CustomInput = styled.input<{
