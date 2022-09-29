@@ -20,7 +20,7 @@ type SelectProps = {
   label?: ReactNode;
   placeholder: string;
   value: string | undefined;
-  onChange: Dispatch<SetStateAction<string | undefined>>;
+  onChange: Dispatch<SetStateAction<string>>;
   options: SelectFieldType[];
   disabled?: boolean;
   helpText?: ReactNode;
