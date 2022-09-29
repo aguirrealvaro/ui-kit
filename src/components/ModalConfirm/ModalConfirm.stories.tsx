@@ -6,19 +6,18 @@ export default {
   component: ModalConfirm,
 } as ComponentMeta<typeof ModalConfirm>;
 
-export const Primary: ComponentStory<typeof ModalConfirm> = () => {
-  const onConfirm = () => {
-    // eslint-disable-next-line no-console
-    console.log("Confirm");
-  };
-
+const Template: ComponentStory<typeof ModalConfirm> = (args) => {
   return (
-    <ModalConfirm
-      header="Delete profile"
-      content="Are you sure you want to delete?"
-      onConfirm={onConfirm}
-    >
+    <ModalConfirm {...args}>
       <Button variant="danger">Delete profile</Button>
     </ModalConfirm>
   );
+};
+
+export const Primary = Template.bind({});
+Primary.args = {
+  header: "Delete profile",
+  content: "Are you sure you want to delete?",
+  // eslint-disable-next-line no-console
+  onConfirm: () => console.log("on Confirm"),
 };
