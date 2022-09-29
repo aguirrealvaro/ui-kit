@@ -7,7 +7,7 @@ export default {
   component: Infotip,
 } as ComponentMeta<typeof Infotip>;
 
-export const Primary: ComponentStory<typeof Infotip> = () => {
+const Template: ComponentStory<typeof Infotip> = ({ content: dummyContent, ...args }) => {
   const content = (
     <>
       content
@@ -27,16 +27,19 @@ export const Primary: ComponentStory<typeof Infotip> = () => {
 
   return (
     <Container>
-      <Infotip content={content} position="right" size={"xs"} />
-      <Infotip content={content} position="right" size={"sm"} />
-      <Infotip content={content} position="right" size={"md"} />
-      <Infotip content={content} position="right" size={"lg"} />
+      <Infotip content={content} {...args} />
     </Container>
   );
 };
 
+export const Primary = Template.bind({});
+Primary.args = {
+  gap: 8,
+  size: "md",
+  position: "right",
+  trigger: "hover",
+};
+
 const Container = styled.div`
-  display: flex;
-  gap: 2rem;
-  margin: 200px;
+  margin: 20px 30px;
 `;

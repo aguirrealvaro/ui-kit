@@ -21,5 +21,5 @@ const Content = styled.div`
   box-shadow: ${({ theme }) => theme.shadows.sm};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   padding: 1.2rem;
-  width: 250px;
+  width: 200px;
 `;

@@ -23,4 +23,6 @@ Primary.args = {
   children: "This is a Dropdown",
   position: "bottom-left",
   gap: 8,
+  trigger: "click",
+  withTriggerWidth: false,
 };
