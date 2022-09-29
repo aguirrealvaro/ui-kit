@@ -6,7 +6,7 @@ export default {
   component: Breadcrumbs,
 } as ComponentMeta<typeof Breadcrumbs>;
 
-export const Primary: ComponentStory<typeof Breadcrumbs> = () => {
+const Template: ComponentStory<typeof Breadcrumbs> = () => {
   return (
     <Breadcrumbs>
       <BreadcrumbItem href="#parent">Parent Page</BreadcrumbItem>
@@ -15,3 +15,5 @@ export const Primary: ComponentStory<typeof Breadcrumbs> = () => {
     </Breadcrumbs>
   );
 };
+
+export const Primary = Template.bind({});
