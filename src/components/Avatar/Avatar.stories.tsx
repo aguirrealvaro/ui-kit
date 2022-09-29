@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import styled from "styled-components";
 import { Avatar } from "@/components";
 
 export default {
@@ -7,21 +6,13 @@ export default {
   component: Avatar,
 } as ComponentMeta<typeof Avatar>;
 
-export const Primary: ComponentStory<typeof Avatar> = () => {
-  return (
-    <Container>
-      <Avatar src="https://bit.ly/dan-abramov" name="Dan Abramov" size="xs" />
-      <Avatar src="errorpath" name="Dan Abramov" size="sm" />
-      <Avatar src="https://bit.ly/dan-abramov" name="Dan Abramov" size="md" />
-      <Avatar src="https://bit.ly/dan-abramov" name="Dan Abramov" size="lg" />
-      <Avatar src="https://bit.ly/dan-abramov" name="Dan Abramov" size="xl" />
-      <Avatar src="https://bit.ly/dan-abramov" name="Dan Abramov " size="2xl" />
-    </Container>
-  );
+const Template: ComponentStory<typeof Avatar> = (args) => {
+  return <Avatar {...args} />;
 };
 
-const Container = styled.div`
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-`;
+export const Primary = Template.bind({});
+Primary.args = {
+  src: "https://bit.ly/dan-abramov",
+  size: "md",
+  name: "Dan Abramov",
+};
