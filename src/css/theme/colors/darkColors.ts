@@ -74,16 +74,16 @@ export const darkColors: CollorsType = {
     10: "#8fd2d0",
   },
   blue: {
-    1: "#121f3b",
-    2: "#172b52",
-    3: "#1f3866",
-    4: "#264885",
-    5: "#2f5eaf",
-    6: "#3873d9",
-    7: "#6097e9",
-    8: "#8bb9f4",
-    9: "#b5d4f9",
-    10: "#dfedfb",
+    1: "#052d66",
+    2: "#08448c",
+    3: "#1460b3",
+    4: "#2381d9",
+    5: "#36a3ff",
+    6: "#5ebcff",
+    7: "#87d1ff",
+    8: "#b0e3ff",
+    9: "#d9f3ff",
+    10: "#f0fbff",
   },
   indigo: {
     1: "#171d3a",
@@ -127,6 +127,7 @@ export const darkColors: CollorsType = {
 brand:
 react old: ##61dafb
 react beta: #087ea4
+teal?
 */
 
 export const darkAssets: AssetsType = {
