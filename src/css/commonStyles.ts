@@ -7,8 +7,11 @@ export const Wrapper = styled.div`
 `;
 
 export const hiddenStyles = css`
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
   position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
+  white-space: nowrap;
+  width: 1px;
 `;
