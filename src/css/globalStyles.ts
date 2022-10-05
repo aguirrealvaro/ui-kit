@@ -1,13 +1,22 @@
 import { createGlobalStyle } from "styled-components";
 import { ThemeType } from "./theme";
 
-export const GlobalStyles = createGlobalStyle<{ theme: ThemeType }>`
+type GlobalStylesType = {
+  themeMode: string;
+  theme: ThemeType;
+};
+
+export const GlobalStyles = createGlobalStyle<GlobalStylesType>`
   *,
   *:after,
   *:before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+
+  html {
+    color-scheme: ${({ themeMode }) => themeMode}
   }
 
   body {
