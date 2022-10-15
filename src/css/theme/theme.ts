@@ -1,9 +1,7 @@
+import { lightAssets, darkAssets, AssetsType } from "./assets";
 import { borderRadius, BorderRadiusType } from "./borderRadius";
 import { breakpoints, BreakpointSize } from "./breakpoints";
-import { type CollorsType, lightColors, darkColors } from "./colors";
-import { darkAssets } from "./colors/darkColors";
-import { lightAssets } from "./colors/lightColors";
-import { AssetsType } from "./colors/types";
+import { type CollorsType, colors } from "./colors";
 import { shadows, type ShadowsType } from "./shadows";
 import { sizes, type SizesType } from "./sizes";
 import { spacing, type SpacingType } from "./spacing";
@@ -29,7 +27,6 @@ export type ThemeType = {
 };
 
 export const getTheme = (themeMode: ThemeModeType): ThemeType => {
-  const colors = themeMode === "light" ? lightColors : darkColors;
   const assets = themeMode === "light" ? lightAssets : darkAssets;
 
   return {

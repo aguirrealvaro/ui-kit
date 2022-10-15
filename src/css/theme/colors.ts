@@ -1,6 +1,20 @@
-import { AssetsType, CollorsType } from "./types";
+type Colors =
+  | "grey"
+  | "red"
+  | "orange"
+  | "yellow"
+  | "green"
+  | "teal"
+  | "blue"
+  | "indigo"
+  | "purple"
+  | "pink";
 
-export const lightColors: CollorsType = {
+type Variants = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+
+export type CollorsType = Record<Colors, Record<Variants, string>>;
+
+export const colors: CollorsType = {
   grey: {
     1: "#F9FAFB",
     2: "#F3F4F6",
@@ -129,18 +143,3 @@ react old: ##61dafb
 react beta: #087ea4
 teal?
 */
-
-export const lightAssets: AssetsType = {
-  info: lightColors.blue[6],
-  success: lightColors.green[6],
-  warning: lightColors.yellow[5],
-  danger: lightColors.red[6],
-  title: lightColors.grey[10],
-  "primary-text": lightColors.grey[8],
-  "secondary-text": lightColors.grey[6],
-  disabled: lightColors.grey[4],
-  "disabled-font": lightColors.grey[5],
-  "body-background": lightColors.grey[1],
-  "input-border": lightColors.grey[5],
-  "input-placeholder": lightColors.grey[6],
-};
