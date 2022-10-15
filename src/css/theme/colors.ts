@@ -1,4 +1,6 @@
 type Colors =
+  | "black"
+  | "white"
   | "grey"
   | "red"
   | "orange"
@@ -12,9 +14,11 @@ type Colors =
 
 type Variants = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 
-export type CollorsType = Record<Colors, Record<Variants, string>>;
+export type CollorsType = Record<Colors, Record<Variants, string> | string>;
 
 export const colors: CollorsType = {
+  white: "#ffffff",
+  black: "#000000",
   grey: {
     1: "#F9FAFB",
     2: "#F3F4F6",
