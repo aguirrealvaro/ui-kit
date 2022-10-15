@@ -39,7 +39,7 @@ const getRandomItem = (arr: number[]) => {
 
 const Card = styled.div`
   height: ${() => getRandomItem(heights)}px;
-  background-color: ${({ theme }) => theme.colors.grey[4]};
+  background-color: ${({ theme }) => theme.colors.grey[3]};
   color: ${({ theme }) => theme.assets["primary-text"]};
   display: flex;
   justify-content: center;

@@ -2,9 +2,9 @@ import { AssetsType, CollorsType } from "./types";
 
 export const darkColors: CollorsType = {
   grey: {
-    1: "#111827",
-    2: "#1F2937",
-    3: "#374151",
+    1: "#1f2028",
+    2: "#2e3039",
+    3: "#3a3d4a",
     4: "#4B5563",
     5: "#6B7280",
     6: "#9CA3AF",
@@ -123,13 +123,6 @@ export const darkColors: CollorsType = {
   },
 };
 
-/* 
-brand:
-react old: ##61dafb
-react beta: #087ea4
-teal?
-*/
-
 export const darkAssets: AssetsType = {
   info: darkColors.blue[6],
   success: darkColors.green[6],
@@ -140,7 +133,7 @@ export const darkAssets: AssetsType = {
   "secondary-text": darkColors.grey[6],
   disabled: darkColors.grey[4],
   "disabled-font": darkColors.grey[5],
-  "body-background": darkColors.grey[2],
+  "body-background": darkColors.grey[1],
   "input-border": darkColors.grey[5],
   "input-placeholder": darkColors.grey[6],
 };

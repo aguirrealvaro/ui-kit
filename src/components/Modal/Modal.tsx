@@ -99,7 +99,7 @@ const Content = styled.div<{ size: ModalSizeType; fadeOut: boolean }>`
       lg: "42rem",
     };
     return sizes[size];
-  }}px;
+  }};
   min-height: ${({ theme }) => theme.sizes[28]};
   max-height: 80vh;
   animation: ${fadeInScale} ${({ theme }) => theme.transitions.durations.normal}ms

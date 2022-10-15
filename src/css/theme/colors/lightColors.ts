@@ -9,9 +9,9 @@ export const lightColors: CollorsType = {
     5: "#9CA3AF",
     6: "#6B7280",
     7: "#4B5563",
-    8: "#374151",
-    9: "#1F2937",
-    10: "#111827",
+    8: "#3a3d4a",
+    9: "#2e3039",
+    10: "#1f2028",
   },
   red: {
     1: "#FDF2F2",
@@ -123,6 +123,13 @@ export const lightColors: CollorsType = {
   },
 };
 
+/* 
+brand:
+react old: ##61dafb
+react beta: #087ea4
+teal?
+*/
+
 export const lightAssets: AssetsType = {
   info: lightColors.blue[6],
   success: lightColors.green[6],
@@ -133,7 +140,7 @@ export const lightAssets: AssetsType = {
   "secondary-text": lightColors.grey[6],
   disabled: lightColors.grey[4],
   "disabled-font": lightColors.grey[5],
-  "body-background": lightColors.grey[2],
+  "body-background": lightColors.grey[1],
   "input-border": lightColors.grey[5],
   "input-placeholder": lightColors.grey[6],
 };

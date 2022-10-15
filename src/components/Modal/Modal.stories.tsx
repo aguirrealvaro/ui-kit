@@ -18,7 +18,7 @@ const Template: ComponentStory<typeof Modal> = ({
   return (
     <>
       <Button onClick={onOpen}>open modal</Button>
-      <Modal isOpen={isOpen} onClose={onClose} isUnmounting={isUnmounting} size="sm" {...args}>
+      <Modal isOpen={isOpen} onClose={onClose} isUnmounting={isUnmounting} {...args}>
         <ModalHeader>Header</ModalHeader>
         <ModalContent>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ullam aliquam itaque
@@ -33,5 +33,5 @@ const Template: ComponentStory<typeof Modal> = ({
 
 export const Primary = Template.bind({});
 Primary.args = {
-  size: "md",
+  size: "sm",
 };
