@@ -3,6 +3,7 @@ type Assets =
   | "success"
   | "warning"
   | "danger"
+  ////
   | "title"
   | "primary-text"
   | "secondary-text"
@@ -10,6 +11,14 @@ type Assets =
   | "disabled-font"
   | "body-background"
   | "input-border"
-  | "input-placeholder";
+  | "input-placeholder"
+  /////
+  | "bgPrimary"
+  | "bgSecondary"
+  | "textPrimary"
+  | "textSecondary"
+  | "borderPrimary"
+  | "borderSecondary"
+  | "icon";
 
 export type AssetsType = Record<Assets, string>;

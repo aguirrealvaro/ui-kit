@@ -10,6 +10,8 @@ export const Primary = () => {
   return (
     <Container>
       {Object.entries(theme.colors).map(([palette, colors], index) => {
+        if (palette === "black" || palette === "white") return;
+
         return (
           <div key={index}>
             <Title>{palette}</Title>
