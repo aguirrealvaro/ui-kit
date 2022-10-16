@@ -10,7 +10,6 @@ export const lightAssets: AssetsType = {
   //////
   disabled: colors.grey[4],
   "disabled-font": colors.grey[5],
-  "body-background": colors.grey[1],
   "input-border": colors.grey[5],
   "input-placeholder": colors.grey[6],
   /////

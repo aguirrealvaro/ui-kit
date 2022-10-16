@@ -7,7 +7,6 @@ type Assets =
   ////
   | "disabled"
   | "disabled-font"
-  | "body-background"
   | "input-border"
   | "input-placeholder"
   /////
