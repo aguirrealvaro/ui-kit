@@ -140,10 +140,3 @@ export const colors: CollorsType = {
     10: "#751A3D",
   },
 };
-
-/* 
-brand:
-react old: ##61dafb
-react beta: #087ea4
-teal?
-*/

@@ -23,7 +23,10 @@ bg primary
 bg secondary
 border primary
 border secondary
+hover primary
+hover secondary
 disabled bg
 disabled text
-placeholder
+input placeholder
+icon
 */
