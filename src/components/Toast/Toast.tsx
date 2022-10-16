@@ -68,7 +68,7 @@ export const Toast: FunctionComponent<ToastProps> = ({
 };
 
 const variantIcons: Record<VariantType, StyledIcon> = {
-  info: InfoCircleFill,
+  primary: InfoCircleFill,
   success: CheckCircleFill,
   warning: Alert,
   danger: CloseCircle,
@@ -96,8 +96,8 @@ const Container = styled.div<{
   box-shadow: ${({ theme }) => theme.shadows.lg};
   ${({ variant, theme }) => {
     const variantStyles: Record<VariantType, FlattenSimpleInterpolation> = {
-      info: css`
-        background-color: ${theme.assets.info};
+      primary: css`
+        background-color: ${theme.assets.primary};
       `,
       success: css`
         background-color: ${theme.assets.success};

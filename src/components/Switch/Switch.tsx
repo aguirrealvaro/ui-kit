@@ -33,7 +33,7 @@ export const Switch: FunctionComponent<
           <Pill
             checked={checked || false}
             size={size}
-            color={color || theme.assets.info}
+            color={color || theme.assets.primary}
             disabled={disabled}
           >
             <Ball checked={checked || false} size={size} />

@@ -7,7 +7,7 @@ type BadeProps = {
   variant?: VariantType;
 };
 
-export const Badge: FunctionComponent<BadeProps> = ({ children, variant = "info" }) => {
+export const Badge: FunctionComponent<BadeProps> = ({ children, variant = "primary" }) => {
   return <Container variant={variant}>{children}</Container>;
 };
 
@@ -16,7 +16,7 @@ const Container = styled.span<{ variant: VariantType }>`
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   ${({ variant, theme }) => {
     const variantStyles: Record<VariantType, FlattenSimpleInterpolation> = {
-      info: css`
+      primary: css`
         background-color: ${theme.colors.blue[2]};
         color: ${theme.colors.blue[8]};
       `,

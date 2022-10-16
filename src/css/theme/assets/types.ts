@@ -1,5 +1,5 @@
 type Assets =
-  | "info"
+  | "primary"
   | "success"
   | "warning"
   | "danger"

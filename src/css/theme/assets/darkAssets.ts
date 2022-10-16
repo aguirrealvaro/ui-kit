@@ -2,7 +2,7 @@ import { colors } from "../colors";
 import { AssetsType } from "./types";
 
 export const darkAssets: AssetsType = {
-  info: colors.blue[6],
+  primary: colors.blue[6],
   success: colors.green[6],
   warning: colors.yellow[5],
   danger: colors.red[7],

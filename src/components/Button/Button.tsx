@@ -26,7 +26,7 @@ export const Button: FunctionComponent<
   isLoading,
   kind = "solid",
   size = "md",
-  variant = "info",
+  variant = "primary",
   shape = "default",
   leftIcon,
   rightIcon,
@@ -118,10 +118,10 @@ const getColorStyles = (
   theme: ThemeType
 ): FlattenSimpleInterpolation => {
   const solidStyles: Record<VariantType, FlattenSimpleInterpolation> = {
-    info: css`
-      background-color: ${theme.assets.info};
+    primary: css`
+      background-color: ${theme.assets.primary};
       color: ${theme.colors.grey[1]};
-      border-color: ${theme.assets.info};
+      border-color: ${theme.assets.primary};
       &:hover:not([disabled]) {
         background-color: ${theme.colors.blue[5]};
         border-color: ${theme.colors.blue[5]};
@@ -168,9 +168,9 @@ const getColorStyles = (
   const outlinedHover = theme.colors.grey[3];
 
   const outlinedStyles: Record<VariantType, FlattenSimpleInterpolation> = {
-    info: css`
-      color: ${theme.assets.info};
-      border-color: ${theme.assets.info};
+    primary: css`
+      color: ${theme.assets.primary};
+      border-color: ${theme.assets.primary};
       background-color: transparent;
       &:hover:not([disabled]) {
         background-color: ${outlinedHover};
@@ -211,8 +211,8 @@ const getColorStyles = (
   };
 
   const ghostStyles: Record<VariantType, FlattenSimpleInterpolation> = {
-    info: css`
-      color: ${theme.assets.info};
+    primary: css`
+      color: ${theme.assets.primary};
       &:hover:not([disabled]) {
         background-color: ${theme.colors.blue[2]};
       }
@@ -244,8 +244,8 @@ const getColorStyles = (
   };
 
   const linkStyles: Record<VariantType, FlattenSimpleInterpolation> = {
-    info: css`
-      color: ${theme.assets.info};
+    primary: css`
+      color: ${theme.assets.primary};
       &:hover:not([disabled]) {
         text-decoration: underline;
       }
@@ -277,12 +277,12 @@ const getColorStyles = (
   };
 
   const alernativeStyles: Record<VariantType, FlattenSimpleInterpolation> = {
-    info: css`
+    primary: css`
       border-color: ${theme.colors.grey[4]};
       color: ${theme.colors.grey[6]};
       &:hover:not([disabled]) {
-        color: ${theme.assets.info};
-        border-color: ${theme.assets.info};
+        color: ${theme.assets.primary};
+        border-color: ${theme.assets.primary};
       }
     `,
     success: css`

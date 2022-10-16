@@ -13,6 +13,6 @@ const Template: ComponentStory<typeof Alert> = (args) => {
 export const Primary = Template.bind({});
 Primary.args = {
   children: "This is an Alert!",
-  variant: "info",
+  variant: "primary",
   size: "md",
 };

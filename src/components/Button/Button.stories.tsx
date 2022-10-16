@@ -18,6 +18,6 @@ Primary.args = {
   children: "Boton",
   kind: "solid",
   isLoading: false,
-  variant: "info",
+  variant: "primary",
   size: "md",
 };
