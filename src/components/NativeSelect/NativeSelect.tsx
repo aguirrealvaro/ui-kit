@@ -137,7 +137,7 @@ const Select = styled.select<{
   }};
   background-color: ${({ theme }) => theme.assets["body-background"]};
   color: ${({ theme, isSelected }) =>
-    isSelected ? theme.assets["primary-text"] : theme.assets["input-placeholder"]};
+    isSelected ? theme.assets.textPrimary : theme.assets["input-placeholder"]};
   border: none;
   outline: none;
   cursor: pointer;

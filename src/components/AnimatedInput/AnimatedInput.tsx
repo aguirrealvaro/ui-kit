@@ -234,7 +234,7 @@ const CustomInput = styled.input<{
   }};
   height: ${({ hasPlaceholder }) => (hasPlaceholder ? "72%" : "100%")};
   bottom: 0;
-  color: ${({ theme }) => theme.assets["primary-text"]};
+  color: ${({ theme }) => theme.assets.textPrimary};
   &:focus + label {
     ${getFocusedLabelStyles};
     color: ${({ theme, isError, isSuccess }) => {
@@ -262,7 +262,7 @@ const CustomInput = styled.input<{
             return theme.assets.success;
           }
 
-          return theme.assets["primary-text"];
+          return theme.assets.textPrimary;
         }};
       }
     }

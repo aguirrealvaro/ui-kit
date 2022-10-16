@@ -8,7 +8,6 @@ export const lightAssets: AssetsType = {
   danger: colors.red[6],
   neutral: colors.black,
   //////
-  "primary-text": colors.grey[8],
   "secondary-text": colors.grey[6],
   disabled: colors.grey[4],
   "disabled-font": colors.grey[5],

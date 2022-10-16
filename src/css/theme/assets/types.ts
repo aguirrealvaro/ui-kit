@@ -5,8 +5,6 @@ type Assets =
   | "danger"
   | "neutral"
   ////
-  | "title"
-  | "primary-text"
   | "secondary-text"
   | "disabled"
   | "disabled-font"
@@ -16,6 +14,7 @@ type Assets =
   /////
   | "bgPrimary"
   | "bgSecondary"
+  | "title"
   | "textPrimary"
   | "textSecondary"
   | "borderPrimary"

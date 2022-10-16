@@ -239,7 +239,7 @@ const CustomInput = styled.input<{
   border: none;
   background-color: transparent;
   padding: 0 1rem;
-  color: ${({ theme }) => theme.assets["primary-text"]};
+  color: ${({ theme }) => theme.assets.textPrimary};
   width: ${({ sideWidth }) => {
     if (sideWidth) {
       return `calc(100% - ${sideWidth}px - 20px)`;

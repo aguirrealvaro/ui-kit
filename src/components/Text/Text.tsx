@@ -29,7 +29,7 @@ export const Text: FunctionComponent<TextProps> = ({
       as={as}
       size={size}
       weight={weight}
-      color={color || theme.assets["primary-text"]}
+      color={color || theme.assets.textPrimary}
       upppercase={upppercase}
     >
       {children}

@@ -165,7 +165,7 @@ const SelectContainer = styled.div<{
   justify-content: space-between;
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   color: ${({ theme, isSelected }) =>
-    isSelected ? theme.assets["primary-text"] : theme.assets["input-placeholder"]};
+    isSelected ? theme.assets.textPrimary : theme.assets["input-placeholder"]};
   height: ${({ size, theme }) => {
     const sizes: Record<SelectSizeType, string> = {
       sm: theme.sizes[8],
@@ -261,7 +261,7 @@ const Option = styled.button<{ isSelected: boolean }>`
   padding: ${({ theme }) => `${theme.spacing[2]} ${theme.spacing[3]}`};
   margin-bottom: ${({ theme }) => theme.spacing[1]};
   text-align: left;
-  color: ${({ theme }) => theme.assets["primary-text"]};
+  color: ${({ theme }) => theme.assets.textPrimary};
   &:last-child {
     margin-bottom: 0;
   }

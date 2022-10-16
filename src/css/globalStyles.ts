@@ -22,7 +22,7 @@ export const GlobalStyles = createGlobalStyle<GlobalStylesType>`
   body {
     font-family: ${({ theme }) => theme.typography.fontFamilies.body};
     font-size: ${({ theme }) => theme.typography.fontSizes.md};
-    color: ${({ theme }) => theme.assets["primary-text"]};
+    color: ${({ theme }) => theme.assets.textPrimary};
     background-color: ${({ theme }) => theme.assets["body-background"]};
   }
   

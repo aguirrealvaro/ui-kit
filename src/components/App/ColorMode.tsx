@@ -15,5 +15,5 @@ export const ColorMode: FunctionComponent = () => {
 };
 
 const Container = styled.div`
-  color: ${({ theme }) => theme.assets["primary-text"]};
+  color: ${({ theme }) => theme.assets.textPrimary};
 `;
