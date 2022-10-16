@@ -283,7 +283,7 @@ const BottomText = styled.div<{ showErrorMessage: boolean; showSuccessMessage: b
     if (showSuccessMessage) {
       return theme.assets.success;
     }
-    return theme.assets["secondary-text"];
+    return theme.assets.textSecondary;
   }};
 `;
 

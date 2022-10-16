@@ -299,7 +299,7 @@ const BottomText = styled.div<{
     if (showSuccessMessage) {
       return theme.assets.success;
     }
-    return theme.assets["secondary-text"];
+    return theme.assets.textSecondary;
   }};
   font-size: ${({ size, theme }) => {
     const sizes: Record<SelectSizeType, string> = {
