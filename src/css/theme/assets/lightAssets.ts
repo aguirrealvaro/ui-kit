@@ -6,6 +6,7 @@ export const lightAssets: AssetsType = {
   success: colors.green[6],
   warning: colors.yellow[5],
   danger: colors.red[6],
+  neutral: colors.black,
   //////
   "primary-text": colors.grey[8],
   "secondary-text": colors.grey[6],
@@ -22,14 +23,14 @@ export const lightAssets: AssetsType = {
   textSecondary: colors.grey[7],
   borderPrimary: colors.grey[2],
   borderSecondary: colors.grey[1],
+  hoverPrimary: colors.grey[2],
+  hoverSecondary: colors.grey[1],
+  disabledBg: colors.grey[4],
+  disabledText: colors.grey[5],
+  inputPlaceholder: colors.grey[6],
   icon: colors.grey[6],
 };
 
 /* 
-hover primary
-hover secondary
-disabled bg
-disabled text
-input placeholder
 neutral?
 */

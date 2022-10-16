@@ -3,6 +3,7 @@ type Assets =
   | "success"
   | "warning"
   | "danger"
+  | "neutral"
   ////
   | "title"
   | "primary-text"
@@ -19,6 +20,11 @@ type Assets =
   | "textSecondary"
   | "borderPrimary"
   | "borderSecondary"
+  | "hoverPrimary"
+  | "hoverSecondary"
+  | "disabledBg"
+  | "disabledText"
+  | "inputPlaceholder"
   | "icon";
 
 export type AssetsType = Record<Assets, string>;

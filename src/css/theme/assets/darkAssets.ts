@@ -6,6 +6,7 @@ export const darkAssets: AssetsType = {
   success: colors.green[6],
   warning: colors.yellow[5],
   danger: colors.red[6],
+  neutral: colors.white,
   //////
   "primary-text": colors.grey[8],
   "secondary-text": colors.grey[6],
@@ -22,5 +23,10 @@ export const darkAssets: AssetsType = {
   textSecondary: colors.grey[4],
   borderPrimary: colors.grey[8],
   borderSecondary: colors.grey[7],
+  hoverPrimary: colors.grey[8],
+  hoverSecondary: colors.grey[7],
+  disabledBg: colors.grey[7],
+  disabledText: colors.grey[6],
+  inputPlaceholder: colors.grey[5],
   icon: colors.grey[5],
 };
