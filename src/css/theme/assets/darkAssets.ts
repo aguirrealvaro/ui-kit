@@ -21,7 +21,11 @@ export const darkAssets: AssetsType = {
   hoverSecondary: colors.grey[7],
   disabledBg: colors.grey[7],
   disabledText: colors.grey[6],
+
+  // input
   inputPlaceholder: colors.grey[5],
+
+  // icon
   icon: colors.grey[2],
 
   // alert

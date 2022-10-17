@@ -21,7 +21,11 @@ export const lightAssets: AssetsType = {
   hoverSecondary: colors.grey[1],
   disabledBg: colors.grey[4],
   disabledText: colors.grey[5],
+
+  // input
   inputPlaceholder: colors.grey[6],
+
+  // icon
   icon: colors.grey[9],
 
   // alert
