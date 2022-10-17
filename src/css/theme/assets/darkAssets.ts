@@ -19,5 +19,5 @@ export const darkAssets: AssetsType = {
   disabledBg: colors.grey[7],
   disabledText: colors.grey[6],
   inputPlaceholder: colors.grey[5],
-  icon: colors.grey[5],
+  icon: colors.grey[2],
 };

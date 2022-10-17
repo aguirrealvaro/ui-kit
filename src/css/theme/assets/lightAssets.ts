@@ -19,5 +19,5 @@ export const lightAssets: AssetsType = {
   disabledBg: colors.grey[4],
   disabledText: colors.grey[5],
   inputPlaceholder: colors.grey[6],
-  icon: colors.grey[6],
+  icon: colors.grey[9],
 };
