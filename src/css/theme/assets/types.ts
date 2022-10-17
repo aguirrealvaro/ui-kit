@@ -1,9 +1,12 @@
 type Assets =
+  // variants
   | "primary"
   | "success"
   | "warning"
   | "danger"
   | "neutral"
+
+  // greys
   | "bgPrimary"
   | "bgSecondary"
   | "title"
@@ -16,6 +19,18 @@ type Assets =
   | "disabledBg"
   | "disabledText"
   | "inputPlaceholder"
-  | "icon";
+  | "icon"
+
+  // alert
+  | "alertPrimaryBg"
+  | "alertPrimaryText"
+  | "alertSuccessBg"
+  | "alertSuccessText"
+  | "alertWarningBg"
+  | "alertWarningText"
+  | "alertDangerBg"
+  | "alertDangerText"
+  | "alertNeutralBg"
+  | "alertNeutralText";
 
 export type AssetsType = Record<Assets, string>;

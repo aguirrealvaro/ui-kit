@@ -2,11 +2,14 @@ import { colors } from "../colors";
 import { AssetsType } from "./types";
 
 export const lightAssets: AssetsType = {
+  // variants
   primary: colors.blue[6],
   success: colors.green[6],
   warning: colors.yellow[5],
   danger: colors.red[6],
   neutral: colors.black,
+
+  // greys
   bgPrimary: colors.grey[1],
   bgSecondary: colors.white,
   title: colors.black,
@@ -20,4 +23,16 @@ export const lightAssets: AssetsType = {
   disabledText: colors.grey[5],
   inputPlaceholder: colors.grey[6],
   icon: colors.grey[9],
+
+  // alert
+  alertPrimaryBg: colors.blue[2],
+  alertPrimaryText: colors.blue[8],
+  alertSuccessBg: colors.green[2],
+  alertSuccessText: colors.green[8],
+  alertWarningBg: colors.yellow[2],
+  alertWarningText: colors.yellow[8],
+  alertDangerBg: colors.red[2],
+  alertDangerText: colors.red[8],
+  alertNeutralBg: colors.grey[3],
+  alertNeutralText: colors.grey[8],
 };

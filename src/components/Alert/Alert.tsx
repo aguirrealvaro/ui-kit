@@ -37,7 +37,7 @@ export const Alert: FunctionComponent<AlertProps> = ({
     success: { icon: CheckCircleFill, color: theme.assets.success },
     warning: { icon: AlertIcon, color: theme.assets.warning },
     danger: { icon: CloseCircle, color: theme.assets.danger },
-    neutral: { icon: InfoCircleFill, color: theme.colors.grey[6] },
+    neutral: { icon: InfoCircleFill, color: theme.assets.neutral },
   };
 
   return (
@@ -60,24 +60,24 @@ const Container = styled.div<{ variant: VariantType; size: AlertSizeType }>`
   ${({ variant, theme }) => {
     const variantStyles: Record<VariantType, FlattenSimpleInterpolation> = {
       primary: css`
-        background-color: ${theme.colors.blue[2]};
-        color: ${theme.colors.blue[8]};
+        background-color: ${theme.assets.alertPrimaryBg};
+        color: ${theme.assets.alertPrimaryText};
       `,
       success: css`
-        background-color: ${theme.colors.green[2]};
-        color: ${theme.colors.green[8]};
+        background-color: ${theme.assets.alertSuccessBg};
+        color: ${theme.assets.alertSuccessText};
       `,
       danger: css`
-        background-color: ${theme.colors.red[2]};
-        color: ${theme.colors.red[8]};
+        background-color: ${theme.assets.alertDangerBg};
+        color: ${theme.assets.alertDangerText};
       `,
       warning: css`
-        background-color: ${theme.colors.yellow[2]};
-        color: ${theme.colors.yellow[8]};
+        background-color: ${theme.assets.alertWarningBg};
+        color: ${theme.assets.alertWarningText};
       `,
       neutral: css`
-        background-color: ${theme.colors.grey[3]};
-        color: ${theme.colors.grey[8]};
+        background-color: ${theme.assets.alertNeutralBg};
+        color: ${theme.assets.alertNeutralText};
       `,
     };
     return variantStyles[variant];
