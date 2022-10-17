@@ -15,7 +15,7 @@ export const Breadcrumbs: FunctionComponent<BreadcrumbsProps> = ({ children }) =
 
           return (
             <ItemList>
-              <span>{child}</span>
+              <>{child}</>
               {showSeparator && <Separator>/</Separator>}
             </ItemList>
           );

@@ -9,8 +9,9 @@ export type BreadcrumbItemProps = {
 export const BreadcrumbItem: FunctionComponent<BreadcrumbItemProps> = ({
   children,
   isCurrentPage = false,
+  ...restProps
 }) => {
   if (isCurrentPage) return <span>{children}</span>;
 
-  return <Link>{children}</Link>;
+  return <Link {...restProps}>{children}</Link>;
 };
