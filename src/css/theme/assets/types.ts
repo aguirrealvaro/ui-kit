@@ -35,6 +35,18 @@ type Assets =
 
   // avatar
   | "avatarBg"
-  | "avatarText";
+  | "avatarText"
+
+  // badge
+  | "badgePrimaryBg"
+  | "badgePrimaryText"
+  | "badgeSuccessBg"
+  | "badgeSuccessText"
+  | "badgeWarningBg"
+  | "badgeWarningText"
+  | "badgeDangerBg"
+  | "badgeDangerText"
+  | "badgeNeutralBg"
+  | "badgeNeutralText";
 
 export type AssetsType = Record<Assets, string>;

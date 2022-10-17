@@ -43,4 +43,16 @@ export const darkAssets: AssetsType = {
   // avatar
   avatarBg: colors.white,
   avatarText: colors.black,
+
+  // badge
+  badgePrimaryBg: colors.blue[9],
+  badgePrimaryText: colors.blue[3],
+  badgeSuccessBg: colors.green[9],
+  badgeSuccessText: colors.green[3],
+  badgeWarningBg: colors.yellow[9],
+  badgeWarningText: colors.yellow[3],
+  badgeDangerBg: colors.red[9],
+  badgeDangerText: colors.red[3],
+  badgeNeutralBg: colors.grey[7],
+  badgeNeutralText: colors.grey[3],
 };

@@ -43,4 +43,16 @@ export const lightAssets: AssetsType = {
   // avatar
   avatarBg: colors.black,
   avatarText: colors.white,
+
+  // badge
+  badgePrimaryBg: colors.blue[2],
+  badgePrimaryText: colors.blue[8],
+  badgeSuccessBg: colors.green[2],
+  badgeSuccessText: colors.green[8],
+  badgeWarningBg: colors.yellow[2],
+  badgeWarningText: colors.yellow[8],
+  badgeDangerBg: colors.red[2],
+  badgeDangerText: colors.red[8],
+  badgeNeutralBg: colors.grey[3],
+  badgeNeutralText: colors.grey[8],
 };
