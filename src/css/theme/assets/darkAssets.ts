@@ -8,7 +8,6 @@ export const darkAssets: AssetsType = {
   danger: colors.red[6],
   neutral: colors.white,
   /////
-  "disabled-font": colors.grey[5],
   "input-border": colors.grey[5],
   "input-placeholder": colors.grey[6],
   /////

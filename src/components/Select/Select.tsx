@@ -206,7 +206,7 @@ const SelectContainer = styled.div<{
         background-color: ${theme.assets.disabledBg};
         border-color: transparent;
         cursor: not-allowed;
-        color: ${({ theme }) => theme.assets["disabled-font"]};
+        color: ${({ theme }) => theme.assets.disabledText};
       `;
     }
   }};
