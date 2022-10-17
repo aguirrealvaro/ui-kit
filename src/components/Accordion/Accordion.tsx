@@ -50,7 +50,7 @@ const Container = styled.div<{ showBorder: boolean }>`
   ${({ showBorder }) => {
     if (showBorder) {
       return css`
-        border-bottom: 1px solid ${({ theme }) => theme.colors.grey[3]};
+        border-bottom: 1px solid ${({ theme }) => theme.assets.borderPrimary};
         &:last-child {
           border-bottom: none;
         }
@@ -99,4 +99,5 @@ const Content = styled.div<{ height: number; active: boolean }>`
     ${({ theme }) => theme.transitions.timings.in};
   margin-left: 1rem;
   margin-bottom: ${({ active }) => active && "1rem"};
+  color: ${({ theme }) => theme.assets.textSecondary};
 `;

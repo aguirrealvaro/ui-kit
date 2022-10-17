@@ -12,7 +12,13 @@ export default {
 } as ComponentMeta<typeof Accordion>;
 
 const Template: ComponentStory<typeof Accordion> = (args) => {
-  return <Accordion {...args} />;
+  return (
+    <div>
+      <Accordion {...args} />
+      <Accordion {...args} />
+      <Accordion {...args} />
+    </div>
+  );
 };
 
 export const Primary = Template.bind({});
