@@ -180,6 +180,7 @@ const InputContainer = styled.div<{
     disabled &&
     css`
       background-color: ${theme.assets.disabledBg};
+      color: ${theme.assets.disabledText};
       border-color: transparent;
       cursor: not-allowed;
     `};
@@ -262,13 +263,21 @@ const CustomInput = styled.input<{
             return theme.assets.success;
           }
 
-          return theme.assets.textPrimary;
+          return theme.assets.inputPlaceholder;
         }};
       }
     }
   }
   &:disabled {
     cursor: not-allowed;
+    color: inherit;
+    &:not(:placeholder-shown) {
+      &:not(:focus) {
+        + label {
+          color: ${({ theme }) => theme.assets.disabledText};
+        }
+      }
+    }
   }
 `;
 
