@@ -203,7 +203,7 @@ const SelectContainer = styled.div<{
   ${({ disabled, theme }) => {
     if (disabled) {
       return css`
-        background-color: ${theme.assets["disabled"]};
+        background-color: ${theme.assets.disabledBg};
         border-color: transparent;
         cursor: not-allowed;
         color: ${({ theme }) => theme.assets["disabled-font"]};
@@ -280,7 +280,7 @@ const Option = styled.button<{ isSelected: boolean }>`
         `};
   &:disabled {
     background-color: none;
-    color: ${({ theme }) => theme.assets["disabled"]};
+    color: ${({ theme }) => theme.assets.disabledBg};
     cursor: not-allowed;
   }
 `;

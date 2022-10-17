@@ -5,7 +5,6 @@ type Assets =
   | "danger"
   | "neutral"
   ////
-  | "disabled"
   | "disabled-font"
   | "input-border"
   | "input-placeholder"

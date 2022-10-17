@@ -73,7 +73,7 @@ const Container = styled.div<{ disabled: boolean }>`
     if (disabled) {
       return css`
         cursor: not-allowed;
-        color: ${theme.assets["disabled"]};
+        color: ${theme.assets.disabledBg};
       `;
     }
   }}

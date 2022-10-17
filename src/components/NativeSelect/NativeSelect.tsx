@@ -164,7 +164,7 @@ const Select = styled.select<{
     box-shadow: ${({ theme }) => theme.shadows.outline};
   }
   &:disabled {
-    background-color: ${({ theme }) => theme.assets["disabled"]};
+    background-color: ${({ theme }) => theme.assets.disabledBg};
     border-color: transparent;
     cursor: not-allowed;
     color: ${({ theme }) => theme.assets["disabled-font"]};
@@ -188,7 +188,7 @@ const ChevronWrapper = styled.div`
 
 const Option = styled.option`
   &:disabled {
-    color: ${({ theme }) => theme.assets["disabled"]};
+    color: ${({ theme }) => theme.assets.disabledBg};
   }
 `;
 

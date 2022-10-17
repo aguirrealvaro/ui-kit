@@ -61,7 +61,7 @@ const Container = styled.div<{ disabled: boolean }>`
     if (disabled) {
       return css`
         cursor: not-allowed;
-        color: ${theme.assets["disabled"]};
+        color: ${theme.assets.disabledBg};
       `;
     }
   }}
@@ -121,7 +121,7 @@ const Pill = styled.span<{
     if (disabled) {
       return css`
         cursor: not-allowed;
-        background-color: ${theme.assets["disabled"]};
+        background-color: ${theme.assets.disabledBg};
         box-shadow: ${({ theme }) => theme.shadows.none};
       `;
     }

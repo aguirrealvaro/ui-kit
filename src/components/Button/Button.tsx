@@ -345,7 +345,7 @@ const CustomButton = styled.button<{
   transition: all ${({ theme }) => theme.transitions.durations.normal}ms
     ${({ theme }) => theme.transitions.timings.out};
   &:disabled {
-    background-color: ${({ theme }) => theme.assets["disabled"]};
+    background-color: ${({ theme }) => theme.assets.disabledBg};
     border-color: transparent;
     cursor: not-allowed;
     color: ${({ theme }) => theme.assets["disabled-font"]};
