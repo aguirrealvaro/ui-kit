@@ -7,9 +7,6 @@ export const lightAssets: AssetsType = {
   warning: colors.yellow[5],
   danger: colors.red[6],
   neutral: colors.black,
-  //////
-  "input-border": colors.grey[5],
-  /////
   bgPrimary: colors.grey[1],
   bgSecondary: colors.white,
   title: colors.black,

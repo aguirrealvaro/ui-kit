@@ -4,9 +4,6 @@ type Assets =
   | "warning"
   | "danger"
   | "neutral"
-  ////
-  | "input-border"
-  /////
   | "bgPrimary"
   | "bgSecondary"
   | "title"

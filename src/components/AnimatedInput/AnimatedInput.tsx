@@ -169,7 +169,7 @@ const InputContainer = styled.div<{
     }
 
     return css`
-      border-color: ${({ theme }) => theme.assets["input-border"]};
+      border-color: ${({ theme }) => theme.assets.borderPrimary};
       &:focus-within {
         box-shadow: ${({ theme }) => theme.shadows.outline};
         border-color: transparent;

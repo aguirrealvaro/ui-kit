@@ -72,11 +72,11 @@ export const NativeSelect: FunctionComponent<
         <SideContainer>
           {isSelected && clearValue && (
             <ButtonClear onClick={handleClearValue}>
-              <Icon icon={CloseOutline} color={theme.assets["input-border"]} size={18} />
+              <Icon icon={CloseOutline} color={theme.assets.borderPrimary} size={18} />
             </ButtonClear>
           )}
           <ChevronWrapper>
-            <Icon icon={ChevronDown} color={theme.assets["input-border"]} size={23} />
+            <Icon icon={ChevronDown} color={theme.assets.borderPrimary} size={23} />
           </ChevronWrapper>
         </SideContainer>
       </SelectContainer>
@@ -156,7 +156,7 @@ const Select = styled.select<{
       return theme.assets.success;
     }
 
-    return theme.assets["input-border"];
+    return theme.assets.borderPrimary;
   }};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   &:focus {

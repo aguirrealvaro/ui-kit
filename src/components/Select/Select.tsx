@@ -97,11 +97,11 @@ export const Select: FunctionComponent<SelectProps> = ({
           {isLoading && <Spinner size="xs" />}
           {isSelected && clearValue && (
             <ButtonClear onClick={handleClearValue}>
-              <Icon icon={CloseOutline} color={theme.assets["input-border"]} size={18} />
+              <Icon icon={CloseOutline} color={theme.assets.borderPrimary} size={18} />
             </ButtonClear>
           )}
           <ChevronWrapper active={isOpen}>
-            <Icon icon={ChevronDown} color={theme.assets["input-border"]} size={23} />
+            <Icon icon={ChevronDown} color={theme.assets.borderPrimary} size={23} />
           </ChevronWrapper>
         </SideContainer>
       </SelectContainer>
@@ -197,7 +197,7 @@ const SelectContainer = styled.div<{
     }
 
     return css`
-      border-color: ${theme.assets["input-border"]};
+      border-color: ${theme.assets.borderPrimary};
     `;
   }};
   ${({ disabled, theme }) => {
