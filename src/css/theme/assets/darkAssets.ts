@@ -9,7 +9,6 @@ export const darkAssets: AssetsType = {
   neutral: colors.white,
   /////
   "input-border": colors.grey[5],
-  "input-placeholder": colors.grey[6],
   /////
   bgPrimary: colors.grey[9],
   bgSecondary: colors.grey[8],

@@ -204,7 +204,7 @@ const Placeholder = styled.label`
   transition: all ${({ theme }) => theme.transitions.durations.normal}ms
     ${({ theme }) => theme.transitions.timings.out};
   pointer-events: none;
-  color: ${({ theme }) => theme.assets["input-placeholder"]};
+  color: ${({ theme }) => theme.assets.inputPlaceholder};
 `;
 
 const getFocusedLabelStyles = css`

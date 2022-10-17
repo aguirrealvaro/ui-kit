@@ -259,7 +259,7 @@ const CustomInput = styled.input<{
     cursor: not-allowed;
   }
   &::placeholder {
-    color: ${({ theme }) => theme.assets["input-placeholder"]};
+    color: ${({ theme }) => theme.assets.inputPlaceholder};
   }
 `;
 

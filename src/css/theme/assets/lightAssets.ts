@@ -9,7 +9,6 @@ export const lightAssets: AssetsType = {
   neutral: colors.black,
   //////
   "input-border": colors.grey[5],
-  "input-placeholder": colors.grey[6],
   /////
   bgPrimary: colors.grey[1],
   bgSecondary: colors.white,
@@ -25,7 +24,3 @@ export const lightAssets: AssetsType = {
   inputPlaceholder: colors.grey[6],
   icon: colors.grey[6],
 };
-
-/* 
-neutral?
-*/

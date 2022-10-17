@@ -6,7 +6,6 @@ type Assets =
   | "neutral"
   ////
   | "input-border"
-  | "input-placeholder"
   /////
   | "bgPrimary"
   | "bgSecondary"
