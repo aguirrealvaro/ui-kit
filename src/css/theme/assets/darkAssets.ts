@@ -10,8 +10,8 @@ export const darkAssets: AssetsType = {
   neutral: colors.white,
 
   // greys
-  bgPrimary: colors.grey[9],
-  bgSecondary: colors.grey[8],
+  bgPrimary: colors.grey[10],
+  bgSecondary: colors.grey[9],
   title: colors.white,
   textPrimary: colors.grey[2],
   textSecondary: colors.grey[5],
