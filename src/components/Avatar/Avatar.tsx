@@ -69,8 +69,8 @@ const Container = styled.div<{
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: ${theme.colors.grey[10]};
-        color: ${theme.colors.grey[1]};
+        background-color: ${theme.assets.avatarBg};
+        color: ${theme.assets.avatarText};
         overflow: hidden;
       `;
     }
@@ -80,7 +80,6 @@ const Container = styled.div<{
 const Name = styled.span`
   border-radius: inherit;
   text-transform: uppercase;
-  letter-spacing: 3px;
 `;
 
 const Image = styled.img`

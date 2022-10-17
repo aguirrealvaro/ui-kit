@@ -31,6 +31,10 @@ type Assets =
   | "alertDangerBg"
   | "alertDangerText"
   | "alertNeutralBg"
-  | "alertNeutralText";
+  | "alertNeutralText"
+
+  // avatar
+  | "avatarBg"
+  | "avatarText";
 
 export type AssetsType = Record<Assets, string>;

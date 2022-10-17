@@ -39,4 +39,8 @@ export const lightAssets: AssetsType = {
   alertDangerText: colors.red[8],
   alertNeutralBg: colors.grey[3],
   alertNeutralText: colors.grey[8],
+
+  // avatar
+  avatarBg: colors.black,
+  avatarText: colors.white,
 };
