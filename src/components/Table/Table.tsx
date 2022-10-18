@@ -56,13 +56,13 @@ const Container = styled.table`
   min-width: 35rem;
   width: 100%;
   border-spacing: 0;
-  border: 1px solid ${({ theme }) => theme.colors.grey[3]};
 `;
 
 const TableRowHeader = styled.tr`
   display: flex;
   background-color: ${({ theme }) => theme.colors.grey[2]};
-  border-bottom: 1px solid ${({ theme }) => theme.colors.grey[3]};
+  border: 1px solid ${({ theme }) => theme.colors.grey[3]};
+  border-radius: 16px 16px 0 0;
 `;
 
 const TableHead = styled.th<{ padding: string }>`
@@ -77,9 +77,12 @@ const TableRowData = styled.tr`
   &:hover:not([disabled]) {
     background-color: ${({ theme }) => theme.assets.hoverSecondary};
   }
-  border-bottom: 1px solid ${({ theme }) => theme.assets.borderSecondary};
+  border-left: 1px solid ${({ theme }) => theme.colors.grey[3]};
+  border-right: 1px solid ${({ theme }) => theme.colors.grey[3]};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.grey[2]};
   &:last-child {
-    border-bottom: 0;
+    border-radius: 0 0 16px 16px;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.grey[3]};
   }
 `;
 
