@@ -62,7 +62,12 @@ const TableRowHeader = styled.tr`
   display: flex;
   background-color: ${({ theme }) => theme.colors.grey[2]};
   border: 1px solid ${({ theme }) => theme.colors.grey[3]};
-  border-radius: 16px 16px 0 0;
+  border-radius: ${({ theme }) => {
+    const {
+      borderRadius: { md },
+    } = theme;
+    return `${md} ${md} 0 0`;
+  }};
 `;
 
 const TableHead = styled.th<{ padding: string }>`
@@ -81,7 +86,12 @@ const TableRowData = styled.tr`
   border-right: 1px solid ${({ theme }) => theme.colors.grey[3]};
   border-bottom: 1px solid ${({ theme }) => theme.colors.grey[2]};
   &:last-child {
-    border-radius: 0 0 16px 16px;
+    border-radius: ${({ theme }) => {
+      const {
+        borderRadius: { md },
+      } = theme;
+      return `0 0 ${md} ${md}`;
+    }};
     border-bottom: 1px solid ${({ theme }) => theme.colors.grey[3]};
   }
 `;
