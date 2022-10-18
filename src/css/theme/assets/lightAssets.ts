@@ -77,7 +77,7 @@ export const lightAssets: AssetsType = {
   buttonSolidDangerHover: colors.red[5],
   buttonSolidNeutralBg: neutral,
   buttonSolidNeutralText: colors.white,
-  buttonSolidNeutralHover: colors.grey[5],
+  buttonSolidNeutralHover: colors.grey[9],
 
   buttonOutlinedBg: "transparent",
   buttonOutlinedHover: colors.grey[2],

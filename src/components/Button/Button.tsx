@@ -119,48 +119,48 @@ const getColorStyles = (
 ): FlattenSimpleInterpolation => {
   const solidStyles: Record<VariantType, FlattenSimpleInterpolation> = {
     primary: css`
-      background-color: ${theme.assets.primary};
-      color: ${theme.colors.grey[1]};
-      border-color: ${theme.assets.primary};
+      background-color: ${theme.assets.buttonSolidPrimaryBg};
+      color: ${theme.assets.buttonSolidPrimaryText};
+      border-color: ${theme.assets.buttonSolidPrimaryBg};
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.blue[5]};
-        border-color: ${theme.colors.blue[5]};
+        background-color: ${theme.assets.buttonSolidPrimaryHover};
+        border-color: ${theme.assets.buttonSolidPrimaryHover};
       }
     `,
     success: css`
-      background-color: ${theme.assets.success};
-      color: ${theme.colors.grey[1]};
-      border-color: ${theme.assets.success};
+      background-color: ${theme.assets.buttonSolidSuccessBg};
+      color: ${theme.assets.buttonSolidSuccessText};
+      border-color: ${theme.assets.buttonSolidSuccessBg};
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.green[5]};
-        border-color: ${theme.colors.green[5]};
+        background-color: ${theme.assets.buttonSolidSuccessHover};
+        border-color: ${theme.assets.buttonSolidSuccessHover};
       }
     `,
     warning: css`
-      background-color: ${theme.assets.warning};
-      color: ${theme.colors.grey[1]};
-      border-color: ${theme.assets.warning};
+      background-color: ${theme.assets.buttonSolidWarningBg};
+      color: ${theme.assets.buttonSolidWarningText};
+      border-color: ${theme.assets.buttonSolidWarningBg};
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.yellow[4]};
-        border-color: ${theme.colors.yellow[4]};
+        background-color: ${theme.assets.buttonSolidWarningHover};
+        border-color: ${theme.assets.buttonSolidWarningHover};
       }
     `,
     danger: css`
-      background-color: ${theme.assets.danger};
-      color: ${theme.colors.grey[1]};
-      border-color: ${theme.assets.danger};
+      background-color: ${theme.assets.buttonSolidDangerBg};
+      color: ${theme.assets.buttonSolidDangerText};
+      border-color: ${theme.assets.buttonSolidDangerBg};
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.red[5]};
-        border-color: ${theme.colors.red[5]};
+        background-color: ${theme.assets.buttonSolidDangerHover};
+        border-color: ${theme.assets.buttonSolidDangerHover};
       }
     `,
     neutral: css`
-      background-color: ${theme.colors.grey[10]};
-      color: ${theme.colors.grey[1]};
-      border-color: ${theme.colors.grey[10]};
+      background-color: ${theme.assets.buttonSolidNeutralBg};
+      color: ${theme.assets.buttonSolidNeutralText};
+      border-color: ${theme.assets.buttonSolidNeutralBg};
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.grey[9]};
-        border-color: ${theme.colors.grey[9]};
+        background-color: ${theme.assets.buttonSolidNeutralHover};
+        border-color: ${theme.assets.buttonSolidNeutralHover};
       }
     `,
   };

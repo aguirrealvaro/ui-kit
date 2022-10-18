@@ -76,8 +76,8 @@ export const darkAssets: AssetsType = {
   buttonSolidDangerText: colors.white,
   buttonSolidDangerHover: colors.red[7],
   buttonSolidNeutralBg: neutral,
-  buttonSolidNeutralText: colors.white,
-  buttonSolidNeutralHover: colors.grey[7],
+  buttonSolidNeutralText: colors.black,
+  buttonSolidNeutralHover: colors.grey[2],
 
   buttonOutlinedBg: "transparent",
   buttonOutlinedHover: colors.grey[9],
