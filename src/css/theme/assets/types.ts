@@ -18,7 +18,11 @@ type Assets =
   | "hoverSecondary"
   | "disabledBg"
   | "disabledText"
+
+  // input
   | "inputPlaceholder"
+
+  // icon
   | "icon"
 
   // alert
