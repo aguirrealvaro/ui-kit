@@ -26,7 +26,7 @@ export const lightAssets: AssetsType = {
   inputPlaceholder: colors.grey[6],
 
   // icon
-  icon: colors.grey[9],
+  icon: colors.grey[7],
 
   // alert
   alertPrimaryBg: colors.blue[2],

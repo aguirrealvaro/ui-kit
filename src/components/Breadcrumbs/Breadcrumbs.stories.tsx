@@ -10,9 +10,7 @@ const Template: ComponentStory<typeof Breadcrumbs> = () => {
   return (
     <Breadcrumbs>
       <BreadcrumbItem href="#parent">Parent Page</BreadcrumbItem>
-      <BreadcrumbItem href="#sub" disabled>
-        Sub-Parent Page
-      </BreadcrumbItem>
+      <BreadcrumbItem href="#sub">Sub-Parent Page</BreadcrumbItem>
       <BreadcrumbItem isCurrentPage>Current page</BreadcrumbItem>
     </Breadcrumbs>
   );
