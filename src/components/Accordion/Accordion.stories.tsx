@@ -26,5 +26,5 @@ Primary.args = {
   title: "This is an Accordion",
   children:
     "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint voluptatem ratione delectus laborum facilis blanditiis eaque, aspernatur saepe asperiores corrupti ullam ipsam ut quia ea ex non vitae voluptas doloribus!",
-  showBorder: true,
+  showSeparator: true,
 };
