@@ -107,8 +107,8 @@ export const lightAssets: AssetsType = {
   buttonLinkNeutral: neutral,
 
   buttonAlternativeBg: "transparent",
-  buttonAlternativeText: colors.grey[1],
-  buttonAlternativeBorder: colors.grey[6],
+  buttonAlternativeText: colors.grey[6],
+  buttonAlternativeBorder: colors.grey[4],
   buttonAlternativePrimaryHover: primary,
   buttonAlternativeSuccessHover: success,
   buttonAlternativeWarningHover: warning,
