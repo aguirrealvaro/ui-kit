@@ -165,7 +165,7 @@ const getColorStyles = (
     `,
   };
 
-  const outlinedHover = theme.colors.grey[3];
+  const outlinedHover = theme.colors.grey[2];
 
   const outlinedStyles: Record<VariantType, FlattenSimpleInterpolation> = {
     primary: css`
