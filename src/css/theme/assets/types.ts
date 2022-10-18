@@ -6,7 +6,7 @@ type Assets =
   | "danger"
   | "neutral"
 
-  // greys
+  // basics
   | "bgPrimary"
   | "bgSecondary"
   | "title"
@@ -48,5 +48,42 @@ type Assets =
   | "badgeDangerText"
   | "badgeNeutralBg"
   | "badgeNeutralText";
+
+// button
+/* | "buttonPrimarySolidBg"
+  | "buttonPrimarySolidText"
+  | "buttonPrimarySolidHover"
+  | "buttonPrimaryOutlinedBg"
+  | "buttonPrimaryOutlinedText"
+  | "buttonPrimaryOutlinedHover"
+  | "buttonPrimaryGhostBg"
+  | "buttonPrimaryGhostText"
+  | "buttonPrimaryGhostHover"
+  | "buttonPrimaryLinkBg"
+  | "buttonPrimaryLinkText"
+  | "buttonPrimaryAlternativeBg"
+  | "buttonPrimaryAlternativeText"
+  | "buttonPrimaryAlternativeHover"
+  | "buttonPrimaryAlternativeBorder"
+  //
+  | "buttonSolidPrimaryBg"
+  | "buttonSolidPrimaryText"
+  | "buttonSolidPrimaryHover"
+  //
+  | "buttonOutlinedBg"
+  | "buttonOutlinedHover"
+  | "buttonOutlinedPrimaryText"
+  //
+  | "buttonGhostBg"
+  | "buttonGhostPrimaryText"
+  | "buttonGhostPrimaryBg"
+  //
+  | "buttonLinkBg"
+  | "buttonLinkPrimaryBg"
+  //
+  | "buttonAlternativeBg"
+  | "buttonAlternativeText"
+  | "buttonAlternativeBorder"
+  | "buttonAlternativeHover"; */
 
 export type AssetsType = Record<Assets, string>;
