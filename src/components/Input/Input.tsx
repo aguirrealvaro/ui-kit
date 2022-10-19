@@ -160,6 +160,7 @@ export const Input: FunctionComponent<
 const Label = styled.label<{ size: InputSizeType }>`
   display: block;
   margin-bottom: 0.5rem;
+  color: ${({ theme }) => theme.assets.inputPlaceholder};
   font-size: ${({ size, theme }) => {
     const sizes: Record<InputSizeType, string> = {
       sm: theme.typography.fontSizes.sm,
@@ -277,6 +278,7 @@ const BottomText = styled.div<{
     if (showSuccessMessage) {
       return theme.assets.success;
     }
+
     return theme.assets.textSecondary;
   }};
   font-size: ${({ size, theme }) => {
