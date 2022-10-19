@@ -97,7 +97,7 @@ export const lightAssets: AssetsType = {
   buttonGhostDangerText: danger,
   buttonGhostDangerHover: colors.red[2],
   buttonGhostNeutralText: neutral,
-  buttonGhostNeutralHover: colors.grey[2],
+  buttonGhostNeutralHover: colors.grey[3],
 
   buttonLinkBg: "transparent",
   buttonLinkPrimary: primary,
