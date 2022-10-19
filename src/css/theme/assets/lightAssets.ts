@@ -117,4 +117,8 @@ export const lightAssets: AssetsType = {
   buttonAlternativeWarningHover: warning,
   buttonAlternativeDangerHover: danger,
   buttonAlternativeNeutralHover: neutral,
+
+  // tooltip
+  tooltipBg: colors.black,
+  tooltipText: colors.white,
 };

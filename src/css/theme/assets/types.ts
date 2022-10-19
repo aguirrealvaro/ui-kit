@@ -103,6 +103,10 @@ type Assets =
   | "buttonAlternativeSuccessHover"
   | "buttonAlternativeWarningHover"
   | "buttonAlternativeDangerHover"
-  | "buttonAlternativeNeutralHover";
+  | "buttonAlternativeNeutralHover"
+
+  // tooltip
+  | "tooltipBg"
+  | "tooltipText";
 
 export type AssetsType = Record<Assets, string>;

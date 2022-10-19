@@ -117,4 +117,8 @@ export const darkAssets: AssetsType = {
   buttonAlternativeWarningHover: warning,
   buttonAlternativeDangerHover: danger,
   buttonAlternativeNeutralHover: neutral,
+
+  // tooltip
+  tooltipBg: colors.white,
+  tooltipText: colors.black,
 };
