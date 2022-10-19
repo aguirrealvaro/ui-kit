@@ -143,6 +143,7 @@ const Container = styled.div`
 const Label = styled.label<{ size: SelectSizeType }>`
   display: block;
   margin-bottom: 0.5rem;
+  color: ${({ theme }) => theme.assets.textSecondary};
   font-size: ${({ size, theme }) => {
     const sizes: Record<SelectSizeType, string> = {
       sm: theme.typography.fontSizes.sm,
@@ -237,8 +238,8 @@ const Dropdown = styled.div<{ size: SelectSizeType }>`
   position: absolute;
   z-index: ${({ theme }) => theme.zIndices.dropdown};
   padding: 0.5rem;
-  border: 1px solid ${({ theme }) => theme.colors.grey[5]};
-  background-color: ${({ theme }) => theme.colors.grey[2]};
+  border: 1px solid ${({ theme }) => theme.assets.borderPrimary};
+  background-color: ${({ theme }) => theme.assets.bgPrimary};
   box-shadow: ${({ theme }) => theme.shadows.sm};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   width: 100%;
@@ -270,12 +271,12 @@ const Option = styled.button<{ isSelected: boolean }>`
     isSelected
       ? css`
           background-color: ${theme.assets.primary};
-          color: ${theme.colors.grey[1]};
+          color: ${theme.colors.white};
         `
       : css`
           &:hover:not([disabled]) {
             background-color: ${theme.assets.primary};
-            color: ${({ theme }) => theme.colors.grey[1]};
+            color: ${theme.colors.white};
           }
         `};
   &:disabled {

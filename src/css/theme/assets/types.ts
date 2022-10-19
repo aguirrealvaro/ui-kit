@@ -107,6 +107,14 @@ type Assets =
 
   // tooltip
   | "tooltipBg"
-  | "tooltipText";
+  | "tooltipText"
+
+  // spinner
+  | "spinnerBorder"
+  | "spinnerColor"
+
+  // switch
+  | "switchUnchecked"
+  | "switchChecked";
 
 export type AssetsType = Record<Assets, string>;

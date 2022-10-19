@@ -121,4 +121,12 @@ export const darkAssets: AssetsType = {
   // tooltip
   tooltipBg: colors.white,
   tooltipText: colors.black,
+
+  // spinner
+  spinnerColor: primary,
+  spinnerBorder: colors.grey[8],
+
+  // switch
+  switchUnchecked: colors.grey[7],
+  switchChecked: primary,
 };

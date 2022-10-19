@@ -19,7 +19,7 @@ export const Spinner: FunctionComponent<SpinnerProps> = ({
 
   return (
     <Container fullHeight={fullHeight}>
-      <Loader color={color || theme.assets.primary} size={size} />
+      <Loader color={color || theme.assets.spinnerColor} size={size} />
     </Container>
   );
 };
@@ -40,7 +40,7 @@ const Loader = styled.div<{ size: SpinnerSizeType; color: string }>`
     const borderSize = (numberSize * 3.9) / 32;
 
     return css`
-      border: ${borderSize}px solid ${theme.colors.grey[4]};
+      border: ${borderSize}px solid ${theme.assets.spinnerBorder};
       border-top: ${borderSize}px solid ${color};
       width: ${numberSize}px;
       height: ${numberSize}px;

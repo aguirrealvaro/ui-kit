@@ -80,7 +80,7 @@ const Container = styled.div<{ isUnmounting: boolean; transitionTime: number }>`
   right: 0;
   bottom: 0;
   width: 70%;
-  background-color: ${({ theme }) => theme.colors.grey[1]};
+  background-color: ${({ theme }) => theme.assets.bgPrimary};
   box-shadow: ${({ theme }) => theme.shadows.sm};
   animation: ${translate} ${({ transitionTime }) => transitionTime}ms
     ${({ theme }) => theme.transitions.timings.in};

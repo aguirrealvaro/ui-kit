@@ -33,7 +33,7 @@ export const Switch: FunctionComponent<
           <Pill
             checked={checked || false}
             size={size}
-            color={color || theme.assets.primary}
+            color={color || theme.assets.switchChecked}
             disabled={disabled}
           >
             <Ball checked={checked || false} size={size} />
@@ -112,7 +112,7 @@ const Pill = styled.span<{
       `;
     } else {
       return css`
-        background-color: ${theme.colors.grey[5]};
+        background-color: ${theme.assets.switchUnchecked};
         box-shadow: ${({ theme }) => theme.shadows.inset};
       `;
     }

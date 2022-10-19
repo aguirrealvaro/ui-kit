@@ -47,7 +47,7 @@ export const Radio: FunctionComponent<
         <Wrapper position={position}>
           <Icon
             icon={icon}
-            color={disabled ? theme.colors.grey[5] : iconColor}
+            color={disabled ? theme.assets.disabledBg : iconColor}
             size={radioSize}
           />
         </Wrapper>
