@@ -26,6 +26,7 @@ type Assets =
 
   // icon
   | "icon"
+  | "iconHover"
 
   // alert
   | "alertPrimaryBg"
