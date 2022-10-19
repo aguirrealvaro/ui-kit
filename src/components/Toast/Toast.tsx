@@ -89,10 +89,9 @@ const Container = styled.div<{
   display: flex;
   gap: ${({ theme }) => theme.spacing[2]};
   padding: 1rem 3rem 1rem 1rem;
-  color: ${({ theme }) => theme.colors.grey[1]};
+  color: ${({ theme }) => theme.colors.white};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   margin-bottom: 1rem;
-  background-color: ${({ theme }) => theme.colors.grey[1]};
   box-shadow: ${({ theme }) => theme.shadows.lg};
   ${({ variant, theme }) => {
     const variantStyles: Record<VariantType, FlattenSimpleInterpolation> = {
@@ -109,7 +108,7 @@ const Container = styled.div<{
         background-color: ${theme.assets.warning};
       `,
       neutral: css`
-        background-color: ${theme.colors.grey[10]};
+        background-color: ${theme.assets.neutral};
       `,
     };
     return variantStyles[variant];
