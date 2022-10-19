@@ -17,7 +17,7 @@ export const ThemeContext = createContext<ThemeContextType>({} as ThemeContextTy
 
 export const ThemeProvider: FunctionComponent<ThemeProviderProps> = ({ children }) => {
   const [themeMode, setThemeMode] = useState<ThemeModeType>(() => {
-    return (localStorage.getItem(THEME_MODE_KEY) || "light") as ThemeModeType;
+    return (localStorage.getItem(THEME_MODE_KEY) || "dark") as ThemeModeType;
   });
 
   const toggleColorMode = () => {

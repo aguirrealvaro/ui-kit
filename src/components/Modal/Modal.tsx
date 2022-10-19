@@ -112,7 +112,7 @@ const Content = styled.div<{ size: ModalSizeType; fadeOut: boolean }>`
       transition: all ${({ theme }) => theme.transitions.durations.normal}ms
         ${({ theme }) => theme.transitions.timings.in};
     `}
-  background-color: ${({ theme }) => theme.colors.grey[1]};
+  background-color: ${({ theme }) => theme.assets.bgSecondary};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   box-shadow: ${({ theme }) => theme.shadows.sm};
   display: flex;
