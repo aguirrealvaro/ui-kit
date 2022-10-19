@@ -60,8 +60,8 @@ const Container = styled.table`
 
 const TableRowHeader = styled.tr`
   display: flex;
-  background-color: ${({ theme }) => theme.colors.grey[2]};
-  border: 1px solid ${({ theme }) => theme.colors.grey[3]};
+  background-color: ${({ theme }) => theme.assets.tableHeaderBg};
+  border: 1px solid ${({ theme }) => theme.assets.tableBorder};
   border-radius: ${({ theme }) => {
     const {
       borderRadius: { md },
@@ -78,13 +78,13 @@ const TableHead = styled.th<{ padding: string }>`
 
 const TableRowData = styled.tr`
   display: flex;
-  background-color: ${({ theme }) => theme.assets.bgSecondary};
+  background-color: ${({ theme }) => theme.assets.tableRowBg};
   &:hover:not([disabled]) {
-    background-color: ${({ theme }) => theme.assets.hoverSecondary};
+    background-color: ${({ theme }) => theme.assets.tableRowBgHover};
   }
-  border-left: 1px solid ${({ theme }) => theme.colors.grey[3]};
-  border-right: 1px solid ${({ theme }) => theme.colors.grey[3]};
-  border-bottom: 1px solid ${({ theme }) => theme.colors.grey[2]};
+  border-left: 1px solid ${({ theme }) => theme.assets.tableBorder};
+  border-right: 1px solid ${({ theme }) => theme.assets.tableBorder};
+  border-bottom: 1px solid ${({ theme }) => theme.assets.tableRowBorder};
   &:last-child {
     border-radius: ${({ theme }) => {
       const {
@@ -92,7 +92,7 @@ const TableRowData = styled.tr`
       } = theme;
       return `0 0 ${md} ${md}`;
     }};
-    border-bottom: 1px solid ${({ theme }) => theme.colors.grey[3]};
+    border-bottom: 1px solid ${({ theme }) => theme.assets.tableBorder};
   }
 `;
 

@@ -129,4 +129,11 @@ export const darkAssets: AssetsType = {
   // switch
   switchUnchecked: colors.grey[7],
   switchChecked: primary,
+
+  //table
+  tableHeaderBg: colors.grey[8],
+  tableRowBg: colors.grey[9],
+  tableRowBgHover: colors.grey[10],
+  tableBorder: colors.grey[8],
+  tableRowBorder: colors.grey[9],
 };

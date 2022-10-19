@@ -129,4 +129,11 @@ export const lightAssets: AssetsType = {
   // switch
   switchUnchecked: colors.grey[5],
   switchChecked: primary,
+
+  //table
+  tableHeaderBg: colors.grey[2],
+  tableRowBg: colors.white,
+  tableRowBgHover: colors.grey[1],
+  tableBorder: colors.grey[3],
+  tableRowBorder: colors.grey[2],
 };

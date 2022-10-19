@@ -115,6 +115,13 @@ type Assets =
 
   // switch
   | "switchUnchecked"
-  | "switchChecked";
+  | "switchChecked"
+
+  // table
+  | "tableHeaderBg"
+  | "tableRowBg"
+  | "tableRowBgHover"
+  | "tableBorder"
+  | "tableRowBorder";
 
 export type AssetsType = Record<Assets, string>;
