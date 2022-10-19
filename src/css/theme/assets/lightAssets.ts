@@ -18,11 +18,13 @@ export const lightAssets: AssetsType = {
   // basics
   bgPrimary: colors.grey[1],
   bgSecondary: colors.white,
+  bgTertiary: colors.grey[2],
   title: colors.black,
   textPrimary: colors.grey[9],
   textSecondary: colors.grey[7],
   borderPrimary: colors.grey[3],
   borderSecondary: colors.grey[2],
+  borderTertiary: colors.grey[4],
   hoverPrimary: colors.grey[2],
   hoverSecondary: colors.grey[1],
   disabledBg: colors.grey[4],

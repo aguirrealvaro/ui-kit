@@ -19,7 +19,7 @@ export const Dropdown: FunctionComponent<PopoverProps> = ({
 };
 
 const Content = styled.div<{ withTriggerWidth: boolean }>`
-  background-color: ${({ theme }) => theme.colors.grey[1]};
+  background-color: ${({ theme }) => theme.assets.bgTertiary};
   box-shadow: ${({ theme }) => theme.shadows.sm};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   padding: 1.2rem;

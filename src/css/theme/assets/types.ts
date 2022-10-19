@@ -9,11 +9,13 @@ type Assets =
   // basics
   | "bgPrimary"
   | "bgSecondary"
+  | "bgTertiary"
   | "title"
   | "textPrimary"
   | "textSecondary"
   | "borderPrimary"
   | "borderSecondary"
+  | "borderTertiary"
   | "hoverPrimary"
   | "hoverSecondary"
   | "disabledBg"
