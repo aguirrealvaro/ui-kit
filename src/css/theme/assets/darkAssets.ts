@@ -19,15 +19,19 @@ export const darkAssets: AssetsType = {
   bgPrimary: colors.grey[10],
   bgSecondary: colors.grey[9],
   bgTertiary: colors.grey[8],
-  title: colors.white,
-  textPrimary: colors.grey[2],
-  textSecondary: colors.grey[5],
+
+  hoverPrimary: colors.grey[9],
+  hoverSecondary: colors.grey[8],
+  hoverTertiary: colors.grey[7],
+
   borderPrimary: colors.grey[8],
   borderSecondary: colors.grey[7],
   borderTertiary: colors.grey[6],
-  hoverPrimary: colors.grey[8],
-  hoverSecondary: colors.grey[7],
-  hoverTertiary: colors.grey[6],
+
+  title: colors.white,
+  textPrimary: colors.grey[2],
+  textSecondary: colors.grey[5],
+
   disabledBg: colors.grey[7],
   disabledText: colors.grey[6],
 
