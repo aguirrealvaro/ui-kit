@@ -125,6 +125,7 @@ export const darkAssets: AssetsType = {
   // spinner
   spinnerColor: primary,
   spinnerBorder: colors.grey[8],
+  spinnerButtonColor: colors.grey[4],
 
   // switch
   switchUnchecked: colors.grey[7],

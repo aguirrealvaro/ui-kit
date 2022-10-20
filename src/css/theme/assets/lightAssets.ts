@@ -125,6 +125,7 @@ export const lightAssets: AssetsType = {
   // spinner
   spinnerColor: primary,
   spinnerBorder: colors.grey[3],
+  spinnerButtonColor: colors.grey[8],
 
   // switch
   switchUnchecked: colors.grey[5],

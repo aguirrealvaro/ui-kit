@@ -112,6 +112,7 @@ type Assets =
   // spinner
   | "spinnerBorder"
   | "spinnerColor"
+  | "spinnerButtonColor"
 
   // switch
   | "switchUnchecked"

@@ -40,7 +40,7 @@ export const Button: FunctionComponent<
   };
 
   const renderChildren = () => {
-    if (isLoading) return <Spinner size="xs" color={theme.colors.grey[10]} />;
+    if (isLoading) return <Spinner size="xs" color={theme.assets.spinnerButtonColor} />;
 
     return (
       <InnerContainer>
