@@ -26,6 +26,6 @@ const Container = styled.div`
   background-color: ${({ theme }) => theme.assets.bgSecondary};
   padding: 2px 50px;
   border-radius: ${({ theme }) => theme.borderRadius.md};
-  border: 1px solid ${({ theme }) => theme.assets.borderPrimary};
+  box-shadow: ${({ theme }) => theme.shadows.card};
   text-align: center;
 `;

@@ -46,4 +46,5 @@ const Card = styled.div`
   align-items: center;
   border-radius: ${({ theme }) => theme.borderRadius.sm};
   font-size: ${({ theme }) => theme.typography.fontSizes["2xl"]};
+  box-shadow: ${({ theme }) => theme.shadows.card};
 `;
