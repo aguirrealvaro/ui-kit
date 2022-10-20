@@ -21,7 +21,7 @@ export const colors: CollorsType = {
   white: "#ffffff",
   black: "#000000",
   grey: {
-    1: "#F9FAFB",
+    1: "#F7F7F7",
     2: "#F3F4F6",
     3: "#E5E7EB",
     4: "#D1D5DB",
