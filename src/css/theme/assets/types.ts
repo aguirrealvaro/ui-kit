@@ -18,6 +18,7 @@ type Assets =
   | "borderTertiary"
   | "hoverPrimary"
   | "hoverSecondary"
+  | "hoverTertiary"
   | "disabledBg"
   | "disabledText"
 

@@ -27,6 +27,7 @@ export const darkAssets: AssetsType = {
   borderTertiary: colors.grey[6],
   hoverPrimary: colors.grey[8],
   hoverSecondary: colors.grey[7],
+  hoverTertiary: colors.grey[6],
   disabledBg: colors.grey[7],
   disabledText: colors.grey[6],
 

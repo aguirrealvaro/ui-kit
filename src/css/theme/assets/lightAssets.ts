@@ -27,6 +27,7 @@ export const lightAssets: AssetsType = {
   borderTertiary: colors.grey[4],
   hoverPrimary: colors.grey[2],
   hoverSecondary: colors.grey[1],
+  hoverTertiary: colors.grey[3],
   disabledBg: colors.grey[4],
   disabledText: colors.grey[5],
 
