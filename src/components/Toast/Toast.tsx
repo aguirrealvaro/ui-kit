@@ -51,6 +51,22 @@ export const Toast: FunctionComponent<ToastProps> = ({
     };
   }, []);
 
+  const variantIcons: Record<VariantType, StyledIcon> = {
+    primary: InfoCircleFill,
+    success: CheckCircleFill,
+    warning: Alert,
+    danger: CloseCircle,
+    neutral: InfoCircleFill,
+  };
+
+  const variantIconColors: Record<VariantType, string> = {
+    primary: theme.assets.toastPrimaryText,
+    success: theme.assets.toastSuccessText,
+    warning: theme.assets.toastWarningText,
+    danger: theme.assets.toastDangerText,
+    neutral: theme.assets.toastNeutralText,
+  };
+
   return (
     <Container
       isClosing={isClosing}
@@ -58,21 +74,13 @@ export const Toast: FunctionComponent<ToastProps> = ({
       role="alert"
       transitionTime={transitionTime}
     >
-      <Icon icon={variantIcons[variant]} size={18} color={theme.colors.grey[1]} />
+      <Icon icon={variantIcons[variant]} size={18} color={variantIconColors[variant]} />
       <div>{children}</div>
       <CloseButton onClick={closeToast}>
-        <Icon icon={CloseOutline} size={15} color={theme.colors.grey[1]} />
+        <Icon icon={CloseOutline} size={15} color={variantIconColors[variant]} />
       </CloseButton>
     </Container>
   );
-};
-
-const variantIcons: Record<VariantType, StyledIcon> = {
-  primary: InfoCircleFill,
-  success: CheckCircleFill,
-  warning: Alert,
-  danger: CloseCircle,
-  neutral: InfoCircleFill,
 };
 
 const fadeInScale = keyframes`
@@ -96,19 +104,24 @@ const Container = styled.div<{
   ${({ variant, theme }) => {
     const variantStyles: Record<VariantType, FlattenSimpleInterpolation> = {
       primary: css`
-        background-color: ${theme.assets.primary};
+        background-color: ${theme.assets.toastPrimaryBg};
+        color: ${theme.assets.toastPrimaryText};
       `,
       success: css`
-        background-color: ${theme.assets.success};
+        background-color: ${theme.assets.toastSuccessBg};
+        color: ${theme.assets.toastSuccessText};
       `,
       danger: css`
-        background-color: ${theme.assets.danger};
+        background-color: ${theme.assets.toastDangerBg};
+        color: ${theme.assets.toastDangerText};
       `,
       warning: css`
-        background-color: ${theme.assets.warning};
+        background-color: ${theme.assets.toastWarningBg};
+        color: ${theme.assets.toastWarningText};
       `,
       neutral: css`
-        background-color: ${theme.assets.neutral};
+        background-color: ${theme.assets.toastNeutralBg};
+        color: ${theme.assets.toastNeutralText};
       `,
     };
     return variantStyles[variant];

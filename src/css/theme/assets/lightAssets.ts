@@ -136,4 +136,16 @@ export const lightAssets: AssetsType = {
   tableRowBgHover: colors.grey[1],
   tableBorder: colors.grey[3],
   tableRowBorder: colors.grey[2],
+
+  //toast
+  toastPrimaryBg: primary,
+  toastPrimaryText: colors.white,
+  toastSuccessBg: success,
+  toastSuccessText: colors.white,
+  toastWarningBg: warning,
+  toastWarningText: colors.white,
+  toastDangerBg: danger,
+  toastDangerText: colors.white,
+  toastNeutralBg: neutral,
+  toastNeutralText: colors.white,
 };

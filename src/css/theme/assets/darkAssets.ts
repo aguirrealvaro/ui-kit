@@ -44,7 +44,7 @@ export const darkAssets: AssetsType = {
   alertSuccessText: colors.green[3],
   alertWarningBg: colors.yellow[9],
   alertWarningText: colors.yellow[3],
-  alertDangerBg: colors.red[9],
+  alertDangerBg: colors.red[10],
   alertDangerText: colors.red[3],
   alertNeutralBg: colors.grey[7],
   alertNeutralText: colors.grey[3],
@@ -136,4 +136,16 @@ export const darkAssets: AssetsType = {
   tableRowBgHover: colors.grey[10],
   tableBorder: colors.grey[8],
   tableRowBorder: colors.grey[9],
+
+  //toast
+  toastPrimaryBg: primary,
+  toastPrimaryText: colors.white,
+  toastSuccessBg: success,
+  toastSuccessText: colors.white,
+  toastWarningBg: warning,
+  toastWarningText: colors.white,
+  toastDangerBg: danger,
+  toastDangerText: colors.white,
+  toastNeutralBg: neutral,
+  toastNeutralText: colors.black,
 };

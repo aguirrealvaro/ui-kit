@@ -122,6 +122,18 @@ type Assets =
   | "tableRowBg"
   | "tableRowBgHover"
   | "tableBorder"
-  | "tableRowBorder";
+  | "tableRowBorder"
+
+  // toast
+  | "toastPrimaryBg"
+  | "toastPrimaryText"
+  | "toastSuccessBg"
+  | "toastSuccessText"
+  | "toastWarningBg"
+  | "toastWarningText"
+  | "toastDangerBg"
+  | "toastDangerText"
+  | "toastNeutralBg"
+  | "toastNeutralText";
 
 export type AssetsType = Record<Assets, string>;
