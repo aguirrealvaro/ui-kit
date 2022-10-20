@@ -136,7 +136,7 @@ const Ball = styled.span<{ checked: boolean; size: SwitchSizeType }>`
     return checked ? `${translate}` : 0;
   }};
   transform: scale(0.8);
-  background-color: ${({ theme }) => theme.colors.grey[1]};
+  background-color: ${({ theme }) => theme.colors.white};
   ${({ size, theme }) => {
     const pillSize = getSizes(theme)[size];
     return css`
