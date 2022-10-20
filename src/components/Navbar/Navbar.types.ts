@@ -1,5 +1,7 @@
+import { ReactNode } from "react";
+
 export type NavbarItem = {
-  label: string;
+  label: ReactNode;
   onClick: () => void;
   disabled?: boolean;
   show?: boolean;

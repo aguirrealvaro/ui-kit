@@ -72,11 +72,11 @@ export const NativeSelect: FunctionComponent<
         <SideContainer>
           {isSelected && clearValue && (
             <ButtonClear onClick={handleClearValue}>
-              <Icon icon={CloseOutline} color={theme.assets.borderPrimary} size={18} />
+              <Icon icon={CloseOutline} size={18} />
             </ButtonClear>
           )}
           <ChevronWrapper>
-            <Icon icon={ChevronDown} color={theme.assets.borderPrimary} size={23} />
+            <Icon icon={ChevronDown} size={23} />
           </ChevronWrapper>
         </SideContainer>
       </SelectContainer>

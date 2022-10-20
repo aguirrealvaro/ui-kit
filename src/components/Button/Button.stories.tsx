@@ -8,9 +8,9 @@ export default {
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => {
-  const { toggleColorMode } = useTheme();
+  const { toggleThemeMode } = useTheme();
 
-  return <Button onClick={toggleColorMode} {...args} />;
+  return <Button onClick={toggleThemeMode} {...args} />;
 };
 
 export const Primary = Template.bind({});

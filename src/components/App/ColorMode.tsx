@@ -4,12 +4,12 @@ import { Button } from "..";
 import { useTheme } from "../../hooks";
 
 export const ColorMode: FunctionComponent = () => {
-  const { themeMode, toggleColorMode } = useTheme();
+  const { themeMode, toggleThemeMode } = useTheme();
 
   return (
     <Container>
       <div>color mode: {themeMode}</div>
-      <Button onClick={toggleColorMode}>Toggle color!</Button>
+      <Button onClick={toggleThemeMode}>Toggle color!</Button>
     </Container>
   );
 };

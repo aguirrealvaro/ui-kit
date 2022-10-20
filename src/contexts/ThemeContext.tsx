@@ -6,7 +6,7 @@ import { ThemeModeType, getTheme, ThemeType } from "@/css";
 export type ThemeContextType = {
   theme: ThemeType;
   themeMode: ThemeModeType;
-  toggleColorMode: () => void;
+  toggleThemeMode: () => void;
 };
 
 type ThemeProviderProps = {
@@ -20,7 +20,7 @@ export const ThemeProvider: FunctionComponent<ThemeProviderProps> = ({ children 
     return (localStorage.getItem(THEME_MODE_KEY) || "dark") as ThemeModeType;
   });
 
-  const toggleColorMode = () => {
+  const toggleThemeMode = () => {
     const mode = themeMode === "light" ? "dark" : "light";
     setThemeMode(mode);
     localStorage.setItem(THEME_MODE_KEY, mode);
@@ -29,7 +29,7 @@ export const ThemeProvider: FunctionComponent<ThemeProviderProps> = ({ children 
   const theme = getTheme(themeMode);
 
   return (
-    <ThemeContext.Provider value={{ theme, themeMode, toggleColorMode }}>
+    <ThemeContext.Provider value={{ theme, themeMode, toggleThemeMode }}>
       <StyledThemeProvider theme={theme}>{children}</StyledThemeProvider>
     </ThemeContext.Provider>
   );
