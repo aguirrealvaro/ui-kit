@@ -31,6 +31,7 @@ export const lightAssets: AssetsType = {
   title: colors.black,
   textPrimary: colors.grey[9],
   textSecondary: colors.grey[7],
+
   disabledBg: colors.grey[4],
   disabledText: colors.grey[5],
 
