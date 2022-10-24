@@ -1,3 +1,4 @@
+import { ChangeEvent, useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { AnimatedInput } from "@/components";
 
@@ -28,7 +29,20 @@ export default {
   },
 } as ComponentMeta<typeof AnimatedInput>;
 
-const Template: ComponentStory<typeof AnimatedInput> = (args) => <AnimatedInput {...args} />;
+const Template: ComponentStory<typeof AnimatedInput> = (args) => {
+  const [value, setValue] = useState<string>("");
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
+
+  const clearValue = () => {
+    setValue("");
+  };
+  return (
+    <AnimatedInput value={value} onChange={handleChange} clearValue={clearValue} {...args} />
+  );
+};
 
 export const Primary = Template.bind({});
 Primary.args = {
