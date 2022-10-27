@@ -5,3 +5,12 @@
 `npm install`
 
 `npm run storybook`
+
+### Components to do
+List, ListItem
+
+DatePicker
+
+TimePicker
+
+Pagination
