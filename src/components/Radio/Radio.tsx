@@ -68,6 +68,7 @@ const HiddenInput = styled.input`
 const Container = styled.div<{ disabled: boolean }>`
   display: flex;
   align-items: center;
+  cursor: pointer;
   gap: ${({ theme }) => theme.spacing[2]};
   ${({ disabled, theme }) => {
     if (disabled) {

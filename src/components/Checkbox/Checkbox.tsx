@@ -1,6 +1,6 @@
 import { FunctionComponent, InputHTMLAttributes, ReactNode } from "react";
-import { Checkbox as CheckboxUnchecked } from "@styled-icons/boxicons-regular/Checkbox";
-import { CheckboxChecked } from "@styled-icons/boxicons-solid/CheckboxChecked";
+import { CheckCircle } from "@styled-icons/material-rounded/CheckCircle";
+import { RadioButtonUnchecked } from "@styled-icons/material-rounded/RadioButtonUnchecked";
 import styled, { css } from "styled-components";
 import { Icon } from "../Icon";
 import { CheckboxPositionType, CheckboxSizeType } from "./Checkbox.types";
@@ -20,7 +20,7 @@ export const Checkbox: FunctionComponent<
 > = ({
   children,
   size = "md",
-  position = "right",
+  position = "left",
   checked,
   color,
   disabled = false,
@@ -37,7 +37,7 @@ export const Checkbox: FunctionComponent<
 
   const iconSize = sizes[size];
 
-  const icon = checked ? CheckboxChecked : CheckboxUnchecked;
+  const icon = checked ? CheckCircle : RadioButtonUnchecked;
   const iconColor = color || theme.assets.primary;
 
   return (
@@ -68,6 +68,7 @@ const HiddenInput = styled.input`
 const Container = styled.div<{ disabled: boolean }>`
   display: flex;
   align-items: center;
+  cursor: pointer;
   gap: ${({ theme }) => theme.spacing[2]};
   ${({ disabled, theme }) => {
     if (disabled) {

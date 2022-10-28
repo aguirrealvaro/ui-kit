@@ -69,7 +69,7 @@ const Button = styled.button<{ arrowPosition: AccordionArrowPosition }>`
       `;
     } else {
       return css`
-        gap: ${theme.spacing[8]};
+        gap: ${theme.spacing[2]};
       `;
     }
   }}
