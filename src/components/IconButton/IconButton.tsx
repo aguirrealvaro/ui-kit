@@ -1,22 +1,17 @@
 import { ButtonHTMLAttributes, FunctionComponent, ReactNode } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 type IconButtonProps = {
   children: ReactNode;
-  withHover?: boolean;
 };
 
 export const IconButton: FunctionComponent<
   IconButtonProps & ButtonHTMLAttributes<HTMLButtonElement>
-> = ({ children, withHover = true, ...props }) => {
-  return (
-    <Container withHover={withHover} {...props}>
-      {children}
-    </Container>
-  );
+> = ({ children, ...props }) => {
+  return <Container {...props}>{children}</Container>;
 };
 
-const Container = styled.button<{ withHover: boolean }>`
+const Container = styled.button`
   display: flex;
   align-self: baseline;
   line-height: 0;
@@ -24,13 +19,7 @@ const Container = styled.button<{ withHover: boolean }>`
   border-radius: ${({ theme }) => theme.borderRadius.full};
   transition: background-color ${({ theme }) => theme.transitions.durations.normal}ms
     ${({ theme }) => theme.transitions.timings.out};
-  ${({ withHover }) => {
-    if (withHover) {
-      return css`
-        &:hover {
-          background-color: ${({ theme }) => theme.assets.iconHover};
-        }
-      `;
-    }
-  }}
+  &:hover {
+    background-color: ${({ theme }) => theme.assets.iconHover};
+  }
 `;

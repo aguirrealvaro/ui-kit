@@ -8,7 +8,7 @@ type BurgerProps = { onClick: () => void };
 export const Burger: FunctionComponent<BurgerProps> = ({ onClick }) => {
   return (
     <Container>
-      <IconButton onClick={onClick} withHover={false}>
+      <IconButton onClick={onClick}>
         <Icon icon={MenuOutline} />
       </IconButton>
     </Container>
