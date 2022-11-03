@@ -14,7 +14,7 @@ import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import styled, { css } from "styled-components";
 import { SelectFieldType, SelectSizeType } from "./Select.types";
 import { Spinner, Icon } from "@/components";
-import { useOutsideClick, useTheme } from "@/hooks";
+import { useOutsideClick } from "@/hooks";
 
 type SelectProps = {
   label?: ReactNode;
@@ -49,8 +49,6 @@ export const Select: FunctionComponent<SelectProps> = ({
   clearValue,
   size = "md",
 }) => {
-  const { theme } = useTheme();
-
   const containerRef = useRef<HTMLDivElement>(null);
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -275,8 +273,7 @@ const Option = styled.button<{ isSelected: boolean }>`
         `
       : css`
           &:hover:not([disabled]) {
-            background-color: ${theme.assets.primary};
-            color: ${theme.colors.white};
+            background-color: ${theme.assets.hoverPrimary};
           }
         `};
   &:disabled {
