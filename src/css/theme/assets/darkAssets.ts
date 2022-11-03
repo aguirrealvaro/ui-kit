@@ -39,7 +39,7 @@ export const darkAssets: AssetsType = {
   inputPlaceholder: colors.grey[5],
 
   // icon
-  icon: colors.grey[5],
+  icon: colors.grey[2],
   iconHover: colors.grey[8],
 
   // alert
