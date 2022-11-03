@@ -10,13 +10,9 @@ export default {
 const Template: ComponentStory<typeof IconButton> = (args) => {
   return (
     <IconButton {...args}>
-      <Icon icon={Menu} size={40} />
+      <Icon icon={Menu} size={25} />
     </IconButton>
   );
 };
 
 export const Primary = Template.bind({});
-Primary.args = {
-  children: "grey",
-  withHover: true,
-};

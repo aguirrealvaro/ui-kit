@@ -5,7 +5,6 @@ import styled from "styled-components";
 import { Icon } from "../Icon";
 import { SelectSizeType } from "../Select/Select.types";
 import { NativeSelectFieldType } from "./NativeSelect.types";
-import { useTheme } from "@/hooks";
 
 type NativeSelectProps = {
   label?: ReactNode;
@@ -36,8 +35,6 @@ export const NativeSelect: FunctionComponent<
   successMessage,
   size = "md",
 }) => {
-  const { theme } = useTheme();
-
   const handleClearValue = (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     clearValue?.();
