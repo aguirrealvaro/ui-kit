@@ -191,7 +191,7 @@ const InnerContainer = styled.div`
 `;
 
 const SideContainer = styled.div`
-  margin-right: 1.5rem;
+  margin-right: ${({ theme }) => theme.spacing[6]};
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacing[4]};

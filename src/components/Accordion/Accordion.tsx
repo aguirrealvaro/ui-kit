@@ -97,7 +97,7 @@ const Content = styled.div<{ height: number; active: boolean }>`
   overflow: hidden;
   transition: all ${({ theme }) => theme.transitions.durations.fast}ms
     ${({ theme }) => theme.transitions.timings.in};
-  margin-left: 1rem;
-  margin-bottom: ${({ active }) => active && "1rem"};
+  margin-left: ${({ theme }) => theme.spacing[4]};
+  margin-bottom: ${({ active, theme }) => active && theme.spacing[4]};
   color: ${({ theme }) => theme.assets.textSecondary};
 `;

@@ -39,7 +39,7 @@ const Container = styled.div`
 
 const Title = styled.span`
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: ${({ theme }) => theme.spacing[4]};
   text-align: center;
   font-size: ${({ theme }) => theme.typography.fontSizes.lg};
 `;

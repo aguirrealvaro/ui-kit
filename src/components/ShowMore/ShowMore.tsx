@@ -82,7 +82,7 @@ const Paragraph = styled.p<{
     if (showMoreEnabled) {
       return css`
         height: ${showMore ? containerHeight : minHeight}px;
-        margin-bottom: 1rem;
+        margin-bottom: ${({ theme }) => theme.spacing[4]};
         overflow-y: hidden;
         transition: height ${({ theme }) => theme.transitions.durations.normal}ms
           ${({ theme }) => theme.transitions.timings.out};

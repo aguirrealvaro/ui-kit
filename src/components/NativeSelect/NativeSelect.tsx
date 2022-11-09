@@ -98,7 +98,7 @@ const SelectContainer = styled.div`
 
 const Label = styled.label<{ size: SelectSizeType }>`
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: ${({ theme }) => theme.spacing[2]};
   color: ${({ theme }) => theme.assets.textSecondary};
   font-size: ${({ size, theme }) => {
     const sizes: Record<SelectSizeType, string> = {

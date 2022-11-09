@@ -14,10 +14,10 @@ const Container = styled.ul<{ nested: boolean }>`
   ${({ nested }) => {
     if (nested) {
       return css`
-        margin-left: 2rem;
+        margin-left: ${({ theme }) => theme.spacing[8]};
         > li {
           &:first-child {
-            margin-top: 0.5rem;
+            margin-top: ${({ theme }) => theme.spacing[2]};
           }
         }
       `;

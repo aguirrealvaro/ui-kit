@@ -159,7 +159,7 @@ export const Input: FunctionComponent<
 
 const Label = styled.label<{ size: InputSizeType }>`
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: ${({ theme }) => theme.spacing[2]};
   color: ${({ theme }) => theme.assets.textSecondary};
   font-size: ${({ size, theme }) => {
     const sizes: Record<InputSizeType, string> = {
@@ -219,14 +219,14 @@ const InputContainer = styled.div<{
 `;
 
 const LeftContainer = styled.div`
-  margin-left: 1.5rem;
+  margin-left: ${({ theme }) => theme.spacing[6]};
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacing[4]};
 `;
 
 const RightContainer = styled.div`
-  margin-right: 1.5rem;
+  margin-right: ${({ theme }) => theme.spacing[6]};
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacing[4]};

@@ -10,7 +10,7 @@ export const ListItem: FunctionComponent<ListItemProps> = ({ children }) => {
 };
 
 const Item = styled.li`
-  margin-bottom: 0.5rem;
+  margin-bottom: ${({ theme }) => theme.spacing[2]};
   &:last-child {
     margin-bottom: 0;
   }

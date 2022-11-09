@@ -99,7 +99,7 @@ const Container = styled.div<{
   padding: 1rem 3rem 1rem 1rem;
   color: ${({ theme }) => theme.colors.white};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
-  margin-bottom: 1rem;
+  margin-bottom: ${({ theme }) => theme.spacing[4]};
   box-shadow: ${({ theme }) => theme.shadows.md};
   ${({ variant, theme }) => {
     const variantStyles: Record<VariantType, FlattenSimpleInterpolation> = {

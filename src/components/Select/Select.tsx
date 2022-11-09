@@ -140,7 +140,7 @@ const Container = styled.div`
 
 const Label = styled.label<{ size: SelectSizeType }>`
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: ${({ theme }) => theme.spacing[2]};
   color: ${({ theme }) => theme.assets.textSecondary};
   font-size: ${({ size, theme }) => {
     const sizes: Record<SelectSizeType, string> = {
@@ -226,7 +226,7 @@ const InnerContainer = styled.div<{ size: SelectSizeType }>`
 `;
 
 const SideContainer = styled.div`
-  margin-right: 1.5rem;
+  margin-right: ${({ theme }) => theme.spacing[6]};
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacing[4]};
@@ -244,6 +244,7 @@ const Dropdown = styled.div<{ size: SelectSizeType }>`
   max-height: 250px;
   display: flex;
   flex-direction: column;
+  gap: ${({ theme }) => theme.spacing[1]};
   overflow-y: auto;
   transform: translateY(5px);
   font-size: ${({ size, theme }) => {
@@ -258,12 +259,8 @@ const Dropdown = styled.div<{ size: SelectSizeType }>`
 
 const Option = styled.button<{ isSelected: boolean }>`
   padding: ${({ theme }) => `${theme.spacing[2]} ${theme.spacing[3]}`};
-  margin-bottom: ${({ theme }) => theme.spacing[1]};
   text-align: left;
   color: ${({ theme }) => theme.assets.textPrimary};
-  &:last-child {
-    margin-bottom: 0;
-  }
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   ${({ isSelected, theme }) =>
     isSelected
