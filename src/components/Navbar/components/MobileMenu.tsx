@@ -31,7 +31,7 @@ export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
             <Icon icon={CloseOutline} size={25} />
           </IconButton>
         </CloseButtonWrapper>
-        <div>
+        <InnerContainer>
           {items
             .filter(({ show = true }) => show)
             .map(({ label, onClick, disabled = false }, i) => (
@@ -39,7 +39,7 @@ export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
                 {label}
               </Item>
             ))}
-        </div>
+        </InnerContainer>
       </Container>
     </Backdrop>
   );
@@ -102,12 +102,15 @@ const CloseButtonWrapper = styled.div`
   right: 2.1rem;
 `;
 
+const InnerContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.spacing[8]};
+`;
+
 const Item = styled.button`
   display: block;
-  margin: 0 auto 2rem;
-  &:last-child {
-    margin-bottom: 0rem;
-  }
+  margin: 0 auto;
   &:disabled {
     color: ${({ theme }) => theme.assets.disabledBg};
     cursor: not-allowed;

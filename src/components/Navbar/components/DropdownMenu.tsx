@@ -9,7 +9,7 @@ type MainMenuProps = { user: string; items: NavbarItem[] };
 
 export const DropdownMenu: FunctionComponent<MainMenuProps> = ({ user, items }) => {
   const dropdownContent = (
-    <div>
+    <DropdownContainer>
       {items
         .filter(({ show = true }) => show)
         .map(({ label, onClick, disabled = false }, i) => (
@@ -17,7 +17,7 @@ export const DropdownMenu: FunctionComponent<MainMenuProps> = ({ user, items }) 
             {label}
           </Item>
         ))}
-    </div>
+    </DropdownContainer>
   );
 
   return (
@@ -34,6 +34,7 @@ export const DropdownMenu: FunctionComponent<MainMenuProps> = ({ user, items }) 
 };
 
 const Container = styled.div`
+  display: flex;
   ${({ theme }) => theme.breakpoint("lg")} {
     display: none;
   }
@@ -45,12 +46,14 @@ const Profile = styled.button`
   gap: ${({ theme }) => theme.spacing[2]};
 `;
 
+const DropdownContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.spacing[4]};
+`;
+
 const Item = styled.button`
   display: block;
-  margin-bottom: 1rem;
-  &:last-child {
-    margin-bottom: 0rem;
-  }
   &:disabled {
     color: ${({ theme }) => theme.assets.disabledBg};
     cursor: not-allowed;

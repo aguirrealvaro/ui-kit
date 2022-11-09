@@ -19,16 +19,13 @@ export const MainMenu: FunctionComponent<MainMenuProps> = ({ items }) => (
 const Container = styled.div`
   display: flex;
   align-items: center;
+  gap: ${({ theme }) => theme.spacing[8]};
   ${({ theme }) => theme.breakpoint("lg")} {
     display: none;
   }
 `;
 
 const Item = styled.button`
-  margin-right: 2rem;
-  &:last-child {
-    margin-right: 0rem;
-  }
   &:disabled {
     color: ${({ theme }) => theme.assets.disabledBg};
     cursor: not-allowed;
