@@ -8,7 +8,8 @@ import { hiddenStyles } from "@/css";
 import { useTheme } from "@/hooks";
 
 type RadioProps = {
-  children?: ReactNode;
+  label: ReactNode;
+  helpText?: ReactNode;
   size?: RadioSizeType;
   position?: RadioPositionType;
   color?: string;
@@ -18,9 +19,10 @@ type RadioProps = {
 export const Radio: FunctionComponent<
   RadioProps & Omit<InputHTMLAttributes<HTMLInputElement>, "size">
 > = ({
-  children,
+  label,
+  helpText,
   size = "md",
-  position = "right",
+  position = "left",
   checked,
   color,
   disabled = false,
@@ -44,18 +46,17 @@ export const Radio: FunctionComponent<
     <label>
       <HiddenInput type="radio" checked={checked} disabled={disabled} {...restProps} />
       <Container disabled={disabled}>
-        <Wrapper position={position}>
+        <IconWrapper position={position}>
           <Icon
             icon={icon}
             color={disabled ? theme.assets.disabledBg : iconColor}
             size={radioSize}
           />
-        </Wrapper>
-        {children && (
-          <Label position={position} size={size}>
-            {children}
-          </Label>
-        )}
+        </IconWrapper>
+        <LabelContainer position={position}>
+          <Label size={size}>{label}</Label>
+          {helpText && <HelpText>{helpText}</HelpText>}
+        </LabelContainer>
       </Container>
     </label>
   );
@@ -67,9 +68,8 @@ const HiddenInput = styled.input`
 
 const Container = styled.div<{ disabled: boolean }>`
   display: flex;
-  align-items: center;
   cursor: pointer;
-  gap: ${({ theme }) => theme.spacing[2]};
+  gap: ${({ theme }) => theme.spacing[4]};
   ${({ disabled, theme }) => {
     if (disabled) {
       return css`
@@ -80,12 +80,16 @@ const Container = styled.div<{ disabled: boolean }>`
   }}
 `;
 
-const Wrapper = styled.div<{ position: RadioPositionType }>`
+const IconWrapper = styled.div<{ position: RadioPositionType }>`
   order: ${({ position }) => (position === "left" ? 1 : 2)};
 `;
 
-const Label = styled.div<{ position: RadioPositionType; size: RadioSizeType }>`
+const LabelContainer = styled.div<{ position: RadioPositionType }>`
   order: ${({ position }) => (position === "left" ? 2 : 1)};
+`;
+
+const Label = styled.span<{ size: RadioSizeType }>`
+  display: block;
   font-size: ${({ size, theme }) => {
     const sizes: Record<RadioSizeType, string> = {
       xs: theme.typography.fontSizes.xs,
@@ -95,4 +99,10 @@ const Label = styled.div<{ position: RadioPositionType; size: RadioSizeType }>`
     };
     return sizes[size];
   }};
+`;
+
+const HelpText = styled.span`
+  display: block;
+  margin-top: ${({ theme }) => theme.spacing[3.5]};
+  color: ${({ theme }) => theme.assets.textSecondary};
 `;
