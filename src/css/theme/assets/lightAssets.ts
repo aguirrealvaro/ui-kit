@@ -40,7 +40,7 @@ export const lightAssets: AssetsType = {
 
   // icon
   icon: colors.grey[9],
-  iconHover: colors.grey[3],
+  iconHover: "rgba(0, 0, 0, 0.05)",
 
   // alert
   alertPrimaryBg: colors.blue[2],

@@ -40,7 +40,7 @@ export const darkAssets: AssetsType = {
 
   // icon
   icon: colors.grey[2],
-  iconHover: colors.grey[8],
+  iconHover: "rgba(255, 255, 255, 0.05)",
 
   // alert
   alertPrimaryBg: colors.blue[9],
