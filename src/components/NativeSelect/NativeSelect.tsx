@@ -139,7 +139,7 @@ const Select = styled.select<{
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 0 1rem;
+  padding: 0 ${({ theme }) => theme.spacing[4]};
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -174,7 +174,7 @@ const SideContainer = styled.div`
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacing[4]};
-  right: 1rem;
+  right: ${({ theme }) => theme.spacing[4]};
   top: 50%;
   transform: translateY(-50%);
 `;
@@ -199,7 +199,8 @@ const BottomText = styled.div<{
   size: SelectSizeType;
   showSuccessMessage: boolean;
 }>`
-  margin: 0.5rem 1rem 0 1rem;
+  margin: ${({ theme }) => theme.spacing[2]} ${({ theme }) => theme.spacing[4]} 0
+    ${({ theme }) => theme.spacing[4]};
   color: ${({ showErrorMessage, theme, showSuccessMessage }) => {
     if (showErrorMessage) {
       return theme.assets.danger;

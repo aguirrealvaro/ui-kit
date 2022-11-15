@@ -74,7 +74,7 @@ const Button = styled.button<{ arrowPosition: AccordionArrowPosition }>`
     }
   }}
   width: 100%;
-  padding: 1rem 0;
+  padding: ${({ theme }) => theme.spacing[4]} 0;
   &:disabled {
     cursor: not-allowed;
     color: ${({ theme }) => theme.assets.disabledBg};

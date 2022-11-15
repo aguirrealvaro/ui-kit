@@ -212,7 +212,7 @@ const SelectContainer = styled.div<{
 `;
 
 const InnerContainer = styled.div<{ size: SelectSizeType }>`
-  padding: 0 1rem;
+  padding: 0 ${({ theme }) => theme.sizes[4]};
   display: flex;
   align-items: center;
   font-size: ${({ size, theme }) => {
@@ -235,7 +235,7 @@ const SideContainer = styled.div`
 const Dropdown = styled.div<{ size: SelectSizeType }>`
   position: absolute;
   z-index: ${({ theme }) => theme.zIndices.dropdown};
-  padding: 0.5rem;
+  padding: ${({ theme }) => theme.sizes[2]};
   border: 1px solid ${({ theme }) => theme.assets.borderPrimary};
   background-color: ${({ theme }) => theme.assets.bgPrimary};
   box-shadow: ${({ theme }) => theme.shadows.sm};
@@ -285,7 +285,8 @@ const BottomText = styled.div<{
   size: SelectSizeType;
   showSuccessMessage: boolean;
 }>`
-  margin: 0.5rem 1rem 0 1rem;
+  margin: ${({ theme }) => theme.spacing[2]} ${({ theme }) => theme.spacing[4]} 0
+    ${({ theme }) => theme.spacing[4]};
   color: ${({ showErrorMessage, theme, showSuccessMessage }) => {
     if (showErrorMessage) {
       return theme.assets.danger;

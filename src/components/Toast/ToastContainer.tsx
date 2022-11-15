@@ -31,43 +31,43 @@ export const ToastContainer: FunctionComponent<ToastContainerProps> = ({
 
 const Container = styled.div<{ position: ToastPositionType }>`
   position: fixed;
-  ${({ position }) => {
+  ${({ position, theme }) => {
     const positions: Record<ToastPositionType, FlattenSimpleInterpolation> = {
       top: css`
-        top: 1rem;
+        top: ${theme.spacing[4]};
         left: 50%;
         transform: translateX(-50%);
       `,
       right: css`
-        right: 1rem;
+        right: ${theme.spacing[4]};
         top: 50%;
         transform: translateY(-50%);
       `,
       bottom: css`
-        bottom: 1rem;
+        bottom: ${theme.spacing[4]};
         left: 50%;
         transform: translateX(-50%);
       `,
       left: css`
-        left: 1rem;
+        left: ${theme.spacing[4]};
         top: 50%;
         transform: translateY(-50%);
       `,
       "top-right": css`
-        top: 1rem;
-        right: 1rem;
+        top: ${theme.spacing[4]};
+        right: ${theme.spacing[4]};
       `,
       "bottom-right": css`
-        bottom: 1rem;
-        right: 1rem;
+        bottom: ${theme.spacing[4]};
+        right: ${theme.spacing[4]};
       `,
       "bottom-left": css`
-        bottom: 1rem;
-        left: 1rem;
+        bottom: ${theme.spacing[4]};
+        left: ${theme.spacing[4]};
       `,
       "top-left": css`
-        top: 1rem;
-        left: 1rem;
+        top: ${theme.spacing[4]};
+        left: ${theme.spacing[4]};
       `,
     };
     return positions[position];

@@ -40,5 +40,5 @@ const ItemList = styled.li`
 `;
 
 const Separator = styled.span`
-  margin: 0 0.5rem;
+  margin: 0 ${({ theme }) => theme.spacing[2]};
 `;

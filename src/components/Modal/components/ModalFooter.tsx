@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
 export const ModalFooter = styled.div`
-  padding: 1rem;
+  padding: ${({ theme }) => theme.spacing[4]};
   border-top: 1px solid ${({ theme }) => theme.assets.borderSecondary};
 `;

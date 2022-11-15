@@ -98,8 +98,8 @@ const Container = styled.div<{ isUnmounting: boolean; transitionTime: number }>`
 
 const CloseButtonWrapper = styled.div`
   position: absolute;
-  top: 1.5rem;
-  right: 2.1rem;
+  top: ${({ theme }) => theme.sizes[6]};
+  right: ${({ theme }) => theme.sizes[8]};
 `;
 
 const InnerContainer = styled.div`

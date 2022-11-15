@@ -200,7 +200,7 @@ const SideContainer = styled.div`
 const Placeholder = styled.label`
   position: absolute;
   top: 50%;
-  left: 1rem;
+  left: ${({ theme }) => theme.spacing[4]};
   transform: translateY(-50%);
   transition: all ${({ theme }) => theme.transitions.durations.normal}ms
     ${({ theme }) => theme.transitions.timings.out};
@@ -225,7 +225,7 @@ const CustomInput = styled.input<{
   border: none;
   background-color: transparent;
   position: absolute;
-  padding: 0 1rem;
+  padding: 0 ${({ theme }) => theme.spacing[4]};
   width: ${({ sideWidth }) => {
     if (sideWidth) {
       return `calc(100% - ${sideWidth}px - 20px)`;
@@ -283,7 +283,8 @@ const CustomInput = styled.input<{
 
 const BottomText = styled.div<{ showErrorMessage: boolean; showSuccessMessage: boolean }>`
   font-size: ${({ theme }) => theme.typography.fontSizes.sm};
-  margin: 0.5rem 1rem 0 1rem;
+  margin: ${({ theme }) => theme.spacing[2]} ${({ theme }) => theme.spacing[4]} 0
+    ${({ theme }) => theme.spacing[4]};
   color: ${({ showErrorMessage, theme, showSuccessMessage }) => {
     if (showErrorMessage) {
       return theme.assets.danger;

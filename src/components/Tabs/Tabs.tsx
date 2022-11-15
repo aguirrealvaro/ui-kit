@@ -51,7 +51,7 @@ const TabList = styled.div`
 `;
 
 const TabItem = styled.div<{ active: boolean }>`
-  padding: 1rem;
+  padding: ${({ theme }) => theme.spacing[4]};
   cursor: pointer;
   ${({ active, theme }) => {
     if (active) {
