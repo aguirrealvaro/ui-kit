@@ -12,8 +12,6 @@ export const IconButton: FunctionComponent<
 };
 
 const Container = styled.button`
-  display: flex;
-  align-self: baseline;
   line-height: 0;
   padding: ${({ theme }) => theme.spacing[1.5]};
   border-radius: ${({ theme }) => theme.borderRadius.full};
