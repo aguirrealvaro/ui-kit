@@ -96,7 +96,8 @@ const Container = styled.div<{
   position: relative;
   display: flex;
   gap: ${({ theme }) => theme.spacing[2]};
-  padding: 1rem 3rem 1rem 1rem;
+  padding: ${({ theme }) => theme.spacing[4]} ${({ theme }) => theme.spacing[12]}
+    ${({ theme }) => theme.spacing[4]} ${({ theme }) => theme.spacing[4]};
   color: ${({ theme }) => theme.colors.white};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   margin-bottom: ${({ theme }) => theme.spacing[4]};
