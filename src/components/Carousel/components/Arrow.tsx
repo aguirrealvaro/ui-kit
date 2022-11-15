@@ -39,7 +39,7 @@ const Button = styled.button<{ direction: CarouselDirectionType }>`
       border-radius: ${theme.borderRadius.full};
       ${direction === "left"
         ? css`
-            left: ${theme.spacing[8]};
+            left: -${theme.spacing[8]};
           `
         : css`
             right: -${theme.spacing[8]};
