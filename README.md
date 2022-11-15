@@ -6,13 +6,10 @@
 
 `npm run storybook`
 
-### Components to do
-AvatarGroup
-
-List, ListItem
-
-DatePicker
-
-TimePicker
-
-Pagination
+### To do
+- Accesibility
+- AvatarGroup
+- List, ListItem
+- DatePicker
+- TimePicker
+- Pagination
