@@ -11,6 +11,7 @@
 - AvatarGroup
 - List, ListItem
 - Accesibility
+- Timer
 - DatePicker
 - TimePicker
 - Pagination

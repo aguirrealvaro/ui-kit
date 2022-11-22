@@ -15,6 +15,7 @@ export const Avatar: FunctionComponent<AvatarProps> = ({
   name,
   size = "sm",
   shape = "circle",
+  ...restProps
 }) => {
   const [isError, setError] = useBoolean();
 
@@ -28,7 +29,7 @@ export const Avatar: FunctionComponent<AvatarProps> = ({
     .join("");
 
   return (
-    <Container size={size} isError={isError} shape={shape}>
+    <Container size={size} isError={isError} shape={shape} {...restProps}>
       {isError ? <Name>{symbols}</Name> : <Image src={src} alt={name} onError={handleError} />}
     </Container>
   );

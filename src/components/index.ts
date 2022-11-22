@@ -21,7 +21,7 @@ export { BreadcrumbGroup, Breadcrumb } from "./Breadcrumbs";
 export { Switch } from "./Switch";
 export { Checkbox } from "./Checkbox";
 export { Radio } from "./Radio";
-export { Avatar } from "./Avatar";
+export { Avatar, AvatarGroup } from "./Avatar";
 export { Table } from "./Table";
 export { Tabs, Tab } from "./Tabs";
 export { List, ListItem } from "./List";
