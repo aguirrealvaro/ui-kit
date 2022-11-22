@@ -1,21 +1,40 @@
 import { FunctionComponent, Children, ReactNode, ReactElement, cloneElement } from "react";
 import styled from "styled-components";
+import { AvatarSizeType } from "./Avatar.types";
+import { Spacing } from "@/css/theme/spacing";
 import { useTheme } from "@/hooks";
 
 type AvatarGroupProps = {
   children: ReactNode;
+  size?: AvatarSizeType;
 };
 
-export const AvatarGroup: FunctionComponent<AvatarGroupProps> = ({ children }) => {
+export const AvatarGroup: FunctionComponent<AvatarGroupProps> = ({
+  children,
+  size = "md",
+}) => {
   const { theme } = useTheme();
+
+  const margins: Record<AvatarSizeType, Spacing> = {
+    xs: 3,
+    sm: 4,
+    md: 6,
+    lg: 8,
+    xl: 8,
+    "2xl": 10,
+    "3xl": 12,
+  };
 
   return (
     <Container>
-      {Children.map(children, (child) => {
+      {Children.map(children, (child, index) => {
         const clonedChild = cloneElement(child as ReactElement, {
           style: {
-            marginLeft: "-16px",
-            border: `3px solid ${theme.assets.bgPrimary}`,
+            ...(index !== 0 && { marginLeft: `-${theme.spacing[margins[size]]}` }),
+            border: `2px solid ${theme.assets.bgPrimary}`,
+          },
+          props: {
+            size,
           },
         });
 

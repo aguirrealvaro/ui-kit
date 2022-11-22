@@ -9,10 +9,10 @@ export default {
 const Template: ComponentStory<typeof AvatarGroup> = (args) => {
   return (
     <AvatarGroup {...args}>
-      <Avatar src="https://bit.ly/dan-abramov" size="md" name="Dan Abramov" />
-      <Avatar src="https://bit.ly/dan-abramov" size="md" name="Dan Abramov" />
-      <Avatar src="https://bit.ly/dan-abramov" size="md" name="Dan Abramov" />
-      <Avatar src="https://bit.ly/dan-abramov" size="md" name="Dan Abramov" />
+      <Avatar src="https://bit.ly/dan-abramov" name="Dan Abramov" />
+      <Avatar src="https://bit.ly/dan-abramov" name="Dan Abramov" />
+      <Avatar src="https://bit.ly/dan-abramov" name="Dan Abramov" />
+      <Avatar src="https://bit.ly/dan-abramov" name="Dan Abramov" />
     </AvatarGroup>
   );
 };

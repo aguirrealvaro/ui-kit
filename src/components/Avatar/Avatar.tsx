@@ -13,7 +13,7 @@ type AvatarProps = {
 export const Avatar: FunctionComponent<AvatarProps> = ({
   src,
   name,
-  size = "sm",
+  size = "md",
   shape = "circle",
   ...restProps
 }) => {
