@@ -1,19 +1,21 @@
 import { FunctionComponent, Children, ReactNode, ReactElement, cloneElement } from "react";
 import styled from "styled-components";
 import { Avatar } from "./Avatar";
-import { AvatarSizeType } from "./Avatar.types";
+import { AvatarShapeType, AvatarSizeType } from "./Avatar.types";
 import { Spacing } from "@/css/theme/spacing";
 import { useTheme } from "@/hooks";
 
 type AvatarGroupProps = {
   children: ReactNode;
   size?: AvatarSizeType;
+  shape?: AvatarShapeType;
   max?: number;
 };
 
 export const AvatarGroup: FunctionComponent<AvatarGroupProps> = ({
   children,
   size = "md",
+  shape = "circle",
   max,
 }) => {
   const { theme } = useTheme();
@@ -33,7 +35,7 @@ export const AvatarGroup: FunctionComponent<AvatarGroupProps> = ({
   const remaining = count - (max || 0);
 
   const remainingAvatar = (() => {
-    return cloneElement(<Avatar name={`+ ${remaining}`} />, {
+    return cloneElement(<Avatar name={`+ ${remaining}`} shape={shape} />, {
       style: {
         marginLeft: `-${theme.spacing[margins[size]]}`,
         border: `2px solid ${theme.assets.bgPrimary}`,
