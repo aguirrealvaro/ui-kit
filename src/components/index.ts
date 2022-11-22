@@ -34,3 +34,4 @@ export { Text } from "./Text";
 export { IconButton } from "./IconButton";
 export { NativeSelect } from "./NativeSelect";
 export { Toast } from "./Toast";
+export { Card } from "./Card";
