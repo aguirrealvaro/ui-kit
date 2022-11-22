@@ -8,7 +8,6 @@
 
 ### To do
 
-- List, ListItem
 - Accesibility
 - Timer
 - DatePicker

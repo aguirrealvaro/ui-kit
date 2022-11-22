@@ -1,34 +1,30 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { List, ListItem } from "@/components";
+import { Bank2 } from "@styled-icons/bootstrap/Bank2";
+import { ChevronRight } from "@styled-icons/boxicons-regular/ChevronRight";
+import { List, ListItem, Icon } from "@/components";
 
 export default {
   title: "Components/List",
-  component: List,
-} as ComponentMeta<typeof List>;
+  component: ListItem,
+} as ComponentMeta<typeof ListItem>;
 
-const Template: ComponentStory<typeof List> = (args) => {
+const Template: ComponentStory<typeof ListItem> = (args) => {
+  const startEnhacer = <Icon icon={Bank2} />;
+  const endEnhacer = <Icon icon={ChevronRight} />;
+
   return (
-    <List {...args}>
-      <ListItem>level 1 item 1</ListItem>
-      <ListItem>
-        level 1 item 2
-        <List nested>
-          <ListItem>level 2 item 1</ListItem>
-          <ListItem>level 2 item 2</ListItem>
-          <ListItem>
-            level 2 item 3
-            <List nested>
-              <ListItem>level 3 item 1 </ListItem>
-              <ListItem>level 3 item 2</ListItem>
-              <ListItem>level 3 item 3</ListItem>
-            </List>
-          </ListItem>
-        </List>
+    <List>
+      <ListItem startEnhacer={startEnhacer} endEnhacer={endEnhacer} {...args}>
+        Item 1
       </ListItem>
-      <ListItem>level 1 item 3</ListItem>
+      <ListItem startEnhacer={startEnhacer} endEnhacer={endEnhacer} {...args}>
+        Item 2
+      </ListItem>
+      <ListItem startEnhacer={startEnhacer} endEnhacer={endEnhacer} {...args}>
+        Item 2
+      </ListItem>
     </List>
   );
 };
 
 export const Primary = Template.bind({});
-Primary.args = {};
