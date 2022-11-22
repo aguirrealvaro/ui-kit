@@ -34,7 +34,7 @@ export const Accordion: FunctionComponent<AccordionProps> = ({
         <ChevronWrapper active={active} arrowPosition={arrowPosition}>
           <Icon
             icon={ChevronDown}
-            size={20}
+            size={17}
             {...(disabled && { color: theme.assets.disabledBg })}
           />
         </ChevronWrapper>

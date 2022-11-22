@@ -8,7 +8,6 @@
 
 ### To do
 
-- Card
 - AccordionGroup
 - AvatarGroup
 - List, ListItem

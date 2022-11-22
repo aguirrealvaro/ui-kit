@@ -1,2 +1,2 @@
 export { Breadcrumbs } from "./Breadcrumbs";
-export { BreadcrumbItem } from "./components";
+export { BreadcrumbItem } from "./BreadcrumbItem";
