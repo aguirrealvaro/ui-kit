@@ -8,7 +8,6 @@
 
 ### To do
 
-- Fix deploy
 - Card
 - AccordionGroup
 - AvatarGroup

@@ -21,7 +21,6 @@ export const Link: FunctionComponent<LinkProps & AnchorHTMLAttributes<HTMLAnchor
 };
 
 const Anchor = styled.a<{ hideUnderline: boolean; disabled: boolean }>`
-  all: unset;
   text-decoration: ${({ hideUnderline }) => !hideUnderline && "underline"};
   ${({ disabled, theme }) => {
     if (disabled) {
