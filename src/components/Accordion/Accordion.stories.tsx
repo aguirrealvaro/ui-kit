@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Accordion } from "@/components";
+import { Accordion, AccordionGroup } from "@/components";
 
 export default {
   title: "Components/Accordion",
@@ -13,11 +13,11 @@ export default {
 
 const Template: ComponentStory<typeof Accordion> = (args) => {
   return (
-    <div>
+    <AccordionGroup>
       <Accordion {...args} />
       <Accordion {...args} />
       <Accordion {...args} />
-    </div>
+    </AccordionGroup>
   );
 };
 
@@ -26,5 +26,4 @@ Primary.args = {
   title: "This is an Accordion",
   children:
     "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint voluptatem ratione delectus laborum facilis blanditiis eaque, aspernatur saepe asperiores corrupti ullam ipsam ut quia ea ex non vitae voluptas doloribus!",
-  showSeparator: true,
 };

@@ -9,7 +9,6 @@ type AccordionProps = {
   title: ReactNode;
   children: ReactNode;
   disabled?: boolean;
-  showSeparator?: boolean;
   arrowPosition?: AccordionArrowPosition;
 };
 
@@ -17,7 +16,6 @@ export const Accordion: FunctionComponent<AccordionProps> = ({
   title,
   children,
   disabled,
-  showSeparator = false,
   arrowPosition = "right",
 }) => {
   const { theme } = useTheme();
@@ -28,7 +26,7 @@ export const Accordion: FunctionComponent<AccordionProps> = ({
   const height = ref.current?.scrollHeight || 0;
 
   return (
-    <Container showSeparator={showSeparator}>
+    <div>
       <Button onClick={toggle} disabled={disabled} arrowPosition={arrowPosition}>
         <Title arrowPosition={arrowPosition}>{title}</Title>
         <ChevronWrapper active={active} arrowPosition={arrowPosition}>
@@ -42,22 +40,9 @@ export const Accordion: FunctionComponent<AccordionProps> = ({
       <Content ref={ref} height={height} active={active}>
         {children}
       </Content>
-    </Container>
+    </div>
   );
 };
-
-const Container = styled.div<{ showSeparator: boolean }>`
-  ${({ showSeparator }) => {
-    if (showSeparator) {
-      return css`
-        border-bottom: 1px solid ${({ theme }) => theme.assets.border};
-        &:last-child {
-          border-bottom: none;
-        }
-      `;
-    }
-  }}
-`;
 
 const Button = styled.button<{ arrowPosition: AccordionArrowPosition }>`
   display: flex;

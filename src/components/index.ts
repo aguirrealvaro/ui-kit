@@ -6,7 +6,7 @@ export { Tooltip } from "./Tooltip";
 export { Infotip } from "./Infotip";
 export { Dropdown } from "./Dropdown";
 export { Navbar } from "./Navbar";
-export { Accordion } from "./Accordion";
+export { Accordion, AccordionGroup } from "./Accordion";
 export { Carousel } from "./Carousel";
 export { Button } from "./Button";
 export { Link } from "./Link";
