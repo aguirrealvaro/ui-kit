@@ -14,7 +14,12 @@ const Template: ComponentStory<typeof ListItem> = (args) => {
 
   return (
     <List>
-      <ListItem startEnhacer={startEnhacer} endEnhacer={endEnhacer} {...args}>
+      <ListItem
+        startEnhacer={startEnhacer}
+        endEnhacer={endEnhacer}
+        //onClick={() => console.log("item!")}
+        {...args}
+      >
         Item 1
       </ListItem>
       <ListItem startEnhacer={startEnhacer} endEnhacer={endEnhacer} {...args}>

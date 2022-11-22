@@ -5,15 +5,17 @@ type ListItemProps = {
   children: ReactNode;
   startEnhacer?: ReactNode;
   endEnhacer?: ReactNode;
+  onClick?: () => void;
 };
 
 export const ListItem: FunctionComponent<ListItemProps> = ({
   children,
   startEnhacer,
   endEnhacer,
+  onClick,
 }) => {
   return (
-    <Item>
+    <Item onClick={onClick}>
       <Content>
         {startEnhacer ? startEnhacer : null}
         <div>{children}</div>
