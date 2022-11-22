@@ -3,11 +3,11 @@ import { ChevronRight } from "@styled-icons/boxicons-regular/ChevronRight";
 import styled from "styled-components";
 import { Icon } from "../Icon";
 
-type BreadcrumbsProps = {
+type BreadcrumbGroupProps = {
   children: ReactNode;
 };
 
-export const Breadcrumbs: FunctionComponent<BreadcrumbsProps> = ({ children }) => {
+export const BreadcrumbGroup: FunctionComponent<BreadcrumbGroupProps> = ({ children }) => {
   return (
     <nav>
       <List>

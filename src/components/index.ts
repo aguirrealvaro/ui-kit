@@ -17,7 +17,7 @@ export { Layout } from "./Layout";
 export { ShowMore } from "./ShowMore";
 export { Alert } from "./Alert";
 export { Badge } from "./Badge";
-export { Breadcrumbs, BreadcrumbItem } from "./Breadcrumbs";
+export { BreadcrumbGroup, Breadcrumb } from "./Breadcrumbs";
 export { Switch } from "./Switch";
 export { Checkbox } from "./Checkbox";
 export { Radio } from "./Radio";

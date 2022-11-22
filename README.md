@@ -8,7 +8,6 @@
 
 ### To do
 
-- AccordionGroup
 - AvatarGroup
 - List, ListItem
 - Accesibility

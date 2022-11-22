@@ -1,12 +1,12 @@
 import { AnchorHTMLAttributes, FunctionComponent } from "react";
 import { Link, LinkProps } from "@/components/Link";
 
-export type BreadcrumbItemProps = {
+export type BreadcrumbProps = {
   isCurrentPage?: boolean;
 } & LinkProps &
   AnchorHTMLAttributes<HTMLAnchorElement>;
 
-export const BreadcrumbItem: FunctionComponent<BreadcrumbItemProps> = ({
+export const Breadcrumb: FunctionComponent<BreadcrumbProps> = ({
   children,
   isCurrentPage = false,
   ...restProps
