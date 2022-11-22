@@ -1,5 +1,6 @@
 import { FunctionComponent, Children, ReactNode, ReactElement, cloneElement } from "react";
 import styled from "styled-components";
+import { Avatar } from "./Avatar";
 import { AvatarSizeType } from "./Avatar.types";
 import { Spacing } from "@/css/theme/spacing";
 import { useTheme } from "@/hooks";
@@ -7,11 +8,13 @@ import { useTheme } from "@/hooks";
 type AvatarGroupProps = {
   children: ReactNode;
   size?: AvatarSizeType;
+  max?: number;
 };
 
 export const AvatarGroup: FunctionComponent<AvatarGroupProps> = ({
   children,
   size = "md",
+  max,
 }) => {
   const { theme } = useTheme();
 
@@ -24,6 +27,22 @@ export const AvatarGroup: FunctionComponent<AvatarGroupProps> = ({
     "2xl": 10,
     "3xl": 12,
   };
+
+  const count = Children.count(children);
+  const showRemaining = Boolean(max && max > 0 && count - max > 0);
+  const remaining = count - (max || 0);
+
+  const remainingAvatar = (() => {
+    return cloneElement(<Avatar name={`+ ${remaining}`} />, {
+      style: {
+        marginLeft: `-${theme.spacing[margins[size]]}`,
+        border: `2px solid ${theme.assets.bgPrimary}`,
+      },
+      props: {
+        size,
+      },
+    });
+  })();
 
   return (
     <Container>
@@ -38,8 +57,14 @@ export const AvatarGroup: FunctionComponent<AvatarGroupProps> = ({
           },
         });
 
+        const show = max ? index < max : true;
+
+        if (!show) return null;
+
         return <>{clonedChild}</>;
       })}
+
+      {showRemaining && remainingAvatar}
     </Container>
   );
 };

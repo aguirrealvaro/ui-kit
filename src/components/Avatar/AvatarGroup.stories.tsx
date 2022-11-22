@@ -10,6 +10,10 @@ const Template: ComponentStory<typeof AvatarGroup> = (args) => {
   return (
     <AvatarGroup {...args}>
       <Avatar src="https://bit.ly/dan-abramov" name="Dan Abramov" />
+      <Avatar name="Dan Abramov" />
+      <Avatar src="https://bit.ly/dan-abramov" name="Dan Abramov" />
+      <Avatar src="https://bit.ly/dan-abramov" name="Dan Abramov" />
+      <Avatar src="https://bit.ly/dan-abramov" name="Dan Abramov" />
       <Avatar src="https://bit.ly/dan-abramov" name="Dan Abramov" />
       <Avatar src="https://bit.ly/dan-abramov" name="Dan Abramov" />
       <Avatar src="https://bit.ly/dan-abramov" name="Dan Abramov" />
@@ -18,3 +22,7 @@ const Template: ComponentStory<typeof AvatarGroup> = (args) => {
 };
 
 export const Primary = Template.bind({});
+Primary.args = {
+  size: "md",
+  max: 5,
+};

@@ -4,20 +4,20 @@ import { AvatarShapeType, AvatarSizeType } from "./Avatar.types";
 import { useBoolean } from "@/hooks";
 
 type AvatarProps = {
-  src: string;
   name: string;
+  src?: string;
   size?: AvatarSizeType;
   shape?: AvatarShapeType;
 };
 
 export const Avatar: FunctionComponent<AvatarProps> = ({
-  src,
   name,
+  src,
   size = "md",
   shape = "circle",
   ...restProps
 }) => {
-  const [isError, setError] = useBoolean();
+  const [isError, setError] = useBoolean(!src);
 
   const handleError = () => {
     setError.on();

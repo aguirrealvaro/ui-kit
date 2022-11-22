@@ -8,7 +8,6 @@
 
 ### To do
 
-- AvatarGroup
 - List, ListItem
 - Accesibility
 - Timer
