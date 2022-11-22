@@ -18,12 +18,12 @@ export default {
     successMessage: {
       control: "text",
     },
-    leftIcon: {
+    startEnhacer: {
       options: {
         icon: <span>Icon</span>,
       },
     },
-    rightIcon: {
+    endEnhacer: {
       options: {
         icon: <span>Icon</span>,
       },

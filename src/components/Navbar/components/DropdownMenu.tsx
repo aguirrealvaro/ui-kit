@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
-import { ChevronDown } from "@styled-icons/boxicons-regular/ChevronDown";
 import { UserCircle } from "@styled-icons/boxicons-solid/UserCircle";
+import { ChevronDown } from "@styled-icons/fluentui-system-filled/ChevronDown";
 import styled from "styled-components";
 import { NavbarItem } from "../Navbar.types";
 import { Dropdown, Icon } from "@/components";

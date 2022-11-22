@@ -10,12 +10,8 @@ type Assets =
   | "bgPrimary"
   | "bgSecondary"
   | "bgTertiary"
-  | "hoverPrimary"
-  | "hoverSecondary"
-  | "hoverTertiary"
-  | "borderPrimary"
-  | "borderSecondary"
-  | "borderTertiary"
+  | "border"
+  | "hover"
   | "title"
   | "textPrimary"
   | "textSecondary"
@@ -27,7 +23,6 @@ type Assets =
 
   // icon
   | "icon"
-  | "iconHover"
 
   // alert
   | "alertPrimaryBg"

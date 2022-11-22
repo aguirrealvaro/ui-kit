@@ -31,7 +31,14 @@ export const GlobalStyles = createGlobalStyle<GlobalStylesType>`
   }
 
   button {
-    all: unset;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    border: none;
+    background: none;
     cursor: pointer;
+    :focus:not(:focus-visible) {
+      outline: none;
+    }
   }
 `;

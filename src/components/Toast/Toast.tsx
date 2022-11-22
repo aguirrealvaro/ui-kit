@@ -6,6 +6,7 @@ import { Alert } from "@styled-icons/remix-fill/Alert";
 import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
 import styled, { css, keyframes, FlattenSimpleInterpolation } from "styled-components";
 import { StyledIcon } from "styled-icons/types";
+import { IconButton } from "../IconButton";
 import { ToastProps } from "./Toast.types";
 import { Icon } from "@/components/Icon";
 import { useTheme, useToast } from "@/hooks";
@@ -76,9 +77,11 @@ export const Toast: FunctionComponent<ToastProps> = ({
     >
       <Icon icon={variantIcons[variant]} size={18} color={variantIconColors[variant]} />
       <div>{children}</div>
-      <CloseButton onClick={closeToast}>
-        <Icon icon={CloseOutline} size={15} color={variantIconColors[variant]} />
-      </CloseButton>
+      <CloseButtonWrapper onClick={closeToast}>
+        <IconButton size="xs">
+          <Icon icon={CloseOutline} size={15} color={variantIconColors[variant]} />
+        </IconButton>
+      </CloseButtonWrapper>
     </Container>
   );
 };
@@ -143,8 +146,7 @@ const Container = styled.div<{
   }};
 `;
 
-const CloseButton = styled.button`
-  line-height: 0;
+const CloseButtonWrapper = styled.div`
   position: absolute;
   top: ${({ theme }) => theme.spacing[1.5]};
   right: ${({ theme }) => theme.spacing[1.5]};

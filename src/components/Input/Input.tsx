@@ -15,7 +15,7 @@ import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
 import styled, { css } from "styled-components";
 import { InputSizeType } from "./Input.types";
-import { Spinner, Icon } from "@/components";
+import { Spinner, Icon, IconButton } from "@/components";
 import { useTheme } from "@/hooks";
 
 type InputProps = {
@@ -28,8 +28,8 @@ type InputProps = {
   inputId?: string;
   isLoading?: boolean;
   clearValue?: () => void;
-  rightIcon?: ReactNode;
-  leftIcon?: ReactNode;
+  endEnhacer?: ReactNode;
+  startEnhacer?: ReactNode;
   size?: InputSizeType;
 };
 
@@ -45,8 +45,8 @@ export const Input: FunctionComponent<
   inputId,
   isLoading,
   clearValue,
-  rightIcon,
-  leftIcon,
+  endEnhacer,
+  startEnhacer,
   onChange,
   disabled,
   value,
@@ -67,14 +67,14 @@ export const Input: FunctionComponent<
     if (e.target.validity.valid) onChange?.(e);
   };
 
-  const showLeftContainer = !!leftIcon;
+  const showLeftContainer = !!startEnhacer;
 
   const showRightContainer: boolean =
     isLoading ||
     isError ||
     isSuccess ||
     (!!value && !!clearValue) ||
-    !!rightIcon ||
+    !!endEnhacer ||
     type === "password";
 
   const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
@@ -111,7 +111,9 @@ export const Input: FunctionComponent<
         onClick={focusInput}
         size={size}
       >
-        {showLeftContainer && <LeftContainer>{leftIcon ? leftIcon : null}</LeftContainer>}
+        {showLeftContainer && (
+          <LeftContainer>{startEnhacer ? startEnhacer : null}</LeftContainer>
+        )}
         <CustomInput
           id={inputId}
           ref={inputRef}
@@ -125,21 +127,21 @@ export const Input: FunctionComponent<
         />
         {showRightContainer && (
           <RightContainer ref={rightContainerRef}>
-            {rightIcon ? rightIcon : null}
+            {endEnhacer ? endEnhacer : null}
             {isLoading && <Spinner size="xs" />}
             {value && clearValue && (
-              <ButtonIcon onClick={clearValue}>
+              <IconButton size="sm" onClick={clearValue}>
                 <Icon icon={CloseOutline} size={18} />
-              </ButtonIcon>
+              </IconButton>
             )}
             {isError && <Icon icon={CloseCircle} size={18} color={theme.assets.danger} />}
             {isSuccess && (
               <Icon icon={CheckCircleFill} size={18} color={theme.assets.success} />
             )}
             {type === "password" && (
-              <ButtonIcon onClick={handleSeePassword}>
+              <IconButton size="sm" onClick={handleSeePassword}>
                 <Icon icon={seePassword ? EyeSlashFill : EyeFill} size={18} />
-              </ButtonIcon>
+              </IconButton>
             )}
           </RightContainer>
         )}
@@ -194,7 +196,7 @@ const InputContainer = styled.div<{
       `;
     }
     return css`
-      border-color: ${({ theme }) => theme.assets.borderPrimary};
+      border-color: ${({ theme }) => theme.assets.border};
       &:focus-within {
         box-shadow: ${({ theme }) => theme.shadows.outline};
         border-color: transparent;
@@ -290,8 +292,4 @@ const BottomText = styled.div<{
     };
     return sizes[size];
   }};
-`;
-
-const ButtonIcon = styled.button`
-  line-height: 0;
 `;

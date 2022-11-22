@@ -20,13 +20,8 @@ export const darkAssets: AssetsType = {
   bgSecondary: colors.grey[9],
   bgTertiary: colors.grey[8],
 
-  hoverPrimary: colors.grey[9],
-  hoverSecondary: colors.grey[8],
-  hoverTertiary: colors.grey[7],
-
-  borderPrimary: colors.grey[8],
-  borderSecondary: colors.grey[7],
-  borderTertiary: colors.grey[6],
+  border: "rgba(255, 255, 255, 0.1)",
+  hover: "rgba(255, 255, 255, 0.05)",
 
   title: colors.white,
   textPrimary: colors.grey[2],
@@ -40,7 +35,6 @@ export const darkAssets: AssetsType = {
 
   // icon
   icon: colors.grey[2],
-  iconHover: "rgba(255, 255, 255, 0.05)",
 
   // alert
   alertPrimaryBg: colors.blue[9],

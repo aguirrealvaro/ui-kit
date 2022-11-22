@@ -20,13 +20,8 @@ export const lightAssets: AssetsType = {
   bgSecondary: colors.white,
   bgTertiary: colors.grey[2],
 
-  hoverPrimary: colors.grey[2],
-  hoverSecondary: colors.grey[1],
-  hoverTertiary: colors.grey[3],
-
-  borderPrimary: colors.grey[3],
-  borderSecondary: colors.grey[2],
-  borderTertiary: colors.grey[4],
+  border: "rgba(0, 0, 0, 0.1)",
+  hover: "rgba(0, 0, 0, 0.05)",
 
   title: colors.black,
   textPrimary: colors.grey[9],
@@ -40,7 +35,6 @@ export const lightAssets: AssetsType = {
 
   // icon
   icon: colors.grey[9],
-  iconHover: "rgba(0, 0, 0, 0.05)",
 
   // alert
   alertPrimaryBg: colors.blue[2],

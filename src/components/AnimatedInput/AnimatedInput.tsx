@@ -14,7 +14,7 @@ import { EyeSlashFill } from "@styled-icons/bootstrap/EyeSlashFill";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
 import styled, { css } from "styled-components";
-import { Spinner, Icon } from "@/components";
+import { Spinner, Icon, IconButton } from "@/components";
 import { useTheme } from "@/hooks";
 
 type AnimatedInputProps = {
@@ -118,18 +118,18 @@ export const AnimatedInput: FunctionComponent<
             {icon ? icon : null}
             {isLoading && <Spinner size="xs" />}
             {value && clearValue && (
-              <ButtonIcon onClick={clearValue}>
+              <IconButton size="sm" onClick={clearValue}>
                 <Icon icon={CloseOutline} size={18} />
-              </ButtonIcon>
+              </IconButton>
             )}
             {isError && <Icon icon={CloseCircle} size={18} color={theme.assets.danger} />}
             {isSuccess && (
               <Icon icon={CheckCircleFill} size={18} color={theme.assets.success} />
             )}
             {type === "password" && (
-              <ButtonIcon onClick={handleSeePassword}>
+              <IconButton size="sm" onClick={handleSeePassword}>
                 <Icon icon={seePassword ? EyeSlashFill : EyeFill} size={18} />
-              </ButtonIcon>
+              </IconButton>
             )}
           </SideContainer>
         )}
@@ -169,7 +169,7 @@ const InputContainer = styled.div<{
     }
 
     return css`
-      border-color: ${({ theme }) => theme.assets.borderPrimary};
+      border-color: ${({ theme }) => theme.assets.border};
       &:focus-within {
         box-shadow: ${({ theme }) => theme.shadows.outline};
         border-color: transparent;
@@ -295,8 +295,4 @@ const BottomText = styled.div<{ showErrorMessage: boolean; showSuccessMessage: b
     }
     return theme.assets.textSecondary;
   }};
-`;
-
-const ButtonIcon = styled.button`
-  line-height: 0;
 `;

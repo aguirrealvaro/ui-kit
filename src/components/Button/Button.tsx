@@ -13,8 +13,8 @@ type ButtonProps = {
   size?: ButtonSizeType;
   variant?: VariantType;
   shape?: ButtonShapeType;
-  leftIcon?: ReactNode;
-  rightIcon?: ReactNode;
+  startEnhacer?: ReactNode;
+  endEnhacer?: ReactNode;
 };
 
 export const Button: FunctionComponent<
@@ -28,8 +28,8 @@ export const Button: FunctionComponent<
   size = "md",
   variant = "primary",
   shape = "default",
-  leftIcon,
-  rightIcon,
+  startEnhacer,
+  endEnhacer,
   ...restProps
 }) => {
   const { theme } = useTheme();
@@ -44,9 +44,9 @@ export const Button: FunctionComponent<
 
     return (
       <InnerContainer>
-        {leftIcon ? leftIcon : null}
+        {startEnhacer ? startEnhacer : null}
         <div>{children}</div>
-        {rightIcon ? rightIcon : null}
+        {endEnhacer ? endEnhacer : null}
       </InnerContainer>
     );
   };

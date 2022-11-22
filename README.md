@@ -7,9 +7,13 @@
 `npm run storybook`
 
 ### To do
-- Accesibility
+
+- Fix deploy
+- Card
+- AccordionGroup
 - AvatarGroup
 - List, ListItem
+- Accesibility
 - DatePicker
 - TimePicker
 - Pagination

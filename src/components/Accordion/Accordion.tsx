@@ -1,5 +1,5 @@
 import { useState, useRef, FunctionComponent, ReactNode } from "react";
-import { ChevronDown } from "@styled-icons/boxicons-regular/ChevronDown";
+import { ChevronDown } from "@styled-icons/fluentui-system-filled/ChevronDown";
 import styled, { css } from "styled-components";
 import { AccordionArrowPosition } from "./Accordion.types";
 import { Icon } from "@/components";
@@ -50,7 +50,7 @@ const Container = styled.div<{ showSeparator: boolean }>`
   ${({ showSeparator }) => {
     if (showSeparator) {
       return css`
-        border-bottom: 1px solid ${({ theme }) => theme.assets.borderPrimary};
+        border-bottom: 1px solid ${({ theme }) => theme.assets.border};
         &:last-child {
           border-bottom: none;
         }

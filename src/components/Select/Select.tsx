@@ -9,11 +9,11 @@ import {
   MouseEvent,
   ReactNode,
 } from "react";
-import { ChevronDown } from "@styled-icons/boxicons-regular/ChevronDown";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
+import { ChevronDown } from "@styled-icons/fluentui-system-filled/ChevronDown";
 import styled, { css } from "styled-components";
 import { SelectFieldType, SelectSizeType } from "./Select.types";
-import { Spinner, Icon } from "@/components";
+import { Spinner, Icon, IconButton } from "@/components";
 import { useOutsideClick } from "@/hooks";
 
 type SelectProps = {
@@ -94,12 +94,14 @@ export const Select: FunctionComponent<SelectProps> = ({
         <SideContainer>
           {isLoading && <Spinner size="xs" />}
           {isSelected && clearValue && (
-            <ButtonClear onClick={handleClearValue}>
+            <IconButton size="sm" onClick={handleClearValue}>
               <Icon icon={CloseOutline} size={18} />
-            </ButtonClear>
+            </IconButton>
           )}
           <ChevronWrapper active={isOpen}>
-            <Icon icon={ChevronDown} size={23} />
+            <IconButton size="sm">
+              <Icon icon={ChevronDown} size={18} />
+            </IconButton>
           </ChevronWrapper>
         </SideContainer>
       </SelectContainer>
@@ -196,7 +198,7 @@ const SelectContainer = styled.div<{
     }
 
     return css`
-      border-color: ${theme.assets.borderPrimary};
+      border-color: ${theme.assets.border};
     `;
   }};
   ${({ disabled, theme }) => {
@@ -229,14 +231,14 @@ const SideContainer = styled.div`
   margin-right: ${({ theme }) => theme.spacing[6]};
   display: flex;
   align-items: center;
-  gap: ${({ theme }) => theme.spacing[4]};
+  gap: ${({ theme }) => theme.spacing[0.5]};
 `;
 
 const Dropdown = styled.div<{ size: SelectSizeType }>`
   position: absolute;
   z-index: ${({ theme }) => theme.zIndices.dropdown};
   padding: ${({ theme }) => theme.sizes[2]};
-  border: 1px solid ${({ theme }) => theme.assets.borderPrimary};
+  border: 1px solid ${({ theme }) => theme.assets.border};
   background-color: ${({ theme }) => theme.assets.bgPrimary};
   box-shadow: ${({ theme }) => theme.shadows.sm};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
@@ -270,7 +272,7 @@ const Option = styled.button<{ isSelected: boolean }>`
         `
       : css`
           &:hover:not([disabled]) {
-            background-color: ${theme.assets.hoverPrimary};
+            background-color: ${theme.assets.hover};
           }
         `};
   &:disabled {
@@ -313,9 +315,4 @@ const ChevronWrapper = styled.div<{ active: boolean }>`
     ${({ theme }) => theme.transitions.timings.in};
   display: flex;
   align-items: center;
-  pointer-events: none;
-`;
-
-const ButtonClear = styled.button`
-  line-height: 0;
 `;

@@ -1,10 +1,10 @@
 import { FunctionComponent, MouseEvent, ReactNode, SelectHTMLAttributes } from "react";
-import { ChevronDown } from "@styled-icons/boxicons-regular/ChevronDown";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
+import { ChevronDown } from "@styled-icons/fluentui-system-filled/ChevronDown";
 import styled from "styled-components";
-import { Icon } from "../Icon";
 import { SelectSizeType } from "../Select/Select.types";
 import { NativeSelectFieldType } from "./NativeSelect.types";
+import { Icon, IconButton } from "@/components";
 
 type NativeSelectProps = {
   label?: ReactNode;
@@ -68,13 +68,13 @@ export const NativeSelect: FunctionComponent<
         </Select>
         <SideContainer>
           {isSelected && clearValue && (
-            <ButtonClear onClick={handleClearValue}>
+            <IconButton size="sm" onClick={handleClearValue}>
               <Icon icon={CloseOutline} size={18} />
-            </ButtonClear>
+            </IconButton>
           )}
-          <ChevronWrapper>
-            <Icon icon={ChevronDown} size={23} />
-          </ChevronWrapper>
+          <IconButton size="sm">
+            <Icon icon={ChevronDown} size={18} />
+          </IconButton>
         </SideContainer>
       </SelectContainer>
       {showBottom && (
@@ -154,7 +154,7 @@ const Select = styled.select<{
       return theme.assets.success;
     }
 
-    return theme.assets.borderPrimary;
+    return theme.assets.border;
   }};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   &:focus {
@@ -173,25 +173,16 @@ const SideContainer = styled.div`
   position: absolute;
   display: flex;
   align-items: center;
-  gap: ${({ theme }) => theme.spacing[4]};
+  gap: ${({ theme }) => theme.spacing[0.5]};
   right: ${({ theme }) => theme.spacing[4]};
   top: 50%;
   transform: translateY(-50%);
-`;
-
-const ChevronWrapper = styled.div`
-  display: flex;
-  align-items: center;
 `;
 
 const Option = styled.option`
   &:disabled {
     color: ${({ theme }) => theme.assets.disabledBg};
   }
-`;
-
-const ButtonClear = styled.button`
-  line-height: 0;
 `;
 
 const BottomText = styled.div<{

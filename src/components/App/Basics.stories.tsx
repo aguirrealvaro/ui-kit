@@ -10,18 +10,15 @@ export const Primary = () => {
   const basics = [
     {
       bg: theme.assets.bgPrimary,
-      border: theme.assets.borderPrimary,
-      hover: theme.assets.hoverPrimary,
+      border: theme.assets.border,
     },
     {
       bg: theme.assets.bgSecondary,
-      border: theme.assets.borderSecondary,
-      hover: theme.assets.hoverSecondary,
+      border: theme.assets.border,
     },
     {
       bg: theme.assets.bgTertiary,
-      border: theme.assets.borderTertiary,
-      hover: theme.assets.hoverTertiary,
+      border: theme.assets.border,
     },
   ];
 
@@ -31,15 +28,9 @@ export const Primary = () => {
         return (
           <Inner key={index}>
             <Card bg={basic.bg}>
-              <Item border={basic.border} hover={basic.hover}>
-                Item
-              </Item>
-              <Item border={basic.border} hover={basic.hover}>
-                Item
-              </Item>
-              <Item border={basic.border} hover={basic.hover}>
-                Item
-              </Item>
+              <Item border={basic.border}>Item</Item>
+              <Item border={basic.border}>Item</Item>
+              <Item border={basic.border}>Item</Item>
             </Card>
           </Inner>
         );
@@ -64,13 +55,13 @@ const Card = styled.div<{ bg: string }>`
   padding: 2rem;
 `;
 
-const Item = styled.div<{ border: string; hover: string }>`
+const Item = styled.div<{ border: string }>`
   border-bottom: 1px solid ${({ border }) => border};
   padding: 1rem;
   &:last-child {
     border-bottom: none;
   }
   &:hover {
-    background-color: ${({ hover }) => hover};
+    background-color: ${({ theme }) => theme.assets.hover};
   }
 `;
