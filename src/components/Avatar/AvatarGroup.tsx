@@ -40,9 +40,6 @@ export const AvatarGroup: FunctionComponent<AvatarGroupProps> = ({
         marginLeft: `-${theme.spacing[margins[size]]}`,
         border: `2px solid ${theme.assets.bgPrimary}`,
       },
-      props: {
-        size,
-      },
     });
   })();
 
@@ -53,9 +50,6 @@ export const AvatarGroup: FunctionComponent<AvatarGroupProps> = ({
           style: {
             ...(index !== 0 && { marginLeft: `-${theme.spacing[margins[size]]}` }),
             border: `2px solid ${theme.assets.bgPrimary}`,
-          },
-          props: {
-            size,
           },
         });
 
