@@ -8,6 +8,7 @@
 
 ### To do
 
+- Fix popover
 - Accesibility
 - Timer
 - DatePicker
