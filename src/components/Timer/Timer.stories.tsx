@@ -11,4 +11,10 @@ const Template: ComponentStory<typeof Timer> = (args) => {
 };
 
 export const Primary = Template.bind({});
-Primary.args = {};
+
+const deadline = new Date();
+deadline.setMinutes(deadline.getMinutes() + 9);
+
+Primary.args = {
+  deadline,
+};
