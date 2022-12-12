@@ -9,7 +9,6 @@
 ### To do
 
 - Accesibility
-- Timer
 - DatePicker
 - TimePicker
 - Pagination
