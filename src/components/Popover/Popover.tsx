@@ -48,9 +48,7 @@ export const Popover: FunctionComponent<PopoverProps> = ({
   });
 
   const openProps = {
-    ...(trigger === "hover"
-      ? { onMouseEnter: onOpen, onMouseLeave: onClose }
-      : { onClick: onToggle }),
+    ...(trigger === "hover" ? { onMouseEnter: onOpen } : { onClick: onToggle }),
   };
 
   useOutsideClick({
@@ -64,7 +62,12 @@ export const Popover: FunctionComponent<PopoverProps> = ({
     if (!isOpen || trigger === "click") return;
 
     const listener = (e: MouseEvent | TouchEvent) => {
-      if (!triggerRef.current?.contains(e.target as Node)) onClose();
+      if (
+        !triggerRef.current?.contains(e.target as Node) &&
+        !popoverRef.current?.contains(e.target as Node)
+      ) {
+        onClose();
+      }
     };
 
     document.addEventListener("mousemove", listener);
