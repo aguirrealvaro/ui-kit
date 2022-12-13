@@ -2,9 +2,14 @@ import { FunctionComponent } from "react";
 import styled, { css } from "styled-components";
 import { Popover, PopoverProps } from "../Popover";
 
-export const Dropdown: FunctionComponent<PopoverProps> = ({
+type DropdownProps = Omit<PopoverProps, "position"> & {
+  position?: "bottom" | "bottom-left" | "bottom-right";
+};
+
+export const Dropdown: FunctionComponent<DropdownProps> = ({
   children,
   content,
+  position = "bottom",
   ...restProps
 }) => {
   const popoverContent = (
@@ -12,7 +17,7 @@ export const Dropdown: FunctionComponent<PopoverProps> = ({
   );
 
   return (
-    <Popover content={popoverContent} {...restProps}>
+    <Popover content={popoverContent} position={position} {...restProps}>
       {children}
     </Popover>
   );

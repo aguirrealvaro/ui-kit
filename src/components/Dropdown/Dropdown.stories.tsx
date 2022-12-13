@@ -21,7 +21,7 @@ const Template: ComponentStory<typeof Dropdown> = ({ content: dummyContact, ...a
 export const Primary = Template.bind({});
 Primary.args = {
   children: "Click me",
-  position: "bottom-left",
+  position: "bottom",
   gap: 16,
   trigger: "click",
   withTriggerWidth: false,
