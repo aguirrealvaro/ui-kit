@@ -15,7 +15,7 @@ export const ListItem: FunctionComponent<ListItemProps> = ({
   onClick,
 }) => {
   return (
-    <Item onClick={onClick}>
+    <Item onClick={onClick} isClickable={Boolean(onClick)}>
       <Content>
         {startEnhacer ? startEnhacer : null}
         <div>{children}</div>
@@ -25,7 +25,7 @@ export const ListItem: FunctionComponent<ListItemProps> = ({
   );
 };
 
-const Item = styled.li`
+const Item = styled.li<{ isClickable: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,6 +34,7 @@ const Item = styled.li`
   &:hover {
     background-color: ${({ theme }) => theme.assets.hover};
   }
+  cursor: ${({ isClickable }) => (isClickable ? "pointer" : "default")};
 `;
 
 const Content = styled.div`

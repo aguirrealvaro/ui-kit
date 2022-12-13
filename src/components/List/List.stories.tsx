@@ -8,7 +8,7 @@ export default {
   component: ListItem,
 } as ComponentMeta<typeof ListItem>;
 
-const Template: ComponentStory<typeof ListItem> = (args) => {
+const Template: ComponentStory<typeof ListItem> = () => {
   const startEnhacer = <Icon icon={Bank2} />;
   const endEnhacer = <Icon icon={ChevronRight} />;
 
@@ -18,15 +18,14 @@ const Template: ComponentStory<typeof ListItem> = (args) => {
         startEnhacer={startEnhacer}
         endEnhacer={endEnhacer}
         //onClick={() => console.log("item!")}
-        {...args}
       >
         Item 1
       </ListItem>
-      <ListItem startEnhacer={startEnhacer} endEnhacer={endEnhacer} {...args}>
+      <ListItem startEnhacer={startEnhacer} endEnhacer={endEnhacer}>
         Item 2
       </ListItem>
-      <ListItem startEnhacer={startEnhacer} endEnhacer={endEnhacer} {...args}>
-        Item 2
+      <ListItem startEnhacer={startEnhacer} endEnhacer={endEnhacer}>
+        Item 3
       </ListItem>
     </List>
   );
