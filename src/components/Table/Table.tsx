@@ -22,38 +22,43 @@ export const Table: FunctionComponent<TableProps> = ({ columns, data, size = "md
 
   return (
     <Container>
-      <thead>
-        <TableRowHeader>
-          {columns.map((column, index) => {
+      <StyledTable>
+        <thead>
+          <TableRowHeader>
+            {columns.map((column, index) => {
+              return (
+                <TableHead padding={padding} key={index}>
+                  {column}
+                </TableHead>
+              );
+            })}
+          </TableRowHeader>
+        </thead>
+        <tbody>
+          {data.map((row, index) => {
             return (
-              <TableHead padding={padding} key={index}>
-                {column}
-              </TableHead>
+              <TableRowData key={index}>
+                {row.map((rowData, index) => {
+                  return (
+                    <TableData padding={padding} key={index}>
+                      {rowData}
+                    </TableData>
+                  );
+                })}
+              </TableRowData>
             );
           })}
-        </TableRowHeader>
-      </thead>
-      <tbody>
-        {data.map((row, index) => {
-          return (
-            <TableRowData key={index}>
-              {row.map((rowData, index) => {
-                return (
-                  <TableData padding={padding} key={index}>
-                    {rowData}
-                  </TableData>
-                );
-              })}
-            </TableRowData>
-          );
-        })}
-      </tbody>
+        </tbody>
+      </StyledTable>
     </Container>
   );
 };
 
-const Container = styled.table`
-  min-width: 35rem;
+const Container = styled.div`
+  overflow-x: auto;
+`;
+
+const StyledTable = styled.table`
   width: 100%;
   border-spacing: 0;
 `;
