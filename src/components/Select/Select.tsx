@@ -50,11 +50,12 @@ export const Select: FunctionComponent<SelectProps> = ({
   size = "md",
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const selectRef = useRef<HTMLDivElement>(null);
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const closeDropdown = useCallback(() => setIsOpen(false), []);
 
-  useOutsideClick({ ref: containerRef, handler: closeDropdown, enabled: isOpen });
+  useOutsideClick({ ref: selectRef, handler: closeDropdown, enabled: isOpen });
 
   useEffect(() => {
     if (value) closeDropdown();
@@ -87,6 +88,7 @@ export const Select: FunctionComponent<SelectProps> = ({
         isOpen={isOpen}
         size={size}
         onClick={handleDropdown}
+        ref={selectRef}
       >
         <InnerContainer size={size}>
           <span>{selectedValue || placeholder}</span>
@@ -99,9 +101,7 @@ export const Select: FunctionComponent<SelectProps> = ({
             </IconButton>
           )}
           <ChevronWrapper active={isOpen}>
-            <IconButton size="sm">
-              <Icon icon={ChevronDown} size={18} />
-            </IconButton>
+            <Icon icon={ChevronDown} size={18} />
           </ChevronWrapper>
         </SideContainer>
       </SelectContainer>
