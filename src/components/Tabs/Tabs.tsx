@@ -28,7 +28,7 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children }) => {
           );
         })}
       </TabList>
-      <div>
+      <>
         {Children.map(children, (child, index) => {
           if (!isValidElement(child)) return;
 
@@ -38,7 +38,7 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children }) => {
 
           return <div role="tabpanel">{children}</div>;
         })}
-      </div>
+      </>
     </div>
   );
 };
