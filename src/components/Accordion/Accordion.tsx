@@ -19,17 +19,23 @@ export const Accordion: FunctionComponent<AccordionProps> = ({
   arrowPosition = "right",
 }) => {
   const { theme } = useTheme();
-  const [active, setActive] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  const toggle = () => setActive(!active);
+  const toggle = () => setIsOpen(!isOpen);
   const height = ref.current?.scrollHeight || 0;
 
   return (
     <div>
-      <Button onClick={toggle} disabled={disabled} arrowPosition={arrowPosition}>
+      <Button
+        onClick={toggle}
+        disabled={disabled}
+        arrowPosition={arrowPosition}
+        aria-expanded={isOpen}
+        aria-controls="accordion-content"
+      >
         <Title arrowPosition={arrowPosition}>{title}</Title>
-        <ChevronWrapper active={active} arrowPosition={arrowPosition}>
+        <ChevronWrapper isOpen={isOpen} arrowPosition={arrowPosition}>
           <Icon
             icon={ChevronDown}
             size={15}
@@ -37,7 +43,7 @@ export const Accordion: FunctionComponent<AccordionProps> = ({
           />
         </ChevronWrapper>
       </Button>
-      <Content ref={ref} height={height} active={active}>
+      <Content id="accordion-content" ref={ref} height={height} isOpen={isOpen}>
         {children}
       </Content>
     </div>
@@ -70,19 +76,19 @@ const Title = styled.div<{ arrowPosition: AccordionArrowPosition }>`
   order: ${({ arrowPosition }) => (arrowPosition === "right" ? 1 : 2)};
 `;
 
-const ChevronWrapper = styled.div<{ active: boolean; arrowPosition: AccordionArrowPosition }>`
-  transform: ${({ active }) => `rotate(${active ? "-180" : 0}deg)`};
+const ChevronWrapper = styled.div<{ isOpen: boolean; arrowPosition: AccordionArrowPosition }>`
+  transform: ${({ isOpen }) => `rotate(${isOpen ? "-180" : 0}deg)`};
   transition: transform ${({ theme }) => theme.transitions.durations.normal}ms
     ${({ theme }) => theme.transitions.timings.out};
   order: ${({ arrowPosition }) => (arrowPosition === "right" ? 2 : 1)};
 `;
 
-const Content = styled.div<{ height: number; active: boolean }>`
-  max-height: ${({ active, height }) => `${active ? height : 0}px`};
+const Content = styled.div<{ height: number; isOpen: boolean }>`
+  max-height: ${({ isOpen, height }) => `${isOpen ? height : 0}px`};
   overflow: hidden;
   transition: all ${({ theme }) => theme.transitions.durations.fast}ms
     ${({ theme }) => theme.transitions.timings.in};
   margin-left: ${({ theme }) => theme.spacing[4]};
-  margin-bottom: ${({ active, theme }) => active && theme.spacing[4]};
+  margin-bottom: ${({ isOpen, theme }) => isOpen && theme.spacing[4]};
   color: ${({ theme }) => theme.assets.textSecondary};
 `;
