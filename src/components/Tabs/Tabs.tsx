@@ -9,7 +9,7 @@ type TabsProps = {
 export const Tabs: FunctionComponent<TabsProps> = ({ children }) => {
   const [selectedTab, setSelectedTab] = useState<number>(0);
 
-  const buildId = (index: number) => `tab${index}`;
+  const getTabId = (index: number) => `tab${index}`;
 
   return (
     <div>
@@ -27,7 +27,7 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children }) => {
                 active={isTabSelected}
                 onClick={() => setSelectedTab(index)}
                 aria-selected={isTabSelected}
-                aria-controls={buildId(index)}
+                aria-controls={getTabId(index)}
                 tabIndex={isTabSelected ? 0 : -1}
               >
                 {title}
@@ -48,7 +48,7 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children }) => {
             <div
               role="tabpanel"
               hidden={selectedTab !== index}
-              aria-labelledby={buildId(index)}
+              aria-labelledby={getTabId(index)}
             >
               {children}
             </div>
