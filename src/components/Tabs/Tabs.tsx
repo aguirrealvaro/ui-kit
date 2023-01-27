@@ -9,6 +9,8 @@ type TabsProps = {
 export const Tabs: FunctionComponent<TabsProps> = ({ children }) => {
   const [selectedTab, setSelectedTab] = useState<number>(0);
 
+  const buildId = (index: number) => `tab${index}`;
+
   return (
     <div>
       <TabList role="tablist" aria-label="List of Tabs" aria-orientation="horizontal">
@@ -16,16 +18,17 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children }) => {
           if (!isValidElement(child)) return;
 
           const { title } = child.props as TabProps;
-          const tabId = `tab${index}`;
+          const isTabSelected = selectedTab === index;
 
           return (
             <TabItemWrapper role="presentation">
               <TabItem
                 role="tab"
-                active={selectedTab === index}
+                active={isTabSelected}
                 onClick={() => setSelectedTab(index)}
-                aria-selected={selectedTab === index}
-                aria-controls={tabId}
+                aria-selected={isTabSelected}
+                aria-controls={buildId(index)}
+                tabIndex={isTabSelected ? 0 : -1}
               >
                 {title}
               </TabItem>
@@ -38,12 +41,15 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children }) => {
           if (!isValidElement(child)) return;
 
           const { children } = child.props as TabProps;
-          const tabId = `tab${index}`;
 
           //if (selectedTab !== index) return null; //replaced with hidden
 
           return (
-            <div role="tabpanel" hidden={selectedTab !== index} aria-labelledby={tabId}>
+            <div
+              role="tabpanel"
+              hidden={selectedTab !== index}
+              aria-labelledby={buildId(index)}
+            >
               {children}
             </div>
           );
