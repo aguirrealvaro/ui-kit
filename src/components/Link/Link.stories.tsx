@@ -14,4 +14,5 @@ export const Primary = Template.bind({});
 Primary.args = {
   children: "This is a link",
   hideUnderline: false,
+  href: "https://google.com",
 };
