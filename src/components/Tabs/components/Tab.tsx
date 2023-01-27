@@ -5,6 +5,6 @@ export type TabProps = {
   title: ReactNode;
 };
 
-export const Tab: FunctionComponent<TabProps> = ({ children }) => {
-  return <div>{children}</div>;
+export const Tab: FunctionComponent<TabProps> = () => {
+  return <></>;
 };

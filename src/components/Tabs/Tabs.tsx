@@ -10,21 +10,23 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children }) => {
   const [activeKey, setActiveKey] = useState<number>(0);
 
   return (
-    <div>
-      <TabList role="tablist">
+    <section>
+      <TabList role="tablist" aria-label="List of Tabs" aria-orientation="horizontal">
         {Children.map(children, (child, index) => {
           if (!isValidElement(child)) return;
 
           const { title } = child.props as TabProps;
 
           return (
-            <TabItem
-              role="tab"
-              active={activeKey === index}
-              onClick={() => setActiveKey(index)}
-            >
-              {title}
-            </TabItem>
+            <TabItemWrapper role="presentation">
+              <TabItem
+                role="tab"
+                active={activeKey === index}
+                onClick={() => setActiveKey(index)}
+              >
+                {title}
+              </TabItem>
+            </TabItemWrapper>
           );
         })}
       </TabList>
@@ -39,18 +41,22 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children }) => {
           return <div role="tabpanel">{children}</div>;
         })}
       </>
-    </div>
+    </section>
   );
 };
 
-const TabList = styled.div`
+const TabList = styled.ul`
   display: flex;
   margin-bottom: ${({ theme }) => theme.spacing[4]};
   border-bottom: 1px solid ${({ theme }) => theme.assets.border};
   flex-wrap: wrap;
 `;
 
-const TabItem = styled.div<{ active: boolean }>`
+const TabItemWrapper = styled.li`
+  list-style: none;
+`;
+
+const TabItem = styled.button<{ active: boolean }>`
   padding: ${({ theme }) => theme.spacing[4]};
   cursor: pointer;
   ${({ active, theme }) => {
