@@ -1,4 +1,4 @@
-import { FunctionComponent, InputHTMLAttributes, ReactNode } from "react";
+import { FunctionComponent, InputHTMLAttributes, ReactNode, useState } from "react";
 import { CheckCircle } from "@styled-icons/material-rounded/CheckCircle";
 import { RadioButtonUnchecked } from "@styled-icons/material-rounded/RadioButtonUnchecked";
 import styled, { css } from "styled-components";
@@ -30,6 +30,8 @@ export const Checkbox: FunctionComponent<
 }) => {
   const { theme } = useTheme();
 
+  const [isFocused, setIsFocused] = useState<boolean>(false);
+
   const sizes: Record<CheckboxSizeType, string> = {
     xs: theme.spacing[5],
     sm: theme.spacing[6],
@@ -44,9 +46,17 @@ export const Checkbox: FunctionComponent<
 
   return (
     <label>
-      <HiddenInput type="checkbox" checked={checked} {...restProps} disabled={disabled} />
+      <HiddenInput
+        type="checkbox"
+        checked={checked}
+        aria-checked={checked}
+        {...restProps}
+        disabled={disabled}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+      />
       <Container disabled={disabled} hasHelpText={!!helpText}>
-        <IconWrapper position={position}>
+        <IconWrapper position={position} isFocused={isFocused}>
           <Icon
             icon={icon}
             color={disabled ? theme.assets.disabledBg : iconColor}
@@ -81,8 +91,9 @@ const Container = styled.div<{ disabled: boolean; hasHelpText: boolean }>`
   }}
 `;
 
-const IconWrapper = styled.div<{ position: CheckboxPositionType }>`
+const IconWrapper = styled.div<{ position: CheckboxPositionType; isFocused: boolean }>`
   order: ${({ position }) => (position === "left" ? 1 : 2)};
+  box-shadow: ${({ theme, isFocused }) => isFocused && theme.shadows["outline-primary"]};
 `;
 
 const LabelContainer = styled.div<{ position: CheckboxPositionType }>`

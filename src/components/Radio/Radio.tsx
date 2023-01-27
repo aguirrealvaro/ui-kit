@@ -1,4 +1,4 @@
-import { FunctionComponent, InputHTMLAttributes, ReactNode } from "react";
+import { FunctionComponent, InputHTMLAttributes, ReactNode, useState } from "react";
 import { RadioCircle } from "@styled-icons/boxicons-regular/RadioCircle";
 import { RadioCircleMarked } from "@styled-icons/boxicons-regular/RadioCircleMarked";
 import styled, { css } from "styled-components";
@@ -30,6 +30,8 @@ export const Radio: FunctionComponent<
 }) => {
   const { theme } = useTheme();
 
+  const [isFocused, setIsFocused] = useState<boolean>(false);
+
   const sizes: Record<RadioSizeType, string> = {
     xs: theme.spacing[5],
     sm: theme.spacing[6],
@@ -44,9 +46,17 @@ export const Radio: FunctionComponent<
 
   return (
     <label>
-      <HiddenInput type="radio" checked={checked} disabled={disabled} {...restProps} />
+      <HiddenInput
+        type="radio"
+        checked={checked}
+        disabled={disabled}
+        {...restProps}
+        aria-checked={checked}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+      />
       <Container disabled={disabled} hasHelpText={!!helpText}>
-        <IconWrapper position={position}>
+        <IconWrapper position={position} isFocused={isFocused}>
           <Icon
             icon={icon}
             color={disabled ? theme.assets.disabledBg : iconColor}
@@ -81,8 +91,9 @@ const Container = styled.div<{ disabled: boolean; hasHelpText: boolean }>`
   }}
 `;
 
-const IconWrapper = styled.div<{ position: RadioPositionType }>`
+const IconWrapper = styled.div<{ position: RadioPositionType; isFocused: boolean }>`
   order: ${({ position }) => (position === "left" ? 1 : 2)};
+  box-shadow: ${({ theme, isFocused }) => isFocused && theme.shadows["outline-primary"]};
 `;
 
 const LabelContainer = styled.div<{ position: RadioPositionType }>`
