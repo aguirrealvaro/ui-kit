@@ -181,7 +181,7 @@ const SelectContainer = styled.div<{
     if (isOpen) {
       return css`
         border-color: transparent;
-        box-shadow: ${({ theme }) => theme.shadows.outline};
+        box-shadow: ${({ theme }) => theme.shadows["outline-primary"]};
       `;
     }
 

@@ -159,7 +159,7 @@ const Select = styled.select<{
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   &:focus {
     border-color: transparent;
-    box-shadow: ${({ theme }) => theme.shadows.outline};
+    box-shadow: ${({ theme }) => theme.shadows["outline-primary"]};
   }
   &:disabled {
     background-color: ${({ theme }) => theme.assets.disabledBg};

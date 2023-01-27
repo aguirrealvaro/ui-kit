@@ -159,19 +159,27 @@ const InputContainer = styled.div<{
     if (isError) {
       return css`
         border-color: ${theme.assets.danger};
+        &:focus-within {
+          box-shadow: ${({ theme }) => theme.shadows["outline-danger"]};
+          border-color: transparent;
+        }
       `;
     }
 
     if (isSuccess) {
       return css`
         border-color: ${theme.assets.success};
+        &:focus-within {
+          box-shadow: ${({ theme }) => theme.shadows["outline-success"]};
+          border-color: transparent;
+        }
       `;
     }
 
     return css`
       border-color: ${({ theme }) => theme.assets.border};
       &:focus-within {
-        box-shadow: ${({ theme }) => theme.shadows.outline};
+        box-shadow: ${({ theme }) => theme.shadows["outline-primary"]};
         border-color: transparent;
       }
     `;
