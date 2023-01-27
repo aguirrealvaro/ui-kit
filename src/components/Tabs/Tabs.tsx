@@ -1,4 +1,12 @@
-import { FunctionComponent, Children, ReactNode, useState, isValidElement } from "react";
+import {
+  FunctionComponent,
+  Children,
+  ReactNode,
+  useState,
+  isValidElement,
+  KeyboardEvent,
+  useRef,
+} from "react";
 import styled, { css } from "styled-components";
 import { TabProps } from "./components/Tab";
 
@@ -9,11 +17,35 @@ type TabsProps = {
 export const Tabs: FunctionComponent<TabsProps> = ({ children }) => {
   const [selectedTab, setSelectedTab] = useState<number>(0);
 
+  const ref = useRef<HTMLButtonElement[]>([]);
+
   const getTabId = (index: number) => `tab${index}`;
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLUListElement>) => {
+    const first = 0;
+    const last = Children.count(children) - 1;
+
+    if (event.key === "ArrowLeft") {
+      const next = selectedTab - 1;
+      const tabToSelect = selectedTab === first ? last : next;
+      setSelectedTab(tabToSelect);
+      ref.current[tabToSelect]?.focus();
+    } else if (event.key === "ArrowRight") {
+      const next = selectedTab + 1;
+      const tabToSelect = selectedTab === last ? first : next;
+      setSelectedTab(tabToSelect);
+      ref.current[tabToSelect]?.focus();
+    }
+  };
 
   return (
     <div>
-      <TabList role="tablist" aria-label="List of Tabs" aria-orientation="horizontal">
+      <TabList
+        role="tablist"
+        aria-label="List of Tabs"
+        aria-orientation="horizontal"
+        onKeyDown={handleKeyDown}
+      >
         {Children.map(children, (child, index) => {
           if (!isValidElement(child)) return;
 
@@ -29,6 +61,11 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children }) => {
                 aria-selected={isTabSelected}
                 aria-controls={getTabId(index)}
                 tabIndex={isTabSelected ? 0 : -1}
+                ref={(el) => {
+                  if (ref.current && el) {
+                    ref.current[index] = el;
+                  }
+                }}
               >
                 {title}
               </TabItem>
@@ -42,7 +79,7 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children }) => {
 
           const { children } = child.props as TabProps;
 
-          //if (selectedTab !== index) return null; //replaced with hidden
+          //if (selectedTab !== index) return null; // replaced with hidden
 
           return (
             <div
