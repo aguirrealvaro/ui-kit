@@ -25,14 +25,18 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children }) => {
     const first = 0;
     const last = Children.count(children) - 1;
 
-    if (event.key === "ArrowLeft") {
-      const next = selectedTab - 1;
-      const tabToSelect = selectedTab === first ? last : next;
-      setSelectedTab(tabToSelect);
-      ref.current[tabToSelect]?.focus();
-    } else if (event.key === "ArrowRight") {
-      const next = selectedTab + 1;
-      const tabToSelect = selectedTab === last ? first : next;
+    const tabToSelect = (() => {
+      if (event.key === "ArrowLeft") {
+        const prev = selectedTab - 1;
+        return selectedTab === first ? last : prev;
+      } else if (event.key === "ArrowRight") {
+        const next = selectedTab + 1;
+        return selectedTab === last ? first : next;
+      }
+    })();
+
+    if (tabToSelect !== undefined) {
+      // checking for undefined because tabToSelect can be 0
       setSelectedTab(tabToSelect);
       ref.current[tabToSelect]?.focus();
     }
