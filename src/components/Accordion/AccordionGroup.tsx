@@ -11,11 +11,11 @@ export const AccordionGroup: FunctionComponent<AccordionGroupProps> = ({
   showSeparator = true,
 }) => {
   return (
-    <div>
+    <>
       {Children.map(children, (child) => {
         return <Child showSeparator={showSeparator}>{child}</Child>;
       })}
-    </div>
+    </>
   );
 };
 

@@ -37,8 +37,5 @@ export const GlobalStyles = createGlobalStyle<GlobalStylesType>`
     border: none;
     background: none;
     cursor: pointer;
-    :focus:not(:focus-visible) {
-      outline: none;
-    }
   }
 `;
