@@ -15,8 +15,8 @@ const Template: ComponentStory<typeof Radio> = ({ onChange: _, ...args }) => {
 
 export const Primary = Template.bind({});
 Primary.args = {
-  label: "This is a radio",
+  children: "This is a radio",
   size: "md",
   helpText: "This a help text explaining the action",
-  position: "right",
+  position: "left",
 };

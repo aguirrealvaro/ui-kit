@@ -8,7 +8,7 @@ import { hiddenStyles } from "@/css";
 import { useTheme } from "@/hooks";
 
 type CheckboxProps = {
-  label: ReactNode;
+  children: ReactNode;
   helpText?: ReactNode;
   size?: CheckboxSizeType;
   position?: CheckboxPositionType;
@@ -20,7 +20,7 @@ type CheckboxProps = {
 export const Checkbox: FunctionComponent<
   CheckboxProps & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "onChange">
 > = ({
-  label,
+  children,
   helpText,
   size = "md",
   position = "left",
@@ -72,10 +72,10 @@ export const Checkbox: FunctionComponent<
             size={iconSize}
           />
         </IconWrapper>
-        <LabelContainer position={position}>
-          <Label size={size}>{label}</Label>
+        <ChildrenContainer position={position}>
+          <ChildrenContent size={size}>{children}</ChildrenContent>
           {helpText && <HelpText size={size}>{helpText}</HelpText>}
-        </LabelContainer>
+        </ChildrenContainer>
       </Container>
     </label>
   );
@@ -104,11 +104,11 @@ const IconWrapper = styled.div<{ position: CheckboxPositionType }>`
   order: ${({ position }) => (position === "left" ? 1 : 2)};
 `;
 
-const LabelContainer = styled.div<{ position: CheckboxPositionType }>`
+const ChildrenContainer = styled.div<{ position: CheckboxPositionType }>`
   order: ${({ position }) => (position === "left" ? 2 : 1)};
 `;
 
-const Label = styled.span<{ size: CheckboxSizeType }>`
+const ChildrenContent = styled.span<{ size: CheckboxSizeType }>`
   display: block;
   font-size: ${({ size, theme }) => {
     const sizes: Record<CheckboxSizeType, string> = {

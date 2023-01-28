@@ -8,7 +8,7 @@ import { hiddenStyles } from "@/css";
 import { useTheme } from "@/hooks";
 
 type RadioProps = {
-  label: ReactNode;
+  children: ReactNode;
   helpText?: ReactNode;
   size?: RadioSizeType;
   position?: RadioPositionType;
@@ -20,7 +20,7 @@ type RadioProps = {
 export const Radio: FunctionComponent<
   RadioProps & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "onChange">
 > = ({
-  label,
+  children,
   helpText,
   size = "md",
   position = "left",
@@ -72,10 +72,10 @@ export const Radio: FunctionComponent<
             size={radioSize}
           />
         </IconWrapper>
-        <LabelContainer position={position}>
-          <Label size={size}>{label}</Label>
+        <ChildrenContainer position={position}>
+          <ChildrenContent size={size}>{children}</ChildrenContent>
           {helpText && <HelpText size={size}>{helpText}</HelpText>}
-        </LabelContainer>
+        </ChildrenContainer>
       </Container>
     </label>
   );
@@ -104,11 +104,11 @@ const IconWrapper = styled.div<{ position: RadioPositionType }>`
   order: ${({ position }) => (position === "left" ? 1 : 2)};
 `;
 
-const LabelContainer = styled.div<{ position: RadioPositionType }>`
+const ChildrenContainer = styled.div<{ position: RadioPositionType }>`
   order: ${({ position }) => (position === "left" ? 2 : 1)};
 `;
 
-const Label = styled.span<{ size: RadioSizeType }>`
+const ChildrenContent = styled.span<{ size: RadioSizeType }>`
   display: block;
   font-size: ${({ size, theme }) => {
     const sizes: Record<RadioSizeType, string> = {

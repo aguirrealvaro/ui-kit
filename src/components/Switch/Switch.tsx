@@ -57,10 +57,10 @@ export const Switch: FunctionComponent<
             <Ball checked={checked || false} size={size} />
           </Pill>
         </Wrapper>
-        <LabelContainer position={position}>
-          <Label size={size}>{children}</Label>
+        <ChildrenContainer position={position}>
+          <ChildrenContent size={size}>{children}</ChildrenContent>
           {helpText && <HelpText size={size}>{helpText}</HelpText>}
-        </LabelContainer>
+        </ChildrenContainer>
       </Container>
     </label>
   );
@@ -166,11 +166,11 @@ const Ball = styled.span<{ checked: boolean; size: SwitchSizeType }>`
     ${({ theme }) => theme.transitions.timings.in};
 `;
 
-const LabelContainer = styled.div<{ position: SwitchPositionType }>`
+const ChildrenContainer = styled.div<{ position: SwitchPositionType }>`
   order: ${({ position }) => (position === "left" ? 2 : 1)};
 `;
 
-const Label = styled.span<{ size: SwitchSizeType }>`
+const ChildrenContent = styled.span<{ size: SwitchSizeType }>`
   display: block;
   font-size: ${({ size, theme }) => {
     const sizes: Record<SwitchSizeType, string> = {
