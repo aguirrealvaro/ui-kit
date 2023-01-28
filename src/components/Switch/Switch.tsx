@@ -1,4 +1,4 @@
-import { FunctionComponent, InputHTMLAttributes, ReactNode } from "react";
+import { FunctionComponent, InputHTMLAttributes, ReactNode, useState } from "react";
 import styled, { css } from "styled-components";
 import { SwitchPositionType, SwitchSizeType } from "./Switch.types";
 import { hiddenStyles, ThemeType } from "@/css";
@@ -25,11 +25,20 @@ export const Switch: FunctionComponent<
 }) => {
   const { theme } = useTheme();
 
+  const [isFocused, setIsFocused] = useState<boolean>(false);
+
   return (
     <label>
-      <HiddenInput type="checkbox" checked={checked} disabled={disabled} {...restProps} />
+      <HiddenInput
+        type="checkbox"
+        checked={checked}
+        disabled={disabled}
+        {...restProps}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+      />
       <Container disabled={disabled}>
-        <Wrapper position={position}>
+        <Wrapper position={position} isFocused={isFocused}>
           <Pill
             checked={checked || false}
             size={size}
@@ -67,8 +76,9 @@ const Container = styled.div<{ disabled: boolean }>`
   }}
 `;
 
-const Wrapper = styled.div<{ position: SwitchPositionType }>`
+const Wrapper = styled.div<{ position: SwitchPositionType; isFocused: boolean }>`
   order: ${({ position }) => (position === "left" ? 1 : 2)};
+  box-shadow: ${({ theme, isFocused }) => isFocused && theme.shadows["outline-primary"]};
   line-height: 0;
 `;
 
