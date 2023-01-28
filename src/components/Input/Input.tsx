@@ -248,7 +248,7 @@ const RightContainer = styled.div`
   margin-right: ${({ theme }) => theme.spacing[6]};
   display: flex;
   align-items: center;
-  gap: ${({ theme }) => theme.spacing[4]};
+  gap: ${({ theme }) => theme.spacing[2]};
 `;
 
 const CustomInput = styled.input<{

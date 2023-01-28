@@ -231,7 +231,7 @@ const SideContainer = styled.div`
   margin-right: ${({ theme }) => theme.spacing[6]};
   display: flex;
   align-items: center;
-  gap: ${({ theme }) => theme.spacing[0.5]};
+  gap: ${({ theme }) => theme.spacing[2]};
 `;
 
 const Dropdown = styled.div<{ size: SelectSizeType }>`
