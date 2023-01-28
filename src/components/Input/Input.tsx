@@ -98,8 +98,9 @@ export const Input: FunctionComponent<
     setSeePassword(!seePassword);
   };
 
-  const handleInputKeyDown = (event: KeyboardEvent) => {
+  const handleKeyDown = (event: KeyboardEvent) => {
     if (event.key === "Escape" && value && clearValue) {
+      event.preventDefault();
       clearValue();
     }
   };
@@ -117,7 +118,7 @@ export const Input: FunctionComponent<
         isSuccess={isSuccess}
         onClick={focusInput}
         size={size}
-        onKeyDown={handleInputKeyDown}
+        onKeyDown={handleKeyDown}
       >
         {showLeftContainer && (
           <LeftContainer>{startEnhacer ? startEnhacer : null}</LeftContainer>

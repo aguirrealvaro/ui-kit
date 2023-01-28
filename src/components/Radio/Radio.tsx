@@ -43,8 +43,9 @@ export const Radio: FunctionComponent<
   const icon = checked ? RadioCircleMarked : RadioCircle;
   const iconColor = color || theme.assets.primary;
 
-  const handleKeyPress = (event: KeyboardEvent) => {
+  const handleKeyDown = (event: KeyboardEvent) => {
     if (["Enter", " "].includes(event.key)) {
+      event.preventDefault();
       onChange();
     }
   };
@@ -64,7 +65,7 @@ export const Radio: FunctionComponent<
         <IconWrapper
           position={position}
           tabIndex={disabled ? -1 : 0}
-          onKeyDown={handleKeyPress}
+          onKeyDown={handleKeyDown}
         >
           <Icon
             icon={icon}

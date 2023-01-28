@@ -91,6 +91,7 @@ export const AnimatedInput: FunctionComponent<
 
   const handleInputKeyDown = (event: KeyboardEvent) => {
     if (event.key === "Escape" && value && clearValue) {
+      event.preventDefault();
       clearValue();
     }
   };

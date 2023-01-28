@@ -29,8 +29,9 @@ export const Switch: FunctionComponent<
 }) => {
   const { theme } = useTheme();
 
-  const handleKeyPress = (event: KeyboardEvent) => {
+  const handleKeyDown = (event: KeyboardEvent) => {
     if (["Enter", " "].includes(event.key)) {
+      event.preventDefault();
       onChange();
     }
   };
@@ -47,7 +48,7 @@ export const Switch: FunctionComponent<
         {...restProps}
       />
       <Container disabled={disabled} hasHelpText={!!helpText}>
-        <Wrapper position={position} tabIndex={disabled ? -1 : 0} onKeyDown={handleKeyPress}>
+        <Wrapper position={position} tabIndex={disabled ? -1 : 0} onKeyDown={handleKeyDown}>
           <Pill
             checked={checked || false}
             size={size}
