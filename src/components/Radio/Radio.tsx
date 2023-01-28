@@ -1,4 +1,4 @@
-import { FunctionComponent, InputHTMLAttributes, ReactNode, useState } from "react";
+import { FunctionComponent, InputHTMLAttributes, ReactNode, KeyboardEvent } from "react";
 import { RadioCircle } from "@styled-icons/boxicons-regular/RadioCircle";
 import { RadioCircleMarked } from "@styled-icons/boxicons-regular/RadioCircleMarked";
 import styled, { css } from "styled-components";
@@ -14,10 +14,11 @@ type RadioProps = {
   position?: RadioPositionType;
   color?: string;
   disabled?: boolean;
+  onChange: () => void;
 };
 
 export const Radio: FunctionComponent<
-  RadioProps & Omit<InputHTMLAttributes<HTMLInputElement>, "size">
+  RadioProps & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "onChange">
 > = ({
   label,
   helpText,
@@ -26,11 +27,10 @@ export const Radio: FunctionComponent<
   checked,
   color,
   disabled = false,
+  onChange,
   ...restProps
 }) => {
   const { theme } = useTheme();
-
-  const [isFocused, setIsFocused] = useState<boolean>(false);
 
   const sizes: Record<RadioSizeType, string> = {
     xs: theme.spacing[5],
@@ -44,19 +44,29 @@ export const Radio: FunctionComponent<
   const icon = checked ? RadioCircleMarked : RadioCircle;
   const iconColor = color || theme.assets.primary;
 
+  const handleKeyPress = (event: KeyboardEvent) => {
+    if (["Enter", " "].includes(event.key)) {
+      onChange();
+    }
+  };
+
   return (
     <label>
       <HiddenInput
         type="radio"
         checked={checked}
         disabled={disabled}
-        {...restProps}
         aria-checked={checked}
-        onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
+        tabIndex={-1}
+        onChange={onChange}
+        {...restProps}
       />
       <Container disabled={disabled} hasHelpText={!!helpText}>
-        <IconWrapper position={position} isFocused={isFocused}>
+        <IconWrapper
+          position={position}
+          tabIndex={disabled ? -1 : 0}
+          onKeyDown={handleKeyPress}
+        >
           <Icon
             icon={icon}
             color={disabled ? theme.assets.disabledBg : iconColor}
@@ -91,9 +101,8 @@ const Container = styled.div<{ disabled: boolean; hasHelpText: boolean }>`
   }}
 `;
 
-const IconWrapper = styled.div<{ position: RadioPositionType; isFocused: boolean }>`
+const IconWrapper = styled.div<{ position: RadioPositionType }>`
   order: ${({ position }) => (position === "left" ? 1 : 2)};
-  box-shadow: ${({ theme, isFocused }) => isFocused && theme.shadows["outline-primary"]};
 `;
 
 const LabelContainer = styled.div<{ position: RadioPositionType }>`

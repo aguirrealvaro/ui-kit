@@ -7,7 +7,7 @@ export default {
   component: Radio,
 } as ComponentMeta<typeof Radio>;
 
-const Template: ComponentStory<typeof Radio> = (args) => {
+const Template: ComponentStory<typeof Radio> = ({ onChange: _, ...args }) => {
   const [checked, setChecked] = useBoolean();
 
   return <Radio checked={checked} onChange={setChecked.toggle} {...args} />;

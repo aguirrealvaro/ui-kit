@@ -7,7 +7,7 @@ export default {
   component: Checkbox,
 } as ComponentMeta<typeof Checkbox>;
 
-const Template: ComponentStory<typeof Checkbox> = (args) => {
+const Template: ComponentStory<typeof Checkbox> = ({ onChange: _, ...args }) => {
   const [checked, setChecked] = useBoolean();
 
   return <Checkbox checked={checked} onChange={setChecked.toggle} {...args} />;

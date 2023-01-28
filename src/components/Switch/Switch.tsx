@@ -1,4 +1,4 @@
-import { FunctionComponent, InputHTMLAttributes, ReactNode, useState } from "react";
+import { FunctionComponent, InputHTMLAttributes, ReactNode, KeyboardEvent } from "react";
 import styled, { css } from "styled-components";
 import { SwitchPositionType, SwitchSizeType } from "./Switch.types";
 import { hiddenStyles, ThemeType } from "@/css";
@@ -10,10 +10,11 @@ type SwitchProps = {
   position?: SwitchPositionType;
   color?: string;
   disabled?: boolean;
+  onChange: () => void;
 };
 
 export const Switch: FunctionComponent<
-  SwitchProps & Omit<InputHTMLAttributes<HTMLInputElement>, "size">
+  SwitchProps & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "onChange">
 > = ({
   children,
   size = "md",
@@ -21,11 +22,16 @@ export const Switch: FunctionComponent<
   checked,
   color,
   disabled = false,
+  onChange,
   ...restProps
 }) => {
   const { theme } = useTheme();
 
-  const [isFocused, setIsFocused] = useState<boolean>(false);
+  const handleKeyPress = (event: KeyboardEvent) => {
+    if (["Enter", " "].includes(event.key)) {
+      onChange();
+    }
+  };
 
   return (
     <label>
@@ -33,12 +39,13 @@ export const Switch: FunctionComponent<
         type="checkbox"
         checked={checked}
         disabled={disabled}
+        aria-checked={checked}
+        tabIndex={-1}
+        onChange={onChange}
         {...restProps}
-        onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
       />
       <Container disabled={disabled}>
-        <Wrapper position={position} isFocused={isFocused}>
+        <Wrapper position={position} tabIndex={disabled ? -1 : 0} onKeyDown={handleKeyPress}>
           <Pill
             checked={checked || false}
             size={size}
@@ -66,6 +73,7 @@ const Container = styled.div<{ disabled: boolean }>`
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacing[2]};
+  cursor: pointer;
   ${({ disabled, theme }) => {
     if (disabled) {
       return css`
@@ -76,9 +84,8 @@ const Container = styled.div<{ disabled: boolean }>`
   }}
 `;
 
-const Wrapper = styled.div<{ position: SwitchPositionType; isFocused: boolean }>`
+const Wrapper = styled.div<{ position: SwitchPositionType }>`
   order: ${({ position }) => (position === "left" ? 1 : 2)};
-  box-shadow: ${({ theme, isFocused }) => isFocused && theme.shadows["outline-primary"]};
   line-height: 0;
 `;
 
