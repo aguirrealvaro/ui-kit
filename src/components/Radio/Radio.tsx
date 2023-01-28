@@ -33,7 +33,6 @@ export const Radio: FunctionComponent<
   const { theme } = useTheme();
 
   const sizes: Record<RadioSizeType, string> = {
-    xs: theme.spacing[5],
     sm: theme.spacing[6],
     md: theme.spacing[7],
     lg: theme.spacing[8],
@@ -75,7 +74,7 @@ export const Radio: FunctionComponent<
         </IconWrapper>
         <LabelContainer position={position}>
           <Label size={size}>{label}</Label>
-          {helpText && <HelpText>{helpText}</HelpText>}
+          {helpText && <HelpText size={size}>{helpText}</HelpText>}
         </LabelContainer>
       </Container>
     </label>
@@ -113,7 +112,6 @@ const Label = styled.span<{ size: RadioSizeType }>`
   display: block;
   font-size: ${({ size, theme }) => {
     const sizes: Record<RadioSizeType, string> = {
-      xs: theme.typography.fontSizes.xs,
       sm: theme.typography.fontSizes.sm,
       md: theme.typography.fontSizes.md,
       lg: theme.typography.fontSizes.lg,
@@ -122,8 +120,16 @@ const Label = styled.span<{ size: RadioSizeType }>`
   }};
 `;
 
-const HelpText = styled.span`
+const HelpText = styled.span<{ size: RadioSizeType }>`
   display: block;
+  font-size: ${({ size, theme }) => {
+    const sizes: Record<RadioSizeType, string> = {
+      sm: theme.typography.fontSizes.xs,
+      md: theme.typography.fontSizes.sm,
+      lg: theme.typography.fontSizes.md,
+    };
+    return sizes[size];
+  }};
   margin-top: ${({ theme }) => theme.spacing[3.5]};
   color: ${({ theme }) => theme.assets.textSecondary};
 `;

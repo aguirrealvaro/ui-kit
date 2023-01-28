@@ -16,5 +16,7 @@ const Template: ComponentStory<typeof Switch> = ({ onChange: _, ...args }) => {
 export const Primary = Template.bind({});
 Primary.args = {
   children: "This is a switch",
+  size: "md",
+  helpText: "This is a helpText",
   position: "right",
 };

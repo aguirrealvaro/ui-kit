@@ -5,7 +5,8 @@ import { hiddenStyles, ThemeType } from "@/css";
 import { useTheme } from "@/hooks";
 
 type SwitchProps = {
-  children?: ReactNode;
+  children: ReactNode;
+  helpText?: ReactNode;
   size?: SwitchSizeType;
   position?: SwitchPositionType;
   color?: string;
@@ -17,6 +18,7 @@ export const Switch: FunctionComponent<
   SwitchProps & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "onChange">
 > = ({
   children,
+  helpText,
   size = "md",
   position = "right",
   checked,
@@ -44,7 +46,7 @@ export const Switch: FunctionComponent<
         onChange={onChange}
         {...restProps}
       />
-      <Container disabled={disabled}>
+      <Container disabled={disabled} hasHelpText={!!helpText}>
         <Wrapper position={position} tabIndex={disabled ? -1 : 0} onKeyDown={handleKeyPress}>
           <Pill
             checked={checked || false}
@@ -55,11 +57,10 @@ export const Switch: FunctionComponent<
             <Ball checked={checked || false} size={size} />
           </Pill>
         </Wrapper>
-        {children && (
-          <Label position={position} size={size}>
-            {children}
-          </Label>
-        )}
+        <LabelContainer position={position}>
+          <Label size={size}>{children}</Label>
+          {helpText && <HelpText size={size}>{helpText}</HelpText>}
+        </LabelContainer>
       </Container>
     </label>
   );
@@ -69,9 +70,9 @@ const HiddenInput = styled.input`
   ${hiddenStyles};
 `;
 
-const Container = styled.div<{ disabled: boolean }>`
+const Container = styled.div<{ disabled: boolean; hasHelpText: boolean }>`
   display: flex;
-  align-items: center;
+  align-items: ${({ hasHelpText }) => (hasHelpText ? "flex-start" : "center")};
   gap: ${({ theme }) => theme.spacing[2]};
   cursor: pointer;
   ${({ disabled, theme }) => {
@@ -91,7 +92,6 @@ const Wrapper = styled.div<{ position: SwitchPositionType }>`
 
 const getSizes = (theme: ThemeType) => {
   const sizes: Record<SwitchSizeType, string> = {
-    xs: theme.spacing[4],
     sm: theme.spacing[5],
     md: theme.spacing[6],
     lg: theme.spacing[7],
@@ -166,15 +166,32 @@ const Ball = styled.span<{ checked: boolean; size: SwitchSizeType }>`
     ${({ theme }) => theme.transitions.timings.in};
 `;
 
-const Label = styled.div<{ position: SwitchPositionType; size: SwitchSizeType }>`
+const LabelContainer = styled.div<{ position: SwitchPositionType }>`
   order: ${({ position }) => (position === "left" ? 2 : 1)};
+`;
+
+const Label = styled.span<{ size: SwitchSizeType }>`
+  display: block;
   font-size: ${({ size, theme }) => {
     const sizes: Record<SwitchSizeType, string> = {
-      xs: theme.typography.fontSizes.xs,
       sm: theme.typography.fontSizes.sm,
       md: theme.typography.fontSizes.md,
       lg: theme.typography.fontSizes.lg,
     };
     return sizes[size];
   }};
+`;
+
+const HelpText = styled.span<{ size: SwitchSizeType }>`
+  display: block;
+  font-size: ${({ size, theme }) => {
+    const sizes: Record<SwitchSizeType, string> = {
+      sm: theme.typography.fontSizes.xs,
+      md: theme.typography.fontSizes.sm,
+      lg: theme.typography.fontSizes.md,
+    };
+    return sizes[size];
+  }};
+  margin-top: ${({ theme }) => theme.spacing[3.5]};
+  color: ${({ theme }) => theme.assets.textSecondary};
 `;

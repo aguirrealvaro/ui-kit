@@ -1,3 +1,3 @@
-export type SwitchSizeType = "xs" | "sm" | "md" | "lg";
+export type SwitchSizeType = "sm" | "md" | "lg";
 
 export type SwitchPositionType = "left" | "right";
