@@ -7,6 +7,7 @@ import {
   useLayoutEffect,
   useState,
   MouseEvent,
+  KeyboardEvent,
 } from "react";
 import { CheckCircleFill } from "@styled-icons/bootstrap/CheckCircleFill";
 import { EyeFill } from "@styled-icons/bootstrap/EyeFill";
@@ -97,6 +98,12 @@ export const Input: FunctionComponent<
     setSeePassword(!seePassword);
   };
 
+  const handleInputKeyDown = (event: KeyboardEvent) => {
+    if (event.key === "Escape" && value && clearValue) {
+      clearValue();
+    }
+  };
+
   return (
     <div>
       {label && (
@@ -110,6 +117,7 @@ export const Input: FunctionComponent<
         isSuccess={isSuccess}
         onClick={focusInput}
         size={size}
+        onKeyDown={handleInputKeyDown}
       >
         {showLeftContainer && (
           <LeftContainer>{startEnhacer ? startEnhacer : null}</LeftContainer>

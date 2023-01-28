@@ -7,6 +7,7 @@ import {
   useLayoutEffect,
   useState,
   MouseEvent,
+  KeyboardEvent,
 } from "react";
 import { CheckCircleFill } from "@styled-icons/bootstrap/CheckCircleFill";
 import { EyeFill } from "@styled-icons/bootstrap/EyeFill";
@@ -88,6 +89,12 @@ export const AnimatedInput: FunctionComponent<
     setSeePassword(!seePassword);
   };
 
+  const handleInputKeyDown = (event: KeyboardEvent) => {
+    if (event.key === "Escape" && value && clearValue) {
+      clearValue();
+    }
+  };
+
   return (
     <div>
       <InputContainer
@@ -95,6 +102,7 @@ export const AnimatedInput: FunctionComponent<
         isError={isError}
         isSuccess={isSuccess}
         onClick={focusInput}
+        onKeyDown={handleInputKeyDown}
       >
         <InnerContainer>
           <CustomInput
