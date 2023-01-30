@@ -121,17 +121,15 @@ export const Select: FunctionComponent<SelectProps> = ({
     }
 
     if (event.key === "Escape") {
+      event.preventDefault();
       if (isOpen) {
-        event.preventDefault();
         setIsOpen(false);
       } else {
-        event.preventDefault();
         if (value && clearValue) clearValue();
       }
     }
 
     if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
       setIsOpen(!isOpen);
     }
 
@@ -204,6 +202,7 @@ export const Select: FunctionComponent<SelectProps> = ({
     }
 
     if (event.key === "ArrowDown") {
+      event.preventDefault();
       if (nextOption) {
         optionsRef.current[nextOption].focus();
         setFocusedIndex(nextOption);
@@ -211,6 +210,7 @@ export const Select: FunctionComponent<SelectProps> = ({
     }
 
     if (event.key === "ArrowUp") {
+      event.preventDefault();
       if (previousOption) {
         optionsRef.current[previousOption].focus();
         setFocusedIndex(previousOption);
