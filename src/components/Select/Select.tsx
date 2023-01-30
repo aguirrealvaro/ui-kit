@@ -81,6 +81,8 @@ export const Select: FunctionComponent<SelectProps> = ({
     <Container ref={containerRef}>
       {label && <Label size={size}>{label}</Label>}
       <SelectContainer
+        role="button"
+        tabIndex={0}
         disabled={disabled || false}
         isSelected={isSelected}
         isError={isError}
@@ -177,30 +179,32 @@ const SelectContainer = styled.div<{
   }};
   cursor: pointer;
   border: 1px solid transparent;
-  ${({ theme, isError, isOpen, isSuccess }) => {
-    if (isOpen) {
-      return css`
-        border-color: transparent;
-        box-shadow: ${({ theme }) => theme.shadows["outline-primary"]};
-      `;
-    }
-
+  border-color: ${({ theme, isError, isSuccess }) => {
     if (isError) {
-      return css`
-        border-color: ${theme.assets.danger};
-      `;
+      return theme.assets.danger;
     }
 
     if (isSuccess) {
-      return css`
-        border-color: ${theme.assets.success};
-      `;
+      return theme.assets.success;
     }
 
-    return css`
-      border-color: ${theme.assets.border};
-    `;
+    return theme.assets.border;
   }};
+  outline: none;
+  &:focus {
+    border-color: transparent;
+    box-shadow: ${({ theme, isError, isSuccess }) => {
+      if (isError) {
+        return theme.shadows["outline-danger"];
+      }
+
+      if (isSuccess) {
+        return theme.shadows["outline-success"];
+      }
+
+      return theme.shadows["outline-primary"];
+    }};
+  }
   ${({ disabled, theme }) => {
     if (disabled) {
       return css`
