@@ -68,7 +68,6 @@ export const Select: FunctionComponent<SelectProps> = ({
   }, [value, closeDropdown]);
 
   const selectedLabel = options.find((option) => option.value === value)?.label;
-  const selectedIndex = options.findIndex((option) => option.value === value);
 
   const handleDropdown = () => {
     if (disabled) return;
@@ -84,6 +83,10 @@ export const Select: FunctionComponent<SelectProps> = ({
 
   const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
 
+  const [focusedIndex, setFocusedIndex] = useState<number | undefined>(undefined);
+
+  const selectedIndex = options.findIndex((option) => option.value === value);
+
   const isFirstRender = useIsFirstRender();
 
   // after closing dropdown, keep focusing select
@@ -91,8 +94,9 @@ export const Select: FunctionComponent<SelectProps> = ({
   useEffect(() => {
     if (!isOpen && !isFirstRender) {
       selectRef.current?.focus();
+      setFocusedIndex(selectedIndex);
     }
-  }, [isFirstRender, isOpen]);
+  }, [isFirstRender, isOpen, selectedIndex]);
 
   const enabledIndexs = options
     .map(({ disabled }, index) => {
@@ -103,14 +107,12 @@ export const Select: FunctionComponent<SelectProps> = ({
   const firstOption = enabledIndexs[0];
   const lastOption = enabledIndexs[enabledIndexs.length - 1];
 
-  const nextOption =
-    enabledIndexs[enabledIndexs.findIndex((option) => option === selectedIndex) + 1];
-
-  const previousOption =
-    enabledIndexs[enabledIndexs.findIndex((option) => option === selectedIndex) - 1];
-
   const handleComboboxKeyDown = (event: KeyboardEvent) => {
-    console.log("combo");
+    const nextOption =
+      enabledIndexs[enabledIndexs.findIndex((option) => option === selectedIndex) + 1];
+
+    const previousOption =
+      enabledIndexs[enabledIndexs.findIndex((option) => option === selectedIndex) - 1];
 
     if (event.key === "Tab" && isOpen) {
       setIsOpen(false);
@@ -141,11 +143,13 @@ export const Select: FunctionComponent<SelectProps> = ({
           // focus first
           if (firstOption) {
             optionsRef.current[firstOption].focus();
+            setFocusedIndex(firstOption);
           }
         } else {
           // focus next
           if (nextOption) {
             optionsRef.current[nextOption].focus();
+            setFocusedIndex(nextOption);
           }
         }
       }
@@ -161,6 +165,7 @@ export const Select: FunctionComponent<SelectProps> = ({
           // focus previous
           if (previousOption) {
             optionsRef.current[previousOption].focus();
+            setFocusedIndex(previousOption);
           }
         }
       }
@@ -171,6 +176,7 @@ export const Select: FunctionComponent<SelectProps> = ({
       setIsOpen(true);
       if (firstOption) {
         optionsRef.current[firstOption].focus();
+        setFocusedIndex(firstOption);
       }
     }
 
@@ -179,29 +185,41 @@ export const Select: FunctionComponent<SelectProps> = ({
       setIsOpen(true);
       if (lastOption) {
         optionsRef.current[lastOption].focus();
+        setFocusedIndex(lastOption);
       }
     }
   };
 
   const handleDropdownKeyDown = (event: KeyboardEvent) => {
-    console.log("dropdown");
+    const nextOption =
+      enabledIndexs[enabledIndexs.findIndex((option) => option === focusedIndex) + 1];
+
+    const previousOption =
+      enabledIndexs[enabledIndexs.findIndex((option) => option === focusedIndex) - 1];
 
     if (event.key === "Tab" || event.key === "Escape") {
       setIsOpen(false);
     }
 
     if (event.key === "ArrowDown") {
-      console.log("arrow down");
+      if (nextOption) {
+        optionsRef.current[nextOption].focus();
+        setFocusedIndex(nextOption);
+      }
     }
 
     if (event.key === "ArrowUp") {
-      console.log("arrow up");
+      if (previousOption) {
+        optionsRef.current[previousOption].focus();
+        setFocusedIndex(previousOption);
+      }
     }
 
     if (event.key === "Home") {
       event.preventDefault();
       if (firstOption) {
         optionsRef.current[firstOption].focus();
+        setFocusedIndex(firstOption);
       }
     }
 
@@ -209,6 +227,7 @@ export const Select: FunctionComponent<SelectProps> = ({
       event.preventDefault();
       if (lastOption) {
         optionsRef.current[lastOption].focus();
+        setFocusedIndex(lastOption);
       }
     }
   };
