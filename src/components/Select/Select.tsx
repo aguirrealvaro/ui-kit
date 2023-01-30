@@ -84,7 +84,6 @@ export const Select: FunctionComponent<SelectProps> = ({
 
   const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
 
-  // TO DO: prevent focus option by clicking tab
   // TO DO: Handle disableds
   // TO DO: escape
 
@@ -93,6 +92,10 @@ export const Select: FunctionComponent<SelectProps> = ({
 
     const firstOption = 0;
     const lastOption = options.length - 1;
+
+    if (event.key === "Tab" && isOpen) {
+      setIsOpen(false);
+    }
 
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
@@ -200,6 +203,7 @@ export const Select: FunctionComponent<SelectProps> = ({
               disabled={option.disabled}
               isSelected={isSelected}
               aria-selected={isSelected}
+              tabIndex={-1}
               ref={(el) => {
                 if (optionsRef.current && el) {
                   optionsRef.current[index] = el;
