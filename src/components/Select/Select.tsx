@@ -15,7 +15,7 @@ import { ChevronDown } from "@styled-icons/fluentui-system-filled/ChevronDown";
 import styled, { css } from "styled-components";
 import { SelectFieldType, SelectSizeType } from "./Select.types";
 import { Spinner, Icon, IconButton } from "@/components";
-import { useOutsideClick } from "@/hooks";
+import { useIsFirstRender, useOutsideClick } from "@/hooks";
 
 type SelectProps = {
   selectId: string;
@@ -84,16 +84,17 @@ export const Select: FunctionComponent<SelectProps> = ({
 
   const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
 
-  // TO DO: Handle disableds
+  const isFirstRender = useIsFirstRender();
 
   // after closing dropdown, keep focusing select
-  // TO DO: avoid first focus, implementing undefined?
+  // i need to do this after the first render
   useEffect(() => {
-    if (!isOpen) {
+    if (!isOpen && !isFirstRender) {
       selectRef.current?.focus();
     }
-  }, [isOpen]);
+  }, [isFirstRender, isOpen]);
 
+  // TO DO: Handle disableds
   const handleComboboxKeyDown = (event: KeyboardEvent) => {
     console.log("handleComboboxKeyDown");
 
