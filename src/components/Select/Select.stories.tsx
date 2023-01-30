@@ -41,13 +41,13 @@ const Template: ComponentStory<typeof Select> = ({
   };
 
   const options = [
-    { label: "Option 1", value: "value1" },
+    { label: "Option 1", value: "value1", disabled: true },
     { label: "Option 2", value: "value2" },
     { label: "Option 3", value: "value3", disabled: true },
     { label: "Option 4", value: "value4" },
     { label: "Option 5", value: "value5" },
     { label: "Option 6", value: "value6" },
-    { label: "Option 7", value: "value7" },
+    { label: "Option 7", value: "value7", disabled: true },
   ];
 
   return (

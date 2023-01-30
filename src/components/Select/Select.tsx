@@ -98,8 +98,8 @@ export const Select: FunctionComponent<SelectProps> = ({
   const handleComboboxKeyDown = (event: KeyboardEvent) => {
     console.log("handleComboboxKeyDown");
 
-    const firstOption = 0;
-    const lastOption = options.length - 1;
+    const firstOption = options.findIndex((option) => !option.disabled);
+    const lastOption = findLastIndex(options, (value) => !value.disabled);
 
     if (event.key === "Tab" && isOpen) {
       event.preventDefault();
@@ -442,3 +442,14 @@ const ChevronWrapper = styled.div<{ active: boolean }>`
   display: flex;
   align-items: center;
 `;
+
+export function findLastIndex<T>(
+  array: Array<T>,
+  predicate: (value: T, index: number, obj: T[]) => boolean
+): number {
+  let l = array.length;
+  while (l--) {
+    if (predicate(array[l], l, array)) return l;
+  }
+  return -1;
+}
