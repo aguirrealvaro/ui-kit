@@ -26,7 +26,7 @@ type InputProps = {
   errorMessage?: ReactNode;
   isSuccess?: boolean;
   successMessage?: ReactNode;
-  inputId?: string;
+  inputId: string;
   isLoading?: boolean;
   clearValue?: () => void;
   endEnhacer?: ReactNode;
