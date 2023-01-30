@@ -109,13 +109,13 @@ export const Select: FunctionComponent<SelectProps> = ({
   const firstOption = enabledIndexs[0];
   const lastOption = enabledIndexs[enabledIndexs.length - 1];
 
+  const nextOption =
+    enabledIndexs[enabledIndexs.findIndex((option) => option === focusedIndex) + 1];
+
+  const previousOption =
+    enabledIndexs[enabledIndexs.findIndex((option) => option === focusedIndex) - 1];
+
   const handleComboboxKeyDown = (event: KeyboardEvent) => {
-    const nextOption =
-      enabledIndexs[enabledIndexs.findIndex((option) => option === selectedIndex) + 1];
-
-    const previousOption =
-      enabledIndexs[enabledIndexs.findIndex((option) => option === selectedIndex) - 1];
-
     if (event.key === "Tab" && isOpen) {
       setIsOpen(false);
     }
@@ -191,12 +191,6 @@ export const Select: FunctionComponent<SelectProps> = ({
   };
 
   const handleDropdownKeyDown = (event: KeyboardEvent) => {
-    const nextOption =
-      enabledIndexs[enabledIndexs.findIndex((option) => option === focusedIndex) + 1];
-
-    const previousOption =
-      enabledIndexs[enabledIndexs.findIndex((option) => option === focusedIndex) - 1];
-
     if (event.key === "Tab" || event.key === "Escape") {
       setIsOpen(false);
     }
