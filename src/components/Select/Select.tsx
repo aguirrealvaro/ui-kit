@@ -121,7 +121,6 @@ export const Select: FunctionComponent<SelectProps> = ({
     }
 
     if (event.key === "Escape") {
-      event.preventDefault();
       if (isOpen) {
         setIsOpen(false);
       } else {
@@ -134,7 +133,6 @@ export const Select: FunctionComponent<SelectProps> = ({
     }
 
     if (event.key === "ArrowDown") {
-      event.preventDefault();
       if (!isOpen) {
         setIsOpen(true);
       } else {
@@ -142,12 +140,14 @@ export const Select: FunctionComponent<SelectProps> = ({
         if (selectedIndex === -1) {
           // focus first
           if (firstOption) {
+            event.preventDefault();
             optionsRef.current[firstOption].focus();
             setFocusedIndex(firstOption);
           }
         } else {
           // focus next
           if (nextOption) {
+            event.preventDefault();
             optionsRef.current[nextOption].focus();
             setFocusedIndex(nextOption);
           }
@@ -156,7 +156,6 @@ export const Select: FunctionComponent<SelectProps> = ({
     }
 
     if (event.key === "ArrowUp") {
-      event.preventDefault();
       if (!isOpen) {
         setIsOpen(true);
       } else {
@@ -164,6 +163,7 @@ export const Select: FunctionComponent<SelectProps> = ({
         if (selectedIndex !== -1) {
           // focus previous
           if (previousOption) {
+            event.preventDefault();
             optionsRef.current[previousOption].focus();
             setFocusedIndex(previousOption);
           }
@@ -172,7 +172,6 @@ export const Select: FunctionComponent<SelectProps> = ({
     }
 
     if (event.key === "Home") {
-      event.preventDefault();
       if (!isOpen) setIsOpen(true);
       if (firstOption) {
         optionsRef.current[firstOption].focus();
@@ -181,7 +180,6 @@ export const Select: FunctionComponent<SelectProps> = ({
     }
 
     if (event.key === "End") {
-      event.preventDefault();
       if (!isOpen) setIsOpen(true);
       if (lastOption) {
         optionsRef.current[lastOption].focus();
@@ -196,23 +194,22 @@ export const Select: FunctionComponent<SelectProps> = ({
     }
 
     if (event.key === "ArrowDown") {
-      event.preventDefault();
       if (nextOption) {
+        event.preventDefault();
         optionsRef.current[nextOption].focus();
         setFocusedIndex(nextOption);
       }
     }
 
     if (event.key === "ArrowUp") {
-      event.preventDefault();
       if (previousOption) {
+        event.preventDefault();
         optionsRef.current[previousOption].focus();
         setFocusedIndex(previousOption);
       }
     }
 
     if (event.key === "Home") {
-      event.preventDefault();
       if (firstOption) {
         optionsRef.current[firstOption].focus();
         setFocusedIndex(firstOption);
@@ -220,7 +217,6 @@ export const Select: FunctionComponent<SelectProps> = ({
     }
 
     if (event.key === "End") {
-      event.preventDefault();
       if (lastOption) {
         optionsRef.current[lastOption].focus();
         setFocusedIndex(lastOption);
