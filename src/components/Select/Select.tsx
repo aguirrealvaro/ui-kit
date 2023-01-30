@@ -103,6 +103,7 @@ export const Select: FunctionComponent<SelectProps> = ({
         aria-expanded={isOpen}
         aria-haspopup="listbox"
         aria-labelledby={labelId}
+        //aria-activedescendant="" // TO DO: it should have the id of the focused option
       >
         <InnerContainer size={size}>
           <span>{selectedValue || placeholder}</span>
