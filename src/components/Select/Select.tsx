@@ -8,14 +8,14 @@ import {
   SetStateAction,
   MouseEvent,
   ReactNode,
-  KeyboardEvent,
 } from "react";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import { ChevronDown } from "@styled-icons/fluentui-system-filled/ChevronDown";
 import styled, { css } from "styled-components";
+import { useKeyboardAccesibility } from "./hooks";
 import { SelectFieldType, SelectSizeType } from "./Select.types";
 import { Spinner, Icon, IconButton } from "@/components";
-import { useIsFirstRender, useOutsideClick } from "@/hooks";
+import { useOutsideClick } from "@/hooks";
 
 type SelectProps = {
   selectId: string;
@@ -83,146 +83,16 @@ export const Select: FunctionComponent<SelectProps> = ({
 
   const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
 
-  const [focusedIndex, setFocusedIndex] = useState<number | undefined>(undefined);
-
-  const selectedIndex = options.findIndex((option) => option.value === value);
-
-  const isFirstRender = useIsFirstRender();
-
-  useEffect(() => {
-    // i need to do this after the first render
-    if (!isOpen && !isFirstRender) {
-      // after closing dropdown, keep focusing select
-      selectRef.current?.focus();
-
-      // set focus on the selected index
-      setFocusedIndex(selectedIndex);
-    }
-  }, [isFirstRender, isOpen, selectedIndex]);
-
-  const enabledIndexs = options
-    .map(({ disabled }, index) => {
-      if (!disabled) return index;
-    })
-    .filter((option) => !!option);
-
-  const firstOption = enabledIndexs[0];
-  const lastOption = enabledIndexs[enabledIndexs.length - 1];
-
-  const nextOption =
-    enabledIndexs[enabledIndexs.findIndex((option) => option === focusedIndex) + 1];
-
-  const previousOption =
-    enabledIndexs[enabledIndexs.findIndex((option) => option === focusedIndex) - 1];
-
-  const handleComboboxKeyDown = (event: KeyboardEvent) => {
-    if (event.key === "Tab" && isOpen) {
-      setIsOpen(false);
-    }
-
-    if (event.key === "Escape") {
-      if (isOpen) {
-        setIsOpen(false);
-      } else {
-        if (value && clearValue) clearValue();
-      }
-    }
-
-    if (event.key === "Enter" || event.key === " ") {
-      setIsOpen(!isOpen);
-    }
-
-    if (event.key === "ArrowDown") {
-      if (!isOpen) {
-        setIsOpen(true);
-      } else {
-        // if none is selected
-        if (selectedIndex === -1) {
-          // focus first
-          if (firstOption) {
-            event.preventDefault();
-            optionsRef.current[firstOption].focus();
-            setFocusedIndex(firstOption);
-          }
-        } else {
-          // focus next
-          if (nextOption) {
-            event.preventDefault();
-            optionsRef.current[nextOption].focus();
-            setFocusedIndex(nextOption);
-          }
-        }
-      }
-    }
-
-    if (event.key === "ArrowUp") {
-      if (!isOpen) {
-        setIsOpen(true);
-      } else {
-        // if some value is selected
-        if (selectedIndex !== -1) {
-          // focus previous
-          if (previousOption) {
-            event.preventDefault();
-            optionsRef.current[previousOption].focus();
-            setFocusedIndex(previousOption);
-          }
-        }
-      }
-    }
-
-    if (event.key === "Home") {
-      if (!isOpen) setIsOpen(true);
-      if (firstOption) {
-        optionsRef.current[firstOption].focus();
-        setFocusedIndex(firstOption);
-      }
-    }
-
-    if (event.key === "End") {
-      if (!isOpen) setIsOpen(true);
-      if (lastOption) {
-        optionsRef.current[lastOption].focus();
-        setFocusedIndex(lastOption);
-      }
-    }
-  };
-
-  const handleDropdownKeyDown = (event: KeyboardEvent) => {
-    if (event.key === "Tab" || event.key === "Escape") {
-      setIsOpen(false);
-    }
-
-    if (event.key === "ArrowDown") {
-      if (nextOption) {
-        event.preventDefault();
-        optionsRef.current[nextOption].focus();
-        setFocusedIndex(nextOption);
-      }
-    }
-
-    if (event.key === "ArrowUp") {
-      if (previousOption) {
-        event.preventDefault();
-        optionsRef.current[previousOption].focus();
-        setFocusedIndex(previousOption);
-      }
-    }
-
-    if (event.key === "Home") {
-      if (firstOption) {
-        optionsRef.current[firstOption].focus();
-        setFocusedIndex(firstOption);
-      }
-    }
-
-    if (event.key === "End") {
-      if (lastOption) {
-        optionsRef.current[lastOption].focus();
-        setFocusedIndex(lastOption);
-      }
-    }
-  };
+  const { focusedIndex, handleComboboxKeyDown, handleDropdownKeyDown } =
+    useKeyboardAccesibility({
+      isOpen,
+      setIsOpen,
+      options,
+      value,
+      clearValue,
+      selectRef,
+      optionsRef,
+    });
 
   const getOptionId = (index: number | undefined) => {
     if (index !== undefined) {
