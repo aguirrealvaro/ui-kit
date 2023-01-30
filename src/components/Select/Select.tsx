@@ -67,7 +67,8 @@ export const Select: FunctionComponent<SelectProps> = ({
     if (value) closeDropdown();
   }, [value, closeDropdown]);
 
-  const selectedValue = options.find((option) => option.value === value)?.label;
+  const selectedLabel = options.find((option) => option.value === value)?.label;
+  const selectedIndex = options.findIndex((option) => option.value === value);
 
   const handleDropdown = () => {
     if (disabled) return;
@@ -83,6 +84,9 @@ export const Select: FunctionComponent<SelectProps> = ({
 
   const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
 
+  // TO DO: prevent focus option by clicking tab
+  // TO DO: Handle disableds
+
   const handleComboboxKeyDown = (event: KeyboardEvent) => {
     console.log("handleComboboxKeyDown");
 
@@ -90,10 +94,12 @@ export const Select: FunctionComponent<SelectProps> = ({
     const lastOption = options.length - 1;
 
     if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
       setIsOpen(!isOpen);
     }
 
     if (event.key === "ArrowDown") {
+      event.preventDefault();
       if (!isOpen) {
         setIsOpen(true);
       } else {
@@ -103,22 +109,25 @@ export const Select: FunctionComponent<SelectProps> = ({
     }
 
     if (event.key === "ArrowUp") {
+      event.preventDefault();
       if (!isOpen) {
         setIsOpen(true);
       } else {
-        // Sets previous or nothing
+        if (selectedIndex !== -1) {
+          optionsRef.current[selectedIndex - 1].focus();
+        }
       }
     }
 
     if (event.key === "Home" && !isOpen) {
+      event.preventDefault();
       setIsOpen(true);
-      // focus first
       optionsRef.current[firstOption].focus();
     }
 
     if (event.key === "End" && !isOpen) {
+      event.preventDefault();
       setIsOpen(true);
-      // focus last
       optionsRef.current[lastOption].focus();
     }
   };
@@ -145,11 +154,11 @@ export const Select: FunctionComponent<SelectProps> = ({
         aria-expanded={isOpen}
         aria-haspopup="listbox"
         aria-labelledby={labelId}
-        //aria-activedescendant="" // TO DO: it should have the id of the focused option
+        //aria-activedescendant="" // TO DO: it should have the id of the focused option, create focusedOption?
         onKeyDown={handleComboboxKeyDown}
       >
         <InnerContainer size={size}>
-          <span>{selectedValue || placeholder}</span>
+          <span>{selectedLabel || placeholder}</span>
         </InnerContainer>
         <SideContainer>
           {isLoading && <Spinner size="xs" />}
