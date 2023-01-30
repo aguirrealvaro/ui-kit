@@ -16,6 +16,7 @@ import styled, { css } from "styled-components";
 import { SelectFieldType, SelectSizeType } from "./Select.types";
 import { Spinner, Icon, IconButton } from "@/components";
 import { useIsFirstRender, useOutsideClick } from "@/hooks";
+import { findLastIndex } from "@/utils";
 
 type SelectProps = {
   selectId: string;
@@ -442,14 +443,3 @@ const ChevronWrapper = styled.div<{ active: boolean }>`
   display: flex;
   align-items: center;
 `;
-
-export function findLastIndex<T>(
-  array: Array<T>,
-  predicate: (value: T, index: number, obj: T[]) => boolean
-): number {
-  let l = array.length;
-  while (l--) {
-    if (predicate(array[l], l, array)) return l;
-  }
-  return -1;
-}
