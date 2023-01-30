@@ -56,6 +56,7 @@ export const Select: FunctionComponent<SelectProps> = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const selectRef = useRef<HTMLDivElement>(null);
+  const optionsRef = useRef<HTMLButtonElement[]>([]);
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const closeDropdown = useCallback(() => setIsOpen(false), []);
@@ -84,6 +85,9 @@ export const Select: FunctionComponent<SelectProps> = ({
 
   const handleComboboxKeyDown = (event: KeyboardEvent) => {
     console.log("handleComboboxKeyDown");
+    const firstOption = 0;
+    const lastOption = options.length - 1;
+
     if (event.key === "Enter" || event.key === " ") {
       setIsOpen(!isOpen);
     }
@@ -95,11 +99,13 @@ export const Select: FunctionComponent<SelectProps> = ({
     if (event.key === "Home" && !isOpen) {
       setIsOpen(true);
       // focus first
+      optionsRef.current[firstOption].focus();
     }
 
     if (event.key === "End" && !isOpen) {
       setIsOpen(true);
       // focus last
+      optionsRef.current[lastOption].focus();
     }
   };
 
@@ -143,27 +149,36 @@ export const Select: FunctionComponent<SelectProps> = ({
           </ChevronWrapper>
         </SideContainer>
       </SelectContainer>
-      {isOpen && (
-        <Dropdown size={size} role="listbox" id={selectId} aria-labelledby={labelId}>
-          {options.map((option, i) => {
-            const onClick = () => onChange(option.value);
-            const isSelected = value === option.value;
-            return (
-              <Option
-                role="option"
-                id={`${selectId}-option-${i}`}
-                key={i}
-                onClick={onClick}
-                disabled={option.disabled}
-                isSelected={isSelected}
-                aria-selected={isSelected}
-              >
-                {option.label}
-              </Option>
-            );
-          })}
-        </Dropdown>
-      )}
+      <Dropdown
+        isOpen={isOpen}
+        size={size}
+        role="listbox"
+        id={selectId}
+        aria-labelledby={labelId}
+      >
+        {options.map((option, index) => {
+          const onClick = () => onChange(option.value);
+          const isSelected = value === option.value;
+          return (
+            <Option
+              role="option"
+              id={`${selectId}-option-${index}`}
+              key={index}
+              onClick={onClick}
+              disabled={option.disabled}
+              isSelected={isSelected}
+              aria-selected={isSelected}
+              ref={(el) => {
+                if (optionsRef.current && el) {
+                  optionsRef.current[index] = el;
+                }
+              }}
+            >
+              {option.label}
+            </Option>
+          );
+        })}
+      </Dropdown>
       {showBottom && (
         <BottomText
           showErrorMessage={!!errorMessage}
@@ -277,7 +292,7 @@ const SideContainer = styled.div`
   gap: ${({ theme }) => theme.spacing[2]};
 `;
 
-const Dropdown = styled.div<{ size: SelectSizeType }>`
+const Dropdown = styled.div<{ size: SelectSizeType; isOpen: boolean }>`
   position: absolute;
   z-index: ${({ theme }) => theme.zIndices.dropdown};
   padding: ${({ theme }) => theme.sizes[2]};
@@ -287,6 +302,7 @@ const Dropdown = styled.div<{ size: SelectSizeType }>`
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   width: 100%;
   max-height: 250px;
+  opacity: ${({ isOpen }) => (isOpen ? 1 : 0)}; // TO DO: do this with max height
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing[1]};

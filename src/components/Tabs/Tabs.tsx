@@ -39,7 +39,7 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children }) => {
       event.preventDefault();
       // checking for undefined because tabToSelect can be 0
       setSelectedTab(tabToSelect);
-      ref.current[tabToSelect]?.focus();
+      ref.current[tabToSelect].focus();
     }
   };
 
