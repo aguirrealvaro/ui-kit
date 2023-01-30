@@ -1,4 +1,10 @@
-import { FunctionComponent, MouseEvent, ReactNode, SelectHTMLAttributes } from "react";
+import {
+  FunctionComponent,
+  MouseEvent,
+  ReactNode,
+  SelectHTMLAttributes,
+  KeyboardEvent,
+} from "react";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import { ChevronDown } from "@styled-icons/fluentui-system-filled/ChevronDown";
 import styled from "styled-components";
@@ -46,6 +52,13 @@ export const NativeSelect: FunctionComponent<
 
   const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
 
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === "Escape" && value && clearValue) {
+      event.preventDefault();
+      clearValue();
+    }
+  };
+
   return (
     <div>
       {label && <Label size={size}>{label}</Label>}
@@ -58,6 +71,7 @@ export const NativeSelect: FunctionComponent<
           isSuccess={isSuccess}
           selectSize={size}
           isSelected={isSelected}
+          onKeyDown={handleKeyDown}
         >
           <Option hidden>{placeholder}</Option>
           {options.map(({ label, value, disabled }, index) => {
