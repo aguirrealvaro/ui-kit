@@ -91,6 +91,16 @@ export const Select: FunctionComponent<SelectProps> = ({
     if ((event.key === "ArrowDown" || event.key === "ArrowUp") && !isOpen) {
       setIsOpen(true);
     }
+
+    if (event.key === "Home" && !isOpen) {
+      setIsOpen(true);
+      // focus first
+    }
+
+    if (event.key === "End" && !isOpen) {
+      setIsOpen(true);
+      // focus last
+    }
   };
 
   return (
