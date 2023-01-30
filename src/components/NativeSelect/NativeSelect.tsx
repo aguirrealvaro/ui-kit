@@ -68,9 +68,11 @@ export const NativeSelect: FunctionComponent<
         </Select>
         <SideContainer>
           {isSelected && clearValue && (
-            <IconButton size="sm" onClick={handleClearValue}>
-              <Icon icon={CloseOutline} size={18} />
-            </IconButton>
+            <CancelButtonWrapper>
+              <IconButton size="sm" onClick={handleClearValue}>
+                <Icon icon={CloseOutline} size={18} />
+              </IconButton>
+            </CancelButtonWrapper>
           )}
           <ChevronWrapper>
             <Icon icon={ChevronDown} size={18} />
@@ -187,6 +189,7 @@ const SideContainer = styled.div`
   right: ${({ theme }) => theme.spacing[4]};
   top: 50%;
   transform: translateY(-50%);
+  pointer-events: none;
 `;
 
 const Option = styled.option`
@@ -220,6 +223,10 @@ const BottomText = styled.div<{
     };
     return sizes[size];
   }};
+`;
+
+const CancelButtonWrapper = styled.div`
+  pointer-events: all;
 `;
 
 const ChevronWrapper = styled.div`
