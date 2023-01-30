@@ -296,18 +296,7 @@ const Dropdown = styled.div<{ size: SelectSizeType; isOpen: boolean }>`
   width: 100%;
   max-height: 250px;
   // TO DO: do this with max height
-  ${({ isOpen }) => {
-    if (isOpen) {
-      return css`
-        opacity: 1;
-      `;
-    } else {
-      return css`
-        opacity: 0;
-        pointer-events: none;
-      `;
-    }
-  }}
+  visibility: ${({ isOpen }) => (isOpen ? "visible" : "hidden")};
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing[1]};
