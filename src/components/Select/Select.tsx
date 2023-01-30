@@ -16,7 +16,6 @@ import styled, { css } from "styled-components";
 import { SelectFieldType, SelectSizeType } from "./Select.types";
 import { Spinner, Icon, IconButton } from "@/components";
 import { useIsFirstRender, useOutsideClick } from "@/hooks";
-import { findLastIndex } from "@/utils";
 
 type SelectProps = {
   selectId: string;
@@ -95,12 +94,23 @@ export const Select: FunctionComponent<SelectProps> = ({
     }
   }, [isFirstRender, isOpen]);
 
-  // TO DO: Handle disableds
   const handleComboboxKeyDown = (event: KeyboardEvent) => {
     console.log("handleComboboxKeyDown");
 
-    const firstOption = options.findIndex((option) => !option.disabled);
-    const lastOption = findLastIndex(options, (value) => !value.disabled);
+    const enabledIndexs = options
+      .map(({ disabled }, index) => {
+        if (!disabled) return index;
+      })
+      .filter((option) => !!option);
+
+    const firstOption = enabledIndexs[0];
+    const lastOption = enabledIndexs[enabledIndexs.length - 1];
+
+    const nextOption =
+      enabledIndexs[enabledIndexs.findIndex((option) => option === selectedIndex) + 1];
+
+    const previousOption =
+      enabledIndexs[enabledIndexs.findIndex((option) => option === selectedIndex) - 1];
 
     if (event.key === "Tab" && isOpen) {
       event.preventDefault();
@@ -130,10 +140,14 @@ export const Select: FunctionComponent<SelectProps> = ({
         // if none is selected
         if (selectedIndex === -1) {
           // focus first
-          optionsRef.current[firstOption].focus();
+          if (firstOption) {
+            optionsRef.current[firstOption].focus();
+          }
         } else {
           // focus next
-          optionsRef.current[selectedIndex + 1].focus();
+          if (nextOption) {
+            optionsRef.current[nextOption].focus();
+          }
         }
       }
     }
@@ -146,7 +160,9 @@ export const Select: FunctionComponent<SelectProps> = ({
         // if some value is selected
         if (selectedIndex !== -1) {
           // focus previous
-          optionsRef.current[selectedIndex - 1].focus();
+          if (previousOption) {
+            optionsRef.current[previousOption].focus();
+          }
         }
       }
     }
@@ -154,13 +170,17 @@ export const Select: FunctionComponent<SelectProps> = ({
     if (event.key === "Home" && !isOpen) {
       event.preventDefault();
       setIsOpen(true);
-      optionsRef.current[firstOption].focus();
+      if (firstOption) {
+        optionsRef.current[firstOption].focus();
+      }
     }
 
     if (event.key === "End" && !isOpen) {
       event.preventDefault();
       setIsOpen(true);
-      optionsRef.current[lastOption].focus();
+      if (lastOption) {
+        optionsRef.current[lastOption].focus();
+      }
     }
   };
 
