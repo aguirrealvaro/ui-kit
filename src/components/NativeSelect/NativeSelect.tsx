@@ -72,9 +72,9 @@ export const NativeSelect: FunctionComponent<
               <Icon icon={CloseOutline} size={18} />
             </IconButton>
           )}
-          <IconButton size="sm">
+          <ChevronWrapper>
             <Icon icon={ChevronDown} size={18} />
-          </IconButton>
+          </ChevronWrapper>
         </SideContainer>
       </SelectContainer>
       {showBottom && (
@@ -220,4 +220,9 @@ const BottomText = styled.div<{
     };
     return sizes[size];
   }};
+`;
+
+const ChevronWrapper = styled.div`
+  display: flex;
+  align-items: center;
 `;
