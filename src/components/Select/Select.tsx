@@ -94,26 +94,25 @@ export const Select: FunctionComponent<SelectProps> = ({
     }
   }, [isFirstRender, isOpen]);
 
+  const enabledIndexs = options
+    .map(({ disabled }, index) => {
+      if (!disabled) return index;
+    })
+    .filter((option) => !!option);
+
+  const firstOption = enabledIndexs[0];
+  const lastOption = enabledIndexs[enabledIndexs.length - 1];
+
+  const nextOption =
+    enabledIndexs[enabledIndexs.findIndex((option) => option === selectedIndex) + 1];
+
+  const previousOption =
+    enabledIndexs[enabledIndexs.findIndex((option) => option === selectedIndex) - 1];
+
   const handleComboboxKeyDown = (event: KeyboardEvent) => {
-    console.log("handleComboboxKeyDown");
-
-    const enabledIndexs = options
-      .map(({ disabled }, index) => {
-        if (!disabled) return index;
-      })
-      .filter((option) => !!option);
-
-    const firstOption = enabledIndexs[0];
-    const lastOption = enabledIndexs[enabledIndexs.length - 1];
-
-    const nextOption =
-      enabledIndexs[enabledIndexs.findIndex((option) => option === selectedIndex) + 1];
-
-    const previousOption =
-      enabledIndexs[enabledIndexs.findIndex((option) => option === selectedIndex) - 1];
+    console.log("combo");
 
     if (event.key === "Tab" && isOpen) {
-      event.preventDefault();
       setIsOpen(false);
     }
 
@@ -184,6 +183,36 @@ export const Select: FunctionComponent<SelectProps> = ({
     }
   };
 
+  const handleDropdownKeyDown = (event: KeyboardEvent) => {
+    console.log("dropdown");
+
+    if (event.key === "Tab" || event.key === "Escape") {
+      setIsOpen(false);
+    }
+
+    if (event.key === "ArrowDown") {
+      console.log("arrow down");
+    }
+
+    if (event.key === "ArrowUp") {
+      console.log("arrow up");
+    }
+
+    if (event.key === "Home") {
+      event.preventDefault();
+      if (firstOption) {
+        optionsRef.current[firstOption].focus();
+      }
+    }
+
+    if (event.key === "End") {
+      event.preventDefault();
+      if (lastOption) {
+        optionsRef.current[lastOption].focus();
+      }
+    }
+  };
+
   return (
     <Container ref={containerRef}>
       {label && (
@@ -230,6 +259,7 @@ export const Select: FunctionComponent<SelectProps> = ({
         role="listbox"
         id={selectId}
         aria-labelledby={labelId}
+        onKeyDown={handleDropdownKeyDown}
       >
         {options.map((option, index) => {
           const onClick = () => onChange(option.value);
