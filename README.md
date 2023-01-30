@@ -1,6 +1,6 @@
 # Utils Library
 
-### React custom hooks and isolated components
+### React custom hooks and isolated components with accesibility
 
 `npm install`
 
