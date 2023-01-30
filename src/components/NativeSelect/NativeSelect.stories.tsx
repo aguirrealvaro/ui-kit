@@ -62,4 +62,5 @@ Primary.args = {
   label: "Label:",
   helpText: "Help text",
   size: "md",
+  isLoading: false,
 };

@@ -4,7 +4,7 @@ import { ChevronDown } from "@styled-icons/fluentui-system-filled/ChevronDown";
 import styled from "styled-components";
 import { SelectSizeType } from "../Select/Select.types";
 import { NativeSelectFieldType } from "./NativeSelect.types";
-import { Icon, IconButton } from "@/components";
+import { Icon, IconButton, Spinner } from "@/components";
 
 type NativeSelectProps = {
   label?: ReactNode;
@@ -16,6 +16,7 @@ type NativeSelectProps = {
   isSuccess?: boolean;
   successMessage?: ReactNode;
   size?: SelectSizeType;
+  isLoading?: boolean;
 };
 
 export const NativeSelect: FunctionComponent<
@@ -34,6 +35,7 @@ export const NativeSelect: FunctionComponent<
   isSuccess = false,
   successMessage,
   size = "md",
+  isLoading,
 }) => {
   const handleClearValue = (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
@@ -67,6 +69,7 @@ export const NativeSelect: FunctionComponent<
           })}
         </Select>
         <SideContainer>
+          {isLoading && <Spinner size="xs" />}
           {isSelected && clearValue && (
             <CancelButtonWrapper>
               <IconButton size="sm" onClick={handleClearValue}>
