@@ -8,13 +8,14 @@ import {
   SetStateAction,
   MouseEvent,
   ReactNode,
+  KeyboardEvent,
 } from "react";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import { ChevronDown } from "@styled-icons/fluentui-system-filled/ChevronDown";
 import styled, { css } from "styled-components";
 import { SelectFieldType, SelectSizeType } from "./Select.types";
 import { Spinner, Icon, IconButton } from "@/components";
-import { useOutsideClick } from "@/hooks";
+import { useIsFirstRender, useOutsideClick } from "@/hooks";
 
 type SelectProps = {
   selectId: string;
@@ -55,6 +56,7 @@ export const Select: FunctionComponent<SelectProps> = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const selectRef = useRef<HTMLDivElement>(null);
+  const optionsRef = useRef<HTMLButtonElement[]>([]);
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const closeDropdown = useCallback(() => setIsOpen(false), []);
@@ -65,7 +67,8 @@ export const Select: FunctionComponent<SelectProps> = ({
     if (value) closeDropdown();
   }, [value, closeDropdown]);
 
-  const selectedValue = options.find((option) => option.value === value)?.label;
+  const selectedLabel = options.find((option) => option.value === value)?.label;
+  const selectedIndex = options.findIndex((option) => option.value === value);
 
   const handleDropdown = () => {
     if (disabled) return;
@@ -80,6 +83,106 @@ export const Select: FunctionComponent<SelectProps> = ({
   };
 
   const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
+
+  const isFirstRender = useIsFirstRender();
+
+  // after closing dropdown, keep focusing select
+  // i need to do this after the first render
+  useEffect(() => {
+    if (!isOpen && !isFirstRender) {
+      selectRef.current?.focus();
+    }
+  }, [isFirstRender, isOpen]);
+
+  const handleComboboxKeyDown = (event: KeyboardEvent) => {
+    console.log("handleComboboxKeyDown");
+
+    const enabledIndexs = options
+      .map(({ disabled }, index) => {
+        if (!disabled) return index;
+      })
+      .filter((option) => !!option);
+
+    const firstOption = enabledIndexs[0];
+    const lastOption = enabledIndexs[enabledIndexs.length - 1];
+
+    const nextOption =
+      enabledIndexs[enabledIndexs.findIndex((option) => option === selectedIndex) + 1];
+
+    const previousOption =
+      enabledIndexs[enabledIndexs.findIndex((option) => option === selectedIndex) - 1];
+
+    if (event.key === "Tab" && isOpen) {
+      event.preventDefault();
+      setIsOpen(false);
+    }
+
+    if (event.key === "Escape") {
+      if (isOpen) {
+        event.preventDefault();
+        setIsOpen(false);
+      } else {
+        event.preventDefault();
+        if (value && clearValue) clearValue();
+      }
+    }
+
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      setIsOpen(!isOpen);
+    }
+
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      if (!isOpen) {
+        setIsOpen(true);
+      } else {
+        // if none is selected
+        if (selectedIndex === -1) {
+          // focus first
+          if (firstOption) {
+            optionsRef.current[firstOption].focus();
+          }
+        } else {
+          // focus next
+          if (nextOption) {
+            optionsRef.current[nextOption].focus();
+          }
+        }
+      }
+    }
+
+    if (event.key === "ArrowUp") {
+      event.preventDefault();
+      if (!isOpen) {
+        setIsOpen(true);
+      } else {
+        // if some value is selected
+        if (selectedIndex !== -1) {
+          // focus previous
+          if (previousOption) {
+            optionsRef.current[previousOption].focus();
+          }
+        }
+      }
+    }
+
+    if (event.key === "Home" && !isOpen) {
+      event.preventDefault();
+      setIsOpen(true);
+      if (firstOption) {
+        optionsRef.current[firstOption].focus();
+      }
+    }
+
+    if (event.key === "End" && !isOpen) {
+      event.preventDefault();
+      setIsOpen(true);
+      if (lastOption) {
+        optionsRef.current[lastOption].focus();
+      }
+    }
+  };
 
   return (
     <Container ref={containerRef}>
@@ -103,10 +206,11 @@ export const Select: FunctionComponent<SelectProps> = ({
         aria-expanded={isOpen}
         aria-haspopup="listbox"
         aria-labelledby={labelId}
-        //aria-activedescendant="" // TO DO: it should have the id of the focused option
+        //aria-activedescendant="" // TO DO: it should have the id of the focused option, create focusedOption?
+        onKeyDown={handleComboboxKeyDown}
       >
         <InnerContainer size={size}>
-          <span>{selectedValue || placeholder}</span>
+          <span>{selectedLabel || placeholder}</span>
         </InnerContainer>
         <SideContainer>
           {isLoading && <Spinner size="xs" />}
@@ -120,27 +224,37 @@ export const Select: FunctionComponent<SelectProps> = ({
           </ChevronWrapper>
         </SideContainer>
       </SelectContainer>
-      {isOpen && (
-        <Dropdown size={size} role="listbox" id={selectId} aria-labelledby={labelId}>
-          {options.map((option, i) => {
-            const onClick = () => onChange(option.value);
-            const isSelected = value === option.value;
-            return (
-              <Option
-                role="option"
-                id={`${selectId}-option-${i}`}
-                key={i}
-                onClick={onClick}
-                disabled={option.disabled}
-                isSelected={isSelected}
-                aria-selected={isSelected}
-              >
-                {option.label}
-              </Option>
-            );
-          })}
-        </Dropdown>
-      )}
+      <Dropdown
+        isOpen={isOpen}
+        size={size}
+        role="listbox"
+        id={selectId}
+        aria-labelledby={labelId}
+      >
+        {options.map((option, index) => {
+          const onClick = () => onChange(option.value);
+          const isSelected = value === option.value;
+          return (
+            <Option
+              role="option"
+              id={`${selectId}-option-${index}`}
+              key={index}
+              onClick={onClick}
+              disabled={option.disabled}
+              isSelected={isSelected}
+              aria-selected={isSelected}
+              tabIndex={-1}
+              ref={(el) => {
+                if (optionsRef.current && el) {
+                  optionsRef.current[index] = el;
+                }
+              }}
+            >
+              {option.label}
+            </Option>
+          );
+        })}
+      </Dropdown>
       {showBottom && (
         <BottomText
           showErrorMessage={!!errorMessage}
@@ -254,7 +368,7 @@ const SideContainer = styled.div`
   gap: ${({ theme }) => theme.spacing[2]};
 `;
 
-const Dropdown = styled.div<{ size: SelectSizeType }>`
+const Dropdown = styled.div<{ size: SelectSizeType; isOpen: boolean }>`
   position: absolute;
   z-index: ${({ theme }) => theme.zIndices.dropdown};
   padding: ${({ theme }) => theme.sizes[2]};
@@ -264,6 +378,19 @@ const Dropdown = styled.div<{ size: SelectSizeType }>`
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   width: 100%;
   max-height: 250px;
+  // TO DO: do this with max height
+  ${({ isOpen }) => {
+    if (isOpen) {
+      return css`
+        opacity: 1;
+      `;
+    } else {
+      return css`
+        opacity: 0;
+        pointer-events: none;
+      `;
+    }
+  }}
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing[1]};
