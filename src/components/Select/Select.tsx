@@ -110,8 +110,6 @@ export const Select: FunctionComponent<SelectProps> = ({
   const lastOption = enabledIndexs[enabledIndexs.length - 1];
 
   const handleComboboxKeyDown = (event: KeyboardEvent) => {
-    console.log("combo");
-
     const nextOption =
       enabledIndexs[enabledIndexs.findIndex((option) => option === selectedIndex) + 1];
 
@@ -195,8 +193,6 @@ export const Select: FunctionComponent<SelectProps> = ({
   };
 
   const handleDropdownKeyDown = (event: KeyboardEvent) => {
-    console.log("dropdown");
-
     const nextOption =
       enabledIndexs[enabledIndexs.findIndex((option) => option === focusedIndex) + 1];
 
