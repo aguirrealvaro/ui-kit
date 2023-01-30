@@ -8,6 +8,7 @@ import {
   SetStateAction,
   MouseEvent,
   ReactNode,
+  KeyboardEvent,
 } from "react";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import { ChevronDown } from "@styled-icons/fluentui-system-filled/ChevronDown";
@@ -81,6 +82,12 @@ export const Select: FunctionComponent<SelectProps> = ({
 
   const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
 
+  const handleComboboxKeyDown = (event: KeyboardEvent) => {
+    if (event.key === "Enter" || event.key === " ") {
+      setIsOpen(!isOpen);
+    }
+  };
+
   return (
     <Container ref={containerRef}>
       {label && (
@@ -104,6 +111,7 @@ export const Select: FunctionComponent<SelectProps> = ({
         aria-haspopup="listbox"
         aria-labelledby={labelId}
         //aria-activedescendant="" // TO DO: it should have the id of the focused option
+        onKeyDown={handleComboboxKeyDown}
       >
         <InnerContainer size={size}>
           <span>{selectedValue || placeholder}</span>
