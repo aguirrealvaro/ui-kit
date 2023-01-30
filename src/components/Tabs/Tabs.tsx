@@ -17,7 +17,7 @@ type TabsProps = {
 export const Tabs: FunctionComponent<TabsProps> = ({ children }) => {
   const [selectedTab, setSelectedTab] = useState<number>(0);
 
-  const ref = useRef<HTMLButtonElement[]>([]);
+  const tabItemsRef = useRef<HTMLButtonElement[]>([]);
 
   const getTabId = (index: number) => `tab${index}`;
 
@@ -39,7 +39,7 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children }) => {
       event.preventDefault();
       // checking for undefined because tabToSelect can be 0
       setSelectedTab(tabToSelect);
-      ref.current[tabToSelect]?.focus();
+      tabItemsRef.current[tabToSelect]?.focus();
     }
   };
 
@@ -67,8 +67,8 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children }) => {
                 aria-controls={getTabId(index)}
                 tabIndex={isTabSelected ? 0 : -1}
                 ref={(el) => {
-                  if (ref.current && el) {
-                    ref.current[index] = el;
+                  if (tabItemsRef.current && el) {
+                    tabItemsRef.current[index] = el;
                   }
                 }}
               >
