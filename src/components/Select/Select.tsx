@@ -89,11 +89,13 @@ export const Select: FunctionComponent<SelectProps> = ({
 
   const isFirstRender = useIsFirstRender();
 
-  // after closing dropdown, keep focusing select
-  // i need to do this after the first render
   useEffect(() => {
+    // i need to do this after the first render
     if (!isOpen && !isFirstRender) {
+      // after closing dropdown, keep focusing select
       selectRef.current?.focus();
+
+      // set focus on the selected index
       setFocusedIndex(selectedIndex);
     }
   }, [isFirstRender, isOpen, selectedIndex]);
@@ -236,6 +238,12 @@ export const Select: FunctionComponent<SelectProps> = ({
     }
   };
 
+  const getOptionId = (index: number | undefined) => {
+    if (index !== undefined) {
+      return `${selectId}-option-${index}`;
+    }
+  };
+
   return (
     <Container ref={containerRef}>
       {label && (
@@ -258,7 +266,7 @@ export const Select: FunctionComponent<SelectProps> = ({
         aria-expanded={isOpen}
         aria-haspopup="listbox"
         aria-labelledby={labelId}
-        //aria-activedescendant="" // TO DO: it should have the id of the focused option, create focusedOption?
+        aria-activedescendant={isOpen ? getOptionId(focusedIndex) : undefined}
         onKeyDown={handleComboboxKeyDown}
       >
         <InnerContainer size={size}>
@@ -290,7 +298,7 @@ export const Select: FunctionComponent<SelectProps> = ({
           return (
             <Option
               role="option"
-              id={`${selectId}-option-${index}`}
+              id={getOptionId(index)}
               key={index}
               onClick={onClick}
               disabled={option.disabled}
