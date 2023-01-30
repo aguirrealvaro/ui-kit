@@ -83,8 +83,13 @@ export const Select: FunctionComponent<SelectProps> = ({
   const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
 
   const handleComboboxKeyDown = (event: KeyboardEvent) => {
+    console.log("handleComboboxKeyDown");
     if (event.key === "Enter" || event.key === " ") {
       setIsOpen(!isOpen);
+    }
+
+    if ((event.key === "ArrowDown" || event.key === "ArrowUp") && !isOpen) {
+      setIsOpen(true);
     }
   };
 
