@@ -17,6 +17,8 @@ import { Spinner, Icon, IconButton } from "@/components";
 import { useOutsideClick } from "@/hooks";
 
 type SelectProps = {
+  selectId: string;
+  labelId: string;
   label?: ReactNode;
   placeholder: string;
   value: string | undefined;
@@ -34,6 +36,8 @@ type SelectProps = {
 };
 
 export const Select: FunctionComponent<SelectProps> = ({
+  selectId,
+  labelId,
   label,
   placeholder,
   value,
@@ -79,9 +83,13 @@ export const Select: FunctionComponent<SelectProps> = ({
 
   return (
     <Container ref={containerRef}>
-      {label && <Label size={size}>{label}</Label>}
+      {label && (
+        <Label size={size} id={labelId}>
+          {label}
+        </Label>
+      )}
       <SelectContainer
-        role="button"
+        role="combobox"
         tabIndex={0}
         disabled={disabled || false}
         isSelected={isSelected}
@@ -91,6 +99,10 @@ export const Select: FunctionComponent<SelectProps> = ({
         size={size}
         onClick={handleDropdown}
         ref={selectRef}
+        aria-controls={selectId}
+        aria-expanded={isOpen}
+        aria-haspopup="listbox"
+        aria-labelledby={labelId}
       >
         <InnerContainer size={size}>
           <span>{selectedValue || placeholder}</span>
@@ -108,16 +120,19 @@ export const Select: FunctionComponent<SelectProps> = ({
         </SideContainer>
       </SelectContainer>
       {isOpen && (
-        <Dropdown size={size}>
+        <Dropdown size={size} role="listbox" id={selectId} aria-labelledby={labelId}>
           {options.map((option, i) => {
             const onClick = () => onChange(option.value);
             const isSelected = value === option.value;
             return (
               <Option
+                role="option"
+                id={`${selectId}-option-${i}`}
                 key={i}
                 onClick={onClick}
                 disabled={option.disabled}
                 isSelected={isSelected}
+                aria-selected={isSelected}
               >
                 {option.label}
               </Option>
