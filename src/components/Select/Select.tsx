@@ -86,6 +86,7 @@ export const Select: FunctionComponent<SelectProps> = ({
 
   // TO DO: prevent focus option by clicking tab
   // TO DO: Handle disableds
+  // TO DO: escape
 
   const handleComboboxKeyDown = (event: KeyboardEvent) => {
     console.log("handleComboboxKeyDown");
@@ -103,8 +104,14 @@ export const Select: FunctionComponent<SelectProps> = ({
       if (!isOpen) {
         setIsOpen(true);
       } else {
-        // TO DO: Sets first or next
-        optionsRef.current[firstOption].focus();
+        // if none is selected
+        if (selectedIndex === -1) {
+          // focus first
+          optionsRef.current[firstOption].focus();
+        } else {
+          // focus next
+          optionsRef.current[selectedIndex + 1].focus();
+        }
       }
     }
 
@@ -113,7 +120,9 @@ export const Select: FunctionComponent<SelectProps> = ({
       if (!isOpen) {
         setIsOpen(true);
       } else {
+        // if some value is selected
         if (selectedIndex !== -1) {
+          // focus previous
           optionsRef.current[selectedIndex - 1].focus();
         }
       }
