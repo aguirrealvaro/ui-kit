@@ -101,13 +101,16 @@ export const Select: FunctionComponent<SelectProps> = ({
     const lastOption = options.length - 1;
 
     if (event.key === "Tab" && isOpen) {
+      event.preventDefault();
       setIsOpen(false);
     }
 
     if (event.key === "Escape") {
       if (isOpen) {
+        event.preventDefault();
         setIsOpen(false);
       } else {
+        event.preventDefault();
         if (value && clearValue) clearValue();
       }
     }
