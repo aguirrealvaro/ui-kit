@@ -108,6 +108,8 @@ export const Select: FunctionComponent<SelectProps> = ({
   const lastOption = enabledIndexs[enabledIndexs.length - 1];
 
   const handleComboboxKeyDown = (event: KeyboardEvent) => {
+    console.log("combo");
+
     const nextOption =
       enabledIndexs[enabledIndexs.findIndex((option) => option === selectedIndex) + 1];
 
@@ -171,18 +173,18 @@ export const Select: FunctionComponent<SelectProps> = ({
       }
     }
 
-    if (event.key === "Home" && !isOpen) {
+    if (event.key === "Home") {
       event.preventDefault();
-      setIsOpen(true);
+      if (!isOpen) setIsOpen(true);
       if (firstOption) {
         optionsRef.current[firstOption].focus();
         setFocusedIndex(firstOption);
       }
     }
 
-    if (event.key === "End" && !isOpen) {
+    if (event.key === "End") {
       event.preventDefault();
-      setIsOpen(true);
+      if (!isOpen) setIsOpen(true);
       if (lastOption) {
         optionsRef.current[lastOption].focus();
         setFocusedIndex(lastOption);
@@ -191,6 +193,8 @@ export const Select: FunctionComponent<SelectProps> = ({
   };
 
   const handleDropdownKeyDown = (event: KeyboardEvent) => {
+    console.log("dropdown");
+
     const nextOption =
       enabledIndexs[enabledIndexs.findIndex((option) => option === focusedIndex) + 1];
 
