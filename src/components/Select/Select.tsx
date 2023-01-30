@@ -85,7 +85,14 @@ export const Select: FunctionComponent<SelectProps> = ({
   const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
 
   // TO DO: Handle disableds
-  // TO DO: escape
+
+  // after closing dropdown, keep focusing select
+  // TO DO: avoid first focus, implementing undefined?
+  useEffect(() => {
+    if (!isOpen) {
+      selectRef.current?.focus();
+    }
+  }, [isOpen]);
 
   const handleComboboxKeyDown = (event: KeyboardEvent) => {
     console.log("handleComboboxKeyDown");
@@ -95,6 +102,14 @@ export const Select: FunctionComponent<SelectProps> = ({
 
     if (event.key === "Tab" && isOpen) {
       setIsOpen(false);
+    }
+
+    if (event.key === "Escape") {
+      if (isOpen) {
+        setIsOpen(false);
+      } else {
+        if (value && clearValue) clearValue();
+      }
     }
 
     if (event.key === "Enter" || event.key === " ") {
@@ -338,7 +353,19 @@ const Dropdown = styled.div<{ size: SelectSizeType; isOpen: boolean }>`
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   width: 100%;
   max-height: 250px;
-  opacity: ${({ isOpen }) => (isOpen ? 1 : 0)}; // TO DO: do this with max height
+  // TO DO: do this with max height
+  ${({ isOpen }) => {
+    if (isOpen) {
+      return css`
+        opacity: 1;
+      `;
+    } else {
+      return css`
+        opacity: 0;
+        pointer-events: none;
+      `;
+    }
+  }}
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing[1]};
