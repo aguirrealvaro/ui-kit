@@ -85,6 +85,7 @@ export const Select: FunctionComponent<SelectProps> = ({
 
   const handleComboboxKeyDown = (event: KeyboardEvent) => {
     console.log("handleComboboxKeyDown");
+
     const firstOption = 0;
     const lastOption = options.length - 1;
 
@@ -92,8 +93,21 @@ export const Select: FunctionComponent<SelectProps> = ({
       setIsOpen(!isOpen);
     }
 
-    if ((event.key === "ArrowDown" || event.key === "ArrowUp") && !isOpen) {
-      setIsOpen(true);
+    if (event.key === "ArrowDown") {
+      if (!isOpen) {
+        setIsOpen(true);
+      } else {
+        // TO DO: Sets first or next
+        optionsRef.current[firstOption].focus();
+      }
+    }
+
+    if (event.key === "ArrowUp") {
+      if (!isOpen) {
+        setIsOpen(true);
+      } else {
+        // Sets previous or nothing
+      }
     }
 
     if (event.key === "Home" && !isOpen) {
