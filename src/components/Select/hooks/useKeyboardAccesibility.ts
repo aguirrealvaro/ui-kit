@@ -153,8 +153,17 @@ export const useKeyboardAccesibility = ({
   }, [resetSearchDebounced, search]);
 
   const searchIndex = search
-    ? options.findIndex(({ searchPattern }) => {
-        return searchPattern?.includes(search);
+    ? options.findIndex(({ searchPattern, label }) => {
+        const searchPatternParsed = (() => {
+          if (searchPattern) {
+            return searchPattern;
+          } else {
+            if (typeof label === "string") {
+              return label;
+            }
+          }
+        })();
+        return searchPatternParsed?.includes(search);
       })
     : -1;
 

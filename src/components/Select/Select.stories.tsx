@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Select } from "@/components";
+import { SelectFieldType } from "@/components/Select/Select.types";
 
 export default {
   title: "Components/Select",
@@ -40,12 +41,12 @@ const Template: ComponentStory<typeof Select> = ({
     setOption("");
   };
 
-  const options = [
+  const options: SelectFieldType[] = [
     { label: "Option 1", value: "value1", disabled: true },
     { label: "Option 2", value: "value2", searchPattern: "kee" },
     { label: "Option 3", value: "value3", disabled: true },
     { label: "qwe", value: "value4", searchPattern: "qwe" },
-    { label: "Option 5", value: "value5" },
+    { label: "zxc", value: "value5" },
     { label: "ui", value: "value6", searchPattern: "ui" },
     { label: "Option 7", value: "value7", disabled: true },
   ];
