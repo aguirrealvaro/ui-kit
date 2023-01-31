@@ -1,6 +1,6 @@
 import { useState, useEffect, RefObject, KeyboardEvent, MutableRefObject } from "react";
 import { SelectFieldType } from "../Select.types";
-import { useIsFirstRender } from "@/hooks";
+import { useDebounce, useIsFirstRender } from "@/hooks";
 
 type UseKeyboardAccesibilityParams = {
   isOpen: boolean;
@@ -27,6 +27,7 @@ export const useKeyboardAccesibility = ({
   optionsRef,
 }: UseKeyboardAccesibilityParams): UseKeyboardAccesibilityReturn => {
   const [focusedIndex, setFocusedIndex] = useState<number>(-1);
+  const [search, setSearch] = useState<string>("");
 
   const selectedIndex = options.findIndex((option) => option.value === value);
 
@@ -125,7 +126,33 @@ export const useKeyboardAccesibility = ({
         setFocusedIndex(lastOption);
       }
     }
+
+    const isLetter = /^[a-z]$/i.test(event.key);
+    const isNumber = /^[0-9]$/i.test(event.key);
+
+    if (isLetter || isNumber) {
+      event.preventDefault();
+      if (isOpen) {
+        setSearch((prevSearch) => `${prevSearch}${event.key}`);
+      }
+    }
   };
+
+  const resetSearchDebounced = useDebounce(() => {
+    setSearch("");
+  }, 900);
+
+  useEffect(() => {
+    if (search) {
+      resetSearchDebounced();
+    }
+  }, [resetSearchDebounced, search]);
+
+  //console.log(search);
+  /* console.log("qwe".includes);
+  const searchIndex = options.findIndex(({ label }) => {
+    if (typeof label === "")
+  }); */
 
   return { focusedIndex, handleKeyDown };
 };
