@@ -48,7 +48,7 @@ export const useKeyboardAccesibility = ({
     .map(({ disabled }, index) => {
       if (!disabled) return index;
     })
-    .filter((option) => !!option);
+    .filter((option) => option !== undefined);
 
   const firstOption = enabledIndexs[0];
   const lastOption = enabledIndexs[enabledIndexs.length - 1];
@@ -83,14 +83,14 @@ export const useKeyboardAccesibility = ({
         // if none is selected
         if (selectedIndex === -1) {
           // focus first
-          if (firstOption) {
+          if (firstOption !== undefined) {
             event.preventDefault();
             optionsRef.current[firstOption].focus();
             setFocusedIndex(firstOption);
           }
         } else {
           // focus next
-          if (nextOption) {
+          if (nextOption !== undefined) {
             event.preventDefault();
             optionsRef.current[nextOption].focus();
             setFocusedIndex(nextOption);
@@ -106,7 +106,7 @@ export const useKeyboardAccesibility = ({
         // if some value is selected
         if (selectedIndex !== -1) {
           // focus previous
-          if (previousOption) {
+          if (previousOption !== undefined) {
             event.preventDefault();
             optionsRef.current[previousOption].focus();
             setFocusedIndex(previousOption);
@@ -117,7 +117,7 @@ export const useKeyboardAccesibility = ({
 
     if (event.key === "Home") {
       if (!isOpen) setIsOpen(true);
-      if (firstOption) {
+      if (firstOption !== undefined) {
         optionsRef.current[firstOption].focus();
         setFocusedIndex(firstOption);
       }
@@ -125,7 +125,7 @@ export const useKeyboardAccesibility = ({
 
     if (event.key === "End") {
       if (!isOpen) setIsOpen(true);
-      if (lastOption) {
+      if (lastOption !== undefined) {
         optionsRef.current[lastOption].focus();
         setFocusedIndex(lastOption);
       }
@@ -138,7 +138,7 @@ export const useKeyboardAccesibility = ({
     }
 
     if (event.key === "ArrowDown") {
-      if (nextOption) {
+      if (nextOption !== undefined) {
         event.preventDefault();
         optionsRef.current[nextOption].focus();
         setFocusedIndex(nextOption);
@@ -146,7 +146,7 @@ export const useKeyboardAccesibility = ({
     }
 
     if (event.key === "ArrowUp") {
-      if (previousOption) {
+      if (previousOption !== undefined) {
         event.preventDefault();
         optionsRef.current[previousOption].focus();
         setFocusedIndex(previousOption);
@@ -154,14 +154,14 @@ export const useKeyboardAccesibility = ({
     }
 
     if (event.key === "Home") {
-      if (firstOption) {
+      if (firstOption !== undefined) {
         optionsRef.current[firstOption].focus();
         setFocusedIndex(firstOption);
       }
     }
 
     if (event.key === "End") {
-      if (lastOption) {
+      if (lastOption !== undefined) {
         optionsRef.current[lastOption].focus();
         setFocusedIndex(lastOption);
       }
