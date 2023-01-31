@@ -14,8 +14,7 @@ type UseKeyboardAccesibilityParams = {
 
 type UseKeyboardAccesibilityReturn = {
   focusedIndex: number | undefined;
-  handleComboboxKeyDown: (event: KeyboardEvent) => void;
-  handleDropdownKeyDown: (event: KeyboardEvent) => void;
+  handleKeyDown: (event: KeyboardEvent) => void;
 };
 
 export const useKeyboardAccesibility = ({
@@ -27,7 +26,7 @@ export const useKeyboardAccesibility = ({
   selectRef,
   optionsRef,
 }: UseKeyboardAccesibilityParams): UseKeyboardAccesibilityReturn => {
-  const [focusedIndex, setFocusedIndex] = useState<number | undefined>(undefined);
+  const [focusedIndex, setFocusedIndex] = useState<number>(-1);
 
   const selectedIndex = options.findIndex((option) => option.value === value);
 
@@ -59,7 +58,17 @@ export const useKeyboardAccesibility = ({
   const previousOption =
     enabledIndexs[enabledIndexs.findIndex((option) => option === focusedIndex) - 1];
 
-  const handleComboboxKeyDown = (event: KeyboardEvent) => {
+  /* console.log({
+    enabledIndexs,
+    focusedIndex,
+    selectedIndex,
+    firstOption,
+    lastOption,
+    nextOption,
+    previousOption,
+  }); */
+
+  const handleKeyDown = (event: KeyboardEvent) => {
     if (event.key === "Tab" && isOpen) {
       setIsOpen(false);
     }
@@ -72,7 +81,18 @@ export const useKeyboardAccesibility = ({
       }
     }
 
-    if (event.key === "Enter" || event.key === " ") {
+    if (event.key === "Enter") {
+      if (!isOpen) {
+        setIsOpen(true);
+      } else {
+        if (focusedIndex === -1) {
+          setIsOpen(false);
+        }
+        // if focusedIndex has a value, and we select it, it will close (L66 Select.tsx)
+      }
+    }
+
+    if (event.key === " ") {
       setIsOpen(!isOpen);
     }
 
@@ -80,21 +100,10 @@ export const useKeyboardAccesibility = ({
       if (!isOpen) {
         setIsOpen(true);
       } else {
-        // if none is selected
-        if (selectedIndex === -1) {
-          // focus first
-          if (firstOption !== undefined) {
-            event.preventDefault();
-            optionsRef.current[firstOption].focus();
-            setFocusedIndex(firstOption);
-          }
-        } else {
-          // focus next
-          if (nextOption !== undefined) {
-            event.preventDefault();
-            optionsRef.current[nextOption].focus();
-            setFocusedIndex(nextOption);
-          }
+        if (nextOption !== undefined) {
+          event.preventDefault();
+          optionsRef.current[nextOption].focus();
+          setFocusedIndex(nextOption);
         }
       }
     }
@@ -103,14 +112,10 @@ export const useKeyboardAccesibility = ({
       if (!isOpen) {
         setIsOpen(true);
       } else {
-        // if some value is selected
-        if (selectedIndex !== -1) {
-          // focus previous
-          if (previousOption !== undefined) {
-            event.preventDefault();
-            optionsRef.current[previousOption].focus();
-            setFocusedIndex(previousOption);
-          }
+        if (previousOption !== undefined) {
+          event.preventDefault();
+          optionsRef.current[previousOption].focus();
+          setFocusedIndex(previousOption);
         }
       }
     }
@@ -132,41 +137,5 @@ export const useKeyboardAccesibility = ({
     }
   };
 
-  const handleDropdownKeyDown = (event: KeyboardEvent) => {
-    if (event.key === "Tab" || event.key === "Escape") {
-      setIsOpen(false);
-    }
-
-    if (event.key === "ArrowDown") {
-      if (nextOption !== undefined) {
-        event.preventDefault();
-        optionsRef.current[nextOption].focus();
-        setFocusedIndex(nextOption);
-      }
-    }
-
-    if (event.key === "ArrowUp") {
-      if (previousOption !== undefined) {
-        event.preventDefault();
-        optionsRef.current[previousOption].focus();
-        setFocusedIndex(previousOption);
-      }
-    }
-
-    if (event.key === "Home") {
-      if (firstOption !== undefined) {
-        optionsRef.current[firstOption].focus();
-        setFocusedIndex(firstOption);
-      }
-    }
-
-    if (event.key === "End") {
-      if (lastOption !== undefined) {
-        optionsRef.current[lastOption].focus();
-        setFocusedIndex(lastOption);
-      }
-    }
-  };
-
-  return { focusedIndex, handleComboboxKeyDown, handleDropdownKeyDown };
+  return { focusedIndex, handleKeyDown };
 };

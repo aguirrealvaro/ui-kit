@@ -83,16 +83,15 @@ export const Select: FunctionComponent<SelectProps> = ({
 
   const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
 
-  const { focusedIndex, handleComboboxKeyDown, handleDropdownKeyDown } =
-    useKeyboardAccesibility({
-      isOpen,
-      setIsOpen,
-      options,
-      value,
-      clearValue,
-      selectRef,
-      optionsRef,
-    });
+  const { focusedIndex, handleKeyDown } = useKeyboardAccesibility({
+    isOpen,
+    setIsOpen,
+    options,
+    value,
+    clearValue,
+    selectRef,
+    optionsRef,
+  });
 
   const getOptionId = (index: number | undefined) => {
     if (index !== undefined) {
@@ -123,7 +122,7 @@ export const Select: FunctionComponent<SelectProps> = ({
         aria-haspopup="listbox"
         aria-labelledby={labelId}
         aria-activedescendant={isOpen ? getOptionId(focusedIndex) : undefined}
-        onKeyDown={handleComboboxKeyDown}
+        onKeyDown={handleKeyDown}
       >
         <InnerContainer size={size}>
           <span>{selectedLabel || placeholder}</span>
@@ -139,39 +138,38 @@ export const Select: FunctionComponent<SelectProps> = ({
             <Icon icon={ChevronDown} size={18} />
           </ChevronWrapper>
         </SideContainer>
+        <Dropdown
+          isOpen={isOpen}
+          size={size}
+          role="listbox"
+          id={selectId}
+          aria-labelledby={labelId}
+        >
+          {options.map((option, index) => {
+            const onClick = () => onChange(option.value);
+            const isSelected = value === option.value;
+            return (
+              <Option
+                role="option"
+                id={getOptionId(index)}
+                key={index}
+                onClick={onClick}
+                disabled={option.disabled}
+                isSelected={isSelected}
+                aria-selected={isSelected}
+                tabIndex={-1}
+                ref={(el) => {
+                  if (optionsRef.current && el) {
+                    optionsRef.current[index] = el;
+                  }
+                }}
+              >
+                {option.label}
+              </Option>
+            );
+          })}
+        </Dropdown>
       </SelectContainer>
-      <Dropdown
-        isOpen={isOpen}
-        size={size}
-        role="listbox"
-        id={selectId}
-        aria-labelledby={labelId}
-        onKeyDown={handleDropdownKeyDown}
-      >
-        {options.map((option, index) => {
-          const onClick = () => onChange(option.value);
-          const isSelected = value === option.value;
-          return (
-            <Option
-              role="option"
-              id={getOptionId(index)}
-              key={index}
-              onClick={onClick}
-              disabled={option.disabled}
-              isSelected={isSelected}
-              aria-selected={isSelected}
-              tabIndex={-1}
-              ref={(el) => {
-                if (optionsRef.current && el) {
-                  optionsRef.current[index] = el;
-                }
-              }}
-            >
-              {option.label}
-            </Option>
-          );
-        })}
-      </Dropdown>
       {showBottom && (
         <BottomText
           showErrorMessage={!!errorMessage}
@@ -301,7 +299,7 @@ const Dropdown = styled.div<{ size: SelectSizeType; isOpen: boolean }>`
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing[1]};
   overflow-y: auto;
-  transform: translateY(5px);
+  //transform: translateY(5px);
   font-size: ${({ size, theme }) => {
     const sizes: Record<SelectSizeType, string> = {
       sm: theme.typography.fontSizes.sm,
