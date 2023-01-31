@@ -8,7 +8,6 @@
 
 ### To do
 
-- Accesibility
 - DatePicker
 - TimePicker
 - Pagination
