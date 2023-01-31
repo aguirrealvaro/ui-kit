@@ -47,7 +47,7 @@ const Template: ComponentStory<typeof Select> = ({
     { label: "Option 3", value: "value3", disabled: true },
     { label: "we", value: "value4" },
     { label: "zxc", value: "value5" },
-    { label: "Option 6", value: "value6" },
+    { label: "qwe zxc", value: "value6" },
     { label: "Option 7", value: "value7", disabled: true },
   ];
 

@@ -83,8 +83,8 @@ export const useKeyboardAccesibility = ({
       }
     }
 
-    if (event.key === " ") {
-      setIsOpen(!isOpen);
+    if (event.key === " " && !isOpen) {
+      setIsOpen(true);
     }
 
     if (event.key === "ArrowDown") {
@@ -129,9 +129,11 @@ export const useKeyboardAccesibility = ({
 
     const isLetter = /^[a-z]$/i.test(event.key);
     const isNumber = /^[0-9]$/i.test(event.key);
+    const isSpace = event.key === " ";
 
-    if ((isLetter || isNumber) && isOpen) {
+    if (isLetter || isNumber || isSpace) {
       event.preventDefault();
+      if (!isOpen) setIsOpen(true);
       setSearch((prevSearch) => {
         if (prevSearch) {
           return `${prevSearch}${event.key}`;
