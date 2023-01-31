@@ -54,8 +54,10 @@ export const Select: FunctionComponent<SelectProps> = ({
   clearValue,
   size = "md",
 }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
   const selectRef = useRef<HTMLDivElement>(null);
+
+  console.log();
+
   const optionsRef = useRef<HTMLButtonElement[]>([]);
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -100,7 +102,7 @@ export const Select: FunctionComponent<SelectProps> = ({
   };
 
   return (
-    <Container ref={containerRef}>
+    <div>
       {label && (
         <Label size={size} id={labelId}>
           {label}
@@ -144,6 +146,7 @@ export const Select: FunctionComponent<SelectProps> = ({
           role="listbox"
           id={selectId}
           aria-labelledby={labelId}
+          selectHeight={selectRef.current?.offsetHeight}
         >
           {options.map((option, index) => {
             const onClick = () => onChange(option.value);
@@ -179,13 +182,9 @@ export const Select: FunctionComponent<SelectProps> = ({
           {errorMessage || successMessage || helpText}
         </BottomText>
       )}
-    </Container>
+    </div>
   );
 };
-
-const Container = styled.div`
-  position: relative;
-`;
 
 const Label = styled.label<{ size: SelectSizeType }>`
   display: block;
@@ -209,6 +208,7 @@ const SelectContainer = styled.div<{
   isOpen: boolean;
   size: SelectSizeType;
 }>`
+  position: relative;
   display: flex;
   justify-content: space-between;
   border-radius: ${({ theme }) => theme.borderRadius.xs};
@@ -283,8 +283,17 @@ const SideContainer = styled.div`
   gap: ${({ theme }) => theme.spacing[2]};
 `;
 
-const Dropdown = styled.div<{ size: SelectSizeType; isOpen: boolean }>`
+const Dropdown = styled.div<{
+  size: SelectSizeType;
+  isOpen: boolean;
+  selectHeight: number | undefined;
+}>`
   position: absolute;
+  top: ${({ selectHeight }) => {
+    if (selectHeight) {
+      return `calc(${selectHeight}px + 2px)`;
+    }
+  }};
   z-index: ${({ theme }) => theme.zIndices.dropdown};
   padding: ${({ theme }) => theme.sizes[2]};
   border: 1px solid ${({ theme }) => theme.assets.border};
@@ -299,7 +308,6 @@ const Dropdown = styled.div<{ size: SelectSizeType; isOpen: boolean }>`
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing[1]};
   overflow-y: auto;
-  //transform: translateY(5px);
   font-size: ${({ size, theme }) => {
     const sizes: Record<SelectSizeType, string> = {
       sm: theme.typography.fontSizes.sm,
