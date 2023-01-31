@@ -302,7 +302,6 @@ const Dropdown = styled.div<{
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   width: 100%;
   max-height: 250px;
-  // TO DO: do this with max height
   visibility: ${({ isOpen }) => (isOpen ? "visible" : "hidden")};
   display: flex;
   flex-direction: column;
