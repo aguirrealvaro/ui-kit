@@ -27,7 +27,7 @@ export const useKeyboardAccesibility = ({
   optionsRef,
 }: UseKeyboardAccesibilityParams): UseKeyboardAccesibilityReturn => {
   const [focusedIndex, setFocusedIndex] = useState<number>(-1);
-  const [search, setSearch] = useState<string>("");
+  const [search, setSearch] = useState<string | undefined>(undefined);
 
   const selectedIndex = options.findIndex((option) => option.value === value);
 
@@ -130,17 +130,21 @@ export const useKeyboardAccesibility = ({
     const isLetter = /^[a-z]$/i.test(event.key);
     const isNumber = /^[0-9]$/i.test(event.key);
 
-    if (isLetter || isNumber) {
+    if ((isLetter || isNumber) && isOpen) {
       event.preventDefault();
-      if (isOpen) {
-        setSearch((prevSearch) => `${prevSearch}${event.key}`);
-      }
+      setSearch((prevSearch) => {
+        if (prevSearch) {
+          return `${prevSearch}${event.key}`;
+        } else {
+          return event.key;
+        }
+      });
     }
   };
 
   const resetSearchDebounced = useDebounce(() => {
-    setSearch("");
-  }, 900);
+    setSearch(undefined);
+  }, 1200);
 
   useEffect(() => {
     if (search) {
@@ -148,11 +152,13 @@ export const useKeyboardAccesibility = ({
     }
   }, [resetSearchDebounced, search]);
 
-  //console.log(search);
-  /* console.log("qwe".includes);
-  const searchIndex = options.findIndex(({ label }) => {
-    if (typeof label === "")
-  }); */
+  const searchIndex = search
+    ? options.findIndex(({ searchPattern }) => {
+        return searchPattern?.includes(search);
+      })
+    : -1;
+
+  console.log({ search, searchIndex });
 
   return { focusedIndex, handleKeyDown };
 };

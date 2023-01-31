@@ -42,11 +42,11 @@ const Template: ComponentStory<typeof Select> = ({
 
   const options = [
     { label: "Option 1", value: "value1", disabled: true },
-    { label: "Option 2", value: "value2" },
+    { label: "Option 2", value: "value2", searchPattern: "kee" },
     { label: "Option 3", value: "value3", disabled: true },
-    { label: "qwe", value: "value4" },
+    { label: "qwe", value: "value4", searchPattern: "qwe" },
     { label: "Option 5", value: "value5" },
-    { label: "ui", value: "value6" },
+    { label: "ui", value: "value6", searchPattern: "ui" },
     { label: "Option 7", value: "value7", disabled: true },
   ];
 
