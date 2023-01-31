@@ -42,12 +42,12 @@ const Template: ComponentStory<typeof Select> = ({
   };
 
   const options: SelectFieldType[] = [
-    { label: "Option 1", value: "value1", disabled: true },
-    { label: "Option 2", value: "value2", searchPattern: "kee" },
+    { label: "qwe", value: "value1", disabled: false },
+    { label: "Option 2", value: "value2", searchPattern: "pattern" },
     { label: "Option 3", value: "value3", disabled: true },
-    { label: "qwe", value: "value4", searchPattern: "qwe" },
+    { label: "we", value: "value4" },
     { label: "zxc", value: "value5" },
-    { label: "ui", value: "value6", searchPattern: "ui" },
+    { label: "Option 6", value: "value6" },
     { label: "Option 7", value: "value7", disabled: true },
   ];
 

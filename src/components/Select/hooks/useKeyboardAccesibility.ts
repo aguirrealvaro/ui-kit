@@ -154,7 +154,7 @@ export const useKeyboardAccesibility = ({
 
   const searchIndex = search
     ? options.findIndex(({ searchPattern, label }) => {
-        const searchPatternParsed = (() => {
+        const searchPatternParsed: string | undefined = (() => {
           if (searchPattern) {
             return searchPattern;
           } else {
@@ -163,7 +163,8 @@ export const useKeyboardAccesibility = ({
             }
           }
         })();
-        return searchPatternParsed?.includes(search);
+
+        return searchPatternParsed?.startsWith(search);
       })
     : -1;
 
