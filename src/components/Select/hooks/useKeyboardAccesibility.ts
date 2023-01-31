@@ -144,7 +144,7 @@ export const useKeyboardAccesibility = ({
 
   const resetSearchDebounced = useDebounce(() => {
     setSearch(undefined);
-  }, 1200);
+  }, 1000);
 
   useEffect(() => {
     if (search) {
@@ -158,7 +158,12 @@ export const useKeyboardAccesibility = ({
       })
     : -1;
 
-  console.log({ search, searchIndex });
+  useEffect(() => {
+    if (searchIndex !== -1) {
+      optionsRef.current[searchIndex]?.focus();
+      setFocusedIndex(searchIndex);
+    }
+  }, [optionsRef, searchIndex]);
 
   return { focusedIndex, handleKeyDown };
 };
