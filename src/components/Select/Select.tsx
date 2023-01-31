@@ -55,9 +55,6 @@ export const Select: FunctionComponent<SelectProps> = ({
   size = "md",
 }) => {
   const selectRef = useRef<HTMLDivElement>(null);
-
-  console.log();
-
   const optionsRef = useRef<HTMLButtonElement[]>([]);
 
   const [isOpen, setIsOpen] = useState<boolean>(false);

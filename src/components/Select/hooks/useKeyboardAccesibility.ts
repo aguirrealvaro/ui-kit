@@ -58,16 +58,6 @@ export const useKeyboardAccesibility = ({
   const previousOption =
     enabledIndexs[enabledIndexs.findIndex((option) => option === focusedIndex) - 1];
 
-  /* console.log({
-    enabledIndexs,
-    focusedIndex,
-    selectedIndex,
-    firstOption,
-    lastOption,
-    nextOption,
-    previousOption,
-  }); */
-
   const handleKeyDown = (event: KeyboardEvent) => {
     if (event.key === "Tab" && isOpen) {
       setIsOpen(false);
