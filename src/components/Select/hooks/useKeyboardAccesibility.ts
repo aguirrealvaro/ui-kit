@@ -50,13 +50,13 @@ export const useKeyboardAccesibility = ({
     })
     .filter((option) => option !== undefined);
 
-  const firstOption = enabledIndexs[0];
-  const lastOption = enabledIndexs[enabledIndexs.length - 1];
+  const firstIndex = enabledIndexs[0];
+  const lastIndex = enabledIndexs[enabledIndexs.length - 1];
 
-  const nextOption =
+  const nextIndex =
     enabledIndexs[enabledIndexs.findIndex((option) => option === focusedIndex) + 1];
 
-  const previousOption =
+  const prevIndex =
     enabledIndexs[enabledIndexs.findIndex((option) => option === focusedIndex) - 1];
 
   const handleKeyDown = (event: KeyboardEvent) => {
@@ -91,10 +91,10 @@ export const useKeyboardAccesibility = ({
       if (!isOpen) {
         setIsOpen(true);
       } else {
-        if (nextOption !== undefined) {
+        if (nextIndex !== undefined) {
           event.preventDefault();
-          optionsRef.current[nextOption].focus();
-          setFocusedIndex(nextOption);
+          optionsRef.current[nextIndex].focus();
+          setFocusedIndex(nextIndex);
         }
       }
     }
@@ -103,27 +103,27 @@ export const useKeyboardAccesibility = ({
       if (!isOpen) {
         setIsOpen(true);
       } else {
-        if (previousOption !== undefined) {
+        if (prevIndex !== undefined) {
           event.preventDefault();
-          optionsRef.current[previousOption].focus();
-          setFocusedIndex(previousOption);
+          optionsRef.current[prevIndex].focus();
+          setFocusedIndex(prevIndex);
         }
       }
     }
 
     if (event.key === "Home") {
       if (!isOpen) setIsOpen(true);
-      if (firstOption !== undefined) {
-        optionsRef.current[firstOption].focus();
-        setFocusedIndex(firstOption);
+      if (firstIndex !== undefined) {
+        optionsRef.current[firstIndex].focus();
+        setFocusedIndex(firstIndex);
       }
     }
 
     if (event.key === "End") {
       if (!isOpen) setIsOpen(true);
-      if (lastOption !== undefined) {
-        optionsRef.current[lastOption].focus();
-        setFocusedIndex(lastOption);
+      if (lastIndex !== undefined) {
+        optionsRef.current[lastIndex].focus();
+        setFocusedIndex(lastIndex);
       }
     }
 
