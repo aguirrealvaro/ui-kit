@@ -164,7 +164,7 @@ export const useKeyboardAccesibility = ({
           }
         })();
 
-        return searchPatternParsed?.startsWith(search);
+        return searchPatternParsed?.toLowerCase().startsWith(search.toLowerCase());
       })
     : -1;
 
