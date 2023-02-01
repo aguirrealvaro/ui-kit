@@ -6,6 +6,7 @@ import {
   isValidElement,
   KeyboardEvent,
   useRef,
+  useEffect,
 } from "react";
 import styled, { css } from "styled-components";
 import { TabProps } from "./components/Tab";
@@ -21,25 +22,36 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children }) => {
 
   const getTabId = (index: number) => `tab${index}`;
 
+  const [focusedIndex, setFocusedIndex] = useState<number>(selectedTab);
+
+  useEffect(() => {
+    setFocusedIndex(selectedTab);
+  }, [selectedTab]);
+
   const handleKeyDown = (event: KeyboardEvent<HTMLUListElement>) => {
     const first = 0;
     const last = Children.count(children) - 1;
+    const next = focusedIndex === last ? first : focusedIndex + 1;
+    const prev = focusedIndex === first ? last : focusedIndex - 1;
 
-    const tabToSelect = (() => {
-      if (event.key === "ArrowLeft") {
-        const prev = selectedTab - 1;
-        return selectedTab === first ? last : prev;
-      } else if (event.key === "ArrowRight") {
-        const next = selectedTab + 1;
-        return selectedTab === last ? first : next;
-      }
-    })();
+    if (event.key === "ArrowLeft") {
+      tabItemsRef.current[prev]?.focus();
+      setFocusedIndex(prev);
+    }
 
-    if (tabToSelect !== undefined) {
-      event.preventDefault();
-      // checking for undefined because tabToSelect can be 0
-      setSelectedTab(tabToSelect);
-      tabItemsRef.current[tabToSelect]?.focus();
+    if (event.key === "ArrowRight") {
+      tabItemsRef.current[next]?.focus();
+      setFocusedIndex(next);
+    }
+
+    if (event.key === "Home") {
+      tabItemsRef.current[first]?.focus();
+      setFocusedIndex(first);
+    }
+
+    if (event.key === "End") {
+      tabItemsRef.current[last]?.focus();
+      setFocusedIndex(last);
     }
   };
 
