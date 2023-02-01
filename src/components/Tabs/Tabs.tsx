@@ -20,7 +20,8 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children }) => {
 
   const tabItemsRef = useRef<HTMLButtonElement[]>([]);
 
-  const getTabId = (index: number) => `tab${index}`;
+  const getTabItemId = (index: number) => `tabitem-${index}`;
+  const getTabPanelId = (index: number) => `tabpanel-${index}`;
 
   const [focusedIndex, setFocusedIndex] = useState<number>(selectedTab);
 
@@ -73,10 +74,11 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children }) => {
             <TabItemWrapper role="presentation">
               <TabItem
                 role="tab"
+                id={getTabItemId(index)}
                 active={isTabSelected}
                 onClick={() => setSelectedTab(index)}
                 aria-selected={isTabSelected}
-                aria-controls={getTabId(index)}
+                aria-controls={getTabPanelId(index)}
                 tabIndex={isTabSelected ? 0 : -1}
                 ref={(el) => {
                   if (tabItemsRef.current && el) {
@@ -102,7 +104,8 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children }) => {
             <div
               role="tabpanel"
               hidden={selectedTab !== index}
-              aria-labelledby={getTabId(index)}
+              id={getTabPanelId(index)}
+              aria-labelledby={getTabItemId(index)}
             >
               {children}
             </div>
