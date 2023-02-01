@@ -43,7 +43,13 @@ export const Modal: FunctionComponent<ModalProps> = ({
 
   const Component = (
     <Backdrop isOpen={isOpen} fadeOut={isUnmounting}>
-      <Content size={size} ref={contentRef} fadeOut={isUnmounting} role="dialog">
+      <Content
+        size={size}
+        ref={contentRef}
+        fadeOut={isUnmounting}
+        role="dialog"
+        aria-modal={true}
+      >
         <CloseButtonWrapper>
           <IconButton onClick={onClose}>
             <Icon icon={CloseOutline} size={25} />
