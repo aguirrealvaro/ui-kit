@@ -8,6 +8,7 @@ import { useTheme } from "@/hooks";
 type AccordionProps = {
   title: ReactNode;
   children: ReactNode;
+  index: number;
   disabled?: boolean;
   arrowPosition?: AccordionArrowPosition;
 };
@@ -15,6 +16,7 @@ type AccordionProps = {
 export const Accordion: FunctionComponent<AccordionProps> = ({
   title,
   children,
+  index,
   disabled,
   arrowPosition = "right",
 }) => {
@@ -25,6 +27,9 @@ export const Accordion: FunctionComponent<AccordionProps> = ({
   const toggle = () => setIsOpen(!isOpen);
   const height = ref.current?.scrollHeight || 0;
 
+  const buttonId = `accordion-${index}`;
+  const contentId = `accordion-content-${index}`;
+
   return (
     <div>
       <Button
@@ -32,7 +37,8 @@ export const Accordion: FunctionComponent<AccordionProps> = ({
         disabled={disabled}
         arrowPosition={arrowPosition}
         aria-expanded={isOpen}
-        aria-controls="accordion-content"
+        aria-controls={contentId} //should match id="" of region
+        id={buttonId} //should match aria-labelledby="" of region
       >
         <Title arrowPosition={arrowPosition}>{title}</Title>
         <ChevronWrapper isOpen={isOpen} arrowPosition={arrowPosition}>
@@ -43,7 +49,14 @@ export const Accordion: FunctionComponent<AccordionProps> = ({
           />
         </ChevronWrapper>
       </Button>
-      <Content id="accordion-content" ref={ref} height={height} isOpen={isOpen}>
+      <Content
+        role="region"
+        id={contentId}
+        aria-labelledby={buttonId}
+        ref={ref}
+        height={height}
+        isOpen={isOpen}
+      >
         {children}
       </Content>
     </div>

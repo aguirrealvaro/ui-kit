@@ -14,9 +14,9 @@ export default {
 const Template: ComponentStory<typeof Accordion> = (args) => {
   return (
     <AccordionGroup>
-      <Accordion {...args} />
-      <Accordion {...args} />
-      <Accordion {...args} />
+      <Accordion {...args} index={1} />
+      <Accordion {...args} index={2} />
+      <Accordion {...args} index={3} />
     </AccordionGroup>
   );
 };
