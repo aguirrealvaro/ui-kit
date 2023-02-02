@@ -1,6 +1,7 @@
 import { FunctionComponent, useRef, ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
+import FocusTrap from "focus-trap-react";
 import styled, { css, keyframes } from "styled-components";
 import { ModalSizeType } from "./Modal.types";
 import { Icon, IconButton } from "@/components";
@@ -43,20 +44,22 @@ export const Modal: FunctionComponent<ModalProps> = ({
 
   const Component = (
     <Backdrop isOpen={isOpen} fadeOut={isUnmounting}>
-      <Content
-        size={size}
-        ref={contentRef}
-        fadeOut={isUnmounting}
-        role="dialog"
-        aria-modal={true}
-      >
-        <CloseButtonWrapper>
-          <IconButton onClick={onClose}>
-            <Icon icon={CloseOutline} size={25} />
-          </IconButton>
-        </CloseButtonWrapper>
-        {children}
-      </Content>
+      <FocusTrap>
+        <Content
+          size={size}
+          ref={contentRef}
+          fadeOut={isUnmounting}
+          role="dialog"
+          aria-modal={true}
+        >
+          <CloseButtonWrapper>
+            <IconButton onClick={onClose}>
+              <Icon icon={CloseOutline} size={25} />
+            </IconButton>
+          </CloseButtonWrapper>
+          {children}
+        </Content>
+      </FocusTrap>
     </Backdrop>
   );
 

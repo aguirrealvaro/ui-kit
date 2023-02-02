@@ -1,5 +1,7 @@
+/* eslint-disable no-console */
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Button, Modal, ModalHeader, ModalContent, ModalFooter } from "@/components";
+import styled from "styled-components";
+import { Button, Modal, ModalHeader, ModalContent, ModalFooter, Link } from "@/components";
 import { useDisclosure } from "@/hooks";
 
 export default {
@@ -21,9 +23,11 @@ const Template: ComponentStory<typeof Modal> = ({
       <Modal isOpen={isOpen} onClose={onClose} isUnmounting={isUnmounting} {...args}>
         <ModalHeader>Header</ModalHeader>
         <ModalContent>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ullam aliquam itaque
-          velit tenetur deserunt laboriosam est culpa hic nihil officiis, saepe ut animi
-          deleniti ea odio, voluptatum dolores quaerat?
+          <Container>
+            <p>Focus trap ON</p>
+            <Button onClick={() => console.log("click button")}>Button</Button>
+            <Link href="https://google.com">Link</Link>
+          </Container>
         </ModalContent>
         <ModalFooter>Footer</ModalFooter>
       </Modal>
@@ -35,3 +39,10 @@ export const Primary = Template.bind({});
 Primary.args = {
   size: "sm",
 };
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: baseline;
+`;
