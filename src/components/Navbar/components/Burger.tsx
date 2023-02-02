@@ -17,7 +17,7 @@ export const Burger: FunctionComponent<BurgerProps> = ({ onClick }) => {
 
 const Container = styled.div`
   display: none;
-  ${({ theme }) => theme.breakpoint("lg")} {
+  ${({ theme }) => theme.breakpoint("md")} {
     display: block;
   }
 `;

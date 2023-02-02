@@ -1,16 +1,22 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, ReactNode } from "react";
 import styled from "styled-components";
-import { Logo, MainMenu, DropdownMenu, Burger, MobileMenu } from "./components";
+import { MainMenu, Burger, MobileMenu } from "./components";
 import { NavbarItem } from "./Navbar.types";
 import { useDisclosure, useDisableScroll, useTheme } from "@/hooks";
 
 type NavbarProps = {
-  user: string;
+  startEndhacer?: ReactNode;
+  endEnhacer?: ReactNode;
   mainItems: NavbarItem[];
-  dropdownItems: NavbarItem[];
+  mobileItems: NavbarItem[];
 };
 
-export const Navbar: FunctionComponent<NavbarProps> = ({ user, mainItems, dropdownItems }) => {
+export const Navbar: FunctionComponent<NavbarProps> = ({
+  startEndhacer,
+  endEnhacer,
+  mainItems,
+  mobileItems,
+}) => {
   const { theme } = useTheme();
   const transitionTime = theme.transitions.durations.normal;
 
@@ -27,16 +33,16 @@ export const Navbar: FunctionComponent<NavbarProps> = ({ user, mainItems, dropdo
     <Container>
       <Wrapper>
         <InnerContainer>
-          <Logo />
+          {startEndhacer}
           <MainMenu items={mainItems} />
-          <DropdownMenu user={user} items={dropdownItems} />
+          <EndEnhacerContainer>{endEnhacer}</EndEnhacerContainer>
           <Burger onClick={onToggle} />
           {isMobileMenuOpen && (
             <MobileMenu
               isMobileMenuOpen={isMobileMenuOpen}
               onClose={onClose}
               isUnmounting={isUnmounting}
-              items={mainItems.concat(dropdownItems)}
+              items={mainItems.concat(mobileItems)}
               transitionTime={transitionTime}
             />
           )}
@@ -68,4 +74,10 @@ const InnerContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+`;
+
+const EndEnhacerContainer = styled.div`
+  ${({ theme }) => theme.breakpoint("md")} {
+    display: none;
+  }
 `;

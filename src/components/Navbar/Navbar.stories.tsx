@@ -1,6 +1,8 @@
 /* eslint-disable no-console */
+import { FunctionComponent } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Navbar } from "@/components";
+import styled from "styled-components";
+import { Button, Navbar } from "@/components";
 import { useTheme } from "@/hooks";
 
 export default {
@@ -16,18 +18,46 @@ const Template: ComponentStory<typeof Navbar> = () => {
     { label: "Item 2", onClick: () => console.log("Click") },
     { label: "Item 3", onClick: () => console.log("Click") },
     { label: "Item 4", onClick: () => console.log("Click"), show: false },
-    { label: "Item 5", onClick: () => console.log("Click") },
     { label: "Toggle mode", onClick: toggleThemeMode },
   ];
 
-  const dropdownItems = [
-    { label: "Item 1", onClick: () => console.log("Click"), show: false },
-    { label: "Item 2", onClick: () => console.log("Click") },
-    { label: "Item 4", onClick: () => console.log("Click") },
-    { label: "Item 5", onClick: () => console.log("Click"), disabled: true },
+  const mobileItems = [
+    { label: "Log in", onClick: () => console.log("Click"), show: false },
+    { label: "Log out", onClick: () => console.log("Click") },
   ];
 
-  return <Navbar user="Usuario" mainItems={mainItems} dropdownItems={dropdownItems} />;
+  return (
+    <Navbar
+      startEndhacer={<Logo />}
+      endEnhacer={<SessionButtons />}
+      mainItems={mainItems}
+      mobileItems={mobileItems}
+    />
+  );
 };
 
 export const Primary = Template.bind({});
+
+const Logo: FunctionComponent = () => <LogoContainer>LOGO</LogoContainer>;
+
+const LogoContainer = styled.div`
+  font-size: ${({ theme }) => theme.typography.fontSizes.lg};
+  font-weight: ${({ theme }) => theme.typography.fontWeights.semibold};
+  letter-spacing: ${({ theme }) => theme.typography.letterSpacings.widest};
+  text-transform: uppercase;
+`;
+
+const SessionButtons: FunctionComponent = () => {
+  return (
+    <SessionButtonContainer>
+      <Button kind="outlined">Log In</Button>
+      <Button>Register</Button>
+    </SessionButtonContainer>
+  );
+};
+
+const SessionButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;

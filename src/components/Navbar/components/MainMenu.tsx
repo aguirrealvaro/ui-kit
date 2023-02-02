@@ -20,7 +20,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacing[8]};
-  ${({ theme }) => theme.breakpoint("lg")} {
+  ${({ theme }) => theme.breakpoint("md")} {
     display: none;
   }
 `;
