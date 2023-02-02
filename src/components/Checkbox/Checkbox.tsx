@@ -61,7 +61,7 @@ export const Checkbox: FunctionComponent<
         onChange={onChange}
         {...restProps}
       />
-      <Container disabled={disabled} hasHelpText={!!helpText}>
+      <Container disabled={disabled} hasHelpText={!!helpText} position={position}>
         <IconWrapper
           position={position}
           tabIndex={disabled ? -1 : 0}
@@ -86,9 +86,14 @@ const HiddenInput = styled.input`
   ${hiddenStyles};
 `;
 
-const Container = styled.div<{ disabled: boolean; hasHelpText: boolean }>`
+const Container = styled.div<{
+  disabled: boolean;
+  hasHelpText: boolean;
+  position: CheckboxPositionType;
+}>`
   display: flex;
   align-items: ${({ hasHelpText }) => (hasHelpText ? "flex-start" : "center")};
+  justify-content: ${({ position }) => (position === "left" ? "flex-start" : "space-between")};
   cursor: pointer;
   gap: ${({ theme }) => theme.spacing[4]};
   ${({ disabled, theme }) => {

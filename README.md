@@ -8,7 +8,6 @@
 
 ### To do
 
-- Accesibility on Accordion, List, Dropdown, Navbar
 - DatePicker
 - TimePicker
 - Pagination

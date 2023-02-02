@@ -47,7 +47,7 @@ export const Switch: FunctionComponent<
         onChange={onChange}
         {...restProps}
       />
-      <Container disabled={disabled} hasHelpText={!!helpText}>
+      <Container disabled={disabled} hasHelpText={!!helpText} position={position}>
         <Wrapper position={position} tabIndex={disabled ? -1 : 0} onKeyDown={handleKeyDown}>
           <Pill
             checked={checked || false}
@@ -71,9 +71,14 @@ const HiddenInput = styled.input`
   ${hiddenStyles};
 `;
 
-const Container = styled.div<{ disabled: boolean; hasHelpText: boolean }>`
+const Container = styled.div<{
+  disabled: boolean;
+  hasHelpText: boolean;
+  position: SwitchPositionType;
+}>`
   display: flex;
   align-items: ${({ hasHelpText }) => (hasHelpText ? "flex-start" : "center")};
+  justify-content: ${({ position }) => (position === "left" ? "flex-start" : "space-between")};
   gap: ${({ theme }) => theme.spacing[2]};
   cursor: pointer;
   ${({ disabled, theme }) => {
