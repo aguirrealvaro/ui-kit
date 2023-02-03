@@ -31,15 +31,19 @@ export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
             <Icon icon={CloseOutline} size={25} />
           </IconButton>
         </CloseButtonWrapper>
-        <InnerContainer>
-          {items
-            .filter(({ show = true }) => show)
-            .map(({ label, onClick, disabled = false }, i) => (
-              <Item key={i} onClick={onClick} disabled={disabled}>
-                {label}
-              </Item>
-            ))}
-        </InnerContainer>
+        <nav>
+          <UnorderedList role="menubar">
+            {items
+              .filter(({ show = true }) => show)
+              .map(({ label, onClick, disabled = false }, i) => (
+                <li key={i} role="none">
+                  <Item onClick={onClick} disabled={disabled} role="menuitem">
+                    {label}
+                  </Item>
+                </li>
+              ))}
+          </UnorderedList>
+        </nav>
       </Container>
     </Backdrop>
   );
@@ -102,10 +106,11 @@ const CloseButtonWrapper = styled.div`
   right: ${({ theme }) => theme.sizes[8]};
 `;
 
-const InnerContainer = styled.div`
+const UnorderedList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing[8]};
+  list-style: none;
 `;
 
 const Item = styled.button`
