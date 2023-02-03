@@ -15,13 +15,16 @@ const Template: ComponentStory<typeof Dropdown> = ({ content: dummyContact, ...a
     </>
   );
 
-  return <Dropdown content={content} {...args} />;
+  return (
+    <Dropdown content={content} {...args}>
+      <button>click me</button>
+    </Dropdown>
+  );
 };
 
 export const Primary = Template.bind({});
 Primary.args = {
-  children: "Click me",
-  position: "bottom",
+  position: "bottom-left",
   gap: 16,
   trigger: "click",
   withTriggerWidth: false,
