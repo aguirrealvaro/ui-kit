@@ -23,7 +23,7 @@ export const ModalConfirm: FunctionComponent<ModalConfirmProps> = ({
   header,
   content,
   onConfirm,
-  buttonVariant,
+  buttonVariant = "danger",
 }) => {
   const { isOpen, onOpen, onClose, isUnmounting } = useDisclosure();
 
@@ -31,6 +31,11 @@ export const ModalConfirm: FunctionComponent<ModalConfirmProps> = ({
     if (!isValidElement(children)) return null;
     return cloneElement(children as ReactElement, { onClick: onOpen });
   })();
+
+  const handleOnClick = () => {
+    onConfirm();
+    onClose();
+  };
 
   return (
     <>
@@ -40,10 +45,10 @@ export const ModalConfirm: FunctionComponent<ModalConfirmProps> = ({
         <ModalContent>{content}</ModalContent>
         <ModalFooter>
           <ButtonsContainer>
-            <Button kind="alternative" onClick={onClose} variant="danger">
+            <Button kind="alternative" variant="neutral" onClick={onClose}>
               Cancelar
             </Button>
-            <Button kind="solid" onClick={onConfirm} variant={buttonVariant}>
+            <Button kind="solid" onClick={handleOnClick} variant={buttonVariant}>
               Confirmar
             </Button>
           </ButtonsContainer>
