@@ -5,17 +5,15 @@ type ListItemProps = {
   children: ReactNode;
   startEnhacer?: ReactNode;
   endEnhacer?: ReactNode;
-  onClick?: () => void;
 };
 
 export const ListItem: FunctionComponent<ListItemProps> = ({
   children,
   startEnhacer,
   endEnhacer,
-  onClick,
 }) => {
   return (
-    <Item onClick={onClick} isClickable={Boolean(onClick)}>
+    <Item>
       <Content>
         {startEnhacer ? startEnhacer : null}
         <div>{children}</div>
@@ -25,7 +23,7 @@ export const ListItem: FunctionComponent<ListItemProps> = ({
   );
 };
 
-const Item = styled.li<{ isClickable: boolean }>`
+const Item = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,7 +32,6 @@ const Item = styled.li<{ isClickable: boolean }>`
   &:hover {
     background-color: ${({ theme }) => theme.assets.hover};
   }
-  cursor: ${({ isClickable }) => (isClickable ? "pointer" : "default")};
 `;
 
 const Content = styled.div`
