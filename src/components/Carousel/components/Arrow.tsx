@@ -19,7 +19,12 @@ export const Arrow: FunctionComponent<ArrowProps> = ({ direction, handleArrow, d
   };
 
   return (
-    <Button onClick={() => handleArrow(direction)} direction={direction} disabled={disabled}>
+    <Button
+      onClick={() => handleArrow(direction)}
+      direction={direction}
+      disabled={disabled}
+      tabIndex={-1}
+    >
       <Icon icon={chevronIcon[direction]} size={22} />
     </Button>
   );

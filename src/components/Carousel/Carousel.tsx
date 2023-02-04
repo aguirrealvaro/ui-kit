@@ -1,4 +1,12 @@
-import { FunctionComponent, Children, useState, useRef, useEffect, ReactNode } from "react";
+import {
+  FunctionComponent,
+  Children,
+  useState,
+  useRef,
+  useEffect,
+  ReactNode,
+  KeyboardEvent,
+} from "react";
 import styled from "styled-components";
 import { useDisableRightArrow } from "./Carousel.hooks";
 import { CarouselDirectionType } from "./Carousel.types";
@@ -48,8 +56,20 @@ export const Carousel: FunctionComponent<CarouselProps> = ({
     return () => window.removeEventListener("resize", resetTranslate);
   }, [translate]);
 
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      handleArrow("left");
+    }
+
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      handleArrow("right");
+    }
+  };
+
   return (
-    <Container role="slider">
+    <Container role="slider" onKeyDown={handleKeyDown} tabIndex={0}>
       <Overflow>
         <SlideContainer translate={translate} ref={carouselRef} gap={parsedGap}>
           {Children.map(children, (child) => (
