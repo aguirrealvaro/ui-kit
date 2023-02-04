@@ -32,7 +32,7 @@ export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
           </IconButton>
         </CloseButtonWrapper>
         <nav>
-          <UnorderedList role="menubar">
+          <UList role="menubar">
             {items
               .filter(({ show = true }) => show)
               .map(({ label, onClick, disabled = false }, i) => (
@@ -42,7 +42,7 @@ export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
                   </Item>
                 </li>
               ))}
-          </UnorderedList>
+          </UList>
         </nav>
       </Container>
     </Backdrop>
@@ -106,7 +106,7 @@ const CloseButtonWrapper = styled.div`
   right: ${({ theme }) => theme.sizes[8]};
 `;
 
-const UnorderedList = styled.ul`
+const UList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing[8]};

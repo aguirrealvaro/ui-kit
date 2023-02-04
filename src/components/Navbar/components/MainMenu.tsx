@@ -6,7 +6,7 @@ type MainMenuProps = { items: NavbarItem[] };
 
 export const MainMenu: FunctionComponent<MainMenuProps> = ({ items }) => (
   <Container>
-    <UnorderedList role="menubar">
+    <UList role="menubar">
       {items
         .filter(({ show = true }) => show)
         .map(({ label, onClick, disabled = false }, i) => (
@@ -16,7 +16,7 @@ export const MainMenu: FunctionComponent<MainMenuProps> = ({ items }) => (
             </Item>
           </li>
         ))}
-    </UnorderedList>
+    </UList>
   </Container>
 );
 
@@ -26,7 +26,7 @@ const Container = styled.nav`
   }
 `;
 
-const UnorderedList = styled.ul`
+const UList = styled.ul`
   display: flex;
   gap: ${({ theme }) => theme.spacing[8]};
   align-items: center;

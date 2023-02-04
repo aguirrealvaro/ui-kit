@@ -16,7 +16,8 @@ export const GlobalStyles = createGlobalStyle<GlobalStylesType>`
   }
 
   html {
-    color-scheme: ${({ themeMode }) => themeMode}
+    color-scheme: ${({ themeMode }) => themeMode};
+    scroll-behavior: smooth;
   }
 
   body {
