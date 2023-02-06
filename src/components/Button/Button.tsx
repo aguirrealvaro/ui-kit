@@ -30,6 +30,7 @@ export const Button: FunctionComponent<
   shape = "default",
   startEnhacer,
   endEnhacer,
+  type = "button",
   ...restProps
 }) => {
   const { theme } = useTheme();
@@ -59,6 +60,7 @@ export const Button: FunctionComponent<
       variant={variant}
       onClick={handleOnClick}
       shape={shape}
+      type={type}
       {...restProps}
     >
       {renderChildren()}
