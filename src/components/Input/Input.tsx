@@ -198,7 +198,7 @@ const InputContainer = styled.div<{
       return css`
         border-color: ${theme.assets.danger};
         &:focus-within {
-          box-shadow: ${({ theme }) => theme.shadows["outline-danger"]};
+          outline: 2px solid ${({ theme }) => theme.assets.danger};
           border-color: transparent;
         }
       `;
@@ -207,7 +207,7 @@ const InputContainer = styled.div<{
       return css`
         border-color: ${theme.assets.success};
         &:focus-within {
-          box-shadow: ${({ theme }) => theme.shadows["outline-success"]};
+          outline: 2px solid ${({ theme }) => theme.assets.success};
           border-color: transparent;
         }
       `;
@@ -215,7 +215,7 @@ const InputContainer = styled.div<{
     return css`
       border-color: ${({ theme }) => theme.assets.border};
       &:focus-within {
-        box-shadow: ${({ theme }) => theme.shadows["outline-primary"]};
+        outline: 2px solid ${({ theme }) => theme.assets.primary};
         border-color: transparent;
       }
     `;

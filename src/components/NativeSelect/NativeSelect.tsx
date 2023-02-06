@@ -178,17 +178,18 @@ const Select = styled.select<{
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   &:focus {
     border-color: transparent;
-    box-shadow: ${({ theme, isError, isSuccess }) => {
-      if (isError) {
-        return theme.shadows["outline-danger"];
-      }
+    outline: 2px solid
+      ${({ theme, isError, isSuccess }) => {
+        if (isError) {
+          return theme.assets.danger;
+        }
 
-      if (isSuccess) {
-        return theme.shadows["outline-success"];
-      }
+        if (isSuccess) {
+          return theme.assets.success;
+        }
 
-      return theme.shadows["outline-primary"];
-    }};
+        return theme.assets.primary;
+      }};
   }
   &:disabled {
     background-color: ${({ theme }) => theme.assets.disabledBg};
