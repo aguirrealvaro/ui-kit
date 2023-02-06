@@ -32,8 +32,8 @@ export const GlobalStyles = createGlobalStyle<GlobalStylesType>`
   }
 
   button {
-    font-family: inherit;
-    font-size: inherit;
+    padding: 0;
+    font: inherit;
     color: inherit;
     border: none;
     background: none;
