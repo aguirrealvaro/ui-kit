@@ -8,6 +8,8 @@
 
 ### To do
 
-- DatePicker
-- TimePicker
+- Acc
+- Checkbox, Radio, Switch
+- Navbar, DropdownMenu
+- DatePicker, TimePicker
 - Pagination
