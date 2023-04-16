@@ -1,4 +1,5 @@
 import { FunctionComponent } from "react";
+//import styled from "styled-components";
 
 export type TypographyProps = {
   fontFamily: string;
@@ -9,11 +10,11 @@ export type TypographyProps = {
 export const withTypographyProps = <P extends TypographyProps>(
   WrappedComponent: FunctionComponent<P>
 ) => {
-  return (props: P) => {
-    const { fontSize } = props;
-    console.log("withTypographyProps");
-    console.log(fontSize);
+  /* const StyledWrappedComponent = styled(WrappedComponent)`
+    background-color: red;
+  `; */
 
-    return <WrappedComponent style={{ backgroundColor: "red" }} {...props} />;
+  return (props: P) => {
+    return <WrappedComponent {...props} />;
   };
 };
