@@ -9,6 +9,10 @@
 ### To do
 
 - Acc
+- Typogrpahy:
+    - Title (h1, h2, h3, h4, text, subtext)
+    - Paragrpah (primary, secondary)
+    - Span (primary, secondary, bold, italic, underline, delete, highlight, code)
 - Checkbox, Radio, Switch
 - Navbar, DropdownMenu
 - DatePicker, TimePicker
