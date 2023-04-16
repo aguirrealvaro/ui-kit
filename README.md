@@ -14,6 +14,7 @@
   - Paragrpah (primary, secondary)
   - Inline (primary, secondary, bold, italic, underline, delete, highlight, code)
 - Checkbox, Radio, Switch
+- Separator
 - Navbar, DropdownMenu
 - DatePicker, TimePicker
 - Pagination

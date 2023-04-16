@@ -1,11 +1,12 @@
 import { FunctionComponent, ReactNode } from "react";
 import styled from "styled-components";
+import { TypographyProps, withTypographyProps } from "../../utils/withTypographyProps";
 
 type H1Props = {
   children: ReactNode;
-};
+} & TypographyProps;
 
-export const H1: FunctionComponent<H1Props> = ({ children }) => {
+const H1Component: FunctionComponent<H1Props> = ({ children }) => {
   return <Heading>{children}</Heading>;
 };
 
@@ -15,3 +16,5 @@ const Heading = styled.h1`
   font-weight: ${({ theme }) => theme.typography.fontWeights.bold};
   color: ${({ theme }) => theme.assets.title};
 `;
+
+export const H1 = withTypographyProps(H1Component);
