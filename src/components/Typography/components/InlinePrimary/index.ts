@@ -1,0 +1,1 @@
+export { InlinePrimary } from "./InlinePrimary";

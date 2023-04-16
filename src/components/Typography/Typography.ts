@@ -1,4 +1,4 @@
-import { H1, H2, H3, H4, TextPrimary, TextSecondary } from "./components";
+import { H1, H2, H3, H4, TextPrimary, TextSecondary, InlinePrimary } from "./components";
 
 export const Typography = {
   H1,
@@ -7,4 +7,5 @@ export const Typography = {
   H4,
   TextPrimary,
   TextSecondary,
+  InlinePrimary,
 };

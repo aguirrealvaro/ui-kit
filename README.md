@@ -9,10 +9,7 @@
 ### To do
 
 - Acc
-- Typogrpahy:
-  - Title (h1, h2, h3, h4)
-  - Paragrpah (primary, secondary)
-  - Inline (primary, secondary, bold, italic, underline, delete, highlight, code)
+- Typogrpahy: Inline (primary, secondary, bold, italic, underline, delete, highlight, code)
 - Checkbox, Radio, Switch
 - Separator
 - Navbar, DropdownMenu
