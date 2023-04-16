@@ -1,6 +1,6 @@
 import { FunctionComponent, ReactNode } from "react";
 import styled from "styled-components";
-import { TypographyProps, withTypographyProps } from "../../utils/withTypographyProps";
+import { TypographyProps, withTypographyProps } from "@/components/Typography/utils";
 
 type H1Props = {
   children: ReactNode;
