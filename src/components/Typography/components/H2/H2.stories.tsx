@@ -13,5 +13,4 @@ const Template: ComponentStory<typeof Typography.H2> = (args) => {
 export const Primary = Template.bind({});
 Primary.args = {
   children: "This is a H2!",
-  fontSize: "",
 };
