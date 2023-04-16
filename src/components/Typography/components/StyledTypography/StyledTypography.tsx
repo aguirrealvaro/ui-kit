@@ -28,17 +28,27 @@ export const StyledTypography: FunctionComponent<StyledTypographyProps> = ({
   fontFamily,
   fontSize,
   fontWeight,
+  lineHeight,
+  letterSpacing,
 }) => {
   const { theme } = useTheme();
 
   const family = fontFamily && theme.typography.fontFamilies[fontFamily];
   const size = fontSize && theme.typography.fontSizes[fontSize];
   const weight = fontWeight && theme.typography.fontWeights[fontWeight];
+  const height = lineHeight && theme.typography.lineHeights[lineHeight];
+  const spacing = letterSpacing && theme.typography.letterSpacings[letterSpacing];
 
   const child = (() => {
     if (!isValidElement(children)) return null;
     return cloneElement(children as ReactElement, {
-      style: { fontFamily: family, fontSize: size, fontWeight: weight },
+      style: {
+        fontFamily: family,
+        fontSize: size,
+        fontWeight: weight,
+        lineHeight: height,
+        letterSpacing: spacing,
+      },
     });
   })();
 
