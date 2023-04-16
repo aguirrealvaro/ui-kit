@@ -20,6 +20,7 @@ export type StyledTypographyProps = {
   fontWeight?: FontWeight;
   lineHeight?: LineHeight;
   letterSpacing?: LetterSpacing;
+  color?: string;
   children: ReactNode;
 };
 
@@ -30,6 +31,7 @@ export const StyledTypography: FunctionComponent<StyledTypographyProps> = ({
   fontWeight,
   lineHeight,
   letterSpacing,
+  color,
 }) => {
   const { theme } = useTheme();
 
@@ -48,6 +50,7 @@ export const StyledTypography: FunctionComponent<StyledTypographyProps> = ({
         fontWeight: weight,
         lineHeight: height,
         letterSpacing: spacing,
+        color,
       },
     });
   })();
