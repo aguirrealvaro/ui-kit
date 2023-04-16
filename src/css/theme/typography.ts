@@ -1,8 +1,6 @@
-type FontFamilyType = {
-  heading: string;
-  body: string;
-  mono: string;
-};
+export type FontFamily = "heading" | "body" | "mono";
+
+type FontFamilyType = Record<FontFamily, string>;
 
 export type FontSize = "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
 
@@ -12,11 +10,11 @@ export type FontWeight = "normal" | "medium" | "semibold" | "bold";
 
 type FontWeightType = Record<FontWeight, number>;
 
-type LetterSpacing = "tighter" | "tight" | "normal" | "wide" | "wider" | "widest";
+export type LetterSpacing = "tighter" | "tight" | "normal" | "wide" | "wider" | "widest";
 
 type LetterSpacingType = Record<LetterSpacing, string>;
 
-type LineHeight =
+export type LineHeight =
   | "normal"
   | "none"
   | "shorter"
