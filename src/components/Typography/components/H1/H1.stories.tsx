@@ -12,5 +12,5 @@ const Template: ComponentStory<typeof Typography.H1> = (args) => {
 
 export const Primary = Template.bind({});
 Primary.args = {
-  children: "This is a heading 1!",
+  children: "This is a H1!",
 };
