@@ -1,22 +1,29 @@
 import { FunctionComponent, ReactNode } from "react";
 import styled from "styled-components";
 import { StyledTypography, StyledTypographyProps } from "../StyledTypography/StyledTypography";
+import { BoldVariantType } from "./Bold.types";
 
 type BoldProps = {
   children: ReactNode;
+  variant: BoldVariantType;
 } & StyledTypographyProps;
 
-export const Bold: FunctionComponent<BoldProps> = ({ children, ...styledProps }) => {
+export const Bold: FunctionComponent<BoldProps> = ({
+  children,
+  variant = "primary",
+  ...styledProps
+}) => {
   return (
     <StyledTypography {...styledProps}>
-      <Heading>{children}</Heading>
+      <Strong variant={variant}>{children}</Strong>
     </StyledTypography>
   );
 };
 
-const Heading = styled.strong`
+const Strong = styled.strong<{ variant: BoldVariantType }>`
   font-family: ${({ theme }) => theme.typography.fontFamilies.body};
   font-size: ${({ theme }) => theme.typography.fontSizes["md"]};
   font-weight: ${({ theme }) => theme.typography.fontWeights.bold};
-  color: ${({ theme }) => theme.assets.textPrimary};
+  color: ${({ theme, variant }) =>
+    variant === "primary" ? theme.assets.textPrimary : theme.assets.textSecondary};
 `;
