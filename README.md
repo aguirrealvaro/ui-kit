@@ -13,6 +13,8 @@
 
 - Acc
 - Checkbox, Radio, Switch
+- Toggle
+- Separator
 - Navbar, DropdownMenu
 - DatePicker, TimePicker
 - Pagination
