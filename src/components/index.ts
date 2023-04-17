@@ -29,8 +29,6 @@ export { Popover } from "./Popover";
 export { ModalConfirm } from "./ModalConfirm";
 export { Input } from "./Input";
 export { Select } from "./Select";
-export { Title } from "./Title";
-export { Text } from "./Text";
 export { IconButton } from "./IconButton";
 export { NativeSelect } from "./NativeSelect";
 export { Toast } from "./Toast";
