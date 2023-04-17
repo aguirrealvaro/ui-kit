@@ -1,1 +1,0 @@
-export { InlineSecondary } from "./InlineSecondary";

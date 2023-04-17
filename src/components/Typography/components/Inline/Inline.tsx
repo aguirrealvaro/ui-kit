@@ -1,25 +1,29 @@
 import { FunctionComponent, ReactNode } from "react";
 import styled from "styled-components";
 import { StyledTypography, StyledTypographyProps } from "../StyledTypography/StyledTypography";
+import { InlineVariantType } from "./Inline.types";
 
-type InlineSecondaryProps = {
+type Inline = {
   children: ReactNode;
+  variant: InlineVariantType;
 } & StyledTypographyProps;
 
-export const InlineSecondary: FunctionComponent<InlineSecondaryProps> = ({
+export const Inline: FunctionComponent<Inline> = ({
   children,
+  variant = "primary",
   ...styledProps
 }) => {
   return (
     <StyledTypography {...styledProps}>
-      <Heading>{children}</Heading>
+      <Span variant={variant}>{children}</Span>
     </StyledTypography>
   );
 };
 
-const Heading = styled.span`
+const Span = styled.span<{ variant: InlineVariantType }>`
   font-family: ${({ theme }) => theme.typography.fontFamilies.body};
   font-size: ${({ theme }) => theme.typography.fontSizes["md"]};
   font-weight: ${({ theme }) => theme.typography.fontWeights.normal};
-  color: ${({ theme }) => theme.assets.textSecondary};
+  color: ${({ theme, variant }) =>
+    variant === "primary" ? theme.assets.textPrimary : theme.assets.textSecondary};
 `;

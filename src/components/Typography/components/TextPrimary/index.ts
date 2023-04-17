@@ -1,1 +1,0 @@
-export { TextPrimary } from "./TextPrimary";
