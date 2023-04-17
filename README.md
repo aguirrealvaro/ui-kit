@@ -9,7 +9,7 @@
 ### To do
 
 - Acc
-- underline, delete, highlight, code
+- delete, highlight, code
 - Checkbox, Radio, Switch
 - Separator
 - Navbar, DropdownMenu
