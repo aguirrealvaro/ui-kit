@@ -6,12 +6,13 @@
 
 `npm run storybook`
 
+### Link
+[ui-kit7.vercel.app](https://ui-kit7.vercel.app/)
+
 ### To do
 
 - Acc
-- code, kdb
 - Checkbox, Radio, Switch
-- Separator
 - Navbar, DropdownMenu
 - DatePicker, TimePicker
 - Pagination
