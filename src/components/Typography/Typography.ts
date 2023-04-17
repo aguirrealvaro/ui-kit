@@ -1,4 +1,4 @@
-import { H1, H2, H3, H4, Paragraph, Inline, Bold } from "./components";
+import { H1, H2, H3, H4, Paragraph, Inline, Bold, Italic } from "./components";
 
 export const Typography = {
   H1,
@@ -8,4 +8,5 @@ export const Typography = {
   Paragraph,
   Inline,
   Bold,
+  Italic,
 };

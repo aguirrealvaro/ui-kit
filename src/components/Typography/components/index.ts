@@ -5,3 +5,4 @@ export { H4 } from "./H4";
 export { Paragraph } from "./Paragraph";
 export { Inline } from "./Inline";
 export { Bold } from "./Bold";
+export { Italic } from "./Italic";

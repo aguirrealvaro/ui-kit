@@ -9,7 +9,7 @@
 ### To do
 
 - Acc
-- Typogrpahy: Inline (bold, italic, underline, delete, highlight, code)
+- Typogrpahy: Inline (italic, underline, delete, highlight, code)
 - Checkbox, Radio, Switch
 - Separator
 - Navbar, DropdownMenu
