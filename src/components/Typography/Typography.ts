@@ -9,6 +9,7 @@ import {
   Italic,
   Underline,
   Delete,
+  Highlight,
 } from "./components";
 
 export const Typography = {
@@ -22,4 +23,5 @@ export const Typography = {
   Italic,
   Underline,
   Delete,
+  Highlight,
 };

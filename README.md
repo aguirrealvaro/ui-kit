@@ -9,7 +9,7 @@
 ### To do
 
 - Acc
-- delete, highlight, code
+- code, kdb
 - Checkbox, Radio, Switch
 - Separator
 - Navbar, DropdownMenu
