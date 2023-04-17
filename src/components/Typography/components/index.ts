@@ -6,3 +6,4 @@ export { Paragraph } from "./Paragraph";
 export { Inline } from "./Inline";
 export { Bold } from "./Bold";
 export { Italic } from "./Italic";
+export { Underline } from "./Underline";
