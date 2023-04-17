@@ -6,3 +6,4 @@ export { TextPrimary } from "./TextPrimary";
 export { TextSecondary } from "./TextSecondary";
 export { InlinePrimary } from "./InlinePrimary";
 export { InlineSecondary } from "./InlineSecondary";
+export { Bold } from "./Bold";

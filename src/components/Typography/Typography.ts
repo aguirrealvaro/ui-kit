@@ -7,6 +7,7 @@ import {
   TextSecondary,
   InlinePrimary,
   InlineSecondary,
+  Bold,
 } from "./components";
 
 export const Typography = {
@@ -18,4 +19,5 @@ export const Typography = {
   TextSecondary,
   InlinePrimary,
   InlineSecondary,
+  Bold,
 };
