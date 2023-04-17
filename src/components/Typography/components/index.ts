@@ -9,3 +9,4 @@ export { Italic } from "./Italic";
 export { Underline } from "./Underline";
 export { Delete } from "./Delete";
 export { Highlight } from "./Highlight";
+export { Code } from "./Code";

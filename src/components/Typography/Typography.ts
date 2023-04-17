@@ -10,6 +10,7 @@ import {
   Underline,
   Delete,
   Highlight,
+  Code,
 } from "./components";
 
 export const Typography = {
@@ -24,4 +25,5 @@ export const Typography = {
   Underline,
   Delete,
   Highlight,
+  Code,
 };
