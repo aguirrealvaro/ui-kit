@@ -5,7 +5,7 @@ import { ParagraphVariantType } from "./Paragraph.types";
 
 type TextPrimaryProps = {
   children: ReactNode;
-  variant: ParagraphVariantType;
+  variant?: ParagraphVariantType;
 } & StyledTypographyProps;
 
 export const Paragraph: FunctionComponent<TextPrimaryProps> = ({

@@ -5,7 +5,7 @@ import { InlineVariantType } from "./Inline.types";
 
 type Inline = {
   children: ReactNode;
-  variant: InlineVariantType;
+  variant?: InlineVariantType;
 } & StyledTypographyProps;
 
 export const Inline: FunctionComponent<Inline> = ({

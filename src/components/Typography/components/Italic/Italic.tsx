@@ -5,7 +5,7 @@ import { ItalicVariantType } from "./Italic.types";
 
 type ItalicProps = {
   children: ReactNode;
-  variant: ItalicVariantType;
+  variant?: ItalicVariantType;
 } & StyledTypographyProps;
 
 export const Italic: FunctionComponent<ItalicProps> = ({

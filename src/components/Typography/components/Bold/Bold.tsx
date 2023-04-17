@@ -5,7 +5,7 @@ import { BoldVariantType } from "./Bold.types";
 
 type BoldProps = {
   children: ReactNode;
-  variant: BoldVariantType;
+  variant?: BoldVariantType;
 } & StyledTypographyProps;
 
 export const Bold: FunctionComponent<BoldProps> = ({
