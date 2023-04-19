@@ -19,5 +19,5 @@ const Mark = styled.mark`
   font-size: ${({ theme }) => theme.typography.fontSizes["md"]};
   font-weight: ${({ theme }) => theme.typography.fontWeights.normal};
   background-color: ${({ theme }) => theme.assets.warning};
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.assets.textPrimary};
 `;
