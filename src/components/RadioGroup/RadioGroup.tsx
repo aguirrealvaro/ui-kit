@@ -124,6 +124,10 @@ const ItemList = styled.li<{ position: RadioNewPositionType }>`
   gap: ${({ theme }) => theme.spacing[1]};
   align-items: center;
   justify-content: ${({ position }) => (position === "left" ? "flex-start" : "space-between")};
+  margin-bottom: ${({ theme }) => theme.spacing[2]};
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 const RadioButton = styled.button<{ position: RadioNewPositionType }>`

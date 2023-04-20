@@ -12,9 +12,9 @@ const Template: ComponentStory<typeof RadioGroup> = ({ onChange: _, value: __, .
 
   return (
     <RadioGroup value={value} onChange={setValue} {...args}>
-      <RadioNew value="1">Valor uno</RadioNew>
-      <RadioNew value="2">Valor dos</RadioNew>
-      <RadioNew value="3">Valor tres</RadioNew>
+      <RadioNew value="1" /* helpText="Helptext uno" */>Valor uno</RadioNew>
+      <RadioNew value="2" /* helpText="Helptext dos" */>Valor dos</RadioNew>
+      <RadioNew value="3" /* helpText="Helptext tres" */>Valor tres</RadioNew>
     </RadioGroup>
   );
 };
