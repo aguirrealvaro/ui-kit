@@ -11,7 +11,7 @@ import { RadioCircleMarked } from "@styled-icons/boxicons-regular/RadioCircleMar
 import styled from "styled-components";
 import { Icon } from "../Icon";
 import { RadioProps } from "./Radio";
-import { RadioNewSizeType } from "./Radio.types";
+import { RadioNewSizeType, RadioNewPositionType } from "./Radio.types";
 import { useTheme } from "@/hooks";
 
 type RadioGroupProps = {
@@ -21,6 +21,7 @@ type RadioGroupProps = {
   onChange: Dispatch<SetStateAction<string | undefined>>;
   size?: RadioNewSizeType;
   color?: string;
+  position?: RadioNewPositionType;
 };
 
 export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
@@ -30,6 +31,7 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
   onChange,
   size = "md",
   color,
+  position = "left",
 }) => {
   const { theme } = useTheme();
 
@@ -82,7 +84,7 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
         const icon = isChecked ? RadioCircleMarked : RadioCircle;
 
         return (
-          <ItemList>
+          <ItemList position={position}>
             <RadioButton
               role="radio"
               id={getRadioItemId(index)}
@@ -90,6 +92,7 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
               aria-labelledby={getLabelId(index)}
               onClick={() => onChange(itemValue)}
               disabled={disabled}
+              position={position}
             >
               <Icon
                 icon={icon}
@@ -97,7 +100,11 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
                 size={radioSize}
               />
             </RadioButton>
-            <LabelContainer htmlFor={getRadioItemId(index)} id={getLabelId(index)}>
+            <LabelContainer
+              htmlFor={getRadioItemId(index)}
+              id={getLabelId(index)}
+              position={position}
+            >
               <StyledChildren size={size}>{children}</StyledChildren>
               {helpText && <HelpText size={size}>{helpText}</HelpText>}
             </LabelContainer>
@@ -112,18 +119,23 @@ const UList = styled.ul`
   list-style: none;
 `;
 
-const ItemList = styled.li`
+const ItemList = styled.li<{ position: RadioNewPositionType }>`
   display: flex;
+  gap: ${({ theme }) => theme.spacing[1]};
   align-items: center;
+  justify-content: ${({ position }) => (position === "left" ? "flex-start" : "space-between")};
 `;
 
-const RadioButton = styled.button`
+const RadioButton = styled.button<{ position: RadioNewPositionType }>`
+  order: ${({ position }) => (position === "left" ? 1 : 2)};
   &:disabled {
     cursor: not-allowed;
   }
 `;
 
-const LabelContainer = styled.label``;
+const LabelContainer = styled.label<{ position: RadioNewPositionType }>`
+  order: ${({ position }) => (position === "left" ? 2 : 1)};
+`;
 
 const StyledChildren = styled.span<{ size: RadioNewSizeType }>`
   display: block;
