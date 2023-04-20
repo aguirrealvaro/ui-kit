@@ -21,5 +21,6 @@ export const Primary = Template.bind({});
 Primary.args = {
   children: "This is a checkbox",
   checkboxId: "checkbox-story",
-  size: "lg",
+  size: "md",
+  helpText: "This is a helpText",
 };

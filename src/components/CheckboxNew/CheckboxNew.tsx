@@ -13,13 +13,14 @@ type CheckboxNewProps = {
   onChange: () => void;
   color?: string;
   size?: CheckboxNewSizeType;
+  helpText?: ReactNode;
 };
 
 // TO DO:
-// disable enter
 // disabled
 // helpText
 // position
+// disable enter
 
 export const CheckboxNew: FunctionComponent<
   CheckboxNewProps & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "size" | "onChange">
@@ -31,6 +32,7 @@ export const CheckboxNew: FunctionComponent<
   color,
   checkboxId,
   size = "md",
+  helpText,
   ...restProps
 }) => {
   const { theme } = useTheme();
@@ -66,7 +68,8 @@ export const CheckboxNew: FunctionComponent<
         />
       </button>
       <label id={labelId} htmlFor={checkboxId}>
-        {children}
+        <Children size={size}>{children}</Children>
+        <HelpText size={size}>{helpText}</HelpText>
       </label>
     </Container>
   );
@@ -76,4 +79,30 @@ const Container = styled.div`
   display: flex;
   gap: ${({ theme }) => theme.spacing[4]};
   align-items: center;
+`;
+
+const Children = styled.span<{ size: CheckboxNewSizeType }>`
+  display: block;
+  font-size: ${({ size, theme }) => {
+    const sizes: Record<CheckboxNewSizeType, string> = {
+      sm: theme.typography.fontSizes.sm,
+      md: theme.typography.fontSizes.md,
+      lg: theme.typography.fontSizes.lg,
+    };
+    return sizes[size];
+  }};
+`;
+
+const HelpText = styled.span<{ size: CheckboxNewSizeType }>`
+  display: block;
+  margin-top: ${({ theme }) => theme.spacing[3.5]};
+  color: ${({ theme }) => theme.assets.textSecondary};
+  font-size: ${({ size, theme }) => {
+    const sizes: Record<CheckboxNewSizeType, string> = {
+      sm: theme.typography.fontSizes.xs,
+      md: theme.typography.fontSizes.sm,
+      lg: theme.typography.fontSizes.md,
+    };
+    return sizes[size];
+  }};
 `;
