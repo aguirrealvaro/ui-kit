@@ -19,5 +19,5 @@ Primary.args = {
   checkboxId: "checkbox-story",
   size: "md",
   helpText: "This is a helpText",
-  position: "right",
+  position: "left",
 };

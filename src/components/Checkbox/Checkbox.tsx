@@ -17,9 +17,6 @@ type CheckboxProps = {
   position?: CheckboxPositionType;
 };
 
-// TO DO:
-// disable enter
-
 export const Checkbox: FunctionComponent<
   CheckboxProps & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "size" | "onChange">
 > = ({

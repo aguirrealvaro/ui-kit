@@ -12,9 +12,9 @@
 
 ### To do
 
-- Checkbox, Radio, Switch
+- Switch, Radio
 - Separator
-- VissualyHidden?
+- VissualyHidden
 - Acc (id: required, replace), Consuming (Triggers)
 - Theme
 - Navbar, DropdownMenu
