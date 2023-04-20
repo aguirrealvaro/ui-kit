@@ -15,9 +15,9 @@
 - RadioGroup, Radio
 - Separator
 - VissualyHidden
-- Acc (id: required, replace)
+- Accesibilty
 - Theme
-- Consuming (Triggers)
+- Consuming
 - Navbar, DropdownMenu
 - DatePicker, TimePicker
 - Pagination

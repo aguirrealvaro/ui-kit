@@ -35,3 +35,4 @@ export { Timer } from "./Timer";
 export { Typography } from "./Typography";
 export { Checkbox } from "./Checkbox";
 export { Switch } from "./Switch";
+export { RadioGroup, Radio as RadioNew } from "./RadioGroup";
