@@ -40,17 +40,22 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
         const isChecked = value === itemValue;
         const icon = isChecked ? RadioCircleMarked : RadioCircle;
 
+        const labelId = `${radioGroupId}-label-${index}`;
+
         return (
           <li>
             <button
               role="radio"
               id={getRadioItemId(index)}
               aria-checked={isChecked}
+              aria-labelledby={labelId}
               onClick={() => onChange(itemValue)}
             >
               <Icon icon={icon} color={theme.assets.primary} />
             </button>
-            <label htmlFor={getRadioItemId(index)}>{children}</label>
+            <label htmlFor={getRadioItemId(index)} id={labelId}>
+              {children}
+            </label>
           </li>
         );
       })}
