@@ -18,7 +18,6 @@ export { ShowMore } from "./ShowMore";
 export { Alert } from "./Alert";
 export { Badge } from "./Badge";
 export { BreadcrumbGroup, Breadcrumb } from "./Breadcrumbs";
-export { Switch } from "./Switch";
 export { Radio } from "./Radio";
 export { Avatar, AvatarGroup } from "./Avatar";
 export { Table } from "./Table";
