@@ -1,1 +1,0 @@
-export { SwitchNew } from "./SwitchNew";

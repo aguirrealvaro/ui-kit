@@ -34,4 +34,4 @@ export { Card } from "./Card";
 export { Timer } from "./Timer";
 export { Typography } from "./Typography";
 export { Checkbox } from "./Checkbox";
-export { SwitchNew } from "./SwitchNew";
+export { Switch } from "./Switch";

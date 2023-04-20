@@ -1,16 +1,16 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { SwitchNew } from "@/components";
+import { Switch } from "@/components";
 import { useBoolean } from "@/hooks";
 
 export default {
-  title: "Components/SwitchNew",
-  component: SwitchNew,
-} as ComponentMeta<typeof SwitchNew>;
+  title: "Components/Switch",
+  component: Switch,
+} as ComponentMeta<typeof Switch>;
 
-const Template: ComponentStory<typeof SwitchNew> = ({ onChange: _, checked: __, ...args }) => {
+const Template: ComponentStory<typeof Switch> = ({ onChange: _, checked: __, ...args }) => {
   const [checked, setChecked] = useBoolean();
 
-  return <SwitchNew checked={checked} onChange={setChecked.toggle} {...args} />;
+  return <Switch checked={checked} onChange={setChecked.toggle} {...args} />;
 };
 
 export const Primary = Template.bind({});
@@ -20,5 +20,5 @@ Primary.args = {
   size: "md",
   helpText: "This is a helpText",
   position: "left",
-  disabled: true,
+  disabled: false,
 };

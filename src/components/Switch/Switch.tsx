@@ -1,10 +1,10 @@
 import { ButtonHTMLAttributes, FunctionComponent, ReactNode } from "react";
 import styled, { css } from "styled-components";
-import { SwitchPositionType, SwitchSizeType } from "./SwitchNew.types";
+import { SwitchPositionType, SwitchSizeType } from "./Switch.types";
 import { ThemeType } from "@/css";
 import { useTheme } from "@/hooks";
 
-type SwitchNewProps = {
+type SwitchProps = {
   children: ReactNode;
   switchId: string;
   checked: boolean;
@@ -15,8 +15,8 @@ type SwitchNewProps = {
   position?: SwitchPositionType;
 };
 
-export const SwitchNew: FunctionComponent<
-  SwitchNewProps & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "size" | "onChange">
+export const Switch: FunctionComponent<
+  SwitchProps & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "size" | "onChange">
 > = ({
   children,
   checked,
