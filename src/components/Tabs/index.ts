@@ -1,2 +1,2 @@
 export { Tabs } from "./Tabs";
-export { Tab } from "./components";
+export { Tab } from "./Tab";

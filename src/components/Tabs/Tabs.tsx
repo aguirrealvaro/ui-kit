@@ -9,7 +9,7 @@ import {
   useEffect,
 } from "react";
 import styled, { css } from "styled-components";
-import { TabProps } from "./components/Tab";
+import { TabProps } from "./Tab";
 
 type TabsProps = {
   children: ReactNode;
