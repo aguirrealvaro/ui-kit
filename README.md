@@ -12,7 +12,7 @@
 
 ### To do
 
-- RadioGroup, Radio
+- HelpText styles
 - Separator
 - VissualyHidden
 - Accesibilty

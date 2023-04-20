@@ -178,7 +178,14 @@ const Children = styled.span<{ size: SwitchSizeType }>`
 
 const HelpText = styled.span<{ size: SwitchSizeType }>`
   display: block;
-  margin-top: ${({ theme }) => theme.spacing[3.5]};
+  margin-top: ${({ size, theme }) => {
+    const sizes: Record<SwitchSizeType, string> = {
+      sm: theme.spacing[1],
+      md: theme.spacing[2],
+      lg: theme.spacing[3],
+    };
+    return sizes[size];
+  }};
   color: ${({ theme }) => theme.assets.textSecondary};
   font-size: ${({ size, theme }) => {
     const sizes: Record<SwitchSizeType, string> = {

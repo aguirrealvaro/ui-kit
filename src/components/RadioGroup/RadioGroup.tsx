@@ -155,7 +155,14 @@ const StyledChildren = styled.span<{ size: RadioSizeType }>`
 
 const HelpText = styled.span<{ size: RadioSizeType }>`
   display: block;
-  margin-top: ${({ theme }) => theme.spacing[3.5]};
+  margin-top: ${({ size, theme }) => {
+    const sizes: Record<RadioSizeType, string> = {
+      sm: theme.spacing[1],
+      md: theme.spacing[2],
+      lg: theme.spacing[3],
+    };
+    return sizes[size];
+  }};
   color: ${({ theme }) => theme.assets.textSecondary};
   font-size: ${({ size, theme }) => {
     const sizes: Record<RadioSizeType, string> = {

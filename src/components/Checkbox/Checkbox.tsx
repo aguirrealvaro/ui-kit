@@ -105,7 +105,14 @@ const Children = styled.span<{ size: CheckboxSizeType }>`
 
 const HelpText = styled.span<{ size: CheckboxSizeType }>`
   display: block;
-  margin-top: ${({ theme }) => theme.spacing[3.5]};
+  margin-top: ${({ size, theme }) => {
+    const sizes: Record<CheckboxSizeType, string> = {
+      sm: theme.spacing[1],
+      md: theme.spacing[2],
+      lg: theme.spacing[3],
+    };
+    return sizes[size];
+  }};
   color: ${({ theme }) => theme.assets.textSecondary};
   font-size: ${({ size, theme }) => {
     const sizes: Record<CheckboxSizeType, string> = {
