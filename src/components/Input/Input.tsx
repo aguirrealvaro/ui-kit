@@ -132,6 +132,8 @@ export const Input: FunctionComponent<
           onChange={onValidChange}
           type={seePassword ? "text" : type}
           inputSize={size}
+          aria-invalid={isError}
+          {...(typeof errorMessage === "string" && { "aria-errormessage": errorMessage })}
           {...restProps}
         />
         {showRightContainer && (
@@ -160,6 +162,8 @@ export const Input: FunctionComponent<
           showErrorMessage={!!errorMessage}
           showSuccessMessage={!!successMessage}
           size={size}
+          id={inputId}
+          {...(isError && { "aria-live": "assertive" })}
         >
           {errorMessage || successMessage || helpText}
         </BottomText>
@@ -283,11 +287,12 @@ const CustomInput = styled.input<{
   }
 `;
 
-const BottomText = styled.div<{
+const BottomText = styled.span<{
   showErrorMessage: boolean;
   size: InputSizeType;
   showSuccessMessage: boolean;
 }>`
+  display: block;
   margin: ${({ theme }) => theme.spacing[2]} ${({ theme }) => theme.spacing[4]} 0
     ${({ theme }) => theme.spacing[4]};
   color: ${({ showErrorMessage, theme, showSuccessMessage }) => {

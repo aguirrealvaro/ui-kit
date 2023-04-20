@@ -11,7 +11,7 @@
 
 ### To do
 
-- Acc (aria-errorMessages)
+- Acc
 - Checkbox, Radio, Switch
 - Toggle
 - Separator

@@ -118,6 +118,8 @@ export const AnimatedInput: FunctionComponent<
             placeholder=" "
             type={seePassword ? "text" : type}
             onChange={onValidChange}
+            aria-invalid={isError}
+            {...(typeof errorMessage === "string" && { "aria-errormessage": errorMessage })}
             {...restProps}
           />
           <Placeholder htmlFor={inputId}>{placeholder}</Placeholder>
@@ -144,7 +146,12 @@ export const AnimatedInput: FunctionComponent<
         )}
       </InputContainer>
       {showBottom && (
-        <BottomText showErrorMessage={!!errorMessage} showSuccessMessage={!!successMessage}>
+        <BottomText
+          showErrorMessage={!!errorMessage}
+          showSuccessMessage={!!successMessage}
+          id={inputId}
+          {...(isError && { "aria-live": "assertive" })}
+        >
           {errorMessage || successMessage || helpText}
         </BottomText>
       )}
@@ -298,7 +305,8 @@ const CustomInput = styled.input<{
   }
 `;
 
-const BottomText = styled.div<{ showErrorMessage: boolean; showSuccessMessage: boolean }>`
+const BottomText = styled.span<{ showErrorMessage: boolean; showSuccessMessage: boolean }>`
+  display: block;
   font-size: ${({ theme }) => theme.typography.fontSizes.sm};
   margin: ${({ theme }) => theme.spacing[2]} ${({ theme }) => theme.spacing[4]} 0
     ${({ theme }) => theme.spacing[4]};

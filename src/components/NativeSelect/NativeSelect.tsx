@@ -42,6 +42,7 @@ export const NativeSelect: FunctionComponent<
   successMessage,
   size = "md",
   isLoading,
+  ...restProps
 }) => {
   const handleClearValue = (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
@@ -72,6 +73,9 @@ export const NativeSelect: FunctionComponent<
           selectSize={size}
           isSelected={isSelected}
           onKeyDown={handleKeyDown}
+          aria-invalid={isError}
+          {...(typeof errorMessage === "string" && { "aria-errormessage": errorMessage })}
+          {...restProps}
         >
           <Option hidden>{placeholder}</Option>
           {options.map(({ label, value, disabled }, index) => {
@@ -101,6 +105,8 @@ export const NativeSelect: FunctionComponent<
           showErrorMessage={!!errorMessage}
           showSuccessMessage={!!successMessage}
           size={size}
+          id={restProps.id}
+          {...(isError && { "aria-live": "assertive" })}
         >
           {errorMessage || successMessage || helpText}
         </BottomText>
@@ -216,11 +222,12 @@ const Option = styled.option`
   }
 `;
 
-const BottomText = styled.div<{
+const BottomText = styled.span<{
   showErrorMessage: boolean;
   size: SelectSizeType;
   showSuccessMessage: boolean;
 }>`
+  display: block;
   margin: ${({ theme }) => theme.spacing[2]} ${({ theme }) => theme.spacing[4]} 0
     ${({ theme }) => theme.spacing[4]};
   color: ${({ showErrorMessage, theme, showSuccessMessage }) => {
