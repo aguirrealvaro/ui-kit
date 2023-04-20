@@ -28,6 +28,9 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
 }) => {
   const { theme } = useTheme();
 
+  const getRadioItemId = (index: number) => `${radioGroupId}-${index}`;
+  const getLabelId = (index: number) => `${radioGroupId}-label-${index}`;
+
   return (
     <UList role="radiogroup" aria-activedescendant="TO DO: id del radio activado">
       {Children.map(children, (child, index) => {
@@ -35,12 +38,8 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
 
         const { children, value: itemValue } = child.props as RadioProps;
 
-        const getRadioItemId = (index: number) => `${radioGroupId}-${index}`;
-
         const isChecked = value === itemValue;
         const icon = isChecked ? RadioCircleMarked : RadioCircle;
-
-        const labelId = `${radioGroupId}-label-${index}`;
 
         return (
           <li>
@@ -48,12 +47,12 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
               role="radio"
               id={getRadioItemId(index)}
               aria-checked={isChecked}
-              aria-labelledby={labelId}
+              aria-labelledby={getLabelId(index)}
               onClick={() => onChange(itemValue)}
             >
               <Icon icon={icon} color={theme.assets.primary} />
             </button>
-            <label htmlFor={getRadioItemId(index)} id={labelId}>
+            <label htmlFor={getRadioItemId(index)} id={getLabelId(index)}>
               {children}
             </label>
           </li>
