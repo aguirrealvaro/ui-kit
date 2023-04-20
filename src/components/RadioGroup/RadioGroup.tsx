@@ -31,8 +31,26 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
   const getRadioItemId = (index: number) => `${radioGroupId}-${index}`;
   const getLabelId = (index: number) => `${radioGroupId}-label-${index}`;
 
+  const enabledItemId: number | undefined = (() => {
+    let enabledItem: number | undefined;
+    Children.forEach(children, (child, index) => {
+      if (!isValidElement(child)) return;
+
+      const { value: itemValue } = child.props as RadioProps;
+      const isChecked = value === itemValue;
+
+      if (isChecked) {
+        enabledItem = index;
+      }
+    });
+    return enabledItem;
+  })();
+
   return (
-    <UList role="radiogroup" aria-activedescendant="TO DO: id del radio activado">
+    <UList
+      role="radiogroup"
+      {...(enabledItemId && { "aria-activedescendant": getRadioItemId(enabledItemId) })}
+    >
       {Children.map(children, (child, index) => {
         if (!isValidElement(child)) return;
 
