@@ -12,11 +12,12 @@
 
 ### To do
 
-- Switch, Radio
+- RadioGroup, Radio
 - Separator
 - VissualyHidden
-- Acc (id: required, replace), Consuming (Triggers)
+- Acc (id: required, replace)
 - Theme
+- Consuming (Triggers)
 - Navbar, DropdownMenu
 - DatePicker, TimePicker
 - Pagination
