@@ -3,7 +3,7 @@ import { CheckCircle } from "@styled-icons/material-rounded/CheckCircle";
 import { RadioButtonUnchecked } from "@styled-icons/material-rounded/RadioButtonUnchecked";
 import styled from "styled-components";
 import { Icon } from "../Icon";
-import { CheckboxNewSizeType } from "./CheckboxNew.types";
+import { CheckboxNewPositionType, CheckboxNewSizeType } from "./CheckboxNew.types";
 import { useTheme } from "@/hooks";
 
 type CheckboxNewProps = {
@@ -14,12 +14,10 @@ type CheckboxNewProps = {
   color?: string;
   size?: CheckboxNewSizeType;
   helpText?: ReactNode;
+  position?: CheckboxNewPositionType;
 };
 
 // TO DO:
-// disabled
-// helpText
-// position
 // disable enter
 
 export const CheckboxNew: FunctionComponent<
@@ -28,11 +26,12 @@ export const CheckboxNew: FunctionComponent<
   children,
   checked,
   onChange,
-  disabled,
+  disabled = false,
   color,
   checkboxId,
   size = "md",
   helpText,
+  position = "left",
   ...restProps
 }) => {
   const { theme } = useTheme();
@@ -51,14 +50,16 @@ export const CheckboxNew: FunctionComponent<
   const labelId = `${checkboxId}-label`;
 
   return (
-    <Container>
-      <button
+    <Container position={position}>
+      <CheckboxButton
         type="button"
         role="checkbox"
         onClick={onChange}
         aria-checked={checked}
         id={checkboxId}
         aria-labelledby={labelId}
+        disabled={disabled}
+        position={position}
         {...restProps}
       >
         <Icon
@@ -66,19 +67,31 @@ export const CheckboxNew: FunctionComponent<
           color={disabled ? theme.assets.disabledBg : iconColor}
           size={iconSize}
         />
-      </button>
-      <label id={labelId} htmlFor={checkboxId}>
+      </CheckboxButton>
+      <LabelContainer id={labelId} htmlFor={checkboxId} position={position}>
         <Children size={size}>{children}</Children>
         <HelpText size={size}>{helpText}</HelpText>
-      </label>
+      </LabelContainer>
     </Container>
   );
 };
 
-const Container = styled.div`
+const Container = styled.div<{ position: CheckboxNewPositionType }>`
   display: flex;
   gap: ${({ theme }) => theme.spacing[4]};
   align-items: center;
+  justify-content: ${({ position }) => (position === "left" ? "flex-start" : "space-between")};
+`;
+
+const CheckboxButton = styled.button<{ position: CheckboxNewPositionType }>`
+  order: ${({ position }) => (position === "left" ? 1 : 2)};
+  &:disabled {
+    cursor: not-allowed;
+  }
+`;
+
+const LabelContainer = styled.label<{ position: CheckboxNewPositionType }>`
+  order: ${({ position }) => (position === "left" ? 2 : 1)};
 `;
 
 const Children = styled.span<{ size: CheckboxNewSizeType }>`
