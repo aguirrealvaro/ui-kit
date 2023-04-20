@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { RadioGroup, RadioNew } from "@/components";
+import { RadioGroup, Radio } from "@/components";
 
 export default {
   title: "Components/RadioGroup",
@@ -12,9 +12,9 @@ const Template: ComponentStory<typeof RadioGroup> = ({ onChange: _, value: __, .
 
   return (
     <RadioGroup value={value} onChange={setValue} {...args}>
-      <RadioNew value="1" /* helpText="Helptext uno" */>Valor uno</RadioNew>
-      <RadioNew value="2" /* helpText="Helptext dos" */>Valor dos</RadioNew>
-      <RadioNew value="3" /* helpText="Helptext tres" */>Valor tres</RadioNew>
+      <Radio value="1" /* helpText="Helptext uno" */>Valor uno</Radio>
+      <Radio value="2" /* helpText="Helptext dos" */>Valor dos</Radio>
+      <Radio value="3" /* helpText="Helptext tres" */>Valor tres</Radio>
     </RadioGroup>
   );
 };

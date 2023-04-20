@@ -11,7 +11,7 @@ import { RadioCircleMarked } from "@styled-icons/boxicons-regular/RadioCircleMar
 import styled from "styled-components";
 import { Icon } from "../Icon";
 import { RadioProps } from "./Radio";
-import { RadioNewSizeType, RadioNewPositionType } from "./Radio.types";
+import { RadioSizeType, RadioPositionType } from "./Radio.types";
 import { useTheme } from "@/hooks";
 
 type RadioGroupProps = {
@@ -19,9 +19,9 @@ type RadioGroupProps = {
   radioGroupId: string;
   value: string | undefined;
   onChange: Dispatch<SetStateAction<string | undefined>>;
-  size?: RadioNewSizeType;
+  size?: RadioSizeType;
   color?: string;
-  position?: RadioNewPositionType;
+  position?: RadioPositionType;
 };
 
 export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
@@ -35,7 +35,7 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
 }) => {
   const { theme } = useTheme();
 
-  const sizes: Record<RadioNewSizeType, string> = {
+  const sizes: Record<RadioSizeType, string> = {
     sm: theme.spacing[6],
     md: theme.spacing[7],
     lg: theme.spacing[8],
@@ -119,7 +119,7 @@ const UList = styled.ul`
   list-style: none;
 `;
 
-const ItemList = styled.li<{ position: RadioNewPositionType }>`
+const ItemList = styled.li<{ position: RadioPositionType }>`
   display: flex;
   gap: ${({ theme }) => theme.spacing[1]};
   align-items: center;
@@ -130,21 +130,21 @@ const ItemList = styled.li<{ position: RadioNewPositionType }>`
   }
 `;
 
-const RadioButton = styled.button<{ position: RadioNewPositionType }>`
+const RadioButton = styled.button<{ position: RadioPositionType }>`
   order: ${({ position }) => (position === "left" ? 1 : 2)};
   &:disabled {
     cursor: not-allowed;
   }
 `;
 
-const LabelContainer = styled.label<{ position: RadioNewPositionType }>`
+const LabelContainer = styled.label<{ position: RadioPositionType }>`
   order: ${({ position }) => (position === "left" ? 2 : 1)};
 `;
 
-const StyledChildren = styled.span<{ size: RadioNewSizeType }>`
+const StyledChildren = styled.span<{ size: RadioSizeType }>`
   display: block;
   font-size: ${({ size, theme }) => {
-    const sizes: Record<RadioNewSizeType, string> = {
+    const sizes: Record<RadioSizeType, string> = {
       sm: theme.typography.fontSizes.sm,
       md: theme.typography.fontSizes.md,
       lg: theme.typography.fontSizes.lg,
@@ -153,12 +153,12 @@ const StyledChildren = styled.span<{ size: RadioNewSizeType }>`
   }};
 `;
 
-const HelpText = styled.span<{ size: RadioNewSizeType }>`
+const HelpText = styled.span<{ size: RadioSizeType }>`
   display: block;
   margin-top: ${({ theme }) => theme.spacing[3.5]};
   color: ${({ theme }) => theme.assets.textSecondary};
   font-size: ${({ size, theme }) => {
-    const sizes: Record<RadioNewSizeType, string> = {
+    const sizes: Record<RadioSizeType, string> = {
       sm: theme.typography.fontSizes.xs,
       md: theme.typography.fontSizes.sm,
       lg: theme.typography.fontSizes.md,
