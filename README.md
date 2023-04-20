@@ -11,10 +11,10 @@
 
 ### To do
 
-- Acc
 - Checkbox, Radio, Switch
 - Separator
-- Consuming (Triggers)
+- Acc (id: required, replace), Consuming (Triggers)
+- Theme
 - Navbar, DropdownMenu
 - DatePicker, TimePicker
 - Pagination
