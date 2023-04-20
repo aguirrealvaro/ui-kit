@@ -13,7 +13,7 @@
 ### To do
 
 - Separator
-- Theme
+- Theme + Fonts
 - Accesibilty
 - Consuming
 - Navbar, DropdownMenu
