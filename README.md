@@ -12,11 +12,10 @@
 
 ### To do
 
-- HelpText styles
 - Separator
 - VissualyHidden
-- Accesibilty
 - Theme
+- Accesibilty
 - Consuming
 - Navbar, DropdownMenu
 - DatePicker, TimePicker

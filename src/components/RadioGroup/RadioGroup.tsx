@@ -12,6 +12,7 @@ import styled from "styled-components";
 import { Icon } from "../Icon";
 import { RadioProps } from "./Radio";
 import { RadioSizeType, RadioPositionType } from "./Radio.types";
+import { HelpText } from "@/css";
 import { useTheme } from "@/hooks";
 
 type RadioGroupProps = {
@@ -148,27 +149,6 @@ const StyledChildren = styled.span<{ size: RadioSizeType }>`
       sm: theme.typography.fontSizes.sm,
       md: theme.typography.fontSizes.md,
       lg: theme.typography.fontSizes.lg,
-    };
-    return sizes[size];
-  }};
-`;
-
-const HelpText = styled.span<{ size: RadioSizeType }>`
-  display: block;
-  margin-top: ${({ size, theme }) => {
-    const sizes: Record<RadioSizeType, string> = {
-      sm: theme.spacing[1],
-      md: theme.spacing[2],
-      lg: theme.spacing[3],
-    };
-    return sizes[size];
-  }};
-  color: ${({ theme }) => theme.assets.textSecondary};
-  font-size: ${({ size, theme }) => {
-    const sizes: Record<RadioSizeType, string> = {
-      sm: theme.typography.fontSizes.xs,
-      md: theme.typography.fontSizes.sm,
-      lg: theme.typography.fontSizes.md,
     };
     return sizes[size];
   }};

@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes, FunctionComponent, ReactNode } from "react";
 import styled, { css } from "styled-components";
 import { SwitchPositionType, SwitchSizeType } from "./Switch.types";
-import { ThemeType } from "@/css";
+import { HelpText, ThemeType } from "@/css";
 import { useTheme } from "@/hooks";
 
 type SwitchProps = {
@@ -171,27 +171,6 @@ const Children = styled.span<{ size: SwitchSizeType }>`
       sm: theme.typography.fontSizes.sm,
       md: theme.typography.fontSizes.md,
       lg: theme.typography.fontSizes.lg,
-    };
-    return sizes[size];
-  }};
-`;
-
-const HelpText = styled.span<{ size: SwitchSizeType }>`
-  display: block;
-  margin-top: ${({ size, theme }) => {
-    const sizes: Record<SwitchSizeType, string> = {
-      sm: theme.spacing[1],
-      md: theme.spacing[2],
-      lg: theme.spacing[3],
-    };
-    return sizes[size];
-  }};
-  color: ${({ theme }) => theme.assets.textSecondary};
-  font-size: ${({ size, theme }) => {
-    const sizes: Record<SwitchSizeType, string> = {
-      sm: theme.typography.fontSizes.xs,
-      md: theme.typography.fontSizes.sm,
-      lg: theme.typography.fontSizes.md,
     };
     return sizes[size];
   }};

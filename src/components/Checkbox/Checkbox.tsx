@@ -4,6 +4,7 @@ import { RadioButtonUnchecked } from "@styled-icons/material-rounded/RadioButton
 import styled from "styled-components";
 import { Icon } from "../Icon";
 import { CheckboxPositionType, CheckboxSizeType } from "./Checkbox.types";
+import { HelpText } from "@/css";
 import { useTheme } from "@/hooks";
 
 type CheckboxProps = {
@@ -98,27 +99,6 @@ const Children = styled.span<{ size: CheckboxSizeType }>`
       sm: theme.typography.fontSizes.sm,
       md: theme.typography.fontSizes.md,
       lg: theme.typography.fontSizes.lg,
-    };
-    return sizes[size];
-  }};
-`;
-
-const HelpText = styled.span<{ size: CheckboxSizeType }>`
-  display: block;
-  margin-top: ${({ size, theme }) => {
-    const sizes: Record<CheckboxSizeType, string> = {
-      sm: theme.spacing[1],
-      md: theme.spacing[2],
-      lg: theme.spacing[3],
-    };
-    return sizes[size];
-  }};
-  color: ${({ theme }) => theme.assets.textSecondary};
-  font-size: ${({ size, theme }) => {
-    const sizes: Record<CheckboxSizeType, string> = {
-      sm: theme.typography.fontSizes.xs,
-      md: theme.typography.fontSizes.sm,
-      lg: theme.typography.fontSizes.md,
     };
     return sizes[size];
   }};
