@@ -13,7 +13,6 @@
 ### To do
 
 - Separator
-- VissualyHidden
 - Theme
 - Accesibilty
 - Consuming
