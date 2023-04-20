@@ -3,25 +3,25 @@ import { CheckCircle } from "@styled-icons/material-rounded/CheckCircle";
 import { RadioButtonUnchecked } from "@styled-icons/material-rounded/RadioButtonUnchecked";
 import styled from "styled-components";
 import { Icon } from "../Icon";
-import { CheckboxNewPositionType, CheckboxNewSizeType } from "./CheckboxNew.types";
+import { CheckboxPositionType, CheckboxSizeType } from "./Checkbox.types";
 import { useTheme } from "@/hooks";
 
-type CheckboxNewProps = {
+type CheckboxProps = {
   children: ReactNode;
   checkboxId: string;
   checked: boolean;
   onChange: () => void;
   color?: string;
-  size?: CheckboxNewSizeType;
+  size?: CheckboxSizeType;
   helpText?: ReactNode;
-  position?: CheckboxNewPositionType;
+  position?: CheckboxPositionType;
 };
 
 // TO DO:
 // disable enter
 
-export const CheckboxNew: FunctionComponent<
-  CheckboxNewProps & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "size" | "onChange">
+export const Checkbox: FunctionComponent<
+  CheckboxProps & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "size" | "onChange">
 > = ({
   children,
   checked,
@@ -36,7 +36,7 @@ export const CheckboxNew: FunctionComponent<
 }) => {
   const { theme } = useTheme();
 
-  const sizes: Record<CheckboxNewSizeType, string> = {
+  const sizes: Record<CheckboxSizeType, string> = {
     sm: theme.spacing[6],
     md: theme.spacing[7],
     lg: theme.spacing[8],
@@ -76,28 +76,28 @@ export const CheckboxNew: FunctionComponent<
   );
 };
 
-const Container = styled.div<{ position: CheckboxNewPositionType }>`
+const Container = styled.div<{ position: CheckboxPositionType }>`
   display: flex;
   gap: ${({ theme }) => theme.spacing[4]};
   align-items: center;
   justify-content: ${({ position }) => (position === "left" ? "flex-start" : "space-between")};
 `;
 
-const CheckboxButton = styled.button<{ position: CheckboxNewPositionType }>`
+const CheckboxButton = styled.button<{ position: CheckboxPositionType }>`
   order: ${({ position }) => (position === "left" ? 1 : 2)};
   &:disabled {
     cursor: not-allowed;
   }
 `;
 
-const LabelContainer = styled.label<{ position: CheckboxNewPositionType }>`
+const LabelContainer = styled.label<{ position: CheckboxPositionType }>`
   order: ${({ position }) => (position === "left" ? 2 : 1)};
 `;
 
-const Children = styled.span<{ size: CheckboxNewSizeType }>`
+const Children = styled.span<{ size: CheckboxSizeType }>`
   display: block;
   font-size: ${({ size, theme }) => {
-    const sizes: Record<CheckboxNewSizeType, string> = {
+    const sizes: Record<CheckboxSizeType, string> = {
       sm: theme.typography.fontSizes.sm,
       md: theme.typography.fontSizes.md,
       lg: theme.typography.fontSizes.lg,
@@ -106,12 +106,12 @@ const Children = styled.span<{ size: CheckboxNewSizeType }>`
   }};
 `;
 
-const HelpText = styled.span<{ size: CheckboxNewSizeType }>`
+const HelpText = styled.span<{ size: CheckboxSizeType }>`
   display: block;
   margin-top: ${({ theme }) => theme.spacing[3.5]};
   color: ${({ theme }) => theme.assets.textSecondary};
   font-size: ${({ size, theme }) => {
-    const sizes: Record<CheckboxNewSizeType, string> = {
+    const sizes: Record<CheckboxSizeType, string> = {
       sm: theme.typography.fontSizes.xs,
       md: theme.typography.fontSizes.sm,
       lg: theme.typography.fontSizes.md,

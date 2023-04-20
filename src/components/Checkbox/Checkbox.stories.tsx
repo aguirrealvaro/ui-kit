@@ -1,20 +1,16 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { CheckboxNew } from "@/components";
+import { Checkbox } from "@/components";
 import { useBoolean } from "@/hooks";
 
 export default {
-  title: "Components/CheckboxNew",
-  component: CheckboxNew,
-} as ComponentMeta<typeof CheckboxNew>;
+  title: "Components/Checkbox",
+  component: Checkbox,
+} as ComponentMeta<typeof Checkbox>;
 
-const Template: ComponentStory<typeof CheckboxNew> = ({
-  onChange: _,
-  checked: __,
-  ...args
-}) => {
+const Template: ComponentStory<typeof Checkbox> = ({ onChange: _, checked: __, ...args }) => {
   const [checked, setChecked] = useBoolean();
 
-  return <CheckboxNew checked={checked} onChange={setChecked.toggle} {...args} />;
+  return <Checkbox checked={checked} onChange={setChecked.toggle} {...args} />;
 };
 
 export const Primary = Template.bind({});

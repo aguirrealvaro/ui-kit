@@ -34,4 +34,4 @@ export { Toast } from "./Toast";
 export { Card } from "./Card";
 export { Timer } from "./Timer";
 export { Typography } from "./Typography";
-export { CheckboxNew } from "./CheckboxNew";
+export { Checkbox } from "./Checkbox";
