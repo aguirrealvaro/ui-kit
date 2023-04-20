@@ -67,7 +67,7 @@ export const Checkbox: FunctionComponent<
       </CheckboxButton>
       <LabelContainer id={labelId} htmlFor={checkboxId} position={position}>
         <Children size={size}>{children}</Children>
-        <HelpText size={size}>{helpText}</HelpText>
+        {helpText && <HelpText size={size}>{helpText}</HelpText>}
       </LabelContainer>
     </Container>
   );

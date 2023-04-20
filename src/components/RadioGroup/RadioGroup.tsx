@@ -20,7 +20,6 @@ type RadioGroupProps = {
   value: string | undefined;
   onChange: Dispatch<SetStateAction<string | undefined>>;
   size?: RadioNewSizeType;
-  helpText?: ReactNode;
   color?: string;
 };
 
@@ -30,7 +29,6 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
   value,
   onChange,
   size = "md",
-  helpText,
   color,
 }) => {
   const { theme } = useTheme();
@@ -66,12 +64,19 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
   return (
     <UList
       role="radiogroup"
-      {...(enabledItemId && { "aria-activedescendant": getRadioItemId(enabledItemId) })}
+      {...(enabledItemId !== undefined && {
+        "aria-activedescendant": getRadioItemId(enabledItemId),
+      })}
     >
       {Children.map(children, (child, index) => {
         if (!isValidElement(child)) return;
 
-        const { children, value: itemValue, disabled = false } = child.props as RadioProps;
+        const {
+          children,
+          value: itemValue,
+          disabled = false,
+          helpText,
+        } = child.props as RadioProps;
 
         const isChecked = value === itemValue;
         const icon = isChecked ? RadioCircleMarked : RadioCircle;
@@ -94,7 +99,7 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
             </RadioButton>
             <LabelContainer htmlFor={getRadioItemId(index)} id={getLabelId(index)}>
               <StyledChildren size={size}>{children}</StyledChildren>
-              <HelpText size={size}>{helpText}</HelpText>
+              {helpText && <HelpText size={size}>{helpText}</HelpText>}
             </LabelContainer>
           </ItemList>
         );

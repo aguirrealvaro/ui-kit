@@ -59,7 +59,7 @@ export const Switch: FunctionComponent<
       </SwitchButton>
       <LabelContainer id={labelId} htmlFor={switchId} position={position}>
         <Children size={size}>{children}</Children>
-        <HelpText size={size}>{helpText}</HelpText>
+        {helpText && <HelpText size={size}>{helpText}</HelpText>}
       </LabelContainer>
     </Container>
   );
