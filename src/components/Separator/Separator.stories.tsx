@@ -1,4 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
+import styled from "styled-components";
 import { Separator } from "@/components";
 
 export default {
@@ -8,13 +9,19 @@ export default {
 
 const Template: ComponentStory<typeof Separator> = (args) => {
   return (
-    <div>
-      <p>Hola</p>
+    <Container>
+      <p>First parragraph</p>
       <Separator {...args} />
-      <p>chau</p>
-    </div>
+      <p>Second parragraph</p>
+    </Container>
   );
 };
 
 export const Primary = Template.bind({});
 Primary.args = {};
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: row; // vertical
+  //flex-direction: column; // horizontal
+`;

@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { SeparatorOrientatorType } from "./Separator.types";
 import { Spacing } from "@/css/theme/spacing";
 
@@ -24,7 +24,19 @@ const Line = styled.hr<{
 }>`
   background-color: ${({ theme }) => theme.assets.border};
   border: none;
-  margin-bottom: ${({ theme, preSpacing }) => theme.spacing[preSpacing]};
-  margin-top: ${({ theme, postSpacing }) => theme.spacing[postSpacing]};
-  height: 1px;
+  ${({ theme, orientation, preSpacing, postSpacing }) => {
+    if (orientation === "horizontal") {
+      return css`
+        margin-bottom: ${theme.spacing[preSpacing]};
+        margin-top: ${theme.spacing[postSpacing]};
+        height: 1px;
+      `;
+    } else {
+      return css`
+        margin-left: ${theme.spacing[preSpacing]};
+        margin-right: ${theme.spacing[postSpacing]};
+        width: 1px;
+      `;
+    }
+  }}
 `;
