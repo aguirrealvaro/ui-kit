@@ -12,9 +12,7 @@
 
 ### To do
 
-- Theme + Fonts
-- Accesibilty
-- Consuming
+- Improve usage of components
 - Navbar, DropdownMenu
 - DatePicker, TimePicker
 - Pagination
