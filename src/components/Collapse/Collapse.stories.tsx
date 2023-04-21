@@ -1,18 +1,18 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Button, ShowMore } from "@/components";
+import { Button, Collapse } from "@/components";
 import { useBoolean } from "@/hooks";
 
 export default {
-  title: "Components/ShowMore",
-  component: ShowMore,
-} as ComponentMeta<typeof ShowMore>;
+  title: "Components/Collapse",
+  component: Collapse,
+} as ComponentMeta<typeof Collapse>;
 
-const Template: ComponentStory<typeof ShowMore> = ({ isOpen: _, ...args }) => {
+const Template: ComponentStory<typeof Collapse> = ({ isOpen: _, ...args }) => {
   const [showMore, setShowMore] = useBoolean();
 
   return (
     <div>
-      <ShowMore isOpen={showMore} {...args}>
+      <Collapse isOpen={showMore} {...args}>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit totam ea recusandae
         distinctio tenetur, illo magni asperiores assumenda temporibus vitae ipsam ratione sunt
         voluptate, cum possimus aliquid? Nobis, delectus quam? Lorem ipsum dolor sit amet,
@@ -37,7 +37,7 @@ const Template: ComponentStory<typeof ShowMore> = ({ isOpen: _, ...args }) => {
         cum possimus aliquid? Nobis, delectus quam? Lorem ipsum dolor sit amet, consectetur
         adipisicing elit. Impedit totam ea recusandae distinctio tenetur, illo magni asperiores
         assumenda temporibus vitae ipsam ratione sunt voluptate, cum possimus aliquid? Nobis,
-      </ShowMore>
+      </Collapse>
       <Button onClick={setShowMore.toggle}>Show {showMore ? "Less" : "More"}</Button>
     </div>
   );
@@ -45,5 +45,5 @@ const Template: ComponentStory<typeof ShowMore> = ({ isOpen: _, ...args }) => {
 
 export const Primary = Template.bind({});
 Primary.args = {
-  minHeight: 200,
+  startingHeight: 200,
 };

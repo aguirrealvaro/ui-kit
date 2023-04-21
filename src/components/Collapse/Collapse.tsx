@@ -9,28 +9,27 @@ import {
 } from "react";
 import styled, { css } from "styled-components";
 
-type ShowMoreProps = {
+type CollapseProps = {
   children: ReactNode;
   isOpen: boolean;
-  minHeight: number;
+  startingHeight: number;
 };
 
-export const ShowMore: FunctionComponent<ShowMoreProps> = ({
+export const Collapse: FunctionComponent<CollapseProps> = ({
   children,
   isOpen,
-  minHeight,
+  startingHeight,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const [showMoreEnabled, setShowMoreEnabled] = useState<boolean>(false);
-  console.log(showMoreEnabled);
   const [containerHeight, setContainerHeight] = useState<number>(0);
 
   const handleStates = useCallback(() => {
     if (!containerRef.current) return;
     setContainerHeight(containerRef.current.scrollHeight);
-    setShowMoreEnabled(containerRef.current.scrollHeight > minHeight);
-  }, [minHeight]);
+    setShowMoreEnabled(containerRef.current.scrollHeight > startingHeight);
+  }, [startingHeight]);
 
   useLayoutEffect(() => {
     handleStates();
@@ -47,7 +46,7 @@ export const ShowMore: FunctionComponent<ShowMoreProps> = ({
       isOpen={isOpen}
       containerHeight={containerHeight}
       showMoreEnabled={showMoreEnabled}
-      minHeight={minHeight}
+      startingHeight={startingHeight}
     >
       {children}
     </Paragraph>
@@ -58,12 +57,12 @@ const Paragraph = styled.p<{
   isOpen: boolean;
   containerHeight: number;
   showMoreEnabled: boolean;
-  minHeight: number;
+  startingHeight: number;
 }>`
-  ${({ isOpen, containerHeight, showMoreEnabled, minHeight }) => {
+  ${({ isOpen, containerHeight, showMoreEnabled, startingHeight }) => {
     if (showMoreEnabled) {
       return css`
-        height: ${isOpen ? containerHeight : minHeight}px;
+        height: ${isOpen ? containerHeight : startingHeight}px;
         overflow-y: hidden;
         transition: height ${({ theme }) => theme.transitions.durations.normal}ms
           ${({ theme }) => theme.transitions.timings.out};
