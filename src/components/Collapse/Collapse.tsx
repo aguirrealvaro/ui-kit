@@ -40,18 +40,18 @@ export const Collapse: FunctionComponent<CollapseProps> = ({
   }, [handleStates]);
 
   return (
-    <Paragraph
+    <Container
       ref={containerRef}
       isOpen={isOpen}
       containerHeight={containerHeight}
       startingHeight={startingHeight}
     >
       {children}
-    </Paragraph>
+    </Container>
   );
 };
 
-const Paragraph = styled.p<{
+const Container = styled.div<{
   isOpen: boolean;
   containerHeight: number;
   startingHeight: number;
