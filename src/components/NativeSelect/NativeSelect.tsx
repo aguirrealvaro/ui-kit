@@ -53,6 +53,8 @@ export const NativeSelect: FunctionComponent<
 
   const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
 
+  const errorMessageId = `${restProps.id}-error`;
+
   const handleKeyDown = (event: KeyboardEvent) => {
     if (event.key === "Escape" && value && clearValue) {
       event.preventDefault();
@@ -74,7 +76,7 @@ export const NativeSelect: FunctionComponent<
           isSelected={isSelected}
           onKeyDown={handleKeyDown}
           aria-invalid={isError}
-          {...(typeof errorMessage === "string" && { "aria-errormessage": errorMessage })}
+          {...(errorMessage && { "aria-errormessage": errorMessageId })}
           {...restProps}
         >
           <Option hidden>{placeholder}</Option>
@@ -105,8 +107,7 @@ export const NativeSelect: FunctionComponent<
           showErrorMessage={!!errorMessage}
           showSuccessMessage={!!successMessage}
           size={size}
-          id={restProps.id}
-          {...(isError && { "aria-live": "assertive" })}
+          {...(errorMessage && { id: errorMessageId, "aria-live": "assertive" })}
         >
           {errorMessage || successMessage || helpText}
         </BottomText>

@@ -73,6 +73,8 @@ export const AnimatedInput: FunctionComponent<
 
   const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
 
+  const errorMessageId = `${inputId}-error`;
+
   const sideContainerRef = useRef<HTMLDivElement>(null);
 
   const [sideContainerWidth, setSideContainerWidth] = useState<number | undefined>(undefined);
@@ -119,7 +121,7 @@ export const AnimatedInput: FunctionComponent<
             type={seePassword ? "text" : type}
             onChange={onValidChange}
             aria-invalid={isError}
-            {...(typeof errorMessage === "string" && { "aria-errormessage": errorMessage })}
+            {...(errorMessage && { "aria-errormessage": errorMessageId })}
             {...restProps}
           />
           <Placeholder htmlFor={inputId}>{placeholder}</Placeholder>
@@ -149,8 +151,7 @@ export const AnimatedInput: FunctionComponent<
         <BottomText
           showErrorMessage={!!errorMessage}
           showSuccessMessage={!!successMessage}
-          id={inputId}
-          {...(isError && { "aria-live": "assertive" })}
+          {...(errorMessage && { id: errorMessageId, "aria-live": "assertive" })}
         >
           {errorMessage || successMessage || helpText}
         </BottomText>

@@ -82,6 +82,8 @@ export const Select: FunctionComponent<SelectProps> = ({
 
   const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
 
+  const errorMessageId = `${selectId}-error`;
+
   const { focusedIndex, handleKeyDown } = useKeyboardAccesibility({
     isOpen,
     setIsOpen,
@@ -123,7 +125,7 @@ export const Select: FunctionComponent<SelectProps> = ({
         aria-activedescendant={isOpen ? getOptionId(focusedIndex) : undefined}
         onKeyDown={handleKeyDown}
         aria-invalid={isError}
-        {...(typeof errorMessage === "string" && { "aria-errormessage": errorMessage })}
+        {...(errorMessage && { "aria-errormessage": errorMessageId })}
       >
         <InnerContainer size={size}>
           <span>{selectedLabel || placeholder}</span>
@@ -178,8 +180,7 @@ export const Select: FunctionComponent<SelectProps> = ({
           showErrorMessage={!!errorMessage}
           showSuccessMessage={!!successMessage}
           size={size}
-          id={selectId}
-          {...(isError && { "aria-live": "assertive" })}
+          {...(errorMessage && { id: errorMessageId, "aria-live": "assertive" })}
         >
           {errorMessage || successMessage || helpText}
         </BottomText>

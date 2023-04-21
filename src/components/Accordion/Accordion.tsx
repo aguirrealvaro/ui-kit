@@ -38,8 +38,8 @@ export const Accordion: FunctionComponent<AccordionProps> = ({
         disabled={disabled}
         arrowPosition={arrowPosition}
         aria-expanded={isOpen}
-        aria-controls={contentId} //should match id="" of region
-        id={buttonId} //should match aria-labelledby="" of region
+        aria-controls={contentId}
+        id={buttonId}
       >
         <Title arrowPosition={arrowPosition}>{title}</Title>
         <ChevronWrapper isOpen={isOpen} arrowPosition={arrowPosition}>

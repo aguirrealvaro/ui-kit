@@ -80,6 +80,8 @@ export const Input: FunctionComponent<
 
   const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
 
+  const errorMessageId = `${inputId}-error`;
+
   const rightContainerRef = useRef<HTMLDivElement>(null);
 
   const [rightContainerWidth, setRightContainerWidth] = useState<number | undefined>(
@@ -133,7 +135,7 @@ export const Input: FunctionComponent<
           type={seePassword ? "text" : type}
           inputSize={size}
           aria-invalid={isError}
-          {...(typeof errorMessage === "string" && { "aria-errormessage": errorMessage })}
+          {...(errorMessage && { "aria-errormessage": errorMessageId })}
           {...restProps}
         />
         {showRightContainer && (
@@ -162,8 +164,7 @@ export const Input: FunctionComponent<
           showErrorMessage={!!errorMessage}
           showSuccessMessage={!!successMessage}
           size={size}
-          id={inputId}
-          {...(isError && { "aria-live": "assertive" })}
+          {...(errorMessage && { id: errorMessageId, "aria-live": "assertive" })}
         >
           {errorMessage || successMessage || helpText}
         </BottomText>
