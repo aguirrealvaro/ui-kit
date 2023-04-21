@@ -7,7 +7,13 @@ export default {
 } as ComponentMeta<typeof Separator>;
 
 const Template: ComponentStory<typeof Separator> = (args) => {
-  return <Separator {...args} />;
+  return (
+    <div>
+      <p>Hola</p>
+      <Separator {...args} />
+      <p>chau</p>
+    </div>
+  );
 };
 
 export const Primary = Template.bind({});

@@ -13,5 +13,6 @@ export const Separator: FunctionComponent<SeparatorProps> = ({ orientation }) =>
 const Line = styled.hr<{ orientation: SeparatorOrientatorType }>`
   background-color: ${({ theme }) => theme.assets.border};
   border: none;
+  margin: ${({ theme }) => theme.spacing[4]} 0;
   height: 1px;
 `;
