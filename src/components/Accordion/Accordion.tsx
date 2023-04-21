@@ -33,6 +33,7 @@ export const Accordion: FunctionComponent<AccordionProps> = ({
   return (
     <div>
       <Button
+        type="button"
         onClick={toggle}
         disabled={disabled}
         arrowPosition={arrowPosition}

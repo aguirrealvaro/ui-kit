@@ -88,6 +88,7 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
           <ItemList position={position}>
             <RadioButton
               role="radio"
+              type="button"
               id={getRadioItemId(index)}
               aria-checked={isChecked}
               aria-labelledby={getLabelId(index)}

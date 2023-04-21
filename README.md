@@ -1,4 +1,4 @@
-# Utils Library
+# UI Kit
 
 ### React custom hooks and isolated components with accesibility
 

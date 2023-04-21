@@ -153,6 +153,7 @@ export const Select: FunctionComponent<SelectProps> = ({
             return (
               <Option
                 role="option"
+                type="button"
                 id={getOptionId(index)}
                 key={index}
                 onClick={onClick}

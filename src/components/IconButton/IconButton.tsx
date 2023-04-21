@@ -12,7 +12,7 @@ export const IconButton: FunctionComponent<
   IconButtonProps & ButtonHTMLAttributes<HTMLButtonElement>
 > = ({ children, size = "md", ...props }) => {
   return (
-    <Container size={size} {...props}>
+    <Container type="button" size={size} {...props}>
       {children}
     </Container>
   );

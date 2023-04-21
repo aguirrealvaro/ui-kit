@@ -11,7 +11,7 @@ export const MainMenu: FunctionComponent<MainMenuProps> = ({ items }) => (
         .filter(({ show = true }) => show)
         .map(({ label, onClick, disabled = false }, i) => (
           <li key={i} role="none">
-            <Item onClick={onClick} disabled={disabled} role="menuitem">
+            <Item type="button" onClick={onClick} disabled={disabled} role="menuitem">
               {label}
             </Item>
           </li>

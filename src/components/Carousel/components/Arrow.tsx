@@ -20,6 +20,7 @@ export const Arrow: FunctionComponent<ArrowProps> = ({ direction, handleArrow, d
 
   return (
     <Button
+      type="button"
       onClick={() => handleArrow(direction)}
       direction={direction}
       disabled={disabled}

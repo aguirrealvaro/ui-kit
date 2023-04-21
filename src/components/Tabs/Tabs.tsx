@@ -74,6 +74,7 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children }) => {
             <TabItemWrapper role="presentation">
               <TabItem
                 role="tab"
+                type="button"
                 id={getTabItemId(index)}
                 active={isTabSelected}
                 onClick={() => setSelectedTab(index)}
