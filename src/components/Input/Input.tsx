@@ -107,6 +107,22 @@ export const Input: FunctionComponent<
     }
   };
 
+  const renderBottomText = (): JSX.Element => {
+    if (errorMessage) {
+      return (
+        <ErrorMessage id={errorMessageId} aria-live="assertive">
+          {errorMessage}
+        </ErrorMessage>
+      );
+    }
+
+    if (successMessage) {
+      return <SuccessMessage>{successMessage}</SuccessMessage>;
+    }
+
+    return <HelpText>{helpText}</HelpText>;
+  };
+
   return (
     <div>
       {label && (
@@ -159,16 +175,7 @@ export const Input: FunctionComponent<
           </RightContainer>
         )}
       </InputContainer>
-      {showBottom && (
-        <BottomText
-          showErrorMessage={!!errorMessage}
-          showSuccessMessage={!!successMessage}
-          size={size}
-          {...(errorMessage && { id: errorMessageId, "aria-live": "assertive" })}
-        >
-          {errorMessage || successMessage || helpText}
-        </BottomText>
-      )}
+      {showBottom && <BottomText size={size}>{renderBottomText()}</BottomText>}
     </div>
   );
 };
@@ -288,25 +295,10 @@ const CustomInput = styled.input<{
   }
 `;
 
-const BottomText = styled.span<{
-  showErrorMessage: boolean;
-  size: InputSizeType;
-  showSuccessMessage: boolean;
-}>`
+const BottomText = styled.div<{ size: InputSizeType }>`
   display: block;
   margin: ${({ theme }) => theme.spacing[2]} ${({ theme }) => theme.spacing[4]} 0
     ${({ theme }) => theme.spacing[4]};
-  color: ${({ showErrorMessage, theme, showSuccessMessage }) => {
-    if (showErrorMessage) {
-      return theme.assets.danger;
-    }
-
-    if (showSuccessMessage) {
-      return theme.assets.success;
-    }
-
-    return theme.assets.textSecondary;
-  }};
   font-size: ${({ size, theme }) => {
     const sizes: Record<InputSizeType, string> = {
       sm: theme.typography.fontSizes.xs,
@@ -315,4 +307,16 @@ const BottomText = styled.span<{
     };
     return sizes[size];
   }};
+`;
+
+const HelpText = styled.span`
+  color: ${({ theme }) => theme.assets.textSecondary};
+`;
+
+const SuccessMessage = styled.span`
+  color: ${({ theme }) => theme.assets.success};
+`;
+
+const ErrorMessage = styled.span`
+  color: ${({ theme }) => theme.assets.danger};
 `;

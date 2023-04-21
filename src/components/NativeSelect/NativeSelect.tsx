@@ -64,6 +64,22 @@ export const NativeSelect: FunctionComponent<
     }
   };
 
+  const renderBottomText = (): JSX.Element => {
+    if (errorMessage) {
+      return (
+        <ErrorMessage id={errorMessageId} aria-live="assertive">
+          {errorMessage}
+        </ErrorMessage>
+      );
+    }
+
+    if (successMessage) {
+      return <SuccessMessage>{successMessage}</SuccessMessage>;
+    }
+
+    return <HelpText>{helpText}</HelpText>;
+  };
+
   return (
     <div>
       {label && <Label size={size}>{label}</Label>}
@@ -104,16 +120,7 @@ export const NativeSelect: FunctionComponent<
           </ChevronWrapper>
         </SideContainer>
       </SelectContainer>
-      {showBottom && (
-        <BottomText
-          showErrorMessage={!!errorMessage}
-          showSuccessMessage={!!successMessage}
-          size={size}
-          {...(errorMessage && { id: errorMessageId, "aria-live": "assertive" })}
-        >
-          {errorMessage || successMessage || helpText}
-        </BottomText>
-      )}
+      {showBottom && <BottomText size={size}>{renderBottomText()}</BottomText>}
     </div>
   );
 };
@@ -225,24 +232,10 @@ const Option = styled.option`
   }
 `;
 
-const BottomText = styled.span<{
-  showErrorMessage: boolean;
-  size: SelectSizeType;
-  showSuccessMessage: boolean;
-}>`
+const BottomText = styled.div<{ size: SelectSizeType }>`
   display: block;
   margin: ${({ theme }) => theme.spacing[2]} ${({ theme }) => theme.spacing[4]} 0
     ${({ theme }) => theme.spacing[4]};
-  color: ${({ showErrorMessage, theme, showSuccessMessage }) => {
-    if (showErrorMessage) {
-      return theme.assets.danger;
-    }
-
-    if (showSuccessMessage) {
-      return theme.assets.success;
-    }
-    return theme.assets.textSecondary;
-  }};
   font-size: ${({ size, theme }) => {
     const sizes: Record<SelectSizeType, string> = {
       sm: theme.typography.fontSizes.xs,
@@ -260,4 +253,16 @@ const CancelButtonWrapper = styled.div`
 const ChevronWrapper = styled.div`
   display: flex;
   align-items: center;
+`;
+
+const HelpText = styled.span`
+  color: ${({ theme }) => theme.assets.textSecondary};
+`;
+
+const SuccessMessage = styled.span`
+  color: ${({ theme }) => theme.assets.success};
+`;
+
+const ErrorMessage = styled.span`
+  color: ${({ theme }) => theme.assets.danger};
 `;

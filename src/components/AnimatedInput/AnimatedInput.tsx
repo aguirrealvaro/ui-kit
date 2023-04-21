@@ -98,6 +98,22 @@ export const AnimatedInput: FunctionComponent<
     }
   };
 
+  const renderBottomText = (): JSX.Element => {
+    if (errorMessage) {
+      return (
+        <ErrorMessage id={errorMessageId} aria-live="assertive">
+          {errorMessage}
+        </ErrorMessage>
+      );
+    }
+
+    if (successMessage) {
+      return <SuccessMessage>{successMessage}</SuccessMessage>;
+    }
+
+    return <HelpText>{helpText}</HelpText>;
+  };
+
   return (
     <div>
       <InputContainer
@@ -147,15 +163,7 @@ export const AnimatedInput: FunctionComponent<
           </SideContainer>
         )}
       </InputContainer>
-      {showBottom && (
-        <BottomText
-          showErrorMessage={!!errorMessage}
-          showSuccessMessage={!!successMessage}
-          {...(errorMessage && { id: errorMessageId, "aria-live": "assertive" })}
-        >
-          {errorMessage || successMessage || helpText}
-        </BottomText>
-      )}
+      {showBottom && <BottomText>{renderBottomText()}</BottomText>}
     </div>
   );
 };
@@ -306,19 +314,21 @@ const CustomInput = styled.input<{
   }
 `;
 
-const BottomText = styled.span<{ showErrorMessage: boolean; showSuccessMessage: boolean }>`
+const BottomText = styled.div`
   display: block;
   font-size: ${({ theme }) => theme.typography.fontSizes.sm};
   margin: ${({ theme }) => theme.spacing[2]} ${({ theme }) => theme.spacing[4]} 0
     ${({ theme }) => theme.spacing[4]};
-  color: ${({ showErrorMessage, theme, showSuccessMessage }) => {
-    if (showErrorMessage) {
-      return theme.assets.danger;
-    }
+`;
 
-    if (showSuccessMessage) {
-      return theme.assets.success;
-    }
-    return theme.assets.textSecondary;
-  }};
+const HelpText = styled.span`
+  color: ${({ theme }) => theme.assets.textSecondary};
+`;
+
+const SuccessMessage = styled.span`
+  color: ${({ theme }) => theme.assets.success};
+`;
+
+const ErrorMessage = styled.span`
+  color: ${({ theme }) => theme.assets.danger};
 `;
