@@ -36,3 +36,4 @@ export { Checkbox } from "./Checkbox";
 export { Switch } from "./Switch";
 export { RadioGroup, Radio } from "./RadioGroup";
 export { VisuallyHidden } from "./VisuallyHidden";
+export { Separator } from "./Separator";
