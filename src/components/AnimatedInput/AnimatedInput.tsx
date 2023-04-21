@@ -19,12 +19,12 @@ import { Spinner, Icon, IconButton } from "@/components";
 import { useTheme } from "@/hooks";
 
 type AnimatedInputProps = {
+  id: string;
   helpText?: ReactNode;
   isError?: boolean;
   errorMessage?: ReactNode;
   isSuccess?: boolean;
   successMessage?: ReactNode;
-  inputId: string;
   isLoading?: boolean;
   clearValue?: () => void;
   icon?: ReactNode;
@@ -33,6 +33,7 @@ type AnimatedInputProps = {
 export const AnimatedInput: FunctionComponent<
   AnimatedInputProps & InputHTMLAttributes<HTMLInputElement>
 > = ({
+  id,
   placeholder,
   onChange,
   helpText,
@@ -41,7 +42,6 @@ export const AnimatedInput: FunctionComponent<
   isSuccess = false,
   successMessage,
   disabled,
-  inputId,
   isLoading,
   value,
   clearValue,
@@ -73,7 +73,7 @@ export const AnimatedInput: FunctionComponent<
 
   const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
 
-  const errorMessageId = `${inputId}-error`;
+  const errorMessageId = `${id}-error`;
 
   const sideContainerRef = useRef<HTMLDivElement>(null);
 
@@ -109,7 +109,7 @@ export const AnimatedInput: FunctionComponent<
       >
         <InnerContainer>
           <CustomInput
-            id={inputId}
+            id={id}
             hasPlaceholder={!!placeholder}
             ref={inputRef}
             isError={isError}
@@ -124,7 +124,7 @@ export const AnimatedInput: FunctionComponent<
             {...(errorMessage && { "aria-errormessage": errorMessageId })}
             {...restProps}
           />
-          <Placeholder htmlFor={inputId}>{placeholder}</Placeholder>
+          <Placeholder htmlFor={id}>{placeholder}</Placeholder>
         </InnerContainer>
         {showSideContainer && (
           <SideContainer ref={sideContainerRef}>

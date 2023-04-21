@@ -18,7 +18,7 @@ import { Spinner, Icon, IconButton } from "@/components";
 import { useOutsideClick } from "@/hooks";
 
 type SelectProps = {
-  selectId: string;
+  id: string;
   labelId: string;
   label?: ReactNode;
   placeholder: string;
@@ -37,7 +37,7 @@ type SelectProps = {
 };
 
 export const Select: FunctionComponent<SelectProps> = ({
-  selectId,
+  id,
   labelId,
   label,
   placeholder,
@@ -82,7 +82,7 @@ export const Select: FunctionComponent<SelectProps> = ({
 
   const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
 
-  const errorMessageId = `${selectId}-error`;
+  const errorMessageId = `${id}-error`;
 
   const { focusedIndex, handleKeyDown } = useKeyboardAccesibility({
     isOpen,
@@ -96,7 +96,7 @@ export const Select: FunctionComponent<SelectProps> = ({
 
   const getOptionId = (index: number | undefined) => {
     if (index !== undefined) {
-      return `${selectId}-option-${index}`;
+      return `${id}-option-${index}`;
     }
   };
 
@@ -108,6 +108,7 @@ export const Select: FunctionComponent<SelectProps> = ({
         </Label>
       )}
       <SelectContainer
+        id={id}
         role="combobox"
         tabIndex={0}
         disabled={disabled || false}
@@ -118,7 +119,7 @@ export const Select: FunctionComponent<SelectProps> = ({
         size={size}
         onClick={handleDropdown}
         ref={selectRef}
-        aria-controls={selectId}
+        aria-controls={id}
         aria-expanded={isOpen}
         aria-haspopup="listbox"
         aria-labelledby={labelId}
@@ -145,7 +146,7 @@ export const Select: FunctionComponent<SelectProps> = ({
           isOpen={isOpen}
           size={size}
           role="listbox"
-          id={selectId}
+          id={id}
           aria-labelledby={labelId}
           selectHeight={selectRef.current?.offsetHeight}
         >

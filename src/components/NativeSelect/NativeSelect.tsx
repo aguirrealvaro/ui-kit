@@ -13,6 +13,7 @@ import { NativeSelectFieldType } from "./NativeSelect.types";
 import { Icon, IconButton, Spinner } from "@/components";
 
 type NativeSelectProps = {
+  id: string;
   label?: ReactNode;
   options: NativeSelectFieldType[];
   clearValue?: () => void;
@@ -28,6 +29,7 @@ type NativeSelectProps = {
 export const NativeSelect: FunctionComponent<
   NativeSelectProps & Omit<SelectHTMLAttributes<HTMLSelectElement>, "size">
 > = ({
+  id,
   value,
   onChange,
   options,
@@ -53,7 +55,7 @@ export const NativeSelect: FunctionComponent<
 
   const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
 
-  const errorMessageId = `${restProps.id}-error`;
+  const errorMessageId = `${id}-error`;
 
   const handleKeyDown = (event: KeyboardEvent) => {
     if (event.key === "Escape" && value && clearValue) {

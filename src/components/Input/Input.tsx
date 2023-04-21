@@ -20,13 +20,13 @@ import { Spinner, Icon, IconButton } from "@/components";
 import { useTheme } from "@/hooks";
 
 type InputProps = {
+  id: string;
   label?: ReactNode;
   helpText?: ReactNode;
   isError?: boolean;
   errorMessage?: ReactNode;
   isSuccess?: boolean;
   successMessage?: ReactNode;
-  inputId: string;
   isLoading?: boolean;
   clearValue?: () => void;
   endEnhacer?: ReactNode;
@@ -37,13 +37,13 @@ type InputProps = {
 export const Input: FunctionComponent<
   InputProps & Omit<InputHTMLAttributes<HTMLInputElement>, "size">
 > = ({
+  id,
   label,
   helpText,
   isError = false,
   errorMessage,
   isSuccess = false,
   successMessage,
-  inputId,
   isLoading,
   clearValue,
   endEnhacer,
@@ -80,7 +80,7 @@ export const Input: FunctionComponent<
 
   const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
 
-  const errorMessageId = `${inputId}-error`;
+  const errorMessageId = `${id}-error`;
 
   const rightContainerRef = useRef<HTMLDivElement>(null);
 
@@ -110,7 +110,7 @@ export const Input: FunctionComponent<
   return (
     <div>
       {label && (
-        <Label htmlFor={inputId} size={size}>
+        <Label htmlFor={id} size={size}>
           {label}
         </Label>
       )}
@@ -126,7 +126,7 @@ export const Input: FunctionComponent<
           <LeftContainer>{startEnhacer ? startEnhacer : null}</LeftContainer>
         )}
         <CustomInput
-          id={inputId}
+          id={id}
           ref={inputRef}
           disabled={disabled}
           sideWidth={rightContainerWidth}

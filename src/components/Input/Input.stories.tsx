@@ -54,5 +54,5 @@ Primary.args = {
   label: "Label:",
   helpText: "Help text",
   size: "md",
-  inputId: "input-id",
+  id: "input-story",
 };
