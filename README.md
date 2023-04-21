@@ -12,7 +12,6 @@
 
 ### To do
 
-- Separator
 - Theme + Fonts
 - Accesibilty
 - Consuming
