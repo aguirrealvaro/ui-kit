@@ -10,7 +10,7 @@ type SeparatorProps = {
 };
 
 export const Separator: FunctionComponent<SeparatorProps> = ({
-  orientation,
+  orientation = "horizontal",
   preSpacing = 4,
   postSpacing = 4,
 }) => {
@@ -27,8 +27,8 @@ const Line = styled.hr<{
   ${({ theme, orientation, preSpacing, postSpacing }) => {
     if (orientation === "horizontal") {
       return css`
-        margin-bottom: ${theme.spacing[preSpacing]};
-        margin-top: ${theme.spacing[postSpacing]};
+        margin-top: ${theme.spacing[preSpacing]};
+        margin-bottom: ${theme.spacing[postSpacing]};
         height: 1px;
       `;
     } else {

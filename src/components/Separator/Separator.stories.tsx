@@ -18,10 +18,14 @@ const Template: ComponentStory<typeof Separator> = (args) => {
 };
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  orientation: "horizontal",
+  preSpacing: 4,
+  postSpacing: 4,
+};
 
 const Container = styled.div`
   display: flex;
-  flex-direction: row; // vertical
-  //flex-direction: column; // horizontal
+  // flex-direction: row; // vertical
+  flex-direction: column; // horizontal
 `;
