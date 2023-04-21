@@ -8,28 +8,23 @@ import {
   useCallback,
 } from "react";
 import styled, { css } from "styled-components";
-import { Button } from "../Button";
 
 type ShowMoreProps = {
   children: ReactNode;
+  isOpen: boolean;
   minHeight: number;
-  showMoreLegend?: string;
-  showLessLegend?: string;
 };
 
 export const ShowMore: FunctionComponent<ShowMoreProps> = ({
   children,
+  isOpen,
   minHeight,
-  showMoreLegend = "Show more",
-  showLessLegend = "Show less",
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const [showMore, setShowMore] = useState<boolean>(false);
   const [showMoreEnabled, setShowMoreEnabled] = useState<boolean>(false);
+  console.log(showMoreEnabled);
   const [containerHeight, setContainerHeight] = useState<number>(0);
-
-  const toggleShowMore = () => setShowMore(!showMore);
 
   const handleStates = useCallback(() => {
     if (!containerRef.current) return;
@@ -47,42 +42,28 @@ export const ShowMore: FunctionComponent<ShowMoreProps> = ({
   }, [handleStates]);
 
   return (
-    <Container>
-      <Paragraph
-        ref={containerRef}
-        showMore={showMore}
-        containerHeight={containerHeight}
-        showMoreEnabled={showMoreEnabled}
-        minHeight={minHeight}
-      >
-        {children}
-      </Paragraph>
-      {showMoreEnabled && (
-        <Button onClick={toggleShowMore} kind="link">
-          {showMore ? showLessLegend : showMoreLegend}
-        </Button>
-      )}
-    </Container>
+    <Paragraph
+      ref={containerRef}
+      isOpen={isOpen}
+      containerHeight={containerHeight}
+      showMoreEnabled={showMoreEnabled}
+      minHeight={minHeight}
+    >
+      {children}
+    </Paragraph>
   );
 };
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
 const Paragraph = styled.p<{
-  showMore: boolean;
+  isOpen: boolean;
   containerHeight: number;
   showMoreEnabled: boolean;
   minHeight: number;
 }>`
-  ${({ showMore, containerHeight, showMoreEnabled, minHeight }) => {
+  ${({ isOpen, containerHeight, showMoreEnabled, minHeight }) => {
     if (showMoreEnabled) {
       return css`
-        height: ${showMore ? containerHeight : minHeight}px;
-        margin-bottom: ${({ theme }) => theme.spacing[4]};
+        height: ${isOpen ? containerHeight : minHeight}px;
         overflow-y: hidden;
         transition: height ${({ theme }) => theme.transitions.durations.normal}ms
           ${({ theme }) => theme.transitions.timings.out};
