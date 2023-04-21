@@ -13,6 +13,8 @@ type CollapseProps = {
   children: ReactNode;
   isOpen: boolean;
   startingHeight: number;
+  //withAnimation
+  //showBlur
 };
 
 export const Collapse: FunctionComponent<CollapseProps> = ({
