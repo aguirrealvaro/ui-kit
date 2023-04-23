@@ -13,8 +13,6 @@ type CollapseProps = {
   children: ReactNode;
   isOpen: boolean;
   startingHeight: number;
-  //withAnimation
-  //showBlur
 };
 
 export const Collapse: FunctionComponent<CollapseProps> = ({
@@ -25,19 +23,19 @@ export const Collapse: FunctionComponent<CollapseProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const [containerHeight, setContainerHeight] = useState<number>(0);
 
-  const handleStates = useCallback(() => {
+  const handleHeight = useCallback(() => {
     if (!containerRef.current) return;
     setContainerHeight(containerRef.current.scrollHeight);
   }, []);
 
   useLayoutEffect(() => {
-    handleStates();
-  }, [handleStates]);
+    handleHeight();
+  }, [handleHeight]);
 
   useEffect(() => {
-    window.addEventListener("resize", handleStates);
-    return () => window.removeEventListener("resize", handleStates);
-  }, [handleStates]);
+    window.addEventListener("resize", handleHeight);
+    return () => window.removeEventListener("resize", handleHeight);
+  }, [handleHeight]);
 
   return (
     <Container
