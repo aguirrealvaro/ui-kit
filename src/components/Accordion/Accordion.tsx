@@ -105,5 +105,4 @@ const Content = styled.div<{ height: number; isOpen: boolean }>`
     ${({ theme }) => theme.transitions.timings.in};
   margin-left: ${({ theme }) => theme.spacing[4]};
   margin-bottom: ${({ isOpen, theme }) => isOpen && theme.spacing[4]};
-  color: ${({ theme }) => theme.assets.textSecondary};
 `;

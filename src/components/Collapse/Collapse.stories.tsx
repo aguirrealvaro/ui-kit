@@ -37,6 +37,16 @@ const Template: ComponentStory<typeof Collapse> = ({ isOpen: _, ...args }) => {
         cum possimus aliquid? Nobis, delectus quam? Lorem ipsum dolor sit amet, consectetur
         adipisicing elit. Impedit totam ea recusandae distinctio tenetur, illo magni asperiores
         assumenda temporibus vitae ipsam ratione sunt voluptate, cum possimus aliquid? Nobis,
+        it. Impedit totam ea recusandae distinctio tenetur, illo magni asperiores assumenda
+        temporibus vitae ipsam ratione sunt voluptate, cum possimus aliquid? Nobis, delectus
+        quam? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit totam ea
+        recusandae distinctio tenetur, illo magni asperiores assumenda temporibus vitae ipsam
+        ratione sunt voluptate, cum possimus aliquid? Nobis, delectus quam? Lorem ipsum dolor
+        sit amet, consectetur adipisicing elit. Impedit totam ea recusandae distinctio tenetur,
+        illo magni asperiores assumenda temporibus vitae ipsam ratione sunt voluptate, cum
+        possimus aliquid? Nobis, delectus quam? Lorem ipsum dolor sit amet, consectetur
+        adipisicing elit. Impedit totam ea recusandae distinctio tenetur, illo magni asperiores
+        assumenda temporibus vitae ipsam ratione sunt voluptate, cum possimus aliquid? Nobis,
       </Collapse>
       <Button onClick={setShowMore.toggle}>Show {showMore ? "Less" : "More"}</Button>
     </div>
