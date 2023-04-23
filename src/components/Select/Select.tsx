@@ -19,7 +19,6 @@ import { useOutsideClick } from "@/hooks";
 
 type SelectProps = {
   id: string;
-  labelId: string;
   label?: ReactNode;
   placeholder: string;
   value: string | undefined;
@@ -38,7 +37,6 @@ type SelectProps = {
 
 export const Select: FunctionComponent<SelectProps> = ({
   id,
-  labelId,
   label,
   placeholder,
   value,
@@ -82,6 +80,8 @@ export const Select: FunctionComponent<SelectProps> = ({
 
   const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
 
+  const labelId = `${id}-label`;
+  const dropdownId = `${id}-dropdown`;
   const errorMessageId = `${id}-error`;
 
   const { focusedIndex, handleKeyDown } = useKeyboardAccesibility({
@@ -135,7 +135,7 @@ export const Select: FunctionComponent<SelectProps> = ({
         size={size}
         onClick={handleDropdown}
         ref={selectRef}
-        aria-controls={id}
+        aria-controls={dropdownId}
         aria-expanded={isOpen}
         aria-haspopup="listbox"
         aria-labelledby={labelId}
@@ -162,7 +162,7 @@ export const Select: FunctionComponent<SelectProps> = ({
           isOpen={isOpen}
           size={size}
           role="listbox"
-          id={id}
+          id={dropdownId}
           aria-labelledby={labelId}
           selectHeight={selectRef.current?.offsetHeight}
         >
