@@ -1,12 +1,4 @@
-import {
-  FunctionComponent,
-  ReactNode,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-  useCallback,
-} from "react";
+import { FunctionComponent, ReactNode, useRef } from "react";
 import styled from "styled-components";
 
 type CollapseProps = {
@@ -21,21 +13,7 @@ export const Collapse: FunctionComponent<CollapseProps> = ({
   startingHeight,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [containerHeight, setContainerHeight] = useState<number>(0);
-
-  const handleHeight = useCallback(() => {
-    if (!containerRef.current) return;
-    setContainerHeight(containerRef.current.scrollHeight);
-  }, []);
-
-  useLayoutEffect(() => {
-    handleHeight();
-  }, [handleHeight]);
-
-  useEffect(() => {
-    window.addEventListener("resize", handleHeight);
-    return () => window.removeEventListener("resize", handleHeight);
-  }, [handleHeight]);
+  const containerHeight = containerRef.current?.scrollHeight || 0;
 
   return (
     <Container

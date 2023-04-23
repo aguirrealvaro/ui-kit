@@ -98,7 +98,7 @@ const ChevronWrapper = styled.div<{ isOpen: boolean; arrowPosition: AccordionArr
 `;
 
 const Content = styled.div<{ height: number; isOpen: boolean }>`
-  max-height: ${({ isOpen, height }) => `${isOpen ? height : 0}px`};
+  height: ${({ isOpen, height }) => `${isOpen ? height : 0}px`};
   opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
   overflow: hidden;
   transition: all ${({ theme }) => theme.transitions.durations.fast}ms
