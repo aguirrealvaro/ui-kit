@@ -79,7 +79,7 @@ export const useKeyboardAccesibility = ({
         if (focusedIndex === -1) {
           setIsOpen(false);
         }
-        // if focusedIndex has a value, and we select it, it will close (L66 Select.tsx)
+        // if focusedIndex has a value, and we select it, it will close (L64 Select.tsx)
       }
     }
 
@@ -113,17 +113,21 @@ export const useKeyboardAccesibility = ({
 
     if (event.key === "Home") {
       if (!isOpen) setIsOpen(true);
-      if (firstIndex !== undefined) {
-        optionsRef.current[firstIndex].focus();
-        setFocusedIndex(firstIndex);
+      else {
+        if (firstIndex !== undefined) {
+          optionsRef.current[firstIndex].focus();
+          setFocusedIndex(firstIndex);
+        }
       }
     }
 
     if (event.key === "End") {
       if (!isOpen) setIsOpen(true);
-      if (lastIndex !== undefined) {
-        optionsRef.current[lastIndex].focus();
-        setFocusedIndex(lastIndex);
+      else {
+        if (lastIndex !== undefined) {
+          optionsRef.current[lastIndex].focus();
+          setFocusedIndex(lastIndex);
+        }
       }
     }
 

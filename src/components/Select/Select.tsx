@@ -139,7 +139,7 @@ export const Select: FunctionComponent<SelectProps> = ({
         aria-expanded={isOpen}
         aria-haspopup="listbox"
         aria-labelledby={labelId}
-        aria-activedescendant={isOpen ? getOptionId(focusedIndex) : undefined}
+        aria-activedescendant={isOpen ? getOptionId(focusedIndex) : ""}
         onKeyDown={handleKeyDown}
         aria-invalid={isError}
         {...(errorMessage && { "aria-errormessage": errorMessageId })}

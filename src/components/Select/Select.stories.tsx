@@ -32,7 +32,6 @@ const Template: ComponentStory<typeof Select> = ({
   options: dummyOptions,
   value: dummyValue,
   onChange: dummyOnChange,
-  selectId: dummySelectId,
   ...rest
 }) => {
   const [option, setOption] = useState<string>("");
@@ -53,7 +52,6 @@ const Template: ComponentStory<typeof Select> = ({
 
   return (
     <Select
-      selectId="select-story"
       value={option}
       clearValue={clearValue}
       onChange={setOption}
@@ -65,6 +63,7 @@ const Template: ComponentStory<typeof Select> = ({
 
 export const Primary = Template.bind({});
 Primary.args = {
+  id: "select-story",
   placeholder: "Placeholder",
   label: "Label:",
   helpText: "Help text",
