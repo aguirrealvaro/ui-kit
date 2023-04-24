@@ -23,10 +23,13 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children, id }) => {
   const getTabItemId = (index: number) => `${id}-${index}`;
   const getTabPanelId = (index: number) => `${getTabItemId(index)}-panel`;
 
-  const handleKeyDown = (event: KeyboardEvent<HTMLButtonElement>, currentIndex: number) => {
+  const handleKeyDown = (event: KeyboardEvent<HTMLUListElement>) => {
+    const currentIndex = tabItemsRef.current.findIndex(
+      (tab) => tab === document.activeElement
+    );
+
     const first = 0;
     const last = tabItemsRef.current.length - 1;
-
     const prev = currentIndex === first ? last : currentIndex - 1;
     const next = currentIndex === last ? first : currentIndex + 1;
 
@@ -39,7 +42,12 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children, id }) => {
 
   return (
     <div>
-      <TabList role="tablist" aria-label="List of Tabs" aria-orientation="horizontal">
+      <TabList
+        role="tablist"
+        aria-label="List of Tabs"
+        aria-orientation="horizontal"
+        onKeyDown={handleKeyDown}
+      >
         {Children.map(children, (child, index) => {
           if (!isValidElement(child)) return;
 
@@ -56,7 +64,6 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children, id }) => {
                 onClick={() => setSelectedTab(index)}
                 aria-selected={isTabSelected}
                 aria-controls={getTabPanelId(index)}
-                onKeyDown={(event) => handleKeyDown(event, index)}
                 ref={(el) => {
                   if (el) {
                     tabItemsRef.current[index] = el;
