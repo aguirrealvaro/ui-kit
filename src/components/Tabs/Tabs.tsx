@@ -18,25 +18,23 @@ type TabsProps = {
 export const Tabs: FunctionComponent<TabsProps> = ({ children, id }) => {
   const [selectedTab, setSelectedTab] = useState<number>(0);
 
-  const tabItemsRef = useRef<HTMLButtonElement[]>([]);
+  const tabsRef = useRef<HTMLButtonElement[]>([]);
 
   const getTabItemId = (index: number) => `${id}-${index}`;
   const getTabPanelId = (index: number) => `${getTabItemId(index)}-panel`;
 
   const handleKeyDown = (event: KeyboardEvent<HTMLUListElement>) => {
-    const currentIndex = tabItemsRef.current.findIndex(
-      (tab) => tab === document.activeElement
-    );
+    const currentIndex = tabsRef.current.findIndex((tab) => tab === document.activeElement);
 
     const first = 0;
-    const last = tabItemsRef.current.length - 1;
+    const last = tabsRef.current.length - 1;
     const prev = currentIndex === first ? last : currentIndex - 1;
     const next = currentIndex === last ? first : currentIndex + 1;
 
     if (event.key === "ArrowLeft") {
-      tabItemsRef.current[prev].focus();
+      tabsRef.current[prev].focus();
     } else if (event.key === "ArrowRight") {
-      tabItemsRef.current[next].focus();
+      tabsRef.current[next].focus();
     }
   };
 
@@ -66,7 +64,7 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children, id }) => {
                 aria-controls={getTabPanelId(index)}
                 ref={(el) => {
                   if (el) {
-                    tabItemsRef.current[index] = el;
+                    tabsRef.current[index] = el;
                   }
                 }}
               >

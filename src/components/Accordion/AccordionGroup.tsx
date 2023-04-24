@@ -5,6 +5,7 @@ import {
   isValidElement,
   useState,
   useRef,
+  KeyboardEvent,
 } from "react";
 import { ChevronDown } from "@styled-icons/fluentui-system-filled/ChevronDown";
 import styled, { css } from "styled-components";
@@ -24,14 +25,32 @@ export const AccordionGroup: FunctionComponent<AccordionGroupProps> = ({
   id,
   arrowPosition = "left",
 }) => {
+  const accordionTriggersRef = useRef<HTMLButtonElement[]>([]);
+  const accordionContentsRef = useRef<HTMLDivElement[]>([]);
+
   const { theme } = useTheme();
 
   const [openedIndex, setOpenedIndex] = useState<number | undefined>(undefined);
 
-  const refs = useRef<HTMLDivElement[]>([]);
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    const currentIndex = accordionTriggersRef.current.findIndex(
+      (accordion) => accordion === document.activeElement
+    );
+
+    const first = 0;
+    const last = accordionTriggersRef.current.length - 1;
+    const prev = currentIndex === first ? last : currentIndex - 1;
+    const next = currentIndex === last ? first : currentIndex + 1;
+
+    if (event.key === "ArrowUp") {
+      accordionTriggersRef.current[prev].focus();
+    } else if (event.key === "ArrowDown") {
+      accordionTriggersRef.current[next].focus();
+    }
+  };
 
   return (
-    <>
+    <div onKeyDown={handleKeyDown}>
       {Children.map(children, (child, index) => {
         if (!isValidElement(child)) return;
 
@@ -44,7 +63,7 @@ export const AccordionGroup: FunctionComponent<AccordionGroupProps> = ({
         const buttonId = `${id}-${index}`;
         const contentId = `${buttonId}-content`;
         const isOpen = openedIndex === index;
-        const height = refs.current[index]?.scrollHeight || 0;
+        const height = accordionContentsRef.current[index]?.scrollHeight || 0;
 
         const toggle = () => {
           if (isOpen) {
@@ -64,6 +83,11 @@ export const AccordionGroup: FunctionComponent<AccordionGroupProps> = ({
               aria-expanded={isOpen}
               aria-controls={contentId}
               id={buttonId}
+              ref={(el) => {
+                if (el) {
+                  accordionTriggersRef.current[index] = el;
+                }
+              }}
             >
               <Trigger arrowPosition={arrowPosition}>{trigger}</Trigger>
               <ChevronWrapper isOpen={isOpen} arrowPosition={arrowPosition}>
@@ -80,7 +104,7 @@ export const AccordionGroup: FunctionComponent<AccordionGroupProps> = ({
               aria-labelledby={buttonId}
               ref={(el) => {
                 if (el) {
-                  refs.current[index] = el;
+                  accordionContentsRef.current[index] = el;
                 }
               }}
               height={height}
@@ -91,7 +115,7 @@ export const AccordionGroup: FunctionComponent<AccordionGroupProps> = ({
           </Container>
         );
       })}
-    </>
+    </div>
   );
 };
 
