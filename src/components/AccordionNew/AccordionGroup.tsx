@@ -33,12 +33,16 @@ export const AccordionGroupNew: FunctionComponent<AccordionGroupNewProps> = ({
       {Children.map(children, (child, index) => {
         if (!isValidElement(child)) return;
 
-        const { trigger, disabled } = child.props as AccordionItemProps;
+        const {
+          trigger,
+          disabled,
+          children: itemChildren,
+        } = child.props as AccordionItemProps;
 
         const buttonId = `accordion-${index}`;
         const contentId = `accordion-content-${index}`;
         const isOpen = openedIndex === index;
-        const height = refs.current[index].scrollHeight || 0;
+        const height = refs.current[index]?.scrollHeight || 0;
 
         const toggle = () => {
           if (isOpen) {
@@ -49,7 +53,7 @@ export const AccordionGroupNew: FunctionComponent<AccordionGroupNewProps> = ({
         };
 
         return (
-          <div>
+          <Container>
             <Button
               type="button"
               onClick={toggle}
@@ -72,20 +76,29 @@ export const AccordionGroupNew: FunctionComponent<AccordionGroupNewProps> = ({
               role="region"
               id={contentId}
               aria-labelledby={buttonId}
-              ref={(el: HTMLDivElement) => {
-                refs.current[index] = el;
+              ref={(el) => {
+                if (el) {
+                  refs.current[index] = el;
+                }
               }}
               height={height}
               isOpen={isOpen}
             >
-              {children}
+              {itemChildren}
             </Content>
-          </div>
+          </Container>
         );
       })}
     </>
   );
 };
+
+const Container = styled.div`
+  border-bottom: 1px solid ${({ theme }) => theme.assets.border};
+  &:last-child {
+    border-bottom: none;
+  }
+`;
 
 const Button = styled.button<{ arrowPosition: AccordionArrowPosition }>`
   display: flex;
