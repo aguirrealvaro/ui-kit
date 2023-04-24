@@ -8,7 +8,7 @@ export default {
 
 const Template: ComponentStory<typeof TabGroup> = (args) => {
   return (
-    <TabGroup {...args}>
+    <TabGroup heading={<h3>List of tabs</h3>} {...args}>
       <TabItem trigger="Title 1">Panel 1</TabItem>
       <TabItem trigger="Title 2">Panel 2</TabItem>
       <TabItem trigger="Title 3">Panel 3</TabItem>

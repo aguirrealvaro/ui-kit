@@ -6,6 +6,8 @@ import {
   isValidElement,
   KeyboardEvent,
   useRef,
+  ReactElement,
+  cloneElement,
 } from "react";
 import styled, { css } from "styled-components";
 import { TabItemProps } from "./TabItem";
@@ -13,13 +15,15 @@ import { TabItemProps } from "./TabItem";
 type TabGroupProps = {
   children: ReactNode;
   id: string;
+  heading?: ReactNode;
 };
 
-export const TabGroup: FunctionComponent<TabGroupProps> = ({ children, id }) => {
+export const TabGroup: FunctionComponent<TabGroupProps> = ({ children, id, heading }) => {
   const [selectedTab, setSelectedTab] = useState<number>(0);
 
   const tabsRef = useRef<HTMLButtonElement[]>([]);
 
+  const headingId = `${id}-heading`;
   const getTabItemId = (index: number) => `${id}-${index}`;
   const getTabPanelId = (index: number) => `${getTabItemId(index)}-panel`;
 
@@ -48,13 +52,19 @@ export const TabGroup: FunctionComponent<TabGroupProps> = ({ children, id }) => 
     }
   };
 
+  const headingComponent = (() => {
+    if (!isValidElement(heading)) return null;
+    return cloneElement(heading as ReactElement, { id: headingId });
+  })();
+
   return (
     <div>
+      {headingComponent}
       <TabList
         role="tablist"
-        aria-label="List of Tabs"
         aria-orientation="horizontal"
         onKeyDown={handleKeyDown}
+        aria-labelledby={headingId}
       >
         {Children.map(children, (child, index) => {
           if (!isValidElement(child)) return;
