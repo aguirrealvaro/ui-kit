@@ -13,14 +13,16 @@ import { AccordionItemProps } from "./AccordionItem";
 import { Icon } from "@/components";
 import { useTheme } from "@/hooks";
 
-type AccordionGroupNewProps = {
+type AccordionGroupProps = {
   children: ReactNode;
-  arrowPosition: AccordionArrowPosition;
+  id: string;
+  arrowPosition?: AccordionArrowPosition;
 };
 
-export const AccordionGroupNew: FunctionComponent<AccordionGroupNewProps> = ({
+export const AccordionGroup: FunctionComponent<AccordionGroupProps> = ({
   children,
-  arrowPosition,
+  id,
+  arrowPosition = "left",
 }) => {
   const { theme } = useTheme();
 
@@ -39,8 +41,8 @@ export const AccordionGroupNew: FunctionComponent<AccordionGroupNewProps> = ({
           children: itemChildren,
         } = child.props as AccordionItemProps;
 
-        const buttonId = `accordion-${index}`;
-        const contentId = `accordion-content-${index}`;
+        const buttonId = `accordion-${id}-${index}`;
+        const contentId = `${buttonId}-content`;
         const isOpen = openedIndex === index;
         const height = refs.current[index]?.scrollHeight || 0;
 
@@ -63,7 +65,7 @@ export const AccordionGroupNew: FunctionComponent<AccordionGroupNewProps> = ({
               aria-controls={contentId}
               id={buttonId}
             >
-              <Title arrowPosition={arrowPosition}>{trigger}</Title>
+              <Trigger arrowPosition={arrowPosition}>{trigger}</Trigger>
               <ChevronWrapper isOpen={isOpen} arrowPosition={arrowPosition}>
                 <Icon
                   icon={ChevronDown}
@@ -122,7 +124,7 @@ const Button = styled.button<{ arrowPosition: AccordionArrowPosition }>`
   }
 `;
 
-const Title = styled.div<{ arrowPosition: AccordionArrowPosition }>`
+const Trigger = styled.div<{ arrowPosition: AccordionArrowPosition }>`
   order: ${({ arrowPosition }) => (arrowPosition === "right" ? 1 : 2)};
 `;
 

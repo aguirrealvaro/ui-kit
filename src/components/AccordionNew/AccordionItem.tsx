@@ -6,6 +6,6 @@ export type AccordionItemProps = {
   disabled?: boolean;
 };
 
-export const AccordionItemNew: FunctionComponent<AccordionItemProps> = () => {
+export const AccordionItem: FunctionComponent<AccordionItemProps> = () => {
   return <></>;
 };

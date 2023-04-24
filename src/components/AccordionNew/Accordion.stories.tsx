@@ -1,39 +1,43 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { AccordionItemNew, AccordionGroupNew } from "@/components";
+import { AccordionItem, AccordionGroup } from "@/components";
 
 export default {
   title: "Components/AccordionGroupNew",
-  component: AccordionGroupNew,
+  component: AccordionGroup,
   argTypes: {
     title: {
       control: "text",
     },
   },
-} as ComponentMeta<typeof AccordionGroupNew>;
+} as ComponentMeta<typeof AccordionGroup>;
 
-const Template: ComponentStory<typeof AccordionGroupNew> = (args) => {
+const Template: ComponentStory<typeof AccordionGroup> = (args) => {
   return (
-    <AccordionGroupNew {...args}>
-      <AccordionItemNew trigger="This is an Accordion one">
+    <AccordionGroup {...args}>
+      <AccordionItem trigger="This is an Accordion one">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique non, rem fugiat
+        officiis, quas doloremque vel architecto ullam harum tempore accusamus libero sequi
+        rerum aspernatur amet tempora, cumque veniam. Magni! Lorem ipsum, dolor sit amet
+        consectetur adipisicing elit. Similique non, rem fugiat officiis, quas doloremque vel
+        architecto ullam harum tempore accusamus libero sequi rerum aspernatur amet tempora,
+        cumque veniam. Magni!
+      </AccordionItem>
+      <AccordionItem trigger="Trigger two">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique non, rem fugiat
         officiis, quas doloremque vel architecto ullam harum tempore accusamus libero sequi
         rerum aspernatur amet tempora, cumque veniam. Magni!
-      </AccordionItemNew>
-      <AccordionItemNew trigger="Trigger two">
+      </AccordionItem>
+      <AccordionItem trigger="Trigger three">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique non, rem fugiat
         officiis, quas doloremque vel architecto ullam harum tempore accusamus libero sequi
         rerum aspernatur amet tempora, cumque veniam. Magni!
-      </AccordionItemNew>
-      <AccordionItemNew trigger="Trigger three">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique non, rem fugiat
-        officiis, quas doloremque vel architecto ullam harum tempore accusamus libero sequi
-        rerum aspernatur amet tempora, cumque veniam. Magni!
-      </AccordionItemNew>
-    </AccordionGroupNew>
+      </AccordionItem>
+    </AccordionGroup>
   );
 };
 
 export const Primary = Template.bind({});
 Primary.args = {
+  id: "story",
   arrowPosition: "right",
 };

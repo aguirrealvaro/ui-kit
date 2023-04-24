@@ -1,2 +1,2 @@
-export { AccordionItemNew } from "./AccordionItem";
-export { AccordionGroupNew } from "./AccordionGroup";
+export { AccordionItem } from "./AccordionItem";
+export { AccordionGroup } from "./AccordionGroup";
