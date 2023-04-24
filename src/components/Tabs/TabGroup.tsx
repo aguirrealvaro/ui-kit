@@ -15,15 +15,15 @@ import { TabItemProps } from "./TabItem";
 type TabGroupProps = {
   children: ReactNode;
   id: string;
-  heading?: ReactNode;
+  label?: ReactNode;
 };
 
-export const TabGroup: FunctionComponent<TabGroupProps> = ({ children, id, heading }) => {
+export const TabGroup: FunctionComponent<TabGroupProps> = ({ children, id, label }) => {
   const [selectedTab, setSelectedTab] = useState<number>(0);
 
   const tabsRef = useRef<HTMLButtonElement[]>([]);
 
-  const headingId = `${id}-heading`;
+  const headingId = `${id}-label`;
   const getTabItemId = (index: number) => `${id}-${index}`;
   const getTabPanelId = (index: number) => `${getTabItemId(index)}-panel`;
 
@@ -53,8 +53,8 @@ export const TabGroup: FunctionComponent<TabGroupProps> = ({ children, id, headi
   };
 
   const headingComponent = (() => {
-    if (!isValidElement(heading)) return null;
-    return cloneElement(heading as ReactElement, { id: headingId });
+    if (!isValidElement(label)) return null;
+    return cloneElement(label as ReactElement, { id: headingId });
   })();
 
   return (
