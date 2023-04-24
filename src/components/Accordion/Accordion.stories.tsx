@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { AccordionItem, AccordionGroup } from "@/components";
 
 export default {
-  title: "Components/AccordionGroupNew",
+  title: "Components/Accordion",
   component: AccordionGroup,
   argTypes: {
     title: {
