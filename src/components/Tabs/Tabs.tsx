@@ -83,7 +83,7 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children, id }) => {
                 aria-controls={getTabPanelId(index)}
                 tabIndex={isTabSelected ? 0 : -1}
                 ref={(el) => {
-                  if (tabItemsRef.current && el) {
+                  if (el) {
                     tabItemsRef.current[index] = el;
                   }
                 }}
