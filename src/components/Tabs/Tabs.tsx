@@ -33,8 +33,18 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children, id }) => {
 
     if (event.key === "ArrowLeft") {
       tabsRef.current[prev].focus();
-    } else if (event.key === "ArrowRight") {
+    }
+
+    if (event.key === "ArrowRight") {
       tabsRef.current[next].focus();
+    }
+
+    if (event.key === "Home") {
+      tabsRef.current[first].focus();
+    }
+
+    if (event.key === "End") {
+      tabsRef.current[last].focus();
     }
   };
 
