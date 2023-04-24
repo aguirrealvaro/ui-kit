@@ -1,22 +1,22 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Tabs, Tab } from "@/components";
+import { TabGroup, TabItem } from "@/components";
 
 export default {
   title: "Components/Tabs",
-  component: Tabs,
-} as ComponentMeta<typeof Tabs>;
+  component: TabGroup,
+} as ComponentMeta<typeof TabGroup>;
 
-const Template: ComponentStory<typeof Tabs> = (args) => {
+const Template: ComponentStory<typeof TabGroup> = (args) => {
   return (
-    <Tabs {...args}>
-      <Tab title="Title 1">Panel 1</Tab>
-      <Tab title="Title 2">Panel 2</Tab>
-      <Tab title="Title 3">Panel 3</Tab>
-      <Tab title="Title 4">Panel 4</Tab>
-      <Tab title="Title 5">Panel 5</Tab>
-      <Tab title="Title 6">Panel 6</Tab>
-      <Tab title="Title 7">Panel 7</Tab>
-    </Tabs>
+    <TabGroup {...args}>
+      <TabItem title="Title 1">Panel 1</TabItem>
+      <TabItem title="Title 2">Panel 2</TabItem>
+      <TabItem title="Title 3">Panel 3</TabItem>
+      <TabItem title="Title 4">Panel 4</TabItem>
+      <TabItem title="Title 5">Panel 5</TabItem>
+      <TabItem title="Title 6">Panel 6</TabItem>
+      <TabItem title="Title 7">Panel 7</TabItem>
+    </TabGroup>
   );
 };
 

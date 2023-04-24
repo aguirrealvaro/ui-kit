@@ -1,2 +1,2 @@
-export { Tabs } from "./Tabs";
-export { Tab } from "./Tab";
+export { TabGroup } from "./TabGroup";
+export { TabItem } from "./TabItem";

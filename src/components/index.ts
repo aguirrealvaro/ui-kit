@@ -19,7 +19,7 @@ export { Badge } from "./Badge";
 export { BreadcrumbGroup, Breadcrumb } from "./Breadcrumbs";
 export { Avatar, AvatarGroup } from "./Avatar";
 export { Table } from "./Table";
-export { Tabs, Tab } from "./Tabs";
+export { TabGroup, TabItem } from "./Tabs";
 export { List, ListItem } from "./List";
 export { Popover } from "./Popover";
 export { ModalConfirm } from "./ModalConfirm";

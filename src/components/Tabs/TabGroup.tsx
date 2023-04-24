@@ -8,14 +8,14 @@ import {
   useRef,
 } from "react";
 import styled, { css } from "styled-components";
-import { TabProps } from "./Tab";
+import { TabItemProps } from "./TabItem";
 
-type TabsProps = {
+type TabGroupProps = {
   children: ReactNode;
   id: string;
 };
 
-export const Tabs: FunctionComponent<TabsProps> = ({ children, id }) => {
+export const TabGroup: FunctionComponent<TabGroupProps> = ({ children, id }) => {
   const [selectedTab, setSelectedTab] = useState<number>(0);
 
   const tabsRef = useRef<HTMLButtonElement[]>([]);
@@ -59,7 +59,7 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children, id }) => {
         {Children.map(children, (child, index) => {
           if (!isValidElement(child)) return;
 
-          const { title } = child.props as TabProps;
+          const { title } = child.props as TabItemProps;
           const isTabSelected = selectedTab === index;
 
           return (
@@ -88,7 +88,7 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children, id }) => {
         {Children.map(children, (child, index) => {
           if (!isValidElement(child)) return;
 
-          const { children } = child.props as TabProps;
+          const { children } = child.props as TabItemProps;
 
           //if (selectedTab !== index) return null; // replaced with hidden
 

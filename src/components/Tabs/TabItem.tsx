@@ -1,10 +1,10 @@
 import { FunctionComponent, ReactNode } from "react";
 
-export type TabProps = {
+export type TabItemProps = {
   children: ReactNode;
   title: ReactNode;
 };
 
-export const Tab: FunctionComponent<TabProps> = () => {
+export const TabItem: FunctionComponent<TabItemProps> = () => {
   return <></>;
 };
