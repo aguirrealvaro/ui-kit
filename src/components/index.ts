@@ -16,7 +16,7 @@ export { Layout } from "./Layout";
 export { Collapse } from "./Collapse";
 export { Alert } from "./Alert";
 export { Badge } from "./Badge";
-export { BreadcrumbGroup, Breadcrumb } from "./Breadcrumbs";
+export { BreadcrumbGroup, BreadcrumbItem } from "./Breadcrumbs";
 export { Avatar, AvatarGroup } from "./Avatar";
 export { Table } from "./Table";
 export { TabGroup, TabItem } from "./Tabs";

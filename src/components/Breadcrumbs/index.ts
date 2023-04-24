@@ -1,2 +1,2 @@
 export { BreadcrumbGroup } from "./BreadcrumbGroup";
-export { Breadcrumb } from "./Breadcrumb";
+export { BreadcrumbItem } from "./BreadcrumbItem";

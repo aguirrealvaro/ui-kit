@@ -63,6 +63,7 @@ export const TabGroup: FunctionComponent<TabGroupProps> = ({ children, id, label
       <TabList
         role="tablist"
         aria-orientation="horizontal"
+        aria-label="List of Tabs"
         onKeyDown={handleKeyDown}
         aria-labelledby={headingId}
       >

@@ -1,17 +1,17 @@
 import { AnchorHTMLAttributes, FunctionComponent } from "react";
 import { Link, LinkProps } from "@/components/Link";
 
-export type BreadcrumbProps = {
+export type BreadcrumbItemProps = {
   isCurrentPage?: boolean;
 } & LinkProps &
   AnchorHTMLAttributes<HTMLAnchorElement>;
 
-export const Breadcrumb: FunctionComponent<BreadcrumbProps> = ({
+export const BreadcrumbItem: FunctionComponent<BreadcrumbItemProps> = ({
   children,
   isCurrentPage = false,
   ...restProps
 }) => {
-  if (isCurrentPage) return <span>{children}</span>;
+  if (isCurrentPage) return <span aria-current="page">{children}</span>;
 
   return <Link {...restProps}>{children}</Link>;
 };

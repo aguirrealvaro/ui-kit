@@ -9,7 +9,7 @@ type BreadcrumbGroupProps = {
 
 export const BreadcrumbGroup: FunctionComponent<BreadcrumbGroupProps> = ({ children }) => {
   return (
-    <nav>
+    <nav aria-label="Breadcrumb">
       <List>
         {Children.map(children, (child, index) => {
           const count = Children.count(children);

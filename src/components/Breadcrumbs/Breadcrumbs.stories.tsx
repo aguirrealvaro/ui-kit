@@ -1,17 +1,17 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { BreadcrumbGroup, Breadcrumb } from "@/components";
+import { BreadcrumbGroup, BreadcrumbItem } from "@/components";
 
 export default {
   title: "Components/Breadcrumb",
-  component: Breadcrumb,
-} as ComponentMeta<typeof Breadcrumb>;
+  component: BreadcrumbGroup,
+} as ComponentMeta<typeof BreadcrumbGroup>;
 
-const Template: ComponentStory<typeof Breadcrumb> = () => {
+const Template: ComponentStory<typeof BreadcrumbGroup> = () => {
   return (
     <BreadcrumbGroup>
-      <Breadcrumb href="#parent">Parent Page</Breadcrumb>
-      <Breadcrumb href="#sub">Sub-Parent Page</Breadcrumb>
-      <Breadcrumb isCurrentPage>Current page</Breadcrumb>
+      <BreadcrumbItem href="#parent">Parent Page</BreadcrumbItem>
+      <BreadcrumbItem href="#sub">Sub-Parent Page</BreadcrumbItem>
+      <BreadcrumbItem isCurrentPage>Current page</BreadcrumbItem>
     </BreadcrumbGroup>
   );
 };
