@@ -6,7 +6,6 @@ import {
   isValidElement,
   KeyboardEvent,
   useRef,
-  useEffect,
 } from "react";
 import styled, { css } from "styled-components";
 import { TabProps } from "./Tab";
@@ -24,47 +23,23 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children, id }) => {
   const getTabItemId = (index: number) => `${id}-${index}`;
   const getTabPanelId = (index: number) => `${getTabItemId(index)}-panel`;
 
-  const [focusedIndex, setFocusedIndex] = useState<number>(selectedTab);
-
-  useEffect(() => {
-    setFocusedIndex(selectedTab);
-  }, [selectedTab]);
-
-  const handleKeyDown = (event: KeyboardEvent<HTMLUListElement>) => {
+  const handleKeyDown = (event: KeyboardEvent<HTMLButtonElement>, currentIndex: number) => {
     const first = 0;
-    const last = Children.count(children) - 1;
-    const next = focusedIndex === last ? first : focusedIndex + 1;
-    const prev = focusedIndex === first ? last : focusedIndex - 1;
+    const last = tabItemsRef.current.length - 1;
+
+    const prev = currentIndex === first ? last : currentIndex - 1;
+    const next = currentIndex === last ? first : currentIndex + 1;
 
     if (event.key === "ArrowLeft") {
-      tabItemsRef.current[prev]?.focus();
-      setFocusedIndex(prev);
-    }
-
-    if (event.key === "ArrowRight") {
-      tabItemsRef.current[next]?.focus();
-      setFocusedIndex(next);
-    }
-
-    if (event.key === "Home") {
-      tabItemsRef.current[first]?.focus();
-      setFocusedIndex(first);
-    }
-
-    if (event.key === "End") {
-      tabItemsRef.current[last]?.focus();
-      setFocusedIndex(last);
+      tabItemsRef.current[prev].focus();
+    } else if (event.key === "ArrowRight") {
+      tabItemsRef.current[next].focus();
     }
   };
 
   return (
     <div>
-      <TabList
-        role="tablist"
-        aria-label="List of Tabs"
-        aria-orientation="horizontal"
-        onKeyDown={handleKeyDown}
-      >
+      <TabList role="tablist" aria-label="List of Tabs" aria-orientation="horizontal">
         {Children.map(children, (child, index) => {
           if (!isValidElement(child)) return;
 
@@ -81,7 +56,7 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children, id }) => {
                 onClick={() => setSelectedTab(index)}
                 aria-selected={isTabSelected}
                 aria-controls={getTabPanelId(index)}
-                tabIndex={isTabSelected ? 0 : -1}
+                onKeyDown={(event) => handleKeyDown(event, index)}
                 ref={(el) => {
                   if (el) {
                     tabItemsRef.current[index] = el;
