@@ -21,5 +21,5 @@ const Template: ComponentStory<typeof RadioGroup> = ({ onChange: _, value: __, .
 
 export const Primary = Template.bind({});
 Primary.args = {
-  radioGroupId: "radiogroup-story",
+  id: "radiogroup-story",
 };

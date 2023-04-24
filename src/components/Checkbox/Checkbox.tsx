@@ -9,7 +9,7 @@ import { useTheme } from "@/hooks";
 
 type CheckboxProps = {
   children: ReactNode;
-  checkboxId: string;
+  id: string;
   checked: boolean;
   onChange: () => void;
   color?: string;
@@ -22,11 +22,11 @@ export const Checkbox: FunctionComponent<
   CheckboxProps & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "size" | "onChange">
 > = ({
   children,
+  id,
   checked,
   onChange,
   disabled = false,
   color,
-  checkboxId,
   size = "md",
   helpText,
   position = "left",
@@ -45,7 +45,7 @@ export const Checkbox: FunctionComponent<
   const icon = checked ? CheckCircle : RadioButtonUnchecked;
   const iconColor = color || theme.assets.primary;
 
-  const labelId = `${checkboxId}-label`;
+  const labelId = `${id}-label`;
 
   return (
     <Container position={position}>
@@ -54,7 +54,7 @@ export const Checkbox: FunctionComponent<
         role="checkbox"
         onClick={onChange}
         aria-checked={checked}
-        id={checkboxId}
+        id={id}
         aria-labelledby={labelId}
         disabled={disabled}
         position={position}
@@ -66,7 +66,7 @@ export const Checkbox: FunctionComponent<
           size={iconSize}
         />
       </CheckboxButton>
-      <LabelContainer id={labelId} htmlFor={checkboxId} position={position}>
+      <LabelContainer id={labelId} htmlFor={id} position={position}>
         <Children size={size}>{children}</Children>
         {helpText && <HelpText size={size}>{helpText}</HelpText>}
       </LabelContainer>

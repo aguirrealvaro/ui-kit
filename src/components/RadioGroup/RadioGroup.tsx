@@ -17,7 +17,7 @@ import { useTheme } from "@/hooks";
 
 type RadioGroupProps = {
   children: ReactNode;
-  radioGroupId: string;
+  id: string;
   value: string | undefined;
   onChange: Dispatch<SetStateAction<string | undefined>>;
   size?: RadioSizeType;
@@ -27,7 +27,7 @@ type RadioGroupProps = {
 
 export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
   children,
-  radioGroupId,
+  id,
   value,
   onChange,
   size = "md",
@@ -44,8 +44,8 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
 
   const radioSize = sizes[size];
 
-  const getRadioItemId = (index: number) => `${radioGroupId}-${index}`;
-  const getLabelId = (index: number) => `${radioGroupId}-label-${index}`;
+  const getRadioItemId = (index: number) => `${id}-${index}`;
+  const getRadioLabelId = (index: number) => `${getRadioItemId(index)}-label`;
 
   const iconColor = color || theme.assets.primary;
 
@@ -91,7 +91,7 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
               type="button"
               id={getRadioItemId(index)}
               aria-checked={isChecked}
-              aria-labelledby={getLabelId(index)}
+              aria-labelledby={getRadioLabelId(index)}
               onClick={() => onChange(itemValue)}
               disabled={disabled}
               position={position}
@@ -104,7 +104,7 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
             </RadioButton>
             <LabelContainer
               htmlFor={getRadioItemId(index)}
-              id={getLabelId(index)}
+              id={getRadioLabelId(index)}
               position={position}
             >
               <StyledChildren size={size}>{children}</StyledChildren>

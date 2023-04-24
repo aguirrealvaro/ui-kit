@@ -41,7 +41,7 @@ export const AccordionGroup: FunctionComponent<AccordionGroupProps> = ({
           children: itemChildren,
         } = child.props as AccordionItemProps;
 
-        const buttonId = `accordion-${id}-${index}`;
+        const buttonId = `${id}-${index}`;
         const contentId = `${buttonId}-content`;
         const isOpen = openedIndex === index;
         const height = refs.current[index]?.scrollHeight || 0;

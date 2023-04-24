@@ -21,4 +21,6 @@ const Template: ComponentStory<typeof Tabs> = (args) => {
 };
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  id: "tabs-story",
+};

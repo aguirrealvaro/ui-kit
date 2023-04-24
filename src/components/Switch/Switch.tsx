@@ -6,7 +6,7 @@ import { useTheme } from "@/hooks";
 
 type SwitchProps = {
   children: ReactNode;
-  switchId: string;
+  id: string;
   checked: boolean;
   onChange: () => void;
   color?: string;
@@ -23,7 +23,7 @@ export const Switch: FunctionComponent<
   onChange,
   disabled = false,
   color,
-  switchId,
+  id,
   size = "md",
   helpText,
   position = "left",
@@ -31,7 +31,7 @@ export const Switch: FunctionComponent<
 }) => {
   const { theme } = useTheme();
 
-  const labelId = `${switchId}-label`;
+  const labelId = `${id}-label`;
 
   return (
     <Container position={position}>
@@ -40,7 +40,7 @@ export const Switch: FunctionComponent<
         role="switch"
         onClick={onChange}
         aria-checked={checked}
-        id={switchId}
+        id={id}
         aria-labelledby={labelId}
         disabled={disabled}
         position={position}
@@ -57,7 +57,7 @@ export const Switch: FunctionComponent<
           </Pill>
         </Wrapper>
       </SwitchButton>
-      <LabelContainer id={labelId} htmlFor={switchId} position={position}>
+      <LabelContainer id={labelId} htmlFor={id} position={position}>
         <Children size={size}>{children}</Children>
         {helpText && <HelpText size={size}>{helpText}</HelpText>}
       </LabelContainer>

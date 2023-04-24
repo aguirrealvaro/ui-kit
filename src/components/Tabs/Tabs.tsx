@@ -13,15 +13,16 @@ import { TabProps } from "./Tab";
 
 type TabsProps = {
   children: ReactNode;
+  id: string;
 };
 
-export const Tabs: FunctionComponent<TabsProps> = ({ children }) => {
+export const Tabs: FunctionComponent<TabsProps> = ({ children, id }) => {
   const [selectedTab, setSelectedTab] = useState<number>(0);
 
   const tabItemsRef = useRef<HTMLButtonElement[]>([]);
 
-  const getTabItemId = (index: number) => `tabitem-${index}`;
-  const getTabPanelId = (index: number) => `tabpanel-${index}`;
+  const getTabItemId = (index: number) => `${id}-${index}`;
+  const getTabPanelId = (index: number) => `${getTabItemId(index)}-panel`;
 
   const [focusedIndex, setFocusedIndex] = useState<number>(selectedTab);
 
