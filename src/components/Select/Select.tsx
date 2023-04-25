@@ -12,7 +12,7 @@ import {
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import { ChevronDown } from "@styled-icons/fluentui-system-filled/ChevronDown";
 import styled, { css } from "styled-components";
-import { useKeyboardAccesibility } from "./hooks";
+import { useKeyboardInteractions } from "./hooks";
 import { SelectFieldType, SelectSizeType } from "./Select.types";
 import { Spinner, Icon, IconButton } from "@/components";
 import { useOutsideClick } from "@/hooks";
@@ -84,7 +84,7 @@ export const Select: FunctionComponent<SelectProps> = ({
   const dropdownId = `${id}-dropdown`;
   const errorMessageId = `${id}-error`;
 
-  const { focusedIndex, handleKeyDown } = useKeyboardAccesibility({
+  const { focusedIndex, handleKeyDown } = useKeyboardInteractions({
     isOpen,
     setIsOpen,
     options,

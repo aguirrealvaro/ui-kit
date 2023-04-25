@@ -12,7 +12,6 @@
 
 ### To do
 
-- Select refactor onKeyDown
 - Review theme
 - Navbar, DropdownMenu
 - DatePicker, TimePicker

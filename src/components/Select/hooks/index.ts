@@ -1,1 +1,1 @@
-export { useKeyboardAccesibility } from "./useKeyboardAccesibility";
+export { useKeyboardInteractions } from "./useKeyboardInteractions";

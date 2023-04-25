@@ -2,7 +2,7 @@ import { useState, useEffect, RefObject, KeyboardEvent, MutableRefObject } from 
 import { SelectFieldType } from "../Select.types";
 import { useDebounce, useIsFirstRender } from "@/hooks";
 
-type UseKeyboardAccesibilityParams = {
+type UseKeyboardInteractionsParams = {
   isOpen: boolean;
   setIsOpen: (flag: boolean) => void;
   options: SelectFieldType[];
@@ -12,12 +12,12 @@ type UseKeyboardAccesibilityParams = {
   optionsRef: MutableRefObject<HTMLButtonElement[]>;
 };
 
-type UseKeyboardAccesibilityReturn = {
+type UseKeyboardInteractionsReturn = {
   focusedIndex: number | undefined;
   handleKeyDown: (event: KeyboardEvent) => void;
 };
 
-export const useKeyboardAccesibility = ({
+export const useKeyboardInteractions = ({
   isOpen,
   setIsOpen,
   options,
@@ -25,7 +25,7 @@ export const useKeyboardAccesibility = ({
   clearValue,
   selectRef,
   optionsRef,
-}: UseKeyboardAccesibilityParams): UseKeyboardAccesibilityReturn => {
+}: UseKeyboardInteractionsParams): UseKeyboardInteractionsReturn => {
   const [focusedIndex, setFocusedIndex] = useState<number>(-1);
   const [search, setSearch] = useState<string | undefined>(undefined);
 
@@ -39,7 +39,7 @@ export const useKeyboardAccesibility = ({
       // after closing dropdown, keep focusing select
       selectRef.current?.focus();
 
-      // set focus on the selected index
+      // after closing dropdown, set focus on the selected index
       setFocusedIndex(selectedIndex);
     }
   }, [isFirstRender, isOpen, selectRef, selectedIndex]);
@@ -52,12 +52,8 @@ export const useKeyboardAccesibility = ({
 
   const firstIndex = enabledIndexs[0];
   const lastIndex = enabledIndexs[enabledIndexs.length - 1];
-
-  const nextIndex =
-    enabledIndexs[enabledIndexs.findIndex((option) => option === focusedIndex) + 1];
-
-  const prevIndex =
-    enabledIndexs[enabledIndexs.findIndex((option) => option === focusedIndex) - 1];
+  const prev = enabledIndexs[enabledIndexs.findIndex((option) => option === focusedIndex) - 1];
+  const next = enabledIndexs[enabledIndexs.findIndex((option) => option === focusedIndex) + 1];
 
   const handleKeyDown = (event: KeyboardEvent) => {
     if (event.key === "Tab" && isOpen) {
@@ -79,7 +75,7 @@ export const useKeyboardAccesibility = ({
         if (focusedIndex === -1) {
           setIsOpen(false);
         }
-        // if focusedIndex has a value, and we select it, it will close (L64 Select.tsx)
+        // if focusedIndex has a value, and we select it, it will close (First useEffect of Select.tsx)
       }
     }
 
@@ -91,10 +87,10 @@ export const useKeyboardAccesibility = ({
       if (!isOpen) {
         setIsOpen(true);
       } else {
-        if (nextIndex !== undefined) {
+        if (next !== undefined) {
           event.preventDefault();
-          optionsRef.current[nextIndex].focus();
-          setFocusedIndex(nextIndex);
+          optionsRef.current[next].focus();
+          setFocusedIndex(next);
         }
       }
     }
@@ -103,10 +99,10 @@ export const useKeyboardAccesibility = ({
       if (!isOpen) {
         setIsOpen(true);
       } else {
-        if (prevIndex !== undefined) {
+        if (prev !== undefined) {
           event.preventDefault();
-          optionsRef.current[prevIndex].focus();
-          setFocusedIndex(prevIndex);
+          optionsRef.current[prev].focus();
+          setFocusedIndex(prev);
         }
       }
     }
