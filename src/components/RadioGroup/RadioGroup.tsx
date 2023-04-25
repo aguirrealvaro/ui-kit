@@ -7,6 +7,8 @@ import {
   SetStateAction,
   cloneElement,
   ReactElement,
+  KeyboardEvent,
+  useRef,
 } from "react";
 import { RadioCircle } from "@styled-icons/boxicons-regular/RadioCircle";
 import { RadioCircleMarked } from "@styled-icons/boxicons-regular/RadioCircleMarked";
@@ -39,6 +41,8 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
   label,
 }) => {
   const { theme } = useTheme();
+
+  const radiosRef = useRef<HTMLButtonElement[]>([]);
 
   const sizes: Record<RadioSizeType, string> = {
     sm: theme.spacing[6],
@@ -74,12 +78,30 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
     return cloneElement(label as ReactElement, { id: labelId });
   })();
 
+  const handleKeyDown = (event: KeyboardEvent<HTMLUListElement>) => {
+    const currentIndex = radiosRef.current.findIndex((tab) => tab === document.activeElement);
+
+    const first = 0;
+    const last = radiosRef.current.length - 1;
+    const prev = currentIndex === first ? last : currentIndex - 1;
+    const next = currentIndex === last ? first : currentIndex + 1;
+
+    if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+      radiosRef.current[prev].focus();
+    }
+
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+      radiosRef.current[next].focus();
+    }
+  };
+
   return (
     <>
       {labelComponent}
       <UList
         role="radiogroup"
         aria-labelledby={labelId}
+        onKeyDown={handleKeyDown}
         {...(enabledItemId !== undefined && {
           "aria-activedescendant": getRadioItemId(enabledItemId),
         })}
@@ -108,6 +130,11 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
                 onClick={() => onChange(itemValue)}
                 disabled={disabled}
                 position={position}
+                ref={(el) => {
+                  if (el) {
+                    radiosRef.current[index] = el;
+                  }
+                }}
               >
                 <Icon
                   icon={icon}
