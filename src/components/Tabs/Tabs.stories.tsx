@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import styled from "styled-components";
 import { TabGroup, TabItem } from "@/components";
 
 export default {
@@ -9,7 +8,7 @@ export default {
 
 const Template: ComponentStory<typeof TabGroup> = (args) => {
   return (
-    <TabGroup label={<LabelHeading>Tab component</LabelHeading>} {...args}>
+    <TabGroup {...args}>
       <TabItem trigger="Title 1">Panel 1</TabItem>
       <TabItem trigger="Title 2">Panel 2</TabItem>
       <TabItem trigger="Title 3">Panel 3</TabItem>
@@ -25,7 +24,3 @@ export const Primary = Template.bind({});
 Primary.args = {
   id: "tabs-story",
 };
-
-const LabelHeading = styled.h3`
-  margin-bottom: ${({ theme }) => theme.spacing[4]};
-`;

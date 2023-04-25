@@ -5,8 +5,6 @@ import {
   ReactNode,
   Dispatch,
   SetStateAction,
-  cloneElement,
-  ReactElement,
   KeyboardEvent,
   useRef,
 } from "react";
@@ -27,7 +25,6 @@ type RadioGroupProps = {
   size?: RadioSizeType;
   color?: string;
   position?: RadioPositionType;
-  label?: ReactNode;
 };
 
 export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
@@ -38,7 +35,6 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
   size = "md",
   color,
   position = "left",
-  label,
 }) => {
   const { theme } = useTheme();
 
@@ -52,7 +48,6 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
 
   const radioSize = sizes[size];
 
-  const labelId = `${id}-label`;
   const getRadioItemId = (index: number) => `${id}-${index}`;
   const getRadioLabelId = (index: number) => `${getRadioItemId(index)}-label`;
 
@@ -73,11 +68,6 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
     return enabledItem;
   })();
 
-  const labelComponent = (() => {
-    if (!isValidElement(label)) return null;
-    return cloneElement(label as ReactElement, { id: labelId });
-  })();
-
   const handleKeyDown = (event: KeyboardEvent<HTMLUListElement>) => {
     const currentIndex = radiosRef.current.findIndex((tab) => tab === document.activeElement);
 
@@ -95,68 +85,62 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
     }
   };
 
-  const isLabelValidElement = isValidElement(label);
-
   return (
-    <>
-      {labelComponent}
-      <UList
-        role="radiogroup"
-        {...(isLabelValidElement && { "aria-labelledby": labelId })}
-        onKeyDown={handleKeyDown}
-        {...(enabledItemId !== undefined && {
-          "aria-activedescendant": getRadioItemId(enabledItemId),
-        })}
-      >
-        {Children.map(children, (child, index) => {
-          if (!isValidElement(child)) return;
+    <UList
+      role="radiogroup"
+      onKeyDown={handleKeyDown}
+      {...(enabledItemId !== undefined && {
+        "aria-activedescendant": getRadioItemId(enabledItemId),
+      })}
+    >
+      {Children.map(children, (child, index) => {
+        if (!isValidElement(child)) return;
 
-          const {
-            children,
-            value: itemValue,
-            disabled = false,
-            helpText,
-          } = child.props as RadioItemProps;
+        const {
+          children,
+          value: itemValue,
+          disabled = false,
+          helpText,
+        } = child.props as RadioItemProps;
 
-          const isChecked = value === itemValue;
-          const icon = isChecked ? RadioCircleMarked : RadioCircle;
+        const isChecked = value === itemValue;
+        const icon = isChecked ? RadioCircleMarked : RadioCircle;
 
-          return (
-            <ItemList position={position}>
-              <RadioButton
-                role="radio"
-                type="button"
-                id={getRadioItemId(index)}
-                aria-checked={isChecked}
-                aria-labelledby={getRadioLabelId(index)}
-                onClick={() => onChange(itemValue)}
-                disabled={disabled}
-                position={position}
-                ref={(el) => {
-                  if (el) {
-                    radiosRef.current[index] = el;
-                  }
-                }}
-              >
-                <Icon
-                  icon={icon}
-                  color={disabled ? theme.assets.disabledBg : iconColor}
-                  size={radioSize}
-                />
-              </RadioButton>
-              <LabelContainer
-                htmlFor={getRadioItemId(index)}
-                id={getRadioLabelId(index)}
-                position={position}
-              >
-                <StyledChildren size={size}>{children}</StyledChildren>
-                {helpText && <HelpText size={size}>{helpText}</HelpText>}
-              </LabelContainer>
-            </ItemList>
-          );
-        })}
-      </UList>
-    </>
+        return (
+          <ItemList position={position}>
+            <RadioButton
+              role="radio"
+              type="button"
+              id={getRadioItemId(index)}
+              aria-checked={isChecked}
+              aria-labelledby={getRadioLabelId(index)}
+              onClick={() => onChange(itemValue)}
+              disabled={disabled}
+              position={position}
+              ref={(el) => {
+                if (el) {
+                  radiosRef.current[index] = el;
+                }
+              }}
+            >
+              <Icon
+                icon={icon}
+                color={disabled ? theme.assets.disabledBg : iconColor}
+                size={radioSize}
+              />
+            </RadioButton>
+            <LabelContainer
+              htmlFor={getRadioItemId(index)}
+              id={getRadioLabelId(index)}
+              position={position}
+            >
+              <StyledChildren size={size}>{children}</StyledChildren>
+              {helpText && <HelpText size={size}>{helpText}</HelpText>}
+            </LabelContainer>
+          </ItemList>
+        );
+      })}
+    </UList>
   );
 };
 

@@ -31,7 +31,7 @@ export { Toast } from "./Toast";
 export { Card } from "./Card";
 export { Timer } from "./Timer";
 export { Typography } from "./Typography";
-export { Checkbox, CheckboxGroup } from "./Checkbox";
+export { Checkbox } from "./Checkbox";
 export { Switch } from "./Switch";
 export { RadioGroup, RadioItem } from "./RadioGroup";
 export { VisuallyHidden } from "./VisuallyHidden";
