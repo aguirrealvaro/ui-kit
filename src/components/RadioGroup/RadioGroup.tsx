@@ -10,8 +10,8 @@ import { RadioCircle } from "@styled-icons/boxicons-regular/RadioCircle";
 import { RadioCircleMarked } from "@styled-icons/boxicons-regular/RadioCircleMarked";
 import styled from "styled-components";
 import { Icon } from "../Icon";
-import { RadioProps } from "./Radio";
 import { RadioSizeType, RadioPositionType } from "./Radio.types";
+import { RadioItemProps } from "./RadioItem";
 import { HelpText } from "@/css";
 import { useTheme } from "@/hooks";
 
@@ -54,7 +54,7 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
     Children.forEach(children, (child, index) => {
       if (!isValidElement(child)) return;
 
-      const { value: itemValue } = child.props as RadioProps;
+      const { value: itemValue } = child.props as RadioItemProps;
       const isChecked = value === itemValue;
 
       if (isChecked) {
@@ -79,7 +79,7 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
           value: itemValue,
           disabled = false,
           helpText,
-        } = child.props as RadioProps;
+        } = child.props as RadioItemProps;
 
         const isChecked = value === itemValue;
         const icon = isChecked ? RadioCircleMarked : RadioCircle;

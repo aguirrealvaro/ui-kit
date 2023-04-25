@@ -12,7 +12,6 @@
 
 ### To do
 
-- Improve usage of components
 - Navbar, DropdownMenu
 - DatePicker, TimePicker
 - Pagination

@@ -1,11 +1,11 @@
 import { ButtonHTMLAttributes, FunctionComponent, ReactNode } from "react";
 
-export type RadioProps = {
+export type RadioItemProps = {
   children: ReactNode;
   value: string;
   helpText?: ReactNode;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const Radio: FunctionComponent<RadioProps> = () => {
+export const RadioItem: FunctionComponent<RadioItemProps> = () => {
   return <></>;
 };

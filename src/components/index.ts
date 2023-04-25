@@ -33,7 +33,7 @@ export { Timer } from "./Timer";
 export { Typography } from "./Typography";
 export { Checkbox } from "./Checkbox";
 export { Switch } from "./Switch";
-export { RadioGroup, Radio } from "./RadioGroup";
+export { RadioGroup, RadioItem } from "./RadioGroup";
 export { VisuallyHidden } from "./VisuallyHidden";
 export { Separator } from "./Separator";
 export { AccordionGroup, AccordionItem } from "./Accordion";
