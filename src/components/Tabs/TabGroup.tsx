@@ -57,6 +57,8 @@ export const TabGroup: FunctionComponent<TabGroupProps> = ({ children, id, label
     return cloneElement(label as ReactElement, { id: labelId });
   })();
 
+  const isLabelValidElement = isValidElement(label);
+
   return (
     <div>
       {labelComponent}
@@ -65,7 +67,7 @@ export const TabGroup: FunctionComponent<TabGroupProps> = ({ children, id, label
         aria-orientation="horizontal"
         aria-label="List of Tabs"
         onKeyDown={handleKeyDown}
-        aria-labelledby={labelId}
+        {...(isLabelValidElement && { "aria-labelledby": labelId })}
       >
         {Children.map(children, (child, index) => {
           if (!isValidElement(child)) return;

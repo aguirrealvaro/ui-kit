@@ -95,12 +95,14 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
     }
   };
 
+  const isLabelValidElement = isValidElement(label);
+
   return (
     <>
       {labelComponent}
       <UList
         role="radiogroup"
-        aria-labelledby={labelId}
+        {...(isLabelValidElement && { "aria-labelledby": labelId })}
         onKeyDown={handleKeyDown}
         {...(enabledItemId !== undefined && {
           "aria-activedescendant": getRadioItemId(enabledItemId),
