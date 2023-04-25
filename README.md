@@ -12,6 +12,9 @@
 
 ### To do
 
+- Checkbox: Group + label
+- Selector refactor
+- Review theme
 - Navbar, DropdownMenu
 - DatePicker, TimePicker
 - Pagination
