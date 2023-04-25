@@ -23,7 +23,7 @@ export const TabGroup: FunctionComponent<TabGroupProps> = ({ children, id, label
 
   const tabsRef = useRef<HTMLButtonElement[]>([]);
 
-  const headingId = `${id}-label`;
+  const labelId = `${id}-label`;
   const getTabItemId = (index: number) => `${id}-${index}`;
   const getTabPanelId = (index: number) => `${getTabItemId(index)}-panel`;
 
@@ -52,20 +52,20 @@ export const TabGroup: FunctionComponent<TabGroupProps> = ({ children, id, label
     }
   };
 
-  const headingComponent = (() => {
+  const labelComponent = (() => {
     if (!isValidElement(label)) return null;
-    return cloneElement(label as ReactElement, { id: headingId });
+    return cloneElement(label as ReactElement, { id: labelId });
   })();
 
   return (
     <div>
-      {headingComponent}
+      {labelComponent}
       <TabList
         role="tablist"
         aria-orientation="horizontal"
         aria-label="List of Tabs"
         onKeyDown={handleKeyDown}
-        aria-labelledby={headingId}
+        aria-labelledby={labelId}
       >
         {Children.map(children, (child, index) => {
           if (!isValidElement(child)) return;

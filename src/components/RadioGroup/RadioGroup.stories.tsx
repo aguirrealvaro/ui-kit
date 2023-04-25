@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
+import styled from "styled-components";
 import { RadioGroup, RadioItem } from "@/components";
 
 export default {
@@ -11,7 +12,12 @@ const Template: ComponentStory<typeof RadioGroup> = ({ onChange: _, value: __, .
   const [value, setValue] = useState<string | undefined>(undefined);
 
   return (
-    <RadioGroup value={value} onChange={setValue} {...args}>
+    <RadioGroup
+      value={value}
+      onChange={setValue}
+      label={<LabelHeading>Radio component</LabelHeading>}
+      {...args}
+    >
       <RadioItem value="1" helpText="Helptext uno">
         Valor uno
       </RadioItem>
@@ -29,3 +35,7 @@ export const Primary = Template.bind({});
 Primary.args = {
   id: "radio-story",
 };
+
+const LabelHeading = styled.h3`
+  margin-bottom: ${({ theme }) => theme.spacing[4]};
+`;
