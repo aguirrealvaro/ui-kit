@@ -12,7 +12,6 @@
 
 ### To do
 
-- Checkbox: Group + label heading
 - Select refactor onKeyDown
 - Review theme
 - Navbar, DropdownMenu

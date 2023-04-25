@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Checkbox } from "@/components";
+import styled from "styled-components";
+import { Checkbox, CheckboxGroup } from "@/components";
 import { useBoolean } from "@/hooks";
 
 export default {
@@ -10,7 +11,14 @@ export default {
 const Template: ComponentStory<typeof Checkbox> = ({ onChange: _, checked: __, ...args }) => {
   const [checked, setChecked] = useBoolean();
 
-  return <Checkbox checked={checked} onChange={setChecked.toggle} {...args} />;
+  return (
+    <CheckboxGroup
+      id="checkbox-group-story"
+      label={<LabelHeading>Radio component</LabelHeading>}
+    >
+      <Checkbox checked={checked} onChange={setChecked.toggle} {...args} />
+    </CheckboxGroup>
+  );
 };
 
 export const Primary = Template.bind({});
@@ -21,3 +29,7 @@ Primary.args = {
   helpText: "This is a helpText",
   position: "left",
 };
+
+const LabelHeading = styled.h3`
+  margin-bottom: ${({ theme }) => theme.spacing[4]};
+`;
