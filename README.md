@@ -12,8 +12,8 @@
 
 ### To do
 
-- Checkbox: Group + label
-- Selector refactor
+- Checkbox: Group + label heading
+- Select refactor onKeyDown
 - Review theme
 - Navbar, DropdownMenu
 - DatePicker, TimePicker
