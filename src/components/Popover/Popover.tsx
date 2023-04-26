@@ -181,6 +181,7 @@ export const Popover: FunctionComponent<PopoverProps> = ({
       {triggerComponent}
       {isOpen &&
         createPortal(
+          // TO DO: Ideally, i would use cloneElement and pass styles there
           <Content
             id={contentId}
             ref={popoverRef}
