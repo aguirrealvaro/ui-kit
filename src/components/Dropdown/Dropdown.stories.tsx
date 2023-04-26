@@ -7,11 +7,7 @@ export default {
   component: Dropdown,
 } as ComponentMeta<typeof Dropdown>;
 
-const Template: ComponentStory<typeof Dropdown> = ({
-  content: dummyContact,
-  contentId: dummyContentId,
-  ...args
-}) => {
+const Template: ComponentStory<typeof Dropdown> = ({ content: dummyContact, ...args }) => {
   const content = (
     <Content>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum culpa cum quisquam
@@ -21,7 +17,7 @@ const Template: ComponentStory<typeof Dropdown> = ({
   );
 
   return (
-    <Dropdown content={content} contentId="dropdown-story" {...args}>
+    <Dropdown content={content} {...args}>
       <button>click me</button>
     </Dropdown>
   );
@@ -29,6 +25,7 @@ const Template: ComponentStory<typeof Dropdown> = ({
 
 export const Primary = Template.bind({});
 Primary.args = {
+  id: "dropdown-story",
   position: "bottom-left",
   gap: 16,
   trigger: "click",

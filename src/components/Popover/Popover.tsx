@@ -16,8 +16,8 @@ import { useDisclosure, useOutsideClick, useTheme } from "@/hooks";
 
 export type PopoverProps = {
   children: ReactNode;
+  id: string;
   content: ReactNode;
-  contentId: string;
   position: PopoverPositionType;
   trigger?: PopoverTriggerType;
   withTriggerWidth?: boolean;
@@ -32,8 +32,8 @@ type CoordsType = {
 
 export const Popover: FunctionComponent<PopoverProps> = ({
   children,
+  id,
   content,
-  contentId,
   position,
   trigger = "hover",
   gap = 0,
@@ -156,11 +156,12 @@ export const Popover: FunctionComponent<PopoverProps> = ({
   };
 
   const hasPopup = trigger === "click";
+  const contentId = `${id}-content`;
 
   const popUpProps = hasPopup
     ? {
         "aria-expanded": isOpen,
-        "aria-haspoup": popUpType || true,
+        "aria-haspopup": popUpType || true,
         "aria-controls": contentId,
       }
     : undefined;
@@ -168,6 +169,7 @@ export const Popover: FunctionComponent<PopoverProps> = ({
   const triggerComponent = (() => {
     if (!isValidElement(children)) return null;
     return cloneElement(children as ReactElement, {
+      id,
       ref: triggerRef,
       ...openProps,
       ...popUpProps,
@@ -186,6 +188,7 @@ export const Popover: FunctionComponent<PopoverProps> = ({
             coords={coords}
             triggerWidth={triggerWidth}
             transitionTime={transitionTime}
+            {...(hasPopup && { "aria-labelledby": id })}
             {...(hasPopup && popUpType && { role: popUpType })}
           >
             {content}
