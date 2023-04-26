@@ -12,7 +12,8 @@
 
 ### To do
 
+- Fix tooltip, infotip
+- DropdownMenu (remove current dropdown?)
 - Review theme
 - Navbar (Menubar)
-- DropdownMenu
 - Pagination
