@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { Popover, PopoverProps } from "../Popover";
 
 type DropdownProps = Omit<PopoverProps, "position"> & {
@@ -17,7 +17,7 @@ export const Dropdown: FunctionComponent<DropdownProps> = ({
   );
 
   return (
-    <Popover content={popoverContent} position={position} {...restProps}>
+    <Popover content={popoverContent} position={position} popUpType="menu" {...restProps}>
       {children}
     </Popover>
   );
@@ -28,10 +28,4 @@ const Content = styled.div<{ withTriggerWidth: boolean }>`
   box-shadow: ${({ theme }) => theme.shadows.sm};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   padding: ${({ theme }) => theme.spacing[5]};
-  ${({ withTriggerWidth, theme }) => {
-    if (!withTriggerWidth)
-      return css`
-        max-width: ${theme.sizes[60]};
-      `;
-  }}
 `;

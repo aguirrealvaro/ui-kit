@@ -13,7 +13,7 @@ const Template: ComponentStory<typeof Popover> = ({ content: dummyContent, ...ar
   return (
     <Container>
       <Popover content={content} {...args}>
-        <Child>Hover</Child>
+        <Trigger>Hover</Trigger>
       </Popover>
     </Container>
   );
@@ -38,7 +38,7 @@ const Content = styled.div`
   background-color: red;
 `;
 
-const Child = styled.div`
+const Trigger = styled.span`
   background-color: green;
   height: 150px;
   width: 200px;

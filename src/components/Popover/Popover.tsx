@@ -5,6 +5,9 @@ import {
   useRef,
   useState,
   useEffect,
+  isValidElement,
+  cloneElement,
+  ReactElement,
 } from "react";
 import { createPortal } from "react-dom";
 import styled, { css, keyframes } from "styled-components";
@@ -12,12 +15,14 @@ import { PopoverPositionType, PopoverTriggerType } from "./Popover.types";
 import { useDisclosure, useOutsideClick, useTheme } from "@/hooks";
 
 export type PopoverProps = {
-  children?: ReactNode;
+  children: ReactNode;
   content: ReactNode;
+  contentId: string;
   position: PopoverPositionType;
   trigger?: PopoverTriggerType;
   withTriggerWidth?: boolean;
   gap?: number;
+  popUpType?: "menu" | "listbox" | "tree" | "grid" | "dialog";
 };
 
 type CoordsType = {
@@ -28,10 +33,12 @@ type CoordsType = {
 export const Popover: FunctionComponent<PopoverProps> = ({
   children,
   content,
+  contentId,
   position,
   trigger = "hover",
   gap = 0,
   withTriggerWidth = false,
+  popUpType,
 }) => {
   const { theme } = useTheme();
   const transitionTime = theme.transitions.durations.normal;
@@ -46,10 +53,6 @@ export const Popover: FunctionComponent<PopoverProps> = ({
     timeout: transitionTime,
     closeOnResize: true,
   });
-
-  const openProps = {
-    ...(trigger === "hover" ? { onMouseEnter: onOpen } : { onClick: onToggle }),
-  };
 
   useOutsideClick({
     ref: popoverRef,
@@ -148,19 +151,42 @@ export const Popover: FunctionComponent<PopoverProps> = ({
     setTriggerWidth(triggerRef.current.offsetWidth);
   }, [withTriggerWidth]);
 
+  const openProps = {
+    ...(trigger === "hover" ? { onMouseEnter: onOpen } : { onClick: onToggle }),
+  };
+
+  const hasPopup = trigger === "click";
+
+  const popUpProps = hasPopup
+    ? {
+        "aria-expanded": isOpen,
+        "aria-haspoup": popUpType || true,
+        "aria-controls": contentId,
+      }
+    : undefined;
+
+  const triggerComponent = (() => {
+    if (!isValidElement(children)) return null;
+    return cloneElement(children as ReactElement, {
+      ref: triggerRef,
+      ...openProps,
+      ...popUpProps,
+    });
+  })();
+
   return (
     <>
-      <Children {...openProps} ref={triggerRef}>
-        {children}
-      </Children>
+      {triggerComponent}
       {isOpen &&
         createPortal(
           <Content
+            id={contentId}
             ref={popoverRef}
             fadeOut={isUnmounting}
             coords={coords}
             triggerWidth={triggerWidth}
             transitionTime={transitionTime}
+            {...(hasPopup && popUpType && { role: popUpType })}
           >
             {content}
           </Content>,
@@ -173,10 +199,6 @@ export const Popover: FunctionComponent<PopoverProps> = ({
 const fadeInScale = keyframes`
   from { opacity: 0; transform: scale(0.9); }
   to { opacity: 1; transform: scale(1);}
-`;
-
-const Children = styled.div`
-  display: inline-block;
 `;
 
 const Content = styled.div<{

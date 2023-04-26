@@ -13,6 +13,6 @@
 ### To do
 
 - Review theme
-- Navbar, DropdownMenu
-- DatePicker, TimePicker
+- Navbar (Menubar, Treeview)
+- DropdownMenu
 - Pagination
