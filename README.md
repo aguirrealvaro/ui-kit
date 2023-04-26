@@ -13,6 +13,6 @@
 ### To do
 
 - Review theme
-- Navbar (Menubar, Treeview)
+- Navbar (Menubar)
 - DropdownMenu
 - Pagination
