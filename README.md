@@ -12,7 +12,8 @@
 
 ### To do
 
-- DropdownMenu
 - Review theme
+- Lucide, remove Icon components
+- DropdownMenu
 - Navbar (Menubar)
 - Pagination
