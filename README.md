@@ -12,6 +12,7 @@
 
 ### To do
 
+- Modal trigger
 - DropdownMenu
 - Review theme
 - Navbar (Menubar)
