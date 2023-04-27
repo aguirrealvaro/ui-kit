@@ -7,6 +7,7 @@ export const Tooltip: FunctionComponent<PopoverProps> = ({
   content,
   ...restProps
 }) => {
+  // TO DO: Ideally, i would use cloneElement and pass styles there
   const popoverContent = <Content>{content}</Content>;
 
   return (
@@ -16,7 +17,8 @@ export const Tooltip: FunctionComponent<PopoverProps> = ({
   );
 };
 
-const Content = styled.div`
+const Content = styled.span`
+  display: block;
   padding: ${({ theme }) => theme.spacing[2]};
   background-color: ${({ theme }) => theme.assets.tooltipBg};
   color: ${({ theme }) => theme.assets.tooltipText};

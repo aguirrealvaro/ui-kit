@@ -33,9 +33,5 @@ Primary.args = {
 };
 
 const Content = styled.div`
-  background-color: ${({ theme }) => theme.assets.bgTertiary};
-  box-shadow: ${({ theme }) => theme.shadows.sm};
-  border-radius: ${({ theme }) => theme.borderRadius.xs};
-  padding: ${({ theme }) => theme.spacing[5]};
   max-width: 15rem;
 `;

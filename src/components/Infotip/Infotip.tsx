@@ -23,12 +23,14 @@ export const Infotip: FunctionComponent<InfotipProps> = ({ size = "sm", ...restP
   const infotipSize = sizes[size];
 
   return (
-    <CustomTooltip {...restProps}>
-      <Icon icon={ExclamationCircle} size={infotipSize} />
-    </CustomTooltip>
+    <Tooltip {...restProps}>
+      <IconWrapper>
+        <Icon icon={ExclamationCircle} size={infotipSize} />
+      </IconWrapper>
+    </Tooltip>
   );
 };
 
-const CustomTooltip = styled(Tooltip)`
-  line-height: 0;
+const IconWrapper = styled.div`
+  display: inline-block;
 `;

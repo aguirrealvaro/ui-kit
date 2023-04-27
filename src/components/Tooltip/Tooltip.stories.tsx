@@ -8,12 +8,10 @@ export default {
 } as ComponentMeta<typeof Tooltip>;
 
 const Template: ComponentStory<typeof Tooltip> = ({ content: dummyContent, ...args }) => {
-  const content = <div>This is a Tooltip</div>;
-
   return (
     <Container>
-      <Tooltip content={content} {...args}>
-        Hover
+      <Tooltip content="This is a tooltip" {...args}>
+        <span>Hover to see tootlip</span>
       </Tooltip>
     </Container>
   );
@@ -21,6 +19,7 @@ const Template: ComponentStory<typeof Tooltip> = ({ content: dummyContent, ...ar
 
 export const Primary = Template.bind({});
 Primary.args = {
+  id: "tooltip-story",
   position: "right",
   gap: 8,
   trigger: "hover",
