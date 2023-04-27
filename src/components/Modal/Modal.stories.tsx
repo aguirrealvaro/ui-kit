@@ -2,25 +2,18 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import styled from "styled-components";
 import { Button, Modal, ModalHeader, ModalContent, ModalFooter, Link } from "@/components";
-import { useDisclosure } from "@/hooks";
 
 export default {
   title: "Components/Modal",
   component: Modal,
 } as ComponentMeta<typeof Modal>;
 
-const Template: ComponentStory<typeof Modal> = ({
-  isOpen: dummyIsOpen,
-  onClose: dummyOnClose,
-  isUnmounting: dummyIsUnmounting,
-  ...args
-}) => {
-  const { isOpen, onOpen, onClose, isUnmounting } = useDisclosure();
+const Template: ComponentStory<typeof Modal> = ({ trigger: dummyTrigger, ...args }) => {
+  const triggerComponent = <Button>open modal</Button>;
 
   return (
     <>
-      <Button onClick={onOpen}>open modal</Button>
-      <Modal isOpen={isOpen} onClose={onClose} isUnmounting={isUnmounting} {...args}>
+      <Modal trigger={triggerComponent} {...args}>
         <ModalHeader>Header</ModalHeader>
         <ModalContent>
           <Container>

@@ -1,30 +1,35 @@
-import { FunctionComponent, useRef, ReactNode } from "react";
+import {
+  FunctionComponent,
+  useRef,
+  ReactNode,
+  isValidElement,
+  cloneElement,
+  ReactElement,
+} from "react";
 import { createPortal } from "react-dom";
 import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import FocusTrap from "focus-trap-react";
 import styled, { css, keyframes } from "styled-components";
 import { ModalSizeType } from "./Modal.types";
 import { Icon, IconButton } from "@/components";
-import { useDisableScroll, useOutsideClick, useKeyPress } from "@/hooks";
+import { useDisableScroll, useOutsideClick, useKeyPress, useDisclosure } from "@/hooks";
 
 export type ModalProps = {
   children: ReactNode;
-  isOpen: boolean;
-  onClose: () => void;
+  trigger: ReactNode;
   size?: ModalSizeType;
   closeOnInteractions?: boolean;
-  isUnmounting?: boolean;
 };
 
 export const Modal: FunctionComponent<ModalProps> = ({
   children,
-  isOpen,
-  onClose,
+  trigger,
   size = "sm",
   closeOnInteractions = true,
-  isUnmounting = false,
 }) => {
   const contentRef = useRef<HTMLDivElement>(null);
+
+  const { isOpen, onOpen, onClose, isUnmounting } = useDisclosure();
 
   useDisableScroll(isOpen);
 
@@ -40,30 +45,40 @@ export const Modal: FunctionComponent<ModalProps> = ({
     enabled: isOpen && closeOnInteractions,
   });
 
-  if (!isOpen) return null;
+  const triggerComponent = (() => {
+    if (!isValidElement(trigger)) return null;
+    return cloneElement(trigger as ReactElement, {
+      onClick: onOpen,
+    });
+  })();
 
-  const Component = (
-    <Backdrop isOpen={isOpen} fadeOut={isUnmounting}>
-      <FocusTrap>
-        <Content
-          size={size}
-          ref={contentRef}
-          fadeOut={isUnmounting}
-          role="dialog"
-          aria-modal={true}
-        >
-          <CloseButtonWrapper>
-            <IconButton onClick={onClose}>
-              <Icon icon={CloseOutline} size={25} />
-            </IconButton>
-          </CloseButtonWrapper>
-          {children}
-        </Content>
-      </FocusTrap>
-    </Backdrop>
+  return (
+    <>
+      {triggerComponent}
+      {isOpen &&
+        createPortal(
+          <Backdrop isOpen={isOpen} fadeOut={isUnmounting}>
+            <FocusTrap>
+              <Content
+                size={size}
+                ref={contentRef}
+                fadeOut={isUnmounting}
+                role="dialog"
+                aria-modal={true}
+              >
+                <CloseButtonWrapper>
+                  <IconButton onClick={onClose}>
+                    <Icon icon={CloseOutline} size={25} />
+                  </IconButton>
+                </CloseButtonWrapper>
+                {children}
+              </Content>
+            </FocusTrap>
+          </Backdrop>,
+          document.body
+        )}
+    </>
   );
-
-  return createPortal(Component, document.body);
 };
 
 const fadeIn = keyframes`
