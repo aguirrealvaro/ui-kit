@@ -31,6 +31,7 @@ const Template: ComponentStory<typeof Modal> = ({ trigger: dummyTrigger, ...args
 export const Primary = Template.bind({});
 Primary.args = {
   size: "sm",
+  closeOnInteractions: true,
 };
 
 const Container = styled.div`

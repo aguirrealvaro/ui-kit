@@ -12,7 +12,7 @@ import FocusTrap from "focus-trap-react";
 import styled, { css, keyframes } from "styled-components";
 import { ModalSizeType } from "./Modal.types";
 import { Icon, IconButton } from "@/components";
-import { useDisableScroll, useOutsideClick, useKeyPress, useDisclosure } from "@/hooks";
+import { useDisableScroll, useKeyPress, useDisclosure } from "@/hooks";
 
 export type ModalProps = {
   children: ReactNode;
@@ -33,11 +33,12 @@ export const Modal: FunctionComponent<ModalProps> = ({
 
   useDisableScroll(isOpen);
 
-  useOutsideClick({
+  // Does not work with Focus trap
+  /* useOutsideClick({
     ref: contentRef,
     handler: onClose,
     enabled: isOpen && closeOnInteractions,
-  });
+  }); */
 
   useKeyPress({
     targetKey: "Escape",
