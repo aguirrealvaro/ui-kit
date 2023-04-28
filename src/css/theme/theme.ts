@@ -1,4 +1,4 @@
-import { lightAssets, darkAssets, AssetsType } from "./assets";
+import { assets, AssetsType } from "./assets";
 import { borderRadius, BorderRadiusType } from "./borderRadius";
 import { breakpoints, BreakpointSize } from "./breakpoints";
 import { type CollorsType, colors } from "./colors";
@@ -9,8 +9,6 @@ import { transitions, type TransitionsType } from "./transitions";
 import { transparencies, type TransparencyType } from "./transparencies";
 import { typography, type TypographyType } from "./typography";
 import { zIndices, type ZIndexType } from "./zIndices";
-
-export type ThemeModeType = "light" | "dark";
 
 export type ThemeType = {
   typography: TypographyType;
@@ -26,20 +24,16 @@ export type ThemeType = {
   sizes: SizesType;
 };
 
-export const getTheme = (themeMode: ThemeModeType): ThemeType => {
-  const assets = themeMode === "light" ? lightAssets : darkAssets;
-
-  return {
-    typography,
-    breakpoint: (size) => `@media (max-width: ${breakpoints[size]})`,
-    colors,
-    borderRadius,
-    zIndices,
-    shadows,
-    transitions,
-    assets,
-    transparencies,
-    spacing,
-    sizes,
-  };
+export const theme: ThemeType = {
+  typography,
+  breakpoint: (size) => `@media (max-width: ${breakpoints[size]})`,
+  colors,
+  borderRadius,
+  zIndices,
+  shadows,
+  transitions,
+  assets,
+  transparencies,
+  spacing,
+  sizes,
 };
