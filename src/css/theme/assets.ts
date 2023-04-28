@@ -22,19 +22,13 @@ type Assets =
 
 export type AssetsType = Record<Assets, string>;
 
-const primary = colors.blue[500];
-const success = colors.green[500];
-const warning = colors.yellow[500];
-const danger = colors.red[500];
-const neutral = colors.black;
-
 export const assets: AssetsType = {
   // variants
-  primary,
-  success,
-  warning,
-  danger,
-  neutral,
+  primary: colors.blue[500],
+  success: colors.green[500],
+  warning: colors.yellow[500],
+  danger: colors.red[500],
+  neutral: colors.black,
 
   // basics
   bgPrimary: colors.grey[50],
