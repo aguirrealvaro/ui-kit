@@ -14,7 +14,7 @@ type Assets =
   | "bgTertiary"
   | "border"
   | "hover"
-  | "title"
+  | "textHeading"
   | "textPrimary"
   | "textSecondary"
   | "disabledPrimary"
@@ -44,7 +44,7 @@ export const assets: AssetsType = {
   border: "rgba(0, 0, 0, 0.1)",
   hover: "rgba(0, 0, 0, 0.05)",
 
-  title: colors.black,
+  textHeading: colors.black,
   textPrimary: colors.grey[900],
   textSecondary: colors.grey[600],
 

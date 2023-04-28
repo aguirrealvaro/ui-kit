@@ -22,7 +22,7 @@ export const GlobalStyles = createGlobalStyle<GlobalStylesType>`
     --border: "rgba(0, 0, 0, 0.1)",
     --hover: "rgba(0, 0, 0, 0.05)",
 
-    --title: ${({ theme }) => theme.colors.black};
+    --textHeading: ${({ theme }) => theme.colors.black};
     --textPrimary: ${({ theme }) => theme.colors.grey[900]};
     --textSecondary: ${({ theme }) => theme.colors.grey[600]};
 
