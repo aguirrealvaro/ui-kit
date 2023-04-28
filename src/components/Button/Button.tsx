@@ -38,12 +38,12 @@ export const Button: FunctionComponent<
   };
 
   const renderChildren = () => {
-    if (isLoading) return <Spinner size="xs" color={theme.colors.grey[8]} />;
+    if (isLoading) return <Spinner size="xs" color={theme.colors.grey[800]} />;
 
     return (
       <InnerContainer>
         {startEnhacer ? startEnhacer : null}
-        <div>{children}</div>
+        {children}
         {endEnhacer ? endEnhacer : null}
       </InnerContainer>
     );
@@ -111,7 +111,7 @@ const getShapeStyles = (
   return shapeOptions[shape];
 };
 
-const getColorStyles = (
+const getcolorsNewtyles = (
   variant: VariantType,
   kind: ButtonKindType,
   theme: ThemeType
@@ -122,8 +122,8 @@ const getColorStyles = (
       color: ${theme.colors.white};
       border-color: ${theme.assets.primary};
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.blue[5]};
-        border-color: ${theme.colors.blue[5]};
+        background-color: ${theme.colors.blue[600]};
+        border-color: ${theme.colors.blue[600]};
       }
     `,
     success: css`
@@ -131,8 +131,8 @@ const getColorStyles = (
       color: ${theme.colors.white};
       border-color: ${theme.assets.success};
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.green[5]};
-        border-color: ${theme.colors.green[5]};
+        background-color: ${theme.colors.green[600]};
+        border-color: ${theme.colors.green[600]};
       }
     `,
     warning: css`
@@ -140,8 +140,8 @@ const getColorStyles = (
       color: ${theme.colors.white};
       border-color: ${theme.assets.warning};
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.yellow[5]};
-        border-color: ${theme.colors.yellow[5]};
+        background-color: ${theme.colors.yellow[600]};
+        border-color: ${theme.colors.yellow[600]};
       }
     `,
     danger: css`
@@ -149,8 +149,8 @@ const getColorStyles = (
       color: ${theme.colors.white};
       border-color: ${theme.assets.danger};
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.red[5]};
-        border-color: ${theme.colors.red[5]};
+        background-color: ${theme.colors.red[600]};
+        border-color: ${theme.colors.red[600]};
       }
     `,
     neutral: css`
@@ -158,8 +158,8 @@ const getColorStyles = (
       color: ${theme.colors.white};
       border-color: ${theme.assets.neutral};
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.grey[9]};
-        border-color: ${theme.colors.grey[9]};
+        background-color: ${theme.colors.grey[900]};
+        border-color: ${theme.colors.grey[900]};
       }
     `,
   };
@@ -170,7 +170,7 @@ const getColorStyles = (
       border-color: ${theme.assets.primary};
       background-color: transparent;
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.grey[2]};
+        background-color: ${theme.colors.grey[100]};
       }
     `,
     success: css`
@@ -178,7 +178,7 @@ const getColorStyles = (
       border-color: ${theme.assets.success};
       background-color: transparent;
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.grey[2]};
+        background-color: ${theme.colors.grey[100]};
       }
     `,
     warning: css`
@@ -186,7 +186,7 @@ const getColorStyles = (
       border-color: ${theme.assets.warning};
       background-color: transparent;
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.grey[2]};
+        background-color: ${theme.colors.grey[100]};
       }
     `,
     danger: css`
@@ -194,7 +194,7 @@ const getColorStyles = (
       border-color: ${theme.assets.danger};
       background-color: transparent;
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.grey[2]};
+        background-color: ${theme.colors.grey[100]};
       }
     `,
     neutral: css`
@@ -202,7 +202,7 @@ const getColorStyles = (
       border-color: ${theme.assets.neutral};
       background-color: transparent;
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.grey[2]};
+        background-color: ${theme.colors.grey[100]};
       }
     `,
   };
@@ -212,35 +212,35 @@ const getColorStyles = (
       color: ${theme.assets.primary};
       background-color: transparent;
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.blue[2]};
+        background-color: ${theme.colors.blue[50]};
       }
     `,
     success: css`
       color: ${theme.assets.success};
       background-color: transparent;
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.green[2]};
+        background-color: ${theme.colors.green[50]};
       }
     `,
     warning: css`
       color: ${theme.assets.warning};
       background-color: transparent;
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.yellow[2]};
+        background-color: ${theme.colors.yellow[50]};
       }
     `,
     danger: css`
       color: ${theme.assets.danger};
       background-color: transparent;
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.red[2]};
+        background-color: ${theme.colors.red[50]};
       }
     `,
     neutral: css`
       color: ${theme.assets.neutral};
       background-color: transparent;
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.grey[3]};
+        background-color: ${theme.colors.grey[100]};
       }
     `,
   };
@@ -284,8 +284,8 @@ const getColorStyles = (
 
   const alernativeStyles: Record<VariantType, FlattenSimpleInterpolation> = {
     primary: css`
-      border-color: ${theme.colors.grey[4]};
-      color: ${theme.colors.grey[6]};
+      border-color: ${theme.colors.grey[200]};
+      color: ${theme.colors.grey[600]};
       background-color: transparent;
       &:hover:not([disabled]) {
         color: ${theme.assets.primary};
@@ -293,8 +293,8 @@ const getColorStyles = (
       }
     `,
     success: css`
-      border-color: ${theme.colors.grey[4]};
-      color: ${theme.colors.grey[6]};
+      border-color: ${theme.colors.grey[200]};
+      color: ${theme.colors.grey[600]};
       background-color: transparent;
       &:hover:not([disabled]) {
         color: ${theme.assets.success};
@@ -302,8 +302,8 @@ const getColorStyles = (
       }
     `,
     warning: css`
-      border-color: ${theme.colors.grey[4]};
-      color: ${theme.colors.grey[6]};
+      border-color: ${theme.colors.grey[200]};
+      color: ${theme.colors.grey[600]};
       background-color: transparent;
       &:hover:not([disabled]) {
         color: ${theme.assets.warning};
@@ -311,8 +311,8 @@ const getColorStyles = (
       }
     `,
     danger: css`
-      border-color: ${theme.colors.grey[4]};
-      color: ${theme.colors.grey[6]};
+      border-color: ${theme.colors.grey[200]};
+      color: ${theme.colors.grey[600]};
       background-color: transparent;
       &:hover:not([disabled]) {
         color: ${theme.assets.danger};
@@ -320,8 +320,8 @@ const getColorStyles = (
       }
     `,
     neutral: css`
-      border-color: ${theme.colors.grey[4]};
-      color: ${theme.colors.grey[6]};
+      border-color: ${theme.colors.grey[200]};
+      color: ${theme.colors.grey[600]};
       background-color: transparent;
       &:hover:not([disabled]) {
         color: ${theme.assets.neutral};
@@ -352,7 +352,7 @@ const CustomButton = styled.button<{
   border: 1px solid transparent;
   ${({ size, theme }) => getSizeStyles(size, theme)};
   ${({ shape, theme }) => getShapeStyles(shape, theme)};
-  ${({ variant, kind, theme }) => getColorStyles(variant, kind, theme)};
+  ${({ variant, kind, theme }) => getcolorsNewtyles(variant, kind, theme)};
   transition: all ${({ theme }) => theme.transitions.durations.normal}ms
     ${({ theme }) => theme.transitions.timings.out};
   &:disabled {

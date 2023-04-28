@@ -63,8 +63,8 @@ const StyledTable = styled.table`
 
 const TableRowHeader = styled.tr`
   display: flex;
-  background-color: ${({ theme }) => theme.colors.grey[2]};
-  border: 1px solid ${({ theme }) => theme.colors.grey[3]};
+  background-color: ${({ theme }) => theme.colors.grey[200]};
+  border: 1px solid ${({ theme }) => theme.colors.grey[300]};
   border-radius: ${({ theme }) => {
     const {
       borderRadius: { md },
@@ -85,9 +85,9 @@ const TableRowData = styled.tr`
   &:hover:not([disabled]) {
     background-color: ${({ theme }) => theme.colors.white};
   }
-  border-left: 1px solid ${({ theme }) => theme.colors.grey[3]};
-  border-right: 1px solid ${({ theme }) => theme.colors.grey[3]};
-  border-bottom: 1px solid ${({ theme }) => theme.colors.grey[2]};
+  border-left: 1px solid ${({ theme }) => theme.colors.grey[300]};
+  border-right: 1px solid ${({ theme }) => theme.colors.grey[300]};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.grey[200]};
   &:last-child {
     border-radius: ${({ theme }) => {
       const {
@@ -95,7 +95,7 @@ const TableRowData = styled.tr`
       } = theme;
       return `0 0 ${md} ${md}`;
     }};
-    border-bottom: 1px solid ${({ theme }) => theme.colors.grey[3]};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.grey[300]};
   }
 `;
 

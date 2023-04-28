@@ -13,5 +13,5 @@ export const Icon: FunctionComponent<IconProps> = ({
   size = 30,
   color,
 }) => {
-  return <IconComponent size={size} style={{ color: color || theme.colors.grey[9] }} />;
+  return <IconComponent size={size} style={{ color: color || theme.colors.grey[900] }} />;
 };

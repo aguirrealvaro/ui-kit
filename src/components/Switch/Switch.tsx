@@ -120,7 +120,7 @@ const Pill = styled.span<{
       `;
     } else {
       return css`
-        background-color: ${theme.colors.grey[5]};
+        background-color: ${theme.colors.grey[400]};
         box-shadow: ${({ theme }) => theme.shadows.inset};
       `;
     }

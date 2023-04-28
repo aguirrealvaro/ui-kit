@@ -12,7 +12,8 @@
 
 ### To do
 
-- Review theme: new colors, move assets to vars
+- new colors (review assets, disabled, table)
+- move assets to vars?
 - Lucide, remove Icon components
 - DropdownMenu
 - Navbar (Menubar)

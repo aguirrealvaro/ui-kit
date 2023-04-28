@@ -23,10 +23,10 @@ type Assets =
 
 export type AssetsType = Record<Assets, string>;
 
-const primary = colors.blue[6];
-const success = colors.green[6];
-const warning = colors.yellow[5];
-const danger = colors.red[6];
+const primary = colors.blue[500];
+const success = colors.green[500];
+const warning = colors.yellow[500];
+const danger = colors.red[500];
 const neutral = colors.black;
 
 export const assets: AssetsType = {
@@ -38,19 +38,19 @@ export const assets: AssetsType = {
   neutral,
 
   // basics
-  bgPrimary: colors.grey[1],
+  bgPrimary: colors.grey[100],
   bgSecondary: colors.white,
-  bgTertiary: colors.grey[2],
+  bgTertiary: colors.grey[200],
 
   border: "rgba(0, 0, 0, 0.1)",
   hover: "rgba(0, 0, 0, 0.05)",
 
   title: colors.black,
-  textPrimary: colors.grey[9],
-  textSecondary: colors.grey[6],
+  textPrimary: colors.grey[900],
+  textSecondary: colors.grey[600],
 
-  disabledBg: colors.grey[4],
-  disabledText: colors.grey[5],
+  disabledBg: colors.grey[400],
+  disabledText: colors.grey[500],
 
-  inputPlaceholder: colors.grey[6],
+  inputPlaceholder: colors.grey[600],
 };

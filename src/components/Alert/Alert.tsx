@@ -58,24 +58,24 @@ const Container = styled.div<{ variant: VariantType; size: AlertSizeType }>`
   ${({ variant, theme }) => {
     const variantStyles: Record<VariantType, FlattenSimpleInterpolation> = {
       primary: css`
-        background-color: ${theme.colors.blue[2]};
-        color: ${theme.colors.blue[8]};
+        background-color: ${theme.colors.blue[100]};
+        color: ${theme.colors.blue[800]};
       `,
       success: css`
-        background-color: ${theme.colors.green[2]};
-        color: ${theme.colors.green[8]};
+        background-color: ${theme.colors.green[100]};
+        color: ${theme.colors.green[800]};
       `,
       danger: css`
-        background-color: ${theme.colors.red[2]};
-        color: ${theme.colors.red[8]};
+        background-color: ${theme.colors.red[100]};
+        color: ${theme.colors.red[800]};
       `,
       warning: css`
-        background-color: ${theme.colors.yellow[2]};
-        color: ${theme.colors.yellow[8]};
+        background-color: ${theme.colors.yellow[100]};
+        color: ${theme.colors.yellow[800]};
       `,
       neutral: css`
-        background-color: ${theme.colors.grey[3]};
-        color: ${theme.colors.grey[8]};
+        background-color: ${theme.colors.grey[200]};
+        color: ${theme.colors.grey[800]};
       `,
     };
     return variantStyles[variant];
