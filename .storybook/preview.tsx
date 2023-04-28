@@ -1,7 +1,7 @@
 import React from "react";
-import { GlobalStyles } from "@/css";
-import { ThemeProvider, ToastProvider } from "@/contexts";
-import styled from "styled-components";
+import { GlobalStyles, theme } from "../src/css";
+import { ToastProvider } from "../src/contexts";
+import styled, { ThemeProvider } from "styled-components";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -16,7 +16,7 @@ export const parameters = {
 export const decorators = [
   (Story) => {
     return (
-      <ThemeProvider>
+      <ThemeProvider theme={theme}>
         <ToastProvider>
           <Main>
             <Story />
