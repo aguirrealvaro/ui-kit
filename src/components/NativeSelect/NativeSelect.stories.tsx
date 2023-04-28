@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { NativeSelect } from "@/components";
 
@@ -30,7 +30,7 @@ export default {
 const Template: ComponentStory<typeof NativeSelect> = ({ options: dummyOptions, ...rest }) => {
   const [option, setOption] = useState<string>("");
 
-  const onChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const onChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setOption(e.target.value);
   };
 

@@ -1,4 +1,4 @@
-import { FunctionComponent, ButtonHTMLAttributes, ReactNode } from "react";
+import { FunctionComponent, ButtonHTMLAttributes, ReactNode, MouseEvent } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { Spinner } from "../Spinner";
 import { ButtonKindType, ButtonSizeType, ButtonShapeType } from "./Button.types";
@@ -35,7 +35,7 @@ export const Button: FunctionComponent<
 }) => {
   const { theme } = useTheme();
 
-  const handleOnClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleOnClick = (e: MouseEvent<HTMLButtonElement>) => {
     if (isLoading) return;
     onClick?.(e);
   };

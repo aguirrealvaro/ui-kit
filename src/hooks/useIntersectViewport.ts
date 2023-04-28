@@ -5,7 +5,8 @@ export const useIntersectViewport = <T extends HTMLElement>(ref: RefObject<T>): 
 
   const observer = useMemo(() => {
     return new IntersectionObserver(([entry]) => {
-      //if (isIntersecting) return; // once is intersected, it wont be disabled again
+      // if (isIntersecting) return; // once is intersected, it wont be disabled again
+      // TO DO: split to useIntersectedView and useIntersectingView
       setIsIntersecting(entry.isIntersecting);
     });
   }, []);

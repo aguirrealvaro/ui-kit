@@ -13,6 +13,7 @@ export const useKeyPress = ({
 }: UseKeyPressParams): void => {
   useEffect(() => {
     if (!enabled) return;
+
     const listener = (e: KeyboardEvent) => {
       if (e.key === targetKey) handler();
     };
