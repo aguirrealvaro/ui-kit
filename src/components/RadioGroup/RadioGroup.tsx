@@ -14,8 +14,7 @@ import styled from "styled-components";
 import { Icon } from "../Icon";
 import { RadioSizeType, RadioPositionType } from "./Radio.types";
 import { RadioItemProps } from "./RadioItem";
-import { HelpText } from "@/css";
-import { useTheme } from "@/hooks";
+import { HelpText, theme } from "@/css";
 
 type RadioGroupProps = {
   children: ReactNode;
@@ -36,8 +35,6 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
   color,
   position = "left",
 }) => {
-  const { theme } = useTheme();
-
   const radiosRef = useRef<HTMLButtonElement[]>([]);
 
   const sizes: Record<RadioSizeType, string> = {

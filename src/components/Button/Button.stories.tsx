@@ -1,6 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Button } from "@/components";
-import { useTheme } from "@/hooks";
 
 export default {
   title: "Components/Button",
@@ -8,9 +7,7 @@ export default {
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => {
-  const { toggleThemeMode } = useTheme();
-
-  return <Button onClick={toggleThemeMode} {...args} />;
+  return <Button {...args} />;
 };
 
 export const Primary = Template.bind({});

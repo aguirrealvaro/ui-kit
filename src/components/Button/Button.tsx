@@ -2,8 +2,7 @@ import { FunctionComponent, ButtonHTMLAttributes, ReactNode, MouseEvent } from "
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { Spinner } from "../Spinner";
 import { ButtonKindType, ButtonSizeType, ButtonShapeType } from "./Button.types";
-import { ThemeType } from "@/css";
-import { useTheme } from "@/hooks";
+import { ThemeType, theme } from "@/css";
 import { VariantType } from "@/types";
 
 type ButtonProps = {
@@ -33,15 +32,13 @@ export const Button: FunctionComponent<
   type = "button",
   ...restProps
 }) => {
-  const { theme } = useTheme();
-
   const handleOnClick = (e: MouseEvent<HTMLButtonElement>) => {
     if (isLoading) return;
     onClick?.(e);
   };
 
   const renderChildren = () => {
-    if (isLoading) return <Spinner size="xs" color={theme.assets.spinnerButtonColor} />;
+    if (isLoading) return <Spinner size="xs" color={theme.colors.grey[8]} />;
 
     return (
       <InnerContainer>
@@ -121,164 +118,164 @@ const getColorStyles = (
 ): FlattenSimpleInterpolation => {
   const solidStyles: Record<VariantType, FlattenSimpleInterpolation> = {
     primary: css`
-      background-color: ${theme.assets.buttonSolidPrimaryBg};
-      color: ${theme.assets.buttonSolidPrimaryText};
-      border-color: ${theme.assets.buttonSolidPrimaryBg};
+      background-color: ${theme.assets.primary};
+      color: ${theme.colors.white};
+      border-color: ${theme.assets.primary};
       &:hover:not([disabled]) {
-        background-color: ${theme.assets.buttonSolidPrimaryHover};
-        border-color: ${theme.assets.buttonSolidPrimaryHover};
+        background-color: ${theme.colors.blue[5]};
+        border-color: ${theme.colors.blue[5]};
       }
     `,
     success: css`
-      background-color: ${theme.assets.buttonSolidSuccessBg};
-      color: ${theme.assets.buttonSolidSuccessText};
-      border-color: ${theme.assets.buttonSolidSuccessBg};
+      background-color: ${theme.assets.success};
+      color: ${theme.colors.white};
+      border-color: ${theme.assets.success};
       &:hover:not([disabled]) {
-        background-color: ${theme.assets.buttonSolidSuccessHover};
-        border-color: ${theme.assets.buttonSolidSuccessHover};
+        background-color: ${theme.colors.green[5]};
+        border-color: ${theme.colors.green[5]};
       }
     `,
     warning: css`
-      background-color: ${theme.assets.buttonSolidWarningBg};
-      color: ${theme.assets.buttonSolidWarningText};
-      border-color: ${theme.assets.buttonSolidWarningBg};
+      background-color: ${theme.assets.warning};
+      color: ${theme.colors.white};
+      border-color: ${theme.assets.warning};
       &:hover:not([disabled]) {
-        background-color: ${theme.assets.buttonSolidWarningHover};
-        border-color: ${theme.assets.buttonSolidWarningHover};
+        background-color: ${theme.colors.yellow[5]};
+        border-color: ${theme.colors.yellow[5]};
       }
     `,
     danger: css`
-      background-color: ${theme.assets.buttonSolidDangerBg};
-      color: ${theme.assets.buttonSolidDangerText};
-      border-color: ${theme.assets.buttonSolidDangerBg};
+      background-color: ${theme.assets.danger};
+      color: ${theme.colors.white};
+      border-color: ${theme.assets.danger};
       &:hover:not([disabled]) {
-        background-color: ${theme.assets.buttonSolidDangerHover};
-        border-color: ${theme.assets.buttonSolidDangerHover};
+        background-color: ${theme.colors.red[5]};
+        border-color: ${theme.colors.red[5]};
       }
     `,
     neutral: css`
-      background-color: ${theme.assets.buttonSolidNeutralBg};
-      color: ${theme.assets.buttonSolidNeutralText};
-      border-color: ${theme.assets.buttonSolidNeutralBg};
+      background-color: ${theme.assets.neutral};
+      color: ${theme.colors.white};
+      border-color: ${theme.assets.neutral};
       &:hover:not([disabled]) {
-        background-color: ${theme.assets.buttonSolidNeutralHover};
-        border-color: ${theme.assets.buttonSolidNeutralHover};
+        background-color: ${theme.colors.grey[9]};
+        border-color: ${theme.colors.grey[9]};
       }
     `,
   };
 
   const outlinedStyles: Record<VariantType, FlattenSimpleInterpolation> = {
     primary: css`
-      color: ${theme.assets.buttonOutlinedPrimary};
-      border-color: ${theme.assets.buttonOutlinedPrimary};
-      background-color: ${theme.assets.buttonOutlinedBg};
+      color: ${theme.assets.primary};
+      border-color: ${theme.assets.primary};
+      background-color: transparent;
       &:hover:not([disabled]) {
-        background-color: ${theme.assets.buttonOutlinedHover};
+        background-color: ${theme.colors.grey[2]};
       }
     `,
     success: css`
-      color: ${theme.assets.buttonOutlinedSuccess};
-      border-color: ${theme.assets.buttonOutlinedSuccess};
-      background-color: ${theme.assets.buttonOutlinedBg};
+      color: ${theme.assets.success};
+      border-color: ${theme.assets.success};
+      background-color: transparent;
       &:hover:not([disabled]) {
-        background-color: ${theme.assets.buttonOutlinedHover};
+        background-color: ${theme.colors.grey[2]};
       }
     `,
     warning: css`
-      color: ${theme.assets.buttonOutlinedWarning};
-      border-color: ${theme.assets.buttonOutlinedWarning};
-      background-color: ${theme.assets.buttonOutlinedBg};
+      color: ${theme.assets.warning};
+      border-color: ${theme.assets.warning};
+      background-color: transparent;
       &:hover:not([disabled]) {
-        background-color: ${theme.assets.buttonOutlinedHover};
+        background-color: ${theme.colors.grey[2]};
       }
     `,
     danger: css`
-      color: ${theme.assets.buttonOutlinedDanger};
-      border-color: ${theme.assets.buttonOutlinedDanger};
-      background-color: ${theme.assets.buttonOutlinedBg};
+      color: ${theme.assets.danger};
+      border-color: ${theme.assets.danger};
+      background-color: transparent;
       &:hover:not([disabled]) {
-        background-color: ${theme.assets.buttonOutlinedHover};
+        background-color: ${theme.colors.grey[2]};
       }
     `,
     neutral: css`
-      color: ${theme.assets.buttonOutlinedNeutral};
-      border-color: ${theme.assets.buttonOutlinedNeutral};
-      background-color: ${theme.assets.buttonOutlinedBg};
+      color: ${theme.assets.neutral};
+      border-color: ${theme.assets.neutral};
+      background-color: transparent;
       &:hover:not([disabled]) {
-        background-color: ${theme.assets.buttonOutlinedHover};
+        background-color: ${theme.colors.grey[2]};
       }
     `,
   };
 
   const ghostStyles: Record<VariantType, FlattenSimpleInterpolation> = {
     primary: css`
-      color: ${theme.assets.buttonGhostPrimaryText};
-      background-color: ${theme.assets.buttonGhostBg};
+      color: ${theme.assets.primary};
+      background-color: transparent;
       &:hover:not([disabled]) {
-        background-color: ${theme.assets.buttonGhostPrimaryHover};
+        background-color: ${theme.colors.blue[2]};
       }
     `,
     success: css`
-      color: ${theme.assets.buttonGhostSuccessText};
-      background-color: ${theme.assets.buttonGhostBg};
+      color: ${theme.assets.success};
+      background-color: transparent;
       &:hover:not([disabled]) {
-        background-color: ${theme.assets.buttonGhostSuccessHover};
+        background-color: ${theme.colors.green[2]};
       }
     `,
     warning: css`
-      color: ${theme.assets.buttonGhostWarningText};
-      background-color: ${theme.assets.buttonGhostBg};
+      color: ${theme.assets.warning};
+      background-color: transparent;
       &:hover:not([disabled]) {
-        background-color: ${theme.assets.buttonGhostWarningHover};
+        background-color: ${theme.colors.yellow[2]};
       }
     `,
     danger: css`
-      color: ${theme.assets.buttonGhostDangerText};
-      background-color: ${theme.assets.buttonGhostBg};
+      color: ${theme.assets.danger};
+      background-color: transparent;
       &:hover:not([disabled]) {
-        background-color: ${theme.assets.buttonGhostDangerHover};
+        background-color: ${theme.colors.red[2]};
       }
     `,
     neutral: css`
-      color: ${theme.assets.buttonGhostNeutralText};
-      background-color: ${theme.assets.buttonGhostBg};
+      color: ${theme.assets.neutral};
+      background-color: transparent;
       &:hover:not([disabled]) {
-        background-color: ${theme.assets.buttonGhostNeutralHover};
+        background-color: ${theme.colors.grey[3]};
       }
     `,
   };
 
   const linkStyles: Record<VariantType, FlattenSimpleInterpolation> = {
     primary: css`
-      color: ${theme.assets.buttonLinkPrimary};
-      background-color: ${theme.assets.buttonLinkBg};
+      color: ${theme.assets.primary};
+      background-color: transparent;
       &:hover:not([disabled]) {
         text-decoration: underline;
       }
     `,
     success: css`
-      color: ${theme.assets.buttonLinkSuccess};
-      background-color: ${theme.assets.buttonLinkBg};
+      color: ${theme.assets.success};
+      background-color: transparent;
       &:hover:not([disabled]) {
         text-decoration: underline;
       }
     `,
     warning: css`
-      color: ${theme.assets.buttonLinkWarning};
-      background-color: ${theme.assets.buttonLinkBg};
+      color: ${theme.assets.warning};
+      background-color: transparent;
       &:hover:not([disabled]) {
         text-decoration: underline;
       }
     `,
     danger: css`
-      color: ${theme.assets.buttonLinkDanger};
-      background-color: ${theme.assets.buttonLinkBg};
+      color: ${theme.assets.danger};
+      background-color: transparent;
       &:hover:not([disabled]) {
         text-decoration: underline;
       }
     `,
     neutral: css`
-      color: ${theme.assets.buttonLinkNeutral};
+      color: ${theme.assets.neutral};
       &:hover:not([disabled]) {
         text-decoration: underline;
       }
@@ -287,48 +284,48 @@ const getColorStyles = (
 
   const alernativeStyles: Record<VariantType, FlattenSimpleInterpolation> = {
     primary: css`
-      border-color: ${theme.assets.buttonAlternativeBorder};
-      color: ${theme.assets.buttonAlternativeText};
-      background-color: ${theme.assets.buttonAlternativeBg};
+      border-color: ${theme.colors.grey[4]};
+      color: ${theme.colors.grey[6]};
+      background-color: transparent;
       &:hover:not([disabled]) {
-        color: ${theme.assets.buttonAlternativePrimaryHover};
-        border-color: ${theme.assets.buttonAlternativePrimaryHover};
+        color: ${theme.assets.primary};
+        border-color: ${theme.assets.primary};
       }
     `,
     success: css`
-      border-color: ${theme.assets.buttonAlternativeBorder};
-      color: ${theme.assets.buttonAlternativeText};
-      background-color: ${theme.assets.buttonAlternativeBg};
+      border-color: ${theme.colors.grey[4]};
+      color: ${theme.colors.grey[6]};
+      background-color: transparent;
       &:hover:not([disabled]) {
-        color: ${theme.assets.buttonAlternativeSuccessHover};
-        border-color: ${theme.assets.buttonAlternativeSuccessHover};
+        color: ${theme.assets.success};
+        border-color: ${theme.assets.success};
       }
     `,
     warning: css`
-      border-color: ${theme.assets.buttonAlternativeBorder};
-      color: ${theme.assets.buttonAlternativeText};
-      background-color: ${theme.assets.buttonAlternativeBg};
+      border-color: ${theme.colors.grey[4]};
+      color: ${theme.colors.grey[6]};
+      background-color: transparent;
       &:hover:not([disabled]) {
-        color: ${theme.assets.buttonAlternativeWarningHover};
-        border-color: ${theme.assets.buttonAlternativeWarningHover};
+        color: ${theme.assets.warning};
+        border-color: ${theme.assets.warning};
       }
     `,
     danger: css`
-      border-color: ${theme.assets.buttonAlternativeBorder};
-      color: ${theme.assets.buttonAlternativeText};
-      background-color: ${theme.assets.buttonAlternativeBg};
+      border-color: ${theme.colors.grey[4]};
+      color: ${theme.colors.grey[6]};
+      background-color: transparent;
       &:hover:not([disabled]) {
-        color: ${theme.assets.buttonAlternativeDangerHover};
-        border-color: ${theme.assets.buttonAlternativeDangerHover};
+        color: ${theme.assets.danger};
+        border-color: ${theme.assets.danger};
       }
     `,
     neutral: css`
-      border-color: ${theme.assets.buttonAlternativeBorder};
-      color: ${theme.assets.buttonAlternativeText};
-      background-color: ${theme.assets.buttonAlternativeBg};
+      border-color: ${theme.colors.grey[4]};
+      color: ${theme.colors.grey[6]};
+      background-color: transparent;
       &:hover:not([disabled]) {
-        color: ${theme.assets.buttonAlternativeNeutralHover};
-        border-color: ${theme.assets.buttonAlternativeNeutralHover};
+        color: ${theme.assets.neutral};
+        border-color: ${theme.assets.neutral};
       }
     `,
   };

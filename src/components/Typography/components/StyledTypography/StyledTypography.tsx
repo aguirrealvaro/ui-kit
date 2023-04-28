@@ -5,6 +5,7 @@ import {
   cloneElement,
   ReactElement,
 } from "react";
+import { theme } from "@/css";
 import {
   FontFamily,
   FontSize,
@@ -12,7 +13,6 @@ import {
   LetterSpacing,
   LineHeight,
 } from "@/css/theme/typography";
-import { useTheme } from "@/hooks";
 
 export type StyledTypographyProps = {
   fontFamily?: FontFamily;
@@ -33,8 +33,6 @@ export const StyledTypography: FunctionComponent<StyledTypographyProps> = ({
   letterSpacing,
   color,
 }) => {
-  const { theme } = useTheme();
-
   const family = fontFamily && theme.typography.fontFamilies[fontFamily];
   const size = fontSize && theme.typography.fontSizes[fontSize];
   const weight = fontWeight && theme.typography.fontWeights[fontWeight];

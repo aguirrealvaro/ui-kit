@@ -1,8 +1,7 @@
 import { ButtonHTMLAttributes, FunctionComponent, ReactNode } from "react";
 import styled, { css } from "styled-components";
 import { SwitchPositionType, SwitchSizeType } from "./Switch.types";
-import { HelpText, ThemeType } from "@/css";
-import { useTheme } from "@/hooks";
+import { HelpText, ThemeType, theme } from "@/css";
 
 type SwitchProps = {
   children: ReactNode;
@@ -29,8 +28,6 @@ export const Switch: FunctionComponent<
   position = "left",
   ...restProps
 }) => {
-  const { theme } = useTheme();
-
   const labelId = `${id}-label`;
 
   return (
@@ -50,7 +47,7 @@ export const Switch: FunctionComponent<
           <Pill
             checked={checked || false}
             size={size}
-            color={color || theme.assets.switchChecked}
+            color={color || theme.assets.primary}
             disabled={disabled}
           >
             <Ball checked={checked || false} size={size} />
@@ -123,7 +120,7 @@ const Pill = styled.span<{
       `;
     } else {
       return css`
-        background-color: ${theme.assets.switchUnchecked};
+        background-color: ${theme.colors.grey[5]};
         box-shadow: ${({ theme }) => theme.shadows.inset};
       `;
     }

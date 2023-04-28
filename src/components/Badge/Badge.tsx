@@ -17,24 +17,24 @@ const Container = styled.span<{ variant: VariantType }>`
   ${({ variant, theme }) => {
     const variantStyles: Record<VariantType, FlattenSimpleInterpolation> = {
       primary: css`
-        background-color: ${theme.assets.badgePrimaryBg};
-        color: ${theme.assets.badgePrimaryText};
+        background-color: ${theme.colors.blue[2]};
+        color: ${theme.colors.blue[8]};
       `,
       success: css`
-        background-color: ${theme.assets.badgeSuccessBg};
-        color: ${theme.assets.badgeSuccessText};
+        background-color: ${theme.colors.green[2]};
+        color: ${theme.colors.green[8]};
       `,
       danger: css`
-        background-color: ${theme.assets.badgeDangerBg};
-        color: ${theme.assets.badgeDangerText};
+        background-color: ${theme.colors.red[2]};
+        color: ${theme.colors.red[8]};
       `,
       warning: css`
-        background-color: ${theme.assets.badgeWarningBg};
-        color: ${theme.assets.badgeWarningText};
+        background-color: ${theme.colors.yellow[2]};
+        color: ${theme.colors.yellow[8]};
       `,
       neutral: css`
-        background-color: ${theme.assets.badgeNeutralBg};
-        color: ${theme.assets.badgeNeutralText};
+        background-color: ${theme.colors.grey[3]};
+        color: ${theme.colors.grey[8]};
       `,
     };
     return variantStyles[variant];

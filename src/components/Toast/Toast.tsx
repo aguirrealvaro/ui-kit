@@ -9,7 +9,8 @@ import { StyledIcon } from "styled-icons/types";
 import { IconButton } from "../IconButton";
 import { ToastProps } from "./Toast.types";
 import { Icon } from "@/components/Icon";
-import { useTheme, useToast } from "@/hooks";
+import { theme } from "@/css";
+import { useToast } from "@/hooks";
 import { VariantType } from "@/types";
 
 export const Toast: FunctionComponent<ToastProps> = ({
@@ -18,7 +19,6 @@ export const Toast: FunctionComponent<ToastProps> = ({
   duration = 5000,
   variant = "success",
 }) => {
-  const { theme } = useTheme();
   const transitionTime = theme.transitions.durations.normal;
 
   const [isClosing, setIsClosing] = useState<boolean>(false);
@@ -61,11 +61,11 @@ export const Toast: FunctionComponent<ToastProps> = ({
   };
 
   const variantIconColors: Record<VariantType, string> = {
-    primary: theme.assets.toastPrimaryText,
-    success: theme.assets.toastSuccessText,
-    warning: theme.assets.toastWarningText,
-    danger: theme.assets.toastDangerText,
-    neutral: theme.assets.toastNeutralText,
+    primary: theme.colors.white,
+    success: theme.colors.white,
+    warning: theme.colors.white,
+    danger: theme.colors.white,
+    neutral: theme.colors.white,
   };
 
   return (
@@ -108,24 +108,24 @@ const Container = styled.div<{
   ${({ variant, theme }) => {
     const variantStyles: Record<VariantType, FlattenSimpleInterpolation> = {
       primary: css`
-        background-color: ${theme.assets.toastPrimaryBg};
-        color: ${theme.assets.toastPrimaryText};
+        background-color: ${theme.assets.primary};
+        color: ${theme.colors.white};
       `,
       success: css`
-        background-color: ${theme.assets.toastSuccessBg};
-        color: ${theme.assets.toastSuccessText};
+        background-color: ${theme.assets.success};
+        color: ${theme.colors.white};
       `,
       danger: css`
-        background-color: ${theme.assets.toastDangerBg};
-        color: ${theme.assets.toastDangerText};
+        background-color: ${theme.assets.danger};
+        color: ${theme.colors.white};
       `,
       warning: css`
-        background-color: ${theme.assets.toastWarningBg};
-        color: ${theme.assets.toastWarningText};
+        background-color: ${theme.assets.warning};
+        color: ${theme.colors.white};
       `,
       neutral: css`
-        background-color: ${theme.assets.toastNeutralBg};
-        color: ${theme.assets.toastNeutralText};
+        background-color: ${theme.assets.neutral};
+        color: ${theme.colors.white};
       `,
     };
     return variantStyles[variant];

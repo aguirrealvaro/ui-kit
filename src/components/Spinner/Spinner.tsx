@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 import styled, { css } from "styled-components";
 import { SPINER_SIZES } from "./Spinner.constants";
 import { SpinnerSizeType } from "./Spinner.types";
-import { useTheme } from "@/hooks";
+import { theme } from "@/css";
 
 type SpinnerProps = {
   color?: string;
@@ -15,11 +15,9 @@ export const Spinner: FunctionComponent<SpinnerProps> = ({
   size = "md",
   fullHeight = false,
 }) => {
-  const { theme } = useTheme();
-
   return (
     <Container fullHeight={fullHeight}>
-      <Loader color={color || theme.assets.spinnerColor} size={size} />
+      <Loader color={color || theme.assets.primary} size={size} />
     </Container>
   );
 };
@@ -40,7 +38,7 @@ const Loader = styled.div<{ size: SpinnerSizeType; color: string }>`
     const borderSize = (numberSize * 3.9) / 32;
 
     return css`
-      border: ${borderSize}px solid ${theme.assets.spinnerBorder};
+      border: ${borderSize}px solid ${theme.colors.grey[3]};
       border-top: ${borderSize}px solid ${color};
       width: ${numberSize}px;
       height: ${numberSize}px;

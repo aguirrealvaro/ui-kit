@@ -2,8 +2,8 @@ import { FunctionComponent, Children, ReactNode, ReactElement, cloneElement } fr
 import styled from "styled-components";
 import { Avatar } from "./Avatar";
 import { AvatarShapeType, AvatarSizeType } from "./Avatar.types";
+import { theme } from "@/css";
 import { Spacing } from "@/css/theme/spacing";
-import { useTheme } from "@/hooks";
 
 type AvatarGroupProps = {
   children: ReactNode;
@@ -18,8 +18,6 @@ export const AvatarGroup: FunctionComponent<AvatarGroupProps> = ({
   shape = "circle",
   max,
 }) => {
-  const { theme } = useTheme();
-
   const margins: Record<AvatarSizeType, Spacing> = {
     xs: 3,
     sm: 4,

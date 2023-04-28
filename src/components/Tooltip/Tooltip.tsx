@@ -20,8 +20,8 @@ export const Tooltip: FunctionComponent<PopoverProps> = ({
 const Content = styled.span`
   display: block;
   padding: ${({ theme }) => theme.spacing[2]};
-  background-color: ${({ theme }) => theme.assets.tooltipBg};
-  color: ${({ theme }) => theme.assets.tooltipText};
+  background-color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.white};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   font-size: ${({ theme }) => theme.typography.fontSizes.sm};
 `;

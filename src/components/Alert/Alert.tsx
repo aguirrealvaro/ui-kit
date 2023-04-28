@@ -7,7 +7,7 @@ import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { StyledIcon } from "styled-icons/types";
 import { AlertSizeType } from "./Alert.types";
 import { Icon } from "@/components";
-import { useTheme } from "@/hooks";
+import { theme } from "@/css";
 import { VariantType } from "@/types";
 
 type AlertProps = {
@@ -23,8 +23,6 @@ export const Alert: FunctionComponent<AlertProps> = ({
   size = "md",
   showIcon = true,
 }) => {
-  const { theme } = useTheme();
-
   const sizeIcons: Record<AlertSizeType, number> = {
     xs: 14,
     sm: 16,
@@ -60,24 +58,24 @@ const Container = styled.div<{ variant: VariantType; size: AlertSizeType }>`
   ${({ variant, theme }) => {
     const variantStyles: Record<VariantType, FlattenSimpleInterpolation> = {
       primary: css`
-        background-color: ${theme.assets.alertPrimaryBg};
-        color: ${theme.assets.alertPrimaryText};
+        background-color: ${theme.colors.blue[2]};
+        color: ${theme.colors.blue[8]};
       `,
       success: css`
-        background-color: ${theme.assets.alertSuccessBg};
-        color: ${theme.assets.alertSuccessText};
+        background-color: ${theme.colors.green[2]};
+        color: ${theme.colors.green[8]};
       `,
       danger: css`
-        background-color: ${theme.assets.alertDangerBg};
-        color: ${theme.assets.alertDangerText};
+        background-color: ${theme.colors.red[2]};
+        color: ${theme.colors.red[8]};
       `,
       warning: css`
-        background-color: ${theme.assets.alertWarningBg};
-        color: ${theme.assets.alertWarningText};
+        background-color: ${theme.colors.yellow[2]};
+        color: ${theme.colors.yellow[8]};
       `,
       neutral: css`
-        background-color: ${theme.assets.alertNeutralBg};
-        color: ${theme.assets.alertNeutralText};
+        background-color: ${theme.colors.grey[3]};
+        color: ${theme.colors.grey[8]};
       `,
     };
     return variantStyles[variant];

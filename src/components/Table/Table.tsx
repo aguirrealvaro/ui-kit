@@ -1,7 +1,7 @@
 import { FunctionComponent, ReactNode } from "react";
 import styled from "styled-components";
 import { TableSizeType } from "./Table.types";
-import { useTheme } from "@/hooks";
+import { theme } from "@/css";
 
 type TableProps = {
   columns: ReactNode[];
@@ -10,8 +10,6 @@ type TableProps = {
 };
 
 export const Table: FunctionComponent<TableProps> = ({ columns, data, size = "md" }) => {
-  const { theme } = useTheme();
-
   const paddingSizes: Record<TableSizeType, string> = {
     sm: theme.spacing[4],
     md: theme.spacing[5],
@@ -65,8 +63,8 @@ const StyledTable = styled.table`
 
 const TableRowHeader = styled.tr`
   display: flex;
-  background-color: ${({ theme }) => theme.assets.tableHeaderBg};
-  border: 1px solid ${({ theme }) => theme.assets.tableBorder};
+  background-color: ${({ theme }) => theme.colors.grey[2]};
+  border: 1px solid ${({ theme }) => theme.colors.grey[3]};
   border-radius: ${({ theme }) => {
     const {
       borderRadius: { md },
@@ -83,13 +81,13 @@ const TableHead = styled.th<{ padding: string }>`
 
 const TableRowData = styled.tr`
   display: flex;
-  background-color: ${({ theme }) => theme.assets.tableRowBg};
+  background-color: ${({ theme }) => theme.colors.white};
   &:hover:not([disabled]) {
-    background-color: ${({ theme }) => theme.assets.tableRowBgHover};
+    background-color: ${({ theme }) => theme.colors.white};
   }
-  border-left: 1px solid ${({ theme }) => theme.assets.tableBorder};
-  border-right: 1px solid ${({ theme }) => theme.assets.tableBorder};
-  border-bottom: 1px solid ${({ theme }) => theme.assets.tableRowBorder};
+  border-left: 1px solid ${({ theme }) => theme.colors.grey[3]};
+  border-right: 1px solid ${({ theme }) => theme.colors.grey[3]};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.grey[2]};
   &:last-child {
     border-radius: ${({ theme }) => {
       const {
@@ -97,7 +95,7 @@ const TableRowData = styled.tr`
       } = theme;
       return `0 0 ${md} ${md}`;
     }};
-    border-bottom: 1px solid ${({ theme }) => theme.assets.tableBorder};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.grey[3]};
   }
 `;
 

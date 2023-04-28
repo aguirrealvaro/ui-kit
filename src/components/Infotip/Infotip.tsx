@@ -4,15 +4,13 @@ import styled from "styled-components";
 import { PopoverProps } from "../Popover";
 import { InfotipSizeType } from "./Infotip.types";
 import { Icon, Tooltip } from "@/components";
-import { useTheme } from "@/hooks";
+import { theme } from "@/css";
 
 type InfotipProps = {
   size?: InfotipSizeType;
 } & PopoverProps;
 
 export const Infotip: FunctionComponent<InfotipProps> = ({ size = "sm", ...restProps }) => {
-  const { theme } = useTheme();
-
   const sizes: Record<InfotipSizeType, string> = {
     xs: theme.spacing[4],
     sm: theme.spacing[5],

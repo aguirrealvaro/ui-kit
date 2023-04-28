@@ -3,7 +3,6 @@ import { FunctionComponent } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import styled from "styled-components";
 import { Button, Navbar } from "@/components";
-import { useTheme } from "@/hooks";
 
 export default {
   title: "Components/Navbar",
@@ -11,14 +10,11 @@ export default {
 } as ComponentMeta<typeof Navbar>;
 
 const Template: ComponentStory<typeof Navbar> = () => {
-  const { toggleThemeMode } = useTheme();
-
   const mainItems = [
     { label: "Item 1", onClick: () => console.log("Click"), disabled: true },
     { label: "Item 2", onClick: () => console.log("Click") },
     { label: "Item 3", onClick: () => console.log("Click") },
     { label: "Item 4", onClick: () => console.log("Click"), show: false },
-    { label: "Toggle mode", onClick: toggleThemeMode },
   ];
 
   const mobileItems = [

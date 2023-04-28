@@ -12,7 +12,8 @@ import {
 import { createPortal } from "react-dom";
 import styled, { css, keyframes } from "styled-components";
 import { PopoverPositionType, PopoverTriggerType } from "./Popover.types";
-import { useDisclosure, useOutsideClick, useTheme } from "@/hooks";
+import { theme } from "@/css";
+import { useDisclosure, useOutsideClick } from "@/hooks";
 
 export type PopoverProps = {
   children: ReactNode;
@@ -40,7 +41,6 @@ export const Popover: FunctionComponent<PopoverProps> = ({
   withTriggerWidth = false,
   popUpType,
 }) => {
-  const { theme } = useTheme();
   const transitionTime = theme.transitions.durations.normal;
 
   const triggerRef = useRef<HTMLDivElement>(null);

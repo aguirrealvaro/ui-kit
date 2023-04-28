@@ -12,7 +12,7 @@ import styled, { css } from "styled-components";
 import { AccordionArrowPosition } from "./Accordion.types";
 import { AccordionItemProps } from "./AccordionItem";
 import { Icon } from "@/components";
-import { useTheme } from "@/hooks";
+import { theme } from "@/css";
 
 type AccordionGroupProps = {
   children: ReactNode;
@@ -27,8 +27,6 @@ export const AccordionGroup: FunctionComponent<AccordionGroupProps> = ({
 }) => {
   const accordionTriggersRef = useRef<HTMLButtonElement[]>([]);
   const accordionContentsRef = useRef<HTMLDivElement[]>([]);
-
-  const { theme } = useTheme();
 
   const [openedIndex, setOpenedIndex] = useState<number | undefined>(undefined);
 

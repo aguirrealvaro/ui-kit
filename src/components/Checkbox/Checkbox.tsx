@@ -4,8 +4,7 @@ import { RadioButtonUnchecked } from "@styled-icons/material-rounded/RadioButton
 import styled from "styled-components";
 import { Icon } from "../Icon";
 import { CheckboxPositionType, CheckboxSizeType } from "./Checkbox.types";
-import { HelpText } from "@/css";
-import { useTheme } from "@/hooks";
+import { HelpText, theme } from "@/css";
 
 type CheckboxProps = {
   children: ReactNode;
@@ -32,8 +31,6 @@ export const Checkbox: FunctionComponent<
   position = "left",
   ...restProps
 }) => {
-  const { theme } = useTheme();
-
   const sizes: Record<CheckboxSizeType, string> = {
     sm: theme.spacing[6],
     md: theme.spacing[7],

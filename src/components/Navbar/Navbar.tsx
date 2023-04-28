@@ -2,7 +2,8 @@ import { FunctionComponent, ReactNode } from "react";
 import styled from "styled-components";
 import { MainMenu, Burger, MobileMenu } from "./components";
 import { NavbarItem } from "./Navbar.types";
-import { useDisclosure, useDisableScroll, useTheme } from "@/hooks";
+import { theme } from "@/css";
+import { useDisclosure, useDisableScroll } from "@/hooks";
 
 type NavbarProps = {
   startEndhacer?: ReactNode;
@@ -17,7 +18,6 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
   mainItems,
   mobileItems,
 }) => {
-  const { theme } = useTheme();
   const transitionTime = theme.transitions.durations.normal;
 
   const {

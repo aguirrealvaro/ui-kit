@@ -2,7 +2,6 @@ import { createGlobalStyle } from "styled-components";
 import { ThemeType } from "./theme";
 
 type GlobalStylesType = {
-  themeMode: string;
   theme: ThemeType;
 };
 
@@ -16,7 +15,6 @@ export const GlobalStyles = createGlobalStyle<GlobalStylesType>`
   }
 
   html {
-    color-scheme: ${({ themeMode }) => themeMode};
     scroll-behavior: smooth;
   }
 

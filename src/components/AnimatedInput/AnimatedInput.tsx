@@ -16,7 +16,7 @@ import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
 import styled, { css } from "styled-components";
 import { Spinner, Icon, IconButton } from "@/components";
-import { useTheme } from "@/hooks";
+import { theme } from "@/css";
 
 type AnimatedInputProps = {
   id: string;
@@ -49,8 +49,6 @@ export const AnimatedInput: FunctionComponent<
   type,
   ...restProps
 }) => {
-  const { theme } = useTheme();
-
   const [seePassword, setSeePassword] = useState<boolean>(false);
 
   const inputRef = useRef<HTMLInputElement>(null);
