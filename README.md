@@ -12,7 +12,6 @@
 
 ### To do
 
-- Replace assets with CSS Variables
 - Lucide, remove Icon components
 - DropdownMenu
 - Navbar (Menubar)
