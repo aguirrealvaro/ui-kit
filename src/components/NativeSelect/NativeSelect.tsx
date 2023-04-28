@@ -169,7 +169,7 @@ const Select = styled.select<{
     return sizes[selectSize];
   }};
   color: ${({ theme, isSelected }) =>
-    isSelected ? theme.assets.textPrimary : theme.assets.inputPlaceholder};
+    isSelected ? theme.assets.textPrimary : theme.assets.textSecondary};
   border: none;
   outline: none;
   cursor: pointer;

@@ -235,7 +235,7 @@ const Placeholder = styled.label`
   transition: all ${({ theme }) => theme.transitions.durations.normal}ms
     ${({ theme }) => theme.transitions.timings.out};
   pointer-events: none;
-  color: ${({ theme }) => theme.assets.inputPlaceholder};
+  color: ${({ theme }) => theme.assets.textSecondary};
 `;
 
 const getFocusedLabelStyles = css`
@@ -293,7 +293,7 @@ const CustomInput = styled.input<{
             return theme.assets.success;
           }
 
-          return theme.assets.inputPlaceholder;
+          return theme.assets.textSecondary;
         }};
       }
     }

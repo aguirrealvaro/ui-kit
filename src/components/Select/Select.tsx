@@ -224,7 +224,7 @@ const SelectContainer = styled.div<{
   justify-content: space-between;
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   color: ${({ theme, isSelected }) =>
-    isSelected ? theme.assets.textPrimary : theme.assets.inputPlaceholder};
+    isSelected ? theme.assets.textPrimary : theme.assets.textSecondary};
   height: ${({ size, theme }) => {
     const sizes: Record<SelectSizeType, string> = {
       sm: theme.sizes[8],

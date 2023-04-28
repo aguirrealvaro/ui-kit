@@ -18,8 +18,7 @@ type Assets =
   | "textPrimary"
   | "textSecondary"
   | "disabledPrimary"
-  | "disabledSecondary"
-  | "inputPlaceholder";
+  | "disabledSecondary";
 
 export type AssetsType = Record<Assets, string>;
 
@@ -51,6 +50,4 @@ export const assets: AssetsType = {
 
   disabledPrimary: colors.grey[300],
   disabledSecondary: colors.grey[500],
-
-  inputPlaceholder: colors.grey[600],
 };
