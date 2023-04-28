@@ -35,7 +35,7 @@ const UList = styled.ul`
 
 const Item = styled.button`
   &:disabled {
-    color: ${({ theme }) => theme.assets.disabledBg};
+    color: ${({ theme }) => theme.assets.disabledPrimary};
     cursor: not-allowed;
   }
 `;

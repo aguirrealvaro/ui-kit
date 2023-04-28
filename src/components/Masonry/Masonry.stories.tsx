@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import styled from "styled-components";
-import { Masonry } from "@/components";
+import { Masonry, Card } from "@/components";
 
 export default {
   title: "Components/Masonry",
@@ -11,7 +11,11 @@ const Template: ComponentStory<typeof Masonry> = (args) => {
   return (
     <Masonry {...args}>
       {[...Array(10).keys()].map((_, index) => {
-        return <Card key={index}>{index}</Card>;
+        return (
+          <Card key={index}>
+            <InnerCard>{index}</InnerCard>
+          </Card>
+        );
       })}
     </Masonry>
   );
@@ -37,14 +41,10 @@ const getRandomItem = (arr: number[]) => {
   return item;
 };
 
-const Card = styled.div`
+const InnerCard = styled.div`
   height: ${() => getRandomItem(heights)}px;
-  background-color: ${({ theme }) => theme.assets.bgSecondary};
-  color: ${({ theme }) => theme.assets.textPrimary};
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: ${({ theme }) => theme.borderRadius.sm};
   font-size: ${({ theme }) => theme.typography.fontSizes["2xl"]};
-  box-shadow: ${({ theme }) => theme.shadows.card};
 `;

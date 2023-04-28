@@ -210,8 +210,7 @@ const InputContainer = styled.div<{
   ${({ disabled, theme }) =>
     disabled &&
     css`
-      background-color: ${theme.assets.disabledBg};
-      color: ${theme.assets.disabledText};
+      background-color: ${theme.assets.disabledPrimary};
       border-color: transparent;
       cursor: not-allowed;
     `};
@@ -302,13 +301,6 @@ const CustomInput = styled.input<{
   &:disabled {
     cursor: not-allowed;
     color: inherit;
-    &:not(:placeholder-shown) {
-      &:not(:focus) {
-        + label {
-          color: ${({ theme }) => theme.assets.disabledText};
-        }
-      }
-    }
   }
 `;
 

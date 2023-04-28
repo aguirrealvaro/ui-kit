@@ -122,7 +122,7 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
             >
               <Icon
                 icon={icon}
-                color={disabled ? theme.assets.disabledBg : iconColor}
+                color={disabled ? theme.assets.disabledPrimary : iconColor}
                 size={radioSize}
               />
             </RadioButton>

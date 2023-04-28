@@ -102,7 +102,7 @@ export const AccordionGroup: FunctionComponent<AccordionGroupProps> = ({
                 <Icon
                   icon={ChevronDown}
                   size={15}
-                  {...(disabled && { color: theme.assets.disabledBg })}
+                  {...(disabled && { color: theme.assets.disabledPrimary })}
                 />
               </ChevronWrapper>
             </Button>
@@ -152,7 +152,7 @@ const Button = styled.button<{ arrowPosition: AccordionArrowPosition }>`
   padding: ${({ theme }) => theme.spacing[4]} 0;
   &:disabled {
     cursor: not-allowed;
-    color: ${({ theme }) => theme.assets.disabledBg};
+    color: ${({ theme }) => theme.assets.disabledPrimary};
   }
 `;
 

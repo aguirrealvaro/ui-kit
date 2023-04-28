@@ -59,7 +59,7 @@ export const Checkbox: FunctionComponent<
       >
         <Icon
           icon={icon}
-          color={disabled ? theme.assets.disabledBg : iconColor}
+          color={disabled ? theme.assets.disabledPrimary : iconColor}
           size={iconSize}
         />
       </CheckboxButton>

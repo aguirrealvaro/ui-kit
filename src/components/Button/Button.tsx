@@ -356,10 +356,10 @@ const CustomButton = styled.button<{
   transition: all ${({ theme }) => theme.transitions.durations.normal}ms
     ${({ theme }) => theme.transitions.timings.out};
   &:disabled {
-    background-color: ${({ theme }) => theme.assets.disabledBg};
+    background-color: ${({ theme }) => theme.assets.disabledPrimary};
     border-color: transparent;
     cursor: not-allowed;
-    color: ${({ theme }) => theme.assets.disabledText};
+    color: ${({ theme }) => theme.assets.disabledSecondary};
   }
 `;
 

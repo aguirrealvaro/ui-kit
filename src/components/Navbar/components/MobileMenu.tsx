@@ -117,7 +117,7 @@ const Item = styled.button`
   display: block;
   margin: 0 auto;
   &:disabled {
-    color: ${({ theme }) => theme.assets.disabledBg};
+    color: ${({ theme }) => theme.assets.disabledPrimary};
     cursor: not-allowed;
   }
 `;

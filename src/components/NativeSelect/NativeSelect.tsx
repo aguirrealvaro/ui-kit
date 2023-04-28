@@ -168,7 +168,6 @@ const Select = styled.select<{
     };
     return sizes[selectSize];
   }};
-  background-color: ${({ theme }) => theme.assets.bgPrimary};
   color: ${({ theme, isSelected }) =>
     isSelected ? theme.assets.textPrimary : theme.assets.inputPlaceholder};
   border: none;
@@ -208,10 +207,9 @@ const Select = styled.select<{
       }};
   }
   &:disabled {
-    background-color: ${({ theme }) => theme.assets.disabledBg};
+    background-color: ${({ theme }) => theme.assets.disabledPrimary};
     border-color: transparent;
     cursor: not-allowed;
-    color: ${({ theme }) => theme.assets.disabledText};
   }
 `;
 
@@ -228,7 +226,7 @@ const SideContainer = styled.div`
 
 const Option = styled.option`
   &:disabled {
-    color: ${({ theme }) => theme.assets.disabledBg};
+    color: ${({ theme }) => theme.assets.disabledPrimary};
   }
 `;
 

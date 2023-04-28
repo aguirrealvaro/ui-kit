@@ -52,6 +52,10 @@ export const Table: FunctionComponent<TableProps> = ({ columns, data, size = "md
   );
 };
 
+/* const headerBg = theme.colors.grey[200];
+const tableBorder = theme.colors.grey[300];
+const rowSeparator = theme.colors.grey[200]; */
+
 const Container = styled.div`
   overflow-x: auto;
 `;

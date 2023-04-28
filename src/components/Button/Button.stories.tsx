@@ -17,4 +17,5 @@ Primary.args = {
   isLoading: false,
   variant: "primary",
   size: "md",
+  disabled: false,
 };

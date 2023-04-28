@@ -12,7 +12,7 @@
 
 ### To do
 
-- new colors (review assets, disabled, table)
+- new colors table
 - move assets to vars?
 - Lucide, remove Icon components
 - DropdownMenu
