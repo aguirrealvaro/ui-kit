@@ -12,7 +12,6 @@
 
 ### To do
 
-- new colors table
 - move assets to vars?
 - Lucide, remove Icon components
 - DropdownMenu

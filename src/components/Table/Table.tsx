@@ -52,9 +52,9 @@ export const Table: FunctionComponent<TableProps> = ({ columns, data, size = "md
   );
 };
 
-/* const headerBg = theme.colors.grey[200];
-const tableBorder = theme.colors.grey[300];
-const rowSeparator = theme.colors.grey[200]; */
+const headerBg = theme.colors.grey[100];
+const tableBorder = theme.colors.grey[200];
+const rowSeparator = theme.colors.grey[100];
 
 const Container = styled.div`
   overflow-x: auto;
@@ -67,8 +67,8 @@ const StyledTable = styled.table`
 
 const TableRowHeader = styled.tr`
   display: flex;
-  background-color: ${({ theme }) => theme.colors.grey[200]};
-  border: 1px solid ${({ theme }) => theme.colors.grey[300]};
+  background-color: ${headerBg};
+  border: 1px solid ${tableBorder};
   border-radius: ${({ theme }) => {
     const {
       borderRadius: { md },
@@ -89,9 +89,9 @@ const TableRowData = styled.tr`
   &:hover:not([disabled]) {
     background-color: ${({ theme }) => theme.colors.white};
   }
-  border-left: 1px solid ${({ theme }) => theme.colors.grey[300]};
-  border-right: 1px solid ${({ theme }) => theme.colors.grey[300]};
-  border-bottom: 1px solid ${({ theme }) => theme.colors.grey[200]};
+  border-left: 1px solid ${tableBorder};
+  border-right: 1px solid ${tableBorder};
+  border-bottom: 1px solid ${rowSeparator};
   &:last-child {
     border-radius: ${({ theme }) => {
       const {
@@ -99,7 +99,7 @@ const TableRowData = styled.tr`
       } = theme;
       return `0 0 ${md} ${md}`;
     }};
-    border-bottom: 1px solid ${({ theme }) => theme.colors.grey[300]};
+    border-bottom: 1px solid ${tableBorder};
   }
 `;
 

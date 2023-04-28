@@ -38,9 +38,9 @@ export const assets: AssetsType = {
   neutral,
 
   // basics
-  bgPrimary: colors.grey[100],
+  bgPrimary: colors.grey[50],
   bgSecondary: colors.white,
-  bgTertiary: colors.grey[200],
+  bgTertiary: colors.grey[100],
 
   border: "rgba(0, 0, 0, 0.1)",
   hover: "rgba(0, 0, 0, 0.05)",
