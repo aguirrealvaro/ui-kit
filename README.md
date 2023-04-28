@@ -12,7 +12,7 @@
 
 ### To do
 
-- move assets to vars?
+- Replace assets with CSS Variables
 - Lucide, remove Icon components
 - DropdownMenu
 - Navbar (Menubar)
