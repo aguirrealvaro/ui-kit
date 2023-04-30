@@ -28,7 +28,6 @@ const Container = styled.div<{ spacing: Spacing; kind: CardKindType }>`
     const bgColors: Record<CardKindType, string> = {
       primary: theme.assets.bgPrimary,
       secondary: theme.assets.bgSecondary,
-      tertiary: theme.assets.bgTertiary,
     };
     return bgColors[kind];
   }};

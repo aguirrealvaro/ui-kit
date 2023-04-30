@@ -11,7 +11,6 @@ type Assets =
   // basics
   | "bgPrimary"
   | "bgSecondary"
-  | "bgTertiary"
   | "border"
   | "hover"
   | "textHeading"
@@ -33,7 +32,6 @@ export const assets: AssetsType = {
   // basics
   bgPrimary: colors.grey[50],
   bgSecondary: colors.white,
-  bgTertiary: colors.grey[100],
 
   border: "rgba(0, 0, 0, 0.1)",
   hover: "rgba(0, 0, 0, 0.05)",

@@ -14,10 +14,6 @@ export const Primary = () => {
       bg: theme.assets.bgSecondary,
       border: theme.assets.border,
     },
-    {
-      bg: theme.assets.bgTertiary,
-      border: theme.assets.border,
-    },
   ];
 
   return (
