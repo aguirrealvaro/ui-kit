@@ -9,14 +9,10 @@ import {
   MouseEvent,
   KeyboardEvent,
 } from "react";
-import { CheckCircleFill } from "@styled-icons/bootstrap/CheckCircleFill";
-import { EyeFill } from "@styled-icons/bootstrap/EyeFill";
-import { EyeSlashFill } from "@styled-icons/bootstrap/EyeSlashFill";
-import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
-import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
+import { CheckCircle2, Eye, EyeOff, X, XCircle } from "lucide-react";
 import styled, { css } from "styled-components";
 import { InputSizeType } from "./Input.types";
-import { Spinner, Icon, IconButton } from "@/components";
+import { Spinner, IconButton, LucideIcon } from "@/components";
 import { theme } from "@/css";
 
 type InputProps = {
@@ -159,16 +155,16 @@ export const Input: FunctionComponent<
             {isLoading && <Spinner size="xs" />}
             {value && clearValue && (
               <IconButton size="sm" onClick={clearValue}>
-                <Icon icon={CloseOutline} size={18} />
+                <LucideIcon icon={X} size={18} />
               </IconButton>
             )}
-            {isError && <Icon icon={CloseCircle} size={18} color={theme.assets.danger} />}
+            {isError && <LucideIcon icon={XCircle} size={18} color={theme.assets.danger} />}
             {isSuccess && (
-              <Icon icon={CheckCircleFill} size={18} color={theme.assets.success} />
+              <LucideIcon icon={CheckCircle2} size={18} color={theme.assets.success} />
             )}
             {type === "password" && (
               <IconButton size="sm" onClick={handleSeePassword}>
-                <Icon icon={seePassword ? EyeSlashFill : EyeFill} size={18} />
+                <LucideIcon icon={seePassword ? EyeOff : Eye} size={18} />
               </IconButton>
             )}
           </RightContainer>
