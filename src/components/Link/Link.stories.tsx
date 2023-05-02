@@ -13,6 +13,6 @@ const Template: ComponentStory<typeof Link> = (args) => {
 export const Primary = Template.bind({});
 Primary.args = {
   children: "This is a link",
-  hideUnderline: false,
+  underline: "hover",
   href: "https://google.com",
 };

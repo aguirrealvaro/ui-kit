@@ -1,27 +1,47 @@
 import { FunctionComponent, AnchorHTMLAttributes, ReactNode } from "react";
 import styled, { css } from "styled-components";
+import { LinkUnderlineType } from "./Link.types";
 
 export type LinkProps = {
   children: ReactNode;
-  hideUnderline?: boolean;
+  underline?: LinkUnderlineType;
   disabled?: boolean;
 };
 
 export const Link: FunctionComponent<LinkProps & AnchorHTMLAttributes<HTMLAnchorElement>> = ({
   children,
-  hideUnderline = false,
+  underline = true,
   disabled = false,
   ...restProps
 }) => {
   return (
-    <Anchor hideUnderline={hideUnderline} target="_blank" disabled={disabled} {...restProps}>
+    <Anchor underline={underline} target="_blank" disabled={disabled} {...restProps}>
       {children}
     </Anchor>
   );
 };
 
-const Anchor = styled.a<{ hideUnderline: boolean; disabled: boolean }>`
-  text-decoration: ${({ hideUnderline }) => hideUnderline && "auto"};
+const Anchor = styled.a<{ underline: LinkUnderlineType; disabled: boolean }>`
+  ${({ underline }) => {
+    if (underline === "hover") {
+      return css`
+        text-decoration: auto;
+        &:hover {
+          text-decoration: underline;
+        }
+      `;
+    } else {
+      if (underline) {
+        return css`
+          text-decoration: underline;
+        `;
+      } else {
+        return css`
+          text-decoration: auto;
+        `;
+      }
+    }
+  }};
   ${({ disabled, theme }) => {
     if (disabled) {
       return css`
