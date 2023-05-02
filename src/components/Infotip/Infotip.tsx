@@ -1,9 +1,9 @@
 import { FunctionComponent } from "react";
-import { ExclamationCircle } from "@styled-icons/heroicons-outline/ExclamationCircle";
+import { AlertCircle } from "lucide-react";
 import styled from "styled-components";
 import { PopoverProps } from "../Popover";
 import { InfotipSizeType } from "./Infotip.types";
-import { Icon, Tooltip } from "@/components";
+import { LucideIcon, Tooltip } from "@/components";
 import { theme } from "@/css";
 
 type InfotipProps = {
@@ -23,7 +23,7 @@ export const Infotip: FunctionComponent<InfotipProps> = ({ size = "sm", ...restP
   return (
     <Tooltip {...restProps}>
       <IconWrapper>
-        <Icon icon={ExclamationCircle} size={infotipSize} />
+        <LucideIcon icon={AlertCircle} size={infotipSize} />
       </IconWrapper>
     </Tooltip>
   );
