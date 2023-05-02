@@ -9,7 +9,7 @@ export const Burger: FunctionComponent<BurgerProps> = ({ onClick }) => {
   return (
     <Container>
       <IconButton onClick={onClick}>
-        <Icon icon={Menu} />
+        <Icon icon={Menu} size={25} />
       </IconButton>
     </Container>
   );

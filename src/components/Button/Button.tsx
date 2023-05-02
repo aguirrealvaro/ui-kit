@@ -12,8 +12,8 @@ type ButtonProps = {
   size?: ButtonSizeType;
   variant?: VariantType;
   shape?: ButtonShapeType;
-  startEnhacer?: ReactNode;
-  endEnhacer?: ReactNode;
+  startElement?: ReactNode;
+  endElement?: ReactNode;
 };
 
 export const Button: FunctionComponent<
@@ -27,8 +27,8 @@ export const Button: FunctionComponent<
   size = "md",
   variant = "primary",
   shape = "default",
-  startEnhacer,
-  endEnhacer,
+  startElement,
+  endElement,
   type = "button",
   ...restProps
 }) => {
@@ -42,9 +42,9 @@ export const Button: FunctionComponent<
 
     return (
       <InnerContainer>
-        {startEnhacer ? startEnhacer : null}
+        {startElement ? startElement : null}
         {children}
-        {endEnhacer ? endEnhacer : null}
+        {endElement ? endElement : null}
       </InnerContainer>
     );
   };

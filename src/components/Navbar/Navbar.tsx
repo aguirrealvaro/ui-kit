@@ -6,15 +6,15 @@ import { theme } from "@/css";
 import { useDisclosure, useDisableScroll } from "@/hooks";
 
 type NavbarProps = {
-  startEnhacer?: ReactNode;
-  endEnhacer?: ReactNode;
+  startElement?: ReactNode;
+  endElement?: ReactNode;
   mainItems: NavbarItem[];
   mobileItems: NavbarItem[];
 };
 
 export const Navbar: FunctionComponent<NavbarProps> = ({
-  startEnhacer,
-  endEnhacer,
+  startElement,
+  endElement,
   mainItems,
   mobileItems,
 }) => {
@@ -33,9 +33,9 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
     <Container>
       <Wrapper>
         <InnerContainer>
-          {startEnhacer}
+          {startElement}
           <MainMenu items={mainItems} />
-          <EndEnhacerContainer>{endEnhacer}</EndEnhacerContainer>
+          <EndElementContainer>{endElement}</EndElementContainer>
           <Burger onClick={onToggle} />
           {isMobileMenuOpen && (
             <MobileMenu
@@ -76,7 +76,7 @@ const InnerContainer = styled.div`
   justify-content: space-between;
 `;
 
-const EndEnhacerContainer = styled.div`
+const EndElementContainer = styled.div`
   ${({ theme }) => theme.breakpoint("md")} {
     display: none;
   }

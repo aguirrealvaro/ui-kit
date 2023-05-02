@@ -25,8 +25,8 @@ type InputProps = {
   successMessage?: ReactNode;
   isLoading?: boolean;
   clearValue?: () => void;
-  endEnhacer?: ReactNode;
-  startEnhacer?: ReactNode;
+  endElement?: ReactNode;
+  startElement?: ReactNode;
   size?: InputSizeType;
 };
 
@@ -42,8 +42,8 @@ export const Input: FunctionComponent<
   successMessage,
   isLoading,
   clearValue,
-  endEnhacer,
-  startEnhacer,
+  endElement,
+  startElement,
   onChange,
   disabled,
   value,
@@ -63,14 +63,14 @@ export const Input: FunctionComponent<
     if (e.target.validity.valid) onChange?.(e);
   };
 
-  const showLeftContainer = !!startEnhacer;
+  const showLeftContainer = !!startElement;
 
   const showRightContainer: boolean =
     isLoading ||
     isError ||
     isSuccess ||
     (!!value && !!clearValue) ||
-    !!endEnhacer ||
+    !!endElement ||
     type === "password";
 
   const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
@@ -134,7 +134,7 @@ export const Input: FunctionComponent<
         onKeyDown={handleKeyDown}
       >
         {showLeftContainer && (
-          <LeftContainer>{startEnhacer ? startEnhacer : null}</LeftContainer>
+          <LeftContainer>{startElement ? startElement : null}</LeftContainer>
         )}
         <CustomInput
           id={id}
@@ -151,7 +151,7 @@ export const Input: FunctionComponent<
         />
         {showRightContainer && (
           <RightContainer ref={rightContainerRef}>
-            {endEnhacer ? endEnhacer : null}
+            {endElement ? endElement : null}
             {isLoading && <Spinner size="xs" />}
             {value && clearValue && (
               <IconButton size="sm" onClick={clearValue}>
