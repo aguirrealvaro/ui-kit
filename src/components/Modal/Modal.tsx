@@ -7,12 +7,12 @@ import {
   ReactElement,
 } from "react";
 import { createPortal } from "react-dom";
-import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
 import FocusTrap from "focus-trap-react";
+import { X } from "lucide-react";
 import styled, { css, keyframes } from "styled-components";
 import { ModalSizeType } from "./Modal.types";
-import { Icon, IconButton } from "@/components";
-import { useDisableScroll, useKeyPress, useDisclosure } from "@/hooks";
+import { IconButton, LucideIcon } from "@/components";
+import { useDisableScroll, useKeyPress, useDisclosure, useOutsideClick } from "@/hooks";
 
 export type ModalProps = {
   children: ReactNode;
@@ -33,12 +33,12 @@ export const Modal: FunctionComponent<ModalProps> = ({
 
   useDisableScroll(isOpen);
 
-  // Does not work with Focus trap
-  /* useOutsideClick({
+  useOutsideClick({
     ref: contentRef,
     handler: onClose,
-    enabled: isOpen && closeOnInteractions,
-  }); */
+    //enabled: isOpen && closeOnInteractions,
+    enabled: false, //Does not work with Focus trap
+  });
 
   useKeyPress({
     targetKey: "Escape",
@@ -69,7 +69,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
               >
                 <CloseButtonWrapper>
                   <IconButton onClick={onClose}>
-                    <Icon icon={CloseOutline} size={25} />
+                    <LucideIcon icon={X} />
                   </IconButton>
                 </CloseButtonWrapper>
                 {children}
