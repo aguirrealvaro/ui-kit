@@ -12,7 +12,8 @@
 
 ### To do
 
-- Lucide, remove Icon components
+- Lucide, remove Icon component
+- :after
 - DropdownMenu
 - Navbar (Menubar)
 - Pagination

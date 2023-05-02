@@ -7,12 +7,11 @@ import {
   useRef,
   KeyboardEvent,
 } from "react";
-import { ChevronDown } from "@styled-icons/fluentui-system-filled/ChevronDown";
+import { ChevronDown } from "lucide-react";
 import styled, { css } from "styled-components";
 import { AccordionArrowPosition } from "./Accordion.types";
 import { AccordionItemProps } from "./AccordionItem";
-import { Icon } from "@/components";
-import { theme } from "@/css";
+import { LucideIcon } from "@/components";
 
 type AccordionGroupProps = {
   children: ReactNode;
@@ -99,11 +98,7 @@ export const AccordionGroup: FunctionComponent<AccordionGroupProps> = ({
             >
               <Trigger arrowPosition={arrowPosition}>{trigger}</Trigger>
               <ChevronWrapper isOpen={isOpen} arrowPosition={arrowPosition}>
-                <Icon
-                  icon={ChevronDown}
-                  size={15}
-                  {...(disabled && { color: theme.assets.disabledPrimary })}
-                />
+                <LucideIcon icon={ChevronDown} />
               </ChevronWrapper>
             </Button>
             <Content

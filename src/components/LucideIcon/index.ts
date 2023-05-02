@@ -1,0 +1,1 @@
+export { LucideIcon } from "./LucideIcon";
