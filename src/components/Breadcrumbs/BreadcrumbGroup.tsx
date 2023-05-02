@@ -1,7 +1,5 @@
 import { Children, FunctionComponent, ReactNode } from "react";
-import { ChevronRight } from "@styled-icons/boxicons-regular/ChevronRight";
 import styled from "styled-components";
-import { Icon } from "../Icon";
 
 type BreadcrumbGroupProps = {
   children: ReactNode;
@@ -18,11 +16,7 @@ export const BreadcrumbGroup: FunctionComponent<BreadcrumbGroupProps> = ({ child
           return (
             <ItemList>
               <>{child}</>
-              {showSeparator && (
-                <Separator>
-                  <Icon icon={ChevronRight} size={22} />
-                </Separator>
-              )}
+              {showSeparator && <Separator aria-hidden="true">/</Separator>}
             </ItemList>
           );
         })}

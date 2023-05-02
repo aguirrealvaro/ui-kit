@@ -13,6 +13,7 @@
 ### To do
 
 - Lucide, remove Icon component
+- ui folder
 - :after
 - DropdownMenu
 - Navbar (Menubar)

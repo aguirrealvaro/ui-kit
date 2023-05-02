@@ -48,4 +48,5 @@ export const Primary = Template.bind({});
 Primary.args = {
   placeholder: "Placeholder",
   helpText: "Help text",
+  type: "text",
 };
