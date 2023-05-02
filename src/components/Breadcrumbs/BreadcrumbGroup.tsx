@@ -9,16 +9,8 @@ export const BreadcrumbGroup: FunctionComponent<BreadcrumbGroupProps> = ({ child
   return (
     <nav aria-label="Breadcrumb">
       <List>
-        {Children.map(children, (child, index) => {
-          const count = Children.count(children);
-          const showSeparator = index !== count - 1;
-
-          return (
-            <ItemList>
-              <>{child}</>
-              {showSeparator && <Separator aria-hidden="true">/</Separator>}
-            </ItemList>
-          );
+        {Children.map(children, (child) => {
+          return <ItemList>{child}</ItemList>;
         })}
       </List>
     </nav>
@@ -30,9 +22,20 @@ const List = styled.ol`
 `;
 
 const ItemList = styled.li`
+  display: flex;
+  align-items: center;
   list-style: none;
-`;
-
-const Separator = styled.span`
-  margin: 0 ${({ theme }) => theme.spacing[2]};
+  &:last-child {
+    &:after {
+      display: none;
+    }
+  }
+  &:after {
+    content: "";
+    display: inline-block;
+    margin: 0 ${({ theme }) => theme.spacing[2]};
+    transform: rotate(15deg);
+    border-right: 0.1em solid currentcolor;
+    height: ${({ theme }) => theme.sizes[4]};
+  }
 `;

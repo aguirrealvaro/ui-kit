@@ -14,7 +14,6 @@
 
 - Lucide, remove Icon, rename LucideIconType
 - ui folder
-- :after
 - DropdownMenu
 - Navbar (Menubar)
 - Pagination
