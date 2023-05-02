@@ -6,14 +6,14 @@ import { theme } from "@/css";
 import { useDisclosure, useDisableScroll } from "@/hooks";
 
 type NavbarProps = {
-  startEndhacer?: ReactNode;
+  startEnhacer?: ReactNode;
   endEnhacer?: ReactNode;
   mainItems: NavbarItem[];
   mobileItems: NavbarItem[];
 };
 
 export const Navbar: FunctionComponent<NavbarProps> = ({
-  startEndhacer,
+  startEnhacer,
   endEnhacer,
   mainItems,
   mobileItems,
@@ -33,7 +33,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
     <Container>
       <Wrapper>
         <InnerContainer>
-          {startEndhacer}
+          {startEnhacer}
           <MainMenu items={mainItems} />
           <EndEnhacerContainer>{endEnhacer}</EndEnhacerContainer>
           <Burger onClick={onToggle} />

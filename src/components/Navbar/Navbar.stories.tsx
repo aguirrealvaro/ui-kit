@@ -24,7 +24,7 @@ const Template: ComponentStory<typeof Navbar> = () => {
 
   return (
     <Navbar
-      startEndhacer={<Logo />}
+      startEnhacer={<Logo />}
       endEnhacer={<SessionButtons />}
       mainItems={mainItems}
       mobileItems={mobileItems}
