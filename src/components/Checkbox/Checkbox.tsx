@@ -1,6 +1,4 @@
 import { ButtonHTMLAttributes, FunctionComponent, ReactNode } from "react";
-import { CheckCircle } from "@styled-icons/material-rounded/CheckCircle";
-import { RadioButtonUnchecked } from "@styled-icons/material-rounded/RadioButtonUnchecked";
 import { Check } from "lucide-react";
 import styled from "styled-components";
 import { LucideIcon } from "../LucideIcon";
@@ -33,9 +31,9 @@ export const Checkbox: FunctionComponent<
   ...restProps
 }) => {
   const sizes: Record<CheckboxSizeType, string> = {
-    sm: theme.spacing[6],
-    md: theme.spacing[7],
-    lg: theme.spacing[8],
+    sm: theme.spacing[3.5],
+    md: theme.spacing[4],
+    lg: theme.spacing[5],
   };
 
   const iconSize = sizes[size];
@@ -53,9 +51,10 @@ export const Checkbox: FunctionComponent<
         disabled={disabled}
         position={position}
         checked={checked}
+        iconSize={iconSize}
         {...restProps}
       >
-        {checked && <LucideIcon icon={Check} color={theme.colors.white} />}
+        {checked && <LucideIcon icon={Check} color={theme.colors.white} size={14} />}
       </CheckboxButton>
       <LabelContainer id={labelId} htmlFor={id} position={position}>
         <Children size={size}>{children}</Children>
@@ -72,12 +71,16 @@ const Container = styled.div<{ position: CheckboxPositionType }>`
   justify-content: ${({ position }) => (position === "left" ? "flex-start" : "space-between")};
 `;
 
-const CheckboxButton = styled.button<{ position: CheckboxPositionType; checked: boolean }>`
+const CheckboxButton = styled.button<{
+  position: CheckboxPositionType;
+  checked: boolean;
+  iconSize: string;
+}>`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: ${({ theme }) => theme.sizes[4]};
-  height: ${({ theme }) => theme.sizes[4]};
+  width: ${({ iconSize }) => iconSize};
+  height: ${({ iconSize }) => iconSize};
   border: 1px solid ${({ theme }) => theme.assets.border};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   background-color: ${({ theme, checked }) => checked && theme.assets.primary};
