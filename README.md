@@ -14,7 +14,6 @@
 
 - Lucide, remove Icon component
 - ui folder
-- Remove icons on Inputs?
 - :after
 - DropdownMenu
 - Navbar (Menubar)
