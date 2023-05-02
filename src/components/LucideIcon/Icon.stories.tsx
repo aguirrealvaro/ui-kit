@@ -1,14 +1,14 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Menu } from "@styled-icons/heroicons-outline/Menu";
-import { Icon } from "@/components";
+import { AlertCircle } from "lucide-react";
+import { LucideIcon } from "@/components";
 
 export default {
-  title: "Components/Icon",
-  component: Icon,
-} as ComponentMeta<typeof Icon>;
+  title: "Components/LucideIcon",
+  component: LucideIcon,
+} as ComponentMeta<typeof LucideIcon>;
 
-const Template: ComponentStory<typeof Icon> = ({ icon, ...args }) => {
-  return <Icon icon={Menu} {...args} />;
+const Template: ComponentStory<typeof LucideIcon> = ({ icon, ...args }) => {
+  return <LucideIcon icon={AlertCircle} {...args} />;
 };
 
 export const Primary = Template.bind({});

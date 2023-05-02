@@ -1,8 +1,8 @@
 import { FunctionComponent, useRef } from "react";
-import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
+import { X } from "lucide-react";
 import styled, { css, keyframes } from "styled-components";
 import { NavbarItem } from "../Navbar.types";
-import { Icon, IconButton } from "@/components";
+import { LucideIcon, IconButton } from "@/components";
 import { useOutsideClick } from "@/hooks";
 
 type MobileMenuProps = {
@@ -28,7 +28,7 @@ export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
       <Container isUnmounting={isUnmounting} ref={ref} transitionTime={transitionTime}>
         <CloseButtonWrapper>
           <IconButton onClick={onClose}>
-            <Icon icon={CloseOutline} size={25} />
+            <LucideIcon icon={X} size={25} />
           </IconButton>
         </CloseButtonWrapper>
         <nav>

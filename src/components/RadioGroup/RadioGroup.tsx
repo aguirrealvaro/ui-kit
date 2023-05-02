@@ -8,10 +8,7 @@ import {
   KeyboardEvent,
   useRef,
 } from "react";
-import { RadioCircle } from "@styled-icons/boxicons-regular/RadioCircle";
-import { RadioCircleMarked } from "@styled-icons/boxicons-regular/RadioCircleMarked";
 import styled from "styled-components";
-import { Icon } from "../Icon";
 import { RadioSizeType, RadioPositionType } from "./Radio.types";
 import { RadioItemProps } from "./RadioItem";
 import { HelpText, theme } from "@/css";
@@ -101,7 +98,6 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
         } = child.props as RadioItemProps;
 
         const isChecked = value === itemValue;
-        const icon = isChecked ? RadioCircleMarked : RadioCircle;
 
         return (
           <ItemList position={position}>
@@ -119,13 +115,7 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
                   radiosRef.current[index] = el;
                 }
               }}
-            >
-              <Icon
-                icon={icon}
-                color={disabled ? theme.assets.disabledPrimary : iconColor}
-                size={radioSize}
-              />
-            </RadioButton>
+            ></RadioButton>
             <LabelContainer
               htmlFor={getRadioItemId(index)}
               id={getRadioLabelId(index)}

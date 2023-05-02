@@ -9,7 +9,6 @@ export { Navbar } from "./Navbar";
 export { Carousel } from "./Carousel";
 export { Button } from "./Button";
 export { Link } from "./Link";
-export { Icon } from "./Icon";
 export { GrowingNumber } from "./GrowingNumber";
 export { Masonry } from "./Masonry";
 export { Layout } from "./Layout";

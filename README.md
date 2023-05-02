@@ -16,6 +16,7 @@
 - Rename Modal to Dialog
 - ui folder?
 - types
+- colors
 - DropdownMenu
 - Navbar (Menubar)
 - Review w3 aria-props

@@ -1,14 +1,16 @@
 import { FunctionComponent, useEffect, useRef, useState } from "react";
-import { CheckCircleFill } from "@styled-icons/bootstrap/CheckCircleFill";
-import { InfoCircleFill } from "@styled-icons/bootstrap/InfoCircleFill";
-import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
-import { Alert } from "@styled-icons/remix-fill/Alert";
-import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
+import {
+  CheckCircle2,
+  Info,
+  X,
+  LucideIcon as LucideIconType,
+  XCircle,
+  AlertCircle,
+} from "lucide-react";
 import styled, { css, keyframes, FlattenSimpleInterpolation } from "styled-components";
-import { StyledIcon } from "styled-icons/types";
 import { IconButton } from "../IconButton";
 import { ToastProps } from "./Toast.types";
-import { Icon } from "@/components/Icon";
+import { LucideIcon } from "@/components";
 import { theme } from "@/css";
 import { useToast } from "@/hooks";
 import { VariantType } from "@/types";
@@ -52,12 +54,12 @@ export const Toast: FunctionComponent<ToastProps> = ({
     };
   }, []);
 
-  const variantIcons: Record<VariantType, StyledIcon> = {
-    primary: InfoCircleFill,
-    success: CheckCircleFill,
-    warning: Alert,
-    danger: CloseCircle,
-    neutral: InfoCircleFill,
+  const variantIcons: Record<VariantType, LucideIconType> = {
+    primary: Info,
+    success: CheckCircle2,
+    warning: AlertCircle,
+    danger: XCircle,
+    neutral: Info,
   };
 
   const variantIconColors: Record<VariantType, string> = {
@@ -75,11 +77,11 @@ export const Toast: FunctionComponent<ToastProps> = ({
       role="alert"
       transitionTime={transitionTime}
     >
-      <Icon icon={variantIcons[variant]} size={18} color={variantIconColors[variant]} />
+      <LucideIcon icon={variantIcons[variant]} size={18} color={variantIconColors[variant]} />
       <div>{children}</div>
       <CloseButtonWrapper onClick={closeToast}>
         <IconButton size="xs">
-          <Icon icon={CloseOutline} size={15} color={variantIconColors[variant]} />
+          <LucideIcon icon={X} size={15} color={variantIconColors[variant]} />
         </IconButton>
       </CloseButtonWrapper>
     </Container>
