@@ -1,14 +1,14 @@
 import { FunctionComponent } from "react";
-import { LucideIcon as LucideIconType, LucideProps } from "lucide-react";
+import { LucideIcon, LucideProps } from "lucide-react";
 import { theme } from "@/css";
 
-type LucideIconProps = {
-  icon: LucideIconType;
+type IconProps = {
+  icon: LucideIcon;
   size?: string | number;
   color?: string;
 } & LucideProps;
 
-export const LucideIcon: FunctionComponent<LucideIconProps> = ({
+export const Icon: FunctionComponent<IconProps> = ({
   icon: IconComponent,
   size = 20,
   color = theme.assets.textPrimary,

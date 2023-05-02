@@ -11,7 +11,7 @@ import {
 } from "react";
 import { CheckCircle2, XCircle, X, Eye, EyeOff } from "lucide-react";
 import styled, { css } from "styled-components";
-import { Spinner, LucideIcon, IconButton } from "@/components";
+import { Spinner, Icon, IconButton } from "@/components";
 import { theme } from "@/css";
 
 type AnimatedInputProps = {
@@ -142,16 +142,14 @@ export const AnimatedInput: FunctionComponent<
             {isLoading && <Spinner size="xs" />}
             {value && clearValue && (
               <IconButton size="sm" onClick={clearValue}>
-                <LucideIcon icon={X} size={18} />
+                <Icon icon={X} size={18} />
               </IconButton>
             )}
-            {isError && <LucideIcon icon={XCircle} size={18} color={theme.assets.danger} />}
-            {isSuccess && (
-              <LucideIcon icon={CheckCircle2} size={18} color={theme.assets.success} />
-            )}
+            {isError && <Icon icon={XCircle} size={18} color={theme.assets.danger} />}
+            {isSuccess && <Icon icon={CheckCircle2} size={18} color={theme.assets.success} />}
             {type === "password" && (
               <IconButton size="sm" onClick={handleSeePassword}>
-                <LucideIcon icon={seePassword ? EyeOff : Eye} size={18} />
+                <Icon icon={seePassword ? EyeOff : Eye} size={18} />
               </IconButton>
             )}
           </SideContainer>

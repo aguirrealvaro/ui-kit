@@ -1,16 +1,9 @@
 import { FunctionComponent, useEffect, useRef, useState } from "react";
-import {
-  CheckCircle2,
-  Info,
-  X,
-  LucideIcon as LucideIconType,
-  XCircle,
-  AlertCircle,
-} from "lucide-react";
+import { CheckCircle2, Info, X, XCircle, AlertCircle, LucideIcon } from "lucide-react";
 import styled, { css, keyframes, FlattenSimpleInterpolation } from "styled-components";
 import { IconButton } from "../IconButton";
 import { ToastProps } from "./Toast.types";
-import { LucideIcon } from "@/components";
+import { Icon } from "@/components";
 import { theme } from "@/css";
 import { useToast } from "@/hooks";
 import { VariantType } from "@/types";
@@ -54,7 +47,7 @@ export const Toast: FunctionComponent<ToastProps> = ({
     };
   }, []);
 
-  const variantIcons: Record<VariantType, LucideIconType> = {
+  const variantIcons: Record<VariantType, LucideIcon> = {
     primary: Info,
     success: CheckCircle2,
     warning: AlertCircle,
@@ -77,11 +70,11 @@ export const Toast: FunctionComponent<ToastProps> = ({
       role="alert"
       transitionTime={transitionTime}
     >
-      <LucideIcon icon={variantIcons[variant]} size={18} color={variantIconColors[variant]} />
+      <Icon icon={variantIcons[variant]} size={18} color={variantIconColors[variant]} />
       <div>{children}</div>
       <CloseButtonWrapper onClick={closeToast}>
         <IconButton size="xs">
-          <LucideIcon icon={X} size={15} color={variantIconColors[variant]} />
+          <Icon icon={X} size={15} color={variantIconColors[variant]} />
         </IconButton>
       </CloseButtonWrapper>
     </Container>

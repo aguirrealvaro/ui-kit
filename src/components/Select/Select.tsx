@@ -13,7 +13,7 @@ import { ChevronDown, X } from "lucide-react";
 import styled, { css } from "styled-components";
 import { useKeyboardInteractions } from "./hooks";
 import { SelectFieldType, SelectSizeType } from "./Select.types";
-import { Spinner, LucideIcon, IconButton } from "@/components";
+import { Spinner, Icon, IconButton } from "@/components";
 import { useOutsideClick } from "@/hooks";
 
 type SelectProps = {
@@ -150,11 +150,11 @@ export const Select: FunctionComponent<SelectProps> = ({
           {isLoading && <Spinner size="xs" />}
           {isSelected && clearValue && (
             <IconButton size="sm" onClick={handleClearValue}>
-              <LucideIcon icon={X} size={18} />
+              <Icon icon={X} size={18} />
             </IconButton>
           )}
           <ChevronWrapper active={isOpen}>
-            <LucideIcon icon={ChevronDown} size={18} />
+            <Icon icon={ChevronDown} size={18} />
           </ChevronWrapper>
         </SideContainer>
         <Dropdown

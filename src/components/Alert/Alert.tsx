@@ -1,14 +1,8 @@
 import { FunctionComponent, ReactNode } from "react";
-import {
-  Info,
-  AlertCircle,
-  CheckCircle2,
-  XCircle,
-  LucideIcon as LucideIconType,
-} from "lucide-react";
+import { Info, AlertCircle, CheckCircle2, XCircle, LucideIcon } from "lucide-react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { AlertSizeType } from "./Alert.types";
-import { LucideIcon } from "@/components";
+import { Icon } from "@/components";
 import { theme } from "@/css";
 import { VariantType } from "@/types";
 
@@ -32,7 +26,7 @@ export const Alert: FunctionComponent<AlertProps> = ({
     lg: 20,
   };
 
-  const variantIcons: Record<VariantType, { icon: LucideIconType; color: string }> = {
+  const variantIcons: Record<VariantType, { icon: LucideIcon; color: string }> = {
     primary: { icon: Info, color: theme.assets.primary },
     success: { icon: CheckCircle2, color: theme.assets.success },
     warning: { icon: AlertCircle, color: theme.assets.warning },
@@ -43,7 +37,7 @@ export const Alert: FunctionComponent<AlertProps> = ({
   return (
     <Container variant={variant} size={size} role="alert">
       {showIcon && (
-        <LucideIcon
+        <Icon
           icon={variantIcons[variant].icon}
           size={sizeIcons[size]}
           color={variantIcons[variant].color}

@@ -3,7 +3,7 @@ import { AlertCircle } from "lucide-react";
 import styled from "styled-components";
 import { PopoverProps } from "../Popover";
 import { InfotipSizeType } from "./Infotip.types";
-import { LucideIcon, Tooltip } from "@/components";
+import { Icon, Tooltip } from "@/components";
 import { theme } from "@/css";
 
 type InfotipProps = {
@@ -23,7 +23,7 @@ export const Infotip: FunctionComponent<InfotipProps> = ({ size = "sm", ...restP
   return (
     <Tooltip {...restProps}>
       <IconWrapper>
-        <LucideIcon icon={AlertCircle} size={infotipSize} />
+        <Icon icon={AlertCircle} size={infotipSize} />
       </IconWrapper>
     </Tooltip>
   );

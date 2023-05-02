@@ -1,8 +1,8 @@
 import { FunctionComponent } from "react";
-import { ChevronLeft, ChevronRight, LucideIcon as LucideIconType } from "lucide-react";
+import { ChevronLeft, ChevronRight, LucideIcon } from "lucide-react";
 import styled, { css } from "styled-components";
 import { CarouselDirectionType } from "../Carousel.types";
-import { LucideIcon } from "@/components";
+import { Icon } from "@/components";
 
 type ArrowProps = {
   direction: CarouselDirectionType;
@@ -11,7 +11,7 @@ type ArrowProps = {
 };
 
 export const Arrow: FunctionComponent<ArrowProps> = ({ direction, handleArrow, disabled }) => {
-  const chevronIcon: Record<CarouselDirectionType, LucideIconType> = {
+  const chevronIcon: Record<CarouselDirectionType, LucideIcon> = {
     left: ChevronLeft,
     right: ChevronRight,
   };
@@ -24,7 +24,7 @@ export const Arrow: FunctionComponent<ArrowProps> = ({ direction, handleArrow, d
       disabled={disabled}
       tabIndex={-1}
     >
-      <LucideIcon icon={chevronIcon[direction]} />
+      <Icon icon={chevronIcon[direction]} />
     </Button>
   );
 };

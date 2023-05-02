@@ -9,7 +9,7 @@ import { ChevronDown, X } from "lucide-react";
 import styled from "styled-components";
 import { SelectSizeType } from "../Select/Select.types";
 import { NativeSelectFieldType } from "./NativeSelect.types";
-import { LucideIcon, IconButton, Spinner } from "@/components";
+import { Icon, IconButton, Spinner } from "@/components";
 
 type NativeSelectProps = {
   id: string;
@@ -110,12 +110,12 @@ export const NativeSelect: FunctionComponent<
           {isSelected && clearValue && (
             <CancelButtonWrapper>
               <IconButton size="sm" onClick={handleClearValue}>
-                <LucideIcon icon={X} size={18} />
+                <Icon icon={X} size={18} />
               </IconButton>
             </CancelButtonWrapper>
           )}
           <ChevronWrapper>
-            <LucideIcon icon={ChevronDown} size={18} />
+            <Icon icon={ChevronDown} size={18} />
           </ChevronWrapper>
         </SideContainer>
       </SelectContainer>

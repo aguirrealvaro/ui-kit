@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { AlertCircle } from "lucide-react";
-import { IconButton, LucideIcon } from "@/components";
+import { IconButton, Icon } from "@/components";
 
 export default {
   title: "Components/IconButton",
@@ -10,7 +10,7 @@ export default {
 const Template: ComponentStory<typeof IconButton> = (args) => {
   return (
     <IconButton {...args}>
-      <LucideIcon icon={AlertCircle} size={25} />
+      <Icon icon={AlertCircle} size={25} />
     </IconButton>
   );
 };

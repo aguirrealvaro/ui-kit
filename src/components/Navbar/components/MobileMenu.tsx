@@ -2,7 +2,7 @@ import { FunctionComponent, useRef } from "react";
 import { X } from "lucide-react";
 import styled, { css, keyframes } from "styled-components";
 import { NavbarItem } from "../Navbar.types";
-import { LucideIcon, IconButton } from "@/components";
+import { Icon, IconButton } from "@/components";
 import { useOutsideClick } from "@/hooks";
 
 type MobileMenuProps = {
@@ -28,7 +28,7 @@ export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
       <Container isUnmounting={isUnmounting} ref={ref} transitionTime={transitionTime}>
         <CloseButtonWrapper>
           <IconButton onClick={onClose}>
-            <LucideIcon icon={X} size={25} />
+            <Icon icon={X} size={25} />
           </IconButton>
         </CloseButtonWrapper>
         <nav>

@@ -34,4 +34,4 @@ export { RadioGroup, RadioItem } from "./RadioGroup";
 export { VisuallyHidden } from "./VisuallyHidden";
 export { Separator } from "./Separator";
 export { AccordionGroup, AccordionItem } from "./Accordion";
-export { LucideIcon } from "./LucideIcon";
+export { Icon } from "./Icon";

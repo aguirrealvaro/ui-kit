@@ -1,8 +1,8 @@
 import { ButtonHTMLAttributes, FunctionComponent, ReactNode } from "react";
 import { Check } from "lucide-react";
 import styled from "styled-components";
-import { LucideIcon } from "../LucideIcon";
 import { CheckboxPositionType, CheckboxSizeType } from "./Checkbox.types";
+import { Icon } from "@/components";
 import { HelpText, theme } from "@/css";
 
 type CheckboxProps = {
@@ -54,7 +54,7 @@ export const Checkbox: FunctionComponent<
         iconSize={iconSize}
         {...restProps}
       >
-        {checked && <LucideIcon icon={Check} color={theme.colors.white} size={14} />}
+        {checked && <Icon icon={Check} color={theme.colors.white} size={14} />}
       </CheckboxButton>
       <LabelContainer id={labelId} htmlFor={id} position={position}>
         <Children size={size}>{children}</Children>

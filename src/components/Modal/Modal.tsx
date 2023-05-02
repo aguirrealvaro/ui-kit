@@ -11,7 +11,7 @@ import FocusTrap from "focus-trap-react";
 import { X } from "lucide-react";
 import styled, { css, keyframes } from "styled-components";
 import { ModalSizeType } from "./Modal.types";
-import { IconButton, LucideIcon } from "@/components";
+import { IconButton, Icon } from "@/components";
 import { useDisableScroll, useKeyPress, useDisclosure, useOutsideClick } from "@/hooks";
 
 export type ModalProps = {
@@ -69,7 +69,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
               >
                 <CloseButtonWrapper>
                   <IconButton onClick={onClose}>
-                    <LucideIcon icon={X} />
+                    <Icon icon={X} />
                   </IconButton>
                 </CloseButtonWrapper>
                 {children}
