@@ -1,12 +1,14 @@
 import { FunctionComponent, ReactNode } from "react";
-import { CheckCircleFill } from "@styled-icons/bootstrap/CheckCircleFill";
-import { InfoCircleFill } from "@styled-icons/bootstrap/InfoCircleFill";
-import { Alert as AlertIcon } from "@styled-icons/remix-fill/Alert";
-import { CloseCircle } from "@styled-icons/remix-fill/CloseCircle";
+import {
+  Info,
+  AlertCircle,
+  CheckCircle2,
+  XCircle,
+  LucideIcon as LucideIconType,
+} from "lucide-react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
-import { StyledIcon } from "styled-icons/types";
 import { AlertSizeType } from "./Alert.types";
-import { Icon } from "@/components";
+import { LucideIcon } from "@/components";
 import { theme } from "@/css";
 import { VariantType } from "@/types";
 
@@ -30,18 +32,18 @@ export const Alert: FunctionComponent<AlertProps> = ({
     lg: 20,
   };
 
-  const variantIcons: Record<VariantType, { icon: StyledIcon; color: string }> = {
-    primary: { icon: InfoCircleFill, color: theme.assets.primary },
-    success: { icon: CheckCircleFill, color: theme.assets.success },
-    warning: { icon: AlertIcon, color: theme.assets.warning },
-    danger: { icon: CloseCircle, color: theme.assets.danger },
-    neutral: { icon: InfoCircleFill, color: theme.assets.neutral },
+  const variantIcons: Record<VariantType, { icon: LucideIconType; color: string }> = {
+    primary: { icon: Info, color: theme.assets.primary },
+    success: { icon: CheckCircle2, color: theme.assets.success },
+    warning: { icon: AlertCircle, color: theme.assets.warning },
+    danger: { icon: XCircle, color: theme.assets.danger },
+    neutral: { icon: Info, color: theme.assets.neutral },
   };
 
   return (
     <Container variant={variant} size={size} role="alert">
       {showIcon && (
-        <Icon
+        <LucideIcon
           icon={variantIcons[variant].icon}
           size={sizeIcons[size]}
           color={variantIcons[variant].color}
