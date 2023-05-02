@@ -1,8 +1,9 @@
 import { ButtonHTMLAttributes, FunctionComponent, ReactNode } from "react";
 import { CheckCircle } from "@styled-icons/material-rounded/CheckCircle";
 import { RadioButtonUnchecked } from "@styled-icons/material-rounded/RadioButtonUnchecked";
+import { Check } from "lucide-react";
 import styled from "styled-components";
-import { Icon } from "../Icon";
+import { LucideIcon } from "../LucideIcon";
 import { CheckboxPositionType, CheckboxSizeType } from "./Checkbox.types";
 import { HelpText, theme } from "@/css";
 
@@ -38,10 +39,6 @@ export const Checkbox: FunctionComponent<
   };
 
   const iconSize = sizes[size];
-
-  const icon = checked ? CheckCircle : RadioButtonUnchecked;
-  const iconColor = color || theme.assets.primary;
-
   const labelId = `${id}-label`;
 
   return (
@@ -55,13 +52,10 @@ export const Checkbox: FunctionComponent<
         aria-labelledby={labelId}
         disabled={disabled}
         position={position}
+        checked={checked}
         {...restProps}
       >
-        <Icon
-          icon={icon}
-          color={disabled ? theme.assets.disabledPrimary : iconColor}
-          size={iconSize}
-        />
+        {checked && <LucideIcon icon={Check} color={theme.colors.white} />}
       </CheckboxButton>
       <LabelContainer id={labelId} htmlFor={id} position={position}>
         <Children size={size}>{children}</Children>
@@ -78,7 +72,15 @@ const Container = styled.div<{ position: CheckboxPositionType }>`
   justify-content: ${({ position }) => (position === "left" ? "flex-start" : "space-between")};
 `;
 
-const CheckboxButton = styled.button<{ position: CheckboxPositionType }>`
+const CheckboxButton = styled.button<{ position: CheckboxPositionType; checked: boolean }>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: ${({ theme }) => theme.sizes[4]};
+  height: ${({ theme }) => theme.sizes[4]};
+  border: 1px solid ${({ theme }) => theme.assets.border};
+  border-radius: ${({ theme }) => theme.borderRadius.xs};
+  background-color: ${({ theme, checked }) => checked && theme.assets.primary};
   order: ${({ position }) => (position === "left" ? 1 : 2)};
   &:disabled {
     cursor: not-allowed;

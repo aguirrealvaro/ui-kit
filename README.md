@@ -13,7 +13,10 @@
 ### To do
 
 - Lucide, remove Icon, rename LucideIconType
-- ui folder
+- Rename Modal to Dialog
+- ui folder?
+- types
 - DropdownMenu
 - Navbar (Menubar)
+- Review w3 aria-props
 - Pagination
