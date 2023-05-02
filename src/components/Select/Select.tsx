@@ -9,12 +9,11 @@ import {
   MouseEvent,
   ReactNode,
 } from "react";
-import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
-import { ChevronDown } from "@styled-icons/fluentui-system-filled/ChevronDown";
+import { ChevronDown, X } from "lucide-react";
 import styled, { css } from "styled-components";
 import { useKeyboardInteractions } from "./hooks";
 import { SelectFieldType, SelectSizeType } from "./Select.types";
-import { Spinner, Icon, IconButton } from "@/components";
+import { Spinner, LucideIcon, IconButton } from "@/components";
 import { useOutsideClick } from "@/hooks";
 
 type SelectProps = {
@@ -151,11 +150,11 @@ export const Select: FunctionComponent<SelectProps> = ({
           {isLoading && <Spinner size="xs" />}
           {isSelected && clearValue && (
             <IconButton size="sm" onClick={handleClearValue}>
-              <Icon icon={CloseOutline} size={18} />
+              <LucideIcon icon={X} size={18} />
             </IconButton>
           )}
           <ChevronWrapper active={isOpen}>
-            <Icon icon={ChevronDown} size={18} />
+            <LucideIcon icon={ChevronDown} size={18} />
           </ChevronWrapper>
         </SideContainer>
         <Dropdown

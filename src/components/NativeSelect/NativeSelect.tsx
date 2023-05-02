@@ -5,12 +5,11 @@ import {
   SelectHTMLAttributes,
   KeyboardEvent,
 } from "react";
-import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline";
-import { ChevronDown } from "@styled-icons/fluentui-system-filled/ChevronDown";
+import { ChevronDown, X } from "lucide-react";
 import styled from "styled-components";
 import { SelectSizeType } from "../Select/Select.types";
 import { NativeSelectFieldType } from "./NativeSelect.types";
-import { Icon, IconButton, Spinner } from "@/components";
+import { LucideIcon, IconButton, Spinner } from "@/components";
 
 type NativeSelectProps = {
   id: string;
@@ -111,12 +110,12 @@ export const NativeSelect: FunctionComponent<
           {isSelected && clearValue && (
             <CancelButtonWrapper>
               <IconButton size="sm" onClick={handleClearValue}>
-                <Icon icon={CloseOutline} size={18} />
+                <LucideIcon icon={X} size={18} />
               </IconButton>
             </CancelButtonWrapper>
           )}
           <ChevronWrapper>
-            <Icon icon={ChevronDown} size={18} />
+            <LucideIcon icon={ChevronDown} size={18} />
           </ChevronWrapper>
         </SideContainer>
       </SelectContainer>
