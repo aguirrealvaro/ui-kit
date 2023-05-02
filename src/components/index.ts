@@ -20,7 +20,6 @@ export { BreadcrumbGroup, BreadcrumbItem } from "./Breadcrumbs";
 export { Avatar, AvatarGroup } from "./Avatar";
 export { Table } from "./Table";
 export { TabGroup, TabItem } from "./Tabs";
-export { List, ListItem } from "./List";
 export { Popover } from "./Popover";
 export { Input } from "./Input";
 export { Select } from "./Select";
