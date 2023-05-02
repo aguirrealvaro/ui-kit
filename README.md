@@ -12,7 +12,7 @@
 
 ### To do
 
-- Lucide, remove Icon component
+- Lucide, remove Icon, rename LucideIconType
 - ui folder
 - :after
 - DropdownMenu
