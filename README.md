@@ -13,6 +13,7 @@
 ### To do
 
 - Lucide, remove Icon, rename LucideIconType
+- startElement
 - Rename Modal to Dialog
 - ui folder?
 - types
