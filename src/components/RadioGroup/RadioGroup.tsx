@@ -170,6 +170,7 @@ const RadioButton = styled.button<{
   order: ${({ position }) => (position === "left" ? 1 : 2)};
   &:disabled {
     cursor: not-allowed;
+    opacity: 0.5;
   }
 `;
 

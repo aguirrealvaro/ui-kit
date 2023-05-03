@@ -89,8 +89,7 @@ const CheckboxButton = styled.button<{
   order: ${({ position }) => (position === "left" ? 1 : 2)};
   &:disabled {
     cursor: not-allowed;
-    background-color: ${({ theme }) => theme.assets.disabledPrimary};
-    border: none;
+    opacity: 0.5;
   }
 `;
 

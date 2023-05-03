@@ -15,7 +15,7 @@ const Template: ComponentStory<typeof RadioGroup> = ({ onChange: _, value: __, .
       <RadioItem value="1" helpText="Helptext uno">
         Valor uno
       </RadioItem>
-      <RadioItem value="2" helpText="Helptext dos">
+      <RadioItem value="2" helpText="Helptext dos" disabled>
         Valor dos
       </RadioItem>
       <RadioItem value="3" helpText="Helptext tres">
