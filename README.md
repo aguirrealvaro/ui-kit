@@ -13,7 +13,7 @@
 ### To do
 
 - DropdownMenu
-- Fix disabled handleKeyDown on Accordion, Radio
+- Fix handleKeyDown on Accordion, Radio: skip disabled items
 - Navbar (Menubar)
 - colors
 - Pagination
