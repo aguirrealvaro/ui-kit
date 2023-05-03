@@ -1,36 +1,36 @@
 /* eslint-disable no-console */
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import styled from "styled-components";
-import { Button, Modal, ModalHeader, ModalContent, ModalFooter, Link } from "@/components";
+import { Button, Dialog, DialogHeader, DialogContent, DialogFooter, Link } from "@/components";
 
 export default {
-  title: "Components/Modal",
-  component: Modal,
-} as ComponentMeta<typeof Modal>;
+  title: "Components/Dialog",
+  component: Dialog,
+} as ComponentMeta<typeof Dialog>;
 
-const Template: ComponentStory<typeof Modal> = ({ trigger: dummyTrigger, ...args }) => {
-  const triggerComponent = <Button>open modaxl</Button>;
+const Template: ComponentStory<typeof Dialog> = ({ trigger: dummyTrigger, ...args }) => {
+  const triggerComponent = <Button>Open Dialog</Button>;
 
   return (
     <>
-      <Modal trigger={triggerComponent} {...args}>
-        <ModalHeader>Header</ModalHeader>
-        <ModalContent>
+      <Dialog trigger={triggerComponent} {...args}>
+        <DialogHeader>Header</DialogHeader>
+        <DialogContent>
           <Container>
             <p>Focus trap ON</p>
             <Button onClick={() => console.log("click button")}>Button</Button>
             <Link href="https://google.com">Link</Link>
           </Container>
-        </ModalContent>
-        <ModalFooter>Footer</ModalFooter>
-      </Modal>
+        </DialogContent>
+        <DialogFooter>Footer</DialogFooter>
+      </Dialog>
     </>
   );
 };
 
 export const Primary = Template.bind({});
 Primary.args = {
-  id: "modal-story",
+  id: "dialog-story",
   size: "sm",
   closeOnInteractions: true,
 };

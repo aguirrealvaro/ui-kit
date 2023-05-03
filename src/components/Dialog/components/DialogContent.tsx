@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ModalContent = styled.div`
+export const DialogContent = styled.div`
   flex: 1;
   padding: ${({ theme }) => theme.spacing[4]};
   overflow-y: auto;

@@ -10,19 +10,19 @@ import { createPortal } from "react-dom";
 import FocusTrap from "focus-trap-react";
 import { X } from "lucide-react";
 import styled, { css, keyframes } from "styled-components";
-import { ModalSizeType } from "./Modal.types";
+import { DialogSizeType } from "./Dialog.types";
 import { IconButton, Icon } from "@/components";
 import { useDisableScroll, useKeyPress, useDisclosure, useOutsideClick } from "@/hooks";
 
-export type ModalProps = {
+export type DialogProps = {
   children: ReactNode;
   id: string;
   trigger: ReactNode;
-  size?: ModalSizeType;
+  size?: DialogSizeType;
   closeOnInteractions?: boolean;
 };
 
-export const Modal: FunctionComponent<ModalProps> = ({
+export const Dialog: FunctionComponent<DialogProps> = ({
   children,
   id,
   trigger,
@@ -123,10 +123,10 @@ const Backdrop = styled.div<{ isOpen: boolean; fadeOut: boolean }>`
   align-items: center;
 `;
 
-const Content = styled.div<{ size: ModalSizeType; fadeOut: boolean }>`
+const Content = styled.div<{ size: DialogSizeType; fadeOut: boolean }>`
   position: relative;
   width: ${({ size }) => {
-    const sizes: Record<ModalSizeType, string> = {
+    const sizes: Record<DialogSizeType, string> = {
       xs: "20rem",
       sm: "28rem",
       md: "36rem",

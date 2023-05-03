@@ -1,6 +1,6 @@
 export { Spinner } from "./Spinner";
 export { AnimatedInput } from "./AnimatedInput";
-export { Modal, ModalHeader, ModalContent, ModalFooter } from "./Modal";
+export { Dialog, DialogHeader, DialogContent, DialogFooter } from "./Dialog";
 export { SVGIcon } from "./SVGIcon";
 export { Tooltip } from "./Tooltip";
 export { Infotip } from "./Infotip";

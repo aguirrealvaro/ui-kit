@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ModalHeader = styled.div`
+export const DialogHeader = styled.div`
   font-size: ${({ theme }) => theme.typography.fontSizes.lg};
   font-weight: ${({ theme }) => theme.typography.fontWeights.bold};
   padding: 1rem;

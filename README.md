@@ -12,7 +12,6 @@
 
 ### To do
 
-- Rename Modal to Dialog
 - button
 - Radio
 - startElement to Selects
