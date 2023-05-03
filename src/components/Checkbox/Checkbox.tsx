@@ -24,7 +24,7 @@ export const Checkbox: FunctionComponent<
   checked,
   onChange,
   disabled = false,
-  color,
+  color = theme.assets.primary,
   size = "md",
   helpText,
   position = "left",
@@ -52,6 +52,7 @@ export const Checkbox: FunctionComponent<
         position={position}
         checked={checked}
         iconSize={iconSize}
+        color={color}
         {...restProps}
       >
         {checked && <Icon icon={Check} color={theme.colors.white} size={14} />}
@@ -75,6 +76,7 @@ const CheckboxButton = styled.button<{
   position: CheckboxPositionType;
   checked: boolean;
   iconSize: string;
+  color: string;
 }>`
   display: flex;
   align-items: center;
@@ -83,7 +85,7 @@ const CheckboxButton = styled.button<{
   height: ${({ iconSize }) => iconSize};
   border: 1px solid ${({ theme }) => theme.assets.border};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
-  background-color: ${({ theme, checked }) => checked && theme.assets.primary};
+  background-color: ${({ checked, color }) => checked && color};
   order: ${({ position }) => (position === "left" ? 1 : 2)};
   &:disabled {
     cursor: not-allowed;

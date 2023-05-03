@@ -12,7 +12,6 @@
 
 ### To do
 
-- Color on checkbox and radio
 - startElement to Selects
 - Fix disabled handleKeyDown on Accordion, Radio
 - types and exports

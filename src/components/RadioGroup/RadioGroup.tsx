@@ -29,6 +29,7 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
   value,
   onChange,
   size = "md",
+  color = theme.assets.primary,
   position = "left",
 }) => {
   const radiosRef = useRef<HTMLButtonElement[]>([]);
@@ -114,6 +115,7 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
               }}
               isChecked={isChecked}
               radioSize={radioSize}
+              color={color}
             />
             <LabelContainer
               htmlFor={getRadioItemId(index)}
@@ -136,7 +138,7 @@ const UList = styled.ul`
 
 const ItemList = styled.li<{ position: RadioPositionType }>`
   display: flex;
-  gap: ${({ theme }) => theme.spacing[1]};
+  gap: ${({ theme }) => theme.spacing[4]};
   align-items: center;
   justify-content: ${({ position }) => (position === "left" ? "flex-start" : "space-between")};
   margin-bottom: ${({ theme }) => theme.spacing[2]};
@@ -149,6 +151,7 @@ const RadioButton = styled.button<{
   position: RadioPositionType;
   isChecked: boolean;
   radioSize: string;
+  color: string;
 }>`
   display: flex;
   align-items: center;
@@ -162,7 +165,7 @@ const RadioButton = styled.button<{
     width: 0.5rem;
     height: 0.5rem;
     border-radius: ${({ theme }) => theme.borderRadius.full};
-    background-color: ${({ theme, isChecked }) => isChecked && theme.assets.primary};
+    background-color: ${({ isChecked, color }) => isChecked && color};
   }
   order: ${({ position }) => (position === "left" ? 1 : 2)};
   &:disabled {
