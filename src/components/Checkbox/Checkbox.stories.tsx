@@ -20,4 +20,5 @@ Primary.args = {
   size: "md",
   helpText: "This is a helpText",
   position: "left",
+  disabled: false,
 };
