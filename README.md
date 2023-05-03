@@ -12,11 +12,12 @@
 
 ### To do
 
-- Fix disabled handleKeyDown on Accordion, Radio
+- Rename trigger to title on Tab, Accordion
 - types and exports
-- DropdownMenu
-- Navbar (Menubar)
-- Review w3 aria-props
 - Review radix
+- Review w3 aria-props
+- DropdownMenu
+- Fix disabled handleKeyDown on Accordion, Radio
+- Navbar (Menubar)
 - colors
 - Pagination
