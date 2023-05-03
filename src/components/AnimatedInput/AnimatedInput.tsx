@@ -24,11 +24,9 @@ type AnimatedInputProps = {
   isLoading?: boolean;
   clearValue?: () => void;
   icon?: ReactNode;
-};
+} & InputHTMLAttributes<HTMLInputElement>;
 
-export const AnimatedInput: FunctionComponent<
-  AnimatedInputProps & InputHTMLAttributes<HTMLInputElement>
-> = ({
+export const AnimatedInput: FunctionComponent<AnimatedInputProps> = ({
   id,
   placeholder,
   onChange,

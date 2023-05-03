@@ -28,11 +28,9 @@ type InputProps = {
   endElement?: ReactNode;
   startElement?: ReactNode;
   size?: InputSizeType;
-};
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "size">;
 
-export const Input: FunctionComponent<
-  InputProps & Omit<InputHTMLAttributes<HTMLInputElement>, "size">
-> = ({
+export const Input: FunctionComponent<InputProps> = ({
   id,
   label,
   helpText,

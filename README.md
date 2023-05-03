@@ -12,7 +12,6 @@
 
 ### To do
 
-- types and exports
 - Review radix
 - Review w3 aria-props
 - DropdownMenu

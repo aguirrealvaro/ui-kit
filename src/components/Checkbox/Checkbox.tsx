@@ -14,11 +14,9 @@ type CheckboxProps = {
   size?: CheckboxSizeType;
   helpText?: ReactNode;
   position?: CheckboxPositionType;
-};
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "size" | "onChange">;
 
-export const Checkbox: FunctionComponent<
-  CheckboxProps & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "size" | "onChange">
-> = ({
+export const Checkbox: FunctionComponent<CheckboxProps> = ({
   children,
   id,
   checked,

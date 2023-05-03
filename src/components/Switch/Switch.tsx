@@ -12,11 +12,9 @@ type SwitchProps = {
   size?: SwitchSizeType;
   helpText?: ReactNode;
   position?: SwitchPositionType;
-};
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "size" | "onChange">;
 
-export const Switch: FunctionComponent<
-  SwitchProps & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "size" | "onChange">
-> = ({
+export const Switch: FunctionComponent<SwitchProps> = ({
   children,
   checked,
   onChange,

@@ -6,9 +6,9 @@ export type LinkProps = {
   children: ReactNode;
   underline?: LinkUnderlineType;
   disabled?: boolean;
-};
+} & AnchorHTMLAttributes<HTMLAnchorElement>;
 
-export const Link: FunctionComponent<LinkProps & AnchorHTMLAttributes<HTMLAnchorElement>> = ({
+export const Link: FunctionComponent<LinkProps> = ({
   children,
   underline = true,
   disabled = false,

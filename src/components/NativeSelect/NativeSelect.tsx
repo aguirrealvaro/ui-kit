@@ -23,11 +23,9 @@ type NativeSelectProps = {
   successMessage?: ReactNode;
   size?: SelectSizeType;
   isLoading?: boolean;
-};
+} & Omit<SelectHTMLAttributes<HTMLSelectElement>, "size">;
 
-export const NativeSelect: FunctionComponent<
-  NativeSelectProps & Omit<SelectHTMLAttributes<HTMLSelectElement>, "size">
-> = ({
+export const NativeSelect: FunctionComponent<NativeSelectProps> = ({
   id,
   value,
   onChange,

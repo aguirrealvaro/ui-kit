@@ -14,11 +14,9 @@ type ButtonProps = {
   shape?: ButtonShapeType;
   startElement?: ReactNode;
   endElement?: ReactNode;
-};
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const Button: FunctionComponent<
-  ButtonProps & ButtonHTMLAttributes<HTMLButtonElement>
-> = ({
+export const Button: FunctionComponent<ButtonProps> = ({
   children,
   onClick,
   block,
