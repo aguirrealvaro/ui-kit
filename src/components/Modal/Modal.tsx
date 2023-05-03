@@ -16,6 +16,7 @@ import { useDisableScroll, useKeyPress, useDisclosure, useOutsideClick } from "@
 
 export type ModalProps = {
   children: ReactNode;
+  id: string;
   trigger: ReactNode;
   size?: ModalSizeType;
   closeOnInteractions?: boolean;
@@ -23,6 +24,7 @@ export type ModalProps = {
 
 export const Modal: FunctionComponent<ModalProps> = ({
   children,
+  id,
   trigger,
   size = "sm",
   closeOnInteractions = true,
@@ -46,10 +48,15 @@ export const Modal: FunctionComponent<ModalProps> = ({
     enabled: isOpen && closeOnInteractions,
   });
 
+  const dialogId = `${id}-dialog`;
+
   const triggerComponent = (() => {
     if (!isValidElement(trigger)) return null;
     return cloneElement(trigger as ReactElement, {
       onClick: onOpen,
+      "aria-expanded": isOpen,
+      "aria-haspopup": "dialog",
+      "aria-controls": dialogId,
     });
   })();
 
@@ -61,11 +68,13 @@ export const Modal: FunctionComponent<ModalProps> = ({
           <Backdrop isOpen={isOpen} fadeOut={isUnmounting}>
             <FocusTrap>
               <Content
+                id={dialogId}
                 size={size}
                 ref={contentRef}
                 fadeOut={isUnmounting}
                 role="dialog"
                 aria-modal={true}
+                aria-labelledby={id}
               >
                 <CloseButtonWrapper>
                   <IconButton onClick={onClose}>

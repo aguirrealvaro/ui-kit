@@ -12,7 +12,8 @@
 
 ### To do
 
-- Rename Modal to Dialog, aria props on modal trigger
+- Rename Modal to Dialog
+- button
 - Radio
 - startElement to Selects
 - types and exports

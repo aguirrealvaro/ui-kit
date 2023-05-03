@@ -9,7 +9,7 @@ export default {
 } as ComponentMeta<typeof Modal>;
 
 const Template: ComponentStory<typeof Modal> = ({ trigger: dummyTrigger, ...args }) => {
-  const triggerComponent = <Button>open modal</Button>;
+  const triggerComponent = <Button>open modaxl</Button>;
 
   return (
     <>
@@ -30,6 +30,7 @@ const Template: ComponentStory<typeof Modal> = ({ trigger: dummyTrigger, ...args
 
 export const Primary = Template.bind({});
 Primary.args = {
+  id: "modal-story",
   size: "sm",
   closeOnInteractions: true,
 };
