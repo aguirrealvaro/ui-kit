@@ -4,9 +4,9 @@ import { SeparatorOrientatorType } from "./Separator.types";
 import { Spacing } from "@/css/theme/spacing";
 
 type SeparatorProps = {
-  orientation: SeparatorOrientatorType;
-  preSpacing: Spacing;
-  postSpacing: Spacing;
+  orientation?: SeparatorOrientatorType;
+  preSpacing?: Spacing;
+  postSpacing?: Spacing;
 };
 
 export const Separator: FunctionComponent<SeparatorProps> = ({

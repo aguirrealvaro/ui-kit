@@ -12,7 +12,6 @@
 
 ### To do
 
-- DropdownMenu
 - Fix handleKeyDown on Accordion, Radio: skip disabled items
 - Navbar (Menubar)
 - colors

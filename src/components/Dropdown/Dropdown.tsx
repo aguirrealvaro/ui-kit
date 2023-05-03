@@ -22,5 +22,5 @@ const Content = styled.div`
   background-color: ${({ theme }) => theme.assets.bgSecondary};
   box-shadow: ${({ theme }) => theme.shadows.sm};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
-  padding: ${({ theme }) => theme.spacing[5]};
+  padding: ${({ theme }) => theme.spacing[1]};
 `;
