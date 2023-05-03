@@ -20,7 +20,7 @@ export type PopoverProps = {
   id: string;
   content: ReactNode;
   position: PopoverPositionType;
-  trigger?: PopoverTriggerType;
+  triggerMode?: PopoverTriggerType;
   withTriggerWidth?: boolean;
   gap?: number;
   popUpType?: "menu" | "listbox" | "tree" | "grid" | "dialog";
@@ -36,7 +36,7 @@ export const Popover: FunctionComponent<PopoverProps> = ({
   id,
   content,
   position,
-  trigger = "hover",
+  triggerMode = "hover",
   gap = 0,
   withTriggerWidth = false,
   popUpType,
@@ -57,12 +57,12 @@ export const Popover: FunctionComponent<PopoverProps> = ({
   useOutsideClick({
     ref: popoverRef,
     handler: onClose,
-    enabled: isOpen && trigger === "click",
+    enabled: isOpen && triggerMode === "click",
   });
 
   // Close popover if stayed open  (fast move)
   useEffect(() => {
-    if (!isOpen || trigger === "click") return;
+    if (!isOpen || triggerMode === "click") return;
 
     const listener = (e: MouseEvent | TouchEvent) => {
       if (
@@ -77,7 +77,7 @@ export const Popover: FunctionComponent<PopoverProps> = ({
     return () => {
       document.removeEventListener("mousemove", listener);
     };
-  }, [isOpen, onClose, trigger]);
+  }, [isOpen, onClose, triggerMode]);
 
   useLayoutEffect(() => {
     if (!triggerRef.current || !popoverRef.current) return;
@@ -152,10 +152,10 @@ export const Popover: FunctionComponent<PopoverProps> = ({
   }, [withTriggerWidth]);
 
   const openProps = {
-    ...(trigger === "hover" ? { onMouseEnter: onOpen } : { onClick: onToggle }),
+    ...(triggerMode === "hover" ? { onMouseEnter: onOpen } : { onClick: onToggle }),
   };
 
-  const hasPopup = trigger === "click";
+  const hasPopup = triggerMode === "click";
   const contentId = `${id}-content`;
 
   const popUpProps = hasPopup

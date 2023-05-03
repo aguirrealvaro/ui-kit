@@ -24,7 +24,7 @@ Primary.args = {
   id: "popover-story",
   position: "bottom-left",
   gap: 8,
-  trigger: "hover",
+  triggerMode: "hover",
   withTriggerWidth: false,
 };
 

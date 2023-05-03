@@ -38,7 +38,7 @@ Primary.args = {
   gap: 8,
   size: "md",
   position: "right",
-  trigger: "hover",
+  triggerMode: "hover",
 };
 
 const Container = styled.div`

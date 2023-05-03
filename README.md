@@ -12,7 +12,6 @@
 
 ### To do
 
-- Disabled on checkbox & radio
 - Invert props on Popover (content, trigger)
 - types and exports
 - Review radix

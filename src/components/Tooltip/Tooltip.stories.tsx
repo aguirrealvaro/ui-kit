@@ -22,7 +22,7 @@ Primary.args = {
   id: "tooltip-story",
   position: "right",
   gap: 8,
-  trigger: "hover",
+  triggerMode: "hover",
   withTriggerWidth: false,
 };
 

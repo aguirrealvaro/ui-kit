@@ -28,7 +28,7 @@ Primary.args = {
   id: "dropdown-story",
   position: "bottom-left",
   gap: 16,
-  trigger: "click",
+  triggerMode: "click",
   withTriggerWidth: false,
 };
 

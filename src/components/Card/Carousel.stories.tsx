@@ -13,5 +13,5 @@ const Template: ComponentStory<typeof Card> = (args) => {
 export const Primary = Template.bind({});
 Primary.args = {
   spacing: 4,
-  kind: "secondary",
+  variant: "secondary",
 };
