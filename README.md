@@ -12,9 +12,10 @@
 
 ### To do
 
+- Rename Modal to Dialog, aria props on modal trigger
+- Radio
 - startElement to Selects
-- Rename Modal to Dialog
-- types
+- types and exports
 - DropdownMenu
 - Navbar (Menubar)
 - Review w3 aria-props

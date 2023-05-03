@@ -1,1 +1,1 @@
-export type CardKindType = "primary" | "secondary";
+export type CardVariantType = "primary" | "secondary";

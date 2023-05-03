@@ -1,35 +1,35 @@
 import { FunctionComponent, ReactNode } from "react";
 import styled from "styled-components";
-import { CardKindType } from "./Card.types";
+import { CardVariantType } from "./Card.types";
 import { Spacing } from "@/css/theme/spacing";
 
 type CardProps = {
   children: ReactNode;
-  kind?: CardKindType;
+  variant?: CardVariantType;
   spacing?: Spacing;
 };
 
 export const Card: FunctionComponent<CardProps> = ({
   children,
   spacing = 4,
-  kind = "secondary",
+  variant = "secondary",
 }) => {
   return (
-    <Container spacing={spacing} kind={kind}>
+    <Container spacing={spacing} variant={variant}>
       {children}
     </Container>
   );
 };
 
-const Container = styled.div<{ spacing: Spacing; kind: CardKindType }>`
+const Container = styled.div<{ spacing: Spacing; variant: CardVariantType }>`
   padding: ${({ theme, spacing }) => theme.spacing[spacing]};
   box-shadow: ${({ theme }) => theme.shadows.card};
-  background-color: ${({ theme, kind }) => {
-    const bgColors: Record<CardKindType, string> = {
+  background-color: ${({ theme, variant }) => {
+    const bgColors: Record<CardVariantType, string> = {
       primary: theme.assets.bgPrimary,
       secondary: theme.assets.bgSecondary,
     };
-    return bgColors[kind];
+    return bgColors[variant];
   }};
   border-radius: ${({ theme }) => theme.borderRadius.sm};
 `;
