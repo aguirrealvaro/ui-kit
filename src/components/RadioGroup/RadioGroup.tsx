@@ -29,23 +29,20 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
   value,
   onChange,
   size = "md",
-  color,
   position = "left",
 }) => {
   const radiosRef = useRef<HTMLButtonElement[]>([]);
 
   const sizes: Record<RadioSizeType, string> = {
-    sm: theme.spacing[6],
-    md: theme.spacing[7],
-    lg: theme.spacing[8],
+    sm: theme.spacing[3.5],
+    md: theme.spacing[4],
+    lg: theme.spacing[5],
   };
 
   const radioSize = sizes[size];
 
   const getRadioItemId = (index: number) => `${id}-${index}`;
   const getRadioLabelId = (index: number) => `${getRadioItemId(index)}-label`;
-
-  const iconColor = color || theme.assets.primary;
 
   const enabledItemId: number | undefined = (() => {
     let enabledItem: number | undefined;
@@ -115,7 +112,9 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
                   radiosRef.current[index] = el;
                 }
               }}
-            ></RadioButton>
+              isChecked={isChecked}
+              radioSize={radioSize}
+            />
             <LabelContainer
               htmlFor={getRadioItemId(index)}
               id={getRadioLabelId(index)}
@@ -146,7 +145,25 @@ const ItemList = styled.li<{ position: RadioPositionType }>`
   }
 `;
 
-const RadioButton = styled.button<{ position: RadioPositionType }>`
+const RadioButton = styled.button<{
+  position: RadioPositionType;
+  isChecked: boolean;
+  radioSize: string;
+}>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: ${({ radioSize }) => radioSize};
+  height: ${({ radioSize }) => radioSize};
+  border: 1px solid ${({ theme }) => theme.assets.border};
+  border-radius: ${({ theme }) => theme.borderRadius.full};
+  :after {
+    content: "";
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: ${({ theme }) => theme.borderRadius.full};
+    background-color: ${({ theme, isChecked }) => isChecked && theme.assets.primary};
+  }
   order: ${({ position }) => (position === "left" ? 1 : 2)};
   &:disabled {
     cursor: not-allowed;

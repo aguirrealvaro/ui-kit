@@ -22,7 +22,7 @@ const Template: ComponentStory<typeof AccordionGroup> = (args) => {
         architecto ullam harum tempore accusamus libero sequi rerum aspernatur amet tempora,
         cumque veniam. Magni!
       </AccordionItem>
-      <AccordionItem trigger="Trigger two" disabled>
+      <AccordionItem trigger="Trigger two">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique non, rem fugiat
         officiis, quas doloremque vel architecto ullam harum tempore accusamus libero sequi
         rerum aspernatur amet tempora, cumque veniam. Magni!
