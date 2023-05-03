@@ -98,7 +98,7 @@ export const AccordionGroup: FunctionComponent<AccordionGroupProps> = ({
               }}
             >
               <Trigger arrowPosition={arrowPosition}>{trigger}</Trigger>
-              <ChevronWrapper isOpen={isOpen} arrowPosition={arrowPosition}>
+              <ChevronWrapper isOpen={isOpen} arrowPosition={arrowPosition} aria-hidden="true">
                 <Icon
                   icon={ChevronDown}
                   {...(disabled && { color: theme.assets.disabledPrimary })}

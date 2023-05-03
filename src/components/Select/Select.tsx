@@ -156,7 +156,7 @@ export const Select: FunctionComponent<SelectProps> = ({
               <Icon icon={X} size={18} />
             </IconButton>
           )}
-          <ChevronWrapper active={isOpen}>
+          <ChevronWrapper active={isOpen} aria-hidden="true">
             <Icon icon={ChevronDown} size={18} />
           </ChevronWrapper>
         </SideContainer>

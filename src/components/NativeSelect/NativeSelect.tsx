@@ -114,7 +114,7 @@ export const NativeSelect: FunctionComponent<
               </IconButton>
             </CancelButtonWrapper>
           )}
-          <ChevronWrapper>
+          <ChevronWrapper aria-hidden="true">
             <Icon icon={ChevronDown} size={18} />
           </ChevronWrapper>
         </SideContainer>
