@@ -41,11 +41,11 @@ export const Button: FunctionComponent<
     if (isLoading) return <Spinner size="xs" color={theme.colors.grey[800]} />;
 
     return (
-      <InnerContainer>
+      <>
         {startElement ? startElement : null}
         {children}
         {endElement ? endElement : null}
-      </InnerContainer>
+      </>
     );
   };
 
@@ -111,7 +111,7 @@ const getShapeStyles = (
   return shapeOptions[shape];
 };
 
-const getcolorsNewtyles = (
+const getColorStyles = (
   variant: VariantType,
   kind: ButtonKindType,
   theme: ThemeType
@@ -348,11 +348,15 @@ const CustomButton = styled.button<{
   variant: VariantType;
   shape: ButtonShapeType;
 }>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: ${({ theme }) => theme.spacing[2]};
   width: ${({ block }) => (block ? "100%" : "auto")};
   border: 1px solid transparent;
   ${({ size, theme }) => getSizeStyles(size, theme)};
   ${({ shape, theme }) => getShapeStyles(shape, theme)};
-  ${({ variant, kind, theme }) => getcolorsNewtyles(variant, kind, theme)};
+  ${({ variant, kind, theme }) => getColorStyles(variant, kind, theme)};
   transition: all ${({ theme }) => theme.transitions.durations.normal}ms
     ${({ theme }) => theme.transitions.timings.out};
   &:disabled {
@@ -361,11 +365,4 @@ const CustomButton = styled.button<{
     cursor: not-allowed;
     color: ${({ theme }) => theme.assets.disabledSecondary};
   }
-`;
-
-const InnerContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: ${({ theme }) => theme.spacing[2]};
 `;

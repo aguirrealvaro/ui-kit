@@ -12,7 +12,6 @@
 
 ### To do
 
-- button
 - Radio
 - startElement to Selects
 - types and exports
