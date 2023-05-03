@@ -59,7 +59,7 @@ export const TabGroup: FunctionComponent<TabGroupProps> = ({ children, id }) => 
         {Children.map(children, (child, index) => {
           if (!isValidElement(child)) return;
 
-          const { trigger } = child.props as TabItemProps;
+          const { title } = child.props as TabItemProps;
           const isTabSelected = selectedTab === index;
 
           return (
@@ -78,7 +78,7 @@ export const TabGroup: FunctionComponent<TabGroupProps> = ({ children, id }) => 
                   }
                 }}
               >
-                {trigger}
+                {title}
               </TabItem>
             </TabItemWrapper>
           );

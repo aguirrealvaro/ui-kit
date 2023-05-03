@@ -14,7 +14,7 @@ export default {
 const Template: ComponentStory<typeof AccordionGroup> = (args) => {
   return (
     <AccordionGroup {...args}>
-      <AccordionItem trigger="This is an Accordion one">
+      <AccordionItem title="This is an Accordion one">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique non, rem fugiat
         officiis, quas doloremque vel architecto ullam harum tempore accusamus libero sequi
         rerum aspernatur amet tempora, cumque veniam. Magni! Lorem ipsum, dolor sit amet
@@ -22,12 +22,12 @@ const Template: ComponentStory<typeof AccordionGroup> = (args) => {
         architecto ullam harum tempore accusamus libero sequi rerum aspernatur amet tempora,
         cumque veniam. Magni!
       </AccordionItem>
-      <AccordionItem trigger="Trigger two">
+      <AccordionItem title="Title two">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique non, rem fugiat
         officiis, quas doloremque vel architecto ullam harum tempore accusamus libero sequi
         rerum aspernatur amet tempora, cumque veniam. Magni!
       </AccordionItem>
-      <AccordionItem trigger="Trigger three">
+      <AccordionItem title="Title three">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique non, rem fugiat
         officiis, quas doloremque vel architecto ullam harum tempore accusamus libero sequi
         rerum aspernatur amet tempora, cumque veniam. Magni!

@@ -62,11 +62,7 @@ export const AccordionGroup: FunctionComponent<AccordionGroupProps> = ({
       {Children.map(children, (child, index) => {
         if (!isValidElement(child)) return;
 
-        const {
-          trigger,
-          disabled,
-          children: itemChildren,
-        } = child.props as AccordionItemProps;
+        const { title, disabled, children: itemChildren } = child.props as AccordionItemProps;
 
         const buttonId = `${id}-${index}`;
         const contentId = `${buttonId}-content`;
@@ -97,7 +93,7 @@ export const AccordionGroup: FunctionComponent<AccordionGroupProps> = ({
                 }
               }}
             >
-              <Trigger arrowPosition={arrowPosition}>{trigger}</Trigger>
+              <Title arrowPosition={arrowPosition}>{title}</Title>
               <ChevronWrapper isOpen={isOpen} arrowPosition={arrowPosition} aria-hidden="true">
                 <Icon
                   icon={ChevronDown}
@@ -155,7 +151,7 @@ const Button = styled.button<{ arrowPosition: AccordionArrowPosition }>`
   }
 `;
 
-const Trigger = styled.div<{ arrowPosition: AccordionArrowPosition }>`
+const Title = styled.div<{ arrowPosition: AccordionArrowPosition }>`
   order: ${({ arrowPosition }) => (arrowPosition === "right" ? 1 : 2)};
 `;
 

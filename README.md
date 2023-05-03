@@ -12,7 +12,8 @@
 
 ### To do
 
-- Rename trigger to title on Tab, Accordion
+- Disabled on checkbox & radio
+- Invert props on Popover (content, trigger)
 - types and exports
 - Review radix
 - Review w3 aria-props

@@ -2,7 +2,7 @@ import { FunctionComponent, ReactNode } from "react";
 
 export type AccordionItemProps = {
   children: ReactNode;
-  trigger: ReactNode;
+  title: ReactNode;
   disabled?: boolean;
 };
 
