@@ -7,27 +7,10 @@ export default {
   component: Infotip,
 } as ComponentMeta<typeof Infotip>;
 
-const Template: ComponentStory<typeof Infotip> = ({ content: dummyContent, ...args }) => {
-  const content = (
-    <>
-      content
-      <br />
-      content
-      <br />
-      content
-      <br />
-      content
-      <br />
-      content
-      <br />
-      content
-      <br />
-    </>
-  );
-
+const Template: ComponentStory<typeof Infotip> = ({ ...args }) => {
   return (
     <Container>
-      <Infotip content={content} {...args} />
+      <Infotip {...args}>This is an Infotip</Infotip>
     </Container>
   );
 };

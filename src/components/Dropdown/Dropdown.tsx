@@ -9,15 +9,11 @@ type DropdownProps = Omit<PopoverProps, "position"> & {
 export const Dropdown: FunctionComponent<DropdownProps> = ({
   children,
   position = "bottom",
-  content,
   ...restProps
 }) => {
-  // TO DO: Ideally, i would use cloneElement and pass styles there
-  const dropdownContent = <Content>{content}</Content>;
-
   return (
-    <Popover position={position} popUpType="menu" content={dropdownContent} {...restProps}>
-      {children}
+    <Popover position={position} popUpType="menu" {...restProps}>
+      <Content>{children}</Content>
     </Popover>
   );
 };

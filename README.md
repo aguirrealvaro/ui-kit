@@ -12,7 +12,6 @@
 
 ### To do
 
-- Invert props on Popover (content, trigger)
 - types and exports
 - Review radix
 - Review w3 aria-props

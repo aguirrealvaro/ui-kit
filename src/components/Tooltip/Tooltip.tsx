@@ -2,17 +2,10 @@ import { FunctionComponent } from "react";
 import styled from "styled-components";
 import { Popover, PopoverProps } from "../Popover";
 
-export const Tooltip: FunctionComponent<PopoverProps> = ({
-  children,
-  content,
-  ...restProps
-}) => {
-  // TO DO: Ideally, i would use cloneElement and pass styles there
-  const popoverContent = <Content>{content}</Content>;
-
+export const Tooltip: FunctionComponent<PopoverProps> = ({ children, ...restProps }) => {
   return (
-    <Popover content={popoverContent} gap={8} {...restProps}>
-      {children}
+    <Popover gap={8} {...restProps}>
+      <Content>{children}</Content>
     </Popover>
   );
 };

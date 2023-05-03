@@ -10,7 +10,12 @@ type InfotipProps = {
   size?: InfotipSizeType;
 } & PopoverProps;
 
-export const Infotip: FunctionComponent<InfotipProps> = ({ size = "sm", ...restProps }) => {
+export const Infotip: FunctionComponent<InfotipProps> = ({
+  children,
+  size = "sm",
+  trigger: dummyTrigger,
+  ...restProps
+}) => {
   const sizes: Record<InfotipSizeType, string> = {
     xs: theme.spacing[4],
     sm: theme.spacing[5],
@@ -20,11 +25,15 @@ export const Infotip: FunctionComponent<InfotipProps> = ({ size = "sm", ...restP
 
   const infotipSize = sizes[size];
 
+  const infoIcon = (
+    <IconWrapper>
+      <Icon icon={AlertCircle} size={infotipSize} />
+    </IconWrapper>
+  );
+
   return (
-    <Tooltip {...restProps}>
-      <IconWrapper>
-        <Icon icon={AlertCircle} size={infotipSize} />
-      </IconWrapper>
+    <Tooltip trigger={infoIcon} {...restProps}>
+      {children}
     </Tooltip>
   );
 };

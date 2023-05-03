@@ -7,11 +7,11 @@ export default {
   component: Tooltip,
 } as ComponentMeta<typeof Tooltip>;
 
-const Template: ComponentStory<typeof Tooltip> = ({ content: dummyContent, ...args }) => {
+const Template: ComponentStory<typeof Tooltip> = ({ trigger: dummyTrigger, ...args }) => {
   return (
     <Container>
-      <Tooltip content="This is a tooltip" {...args}>
-        <span>Hover to see tootlip</span>
+      <Tooltip trigger={<span>Hover to see tootlip</span>} {...args}>
+        This is a tooltip
       </Tooltip>
     </Container>
   );

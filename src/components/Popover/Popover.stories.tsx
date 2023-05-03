@@ -7,13 +7,11 @@ export default {
   component: Popover,
 } as ComponentMeta<typeof Popover>;
 
-const Template: ComponentStory<typeof Popover> = ({ content: dummyContent, ...args }) => {
-  const content = <Content>Popover</Content>;
-
+const Template: ComponentStory<typeof Popover> = ({ trigger: dummyTrigger, ...args }) => {
   return (
     <Container>
-      <Popover content={content} {...args}>
-        <Trigger>Hover</Trigger>
+      <Popover trigger={<Trigger>Hover</Trigger>} {...args}>
+        <Content>Popover</Content>
       </Popover>
     </Container>
   );
