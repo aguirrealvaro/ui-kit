@@ -5,33 +5,6 @@ import { Input } from "@/components";
 export default {
   title: "Components/Input",
   component: Input,
-  argTypes: {
-    label: {
-      control: "text",
-    },
-    helpText: {
-      control: "text",
-    },
-    errorMessage: {
-      control: "text",
-    },
-    successMessage: {
-      control: "text",
-    },
-    startElement: {
-      options: {
-        icon: <span>Icon</span>,
-      },
-    },
-    endElement: {
-      options: {
-        icon: <span>Icon</span>,
-      },
-    },
-    disabled: {
-      control: "boolean",
-    },
-  },
 } as ComponentMeta<typeof Input>;
 
 const Template: ComponentStory<typeof Input> = (args) => {
@@ -50,9 +23,9 @@ const Template: ComponentStory<typeof Input> = (args) => {
 
 export const Primary = Template.bind({});
 Primary.args = {
+  id: "input-story",
   placeholder: "Placeholder",
   label: "Label:",
   helpText: "Help text",
   size: "md",
-  id: "input-story",
 };

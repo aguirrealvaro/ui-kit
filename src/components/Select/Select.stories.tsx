@@ -6,26 +6,6 @@ import { SelectFieldType } from "@/components/Select/Select.types";
 export default {
   title: "Components/Select",
   component: Select,
-  argTypes: {
-    label: {
-      control: "text",
-    },
-    placeholder: {
-      control: "text",
-    },
-    helpText: {
-      control: "text",
-    },
-    errorMessage: {
-      control: "text",
-    },
-    successMessage: {
-      control: "text",
-    },
-    disabled: {
-      control: "boolean",
-    },
-  },
 } as ComponentMeta<typeof Select>;
 
 const Template: ComponentStory<typeof Select> = ({

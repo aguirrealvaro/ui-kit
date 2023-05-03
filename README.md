@@ -12,7 +12,6 @@
 
 ### To do
 
-- startElement to Selects
 - Fix disabled handleKeyDown on Accordion, Radio
 - types and exports
 - DropdownMenu

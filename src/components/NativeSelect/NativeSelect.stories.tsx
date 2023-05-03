@@ -5,26 +5,6 @@ import { NativeSelect } from "@/components";
 export default {
   title: "Components/NativeSelect",
   component: NativeSelect,
-  argTypes: {
-    label: {
-      control: "text",
-    },
-    placeholder: {
-      control: "text",
-    },
-    helpText: {
-      control: "text",
-    },
-    errorMessage: {
-      control: "text",
-    },
-    successMessage: {
-      control: "text",
-    },
-    disabled: {
-      control: "boolean",
-    },
-  },
 } as ComponentMeta<typeof NativeSelect>;
 
 const Template: ComponentStory<typeof NativeSelect> = ({ options: dummyOptions, ...rest }) => {

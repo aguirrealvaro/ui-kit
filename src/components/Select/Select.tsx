@@ -32,6 +32,7 @@ type SelectProps = {
   isLoading?: boolean;
   clearValue?: () => void;
   size?: SelectSizeType;
+  startElement?: ReactNode;
 };
 
 export const Select: FunctionComponent<SelectProps> = ({
@@ -50,6 +51,7 @@ export const Select: FunctionComponent<SelectProps> = ({
   isLoading,
   clearValue,
   size = "md",
+  startElement,
 }) => {
   const selectRef = useRef<HTMLDivElement>(null);
   const optionsRef = useRef<HTMLButtonElement[]>([]);
@@ -144,6 +146,7 @@ export const Select: FunctionComponent<SelectProps> = ({
         {...(errorMessage && { "aria-errormessage": errorMessageId })}
       >
         <InnerContainer size={size}>
+          {startElement ? startElement : null}
           <span>{selectedLabel || placeholder}</span>
         </InnerContainer>
         <SideContainer>
@@ -276,6 +279,7 @@ const InnerContainer = styled.div<{ size: SelectSizeType }>`
   padding: 0 ${({ theme }) => theme.sizes[4]};
   display: flex;
   align-items: center;
+  gap: ${({ theme }) => theme.spacing[4]};
   font-size: ${({ size, theme }) => {
     const sizes: Record<SelectSizeType, string> = {
       sm: theme.typography.fontSizes.sm,
