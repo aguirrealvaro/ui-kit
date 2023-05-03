@@ -12,8 +12,6 @@
 
 ### To do
 
-- Review radix
-- Review w3 aria-props
 - DropdownMenu
 - Fix disabled handleKeyDown on Accordion, Radio
 - Navbar (Menubar)
