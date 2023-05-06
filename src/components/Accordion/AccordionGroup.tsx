@@ -12,7 +12,6 @@ import styled, { css } from "styled-components";
 import { AccordionArrowPosition } from "./Accordion.types";
 import { AccordionItemProps } from "./AccordionItem";
 import { Icon } from "@/components";
-import { theme } from "@/css";
 
 type AccordionGroupProps = {
   children: ReactNode;
@@ -62,7 +61,7 @@ export const AccordionGroup: FunctionComponent<AccordionGroupProps> = ({
       {Children.map(children, (child, index) => {
         if (!isValidElement(child)) return;
 
-        const { title, disabled, children: itemChildren } = child.props as AccordionItemProps;
+        const { title, children: itemChildren } = child.props as AccordionItemProps;
 
         const buttonId = `${id}-${index}`;
         const contentId = `${buttonId}-content`;
@@ -82,7 +81,6 @@ export const AccordionGroup: FunctionComponent<AccordionGroupProps> = ({
             <Button
               type="button"
               onClick={toggle}
-              disabled={disabled}
               arrowPosition={arrowPosition}
               aria-expanded={isOpen}
               aria-controls={contentId}
@@ -95,10 +93,7 @@ export const AccordionGroup: FunctionComponent<AccordionGroupProps> = ({
             >
               <Title arrowPosition={arrowPosition}>{title}</Title>
               <ChevronWrapper isOpen={isOpen} arrowPosition={arrowPosition} aria-hidden="true">
-                <Icon
-                  icon={ChevronDown}
-                  {...(disabled && { color: theme.assets.disabledPrimary })}
-                />
+                <Icon icon={ChevronDown} />
               </ChevronWrapper>
             </Button>
             <Content
@@ -145,10 +140,6 @@ const Button = styled.button<{ arrowPosition: AccordionArrowPosition }>`
   }}
   width: 100%;
   padding: ${({ theme }) => theme.spacing[4]} 0;
-  &:disabled {
-    cursor: not-allowed;
-    color: ${({ theme }) => theme.assets.disabledPrimary};
-  }
 `;
 
 const Title = styled.div<{ arrowPosition: AccordionArrowPosition }>`
