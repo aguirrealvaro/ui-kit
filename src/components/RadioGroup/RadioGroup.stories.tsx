@@ -21,6 +21,12 @@ const Template: ComponentStory<typeof RadioGroup> = ({ onChange: _, value: __, .
       <RadioItem value="3" helpText="Helptext tres">
         Valor tres
       </RadioItem>
+      <RadioItem value="4" helpText="Helptext tres">
+        Valor cuatro
+      </RadioItem>
+      <RadioItem value="5" helpText="Helptext tres" disabled>
+        Valor cinco
+      </RadioItem>
     </RadioGroup>
   );
 };

@@ -63,17 +63,50 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
   const handleKeyDown = (event: KeyboardEvent<HTMLUListElement>) => {
     const currentIndex = radiosRef.current.findIndex((tab) => tab === document.activeElement);
 
-    const first = 0;
-    const last = radiosRef.current.length - 1;
-    const prev = currentIndex === first ? last : currentIndex - 1;
-    const next = currentIndex === last ? first : currentIndex + 1;
+    const enabledIndexs = radiosRef.current
+      .map((radio, index) => {
+        if (!radio.disabled) return index;
+      })
+      .filter((index) => index !== undefined);
+
+    const first = enabledIndexs[0];
+    const last = enabledIndexs[enabledIndexs.length - 1];
+
+    //const prev = currentIndex === first ? last : currentIndex - 1;
+    //const next = currentIndex === last ? first : currentIndex + 1;
+
+    const prev =
+      enabledIndexs[enabledIndexs.findIndex((option) => option === currentIndex) - 1];
+
+    const next =
+      enabledIndexs[enabledIndexs.findIndex((option) => option === currentIndex) + 1];
 
     if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
-      radiosRef.current[prev].focus();
+      if (prev !== undefined) {
+        event.preventDefault();
+        radiosRef.current[prev].focus();
+      }
     }
 
     if (event.key === "ArrowRight" || event.key === "ArrowDown") {
-      radiosRef.current[next].focus();
+      if (next !== undefined) {
+        event.preventDefault();
+        radiosRef.current[next].focus();
+      }
+    }
+
+    if (event.key === "Home") {
+      if (first !== undefined) {
+        event.preventDefault();
+        radiosRef.current[first].focus();
+      }
+    }
+
+    if (event.key === "End") {
+      if (last !== undefined) {
+        event.preventDefault();
+        radiosRef.current[last].focus();
+      }
     }
   };
 
