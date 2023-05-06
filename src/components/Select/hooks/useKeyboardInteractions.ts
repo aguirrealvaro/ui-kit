@@ -50,8 +50,8 @@ export const useKeyboardInteractions = ({
     })
     .filter((option) => option !== undefined);
 
-  const firstIndex = enabledIndexs[0];
-  const lastIndex = enabledIndexs[enabledIndexs.length - 1];
+  const first = enabledIndexs[0];
+  const last = enabledIndexs[enabledIndexs.length - 1];
   const prev = enabledIndexs[enabledIndexs.findIndex((option) => option === focusedIndex) - 1];
   const next = enabledIndexs[enabledIndexs.findIndex((option) => option === focusedIndex) + 1];
 
@@ -110,9 +110,9 @@ export const useKeyboardInteractions = ({
     if (event.key === "Home") {
       if (!isOpen) setIsOpen(true);
       else {
-        if (firstIndex !== undefined) {
-          optionsRef.current[firstIndex].focus();
-          setFocusedIndex(firstIndex);
+        if (first !== undefined) {
+          optionsRef.current[first].focus();
+          setFocusedIndex(first);
         }
       }
     }
@@ -120,9 +120,9 @@ export const useKeyboardInteractions = ({
     if (event.key === "End") {
       if (!isOpen) setIsOpen(true);
       else {
-        if (lastIndex !== undefined) {
-          optionsRef.current[lastIndex].focus();
-          setFocusedIndex(lastIndex);
+        if (last !== undefined) {
+          optionsRef.current[last].focus();
+          setFocusedIndex(last);
         }
       }
     }
