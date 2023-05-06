@@ -40,18 +40,22 @@ export const AccordionGroup: FunctionComponent<AccordionGroupProps> = ({
     const next = currentIndex === last ? first : currentIndex + 1;
 
     if (event.key === "ArrowUp") {
+      event.preventDefault();
       accordionTriggersRef.current[prev].focus();
     }
 
     if (event.key === "ArrowDown") {
+      event.preventDefault();
       accordionTriggersRef.current[next].focus();
     }
 
     if (event.key === "Home") {
+      event.preventDefault();
       accordionTriggersRef.current[first].focus();
     }
 
     if (event.key === "End") {
+      event.preventDefault();
       accordionTriggersRef.current[last].focus();
     }
   };
