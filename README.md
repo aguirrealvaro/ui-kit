@@ -12,7 +12,6 @@
 
 ### To do
 
-- Fix handleKeyDown on Radio: skip disabled items
 - Remove disabled on accordion
 - Navbar
 - colors

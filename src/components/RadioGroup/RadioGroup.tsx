@@ -72,14 +72,15 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
     const first = enabledIndexs[0];
     const last = enabledIndexs[enabledIndexs.length - 1];
 
-    //const prev = currentIndex === first ? last : currentIndex - 1;
-    //const next = currentIndex === last ? first : currentIndex + 1;
-
     const prev =
-      enabledIndexs[enabledIndexs.findIndex((option) => option === currentIndex) - 1];
+      currentIndex === first
+        ? last
+        : enabledIndexs[enabledIndexs.findIndex((option) => option === currentIndex) - 1];
 
     const next =
-      enabledIndexs[enabledIndexs.findIndex((option) => option === currentIndex) + 1];
+      currentIndex === last
+        ? first
+        : enabledIndexs[enabledIndexs.findIndex((option) => option === currentIndex) + 1];
 
     if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
       if (prev !== undefined) {
