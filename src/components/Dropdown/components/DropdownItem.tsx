@@ -11,4 +11,7 @@ export const DropdownItem: FunctionComponent<DropdownItemProps> = ({ children })
 
 const Container = styled.div`
   padding: ${({ theme }) => theme.spacing[1.5]} ${({ theme }) => theme.spacing[2]};
+  &:hover {
+    background-color: ${({ theme }) => theme.assets.hover};
+  }
 `;

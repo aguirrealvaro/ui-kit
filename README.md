@@ -12,8 +12,6 @@
 
 ### To do
 
-- aria-* for hover
-- Dropdown components
 - Fix handleKeyDown on Accordion, Radio: skip disabled items
 - Navbar (Menubar)
 - colors

@@ -12,14 +12,14 @@ const Template: ComponentStory<typeof Dropdown> = ({ trigger: dummyTrigger, ...a
     <Dropdown trigger={<button>click me</button>} {...args}>
       <DropdownGroup>
         <DropdownItem>Item 1</DropdownItem>
-        <DropdownItem>Item 1</DropdownItem>
-        <DropdownItem>Item 1</DropdownItem>
+        <DropdownItem>Item 2</DropdownItem>
+        <DropdownItem>Item 3</DropdownItem>
       </DropdownGroup>
-      <Separator />
+      <Separator preSpacing={1} postSpacing={1} />
       <DropdownGroup>
-        <DropdownItem>Item 1</DropdownItem>
-        <DropdownItem>Item 1</DropdownItem>
-        <DropdownItem>Item 1</DropdownItem>
+        <DropdownItem>Item 4</DropdownItem>
+        <DropdownItem>Item 5</DropdownItem>
+        <DropdownItem>Item 6</DropdownItem>
       </DropdownGroup>
     </Dropdown>
   );
