@@ -158,7 +158,8 @@ const RadioButton = styled.button<{
   justify-content: center;
   width: ${({ radioSize }) => radioSize};
   height: ${({ radioSize }) => radioSize};
-  border: 1px solid ${({ theme }) => theme.assets.border};
+  border: 1px solid
+    ${({ theme, isChecked }) => (isChecked ? theme.assets.primary : theme.assets.border)};
   border-radius: ${({ theme }) => theme.borderRadius.full};
   :after {
     content: "";
