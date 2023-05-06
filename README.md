@@ -12,6 +12,5 @@
 
 ### To do
 
-- Remove disabled on accordion
 - Navbar
 - colors
