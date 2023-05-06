@@ -155,16 +155,13 @@ export const Popover: FunctionComponent<PopoverProps> = ({
     ...(triggerMode === "hover" ? { onMouseEnter: onOpen } : { onClick: onToggle }),
   };
 
-  const hasPopup = triggerMode === "click";
   const contentId = `${id}-content`;
 
-  const popUpProps = hasPopup
-    ? {
-        "aria-expanded": isOpen,
-        "aria-haspopup": popUpType || true,
-        "aria-controls": contentId,
-      }
-    : undefined;
+  const popUpProps = {
+    "aria-expanded": isOpen,
+    "aria-haspopup": popUpType || true,
+    "aria-controls": contentId,
+  };
 
   const triggerComponent = (() => {
     if (!isValidElement(trigger)) return null;
@@ -189,8 +186,8 @@ export const Popover: FunctionComponent<PopoverProps> = ({
             coords={coords}
             triggerWidth={triggerWidth}
             transitionTime={transitionTime}
-            {...(hasPopup && { "aria-labelledby": id })}
-            {...(hasPopup && popUpType && { role: popUpType })}
+            aria-labelledby={id}
+            {...(popUpType && { role: popUpType })}
           >
             {children}
           </Content>,
