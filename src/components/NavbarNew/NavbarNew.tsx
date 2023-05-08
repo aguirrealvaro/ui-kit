@@ -4,7 +4,11 @@ import { Burger, MobileMenu } from "./components";
 import { Wrapper, theme } from "@/css";
 import { useDisclosure } from "@/hooks";
 
-export const NavbarNew: FunctionComponent = () => {
+type NavbarProps = {
+  id: string;
+};
+
+export const NavbarNew: FunctionComponent<NavbarProps> = ({ id }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [navbarHeight, setNavbarHeight] = useState<number | undefined>(0);
 
@@ -21,6 +25,9 @@ export const NavbarNew: FunctionComponent = () => {
     setNavbarHeight(containerRef.current?.offsetHeight);
   }, []);
 
+  const burgerId = `${id}-burger`;
+  const mobileMenuId = `${id}-mobile-menu`;
+
   return (
     <Container ref={containerRef}>
       <Wrapper>
@@ -28,13 +35,23 @@ export const NavbarNew: FunctionComponent = () => {
           <Content>
             <DesktopElementContainer>Desktop menu</DesktopElementContainer>
           </Content>
-          <Burger isMobileMenuOpen={isMobileMenuOpen} toggleMobileMenu={toggleMobileMenu} />
+          <Burger
+            isMobileMenuOpen={isMobileMenuOpen}
+            toggleMobileMenu={toggleMobileMenu}
+            id={burgerId}
+            aria-expanded={isMobileMenuOpen}
+            aria-haspopup="menu"
+            aria-controls={mobileMenuId}
+          />
           {isMobileMenuOpen && (
             <MobileMenu
               navbarHeight={navbarHeight}
               isMobileMenuOpen={isMobileMenuOpen}
               transitionTime={transitionTime}
               isUnmounting={isUnmounting}
+              id={mobileMenuId}
+              role="menu"
+              aria-labelledby={burgerId}
             />
           )}
         </InnerContainer>

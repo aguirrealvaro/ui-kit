@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, HTMLAttributes } from "react";
 import styled, { css, keyframes } from "styled-components";
 
 type MobileMenuProps = {
@@ -8,18 +8,16 @@ type MobileMenuProps = {
   isUnmounting: boolean;
 };
 
-export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
-  isMobileMenuOpen,
-  navbarHeight,
-  transitionTime,
-  isUnmounting,
-}) => {
+export const MobileMenu: FunctionComponent<
+  MobileMenuProps & HTMLAttributes<HTMLDivElement>
+> = ({ isMobileMenuOpen, navbarHeight, transitionTime, isUnmounting, ...restProps }) => {
   return (
     <Container
       isMobileMenuOpen={isMobileMenuOpen}
       navbarHeight={navbarHeight}
       transitionTime={transitionTime}
       isUnmounting={isUnmounting}
+      {...restProps}
     >
       Mobile element
     </Container>

@@ -10,7 +10,7 @@ type LayoutProps = {
 export const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
   return (
     <Container>
-      <NavbarNew />
+      <NavbarNew id="navbar" />
       <Main>{children}</Main>
       <footer>Footer</footer>
       <GlobalStyles />
