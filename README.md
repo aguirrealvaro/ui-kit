@@ -12,10 +12,9 @@
 
 ### To do
 
-- colors, variant to colorScheme, kind to variant
+- colors, variant to colorScheme, kind to variant, remove variantType, remove assets variants?
 - Trigger
 - Popover and Tooltip?
 - forwardRef, shadcn?
-- Dropdown items radio & check
 - theme
 - CSS variables?

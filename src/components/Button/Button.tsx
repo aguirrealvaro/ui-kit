@@ -3,14 +3,14 @@ import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { Spinner } from "../Spinner";
 import { ButtonKindType, ButtonSizeType, ButtonShapeType } from "./Button.types";
 import { theme } from "@/css";
-import { VariantType } from "@/types";
+import { Colors } from "@/css/theme/colors";
 
 type ButtonProps = {
   block?: boolean;
   isLoading?: boolean;
   kind?: ButtonKindType;
   size?: ButtonSizeType;
-  variant?: VariantType;
+  colorScheme?: Colors;
   shape?: ButtonShapeType;
   startElement?: ReactNode;
   endElement?: ReactNode;
@@ -23,7 +23,7 @@ export const Button: FunctionComponent<ButtonProps> = ({
   isLoading,
   kind = "primary",
   size = "md",
-  variant = "neutral",
+  colorScheme = "grey",
   shape = "default",
   startElement,
   endElement,
@@ -52,7 +52,7 @@ export const Button: FunctionComponent<ButtonProps> = ({
       block={block}
       kind={kind}
       size={size}
-      variant={variant}
+      colorScheme={colorScheme}
       onClick={handleOnClick}
       shape={shape}
       type={type}
@@ -107,11 +107,20 @@ const getShapeStyles = (shape: ButtonShapeType): FlattenSimpleInterpolation => {
 };
 
 const getColorStyles = (
-  variant: VariantType,
+  colorScheme: Colors,
   kind: ButtonKindType
 ): FlattenSimpleInterpolation => {
-  const primaryStyles: Record<VariantType, FlattenSimpleInterpolation> = {
-    primary: css`
+  const primaryStyles: Record<Colors, FlattenSimpleInterpolation> = {
+    grey: css`
+      background-color: ${theme.assets.neutral};
+      color: ${theme.colors.white};
+      border-color: ${theme.assets.neutral};
+      &:hover:not([disabled]) {
+        background-color: ${theme.colors.grey[900]};
+        border-color: ${theme.colors.grey[900]};
+      }
+    `,
+    blue: css`
       background-color: ${theme.assets.primary};
       color: ${theme.colors.white};
       border-color: ${theme.assets.primary};
@@ -120,7 +129,7 @@ const getColorStyles = (
         border-color: ${theme.colors.blue[600]};
       }
     `,
-    success: css`
+    green: css`
       background-color: ${theme.assets.success};
       color: ${theme.colors.white};
       border-color: ${theme.assets.success};
@@ -129,7 +138,7 @@ const getColorStyles = (
         border-color: ${theme.colors.green[600]};
       }
     `,
-    warning: css`
+    yellow: css`
       background-color: ${theme.assets.warning};
       color: ${theme.colors.white};
       border-color: ${theme.assets.warning};
@@ -138,22 +147,13 @@ const getColorStyles = (
         border-color: ${theme.colors.yellow[600]};
       }
     `,
-    danger: css`
+    red: css`
       background-color: ${theme.assets.danger};
       color: ${theme.colors.white};
       border-color: ${theme.assets.danger};
       &:hover:not([disabled]) {
         background-color: ${theme.colors.red[600]};
         border-color: ${theme.colors.red[600]};
-      }
-    `,
-    neutral: css`
-      background-color: ${theme.assets.neutral};
-      color: ${theme.colors.white};
-      border-color: ${theme.assets.neutral};
-      &:hover:not([disabled]) {
-        background-color: ${theme.colors.grey[900]};
-        border-color: ${theme.colors.grey[900]};
       }
     `,
   };
@@ -176,75 +176,75 @@ const getColorStyles = (
     }
   `;
 
-  const ghostStyles: Record<VariantType, FlattenSimpleInterpolation> = {
-    primary: css`
-      color: ${theme.assets.primary};
-      background-color: transparent;
-      &:hover:not([disabled]) {
-        background-color: ${theme.colors.blue[50]};
-      }
-    `,
-    success: css`
-      color: ${theme.assets.success};
-      background-color: transparent;
-      &:hover:not([disabled]) {
-        background-color: ${theme.colors.green[50]};
-      }
-    `,
-    warning: css`
-      color: ${theme.assets.warning};
-      background-color: transparent;
-      &:hover:not([disabled]) {
-        background-color: ${theme.colors.yellow[50]};
-      }
-    `,
-    danger: css`
-      color: ${theme.assets.danger};
-      background-color: transparent;
-      &:hover:not([disabled]) {
-        background-color: ${theme.colors.red[50]};
-      }
-    `,
-    neutral: css`
+  const ghostStyles: Record<Colors, FlattenSimpleInterpolation> = {
+    grey: css`
       color: ${theme.assets.neutral};
       background-color: transparent;
       &:hover:not([disabled]) {
         background-color: ${theme.colors.grey[100]};
       }
     `,
+    blue: css`
+      color: ${theme.assets.primary};
+      background-color: transparent;
+      &:hover:not([disabled]) {
+        background-color: ${theme.colors.blue[50]};
+      }
+    `,
+    green: css`
+      color: ${theme.assets.success};
+      background-color: transparent;
+      &:hover:not([disabled]) {
+        background-color: ${theme.colors.green[50]};
+      }
+    `,
+    yellow: css`
+      color: ${theme.assets.warning};
+      background-color: transparent;
+      &:hover:not([disabled]) {
+        background-color: ${theme.colors.yellow[50]};
+      }
+    `,
+    red: css`
+      color: ${theme.assets.danger};
+      background-color: transparent;
+      &:hover:not([disabled]) {
+        background-color: ${theme.colors.red[50]};
+      }
+    `,
   };
 
-  const linkStyles: Record<VariantType, FlattenSimpleInterpolation> = {
-    primary: css`
+  const linkStyles: Record<Colors, FlattenSimpleInterpolation> = {
+    grey: css`
+      color: ${theme.assets.neutral};
+      &:hover:not([disabled]) {
+        text-decoration: underline;
+      }
+    `,
+    blue: css`
       color: ${theme.assets.primary};
       background-color: transparent;
       &:hover:not([disabled]) {
         text-decoration: underline;
       }
     `,
-    success: css`
+    green: css`
       color: ${theme.assets.success};
       background-color: transparent;
       &:hover:not([disabled]) {
         text-decoration: underline;
       }
     `,
-    warning: css`
+    yellow: css`
       color: ${theme.assets.warning};
       background-color: transparent;
       &:hover:not([disabled]) {
         text-decoration: underline;
       }
     `,
-    danger: css`
+    red: css`
       color: ${theme.assets.danger};
       background-color: transparent;
-      &:hover:not([disabled]) {
-        text-decoration: underline;
-      }
-    `,
-    neutral: css`
-      color: ${theme.assets.neutral};
       &:hover:not([disabled]) {
         text-decoration: underline;
       }
@@ -252,11 +252,11 @@ const getColorStyles = (
   };
 
   const colorOptions: Record<ButtonKindType, FlattenSimpleInterpolation> = {
-    primary: primaryStyles[variant],
+    primary: primaryStyles[colorScheme],
     secondary: secondaryStyles,
     outline: outlineStyles,
-    ghost: ghostStyles[variant],
-    link: linkStyles[variant],
+    ghost: ghostStyles[colorScheme],
+    link: linkStyles[colorScheme],
   };
 
   return colorOptions[kind];
@@ -266,7 +266,7 @@ const CustomButton = styled.button<{
   block?: boolean;
   kind: ButtonKindType;
   size: ButtonSizeType;
-  variant: VariantType;
+  colorScheme: Colors;
   shape: ButtonShapeType;
 }>`
   display: flex;
@@ -277,7 +277,7 @@ const CustomButton = styled.button<{
   border: 1px solid transparent;
   ${({ size }) => getSizeStyles(size)};
   ${({ shape }) => getShapeStyles(shape)};
-  ${({ variant, kind }) => getColorStyles(variant, kind)};
+  ${({ colorScheme, kind }) => getColorStyles(colorScheme, kind)};
   transition: all ${({ theme }) => theme.transitions.durations.normal}ms
     ${({ theme }) => theme.transitions.timings.out};
   &:disabled {

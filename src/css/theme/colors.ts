@@ -1,4 +1,4 @@
-type Colors = "grey" | "red" | "yellow" | "green" | "blue";
+export type Colors = "grey" | "red" | "yellow" | "green" | "blue";
 
 type Variants = 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950;
 
