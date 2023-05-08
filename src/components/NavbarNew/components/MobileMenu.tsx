@@ -43,13 +43,12 @@ const Container = styled.div<MobileMenuProps>`
   right: 0;
   left: 0;
   bottom: 0;
-  animation: ${fadeIn} ${({ theme }) => theme.transitions.durations.normal}ms
+  animation: ${fadeIn} ${({ transitionTime }) => transitionTime}ms
     ${({ theme }) => theme.transitions.timings.in};
-  ${({ isUnmounting }) =>
+  ${({ isUnmounting, transitionTime, theme }) =>
     isUnmounting &&
     css`
       opacity: 0;
-      transition: opacity ${({ theme }) => theme.transitions.durations.normal}ms
-        ${({ theme }) => theme.transitions.timings.in};
+      transition: opacity ${transitionTime}ms ${theme.transitions.timings.in};
     `}
 `;

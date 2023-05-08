@@ -10,12 +10,11 @@ type NavbarNewProps = {
 
 export const NavbarNew: FunctionComponent<NavbarNewProps> = ({ children }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const transitionTime = theme.transitions.durations.normal;
+  const transitionTime = 2000;
 
   const {
     isOpen: isMobileMenuOpen,
     onToggle: toggleMobileMenu,
-    //onClose: closeMobileMenu,
     isUnmounting,
   } = useDisclosure({ timeout: transitionTime, closeOnResize: true });
 
