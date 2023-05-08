@@ -12,7 +12,6 @@
 
 ### To do
 
-- Remove icon
 - Trigger
 - Popover and Tooltip?
 - colors, variant to colorScheme, kind to variant
