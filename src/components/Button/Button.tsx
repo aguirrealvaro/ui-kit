@@ -2,7 +2,7 @@ import { FunctionComponent, ButtonHTMLAttributes, ReactNode, MouseEvent } from "
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { Spinner } from "../Spinner";
 import { ButtonKindType, ButtonSizeType, ButtonShapeType } from "./Button.types";
-import { ThemeType, theme } from "@/css";
+import { theme } from "@/css";
 import { VariantType } from "@/types";
 
 type ButtonProps = {
@@ -63,7 +63,7 @@ export const Button: FunctionComponent<ButtonProps> = ({
   );
 };
 
-const getSizeStyles = (size: ButtonSizeType, theme: ThemeType): FlattenSimpleInterpolation => {
+const getSizeStyles = (size: ButtonSizeType): FlattenSimpleInterpolation => {
   const sizeOptions: Record<ButtonSizeType, FlattenSimpleInterpolation> = {
     xs: css`
       height: ${theme.sizes[6]};
@@ -90,10 +90,7 @@ const getSizeStyles = (size: ButtonSizeType, theme: ThemeType): FlattenSimpleInt
   return sizeOptions[size];
 };
 
-const getShapeStyles = (
-  shape: ButtonShapeType,
-  theme: ThemeType
-): FlattenSimpleInterpolation => {
+const getShapeStyles = (shape: ButtonShapeType): FlattenSimpleInterpolation => {
   const shapeOptions: Record<ButtonShapeType, FlattenSimpleInterpolation> = {
     default: css`
       border-radius: ${theme.borderRadius.xs};
@@ -111,8 +108,7 @@ const getShapeStyles = (
 
 const getColorStyles = (
   variant: VariantType,
-  kind: ButtonKindType,
-  theme: ThemeType
+  kind: ButtonKindType
 ): FlattenSimpleInterpolation => {
   const primaryStyles: Record<VariantType, FlattenSimpleInterpolation> = {
     primary: css`
@@ -279,9 +275,9 @@ const CustomButton = styled.button<{
   gap: ${({ theme }) => theme.spacing[2]};
   width: ${({ block }) => (block ? "100%" : "auto")};
   border: 1px solid transparent;
-  ${({ size, theme }) => getSizeStyles(size, theme)};
-  ${({ shape, theme }) => getShapeStyles(shape, theme)};
-  ${({ variant, kind, theme }) => getColorStyles(variant, kind, theme)};
+  ${({ size }) => getSizeStyles(size)};
+  ${({ shape }) => getShapeStyles(shape)};
+  ${({ variant, kind }) => getColorStyles(variant, kind)};
   transition: all ${({ theme }) => theme.transitions.durations.normal}ms
     ${({ theme }) => theme.transitions.timings.out};
   &:disabled {

@@ -12,10 +12,9 @@
 
 ### To do
 
-- Button kinds: empty
+- colors, variant to colorScheme, kind to variant, neutral defaults
 - Trigger
 - Popover and Tooltip?
-- colors, variant to colorScheme, kind to variant
 - forwardRef, shadcn?
 - Dropdown items radio & check
 - theme
