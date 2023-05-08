@@ -15,7 +15,7 @@ type AlertProps = {
 
 export const Alert: FunctionComponent<AlertProps> = ({
   children,
-  variant = "primary",
+  variant = "neutral",
   size = "md",
   showIcon = true,
 }) => {

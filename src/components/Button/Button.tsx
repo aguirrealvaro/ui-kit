@@ -23,7 +23,7 @@ export const Button: FunctionComponent<ButtonProps> = ({
   isLoading,
   kind = "primary",
   size = "md",
-  variant = "primary",
+  variant = "neutral",
   shape = "default",
   startElement,
   endElement,

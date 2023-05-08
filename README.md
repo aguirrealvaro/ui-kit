@@ -12,7 +12,7 @@
 
 ### To do
 
-- colors, variant to colorScheme, kind to variant, neutral defaults
+- colors, variant to colorScheme, kind to variant
 - Trigger
 - Popover and Tooltip?
 - forwardRef, shadcn?

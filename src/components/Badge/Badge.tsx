@@ -7,7 +7,7 @@ type BadeProps = {
   variant?: VariantType;
 };
 
-export const Badge: FunctionComponent<BadeProps> = ({ children, variant = "primary" }) => {
+export const Badge: FunctionComponent<BadeProps> = ({ children, variant = "neutral" }) => {
   return <Container variant={variant}>{children}</Container>;
 };
 
