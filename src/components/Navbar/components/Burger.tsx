@@ -1,15 +1,24 @@
-import { FunctionComponent } from "react";
-import { Menu } from "lucide-react";
+import { FunctionComponent, ButtonHTMLAttributes } from "react";
+import { Menu, X } from "lucide-react";
 import styled from "styled-components";
-import { IconButton, Icon } from "@/components";
+import { Icon, IconButton } from "@/components/";
 
-type BurgerProps = { onClick: () => void };
+type BurgerProps = {
+  isMobileMenuOpen: boolean;
+  toggleMobileMenu: () => void;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const Burger: FunctionComponent<BurgerProps> = ({ onClick }) => {
+export const Burger: FunctionComponent<BurgerProps> = ({
+  isMobileMenuOpen,
+  toggleMobileMenu,
+  ...restProps
+}) => {
+  const icon = isMobileMenuOpen ? X : Menu;
+
   return (
     <Container>
-      <IconButton onClick={onClick}>
-        <Icon icon={Menu} size={25} />
+      <IconButton onClick={toggleMobileMenu} {...restProps}>
+        <Icon icon={icon} size={24} />
       </IconButton>
     </Container>
   );
@@ -17,7 +26,7 @@ export const Burger: FunctionComponent<BurgerProps> = ({ onClick }) => {
 
 const Container = styled.div`
   display: none;
-  ${({ theme }) => theme.breakpoint("md")} {
+  ${({ theme }) => theme.breakpoint("sm")} {
     display: block;
   }
 `;

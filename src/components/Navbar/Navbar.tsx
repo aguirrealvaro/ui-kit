@@ -1,49 +1,57 @@
-import { FunctionComponent, ReactNode } from "react";
+import { FunctionComponent, useLayoutEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import { MainMenu, Burger, MobileMenu } from "./components";
-import { NavbarItem } from "./Navbar.types";
-import { theme } from "@/css";
-import { useDisclosure, useDisableScroll } from "@/hooks";
+import { Burger, MobileMenu } from "./components";
+import { Wrapper, theme } from "@/css";
+import { useDisclosure } from "@/hooks";
 
 type NavbarProps = {
-  startElement?: ReactNode;
-  endElement?: ReactNode;
-  mainItems: NavbarItem[];
-  mobileItems: NavbarItem[];
+  id: string;
 };
 
-export const Navbar: FunctionComponent<NavbarProps> = ({
-  startElement,
-  endElement,
-  mainItems,
-  mobileItems,
-}) => {
+export const Navbar: FunctionComponent<NavbarProps> = ({ id }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [navbarHeight, setNavbarHeight] = useState<number | undefined>(0);
+
   const transitionTime = theme.transitions.durations.normal;
 
   const {
     isOpen: isMobileMenuOpen,
-    onToggle,
-    onClose,
+    onToggle: toggleMobileMenu,
     isUnmounting,
   } = useDisclosure({ timeout: transitionTime, closeOnResize: true });
 
-  useDisableScroll(isMobileMenuOpen);
+  useLayoutEffect(() => {
+    if (!containerRef.current) return;
+    setNavbarHeight(containerRef.current?.offsetHeight);
+  }, []);
+
+  const burgerId = `${id}-burger`;
+  const mobileMenuId = `${id}-mobile-menu`;
 
   return (
-    <Container>
+    <Container ref={containerRef}>
       <Wrapper>
         <InnerContainer>
-          {startElement}
-          <MainMenu items={mainItems} />
-          <EndElementContainer>{endElement}</EndElementContainer>
-          <Burger onClick={onToggle} />
+          <Content>
+            <DesktopElementContainer>Desktop menu</DesktopElementContainer>
+          </Content>
+          <Burger
+            isMobileMenuOpen={isMobileMenuOpen}
+            toggleMobileMenu={toggleMobileMenu}
+            id={burgerId}
+            aria-expanded={isMobileMenuOpen}
+            aria-haspopup="menu"
+            aria-controls={mobileMenuId}
+          />
           {isMobileMenuOpen && (
             <MobileMenu
+              navbarHeight={navbarHeight}
               isMobileMenuOpen={isMobileMenuOpen}
-              onClose={onClose}
-              isUnmounting={isUnmounting}
-              items={mainItems.concat(mobileItems)}
               transitionTime={transitionTime}
+              isUnmounting={isUnmounting}
+              id={mobileMenuId}
+              role="menu"
+              aria-labelledby={burgerId}
             />
           )}
         </InnerContainer>
@@ -52,32 +60,26 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
   );
 };
 
-const Container = styled.div`
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
+const Container = styled.header`
   display: flex;
   align-items: center;
   height: ${({ theme }) => theme.sizes[20]};
-  background-color: ${({ theme }) => theme.assets.bgPrimary};
+  background-color: ${({ theme }) => theme.assets.bgSecondary};
   box-shadow: ${({ theme }) => theme.shadows.sm};
-`;
-
-const Wrapper = styled.div`
-  max-width: 1200px;
-  width: 90%;
-  margin: 0 auto;
 `;
 
 const InnerContainer = styled.div`
   display: flex;
-  align-items: center;
   justify-content: space-between;
 `;
 
-const EndElementContainer = styled.div`
-  ${({ theme }) => theme.breakpoint("md")} {
+const Content = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const DesktopElementContainer = styled.div`
+  ${({ theme }) => theme.breakpoint("sm")} {
     display: none;
   }
 `;
