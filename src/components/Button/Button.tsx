@@ -21,7 +21,7 @@ export const Button: FunctionComponent<ButtonProps> = ({
   onClick,
   block,
   isLoading,
-  kind = "solid",
+  kind = "primary",
   size = "md",
   variant = "primary",
   shape = "default",
@@ -114,7 +114,7 @@ const getColorStyles = (
   kind: ButtonKindType,
   theme: ThemeType
 ): FlattenSimpleInterpolation => {
-  const solidStyles: Record<VariantType, FlattenSimpleInterpolation> = {
+  const primaryStyles: Record<VariantType, FlattenSimpleInterpolation> = {
     primary: css`
       background-color: ${theme.assets.primary};
       color: ${theme.colors.white};
@@ -162,10 +162,19 @@ const getColorStyles = (
     `,
   };
 
-  const outlinedStyles: FlattenSimpleInterpolation = css`
+  const secondaryStyles: FlattenSimpleInterpolation = css`
     border-color: transparent;
     color: ${theme.colors.grey[600]};
     background-color: ${theme.colors.grey[100]};
+    &:hover:not([disabled]) {
+      background-color: ${theme.colors.grey[200]};
+    }
+  `;
+
+  const outlineStyles: FlattenSimpleInterpolation = css`
+    border-color: ${theme.colors.grey[200]};
+    color: ${theme.colors.grey[600]};
+    background-color: transparent;
     &:hover:not([disabled]) {
       background-color: ${theme.colors.grey[100]};
     }
@@ -246,21 +255,12 @@ const getColorStyles = (
     `,
   };
 
-  const alernativeStyles: FlattenSimpleInterpolation = css`
-    border-color: ${theme.colors.grey[200]};
-    color: ${theme.colors.grey[600]};
-    background-color: transparent;
-    &:hover:not([disabled]) {
-      background-color: ${theme.colors.grey[100]};
-    }
-  `;
-
   const colorOptions: Record<ButtonKindType, FlattenSimpleInterpolation> = {
-    solid: solidStyles[variant],
-    outlined: outlinedStyles,
+    primary: primaryStyles[variant],
+    secondary: secondaryStyles,
+    outline: outlineStyles,
     ghost: ghostStyles[variant],
     link: linkStyles[variant],
-    alternative: alernativeStyles,
   };
 
   return colorOptions[kind];

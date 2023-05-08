@@ -13,7 +13,7 @@ const Template: ComponentStory<typeof Button> = (args) => {
 export const Primary = Template.bind({});
 Primary.args = {
   children: "Boton",
-  kind: "solid",
+  kind: "primary",
   isLoading: false,
   variant: "primary",
   size: "md",
