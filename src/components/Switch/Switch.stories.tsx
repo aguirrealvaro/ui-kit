@@ -8,9 +8,9 @@ export default {
 } as ComponentMeta<typeof Switch>;
 
 const Template: ComponentStory<typeof Switch> = ({ onChange: _, checked: __, ...args }) => {
-  const [checked, setChecked] = useBoolean();
+  const [checked, handleChecked] = useBoolean();
 
-  return <Switch checked={checked} onChange={setChecked.toggle} {...args} />;
+  return <Switch checked={checked} onChange={handleChecked.toggle} {...args} />;
 };
 
 export const Primary = Template.bind({});

@@ -8,7 +8,7 @@ export default {
 } as ComponentMeta<typeof Collapse>;
 
 const Template: ComponentStory<typeof Collapse> = ({ isOpen: _, ...args }) => {
-  const [showMore, setShowMore] = useBoolean();
+  const [showMore, handleShowMore] = useBoolean();
 
   return (
     <div>
@@ -48,7 +48,7 @@ const Template: ComponentStory<typeof Collapse> = ({ isOpen: _, ...args }) => {
         adipisicing elit. Impedit totam ea recusandae distinctio tenetur, illo magni asperiores
         assumenda temporibus vitae ipsam ratione sunt voluptate, cum possimus aliquid? Nobis,
       </Collapse>
-      <Button onClick={setShowMore.toggle}>Show {showMore ? "Less" : "More"}</Button>
+      <Button onClick={handleShowMore.toggle}>Show {showMore ? "Less" : "More"}</Button>
     </div>
   );
 };
