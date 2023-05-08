@@ -1,16 +1,12 @@
-import { FunctionComponent, ReactNode, useRef } from "react";
+import { FunctionComponent, useRef } from "react";
 import styled from "styled-components";
 import { Burger, MobileMenu } from "./components";
 import { Wrapper, theme } from "@/css";
 import { useDisclosure } from "@/hooks";
 
-type NavbarNewProps = {
-  children: ReactNode;
-};
-
-export const NavbarNew: FunctionComponent<NavbarNewProps> = ({ children }) => {
+export const NavbarNew: FunctionComponent = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const transitionTime = 2000;
+  const transitionTime = theme.transitions.durations.normal;
 
   const {
     isOpen: isMobileMenuOpen,
@@ -24,7 +20,9 @@ export const NavbarNew: FunctionComponent<NavbarNewProps> = ({ children }) => {
     <Container ref={containerRef}>
       <Wrapper>
         <InnerContainer>
-          <Content>{children}</Content>
+          <Content>
+            <DesktopElementContainer>Desktop menu</DesktopElementContainer>
+          </Content>
           <Burger isMobileMenuOpen={isMobileMenuOpen} toggleMobileMenu={toggleMobileMenu} />
           {isMobileMenuOpen && (
             <MobileMenu
@@ -56,4 +54,10 @@ const InnerContainer = styled.div`
 const Content = styled.div`
   display: flex;
   align-items: center;
+`;
+
+const DesktopElementContainer = styled.div`
+  ${({ theme }) => theme.breakpoint("md")} {
+    display: none;
+  }
 `;

@@ -21,7 +21,7 @@ export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
       transitionTime={transitionTime}
       isUnmounting={isUnmounting}
     >
-      MobileMenu
+      Mobile element
     </Container>
   );
 };
