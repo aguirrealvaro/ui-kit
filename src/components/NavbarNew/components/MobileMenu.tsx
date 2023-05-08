@@ -34,7 +34,7 @@ const fadeIn = keyframes`
 const Container = styled.div<MobileMenuProps>`
   position: fixed;
   z-index: ${({ theme }) => theme.zIndices.selectDropdown};
-  background-color: ${({ theme }) => theme.colors.red[800]};
+  background-color: ${({ theme }) => theme.colors.white};
   top: ${({ navbarHeight }) => {
     if (navbarHeight) {
       return `${navbarHeight}px`;

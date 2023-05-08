@@ -1,4 +1,4 @@
-import { FunctionComponent, useRef } from "react";
+import { FunctionComponent, useLayoutEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { Burger, MobileMenu } from "./components";
 import { Wrapper, theme } from "@/css";
@@ -6,6 +6,8 @@ import { useDisclosure } from "@/hooks";
 
 export const NavbarNew: FunctionComponent = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [navbarHeight, setNavbarHeight] = useState<number | undefined>(0);
+
   const transitionTime = theme.transitions.durations.normal;
 
   const {
@@ -14,7 +16,10 @@ export const NavbarNew: FunctionComponent = () => {
     isUnmounting,
   } = useDisclosure({ timeout: transitionTime, closeOnResize: true });
 
-  const navbarHeight = containerRef.current?.offsetHeight;
+  useLayoutEffect(() => {
+    if (!containerRef.current) return;
+    setNavbarHeight(containerRef.current?.offsetHeight);
+  }, []);
 
   return (
     <Container ref={containerRef}>
@@ -42,7 +47,7 @@ const Container = styled.header`
   display: flex;
   align-items: center;
   height: ${({ theme }) => theme.sizes[20]};
-  background-color: ${({ theme }) => theme.assets.bgPrimary};
+  background-color: ${({ theme }) => theme.assets.bgSecondary};
   box-shadow: ${({ theme }) => theme.shadows.sm};
 `;
 
