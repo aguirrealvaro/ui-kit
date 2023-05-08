@@ -35,3 +35,4 @@ export { VisuallyHidden } from "./VisuallyHidden";
 export { Separator } from "./Separator";
 export { AccordionGroup, AccordionItem } from "./Accordion";
 export { Icon } from "./Icon";
+export { NavbarNew } from "./NavbarNew";

@@ -1,5 +1,6 @@
 import { FunctionComponent, ReactNode } from "react";
 import styled from "styled-components";
+import { NavbarNew } from "../NavbarNew";
 import { GlobalStyles } from "@/css";
 
 type LayoutProps = {
@@ -9,7 +10,7 @@ type LayoutProps = {
 export const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
   return (
     <Container>
-      <header>Header</header>
+      <NavbarNew>Header</NavbarNew>
       <Main>{children}</Main>
       <footer>Footer</footer>
       <GlobalStyles />
