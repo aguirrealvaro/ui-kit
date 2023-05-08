@@ -308,7 +308,7 @@ const Dropdown = styled.div<{
       return `calc(${selectHeight}px + 2px)`;
     }
   }};
-  z-index: ${({ theme }) => theme.zIndices.dropdown};
+  z-index: ${({ theme }) => theme.zIndices.selectDropdown};
   padding: ${({ theme }) => theme.sizes[2]};
   border: 1px solid ${({ theme }) => theme.assets.border};
   background-color: ${({ theme }) => theme.assets.bgPrimary};

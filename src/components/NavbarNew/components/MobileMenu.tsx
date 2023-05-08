@@ -7,4 +7,5 @@ export const MobileMenu: FunctionComponent = () => {
 
 const Container = styled.div`
   position: fixed;
+  z-index: ${({ theme }) => theme.zIndices.selectDropdown};
 `;

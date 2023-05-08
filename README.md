@@ -12,7 +12,7 @@
 
 ### To do
 
-- Navbar (z-index)
+- Navbar
 - Toggle
 - Trigger
 - Popover and Tooltip?
