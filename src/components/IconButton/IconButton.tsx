@@ -19,7 +19,7 @@ export const IconButton: FunctionComponent<
 };
 
 const Container = styled.button<{ size: IconButtonSizeType }>`
-  line-height: 0;
+  display: flex;
   padding: ${({ theme, size }) => {
     const sizes: Record<IconButtonSizeType, Spacing> = {
       xs: 0.5,

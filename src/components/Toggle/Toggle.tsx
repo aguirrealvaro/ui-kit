@@ -16,7 +16,8 @@ export const Toggle: FunctionComponent<ToggleProps> = ({ children, isChecked, on
 };
 
 const ToggleButton = styled.button<{ isChecked: boolean }>`
-  padding: ${({ theme }) => theme.spacing[4]};
+  display: flex;
+  padding: ${({ theme }) => theme.spacing[2]};
   border-radius: ${({ theme }) => theme.borderRadius.md};
   border: 1px solid
     ${({ theme, isChecked }) => (isChecked ? theme.assets.primary : theme.assets.border)};

@@ -30,8 +30,8 @@ export const Arrow: FunctionComponent<ArrowProps> = ({ direction, handleArrow, d
 };
 
 const Button = styled.button<{ direction: CarouselDirectionType }>`
+  display: flex;
   align-self: baseline;
-  line-height: 0;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);

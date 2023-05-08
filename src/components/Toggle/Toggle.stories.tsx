@@ -13,7 +13,7 @@ const Template: ComponentStory<typeof Toggle> = () => {
 
   return (
     <Toggle isChecked={checked} onToggle={handleChecked.toggle}>
-      <Icon icon={Italic} />
+      <Icon icon={Italic} size={17} />
     </Toggle>
   );
 };

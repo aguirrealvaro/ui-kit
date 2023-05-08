@@ -75,8 +75,8 @@ const SwitchButton = styled.button<{ position: SwitchPositionType }>`
 `;
 
 const Wrapper = styled.div<{ position: SwitchPositionType }>`
+  display: flex;
   order: ${({ position }) => (position === "left" ? 1 : 2)};
-  line-height: 0;
 `;
 
 const getSizes = (theme: ThemeType) => {
