@@ -4,7 +4,7 @@ import { Popover, PopoverProps } from "../Popover";
 
 export const Tooltip: FunctionComponent<PopoverProps> = ({ children, ...restProps }) => {
   return (
-    <Popover gap={8} {...restProps}>
+    <Popover gap={8} triggerMode="hover" {...restProps}>
       <Content>{children}</Content>
     </Popover>
   );

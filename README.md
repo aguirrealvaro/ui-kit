@@ -13,4 +13,8 @@
 ### To do
 
 - Navbar
-- colors
+- Toggle
+- Trigger
+- Popover and Tooltip?
+- colors, variant to colorScheme
+- theme
