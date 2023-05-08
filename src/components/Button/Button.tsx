@@ -280,60 +280,21 @@ const getColorStyles = (
     `,
   };
 
-  const alernativeStyles: Record<VariantType, FlattenSimpleInterpolation> = {
-    primary: css`
-      border-color: ${theme.colors.grey[200]};
-      color: ${theme.colors.grey[600]};
-      background-color: transparent;
-      &:hover:not([disabled]) {
-        color: ${theme.assets.primary};
-        border-color: ${theme.assets.primary};
-      }
-    `,
-    success: css`
-      border-color: ${theme.colors.grey[200]};
-      color: ${theme.colors.grey[600]};
-      background-color: transparent;
-      &:hover:not([disabled]) {
-        color: ${theme.assets.success};
-        border-color: ${theme.assets.success};
-      }
-    `,
-    warning: css`
-      border-color: ${theme.colors.grey[200]};
-      color: ${theme.colors.grey[600]};
-      background-color: transparent;
-      &:hover:not([disabled]) {
-        color: ${theme.assets.warning};
-        border-color: ${theme.assets.warning};
-      }
-    `,
-    danger: css`
-      border-color: ${theme.colors.grey[200]};
-      color: ${theme.colors.grey[600]};
-      background-color: transparent;
-      &:hover:not([disabled]) {
-        color: ${theme.assets.danger};
-        border-color: ${theme.assets.danger};
-      }
-    `,
-    neutral: css`
-      border-color: ${theme.colors.grey[200]};
-      color: ${theme.colors.grey[600]};
-      background-color: transparent;
-      &:hover:not([disabled]) {
-        color: ${theme.assets.neutral};
-        border-color: ${theme.assets.neutral};
-      }
-    `,
-  };
+  const alernativeStyles = css`
+    border-color: ${theme.colors.grey[200]};
+    color: ${theme.colors.grey[600]};
+    background-color: transparent;
+    &:hover:not([disabled]) {
+      background-color: ${theme.colors.grey[100]};
+    }
+  `;
 
   const colorOptions: Record<ButtonKindType, FlattenSimpleInterpolation> = {
     solid: solidStyles[variant],
     outlined: outlinedStyles[variant],
     ghost: ghostStyles[variant],
     link: linkStyles[variant],
-    alternative: alernativeStyles[variant],
+    alternative: alernativeStyles,
   };
 
   return colorOptions[kind];

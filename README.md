@@ -12,9 +12,11 @@
 
 ### To do
 
+- Button kinds: solid to primary, secondary, outline (alernative), empty
 - Trigger
 - Popover and Tooltip?
 - colors, variant to colorScheme, kind to variant
 - forwardRef, shadcn?
+- Dropdown items radio & check
 - theme
 - CSS variables?
