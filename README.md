@@ -12,7 +12,7 @@
 
 ### To do
 
-- Button kinds: solid to primary, secondary, outline (alernative), empty
+- Button kinds: solid to primary, outliined to secondary, alteernative to outline, empty
 - Trigger
 - Popover and Tooltip?
 - colors, variant to colorScheme, kind to variant

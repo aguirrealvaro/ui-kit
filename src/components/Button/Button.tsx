@@ -162,48 +162,14 @@ const getColorStyles = (
     `,
   };
 
-  const outlinedStyles: Record<VariantType, FlattenSimpleInterpolation> = {
-    primary: css`
-      color: ${theme.assets.primary};
-      border-color: ${theme.assets.primary};
-      background-color: transparent;
-      &:hover:not([disabled]) {
-        background-color: ${theme.colors.grey[100]};
-      }
-    `,
-    success: css`
-      color: ${theme.assets.success};
-      border-color: ${theme.assets.success};
-      background-color: transparent;
-      &:hover:not([disabled]) {
-        background-color: ${theme.colors.grey[100]};
-      }
-    `,
-    warning: css`
-      color: ${theme.assets.warning};
-      border-color: ${theme.assets.warning};
-      background-color: transparent;
-      &:hover:not([disabled]) {
-        background-color: ${theme.colors.grey[100]};
-      }
-    `,
-    danger: css`
-      color: ${theme.assets.danger};
-      border-color: ${theme.assets.danger};
-      background-color: transparent;
-      &:hover:not([disabled]) {
-        background-color: ${theme.colors.grey[100]};
-      }
-    `,
-    neutral: css`
-      color: ${theme.assets.neutral};
-      border-color: ${theme.assets.neutral};
-      background-color: transparent;
-      &:hover:not([disabled]) {
-        background-color: ${theme.colors.grey[100]};
-      }
-    `,
-  };
+  const outlinedStyles: FlattenSimpleInterpolation = css`
+    border-color: transparent;
+    color: ${theme.colors.grey[600]};
+    background-color: ${theme.colors.grey[100]};
+    &:hover:not([disabled]) {
+      background-color: ${theme.colors.grey[100]};
+    }
+  `;
 
   const ghostStyles: Record<VariantType, FlattenSimpleInterpolation> = {
     primary: css`
@@ -280,7 +246,7 @@ const getColorStyles = (
     `,
   };
 
-  const alernativeStyles = css`
+  const alernativeStyles: FlattenSimpleInterpolation = css`
     border-color: ${theme.colors.grey[200]};
     color: ${theme.colors.grey[600]};
     background-color: transparent;
@@ -291,7 +257,7 @@ const getColorStyles = (
 
   const colorOptions: Record<ButtonKindType, FlattenSimpleInterpolation> = {
     solid: solidStyles[variant],
-    outlined: outlinedStyles[variant],
+    outlined: outlinedStyles,
     ghost: ghostStyles[variant],
     link: linkStyles[variant],
     alternative: alernativeStyles,

@@ -27,7 +27,7 @@ export const assets: AssetsType = {
   success: colors.green[500],
   warning: colors.yellow[500],
   danger: colors.red[500],
-  neutral: colors.black,
+  neutral: colors.grey[800],
 
   // basics
   bgPrimary: colors.grey[50],
