@@ -12,7 +12,7 @@ export const Toast: FunctionComponent<ToastProps> = ({
   children,
   id,
   duration = 5000,
-  variant = "success",
+  variant = "neutral",
 }) => {
   const transitionTime = theme.transitions.durations.normal;
 
