@@ -19,3 +19,4 @@
 - colors, variant to colorScheme, kind to variant
 - forwardRef, shadcn?
 - theme
+- CSS variables?

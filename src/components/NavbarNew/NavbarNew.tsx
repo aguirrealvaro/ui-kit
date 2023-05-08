@@ -1,4 +1,4 @@
-import { FunctionComponent, ReactNode } from "react";
+import { FunctionComponent, ReactNode, useRef } from "react";
 import styled from "styled-components";
 import { Burger, MobileMenu } from "./components";
 import { Wrapper, theme } from "@/css";
@@ -9,22 +9,32 @@ type NavbarNewProps = {
 };
 
 export const NavbarNew: FunctionComponent<NavbarNewProps> = ({ children }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
   const transitionTime = theme.transitions.durations.normal;
 
   const {
     isOpen: isMobileMenuOpen,
     onToggle: toggleMobileMenu,
     //onClose: closeMobileMenu,
-    //isUnmounting,
+    isUnmounting,
   } = useDisclosure({ timeout: transitionTime, closeOnResize: true });
 
+  const navbarHeight = containerRef.current?.offsetHeight;
+
   return (
-    <Container>
+    <Container ref={containerRef}>
       <Wrapper>
         <InnerContainer>
           <Content>{children}</Content>
           <Burger isMobileMenuOpen={isMobileMenuOpen} toggleMobileMenu={toggleMobileMenu} />
-          {isMobileMenuOpen && <MobileMenu />}
+          {isMobileMenuOpen && (
+            <MobileMenu
+              navbarHeight={navbarHeight}
+              isMobileMenuOpen={isMobileMenuOpen}
+              transitionTime={transitionTime}
+              isUnmounting={isUnmounting}
+            />
+          )}
         </InnerContainer>
       </Wrapper>
     </Container>
