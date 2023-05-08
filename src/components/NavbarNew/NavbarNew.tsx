@@ -1,7 +1,6 @@
 import { FunctionComponent, ReactNode } from "react";
-import { Menu } from "lucide-react";
 import styled from "styled-components";
-import { Icon, IconButton } from "@/components";
+import { Burger } from "./components";
 import { Wrapper, theme } from "@/css";
 import { useDisclosure } from "@/hooks";
 
@@ -15,8 +14,8 @@ export const NavbarNew: FunctionComponent<NavbarNewProps> = ({ children }) => {
   const {
     isOpen: isMobileMenuOpen,
     onToggle: toggleMobileMenu,
-    onClose: closeMobileMenu,
-    isUnmounting,
+    //onClose: closeMobileMenu,
+    //isUnmounting,
   } = useDisclosure({ timeout: transitionTime, closeOnResize: true });
 
   return (
@@ -24,9 +23,7 @@ export const NavbarNew: FunctionComponent<NavbarNewProps> = ({ children }) => {
       <Wrapper>
         <InnerContainer>
           <div>{children}</div>
-          <IconButton onClick={toggleMobileMenu}>
-            <Icon icon={Menu} size={24} />
-          </IconButton>
+          <Burger isMobileMenuOpen={isMobileMenuOpen} toggleMobileMenu={toggleMobileMenu} />
         </InnerContainer>
       </Wrapper>
     </Container>
