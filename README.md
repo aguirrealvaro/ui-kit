@@ -12,7 +12,6 @@
 
 ### To do
 
-- Navbar
 - Toggle
 - Trigger
 - Popover and Tooltip?
