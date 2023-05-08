@@ -1,6 +1,6 @@
 import { FunctionComponent, ReactNode } from "react";
 import styled from "styled-components";
-import { Burger } from "./components";
+import { Burger, MobileMenu } from "./components";
 import { Wrapper, theme } from "@/css";
 import { useDisclosure } from "@/hooks";
 
@@ -22,8 +22,9 @@ export const NavbarNew: FunctionComponent<NavbarNewProps> = ({ children }) => {
     <Container>
       <Wrapper>
         <InnerContainer>
-          <div>{children}</div>
+          <Content>{children}</Content>
           <Burger isMobileMenuOpen={isMobileMenuOpen} toggleMobileMenu={toggleMobileMenu} />
+          {isMobileMenuOpen && <MobileMenu />}
         </InnerContainer>
       </Wrapper>
     </Container>
@@ -41,4 +42,9 @@ const Container = styled.header`
 const InnerContainer = styled.div`
   display: flex;
   justify-content: space-between;
+`;
+
+const Content = styled.div`
+  display: flex;
+  align-items: center;
 `;
