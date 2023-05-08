@@ -26,7 +26,7 @@ export const Burger: FunctionComponent<BurgerProps> = ({
 
 const Container = styled.div`
   display: none;
-  ${({ theme }) => theme.breakpoint("md")} {
+  ${({ theme }) => theme.breakpoint("sm")} {
     display: block;
   }
 `;

@@ -79,7 +79,7 @@ const Content = styled.div`
 `;
 
 const DesktopElementContainer = styled.div`
-  ${({ theme }) => theme.breakpoint("md")} {
+  ${({ theme }) => theme.breakpoint("sm")} {
     display: none;
   }
 `;

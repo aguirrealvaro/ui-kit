@@ -48,5 +48,8 @@ const Container = styled.div<MobileMenuProps>`
     css`
       opacity: 0;
       transition: opacity ${transitionTime}ms ${theme.transitions.timings.in};
-    `}
+    `};
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
