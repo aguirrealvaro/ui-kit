@@ -1,6 +1,6 @@
 import { FunctionComponent, ReactNode } from "react";
 import styled from "styled-components";
-import { NavbarNew } from "../NavbarNew";
+import { Navbar } from "@/components";
 import { GlobalStyles } from "@/css";
 
 type LayoutProps = {
@@ -10,7 +10,7 @@ type LayoutProps = {
 export const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
   return (
     <Container>
-      <NavbarNew id="navbar" />
+      <Navbar id="navbar" />
       <Main>{children}</Main>
       <footer>Footer</footer>
       <GlobalStyles />
