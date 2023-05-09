@@ -4,18 +4,18 @@ import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { AlertSizeType } from "./Alert.types";
 import { Icon } from "@/components";
 import { theme } from "@/css";
-import { VariantType } from "@/types";
+import { Colors } from "@/css/theme/colors";
 
 type AlertProps = {
   children: ReactNode;
-  variant?: VariantType;
+  colorScheme?: Colors;
   size?: AlertSizeType;
   showIcon?: boolean;
 };
 
 export const Alert: FunctionComponent<AlertProps> = ({
   children,
-  variant = "neutral",
+  colorScheme = "grey",
   size = "md",
   showIcon = true,
 }) => {
@@ -26,21 +26,21 @@ export const Alert: FunctionComponent<AlertProps> = ({
     lg: 20,
   };
 
-  const variantIcons: Record<VariantType, { icon: LucideIcon; color: string }> = {
-    primary: { icon: Info, color: theme.assets.primary },
-    success: { icon: CheckCircle2, color: theme.assets.success },
-    warning: { icon: AlertCircle, color: theme.assets.warning },
-    danger: { icon: XCircle, color: theme.assets.danger },
-    neutral: { icon: Info, color: theme.assets.neutral },
+  const variantIcons: Record<Colors, { icon: LucideIcon; color: string }> = {
+    grey: { icon: Info, color: theme.colors.grey[800] },
+    blue: { icon: Info, color: theme.colors.blue[600] },
+    green: { icon: CheckCircle2, color: theme.colors.green[600] },
+    yellow: { icon: AlertCircle, color: theme.colors.yellow[600] },
+    red: { icon: XCircle, color: theme.colors.red[600] },
   };
 
   return (
-    <Container variant={variant} size={size} role="alert">
+    <Container colorScheme={colorScheme} size={size} role="alert">
       {showIcon && (
         <Icon
-          icon={variantIcons[variant].icon}
+          icon={variantIcons[colorScheme].icon}
           size={sizeIcons[size]}
-          color={variantIcons[variant].color}
+          color={variantIcons[colorScheme].color}
         />
       )}
       <span>{children}</span>
@@ -48,33 +48,33 @@ export const Alert: FunctionComponent<AlertProps> = ({
   );
 };
 
-const Container = styled.div<{ variant: VariantType; size: AlertSizeType }>`
+const Container = styled.div<{ colorScheme: Colors; size: AlertSizeType }>`
   display: flex;
   border-radius: ${({ theme }) => theme.borderRadius.xs};
-  ${({ variant, theme }) => {
-    const variantStyles: Record<VariantType, FlattenSimpleInterpolation> = {
-      primary: css`
-        background-color: ${theme.colors.blue[100]};
-        color: ${theme.colors.blue[800]};
-      `,
-      success: css`
-        background-color: ${theme.colors.green[100]};
-        color: ${theme.colors.green[800]};
-      `,
-      danger: css`
-        background-color: ${theme.colors.red[100]};
-        color: ${theme.colors.red[800]};
-      `,
-      warning: css`
-        background-color: ${theme.colors.yellow[100]};
-        color: ${theme.colors.yellow[800]};
-      `,
-      neutral: css`
+  ${({ colorScheme, theme }) => {
+    const variantStyles: Record<Colors, FlattenSimpleInterpolation> = {
+      grey: css`
         background-color: ${theme.colors.grey[200]};
         color: ${theme.colors.grey[800]};
       `,
+      blue: css`
+        background-color: ${theme.colors.blue[100]};
+        color: ${theme.colors.blue[800]};
+      `,
+      green: css`
+        background-color: ${theme.colors.green[100]};
+        color: ${theme.colors.green[800]};
+      `,
+      red: css`
+        background-color: ${theme.colors.red[100]};
+        color: ${theme.colors.red[800]};
+      `,
+      yellow: css`
+        background-color: ${theme.colors.yellow[100]};
+        color: ${theme.colors.yellow[800]};
+      `,
     };
-    return variantStyles[variant];
+    return variantStyles[colorScheme];
   }};
   ${({ size, theme }) => {
     const sizeStyles: Record<AlertSizeType, FlattenSimpleInterpolation> = {

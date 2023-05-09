@@ -13,5 +13,5 @@ const Template: ComponentStory<typeof Badge> = (args) => {
 export const Primary = Template.bind({});
 Primary.args = {
   children: "Badge",
-  variant: "primary",
+  colorScheme: "grey",
 };
