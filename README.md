@@ -12,7 +12,7 @@
 
 ### To do
 
-- colors, variant to colorScheme, kind to variant, remove variantType, remove assets variants?
+- colors, variant to colorScheme, remove variantType, remove assets variants?
 - Trigger
 - Popover and Tooltip?
 - forwardRef, shadcn?

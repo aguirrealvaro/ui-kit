@@ -13,9 +13,9 @@ const Template: ComponentStory<typeof Button> = (args) => {
 export const Primary = Template.bind({});
 Primary.args = {
   children: "Boton",
-  kind: "primary",
-  isLoading: false,
   variant: "primary",
+  isLoading: false,
+  colorScheme: "grey",
   size: "md",
   disabled: false,
 };

@@ -23,11 +23,11 @@ export type AssetsType = Record<Assets, string>;
 
 export const assets: AssetsType = {
   // variants
-  primary: colors.blue[500],
+  primary: colors.blue[600],
   success: colors.green[500],
   warning: colors.yellow[500],
   danger: colors.red[500],
-  neutral: colors.grey[800],
+  neutral: colors.grey[700],
 
   // basics
   bgPrimary: colors.grey[50],

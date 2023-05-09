@@ -1,14 +1,14 @@
 import { FunctionComponent, ButtonHTMLAttributes, ReactNode, MouseEvent } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { Spinner } from "../Spinner";
-import { ButtonKindType, ButtonSizeType, ButtonShapeType } from "./Button.types";
+import { ButtonVariantType, ButtonSizeType, ButtonShapeType } from "./Button.types";
 import { theme } from "@/css";
 import { Colors } from "@/css/theme/colors";
 
 type ButtonProps = {
   block?: boolean;
   isLoading?: boolean;
-  kind?: ButtonKindType;
+  variant?: ButtonVariantType;
   size?: ButtonSizeType;
   colorScheme?: Colors;
   shape?: ButtonShapeType;
@@ -21,7 +21,7 @@ export const Button: FunctionComponent<ButtonProps> = ({
   onClick,
   block,
   isLoading,
-  kind = "primary",
+  variant = "primary",
   size = "md",
   colorScheme = "grey",
   shape = "default",
@@ -50,7 +50,7 @@ export const Button: FunctionComponent<ButtonProps> = ({
   return (
     <CustomButton
       block={block}
-      kind={kind}
+      variant={variant}
       size={size}
       colorScheme={colorScheme}
       onClick={handleOnClick}
@@ -108,49 +108,49 @@ const getShapeStyles = (shape: ButtonShapeType): FlattenSimpleInterpolation => {
 
 const getColorStyles = (
   colorScheme: Colors,
-  kind: ButtonKindType
+  variant: ButtonVariantType
 ): FlattenSimpleInterpolation => {
   const primaryStyles: Record<Colors, FlattenSimpleInterpolation> = {
     grey: css`
-      background-color: ${theme.assets.neutral};
+      background-color: ${theme.colors.grey[800]};
       color: ${theme.colors.white};
-      border-color: ${theme.assets.neutral};
+      border-color: ${theme.colors.grey[800]};
       &:hover:not([disabled]) {
         background-color: ${theme.colors.grey[900]};
         border-color: ${theme.colors.grey[900]};
       }
     `,
     blue: css`
-      background-color: ${theme.assets.primary};
+      background-color: ${theme.colors.blue[600]};
       color: ${theme.colors.white};
-      border-color: ${theme.assets.primary};
+      border-color: ${theme.colors.blue[600]};
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.blue[600]};
-        border-color: ${theme.colors.blue[600]};
+        background-color: ${theme.colors.blue[700]};
+        border-color: ${theme.colors.blue[700]};
       }
     `,
     green: css`
-      background-color: ${theme.assets.success};
+      background-color: ${theme.colors.green[600]};
       color: ${theme.colors.white};
-      border-color: ${theme.assets.success};
+      border-color: ${theme.colors.green[600]};
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.green[600]};
-        border-color: ${theme.colors.green[600]};
+        background-color: ${theme.colors.green[700]};
+        border-color: ${theme.colors.green[700]};
       }
     `,
     yellow: css`
-      background-color: ${theme.assets.warning};
+      background-color: ${theme.colors.yellow[600]};
       color: ${theme.colors.white};
-      border-color: ${theme.assets.warning};
+      border-color: ${theme.colors.yellow[600]};
       &:hover:not([disabled]) {
         background-color: ${theme.colors.yellow[600]};
         border-color: ${theme.colors.yellow[600]};
       }
     `,
     red: css`
-      background-color: ${theme.assets.danger};
+      background-color: ${theme.colors.red[600]};
       color: ${theme.colors.white};
-      border-color: ${theme.assets.danger};
+      border-color: ${theme.colors.red[600]};
       &:hover:not([disabled]) {
         background-color: ${theme.colors.red[600]};
         border-color: ${theme.colors.red[600]};
@@ -251,7 +251,7 @@ const getColorStyles = (
     `,
   };
 
-  const colorOptions: Record<ButtonKindType, FlattenSimpleInterpolation> = {
+  const colorOptions: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
     primary: primaryStyles[colorScheme],
     secondary: secondaryStyles,
     outline: outlineStyles,
@@ -259,12 +259,12 @@ const getColorStyles = (
     link: linkStyles[colorScheme],
   };
 
-  return colorOptions[kind];
+  return colorOptions[variant];
 };
 
 const CustomButton = styled.button<{
   block?: boolean;
-  kind: ButtonKindType;
+  variant: ButtonVariantType;
   size: ButtonSizeType;
   colorScheme: Colors;
   shape: ButtonShapeType;
@@ -277,7 +277,7 @@ const CustomButton = styled.button<{
   border: 1px solid transparent;
   ${({ size }) => getSizeStyles(size)};
   ${({ shape }) => getShapeStyles(shape)};
-  ${({ colorScheme, kind }) => getColorStyles(colorScheme, kind)};
+  ${({ colorScheme, variant }) => getColorStyles(colorScheme, variant)};
   transition: all ${({ theme }) => theme.transitions.durations.normal}ms
     ${({ theme }) => theme.transitions.timings.out};
   &:disabled {
