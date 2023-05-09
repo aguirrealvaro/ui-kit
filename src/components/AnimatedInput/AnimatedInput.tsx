@@ -143,8 +143,8 @@ export const AnimatedInput: FunctionComponent<AnimatedInputProps> = ({
                 <Icon icon={X} size={18} />
               </IconButton>
             )}
-            {isError && <Icon icon={XCircle} size={18} color={theme.assets.danger} />}
-            {isSuccess && <Icon icon={CheckCircle2} size={18} color={theme.assets.success} />}
+            {isError && <Icon icon={XCircle} size={18} color={theme.assets.red} />}
+            {isSuccess && <Icon icon={CheckCircle2} size={18} color={theme.assets.green} />}
             {type === "password" && (
               <IconButton size="sm" onClick={handleSeePassword}>
                 <Icon icon={seePassword ? EyeOff : Eye} size={18} />
@@ -173,9 +173,9 @@ const InputContainer = styled.div<{
   ${({ isError, isSuccess, theme }) => {
     if (isError) {
       return css`
-        border-color: ${theme.assets.danger};
+        border-color: ${theme.assets.red};
         &:focus-within {
-          outline: 2px solid ${({ theme }) => theme.assets.danger};
+          outline: 2px solid ${({ theme }) => theme.assets.red};
           border-color: transparent;
         }
       `;
@@ -183,9 +183,9 @@ const InputContainer = styled.div<{
 
     if (isSuccess) {
       return css`
-        border-color: ${theme.assets.success};
+        border-color: ${theme.assets.green};
         &:focus-within {
-          outline: 2px solid ${({ theme }) => theme.assets.success};
+          outline: 2px solid ${({ theme }) => theme.assets.green};
           border-color: transparent;
         }
       `;
@@ -194,7 +194,7 @@ const InputContainer = styled.div<{
     return css`
       border-color: ${({ theme }) => theme.assets.border};
       &:focus-within {
-        outline: 2px solid ${({ theme }) => theme.assets.primary};
+        outline: 2px solid ${({ theme }) => theme.assets.blue};
         border-color: transparent;
       }
     `;
@@ -262,14 +262,14 @@ const CustomInput = styled.input<{
     ${getFocusedLabelStyles};
     color: ${({ theme, isError, isSuccess }) => {
       if (isError) {
-        return theme.assets.danger;
+        return theme.assets.red;
       }
 
       if (isSuccess) {
-        return theme.assets.success;
+        return theme.assets.green;
       }
 
-      return theme.assets.primary;
+      return theme.assets.blue;
     }};
   }
   &:not(:placeholder-shown) {
@@ -278,11 +278,11 @@ const CustomInput = styled.input<{
         ${getFocusedLabelStyles};
         color: ${({ theme, isError, isSuccess }) => {
           if (isError) {
-            return theme.assets.danger;
+            return theme.assets.red;
           }
 
           if (isSuccess) {
-            return theme.assets.success;
+            return theme.assets.green;
           }
 
           return theme.assets.textSecondary;
@@ -308,9 +308,9 @@ const HelpText = styled.span`
 `;
 
 const SuccessMessage = styled.span`
-  color: ${({ theme }) => theme.assets.success};
+  color: ${({ theme }) => theme.assets.green};
 `;
 
 const ErrorMessage = styled.span`
-  color: ${({ theme }) => theme.assets.danger};
+  color: ${({ theme }) => theme.assets.red};
 `;

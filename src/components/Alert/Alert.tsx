@@ -27,11 +27,11 @@ export const Alert: FunctionComponent<AlertProps> = ({
   };
 
   const variantIcons: Record<Colors, { icon: LucideIcon; color: string }> = {
-    grey: { icon: Info, color: theme.colors.grey[800] },
-    blue: { icon: Info, color: theme.colors.blue[600] },
-    green: { icon: CheckCircle2, color: theme.colors.green[600] },
-    yellow: { icon: AlertCircle, color: theme.colors.yellow[600] },
-    red: { icon: XCircle, color: theme.colors.red[600] },
+    grey: { icon: Info, color: theme.assets.grey },
+    blue: { icon: Info, color: theme.assets.blue },
+    green: { icon: CheckCircle2, color: theme.assets.green },
+    yellow: { icon: AlertCircle, color: theme.assets.yellow },
+    red: { icon: XCircle, color: theme.assets.red },
   };
 
   return (
@@ -55,7 +55,7 @@ const Container = styled.div<{ colorScheme: Colors; size: AlertSizeType }>`
     const variantStyles: Record<Colors, FlattenSimpleInterpolation> = {
       grey: css`
         background-color: ${theme.colors.grey[200]};
-        color: ${theme.colors.grey[800]};
+        color: ${theme.assets.grey};
       `,
       blue: css`
         background-color: ${theme.colors.blue[100]};

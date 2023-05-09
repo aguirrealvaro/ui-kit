@@ -1,14 +1,7 @@
-import { colors } from "./colors";
+import { Colors, colors } from "./colors";
 
 type Assets =
-  // variants
-  | "primary"
-  | "success"
-  | "warning"
-  | "danger"
-  | "neutral"
-
-  // basics
+  | Colors
   | "bgPrimary"
   | "bgSecondary"
   | "border"
@@ -22,12 +15,12 @@ type Assets =
 export type AssetsType = Record<Assets, string>;
 
 export const assets: AssetsType = {
-  // variants
-  primary: colors.blue[600],
-  success: colors.green[500],
-  warning: colors.yellow[500],
-  danger: colors.red[500],
-  neutral: colors.grey[700],
+  // colors
+  grey: colors.grey[800],
+  blue: colors.blue[600],
+  green: colors.green[600],
+  yellow: colors.yellow[600],
+  red: colors.red[600],
 
   // basics
   bgPrimary: colors.grey[50],

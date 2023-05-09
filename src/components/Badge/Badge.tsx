@@ -18,7 +18,7 @@ const Container = styled.span<{ colorScheme: Colors }>`
     const variantStyles: Record<Colors, FlattenSimpleInterpolation> = {
       grey: css`
         background-color: ${theme.colors.grey[200]};
-        color: ${theme.colors.grey[800]};
+        color: ${theme.assets.grey};
       `,
       blue: css`
         background-color: ${theme.colors.blue[100]};
