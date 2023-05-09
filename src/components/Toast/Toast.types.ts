@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { VariantType } from "@/types";
+import { Colors } from "@/css/theme/colors";
 
 export type ToastPositionType =
   | "top"
@@ -13,7 +13,7 @@ export type ToastPositionType =
 
 export type ToastOptions = {
   duration?: number | "infinite";
-  variant?: VariantType;
+  colorScheme?: Colors;
 };
 
 export type ToastProps = {

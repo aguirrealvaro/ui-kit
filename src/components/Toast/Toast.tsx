@@ -5,14 +5,14 @@ import { IconButton } from "../IconButton";
 import { ToastProps } from "./Toast.types";
 import { Icon } from "@/components";
 import { theme } from "@/css";
+import { Colors } from "@/css/theme/colors";
 import { useToast } from "@/hooks";
-import { VariantType } from "@/types";
 
 export const Toast: FunctionComponent<ToastProps> = ({
   children,
   id,
   duration = 5000,
-  variant = "neutral",
+  colorScheme = "grey",
 }) => {
   const transitionTime = theme.transitions.durations.normal;
 
@@ -47,34 +47,38 @@ export const Toast: FunctionComponent<ToastProps> = ({
     };
   }, []);
 
-  const variantIcons: Record<VariantType, LucideIcon> = {
-    primary: Info,
-    success: CheckCircle2,
-    warning: AlertCircle,
-    danger: XCircle,
-    neutral: Info,
+  const variantIcons: Record<Colors, LucideIcon> = {
+    blue: Info,
+    green: CheckCircle2,
+    yellow: AlertCircle,
+    red: XCircle,
+    grey: Info,
   };
 
-  const variantIconColors: Record<VariantType, string> = {
-    primary: theme.colors.white,
-    success: theme.colors.white,
-    warning: theme.colors.white,
-    danger: theme.colors.white,
-    neutral: theme.colors.white,
+  const variantIconColors: Record<Colors, string> = {
+    blue: theme.colors.white,
+    green: theme.colors.white,
+    yellow: theme.colors.white,
+    red: theme.colors.white,
+    grey: theme.colors.white,
   };
 
   return (
     <Container
       isClosing={isClosing}
-      variant={variant}
+      colorScheme={colorScheme}
       role="alert"
       transitionTime={transitionTime}
     >
-      <Icon icon={variantIcons[variant]} size={18} color={variantIconColors[variant]} />
+      <Icon
+        icon={variantIcons[colorScheme]}
+        size={18}
+        color={variantIconColors[colorScheme]}
+      />
       <div>{children}</div>
       <CloseButtonWrapper onClick={closeToast}>
         <IconButton size="xs">
-          <Icon icon={X} size={15} color={variantIconColors[variant]} />
+          <Icon icon={X} size={15} color={variantIconColors[colorScheme]} />
         </IconButton>
       </CloseButtonWrapper>
     </Container>
@@ -88,43 +92,43 @@ const fadeInScale = keyframes`
 
 const Container = styled.div<{
   isClosing: boolean;
-  variant: VariantType;
+  colorScheme: Colors;
   transitionTime: number;
 }>`
   position: relative;
   z-index: ${({ theme }) => theme.zIndices.toast};
   display: flex;
-  gap: ${({ theme }) => theme.spacing[2]};
+  gap: ${({ theme }) => theme.spacing[4]};
   padding: ${({ theme }) => theme.spacing[4]} ${({ theme }) => theme.spacing[12]}
     ${({ theme }) => theme.spacing[4]} ${({ theme }) => theme.spacing[4]};
   color: ${({ theme }) => theme.colors.white};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   margin-bottom: ${({ theme }) => theme.spacing[4]};
   box-shadow: ${({ theme }) => theme.shadows.md};
-  ${({ variant, theme }) => {
-    const variantStyles: Record<VariantType, FlattenSimpleInterpolation> = {
-      primary: css`
-        background-color: ${theme.assets.primary};
+  ${({ colorScheme, theme }) => {
+    const variantStyles: Record<Colors, FlattenSimpleInterpolation> = {
+      grey: css`
+        background-color: ${theme.colors.grey[800]};
         color: ${theme.colors.white};
       `,
-      success: css`
-        background-color: ${theme.assets.success};
+      blue: css`
+        background-color: ${theme.colors.blue[600]};
         color: ${theme.colors.white};
       `,
-      danger: css`
-        background-color: ${theme.assets.danger};
+      green: css`
+        background-color: ${theme.colors.green[600]};
         color: ${theme.colors.white};
       `,
-      warning: css`
-        background-color: ${theme.assets.warning};
+      red: css`
+        background-color: ${theme.colors.red[600]};
         color: ${theme.colors.white};
       `,
-      neutral: css`
-        background-color: ${theme.assets.neutral};
+      yellow: css`
+        background-color: ${theme.colors.yellow[600]};
         color: ${theme.colors.white};
       `,
     };
-    return variantStyles[variant];
+    return variantStyles[colorScheme];
   }};
 
   &:last-child {
