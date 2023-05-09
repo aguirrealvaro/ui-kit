@@ -13,7 +13,6 @@
 ### To do
 
 - Trigger
-- Popover and Tooltip?
-- forwardRef, shadcn?
+- forwardRef
 - theme
 - CSS variables?
