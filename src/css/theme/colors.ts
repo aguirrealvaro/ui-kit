@@ -1,8 +1,8 @@
 export type Colors = "grey" | "red" | "yellow" | "green" | "blue";
 
-type Variants = 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950;
+type Shades = 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950;
 
-export type CollorsType = Record<Colors, Record<Variants, string>> & {
+export type CollorsType = Record<Colors, Record<Shades, string>> & {
   black: string;
   white: string;
 };
