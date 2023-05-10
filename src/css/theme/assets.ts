@@ -1,7 +1,6 @@
-import { Colors, colors } from "./colors";
+import { colors } from "./colors";
 
 type Assets =
-  | Colors
   | "bgPrimary"
   | "bgSecondary"
   | "border"
@@ -15,14 +14,6 @@ type Assets =
 export type AssetsType = Record<Assets, string>;
 
 export const assets: AssetsType = {
-  // colors
-  grey: colors.grey[800],
-  blue: colors.blue[600],
-  green: colors.green[600],
-  yellow: colors.yellow[600],
-  red: colors.red[600],
-
-  // basics
   bgPrimary: colors.grey[50],
   bgSecondary: colors.white,
 
