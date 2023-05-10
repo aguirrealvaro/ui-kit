@@ -131,7 +131,7 @@ const SelectContainer = styled.div`
 const Label = styled.label<{ size: SelectSizeType }>`
   display: block;
   margin-bottom: ${({ theme }) => theme.spacing[2]};
-  color: ${({ theme }) => theme.assets.textSecondary};
+  color: ${({ theme }) => theme.vars.textSecondary};
   font-size: ${({ size, theme }) => {
     const sizes: Record<SelectSizeType, string> = {
       sm: theme.typography.fontSizes.sm,
@@ -166,7 +166,7 @@ const Select = styled.select<{
     return sizes[selectSize];
   }};
   color: ${({ theme, isSelected }) =>
-    isSelected ? theme.assets.textPrimary : theme.assets.textSecondary};
+    isSelected ? theme.vars.textPrimary : theme.vars.textSecondary};
   border: none;
   outline: none;
   cursor: pointer;
@@ -185,7 +185,7 @@ const Select = styled.select<{
       return theme.colors.green.default;
     }
 
-    return theme.assets.border;
+    return theme.vars.border;
   }};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   &:focus {
@@ -204,7 +204,7 @@ const Select = styled.select<{
       }};
   }
   &:disabled {
-    background-color: ${({ theme }) => theme.assets.disabledPrimary};
+    background-color: ${({ theme }) => theme.vars.disabledPrimary};
     border-color: transparent;
     cursor: not-allowed;
   }
@@ -223,7 +223,7 @@ const SideContainer = styled.div`
 
 const Option = styled.option`
   &:disabled {
-    color: ${({ theme }) => theme.assets.disabledPrimary};
+    color: ${({ theme }) => theme.vars.disabledPrimary};
   }
 `;
 
@@ -251,7 +251,7 @@ const ChevronWrapper = styled.div`
 `;
 
 const HelpText = styled.span`
-  color: ${({ theme }) => theme.assets.textSecondary};
+  color: ${({ theme }) => theme.vars.textSecondary};
 `;
 
 const SuccessMessage = styled.span`

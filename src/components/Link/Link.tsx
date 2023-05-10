@@ -45,7 +45,7 @@ const Anchor = styled.a<{ underline: LinkUnderlineType; disabled: boolean }>`
   ${({ disabled, theme }) => {
     if (disabled) {
       return css`
-        color: ${theme.assets.disabledPrimary};
+        color: ${theme.vars.disabledPrimary};
         cursor: not-allowed;
       `;
     } else {

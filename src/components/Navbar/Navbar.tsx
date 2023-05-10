@@ -64,7 +64,7 @@ const Container = styled.header`
   display: flex;
   align-items: center;
   height: ${({ theme }) => theme.sizes[20]};
-  background-color: ${({ theme }) => theme.assets.bgSecondary};
+  background-color: ${({ theme }) => theme.vars.bgSecondary};
   box-shadow: ${({ theme }) => theme.shadows.sm};
 `;
 

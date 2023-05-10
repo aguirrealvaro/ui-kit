@@ -22,7 +22,7 @@ const Line = styled.hr<{
   preSpacing: Spacing;
   postSpacing: Spacing;
 }>`
-  background-color: ${({ theme }) => theme.assets.border};
+  background-color: ${({ theme }) => theme.vars.border};
   border: none;
   ${({ theme, orientation, preSpacing, postSpacing }) => {
     if (orientation === "horizontal") {

@@ -25,7 +25,7 @@ const Heading = styled.p<{ variant: ParagraphVariantType }>`
   font-size: ${({ theme }) => theme.typography.fontSizes["md"]};
   font-weight: ${({ theme }) => theme.typography.fontWeights.normal};
   color: ${({ theme, variant }) =>
-    variant === "primary" ? theme.assets.textPrimary : theme.assets.textSecondary};
+    variant === "primary" ? theme.vars.textPrimary : theme.vars.textSecondary};
   margin-bottom: ${({ theme }) => theme.spacing[4]};
   &:last-child {
     margin-bottom: 0;

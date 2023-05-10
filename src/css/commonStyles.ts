@@ -21,7 +21,7 @@ export const HelpText = styled.span<{ size: HelpTextSize }>`
     };
     return sizes[size];
   }};
-  color: ${({ theme }) => theme.assets.textSecondary};
+  color: ${({ theme }) => theme.vars.textSecondary};
   font-size: ${({ size, theme }) => {
     const sizes: Record<HelpTextSize, string> = {
       sm: theme.typography.fontSizes.xs,

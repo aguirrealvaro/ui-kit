@@ -23,9 +23,9 @@ export const Primary = Template.bind({});
 Primary.args = {};
 
 const Container = styled.div`
-  background-color: ${({ theme }) => theme.assets.bgSecondary};
+  background-color: ${({ theme }) => theme.vars.bgSecondary};
   padding: 2px 50px;
   border-radius: ${({ theme }) => theme.borderRadius.md};
-  border: 1px solid ${({ theme }) => theme.assets.border};
+  border: 1px solid ${({ theme }) => theme.vars.border};
   text-align: center;
 `;

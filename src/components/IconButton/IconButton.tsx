@@ -34,7 +34,7 @@ const Container = styled.button<{ size: IconButtonSizeType }>`
   transition: background-color ${({ theme }) => theme.transitions.durations.normal}ms
     ${({ theme }) => theme.transitions.timings.out};
   &:hover:not([disabled]) {
-    background-color: ${({ theme }) => theme.assets.hover};
+    background-color: ${({ theme }) => theme.vars.hover};
   }
   &:disabled {
     cursor: not-allowed;

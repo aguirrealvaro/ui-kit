@@ -36,7 +36,7 @@ export const AvatarGroup: FunctionComponent<AvatarGroupProps> = ({
     return cloneElement(<Avatar name={`+ ${remaining}`} shape={shape} />, {
       style: {
         marginLeft: `-${theme.spacing[margins[size]]}`,
-        border: `2px solid ${theme.assets.bgPrimary}`,
+        border: `2px solid ${theme.vars.bgPrimary}`,
       },
     });
   })();
@@ -47,7 +47,7 @@ export const AvatarGroup: FunctionComponent<AvatarGroupProps> = ({
         const clonedChild = cloneElement(child as ReactElement, {
           style: {
             ...(index !== 0 && { marginLeft: `-${theme.spacing[margins[size]]}` }),
-            border: `2px solid ${theme.assets.bgPrimary}`,
+            border: `2px solid ${theme.vars.bgPrimary}`,
           },
         });
 

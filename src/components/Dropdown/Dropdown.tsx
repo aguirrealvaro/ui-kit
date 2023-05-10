@@ -19,7 +19,7 @@ export const Dropdown: FunctionComponent<DropdownProps> = ({
 };
 
 const Content = styled.div`
-  background-color: ${({ theme }) => theme.assets.bgSecondary};
+  background-color: ${({ theme }) => theme.vars.bgSecondary};
   box-shadow: ${({ theme }) => theme.shadows.sm};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   padding: ${({ theme }) => theme.spacing[1]};

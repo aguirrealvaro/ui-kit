@@ -25,5 +25,5 @@ const Strong = styled.strong<{ variant: BoldVariantType }>`
   font-size: ${({ theme }) => theme.typography.fontSizes["md"]};
   font-weight: ${({ theme }) => theme.typography.fontWeights.bold};
   color: ${({ theme, variant }) =>
-    variant === "primary" ? theme.assets.textPrimary : theme.assets.textSecondary};
+    variant === "primary" ? theme.vars.textPrimary : theme.vars.textSecondary};
 `;

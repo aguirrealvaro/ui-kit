@@ -111,7 +111,7 @@ export const TabGroup: FunctionComponent<TabGroupProps> = ({ children, id }) => 
 const TabList = styled.ul`
   display: flex;
   margin-bottom: ${({ theme }) => theme.spacing[4]};
-  border-bottom: 1px solid ${({ theme }) => theme.assets.border};
+  border-bottom: 1px solid ${({ theme }) => theme.vars.border};
   flex-wrap: wrap;
 `;
 
@@ -130,7 +130,7 @@ const TabItem = styled.button<{ active: boolean }>`
       `;
     } else {
       return css`
-        color: ${theme.assets.textPrimary};
+        color: ${theme.vars.textPrimary};
         border-bottom: 2px solid transparent;
       `;
     }

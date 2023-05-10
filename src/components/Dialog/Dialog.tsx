@@ -147,7 +147,7 @@ const Content = styled.div<{ size: DialogSizeType; fadeOut: boolean }>`
       transition: all ${({ theme }) => theme.transitions.durations.normal}ms
         ${({ theme }) => theme.transitions.timings.in};
     `}
-  background-color: ${({ theme }) => theme.assets.bgSecondary};
+  background-color: ${({ theme }) => theme.vars.bgSecondary};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   box-shadow: ${({ theme }) => theme.shadows.sm};
   display: flex;

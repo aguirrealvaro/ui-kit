@@ -194,7 +194,7 @@ const InputContainer = styled.div<{
     }
 
     return css`
-      border-color: ${({ theme }) => theme.assets.border};
+      border-color: ${({ theme }) => theme.vars.border};
       &:focus-within {
         outline: 2px solid ${({ theme }) => theme.colors.blue.default};
         border-color: transparent;
@@ -204,7 +204,7 @@ const InputContainer = styled.div<{
   ${({ disabled, theme }) =>
     disabled &&
     css`
-      background-color: ${theme.assets.disabledPrimary};
+      background-color: ${theme.vars.disabledPrimary};
       border-color: transparent;
       cursor: not-allowed;
     `};
@@ -229,7 +229,7 @@ const Placeholder = styled.label`
   transition: all ${({ theme }) => theme.transitions.durations.normal}ms
     ${({ theme }) => theme.transitions.timings.out};
   pointer-events: none;
-  color: ${({ theme }) => theme.assets.textSecondary};
+  color: ${({ theme }) => theme.vars.textSecondary};
 `;
 
 const getFocusedLabelStyles = css`
@@ -259,7 +259,7 @@ const CustomInput = styled.input<{
   }};
   height: ${({ hasPlaceholder }) => (hasPlaceholder ? "72%" : "100%")};
   bottom: 0;
-  color: ${({ theme }) => theme.assets.textPrimary};
+  color: ${({ theme }) => theme.vars.textPrimary};
   &:focus + label {
     ${getFocusedLabelStyles};
     color: ${({ theme, isError, isSuccess }) => {
@@ -287,7 +287,7 @@ const CustomInput = styled.input<{
             return theme.colors.green.default;
           }
 
-          return theme.assets.textSecondary;
+          return theme.vars.textSecondary;
         }};
       }
     }
@@ -306,7 +306,7 @@ const BottomText = styled.div`
 `;
 
 const HelpText = styled.span`
-  color: ${({ theme }) => theme.assets.textSecondary};
+  color: ${({ theme }) => theme.vars.textSecondary};
 `;
 
 const SuccessMessage = styled.span`

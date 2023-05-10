@@ -122,7 +122,7 @@ export const AccordionGroup: FunctionComponent<AccordionGroupProps> = ({
 };
 
 const Container = styled.div`
-  border-bottom: 1px solid ${({ theme }) => theme.assets.border};
+  border-bottom: 1px solid ${({ theme }) => theme.vars.border};
   &:last-child {
     border-bottom: none;
   }

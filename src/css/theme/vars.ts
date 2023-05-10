@@ -1,6 +1,6 @@
 import { colors } from "./colors";
 
-type Assets =
+type Vars =
   | "bgPrimary"
   | "bgSecondary"
   | "border"
@@ -11,9 +11,9 @@ type Assets =
   | "disabledPrimary"
   | "disabledSecondary";
 
-export type AssetsType = Record<Assets, string>;
+export type VarsType = Record<Vars, string>;
 
-export const assets: AssetsType = {
+export const vars: VarsType = {
   bgPrimary: colors.grey[50],
   bgSecondary: colors.white,
 

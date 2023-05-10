@@ -25,5 +25,5 @@ const Span = styled.span<{ variant: InlineVariantType }>`
   font-size: ${({ theme }) => theme.typography.fontSizes["md"]};
   font-weight: ${({ theme }) => theme.typography.fontWeights.normal};
   color: ${({ theme, variant }) =>
-    variant === "primary" ? theme.assets.textPrimary : theme.assets.textSecondary};
+    variant === "primary" ? theme.vars.textPrimary : theme.vars.textSecondary};
 `;

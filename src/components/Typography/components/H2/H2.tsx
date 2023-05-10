@@ -18,5 +18,5 @@ const Heading = styled.h2`
   font-family: ${({ theme }) => theme.typography.fontFamilies.heading};
   font-size: ${({ theme }) => theme.typography.fontSizes["3xl"]};
   font-weight: ${({ theme }) => theme.typography.fontWeights.semibold};
-  color: ${({ theme }) => theme.assets.textHeading};
+  color: ${({ theme }) => theme.vars.textHeading};
 `;
