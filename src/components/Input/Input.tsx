@@ -195,7 +195,6 @@ const InputContainer = styled.div<{
 }>`
   display: flex;
   justify-content: space-between;
-  font-family: inherit;
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   border: 1px solid transparent;
   ${({ isError, isSuccess, theme }) => {
@@ -260,6 +259,7 @@ const CustomInput = styled.input<{
   sideWidth: number | undefined;
   inputSize: InputSizeType;
 }>`
+  font-family: inherit;
   outline: none;
   border: none;
   background-color: transparent;
