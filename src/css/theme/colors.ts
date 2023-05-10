@@ -1,6 +1,6 @@
 export type Colors = "grey" | "red" | "yellow" | "green" | "blue";
 
-type Shades = 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950;
+type Shades = "default" | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950;
 
 export type ColorsType = {
   black: string;
@@ -11,6 +11,7 @@ export const colors: ColorsType = {
   white: "#ffffff",
   black: "#000000",
   grey: {
+    default: "#262626", // 800
     50: "#fafafa",
     100: "#f5f5f5",
     200: "#e5e5e5",
@@ -24,6 +25,7 @@ export const colors: ColorsType = {
     950: "#0a0a0a",
   },
   red: {
+    default: "#dc2626", // 600
     50: "#fef2f2",
     100: "#fee2e2",
     200: "#fecaca",
@@ -37,6 +39,7 @@ export const colors: ColorsType = {
     950: "#450a0a",
   },
   yellow: {
+    default: "#ca8a04", // 600
     50: "#fefce8",
     100: "#fef9c3",
     200: "#fef08a",
@@ -50,6 +53,7 @@ export const colors: ColorsType = {
     950: "#422006",
   },
   green: {
+    default: "#16a34a", // 600
     50: "#f0fdf4",
     100: "#dcfce7",
     200: "#bbf7d0",
@@ -63,6 +67,7 @@ export const colors: ColorsType = {
     950: "#052e16",
   },
   blue: {
+    default: "#2563eb", // 600
     50: "#eff6ff",
     100: "#dbeafe",
     200: "#bfdbfe",
