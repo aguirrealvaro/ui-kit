@@ -12,7 +12,6 @@
 
 ### To do
 
-- CSS variables
 - Trigger
 - forwardRef
 - theme
