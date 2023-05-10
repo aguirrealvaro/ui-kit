@@ -140,7 +140,7 @@ const getColorStyles = (
     `,
     yellow: css`
       background-color: ${theme.colors.yellow.default};
-      color: ${theme.colors.white};
+      color: ${theme.colors.black};
       border-color: ${theme.colors.yellow.default};
       &:hover:not([disabled]) {
         background-color: ${theme.colors.yellow[700]};

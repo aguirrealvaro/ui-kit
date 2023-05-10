@@ -96,7 +96,6 @@ const Container = styled.div<{
   transitionTime: number;
 }>`
   position: relative;
-  z-index: ${({ theme }) => theme.zIndices.toast};
   display: flex;
   gap: ${({ theme }) => theme.spacing[4]};
   padding: ${({ theme }) => theme.spacing[4]} ${({ theme }) => theme.spacing[12]}

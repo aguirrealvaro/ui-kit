@@ -31,6 +31,7 @@ export const ToastContainer: FunctionComponent<ToastContainerProps> = ({
 
 const Container = styled.div<{ position: ToastPositionType }>`
   position: fixed;
+  z-index: ${({ theme }) => theme.zIndices.toast};
   ${({ position, theme }) => {
     const positions: Record<ToastPositionType, FlattenSimpleInterpolation> = {
       top: css`
