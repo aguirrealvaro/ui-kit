@@ -12,6 +12,7 @@
 
 ### To do
 
-- Trigger
+- Popper: Popover, Tooltip & Hover Card, Dropdown, reviewing roles
 - forwardRef
+- Trigger
 - theme
