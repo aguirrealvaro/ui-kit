@@ -20,7 +20,7 @@ const ToggleButton = styled.button<{ isChecked: boolean }>`
   padding: ${({ theme }) => theme.spacing[2]};
   border-radius: ${({ theme }) => theme.borderRadius.md};
   border: 1px solid
-    ${({ theme, isChecked }) => (isChecked ? theme.assets.blue : theme.assets.border)};
+    ${({ theme, isChecked }) => (isChecked ? theme.assets.grey : theme.assets.border)};
   color: ${({ theme, isChecked }) =>
-    isChecked ? theme.assets.blue : theme.assets.textPrimary};
+    isChecked ? theme.assets.grey : theme.assets.textPrimary};
 `;

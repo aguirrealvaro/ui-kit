@@ -200,7 +200,7 @@ const Select = styled.select<{
           return theme.assets.green;
         }
 
-        return theme.assets.blue;
+        return theme.assets.grey;
       }};
   }
   &:disabled {

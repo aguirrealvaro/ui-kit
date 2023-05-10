@@ -12,7 +12,6 @@
 
 ### To do
 
-- Defaults grey
 - assets to defaults
 - Trigger
 - forwardRef

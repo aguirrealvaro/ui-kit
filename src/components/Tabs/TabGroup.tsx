@@ -125,8 +125,8 @@ const TabItem = styled.button<{ active: boolean }>`
   ${({ active, theme }) => {
     if (active) {
       return css`
-        color: ${theme.assets.blue};
-        border-bottom: 2px solid ${theme.assets.blue};
+        color: ${theme.assets.grey};
+        border-bottom: 2px solid ${theme.assets.grey};
       `;
     } else {
       return css`

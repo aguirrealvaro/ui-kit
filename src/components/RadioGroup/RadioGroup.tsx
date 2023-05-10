@@ -29,7 +29,7 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
   value,
   onChange,
   size = "md",
-  color = theme.assets.blue,
+  color = theme.assets.grey,
   position = "left",
 }) => {
   const radiosRef = useRef<HTMLButtonElement[]>([]);
@@ -193,7 +193,7 @@ const RadioButton = styled.button<{
   width: ${({ radioSize }) => radioSize};
   height: ${({ radioSize }) => radioSize};
   border: 1px solid
-    ${({ theme, isChecked }) => (isChecked ? theme.assets.blue : theme.assets.border)};
+    ${({ theme, isChecked }) => (isChecked ? theme.assets.grey : theme.assets.border)};
   border-radius: ${({ theme }) => theme.borderRadius.full};
   :after {
     content: "";

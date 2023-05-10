@@ -22,7 +22,7 @@ export const Checkbox: FunctionComponent<CheckboxProps> = ({
   checked,
   onChange,
   disabled = false,
-  color = theme.assets.blue,
+  color = theme.assets.grey,
   size = "md",
   helpText,
   position = "left",

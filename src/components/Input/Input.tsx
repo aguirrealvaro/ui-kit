@@ -218,7 +218,7 @@ const InputContainer = styled.div<{
     return css`
       border-color: ${({ theme }) => theme.assets.border};
       &:focus-within {
-        outline: 2px solid ${({ theme }) => theme.assets.blue};
+        outline: 2px solid ${({ theme }) => theme.assets.grey};
         border-color: transparent;
       }
     `;
