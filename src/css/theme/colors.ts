@@ -2,12 +2,12 @@ export type Colors = "grey" | "red" | "yellow" | "green" | "blue";
 
 type Shades = 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950;
 
-export type CollorsType = Record<Colors, Record<Shades, string>> & {
+export type ColorsType = {
   black: string;
   white: string;
-};
+} & Record<Colors, Record<Shades, string>>;
 
-export const colors: CollorsType = {
+export const colors: ColorsType = {
   white: "#ffffff",
   black: "#000000",
   grey: {

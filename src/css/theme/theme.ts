@@ -1,7 +1,7 @@
 import { assets, AssetsType } from "./assets";
 import { borderRadius, BorderRadiusType } from "./borderRadius";
 import { breakpoints, BreakpointSize } from "./breakpoints";
-import { colors, type CollorsType } from "./colors";
+import { colors, type ColorsType } from "./colors";
 import { shadows, type ShadowsType } from "./shadows";
 import { sizes, type SizesType } from "./sizes";
 import { spacing, type SpacingType } from "./spacing";
@@ -13,7 +13,7 @@ import { zIndices, type ZIndexType } from "./zIndices";
 export type ThemeType = {
   typography: TypographyType;
   breakpoint: (size: BreakpointSize) => string;
-  colors: CollorsType;
+  colors: ColorsType;
   borderRadius: BorderRadiusType;
   zIndices: ZIndexType;
   shadows: ShadowsType;
