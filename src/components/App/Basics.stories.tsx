@@ -34,7 +34,7 @@ export const Primary = () => {
 };
 
 const Container = styled.div`
-  background-color: ${({ theme }) => theme.assets.blue};
+  background-color: ${({ theme }) => theme.colors.blue.default};
   padding: 3rem;
   display: flex;
   gap: 1rem;

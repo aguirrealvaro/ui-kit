@@ -143,8 +143,10 @@ export const AnimatedInput: FunctionComponent<AnimatedInputProps> = ({
                 <Icon icon={X} size={18} />
               </IconButton>
             )}
-            {isError && <Icon icon={XCircle} size={18} color={theme.assets.red} />}
-            {isSuccess && <Icon icon={CheckCircle2} size={18} color={theme.assets.green} />}
+            {isError && <Icon icon={XCircle} size={18} color={theme.colors.red.default} />}
+            {isSuccess && (
+              <Icon icon={CheckCircle2} size={18} color={theme.colors.green.default} />
+            )}
             {type === "password" && (
               <IconButton size="sm" onClick={handleSeePassword}>
                 <Icon icon={seePassword ? EyeOff : Eye} size={18} />
@@ -173,9 +175,9 @@ const InputContainer = styled.div<{
   ${({ isError, isSuccess, theme }) => {
     if (isError) {
       return css`
-        border-color: ${theme.assets.red};
+        border-color: ${theme.colors.red.default};
         &:focus-within {
-          outline: 2px solid ${({ theme }) => theme.assets.red};
+          outline: 2px solid ${({ theme }) => theme.colors.red.default};
           border-color: transparent;
         }
       `;
@@ -183,9 +185,9 @@ const InputContainer = styled.div<{
 
     if (isSuccess) {
       return css`
-        border-color: ${theme.assets.green};
+        border-color: ${theme.colors.green.default};
         &:focus-within {
-          outline: 2px solid ${({ theme }) => theme.assets.green};
+          outline: 2px solid ${({ theme }) => theme.colors.green.default};
           border-color: transparent;
         }
       `;
@@ -194,7 +196,7 @@ const InputContainer = styled.div<{
     return css`
       border-color: ${({ theme }) => theme.assets.border};
       &:focus-within {
-        outline: 2px solid ${({ theme }) => theme.assets.blue};
+        outline: 2px solid ${({ theme }) => theme.colors.blue.default};
         border-color: transparent;
       }
     `;
@@ -262,14 +264,14 @@ const CustomInput = styled.input<{
     ${getFocusedLabelStyles};
     color: ${({ theme, isError, isSuccess }) => {
       if (isError) {
-        return theme.assets.red;
+        return theme.colors.red.default;
       }
 
       if (isSuccess) {
-        return theme.assets.green;
+        return theme.colors.green.default;
       }
 
-      return theme.assets.blue;
+      return theme.colors.blue.default;
     }};
   }
   &:not(:placeholder-shown) {
@@ -278,11 +280,11 @@ const CustomInput = styled.input<{
         ${getFocusedLabelStyles};
         color: ${({ theme, isError, isSuccess }) => {
           if (isError) {
-            return theme.assets.red;
+            return theme.colors.red.default;
           }
 
           if (isSuccess) {
-            return theme.assets.green;
+            return theme.colors.green.default;
           }
 
           return theme.assets.textSecondary;
@@ -308,9 +310,9 @@ const HelpText = styled.span`
 `;
 
 const SuccessMessage = styled.span`
-  color: ${({ theme }) => theme.assets.green};
+  color: ${({ theme }) => theme.colors.green.default};
 `;
 
 const ErrorMessage = styled.span`
-  color: ${({ theme }) => theme.assets.red};
+  color: ${({ theme }) => theme.colors.red.default};
 `;

@@ -36,7 +36,7 @@ export const Button: FunctionComponent<ButtonProps> = ({
   };
 
   const renderChildren = () => {
-    if (isLoading) return <Spinner size="xs" color={theme.assets.grey} />;
+    if (isLoading) return <Spinner size="xs" color={theme.colors.grey.default} />;
 
     return (
       <>
@@ -112,45 +112,45 @@ const getColorStyles = (
 ): FlattenSimpleInterpolation => {
   const primaryStyles: Record<Colors, FlattenSimpleInterpolation> = {
     grey: css`
-      background-color: ${theme.assets.grey};
+      background-color: ${theme.colors.grey.default};
       color: ${theme.colors.white};
-      border-color: ${theme.assets.grey};
+      border-color: ${theme.colors.grey.default};
       &:hover:not([disabled]) {
         background-color: ${theme.colors.grey[900]};
         border-color: ${theme.colors.grey[900]};
       }
     `,
     blue: css`
-      background-color: ${theme.assets.blue};
+      background-color: ${theme.colors.blue.default};
       color: ${theme.colors.white};
-      border-color: ${theme.assets.blue};
+      border-color: ${theme.colors.blue.default};
       &:hover:not([disabled]) {
         background-color: ${theme.colors.blue[700]};
         border-color: ${theme.colors.blue[700]};
       }
     `,
     green: css`
-      background-color: ${theme.assets.green};
+      background-color: ${theme.colors.green.default};
       color: ${theme.colors.white};
-      border-color: ${theme.assets.green};
+      border-color: ${theme.colors.green.default};
       &:hover:not([disabled]) {
         background-color: ${theme.colors.green[700]};
         border-color: ${theme.colors.green[700]};
       }
     `,
     yellow: css`
-      background-color: ${theme.assets.yellow};
+      background-color: ${theme.colors.yellow.default};
       color: ${theme.colors.white};
-      border-color: ${theme.assets.yellow};
+      border-color: ${theme.colors.yellow.default};
       &:hover:not([disabled]) {
         background-color: ${theme.colors.yellow[700]};
         border-color: ${theme.colors.yellow[700]};
       }
     `,
     red: css`
-      background-color: ${theme.assets.red};
+      background-color: ${theme.colors.red.default};
       color: ${theme.colors.white};
-      border-color: ${theme.assets.red};
+      border-color: ${theme.colors.red.default};
       &:hover:not([disabled]) {
         background-color: ${theme.colors.red[700]};
         border-color: ${theme.colors.red[700]};
@@ -178,35 +178,35 @@ const getColorStyles = (
 
   const ghostStyles: Record<Colors, FlattenSimpleInterpolation> = {
     grey: css`
-      color: ${theme.assets.grey};
+      color: ${theme.colors.grey.default};
       background-color: transparent;
       &:hover:not([disabled]) {
         background-color: ${theme.colors.grey[100]};
       }
     `,
     blue: css`
-      color: ${theme.assets.blue};
+      color: ${theme.colors.blue.default};
       background-color: transparent;
       &:hover:not([disabled]) {
         background-color: ${theme.colors.blue[50]};
       }
     `,
     green: css`
-      color: ${theme.assets.green};
+      color: ${theme.colors.green.default};
       background-color: transparent;
       &:hover:not([disabled]) {
         background-color: ${theme.colors.green[50]};
       }
     `,
     yellow: css`
-      color: ${theme.assets.yellow};
+      color: ${theme.colors.yellow.default};
       background-color: transparent;
       &:hover:not([disabled]) {
         background-color: ${theme.colors.yellow[50]};
       }
     `,
     red: css`
-      color: ${theme.assets.red};
+      color: ${theme.colors.red.default};
       background-color: transparent;
       &:hover:not([disabled]) {
         background-color: ${theme.colors.red[50]};
@@ -216,34 +216,34 @@ const getColorStyles = (
 
   const linkStyles: Record<Colors, FlattenSimpleInterpolation> = {
     grey: css`
-      color: ${theme.assets.grey};
+      color: ${theme.colors.grey.default};
       &:hover:not([disabled]) {
         text-decoration: underline;
       }
     `,
     blue: css`
-      color: ${theme.assets.blue};
+      color: ${theme.colors.blue.default};
       background-color: transparent;
       &:hover:not([disabled]) {
         text-decoration: underline;
       }
     `,
     green: css`
-      color: ${theme.assets.green};
+      color: ${theme.colors.green.default};
       background-color: transparent;
       &:hover:not([disabled]) {
         text-decoration: underline;
       }
     `,
     yellow: css`
-      color: ${theme.assets.yellow};
+      color: ${theme.colors.yellow.default};
       background-color: transparent;
       &:hover:not([disabled]) {
         text-decoration: underline;
       }
     `,
     red: css`
-      color: ${theme.assets.red};
+      color: ${theme.colors.red.default};
       background-color: transparent;
       &:hover:not([disabled]) {
         text-decoration: underline;

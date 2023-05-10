@@ -178,11 +178,11 @@ const Select = styled.select<{
   border: 1px solid transparent;
   border-color: ${({ theme, isError, isSuccess }) => {
     if (isError) {
-      return theme.assets.red;
+      return theme.colors.red.default;
     }
 
     if (isSuccess) {
-      return theme.assets.green;
+      return theme.colors.green.default;
     }
 
     return theme.assets.border;
@@ -193,14 +193,14 @@ const Select = styled.select<{
     outline: 2px solid
       ${({ theme, isError, isSuccess }) => {
         if (isError) {
-          return theme.assets.red;
+          return theme.colors.red.default;
         }
 
         if (isSuccess) {
-          return theme.assets.green;
+          return theme.colors.green.default;
         }
 
-        return theme.assets.grey;
+        return theme.colors.grey.default;
       }};
   }
   &:disabled {
@@ -255,9 +255,9 @@ const HelpText = styled.span`
 `;
 
 const SuccessMessage = styled.span`
-  color: ${({ theme }) => theme.assets.green};
+  color: ${({ theme }) => theme.colors.green.default};
 `;
 
 const ErrorMessage = styled.span`
-  color: ${({ theme }) => theme.assets.red};
+  color: ${({ theme }) => theme.colors.red.default};
 `;

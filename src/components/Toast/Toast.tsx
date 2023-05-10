@@ -108,23 +108,23 @@ const Container = styled.div<{
   ${({ colorScheme, theme }) => {
     const variantStyles: Record<Colors, FlattenSimpleInterpolation> = {
       grey: css`
-        background-color: ${theme.assets.grey};
+        background-color: ${theme.colors.grey.default};
         color: ${theme.colors.white};
       `,
       blue: css`
-        background-color: ${theme.assets.blue};
+        background-color: ${theme.colors.blue.default};
         color: ${theme.colors.white};
       `,
       green: css`
-        background-color: ${theme.assets.green};
+        background-color: ${theme.colors.green.default};
         color: ${theme.colors.white};
       `,
       red: css`
-        background-color: ${theme.assets.red};
+        background-color: ${theme.colors.red.default};
         color: ${theme.colors.white};
       `,
       yellow: css`
-        background-color: ${theme.assets.yellow};
+        background-color: ${theme.colors.yellow.default};
         color: ${theme.colors.white};
       `,
     };

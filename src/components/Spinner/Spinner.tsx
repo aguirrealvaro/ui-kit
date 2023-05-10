@@ -17,7 +17,7 @@ export const Spinner: FunctionComponent<SpinnerProps> = ({
 }) => {
   return (
     <Container fullHeight={fullHeight}>
-      <Loader color={color || theme.assets.grey} size={size} />
+      <Loader color={color || theme.colors.grey.default} size={size} />
     </Container>
   );
 };

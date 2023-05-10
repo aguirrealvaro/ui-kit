@@ -239,11 +239,11 @@ const SelectContainer = styled.div<{
   border: 1px solid transparent;
   border-color: ${({ theme, isError, isSuccess }) => {
     if (isError) {
-      return theme.assets.red;
+      return theme.colors.red.default;
     }
 
     if (isSuccess) {
-      return theme.assets.green;
+      return theme.colors.green.default;
     }
 
     return theme.assets.border;
@@ -254,14 +254,14 @@ const SelectContainer = styled.div<{
     outline: 2px solid
       ${({ theme, isError, isSuccess }) => {
         if (isError) {
-          return theme.assets.red;
+          return theme.colors.red.default;
         }
 
         if (isSuccess) {
-          return theme.assets.green;
+          return theme.colors.green.default;
         }
 
-        return theme.assets.grey;
+        return theme.colors.grey.default;
       }};
   }
   ${({ disabled, theme }) => {
@@ -339,7 +339,7 @@ const Option = styled.button<{ isSelected: boolean }>`
   ${({ isSelected, theme }) =>
     isSelected
       ? css`
-          background-color: ${theme.assets.grey};
+          background-color: ${theme.colors.grey.default};
           color: ${theme.colors.white};
         `
       : css`
@@ -383,9 +383,9 @@ const HelpText = styled.span`
 `;
 
 const SuccessMessage = styled.span`
-  color: ${({ theme }) => theme.assets.green};
+  color: ${({ theme }) => theme.colors.green.default};
 `;
 
 const ErrorMessage = styled.span`
-  color: ${({ theme }) => theme.assets.red};
+  color: ${({ theme }) => theme.colors.red.default};
 `;

@@ -12,7 +12,6 @@
 
 ### To do
 
-- assets to defaults
 - Trigger
 - forwardRef
 - theme

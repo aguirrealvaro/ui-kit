@@ -51,7 +51,7 @@ const Anchor = styled.a<{ underline: LinkUnderlineType; disabled: boolean }>`
     } else {
       return css`
         cursor: pointer;
-        color: ${theme.assets.blue};
+        color: ${theme.colors.blue.default};
       `;
     }
   }}

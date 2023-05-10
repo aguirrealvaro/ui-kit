@@ -156,8 +156,10 @@ export const Input: FunctionComponent<InputProps> = ({
                 <Icon icon={X} size={18} />
               </IconButton>
             )}
-            {isError && <Icon icon={XCircle} size={18} color={theme.assets.red} />}
-            {isSuccess && <Icon icon={CheckCircle2} size={18} color={theme.assets.green} />}
+            {isError && <Icon icon={XCircle} size={18} color={theme.colors.red.default} />}
+            {isSuccess && (
+              <Icon icon={CheckCircle2} size={18} color={theme.colors.green.default} />
+            )}
             {type === "password" && (
               <IconButton size="sm" onClick={handleSeePassword}>
                 <Icon icon={seePassword ? EyeOff : Eye} size={18} />
@@ -199,18 +201,18 @@ const InputContainer = styled.div<{
   ${({ isError, isSuccess, theme }) => {
     if (isError) {
       return css`
-        border-color: ${theme.assets.red};
+        border-color: ${theme.colors.red.default};
         &:focus-within {
-          outline: 2px solid ${({ theme }) => theme.assets.red};
+          outline: 2px solid ${({ theme }) => theme.colors.red.default};
           border-color: transparent;
         }
       `;
     }
     if (isSuccess) {
       return css`
-        border-color: ${theme.assets.green};
+        border-color: ${theme.colors.green.default};
         &:focus-within {
-          outline: 2px solid ${({ theme }) => theme.assets.green};
+          outline: 2px solid ${({ theme }) => theme.colors.green.default};
           border-color: transparent;
         }
       `;
@@ -218,7 +220,7 @@ const InputContainer = styled.div<{
     return css`
       border-color: ${({ theme }) => theme.assets.border};
       &:focus-within {
-        outline: 2px solid ${({ theme }) => theme.assets.grey};
+        outline: 2px solid ${({ theme }) => theme.colors.grey.default};
         border-color: transparent;
       }
     `;
@@ -305,9 +307,9 @@ const HelpText = styled.span`
 `;
 
 const SuccessMessage = styled.span`
-  color: ${({ theme }) => theme.assets.green};
+  color: ${({ theme }) => theme.colors.green.default};
 `;
 
 const ErrorMessage = styled.span`
-  color: ${({ theme }) => theme.assets.red};
+  color: ${({ theme }) => theme.colors.red.default};
 `;
