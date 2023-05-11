@@ -6,17 +6,17 @@ type PopoverProps = PopperProps & {
   id: string;
 };
 
-export const PopoverNew: FunctionComponent<PopoverProps> = ({
+export const DropdownMenu: FunctionComponent<PopoverProps> = ({
   id,
   children,
-  position = "bottom",
   trigger,
   triggerMode = "click",
+  position = "bottom",
   ...restProps
 }) => {
   const contentId = `${id}-content`;
 
-  const popUp = "dialog";
+  const popUp = "menu";
 
   const popUpProps = {
     "aria-haspopup": popUp,

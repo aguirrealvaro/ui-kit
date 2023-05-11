@@ -1,11 +1,11 @@
 import { FunctionComponent, ReactNode } from "react";
 import styled from "styled-components";
 
-type DropdownItemProps = {
+type DropdownMenuItemProps = {
   children: ReactNode;
 };
 
-export const DropdownItem: FunctionComponent<DropdownItemProps> = ({ children }) => {
+export const DropdownMenuItem: FunctionComponent<DropdownMenuItemProps> = ({ children }) => {
   return <Container role="menuitem">{children}</Container>;
 };
 

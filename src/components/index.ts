@@ -4,7 +4,7 @@ export { Dialog, DialogHeader, DialogContent, DialogFooter } from "./Dialog";
 export { SVGIcon } from "./SVGIcon";
 export { Tooltip } from "./Tooltip";
 export { Infotip } from "./Infotip";
-export { Dropdown } from "./Dropdown";
+export { DropdownMenu } from "./DropdownMenu";
 export { Carousel } from "./Carousel";
 export { Button } from "./Button";
 export { Link } from "./Link";

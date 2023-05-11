@@ -1,9 +1,9 @@
 import { FunctionComponent, ReactNode } from "react";
 
-type DropdownMenuProps = {
+type DropdownMenuGroup = {
   children: ReactNode;
 };
 
-export const DropdownGroup: FunctionComponent<DropdownMenuProps> = ({ children }) => {
+export const DropdownMenuGroup: FunctionComponent<DropdownMenuGroup> = ({ children }) => {
   return <div role="group">{children}</div>;
 };
