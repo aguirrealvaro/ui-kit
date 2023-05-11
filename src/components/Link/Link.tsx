@@ -1,4 +1,4 @@
-import { FunctionComponent, AnchorHTMLAttributes, ReactNode } from "react";
+import { AnchorHTMLAttributes, ReactNode, forwardRef } from "react";
 import styled, { css } from "styled-components";
 import { LinkUnderlineType } from "./Link.types";
 
@@ -8,18 +8,21 @@ export type LinkProps = {
   disabled?: boolean;
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
-export const Link: FunctionComponent<LinkProps> = ({
-  children,
-  underline = true,
-  disabled = false,
-  ...restProps
-}) => {
-  return (
-    <Anchor underline={underline} target="_blank" disabled={disabled} {...restProps}>
-      {children}
-    </Anchor>
-  );
-};
+export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
+  ({ children, underline = true, disabled = false, ...restProps }, ref) => {
+    return (
+      <Anchor
+        ref={ref}
+        underline={underline}
+        target="_blank"
+        disabled={disabled}
+        {...restProps}
+      >
+        {children}
+      </Anchor>
+    );
+  }
+);
 
 const Anchor = styled.a<{ underline: LinkUnderlineType; disabled: boolean }>`
   ${({ underline }) => {

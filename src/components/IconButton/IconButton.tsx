@@ -9,9 +9,9 @@ type IconButtonProps = {
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
-  ({ children, size = "md", ...props }) => {
+  ({ children, size = "md", ...props }, ref) => {
     return (
-      <Container type="button" size={size} {...props}>
+      <Container ref={ref} type="button" size={size} {...props}>
         {children}
       </Container>
     );
