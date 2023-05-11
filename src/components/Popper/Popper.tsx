@@ -17,13 +17,11 @@ import { useDisclosure, useOutsideClick } from "@/hooks";
 
 export type PopperProps = {
   children: ReactNode;
-  id: string;
   trigger: ReactNode;
   position: PopoverPositionType;
   triggerMode?: PopoverTriggerType;
   withTriggerWidth?: boolean;
   gap?: number;
-  popUpType?: "menu" | "listbox" | "tree" | "grid" | "dialog";
 };
 
 type CoordsType = {
@@ -33,13 +31,11 @@ type CoordsType = {
 
 export const Popper: FunctionComponent<PopperProps> = ({
   children,
-  id,
   trigger,
   position,
   triggerMode = "hover",
   gap = 0,
   withTriggerWidth = false,
-  popUpType,
 }) => {
   const transitionTime = theme.transitions.durations.normal;
 
@@ -155,21 +151,11 @@ export const Popper: FunctionComponent<PopperProps> = ({
     ...(triggerMode === "hover" ? { onMouseEnter: onOpen } : { onClick: onToggle }),
   };
 
-  const contentId = `${id}-content`;
-
-  const popUpProps = {
-    "aria-expanded": isOpen,
-    "aria-haspopup": popUpType || true,
-    "aria-controls": contentId,
-  };
-
   const triggerComponent = (() => {
     if (!isValidElement(trigger)) return null;
     return cloneElement(trigger as ReactElement, {
-      id,
       ref: triggerRef,
       ...openProps,
-      ...popUpProps,
     });
   })();
 
@@ -179,14 +165,11 @@ export const Popper: FunctionComponent<PopperProps> = ({
       {isOpen &&
         createPortal(
           <Content
-            id={contentId}
             ref={popperRef}
             fadeOut={isUnmounting}
             coords={coords}
             triggerWidth={triggerWidth}
             transitionTime={transitionTime}
-            aria-labelledby={id}
-            {...(popUpType && { role: popUpType })}
           >
             {children}
           </Content>,

@@ -19,7 +19,6 @@ const Template: ComponentStory<typeof Popper> = ({ trigger: dummyTrigger, ...arg
 
 export const Primary = Template.bind({});
 Primary.args = {
-  id: "popper-story",
   position: "bottom-left",
   gap: 8,
   triggerMode: "hover",
