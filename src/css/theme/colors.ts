@@ -53,7 +53,7 @@ export const colors: ColorsType = {
     950: "#052e16",
   },
   yellow: {
-    default: "#ca8a04", // 600
+    default: "#eab308", // 500
     50: "#fefce8",
     100: "#fef9c3",
     200: "#fef08a",

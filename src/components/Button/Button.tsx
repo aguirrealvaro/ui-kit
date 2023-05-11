@@ -1,4 +1,4 @@
-import { FunctionComponent, ButtonHTMLAttributes, ReactNode, MouseEvent } from "react";
+import { ButtonHTMLAttributes, ReactNode, MouseEvent, forwardRef } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { Spinner } from "../Spinner";
 import { ButtonVariantType, ButtonSizeType, ButtonShapeType } from "./Button.types";
@@ -16,52 +16,58 @@ type ButtonProps = {
   endElement?: ReactNode;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const Button: FunctionComponent<ButtonProps> = ({
-  children,
-  onClick,
-  block,
-  isLoading,
-  variant = "primary",
-  size = "md",
-  colorScheme = "grey",
-  shape = "default",
-  startElement,
-  endElement,
-  type = "button",
-  ...restProps
-}) => {
-  const handleOnClick = (e: MouseEvent<HTMLButtonElement>) => {
-    if (isLoading) return;
-    onClick?.(e);
-  };
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      children,
+      onClick,
+      block,
+      isLoading,
+      variant = "primary",
+      size = "md",
+      colorScheme = "grey",
+      shape = "default",
+      startElement,
+      endElement,
+      type = "button",
+      ...restProps
+    },
+    ref
+  ) => {
+    const handleOnClick = (e: MouseEvent<HTMLButtonElement>) => {
+      if (isLoading) return;
+      onClick?.(e);
+    };
 
-  const renderChildren = () => {
-    if (isLoading) return <Spinner size="xs" color={theme.colors.grey.default} />;
+    const renderChildren = () => {
+      if (isLoading) return <Spinner size="xs" color={theme.colors.grey.default} />;
+
+      return (
+        <>
+          {startElement ? startElement : null}
+          {children}
+          {endElement ? endElement : null}
+        </>
+      );
+    };
 
     return (
-      <>
-        {startElement ? startElement : null}
-        {children}
-        {endElement ? endElement : null}
-      </>
+      <CustomButton
+        ref={ref}
+        block={block}
+        variant={variant}
+        size={size}
+        colorScheme={colorScheme}
+        onClick={handleOnClick}
+        shape={shape}
+        type={type}
+        {...restProps}
+      >
+        {renderChildren()}
+      </CustomButton>
     );
-  };
-
-  return (
-    <CustomButton
-      block={block}
-      variant={variant}
-      size={size}
-      colorScheme={colorScheme}
-      onClick={handleOnClick}
-      shape={shape}
-      type={type}
-      {...restProps}
-    >
-      {renderChildren()}
-    </CustomButton>
-  );
-};
+  }
+);
 
 const getSizeStyles = (size: ButtonSizeType): FlattenSimpleInterpolation => {
   const sizeOptions: Record<ButtonSizeType, FlattenSimpleInterpolation> = {
@@ -116,8 +122,8 @@ const getColorStyles = (
       color: ${theme.colors.white};
       border-color: ${theme.colors.grey.default};
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.grey[900]};
-        border-color: ${theme.colors.grey[900]};
+        background-color: ${theme.colors.grey[700]};
+        border-color: ${theme.colors.grey[700]};
       }
     `,
     blue: css`
@@ -143,8 +149,8 @@ const getColorStyles = (
       color: ${theme.colors.black};
       border-color: ${theme.colors.yellow.default};
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.yellow[700]};
-        border-color: ${theme.colors.yellow[700]};
+        background-color: ${theme.colors.yellow[600]};
+        border-color: ${theme.colors.yellow[600]};
       }
     `,
     red: css`
