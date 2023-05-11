@@ -154,6 +154,7 @@ export const Popper: FunctionComponent<PopperProps> = ({
   const triggerComponent = (() => {
     if (!isValidElement(trigger)) return null;
     return cloneElement(trigger as ReactElement, {
+      "aria-expanded": isOpen,
       ref: triggerRef,
       ...openProps,
     });

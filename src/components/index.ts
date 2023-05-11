@@ -37,3 +37,4 @@ export { Icon } from "./Icon";
 export { Navbar } from "./Navbar";
 export { Toggle } from "./Toggle";
 export { Popper } from "./Popper";
+export { PopoverNew } from "./PopoverNew";
