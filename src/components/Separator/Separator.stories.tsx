@@ -20,8 +20,7 @@ const Template: ComponentStory<typeof Separator> = (args) => {
 export const Primary = Template.bind({});
 Primary.args = {
   orientation: "horizontal",
-  preSpacing: 4,
-  postSpacing: 4,
+  spacing: 4,
 };
 
 const Container = styled.div`

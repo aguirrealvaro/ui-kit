@@ -12,7 +12,5 @@
 
 ### To do
 
-- spacing to separator
-- variant to Badge
 - theme
 - Trigger?

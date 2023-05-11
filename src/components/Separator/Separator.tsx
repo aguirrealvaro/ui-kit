@@ -5,36 +5,33 @@ import { Spacing } from "@/css/theme/spacing";
 
 type SeparatorProps = {
   orientation?: SeparatorOrientatorType;
-  preSpacing?: Spacing;
-  postSpacing?: Spacing;
+  spacing?: Spacing;
 };
 
 export const Separator: FunctionComponent<SeparatorProps> = ({
   orientation = "horizontal",
-  preSpacing = 4,
-  postSpacing = 4,
+  spacing = 4,
 }) => {
-  return <Line orientation={orientation} preSpacing={preSpacing} postSpacing={postSpacing} />;
+  return <Line orientation={orientation} spacing={spacing} />;
 };
 
 const Line = styled.hr<{
   orientation: SeparatorOrientatorType;
-  preSpacing: Spacing;
-  postSpacing: Spacing;
+  spacing: Spacing;
 }>`
   background-color: ${({ theme }) => theme.vars.border};
   border: none;
-  ${({ theme, orientation, preSpacing, postSpacing }) => {
+  ${({ theme, orientation, spacing }) => {
     if (orientation === "horizontal") {
       return css`
-        margin-top: ${theme.spacing[preSpacing]};
-        margin-bottom: ${theme.spacing[postSpacing]};
+        margin-top: ${theme.spacing[spacing]};
+        margin-bottom: ${theme.spacing[spacing]};
         height: 1px;
       `;
     } else {
       return css`
-        margin-left: ${theme.spacing[preSpacing]};
-        margin-right: ${theme.spacing[postSpacing]};
+        margin-left: ${theme.spacing[spacing]};
+        margin-right: ${theme.spacing[spacing]};
         width: 1px;
       `;
     }
