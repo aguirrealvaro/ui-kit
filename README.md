@@ -12,7 +12,6 @@
 
 ### To do
 
-- forwardRef (button, iconbutton, etc) & popup stories
 - spacing to separator
 - variant to Badge
 - theme

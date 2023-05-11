@@ -1,6 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { MoreVertical } from "lucide-react";
 import { DropdownMenuGroup, DropdownMenuItem } from "./components";
-import { DropdownMenu, Separator } from "@/components";
+import { DropdownMenu, Icon, IconButton, Separator } from "@/components";
 
 export default {
   title: "Components/DropdownMenu",
@@ -8,8 +9,14 @@ export default {
 } as ComponentMeta<typeof DropdownMenu>;
 
 const Template: ComponentStory<typeof DropdownMenu> = ({ trigger: dummyTrigger, ...args }) => {
+  const trigger = (
+    <IconButton>
+      <Icon icon={MoreVertical} />
+    </IconButton>
+  );
+
   return (
-    <DropdownMenu trigger={<button>click me</button>} {...args}>
+    <DropdownMenu trigger={trigger} {...args}>
       <DropdownMenuGroup>
         <DropdownMenuItem>Item 1</DropdownMenuItem>
         <DropdownMenuItem>Item 2</DropdownMenuItem>

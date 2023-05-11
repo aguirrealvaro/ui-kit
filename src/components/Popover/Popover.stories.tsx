@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Popover } from "@/components";
+import { User } from "lucide-react";
+import { Icon, IconButton, Popover } from "@/components";
 
 export default {
   title: "Components/Popover",
@@ -7,8 +8,14 @@ export default {
 } as ComponentMeta<typeof Popover>;
 
 const Template: ComponentStory<typeof Popover> = ({ trigger: dummyTrigger, ...args }) => {
+  const trigger = (
+    <IconButton>
+      <Icon icon={User} />
+    </IconButton>
+  );
+
   return (
-    <Popover trigger={<button>Click</button>} {...args}>
+    <Popover trigger={trigger} {...args}>
       Hola!
     </Popover>
   );
