@@ -12,9 +12,9 @@
 
 ### To do
 
-- Popper: Popover, DropdownMenu, Tooltip, Hover Card (reviewing roles)
+- Popper: Popover, DropdownMenu, Tooltip, Hover Card
+- forwardRef (button, iconbutton, etc) & popup stories
 - spacing to separator
 - variant to Badge
-- forwardRef
 - theme
 - Trigger?

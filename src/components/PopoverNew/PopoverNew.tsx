@@ -9,8 +9,8 @@ type PopoverProps = PopperProps & {
 export const PopoverNew: FunctionComponent<PopoverProps> = ({
   id,
   children,
-  position = "right",
-  trigger,
+  position = "bottom",
+  trigger = "click",
   ...restProps
 }) => {
   const contentId = `${id}-content`;

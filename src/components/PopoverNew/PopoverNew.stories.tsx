@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { PopoverNew, Button } from "@/components";
+import { PopoverNew } from "@/components";
 
 export default {
   title: "Components/PopoverNew",
@@ -8,7 +8,7 @@ export default {
 
 const Template: ComponentStory<typeof PopoverNew> = ({ trigger: dummyTrigger, ...args }) => {
   return (
-    <PopoverNew trigger={<Button>Click</Button>} {...args}>
+    <PopoverNew trigger={<button>Click</button>} {...args}>
       Hola!
     </PopoverNew>
   );
@@ -17,7 +17,7 @@ const Template: ComponentStory<typeof PopoverNew> = ({ trigger: dummyTrigger, ..
 export const Primary = Template.bind({});
 Primary.args = {
   id: "popover",
-  position: "right",
+  position: "bottom",
   gap: 8,
   triggerMode: "click",
 };
