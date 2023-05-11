@@ -22,7 +22,6 @@ Primary.args = {
   position: "bottom-left",
   gap: 8,
   triggerMode: "hover",
-  withTriggerWidth: false,
 };
 
 const Container = styled.div`

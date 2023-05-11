@@ -1,12 +1,17 @@
 import { FunctionComponent } from "react";
 import styled from "styled-components";
-import { Popover, PopoverProps } from "../Popover";
+import { Popper, PopperProps } from "@/components/Popper";
 
-export const Tooltip: FunctionComponent<PopoverProps> = ({ children, ...restProps }) => {
+export const Tooltip: FunctionComponent<PopperProps> = ({
+  children,
+  position = "right",
+  triggerMode = "hover",
+  ...restProps
+}) => {
   return (
-    <Popover gap={8} triggerMode="hover" {...restProps}>
+    <Popper gap={8} triggerMode={triggerMode} position={position} {...restProps}>
       <Content>{children}</Content>
-    </Popover>
+    </Popper>
   );
 };
 

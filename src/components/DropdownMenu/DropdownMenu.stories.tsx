@@ -31,5 +31,4 @@ Primary.args = {
   position: "bottom",
   gap: 16,
   triggerMode: "click",
-  withTriggerWidth: false,
 };
