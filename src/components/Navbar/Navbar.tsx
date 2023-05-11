@@ -17,6 +17,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({ id }) => {
   const {
     isOpen: isMobileMenuOpen,
     onToggle: toggleMobileMenu,
+    onClose: closeMobileMenu,
     isUnmounting,
   } = useDisclosure({ timeout: transitionTime, closeOnResize: true });
 
@@ -47,6 +48,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({ id }) => {
             <MobileMenu
               navbarHeight={navbarHeight}
               isMobileMenuOpen={isMobileMenuOpen}
+              closeMobileMenu={closeMobileMenu}
               transitionTime={transitionTime}
               isUnmounting={isUnmounting}
               id={mobileMenuId}

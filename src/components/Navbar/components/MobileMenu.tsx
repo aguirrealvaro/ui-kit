@@ -1,16 +1,29 @@
 import { FunctionComponent, HTMLAttributes } from "react";
 import styled, { css, keyframes } from "styled-components";
+import { useKeyPress } from "@/hooks";
 
 type MobileMenuProps = {
   isMobileMenuOpen: boolean;
   navbarHeight: number | undefined;
+  closeMobileMenu: () => void;
   transitionTime: number;
   isUnmounting: boolean;
-};
+} & HTMLAttributes<HTMLDivElement>;
 
-export const MobileMenu: FunctionComponent<
-  MobileMenuProps & HTMLAttributes<HTMLDivElement>
-> = ({ isMobileMenuOpen, navbarHeight, transitionTime, isUnmounting, ...restProps }) => {
+export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
+  isMobileMenuOpen,
+  navbarHeight,
+  closeMobileMenu,
+  transitionTime,
+  isUnmounting,
+  ...restProps
+}) => {
+  useKeyPress({
+    targetKey: "Escape",
+    handler: closeMobileMenu,
+    enabled: isMobileMenuOpen,
+  });
+
   return (
     <Container
       isMobileMenuOpen={isMobileMenuOpen}
@@ -29,7 +42,12 @@ const fadeIn = keyframes`
   to { opacity: 1 }
 `;
 
-const Container = styled.div<MobileMenuProps>`
+const Container = styled.div<{
+  isMobileMenuOpen: boolean;
+  navbarHeight: number | undefined;
+  transitionTime: number;
+  isUnmounting: boolean;
+}>`
   position: fixed;
   z-index: ${({ theme }) => theme.zIndices.selectDropdown};
   background-color: ${({ theme }) => theme.colors.white};
