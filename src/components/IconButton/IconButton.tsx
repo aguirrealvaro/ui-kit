@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FunctionComponent, ReactNode } from "react";
+import { ButtonHTMLAttributes, ReactNode, forwardRef } from "react";
 import styled from "styled-components";
 import { IconButtonSizeType } from "./IconButton.types";
 import { Spacing } from "@/css/theme/spacing";
@@ -6,17 +6,17 @@ import { Spacing } from "@/css/theme/spacing";
 type IconButtonProps = {
   children: ReactNode;
   size?: IconButtonSizeType;
-};
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const IconButton: FunctionComponent<
-  IconButtonProps & ButtonHTMLAttributes<HTMLButtonElement>
-> = ({ children, size = "md", ...props }) => {
-  return (
-    <Container type="button" size={size} {...props}>
-      {children}
-    </Container>
-  );
-};
+export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
+  ({ children, size = "md", ...props }) => {
+    return (
+      <Container type="button" size={size} {...props}>
+        {children}
+      </Container>
+    );
+  }
+);
 
 const Container = styled.button<{ size: IconButtonSizeType }>`
   display: flex;
