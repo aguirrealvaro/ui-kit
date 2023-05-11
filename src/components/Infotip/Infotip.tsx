@@ -1,14 +1,14 @@
 import { FunctionComponent } from "react";
 import { AlertCircle } from "lucide-react";
 import styled from "styled-components";
-import { PopoverProps } from "../Popover";
 import { InfotipSizeType } from "./Infotip.types";
 import { Icon, Tooltip } from "@/components";
+import { PopperProps } from "@/components/Popper";
 import { theme } from "@/css";
 
 type InfotipProps = {
   size?: InfotipSizeType;
-} & PopoverProps;
+} & PopperProps;
 
 export const Infotip: FunctionComponent<InfotipProps> = ({
   children,

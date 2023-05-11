@@ -17,7 +17,6 @@ const Template: ComponentStory<typeof Infotip> = ({ ...args }) => {
 
 export const Primary = Template.bind({});
 Primary.args = {
-  id: "infotip-story",
   gap: 8,
   size: "md",
   position: "right",
