@@ -6,7 +6,7 @@ type PopoverProps = PopperProps & {
   id: string;
 };
 
-export const PopoverNew: FunctionComponent<PopoverProps> = ({
+export const Popover: FunctionComponent<PopoverProps> = ({
   id,
   children,
   position = "bottom",
