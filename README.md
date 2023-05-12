@@ -12,4 +12,5 @@
 
 ### To do
 
-- DropdownMenu and Popover components
+- DropdownMenu components (Twitch)
+- Popover components

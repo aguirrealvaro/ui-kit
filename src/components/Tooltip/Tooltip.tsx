@@ -1,15 +1,44 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, ReactElement, cloneElement, isValidElement } from "react";
 import styled from "styled-components";
 import { Popper, PopperProps } from "@/components/Popper";
 
-export const Tooltip: FunctionComponent<PopperProps> = ({
+type TooltipProps = PopperProps & {
+  id: string;
+};
+
+export const Tooltip: FunctionComponent<TooltipProps> = ({
+  id,
   children,
+  trigger,
   position = "right",
   triggerMode = "hover",
   ...restProps
 }) => {
+  const contentId = `${id}-content`;
+
+  const popUp = "dialog";
+
+  const popUpProps = {
+    "aria-haspopup": popUp,
+    "aria-controls": contentId,
+  };
+
+  const triggerComponent = (() => {
+    if (!isValidElement(trigger)) return null;
+    return cloneElement(trigger as ReactElement, {
+      id,
+      ...popUpProps,
+    });
+  })();
+
   return (
-    <Popper gap={8} triggerMode={triggerMode} position={position} {...restProps}>
+    <Popper
+      gap={8}
+      triggerMode={triggerMode}
+      position={position}
+      trigger={triggerComponent}
+      {...restProps}
+    >
       <Content>{children}</Content>
     </Popper>
   );

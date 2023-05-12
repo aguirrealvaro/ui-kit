@@ -12,10 +12,10 @@ export const Separator: FunctionComponent<SeparatorProps> = ({
   orientation = "horizontal",
   spacing = 4,
 }) => {
-  return <Line orientation={orientation} spacing={spacing} />;
+  return <Line role="separator" orientation={orientation} spacing={spacing} />;
 };
 
-const Line = styled.hr<{
+const Line = styled.div<{
   orientation: SeparatorOrientatorType;
   spacing: Spacing;
 }>`
