@@ -9,7 +9,3 @@
 ### Link
 
 [ui-kit7.vercel.app](https://ui-kit7.vercel.app/)
-
-### To do
-
-- DropdownMenu components
