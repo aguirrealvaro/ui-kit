@@ -164,23 +164,91 @@ const getColorStyles = (
     `,
   };
 
-  const secondaryStyles: FlattenSimpleInterpolation = css`
-    border-color: transparent;
-    color: ${theme.colors.grey[600]};
-    background-color: ${theme.colors.grey[100]};
-    &:hover:not([disabled]) {
-      background-color: ${theme.colors.grey[200]};
-    }
-  `;
-
-  const outlineStyles: FlattenSimpleInterpolation = css`
-    border-color: ${theme.colors.grey[200]};
-    color: ${theme.colors.grey[600]};
-    background-color: transparent;
-    &:hover:not([disabled]) {
+  const secondaryStyles: Record<Colors, FlattenSimpleInterpolation> = {
+    grey: css`
+      border-color: transparent;
+      color: ${theme.colors.grey[600]};
       background-color: ${theme.colors.grey[100]};
-    }
-  `;
+      &:hover:not([disabled]) {
+        background-color: ${theme.colors.grey[200]};
+      }
+    `,
+    blue: css`
+      border-color: transparent;
+      color: ${theme.colors.blue[600]};
+      background-color: ${theme.colors.blue[100]};
+      &:hover:not([disabled]) {
+        background-color: ${theme.colors.blue[200]};
+      }
+    `,
+    green: css`
+      border-color: transparent;
+      color: ${theme.colors.green[600]};
+      background-color: ${theme.colors.green[100]};
+      &:hover:not([disabled]) {
+        background-color: ${theme.colors.green[200]};
+      }
+    `,
+    yellow: css`
+      border-color: transparent;
+      color: ${theme.colors.yellow[600]};
+      background-color: ${theme.colors.yellow[100]};
+      &:hover:not([disabled]) {
+        background-color: ${theme.colors.yellow[200]};
+      }
+    `,
+    red: css`
+      border-color: transparent;
+      color: ${theme.colors.red[600]};
+      background-color: ${theme.colors.red[100]};
+      &:hover:not([disabled]) {
+        background-color: ${theme.colors.red[200]};
+      }
+    `,
+  };
+
+  const outlinedStyles: Record<Colors, FlattenSimpleInterpolation> = {
+    grey: css`
+      border-color: ${theme.colors.grey[200]};
+      color: ${theme.colors.grey[600]};
+      background-color: transparent;
+      &:hover:not([disabled]) {
+        background-color: ${theme.colors.grey[100]};
+      }
+    `,
+    blue: css`
+      border-color: ${theme.colors.blue[200]};
+      color: ${theme.colors.blue[600]};
+      background-color: transparent;
+      &:hover:not([disabled]) {
+        background-color: ${theme.colors.blue[100]};
+      }
+    `,
+    green: css`
+      border-color: ${theme.colors.green[200]};
+      color: ${theme.colors.green[600]};
+      background-color: transparent;
+      &:hover:not([disabled]) {
+        background-color: ${theme.colors.green[100]};
+      }
+    `,
+    yellow: css`
+      border-color: ${theme.colors.yellow[200]};
+      color: ${theme.colors.yellow[500]};
+      background-color: transparent;
+      &:hover:not([disabled]) {
+        background-color: ${theme.colors.yellow[100]};
+      }
+    `,
+    red: css`
+      border-color: ${theme.colors.red[200]};
+      color: ${theme.colors.red[600]};
+      background-color: transparent;
+      &:hover:not([disabled]) {
+        background-color: ${theme.colors.red[100]};
+      }
+    `,
+  };
 
   const ghostStyles: Record<Colors, FlattenSimpleInterpolation> = {
     grey: css`
@@ -259,8 +327,8 @@ const getColorStyles = (
 
   const colorOptions: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
     primary: primaryStyles[colorScheme],
-    secondary: secondaryStyles,
-    outline: outlineStyles,
+    secondary: secondaryStyles[colorScheme],
+    outlined: outlinedStyles[colorScheme],
     ghost: ghostStyles[colorScheme],
     link: linkStyles[colorScheme],
   };

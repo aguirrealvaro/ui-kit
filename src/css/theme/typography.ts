@@ -43,8 +43,8 @@ export type TypographyType = {
 
 export const typography: TypographyType = {
   fontFamilies: {
-    heading: `"Segoe UI", Arial`,
-    body: `"Segoe UI", Arial`,
+    heading: `Arial, "Segoe UI"`,
+    body: `Arial, "Segoe UI"`,
     mono: `monospace`,
   },
   fontSizes: {
