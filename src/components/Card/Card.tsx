@@ -23,7 +23,7 @@ export const Card: FunctionComponent<CardProps> = ({
 
 const Container = styled.div<{ spacing: Spacing; variant: CardVariantType }>`
   padding: ${({ theme, spacing }) => theme.spacing[spacing]};
-  box-shadow: ${({ theme }) => theme.shadows.card};
+  box-shadow: ${({ theme }) => theme.shadows.md};
   background-color: ${({ theme, variant }) => {
     const bgColors: Record<CardVariantType, string> = {
       primary: theme.vars.bgPrimary,

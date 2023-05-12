@@ -12,5 +12,4 @@
 
 ### To do
 
-- theme
-- Trigger?
+- DropdownMenu and Popover components

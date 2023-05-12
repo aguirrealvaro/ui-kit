@@ -22,7 +22,7 @@ const Template: ComponentStory<typeof DropdownMenu> = ({ trigger: dummyTrigger, 
         <DropdownMenuItem>Item 2</DropdownMenuItem>
         <DropdownMenuItem>Item 3</DropdownMenuItem>
       </DropdownMenuGroup>
-      <Separator preSpacing={1} postSpacing={1} />
+      <Separator spacing={1} />
       <DropdownMenuGroup>
         <DropdownMenuItem>Item 4</DropdownMenuItem>
         <DropdownMenuItem>Item 5</DropdownMenuItem>
