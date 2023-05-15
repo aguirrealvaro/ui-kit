@@ -169,7 +169,7 @@ const InputContainer = styled.div<{
   justify-content: space-between;
   font-family: inherit;
   position: relative;
-  height: ${({ theme }) => theme.sizes[14]};
+  height: ${({ theme }) => theme.spacing[14]};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   border: 1px solid transparent;
   ${({ isError, isSuccess, theme }) => {

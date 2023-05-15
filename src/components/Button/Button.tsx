@@ -72,22 +72,22 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 const getSizeStyles = (size: ButtonSizeType): FlattenSimpleInterpolation => {
   const sizeOptions: Record<ButtonSizeType, FlattenSimpleInterpolation> = {
     xs: css`
-      height: ${theme.sizes[6]};
+      height: ${theme.spacing[6]};
       padding: 0 ${`${theme.spacing[2]}`};
       font-size: ${theme.typography.fontSizes.xs};
     `,
     sm: css`
-      height: ${theme.sizes[8]};
+      height: ${theme.spacing[8]};
       padding: 0 ${`${theme.spacing[3]}`};
       font-size: ${theme.typography.fontSizes.sm};
     `,
     md: css`
-      height: ${theme.sizes[10]};
+      height: ${theme.spacing[10]};
       padding: 0 ${`${theme.spacing[4]}`};
       font-size: ${theme.typography.fontSizes.md};
     `,
     lg: css`
-      height: ${theme.sizes[12]};
+      height: ${theme.spacing[12]};
       padding: 0 ${`${theme.spacing[5]}`};
       font-size: ${theme.typography.fontSizes.lg};
     `,

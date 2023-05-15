@@ -7,10 +7,12 @@ import { PopperProps } from "@/components/Popper";
 import { theme } from "@/css";
 
 type InfotipProps = {
+  id: string;
   size?: InfotipSizeType;
 } & PopperProps;
 
 export const Infotip: FunctionComponent<InfotipProps> = ({
+  id,
   children,
   size = "sm",
   trigger: dummyTrigger,
@@ -32,7 +34,7 @@ export const Infotip: FunctionComponent<InfotipProps> = ({
   );
 
   return (
-    <Tooltip trigger={infoIcon} {...restProps}>
+    <Tooltip id={id} trigger={infoIcon} {...restProps}>
       {children}
     </Tooltip>
   );

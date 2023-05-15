@@ -50,5 +50,5 @@ const Content = styled.div`
   box-shadow: ${({ theme }) => theme.shadows.sm};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   padding: ${({ theme }) => theme.spacing[1]};
-  min-width: ${({ theme }) => theme.sizes[32]};
+  min-width: ${({ theme }) => theme.spacing[32]};
 `;

@@ -229,9 +229,9 @@ const SelectContainer = styled.div<{
     isSelected ? theme.vars.textPrimary : theme.vars.textSecondary};
   height: ${({ size, theme }) => {
     const sizes: Record<SelectSizeType, string> = {
-      sm: theme.sizes[8],
-      md: theme.sizes[10],
-      lg: theme.sizes[12],
+      sm: theme.spacing[8],
+      md: theme.spacing[10],
+      lg: theme.spacing[12],
     };
     return sizes[size];
   }};
@@ -276,7 +276,7 @@ const SelectContainer = styled.div<{
 `;
 
 const InnerContainer = styled.div<{ size: SelectSizeType }>`
-  padding: 0 ${({ theme }) => theme.sizes[4]};
+  padding: 0 ${({ theme }) => theme.spacing[4]};
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacing[4]};
@@ -309,7 +309,7 @@ const Dropdown = styled.div<{
     }
   }};
   z-index: ${({ theme }) => theme.zIndices.selectDropdown};
-  padding: ${({ theme }) => theme.sizes[2]};
+  padding: ${({ theme }) => theme.spacing[2]};
   border: 1px solid ${({ theme }) => theme.vars.border};
   background-color: ${({ theme }) => theme.vars.bgPrimary};
   box-shadow: ${({ theme }) => theme.shadows.sm};

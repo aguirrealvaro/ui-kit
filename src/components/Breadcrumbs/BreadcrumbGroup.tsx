@@ -36,6 +36,6 @@ const ItemList = styled.li`
     margin: 0 ${({ theme }) => theme.spacing[2]};
     transform: rotate(15deg);
     border-right: 0.1em solid currentcolor;
-    height: ${({ theme }) => theme.sizes[4]};
+    height: ${({ theme }) => theme.spacing[4]};
   }
 `;

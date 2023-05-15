@@ -2,12 +2,11 @@ import { borderRadius, BorderRadiusType } from "./borderRadius";
 import { breakpoints, BreakpointSize } from "./breakpoints";
 import { colors, type ColorsType } from "./colors";
 import { shadows, type ShadowsType } from "./shadows";
-import { sizes, type SizesType } from "./sizes";
 import { spacing, type SpacingType } from "./spacing";
 import { transitions, type TransitionsType } from "./transitions";
 import { transparencies, type TransparencyType } from "./transparencies";
 import { typography, type TypographyType } from "./typography";
-import { vars, VarsType } from "./vars";
+import { vars, type VarsType } from "./vars";
 import { zIndices, type ZIndexType } from "./zIndices";
 
 export type ThemeType = {
@@ -21,7 +20,6 @@ export type ThemeType = {
   vars: VarsType;
   transparencies: TransparencyType;
   spacing: SpacingType;
-  sizes: SizesType;
 };
 
 export const theme: ThemeType = {
@@ -35,5 +33,4 @@ export const theme: ThemeType = {
   vars,
   transparencies,
   spacing,
-  sizes,
 };

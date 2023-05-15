@@ -50,13 +50,13 @@ const Container = styled.div<{
   }};
   ${({ size, theme }) => {
     const sizes: Record<AvatarSizeType, string> = {
-      xs: theme.sizes[8],
-      sm: theme.sizes[12],
-      md: theme.sizes[16],
-      lg: theme.sizes[20],
-      xl: theme.sizes[24],
-      "2xl": theme.sizes[28],
-      "3xl": theme.sizes[32],
+      xs: theme.spacing[8],
+      sm: theme.spacing[12],
+      md: theme.spacing[16],
+      lg: theme.spacing[20],
+      xl: theme.spacing[24],
+      "2xl": theme.spacing[28],
+      "3xl": theme.spacing[32],
     };
 
     return css`

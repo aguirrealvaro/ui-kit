@@ -159,9 +159,9 @@ const Select = styled.select<{
   width: 100%;
   height: ${({ selectSize, theme }) => {
     const sizes: Record<SelectSizeType, string> = {
-      sm: theme.sizes[8],
-      md: theme.sizes[10],
-      lg: theme.sizes[12],
+      sm: theme.spacing[8],
+      md: theme.spacing[10],
+      lg: theme.spacing[12],
     };
     return sizes[selectSize];
   }};

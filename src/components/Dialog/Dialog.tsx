@@ -135,7 +135,7 @@ const Content = styled.div<{ size: DialogSizeType; fadeOut: boolean }>`
     };
     return sizes[size];
   }};
-  min-height: ${({ theme }) => theme.sizes[28]};
+  min-height: ${({ theme }) => theme.spacing[28]};
   max-height: 80vh;
   animation: ${fadeInScale} ${({ theme }) => theme.transitions.durations.normal}ms
     ${({ theme }) => theme.transitions.timings.in};
