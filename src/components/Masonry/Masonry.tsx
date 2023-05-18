@@ -34,7 +34,8 @@ const Container = styled.div<{ gap: number }>`
         background-clip: padding-box;
       }
 
-      .grid-column > div {
+      .grid-column > * {
+        display: block;
         margin-bottom: ${gap}rem;
       }
     `;
