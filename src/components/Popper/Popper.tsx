@@ -168,7 +168,7 @@ export const Popper: FunctionComponent<PopperProps> = ({
           <Content
             ref={popperRef}
             fadeOut={isUnmounting}
-            coords={coords}
+            $coords={coords}
             triggerWidth={triggerWidth}
             transitionTime={transitionTime}
           >
@@ -187,7 +187,7 @@ const fadeInScale = keyframes`
 
 const Content = styled.div<{
   fadeOut: boolean;
-  coords: CoordsType | undefined;
+  $coords: CoordsType | undefined;
   triggerWidth: number | undefined;
   transitionTime: number;
 }>`
@@ -195,9 +195,9 @@ const Content = styled.div<{
   z-index: ${({ theme }) => theme.zIndices.popover};
   animation: ${fadeInScale} ${({ transitionTime }) => transitionTime}ms
     ${({ theme }) => theme.transitions.timings.in};
-  ${({ coords }) => {
-    if (coords) {
-      const { top, left } = coords;
+  ${({ $coords }) => {
+    if ($coords) {
+      const { top, left } = $coords;
       return css`
         top: ${top + window.scrollY}px;
         left: ${left + window.scrollX}px;

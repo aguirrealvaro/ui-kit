@@ -71,7 +71,7 @@ export const Carousel: FunctionComponent<CarouselProps> = ({
   return (
     <Container role="slider" onKeyDown={handleKeyDown} tabIndex={0}>
       <Overflow>
-        <SlideContainer translate={translate} ref={carouselRef} gap={parsedGap}>
+        <SlideContainer $translate={translate} ref={carouselRef} gap={parsedGap}>
           {Children.map(children, (child) => (
             <Slide fullWidth={fullWidth}>{child}</Slide>
           ))}
@@ -91,11 +91,9 @@ const Container = styled.div`
 const Overflow = styled.div`
   overflow: hidden;
 `;
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const SlideContainer = styled.div<{ translate?: any; gap: number }>`
+const SlideContainer = styled.div<{ $translate: number; gap: number }>`
   display: flex;
-  transform: ${({ translate }) => `translateX(-${translate}px)`};
+  transform: ${({ $translate }) => `translateX(-${$translate}px)`};
   transition: transform ${({ theme }) => theme.transitions.durations.slow}ms
     ${({ theme }) => theme.transitions.timings.in};
   gap: ${({ gap }) => `${gap}px`};

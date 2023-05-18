@@ -12,7 +12,6 @@
 
 ### To do
 
-- coords $, translate carousel $
-- Upgrade SC to 6, uninstall types SC
+- Upgrade SC to 6, uninstall types SC, $props
 - Dropdown components & keyboard interactions
 - Table?
