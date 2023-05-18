@@ -12,6 +12,7 @@
 
 ### To do
 
+- coords $, translate carousel $
 - Upgrade SC to 6, uninstall types SC
 - Dropdown components & keyboard interactions
 - Table?
