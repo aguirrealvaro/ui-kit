@@ -1,5 +1,5 @@
 import { FunctionComponent, ReactNode } from "react";
-import { Info, AlertCircle, CheckCircle2, XCircle, LucideIcon } from "lucide-react";
+import { AlertCircle } from "lucide-react";
 import styled, { css, RuleSet } from "styled-components";
 import { AlertSizeType } from "./Alert.types";
 import { Icon } from "@/components";
@@ -26,22 +26,18 @@ export const Alert: FunctionComponent<AlertProps> = ({
     lg: 20,
   };
 
-  const variantIcons: Record<Colors, { icon: LucideIcon; color: string }> = {
-    grey: { icon: Info, color: theme.colors.grey.default },
-    blue: { icon: Info, color: theme.colors.blue.default },
-    green: { icon: CheckCircle2, color: theme.colors.green.default },
-    yellow: { icon: AlertCircle, color: theme.colors.yellow.default },
-    red: { icon: XCircle, color: theme.colors.red.default },
+  const iconColors: Record<Colors, string> = {
+    grey: theme.colors.grey.default,
+    blue: theme.colors.blue.default,
+    green: theme.colors.green.default,
+    yellow: theme.colors.yellow.default,
+    red: theme.colors.red.default,
   };
 
   return (
     <Container $colorScheme={colorScheme} $size={size} role="alert">
       {showIcon && (
-        <Icon
-          icon={variantIcons[colorScheme].icon}
-          size={sizeIcons[size]}
-          color={variantIcons[colorScheme].color}
-        />
+        <Icon icon={AlertCircle} size={sizeIcons[size]} color={iconColors[colorScheme]} />
       )}
       <span>{children}</span>
     </Container>
