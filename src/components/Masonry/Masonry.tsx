@@ -1,5 +1,5 @@
 import { FunctionComponent, ReactNode } from "react";
-import Masonry, { MasonryProps } from "react-masonry-css";
+import ReactMasonry, { MasonryProps } from "react-masonry-css";
 import styled, { css } from "styled-components";
 
 type CustomMasonryProps = {
@@ -7,16 +7,16 @@ type CustomMasonryProps = {
   gap: number;
 } & Omit<MasonryProps, "className">;
 
-export const CustomMasonry: FunctionComponent<CustomMasonryProps> = ({
+export const Masonry: FunctionComponent<CustomMasonryProps> = ({
   children,
   gap,
   ...restProps
 }) => {
   return (
     <Container gap={gap}>
-      <Masonry className="grid" columnClassName="grid-column" {...restProps}>
+      <ReactMasonry className="grid" columnClassName="grid-column" {...restProps}>
         {children}
-      </Masonry>
+      </ReactMasonry>
     </Container>
   );
 };

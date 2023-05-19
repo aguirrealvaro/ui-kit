@@ -12,6 +12,8 @@
 
 ### To do
 
+- masonry names
+- z-index
 - useIntersecing & useIntersected
 - Upgrade SC to 6, uninstall types SC, $props
 - Dropdown components & keyboard interactions

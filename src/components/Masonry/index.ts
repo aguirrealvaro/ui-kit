@@ -1,1 +1,1 @@
-export { CustomMasonry as Masonry } from "./Masonry";
+export { Masonry } from "./Masonry";
