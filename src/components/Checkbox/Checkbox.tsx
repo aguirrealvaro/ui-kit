@@ -38,7 +38,7 @@ export const Checkbox: FunctionComponent<CheckboxProps> = ({
   const labelId = `${id}-label`;
 
   return (
-    <Container position={position}>
+    <Container $position={position}>
       <CheckboxButton
         type="button"
         role="checkbox"
@@ -47,15 +47,15 @@ export const Checkbox: FunctionComponent<CheckboxProps> = ({
         id={id}
         aria-labelledby={labelId}
         disabled={disabled}
-        position={position}
-        checked={checked}
-        iconSize={iconSize}
-        color={color}
+        $position={position}
+        $checked={checked}
+        $iconSize={iconSize}
+        $color={color}
         {...restProps}
       >
         {checked && <Icon icon={Check} color={theme.colors.white} size={14} />}
       </CheckboxButton>
-      <LabelContainer id={labelId} htmlFor={id} position={position}>
+      <LabelContainer id={labelId} htmlFor={id} $position={position}>
         <Children size={size}>{children}</Children>
         {helpText && <HelpText size={size}>{helpText}</HelpText>}
       </LabelContainer>
@@ -63,36 +63,37 @@ export const Checkbox: FunctionComponent<CheckboxProps> = ({
   );
 };
 
-const Container = styled.div<{ position: CheckboxPositionType }>`
+const Container = styled.div<{ $position: CheckboxPositionType }>`
   display: flex;
   gap: ${({ theme }) => theme.spacing[4]};
   align-items: center;
-  justify-content: ${({ position }) => (position === "left" ? "flex-start" : "space-between")};
+  justify-content: ${({ $position }) =>
+    $position === "left" ? "flex-start" : "space-between"};
 `;
 
 const CheckboxButton = styled.button<{
-  position: CheckboxPositionType;
-  checked: boolean;
-  iconSize: string;
-  color: string;
+  $position: CheckboxPositionType;
+  $checked: boolean;
+  $iconSize: string;
+  $color: string;
 }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: ${({ iconSize }) => iconSize};
-  height: ${({ iconSize }) => iconSize};
+  width: ${({ $iconSize }) => $iconSize};
+  height: ${({ $iconSize }) => $iconSize};
   border: 1px solid ${({ theme }) => theme.vars.border};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
-  background-color: ${({ checked, color }) => checked && color};
-  order: ${({ position }) => (position === "left" ? 1 : 2)};
+  background-color: ${({ $checked, $color }) => $checked && $color};
+  order: ${({ $position }) => ($position === "left" ? 1 : 2)};
   &:disabled {
     cursor: not-allowed;
     opacity: 0.5;
   }
 `;
 
-const LabelContainer = styled.label<{ position: CheckboxPositionType }>`
-  order: ${({ position }) => (position === "left" ? 2 : 1)};
+const LabelContainer = styled.label<{ $position: CheckboxPositionType }>`
+  order: ${({ $position }) => ($position === "left" ? 2 : 1)};
 `;
 
 const Children = styled.span<{ size: CheckboxSizeType }>`
