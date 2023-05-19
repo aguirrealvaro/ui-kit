@@ -11,16 +11,16 @@ type IconButtonProps = {
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   ({ children, size = "md", ...props }, ref) => {
     return (
-      <Container ref={ref} type="button" size={size} {...props}>
+      <Container ref={ref} type="button" $size={size} {...props}>
         {children}
       </Container>
     );
   }
 );
 
-const Container = styled.button<{ size: IconButtonSizeType }>`
+const Container = styled.button<{ $size: IconButtonSizeType }>`
   display: flex;
-  padding: ${({ theme, size }) => {
+  padding: ${({ theme, $size }) => {
     const sizes: Record<IconButtonSizeType, Spacing> = {
       xs: 0.5,
       sm: 1,
@@ -28,7 +28,7 @@ const Container = styled.button<{ size: IconButtonSizeType }>`
       lg: 2,
     };
 
-    return theme.spacing[sizes[size]];
+    return theme.spacing[sizes[$size]];
   }};
   border-radius: ${({ theme }) => theme.borderRadius.full};
   transition: background-color ${({ theme }) => theme.transitions.durations.normal}ms

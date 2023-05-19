@@ -119,16 +119,16 @@ export const Input: FunctionComponent<InputProps> = ({
   return (
     <div>
       {label && (
-        <Label htmlFor={id} size={size}>
+        <Label htmlFor={id} $size={size}>
           {label}
         </Label>
       )}
       <InputContainer
-        disabled={disabled || false}
-        isError={isError}
-        isSuccess={isSuccess}
+        $disabled={disabled || false}
+        $isError={isError}
+        $isSuccess={isSuccess}
         onClick={focusInput}
-        size={size}
+        $size={size}
         onKeyDown={handleKeyDown}
       >
         {showLeftContainer && (
@@ -138,11 +138,11 @@ export const Input: FunctionComponent<InputProps> = ({
           id={id}
           ref={inputRef}
           disabled={disabled}
-          sideWidth={rightContainerWidth}
+          $sideWidth={rightContainerWidth}
           value={value}
           onChange={onValidChange}
           type={seePassword ? "text" : type}
-          inputSize={size}
+          $inputSize={size}
           aria-invalid={isError}
           {...(errorMessage && { "aria-errormessage": errorMessageId })}
           {...restProps}
@@ -168,37 +168,37 @@ export const Input: FunctionComponent<InputProps> = ({
           </RightContainer>
         )}
       </InputContainer>
-      {showBottom && <BottomText size={size}>{renderBottomText()}</BottomText>}
+      {showBottom && <BottomText $size={size}>{renderBottomText()}</BottomText>}
     </div>
   );
 };
 
-const Label = styled.label<{ size: InputSizeType }>`
+const Label = styled.label<{ $size: InputSizeType }>`
   display: block;
   margin-bottom: ${({ theme }) => theme.spacing[2]};
   color: ${({ theme }) => theme.vars.textSecondary};
-  font-size: ${({ size, theme }) => {
+  font-size: ${({ $size, theme }) => {
     const sizes: Record<InputSizeType, string> = {
       sm: theme.typography.fontSizes.sm,
       md: theme.typography.fontSizes.md,
       lg: theme.typography.fontSizes.lg,
     };
-    return sizes[size];
+    return sizes[$size];
   }};
 `;
 
 const InputContainer = styled.div<{
-  disabled: boolean;
-  isError: boolean;
-  isSuccess: boolean;
-  size: InputSizeType;
+  $disabled: boolean;
+  $isError: boolean;
+  $isSuccess: boolean;
+  $size: InputSizeType;
 }>`
   display: flex;
   justify-content: space-between;
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   border: 1px solid transparent;
-  ${({ isError, isSuccess, theme }) => {
-    if (isError) {
+  ${({ $isError, $isSuccess, theme }) => {
+    if ($isError) {
       return css`
         border-color: ${theme.colors.red.default};
         &:focus-within {
@@ -207,7 +207,7 @@ const InputContainer = styled.div<{
         }
       `;
     }
-    if (isSuccess) {
+    if ($isSuccess) {
       return css`
         border-color: ${theme.colors.green.default};
         &:focus-within {
@@ -224,16 +224,16 @@ const InputContainer = styled.div<{
       }
     `;
   }};
-  height: ${({ size, theme }) => {
+  height: ${({ $size, theme }) => {
     const sizes: Record<InputSizeType, string> = {
       sm: theme.spacing[8],
       md: theme.spacing[10],
       lg: theme.spacing[12],
     };
-    return sizes[size];
+    return sizes[$size];
   }};
-  ${({ disabled, theme }) =>
-    disabled &&
+  ${({ $disabled, theme }) =>
+    $disabled &&
     css`
       background-color: ${theme.vars.disabledPrimary};
       border: transparent;
@@ -256,8 +256,8 @@ const RightContainer = styled.div`
 `;
 
 const CustomInput = styled.input<{
-  sideWidth: number | undefined;
-  inputSize: InputSizeType;
+  $sideWidth: number | undefined;
+  $inputSize: InputSizeType;
 }>`
   font-family: inherit;
   outline: none;
@@ -265,20 +265,20 @@ const CustomInput = styled.input<{
   background-color: transparent;
   padding: 0 ${({ theme }) => theme.spacing[4]};
   color: ${({ theme }) => theme.vars.textPrimary};
-  width: ${({ sideWidth }) => {
-    if (sideWidth) {
-      return `calc(100% - ${sideWidth}px - 20px)`;
+  width: ${({ $sideWidth }) => {
+    if ($sideWidth) {
+      return `calc(100% - ${$sideWidth}px - 20px)`;
     } else {
       return "100%";
     }
   }};
-  font-size: ${({ inputSize, theme }) => {
+  font-size: ${({ $inputSize, theme }) => {
     const sizes: Record<InputSizeType, string> = {
       sm: theme.typography.fontSizes.sm,
       md: theme.typography.fontSizes.md,
       lg: theme.typography.fontSizes.lg,
     };
-    return sizes[inputSize];
+    return sizes[$inputSize];
   }};
   &:disabled {
     cursor: not-allowed;
@@ -288,17 +288,17 @@ const CustomInput = styled.input<{
   }
 `;
 
-const BottomText = styled.div<{ size: InputSizeType }>`
+const BottomText = styled.div<{ $size: InputSizeType }>`
   display: block;
   margin: ${({ theme }) => theme.spacing[2]} ${({ theme }) => theme.spacing[4]} 0
     ${({ theme }) => theme.spacing[4]};
-  font-size: ${({ size, theme }) => {
+  font-size: ${({ $size, theme }) => {
     const sizes: Record<InputSizeType, string> = {
       sm: theme.typography.fontSizes.xs,
       md: theme.typography.fontSizes.sm,
       lg: theme.typography.fontSizes.md,
     };
-    return sizes[size];
+    return sizes[$size];
   }};
 `;
 
