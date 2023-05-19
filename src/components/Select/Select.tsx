@@ -82,6 +82,7 @@ export const Select: FunctionComponent<SelectProps> = ({
   const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
 
   const labelId = `${id}-label`;
+  const helpTextId = `${id}-help-text`;
   const dropdownId = `${id}-dropdown`;
   const errorMessageId = `${id}-error`;
 
@@ -114,7 +115,7 @@ export const Select: FunctionComponent<SelectProps> = ({
       return <SuccessMessage>{successMessage}</SuccessMessage>;
     }
 
-    return <HelpText>{helpText}</HelpText>;
+    return <HelpText id={helpTextId}>{helpText}</HelpText>;
   };
 
   return (
@@ -143,6 +144,7 @@ export const Select: FunctionComponent<SelectProps> = ({
         aria-activedescendant={isOpen ? getOptionId(focusedIndex) : ""}
         onKeyDown={handleKeyDown}
         aria-invalid={isError}
+        {...(helpText && { "aria-describedby": helpTextId })}
         {...(errorMessage && { "aria-errormessage": errorMessageId })}
       >
         <InnerContainer $size={size}>

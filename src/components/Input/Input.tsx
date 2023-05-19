@@ -73,6 +73,7 @@ export const Input: FunctionComponent<InputProps> = ({
 
   const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
 
+  const helpTextId = `${id}-help-text`;
   const errorMessageId = `${id}-error`;
 
   const rightContainerRef = useRef<HTMLDivElement>(null);
@@ -113,7 +114,7 @@ export const Input: FunctionComponent<InputProps> = ({
       return <SuccessMessage>{successMessage}</SuccessMessage>;
     }
 
-    return <HelpText>{helpText}</HelpText>;
+    return <HelpText id={helpTextId}>{helpText}</HelpText>;
   };
 
   return (
@@ -144,6 +145,7 @@ export const Input: FunctionComponent<InputProps> = ({
           type={seePassword ? "text" : type}
           $inputSize={size}
           aria-invalid={isError}
+          {...(helpText && { "aria-describedby": helpTextId })}
           {...(errorMessage && { "aria-errormessage": errorMessageId })}
           {...restProps}
         />

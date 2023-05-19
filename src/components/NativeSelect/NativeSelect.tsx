@@ -52,6 +52,7 @@ export const NativeSelect: FunctionComponent<NativeSelectProps> = ({
 
   const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
 
+  const helpTextId = `${id}-help-text`;
   const errorMessageId = `${id}-error`;
 
   const handleKeyDown = (event: KeyboardEvent) => {
@@ -74,14 +75,19 @@ export const NativeSelect: FunctionComponent<NativeSelectProps> = ({
       return <SuccessMessage>{successMessage}</SuccessMessage>;
     }
 
-    return <HelpText>{helpText}</HelpText>;
+    return <HelpText id={helpTextId}>{helpText}</HelpText>;
   };
 
   return (
     <div>
-      {label && <Label $size={size}>{label}</Label>}
+      {label && (
+        <Label htmlFor={id} $size={size}>
+          {label}
+        </Label>
+      )}
       <SelectContainer>
         <Select
+          id={id}
           value={value}
           onChange={onChange}
           disabled={disabled}
@@ -91,6 +97,7 @@ export const NativeSelect: FunctionComponent<NativeSelectProps> = ({
           $isSelected={isSelected}
           onKeyDown={handleKeyDown}
           aria-invalid={isError}
+          {...(helpText && { "aria-describedby": helpTextId })}
           {...(errorMessage && { "aria-errormessage": errorMessageId })}
           {...restProps}
         >
