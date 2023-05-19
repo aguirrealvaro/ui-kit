@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import { createPortal } from "react-dom";
-import styled, { FlattenSimpleInterpolation, css } from "styled-components";
+import styled, { RuleSet, css } from "styled-components";
 import { Toast } from "./Toast";
 import { ToastPositionType, ToastProps } from "./Toast.types";
 
@@ -33,7 +33,7 @@ const Container = styled.div<{ position: ToastPositionType }>`
   position: fixed;
   z-index: ${({ theme }) => theme.zIndex.toast};
   ${({ position, theme }) => {
-    const positions: Record<ToastPositionType, FlattenSimpleInterpolation> = {
+    const positions: Record<ToastPositionType, RuleSet<object>> = {
       top: css`
         top: ${theme.spacing[4]};
         left: 50%;

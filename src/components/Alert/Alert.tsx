@@ -1,6 +1,6 @@
 import { FunctionComponent, ReactNode } from "react";
 import { Info, AlertCircle, CheckCircle2, XCircle, LucideIcon } from "lucide-react";
-import styled, { css, FlattenSimpleInterpolation } from "styled-components";
+import styled, { css, RuleSet } from "styled-components";
 import { AlertSizeType } from "./Alert.types";
 import { Icon } from "@/components";
 import { theme } from "@/css";
@@ -52,7 +52,7 @@ const Container = styled.div<{ colorScheme: Colors; size: AlertSizeType }>`
   display: flex;
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   ${({ colorScheme, theme }) => {
-    const variantStyles: Record<Colors, FlattenSimpleInterpolation> = {
+    const variantStyles: Record<Colors, RuleSet<object>> = {
       grey: css`
         background-color: ${theme.colors.grey[200]};
         color: ${theme.colors.grey.default};
@@ -77,7 +77,7 @@ const Container = styled.div<{ colorScheme: Colors; size: AlertSizeType }>`
     return variantStyles[colorScheme];
   }};
   ${({ size, theme }) => {
-    const sizeStyles: Record<AlertSizeType, FlattenSimpleInterpolation> = {
+    const sizeStyles: Record<AlertSizeType, RuleSet<object>> = {
       xs: css`
         padding: ${`${theme.spacing[2]} ${theme.spacing[3]}`};
         font-size: ${theme.typography.fontSizes.xs};

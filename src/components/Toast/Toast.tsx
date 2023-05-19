@@ -1,6 +1,6 @@
 import { FunctionComponent, useEffect, useRef, useState } from "react";
 import { CheckCircle2, Info, X, XCircle, AlertCircle, LucideIcon } from "lucide-react";
-import styled, { css, keyframes, FlattenSimpleInterpolation } from "styled-components";
+import styled, { css, keyframes, RuleSet } from "styled-components";
 import { IconButton } from "../IconButton";
 import { ToastProps } from "./Toast.types";
 import { Icon } from "@/components";
@@ -105,7 +105,7 @@ const Container = styled.div<{
   margin-bottom: ${({ theme }) => theme.spacing[4]};
   box-shadow: ${({ theme }) => theme.shadows.md};
   ${({ colorScheme, theme }) => {
-    const variantStyles: Record<Colors, FlattenSimpleInterpolation> = {
+    const variantStyles: Record<Colors, RuleSet<object>> = {
       grey: css`
         background-color: ${theme.colors.grey.default};
         color: ${theme.colors.white};

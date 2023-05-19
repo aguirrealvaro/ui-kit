@@ -1,5 +1,5 @@
 import { FunctionComponent, ReactNode } from "react";
-import styled, { css, FlattenSimpleInterpolation } from "styled-components";
+import styled, { css, RuleSet } from "styled-components";
 import { Colors } from "@/css/theme/colors";
 
 type BadeProps = {
@@ -15,7 +15,7 @@ const Container = styled.span<{ colorScheme: Colors }>`
   padding: 0.2005em 0.4em;
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   ${({ colorScheme, theme }) => {
-    const variantStyles: Record<Colors, FlattenSimpleInterpolation> = {
+    const variantStyles: Record<Colors, RuleSet<object>> = {
       grey: css`
         background-color: ${theme.colors.grey[200]};
         color: ${theme.colors.grey.default};

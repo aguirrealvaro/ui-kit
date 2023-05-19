@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, ReactNode, MouseEvent, forwardRef } from "react";
-import styled, { css, FlattenSimpleInterpolation } from "styled-components";
+import styled, { css, RuleSet } from "styled-components";
 import { Spinner } from "../Spinner";
 import { ButtonVariantType, ButtonSizeType, ButtonShapeType } from "./Button.types";
 import { theme } from "@/css";
@@ -69,8 +69,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   }
 );
 
-const getSizeStyles = (size: ButtonSizeType): FlattenSimpleInterpolation => {
-  const sizeOptions: Record<ButtonSizeType, FlattenSimpleInterpolation> = {
+const getSizeStyles = (size: ButtonSizeType): RuleSet<object> => {
+  const sizeOptions: Record<ButtonSizeType, RuleSet<object>> = {
     xs: css`
       height: ${theme.spacing[6]};
       padding: 0 ${`${theme.spacing[2]}`};
@@ -96,8 +96,8 @@ const getSizeStyles = (size: ButtonSizeType): FlattenSimpleInterpolation => {
   return sizeOptions[size];
 };
 
-const getShapeStyles = (shape: ButtonShapeType): FlattenSimpleInterpolation => {
-  const shapeOptions: Record<ButtonShapeType, FlattenSimpleInterpolation> = {
+const getShapeStyles = (shape: ButtonShapeType): RuleSet<object> => {
+  const shapeOptions: Record<ButtonShapeType, RuleSet<object>> = {
     default: css`
       border-radius: ${theme.borderRadius.xs};
     `,
@@ -112,11 +112,8 @@ const getShapeStyles = (shape: ButtonShapeType): FlattenSimpleInterpolation => {
   return shapeOptions[shape];
 };
 
-const getColorStyles = (
-  colorScheme: Colors,
-  variant: ButtonVariantType
-): FlattenSimpleInterpolation => {
-  const primaryStyles: Record<Colors, FlattenSimpleInterpolation> = {
+const getColorStyles = (colorScheme: Colors, variant: ButtonVariantType): RuleSet<object> => {
+  const primaryStyles: Record<Colors, RuleSet<object>> = {
     grey: css`
       background-color: ${theme.colors.grey.default};
       color: ${theme.colors.white};
@@ -164,7 +161,7 @@ const getColorStyles = (
     `,
   };
 
-  const secondaryStyles: Record<Colors, FlattenSimpleInterpolation> = {
+  const secondaryStyles: Record<Colors, RuleSet<object>> = {
     grey: css`
       border-color: transparent;
       color: ${theme.colors.grey[600]};
@@ -207,7 +204,7 @@ const getColorStyles = (
     `,
   };
 
-  const outlinedStyles: Record<Colors, FlattenSimpleInterpolation> = {
+  const outlinedStyles: Record<Colors, RuleSet<object>> = {
     grey: css`
       border-color: ${theme.colors.grey[200]};
       color: ${theme.colors.grey[600]};
@@ -250,7 +247,7 @@ const getColorStyles = (
     `,
   };
 
-  const ghostStyles: Record<Colors, FlattenSimpleInterpolation> = {
+  const ghostStyles: Record<Colors, RuleSet<object>> = {
     grey: css`
       color: ${theme.colors.grey.default};
       background-color: transparent;
@@ -288,7 +285,7 @@ const getColorStyles = (
     `,
   };
 
-  const linkStyles: Record<Colors, FlattenSimpleInterpolation> = {
+  const linkStyles: Record<Colors, RuleSet<object>> = {
     grey: css`
       color: ${theme.colors.grey.default};
       &:hover:not([disabled]) {
@@ -325,7 +322,7 @@ const getColorStyles = (
     `,
   };
 
-  const colorOptions: Record<ButtonVariantType, FlattenSimpleInterpolation> = {
+  const colorOptions: Record<ButtonVariantType, RuleSet<object>> = {
     primary: primaryStyles[colorScheme],
     secondary: secondaryStyles[colorScheme],
     outlined: outlinedStyles[colorScheme],
