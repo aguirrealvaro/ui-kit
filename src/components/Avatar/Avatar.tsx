@@ -29,26 +29,26 @@ export const Avatar: FunctionComponent<AvatarProps> = ({
     .join("");
 
   return (
-    <Container size={size} isError={isError} shape={shape} {...restProps}>
+    <Container $size={size} $isError={isError} $shape={shape} {...restProps}>
       {isError ? <Name>{symbols}</Name> : <Image src={src} alt={name} onError={handleError} />}
     </Container>
   );
 };
 
 const Container = styled.div<{
-  size: AvatarSizeType;
-  isError: boolean;
-  shape: AvatarShapeType;
+  $size: AvatarSizeType;
+  $isError: boolean;
+  $shape: AvatarShapeType;
 }>`
-  border-radius: ${({ theme, shape }) => {
+  border-radius: ${({ theme, $shape }) => {
     const shapes: Record<AvatarShapeType, string> = {
       sqaure: theme.borderRadius.none,
       rounded: theme.borderRadius.md,
       circle: theme.borderRadius.full,
     };
-    return shapes[shape];
+    return shapes[$shape];
   }};
-  ${({ size, theme }) => {
+  ${({ $size, theme }) => {
     const sizes: Record<AvatarSizeType, string> = {
       xs: theme.spacing[8],
       sm: theme.spacing[12],
@@ -60,12 +60,12 @@ const Container = styled.div<{
     };
 
     return css`
-      width: ${sizes[size]};
-      height: ${sizes[size]};
+      width: ${sizes[$size]};
+      height: ${sizes[$size]};
     `;
   }};
-  ${({ isError, theme }) => {
-    if (isError) {
+  ${({ $isError, theme }) => {
+    if ($isError) {
       return css`
         display: flex;
         align-items: center;
