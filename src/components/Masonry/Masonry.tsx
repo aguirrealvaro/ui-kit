@@ -13,7 +13,7 @@ export const Masonry: FunctionComponent<CustomMasonryProps> = ({
   ...restProps
 }) => {
   return (
-    <Container gap={gap}>
+    <Container $gap={gap}>
       <ReactMasonry className="grid" columnClassName="grid-column" {...restProps}>
         {children}
       </ReactMasonry>
@@ -21,22 +21,22 @@ export const Masonry: FunctionComponent<CustomMasonryProps> = ({
   );
 };
 
-const Container = styled.div<{ gap: number }>`
-  ${({ gap }) => {
+const Container = styled.div<{ $gap: number }>`
+  ${({ $gap }) => {
     return css`
       .grid {
         display: flex;
-        margin-left: -${gap}rem;
+        margin-left: -${$gap}rem;
         width: auto;
       }
       .grid-column {
-        padding-left: ${gap}rem;
+        padding-left: ${$gap}rem;
         background-clip: padding-box;
       }
 
       .grid-column > * {
         display: block;
-        margin-bottom: ${gap}rem;
+        margin-bottom: ${$gap}rem;
       }
     `;
   }}

@@ -79,16 +79,16 @@ export const NativeSelect: FunctionComponent<NativeSelectProps> = ({
 
   return (
     <div>
-      {label && <Label size={size}>{label}</Label>}
+      {label && <Label $size={size}>{label}</Label>}
       <SelectContainer>
         <Select
           value={value}
           onChange={onChange}
           disabled={disabled}
-          isError={isError}
-          isSuccess={isSuccess}
-          selectSize={size}
-          isSelected={isSelected}
+          $isError={isError}
+          $isSuccess={isSuccess}
+          $selectSize={size}
+          $isSelected={isSelected}
           onKeyDown={handleKeyDown}
           aria-invalid={isError}
           {...(errorMessage && { "aria-errormessage": errorMessageId })}
@@ -117,7 +117,7 @@ export const NativeSelect: FunctionComponent<NativeSelectProps> = ({
           </ChevronWrapper>
         </SideContainer>
       </SelectContainer>
-      {showBottom && <BottomText size={size}>{renderBottomText()}</BottomText>}
+      {showBottom && <BottomText $size={size}>{renderBottomText()}</BottomText>}
     </div>
   );
 };
@@ -128,45 +128,45 @@ const SelectContainer = styled.div`
   width: 100%;
 `;
 
-const Label = styled.label<{ size: SelectSizeType }>`
+const Label = styled.label<{ $size: SelectSizeType }>`
   display: block;
   margin-bottom: ${({ theme }) => theme.spacing[2]};
   color: ${({ theme }) => theme.vars.textSecondary};
-  font-size: ${({ size, theme }) => {
+  font-size: ${({ $size, theme }) => {
     const sizes: Record<SelectSizeType, string> = {
       sm: theme.typography.fontSizes.sm,
       md: theme.typography.fontSizes.md,
       lg: theme.typography.fontSizes.lg,
     };
-    return sizes[size];
+    return sizes[$size];
   }};
 `;
 
 const Select = styled.select<{
-  isError: boolean;
-  isSuccess: boolean;
-  selectSize: SelectSizeType;
-  isSelected: boolean;
+  $isError: boolean;
+  $isSuccess: boolean;
+  $selectSize: SelectSizeType;
+  $isSelected: boolean;
 }>`
-  font-size: ${({ selectSize, theme }) => {
+  font-size: ${({ $selectSize, theme }) => {
     const sizes: Record<SelectSizeType, string> = {
       sm: theme.typography.fontSizes.sm,
       md: theme.typography.fontSizes.md,
       lg: theme.typography.fontSizes.lg,
     };
-    return sizes[selectSize];
+    return sizes[$selectSize];
   }};
   width: 100%;
-  height: ${({ selectSize, theme }) => {
+  height: ${({ $selectSize, theme }) => {
     const sizes: Record<SelectSizeType, string> = {
       sm: theme.spacing[8],
       md: theme.spacing[10],
       lg: theme.spacing[12],
     };
-    return sizes[selectSize];
+    return sizes[$selectSize];
   }};
-  color: ${({ theme, isSelected }) =>
-    isSelected ? theme.vars.textPrimary : theme.vars.textSecondary};
+  color: ${({ theme, $isSelected }) =>
+    $isSelected ? theme.vars.textPrimary : theme.vars.textSecondary};
   border: none;
   outline: none;
   cursor: pointer;
@@ -176,12 +176,12 @@ const Select = styled.select<{
   -moz-appearance: none;
   -ms-appearance: none;
   border: 1px solid transparent;
-  border-color: ${({ theme, isError, isSuccess }) => {
-    if (isError) {
+  border-color: ${({ theme, $isError, $isSuccess }) => {
+    if ($isError) {
       return theme.colors.red.default;
     }
 
-    if (isSuccess) {
+    if ($isSuccess) {
       return theme.colors.green.default;
     }
 
@@ -191,12 +191,12 @@ const Select = styled.select<{
   &:focus {
     border-color: transparent;
     outline: 2px solid
-      ${({ theme, isError, isSuccess }) => {
-        if (isError) {
+      ${({ theme, $isError, $isSuccess }) => {
+        if ($isError) {
           return theme.colors.red.default;
         }
 
-        if (isSuccess) {
+        if ($isSuccess) {
           return theme.colors.green.default;
         }
 
@@ -227,17 +227,17 @@ const Option = styled.option`
   }
 `;
 
-const BottomText = styled.div<{ size: SelectSizeType }>`
+const BottomText = styled.div<{ $size: SelectSizeType }>`
   display: block;
   margin: ${({ theme }) => theme.spacing[2]} ${({ theme }) => theme.spacing[4]} 0
     ${({ theme }) => theme.spacing[4]};
-  font-size: ${({ size, theme }) => {
+  font-size: ${({ $size, theme }) => {
     const sizes: Record<SelectSizeType, string> = {
       sm: theme.typography.fontSizes.xs,
       md: theme.typography.fontSizes.sm,
       lg: theme.typography.fontSizes.md,
     };
-    return sizes[size];
+    return sizes[$size];
   }};
 `;
 

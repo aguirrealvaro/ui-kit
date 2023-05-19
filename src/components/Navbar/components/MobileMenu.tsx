@@ -26,10 +26,9 @@ export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
 
   return (
     <Container
-      isMobileMenuOpen={isMobileMenuOpen}
-      navbarHeight={navbarHeight}
-      transitionTime={transitionTime}
-      isUnmounting={isUnmounting}
+      $navbarHeight={navbarHeight}
+      $transitionTime={transitionTime}
+      $isUnmounting={isUnmounting}
       {...restProps}
     >
       Mobile element
@@ -43,29 +42,28 @@ const fadeIn = keyframes`
 `;
 
 const Container = styled.div<{
-  isMobileMenuOpen: boolean;
-  navbarHeight: number | undefined;
-  transitionTime: number;
-  isUnmounting: boolean;
+  $navbarHeight: number | undefined;
+  $transitionTime: number;
+  $isUnmounting: boolean;
 }>`
   position: fixed;
   z-index: ${({ theme }) => theme.zIndex.selectDropdown};
   background-color: ${({ theme }) => theme.colors.white};
-  top: ${({ navbarHeight }) => {
-    if (navbarHeight) {
-      return `${navbarHeight}px`;
+  top: ${({ $navbarHeight }) => {
+    if ($navbarHeight) {
+      return `${$navbarHeight}px`;
     }
   }};
   right: 0;
   left: 0;
   bottom: 0;
-  animation: ${fadeIn} ${({ transitionTime }) => transitionTime}ms
+  animation: ${fadeIn} ${({ $transitionTime }) => $transitionTime}ms
     ${({ theme }) => theme.transitions.timings.in};
-  ${({ isUnmounting, transitionTime, theme }) =>
-    isUnmounting &&
+  ${({ $isUnmounting, $transitionTime, theme }) =>
+    $isUnmounting &&
     css`
       opacity: 0;
-      transition: opacity ${transitionTime}ms ${theme.transitions.timings.in};
+      transition: opacity ${$transitionTime}ms ${theme.transitions.timings.in};
     `};
   display: flex;
   align-items: center;

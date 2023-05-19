@@ -167,10 +167,10 @@ export const Popper: FunctionComponent<PopperProps> = ({
         createPortal(
           <Content
             ref={popperRef}
-            fadeOut={isUnmounting}
+            $fadeOut={isUnmounting}
             $coords={coords}
-            triggerWidth={triggerWidth}
-            transitionTime={transitionTime}
+            $triggerWidth={triggerWidth}
+            $transitionTime={transitionTime}
           >
             {children}
           </Content>,
@@ -186,14 +186,14 @@ const fadeInScale = keyframes`
 `;
 
 const Content = styled.div<{
-  fadeOut: boolean;
+  $fadeOut: boolean;
   $coords: CoordsType | undefined;
-  triggerWidth: number | undefined;
-  transitionTime: number;
+  $triggerWidth: number | undefined;
+  $transitionTime: number;
 }>`
   position: absolute;
   z-index: ${({ theme }) => theme.zIndex.popover};
-  animation: ${fadeInScale} ${({ transitionTime }) => transitionTime}ms
+  animation: ${fadeInScale} ${({ $transitionTime }) => $transitionTime}ms
     ${({ theme }) => theme.transitions.timings.in};
   ${({ $coords }) => {
     if ($coords) {
@@ -204,19 +204,19 @@ const Content = styled.div<{
       `;
     }
   }};
-  ${({ fadeOut, transitionTime }) => {
-    if (fadeOut) {
+  ${({ $fadeOut, $transitionTime }) => {
+    if ($fadeOut) {
       return css`
         opacity: 0;
         transform: scale(0.9);
-        transition: all ${transitionTime}ms ${({ theme }) => theme.transitions.timings.in};
+        transition: all ${$transitionTime}ms ${({ theme }) => theme.transitions.timings.in};
       `;
     }
   }};
-  ${({ triggerWidth }) => {
-    if (triggerWidth) {
+  ${({ $triggerWidth }) => {
+    if ($triggerWidth) {
       return css`
-        width: ${triggerWidth}px;
+        width: ${$triggerWidth}px;
       `;
     }
   }};

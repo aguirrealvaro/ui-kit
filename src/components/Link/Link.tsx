@@ -13,9 +13,9 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     return (
       <Anchor
         ref={ref}
-        underline={underline}
+        $underline={underline}
         target="_blank"
-        disabled={disabled}
+        $disabled={disabled}
         {...restProps}
       >
         {children}
@@ -24,9 +24,9 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
   }
 );
 
-const Anchor = styled.a<{ underline: LinkUnderlineType; disabled: boolean }>`
-  ${({ underline }) => {
-    if (underline === "hover") {
+const Anchor = styled.a<{ $underline: LinkUnderlineType; $disabled: boolean }>`
+  ${({ $underline }) => {
+    if ($underline === "hover") {
       return css`
         text-decoration: auto;
         &:hover {
@@ -34,7 +34,7 @@ const Anchor = styled.a<{ underline: LinkUnderlineType; disabled: boolean }>`
         }
       `;
     } else {
-      if (underline) {
+      if ($underline) {
         return css`
           text-decoration: underline;
         `;
@@ -45,8 +45,8 @@ const Anchor = styled.a<{ underline: LinkUnderlineType; disabled: boolean }>`
       }
     }
   }};
-  ${({ disabled, theme }) => {
-    if (disabled) {
+  ${({ $disabled, theme }) => {
+    if ($disabled) {
       return css`
         color: ${theme.vars.disabledPrimary};
         cursor: not-allowed;
