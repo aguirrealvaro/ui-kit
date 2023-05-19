@@ -13,5 +13,6 @@
 ### To do
 
 - Upgrade SC to 6, uninstall types SC, $props
+- Alert same icon
 - Dropdown components & keyboard interactions
 - Table?

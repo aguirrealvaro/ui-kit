@@ -110,20 +110,20 @@ export const AnimatedInput: FunctionComponent<AnimatedInputProps> = ({
     <div>
       <InputContainer
         disabled={disabled || false}
-        isError={isError}
-        isSuccess={isSuccess}
+        $isError={isError}
+        $isSuccess={isSuccess}
         onClick={focusInput}
         onKeyDown={handleInputKeyDown}
       >
         <InnerContainer>
           <CustomInput
             id={id}
-            hasPlaceholder={!!placeholder}
+            $hasPlaceholder={!!placeholder}
             ref={inputRef}
-            isError={isError}
-            isSuccess={isSuccess}
+            $isError={isError}
+            $isSuccess={isSuccess}
             disabled={disabled}
-            sideWidth={sideContainerWidth}
+            $sideWidth={sideContainerWidth}
             value={value}
             placeholder=" "
             type={seePassword ? "text" : type}
@@ -162,8 +162,8 @@ export const AnimatedInput: FunctionComponent<AnimatedInputProps> = ({
 
 const InputContainer = styled.div<{
   disabled: boolean;
-  isError: boolean;
-  isSuccess: boolean;
+  $isError: boolean;
+  $isSuccess: boolean;
 }>`
   display: flex;
   justify-content: space-between;
@@ -172,8 +172,8 @@ const InputContainer = styled.div<{
   height: ${({ theme }) => theme.spacing[14]};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   border: 1px solid transparent;
-  ${({ isError, isSuccess, theme }) => {
-    if (isError) {
+  ${({ $isError, $isSuccess, theme }) => {
+    if ($isError) {
       return css`
         border-color: ${theme.colors.red.default};
         &:focus-within {
@@ -183,7 +183,7 @@ const InputContainer = styled.div<{
       `;
     }
 
-    if (isSuccess) {
+    if ($isSuccess) {
       return css`
         border-color: ${theme.colors.green.default};
         &:focus-within {
@@ -239,10 +239,10 @@ const getFocusedLabelStyles = css`
 `;
 
 const CustomInput = styled.input<{
-  isError: boolean;
-  hasPlaceholder: boolean;
-  isSuccess: boolean;
-  sideWidth: number | undefined;
+  $isError: boolean;
+  $hasPlaceholder: boolean;
+  $isSuccess: boolean;
+  $sideWidth: number | undefined;
 }>`
   font-size: ${({ theme }) => theme.typography.fontSizes.md};
   outline: none;
@@ -250,24 +250,24 @@ const CustomInput = styled.input<{
   background-color: transparent;
   position: absolute;
   padding: 0 ${({ theme }) => theme.spacing[4]};
-  width: ${({ sideWidth }) => {
-    if (sideWidth) {
-      return `calc(100% - ${sideWidth}px - 20px)`;
+  width: ${({ $sideWidth }) => {
+    if ($sideWidth) {
+      return `calc(100% - ${$sideWidth}px - 20px)`;
     } else {
       return "100%";
     }
   }};
-  height: ${({ hasPlaceholder }) => (hasPlaceholder ? "72%" : "100%")};
+  height: ${({ $hasPlaceholder }) => ($hasPlaceholder ? "72%" : "100%")};
   bottom: 0;
   color: ${({ theme }) => theme.vars.textPrimary};
   &:focus + label {
     ${getFocusedLabelStyles};
-    color: ${({ theme, isError, isSuccess }) => {
-      if (isError) {
+    color: ${({ theme, $isError, $isSuccess }) => {
+      if ($isError) {
         return theme.colors.red.default;
       }
 
-      if (isSuccess) {
+      if ($isSuccess) {
         return theme.colors.green.default;
       }
 
@@ -278,12 +278,12 @@ const CustomInput = styled.input<{
     &:not(:focus) {
       + label {
         ${getFocusedLabelStyles};
-        color: ${({ theme, isError, isSuccess }) => {
-          if (isError) {
+        color: ${({ theme, $isError, $isSuccess }) => {
+          if ($isError) {
             return theme.colors.red.default;
           }
 
-          if (isSuccess) {
+          if ($isSuccess) {
             return theme.colors.green.default;
           }
 
