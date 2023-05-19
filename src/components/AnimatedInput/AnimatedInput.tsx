@@ -16,7 +16,7 @@ import { theme } from "@/css";
 
 type AnimatedInputProps = {
   id: string;
-  helpText?: ReactNode;
+  helpMessage?: ReactNode;
   isError?: boolean;
   errorMessage?: ReactNode;
   isSuccess?: boolean;
@@ -30,7 +30,7 @@ export const AnimatedInput: FunctionComponent<AnimatedInputProps> = ({
   id,
   placeholder,
   onChange,
-  helpText,
+  helpMessage,
   isError = false,
   errorMessage,
   isSuccess = false,
@@ -63,9 +63,9 @@ export const AnimatedInput: FunctionComponent<AnimatedInputProps> = ({
     !!icon ||
     type === "password";
 
-  const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
+  const showBottom: boolean = !!helpMessage || !!errorMessage || !!successMessage;
 
-  const helpTextId = `${id}-help-text`;
+  const helpMessageId = `${id}-help`;
   const errorMessageId = `${id}-error`;
 
   const sideContainerRef = useRef<HTMLDivElement>(null);
@@ -104,7 +104,7 @@ export const AnimatedInput: FunctionComponent<AnimatedInputProps> = ({
       return <SuccessMessage>{successMessage}</SuccessMessage>;
     }
 
-    return <HelpText id={helpTextId}>{helpText}</HelpText>;
+    return <HelpMessage id={helpMessageId}>{helpMessage}</HelpMessage>;
   };
 
   return (
@@ -130,7 +130,7 @@ export const AnimatedInput: FunctionComponent<AnimatedInputProps> = ({
             type={seePassword ? "text" : type}
             onChange={onValidChange}
             aria-invalid={isError}
-            {...(helpText && { "aria-describedby": helpTextId })}
+            {...(helpMessage && { "aria-describedby": helpMessageId })}
             {...(errorMessage && { "aria-errormessage": errorMessageId })}
             {...restProps}
           />
@@ -307,7 +307,7 @@ const BottomText = styled.div`
     ${({ theme }) => theme.spacing[4]};
 `;
 
-const HelpText = styled.span`
+const HelpMessage = styled.span`
   color: ${({ theme }) => theme.vars.textSecondary};
 `;
 

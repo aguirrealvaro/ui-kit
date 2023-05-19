@@ -24,7 +24,7 @@ type SelectProps = {
   onChange: Dispatch<SetStateAction<string>>;
   options: SelectFieldType[];
   disabled?: boolean;
-  helpText?: ReactNode;
+  helpMessage?: ReactNode;
   isError?: boolean;
   errorMessage?: ReactNode;
   isSuccess?: boolean;
@@ -43,7 +43,7 @@ export const Select: FunctionComponent<SelectProps> = ({
   onChange,
   options,
   disabled,
-  helpText,
+  helpMessage,
   isError = false,
   errorMessage,
   isSuccess = false,
@@ -79,10 +79,10 @@ export const Select: FunctionComponent<SelectProps> = ({
     clearValue?.();
   };
 
-  const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
+  const showBottom: boolean = !!helpMessage || !!errorMessage || !!successMessage;
 
   const labelId = `${id}-label`;
-  const helpTextId = `${id}-help-text`;
+  const helpMessageId = `${id}-help`;
   const dropdownId = `${id}-dropdown`;
   const errorMessageId = `${id}-error`;
 
@@ -115,7 +115,7 @@ export const Select: FunctionComponent<SelectProps> = ({
       return <SuccessMessage>{successMessage}</SuccessMessage>;
     }
 
-    return <HelpText id={helpTextId}>{helpText}</HelpText>;
+    return <HelpMessage id={helpMessageId}>{helpMessage}</HelpMessage>;
   };
 
   return (
@@ -144,7 +144,7 @@ export const Select: FunctionComponent<SelectProps> = ({
         aria-activedescendant={isOpen ? getOptionId(focusedIndex) : ""}
         onKeyDown={handleKeyDown}
         aria-invalid={isError}
-        {...(helpText && { "aria-describedby": helpTextId })}
+        {...(helpMessage && { "aria-describedby": helpMessageId })}
         {...(errorMessage && { "aria-errormessage": errorMessageId })}
       >
         <InnerContainer $size={size}>
@@ -380,7 +380,7 @@ const ChevronWrapper = styled.div<{ $active: boolean }>`
   align-items: center;
 `;
 
-const HelpText = styled.span`
+const HelpMessage = styled.span`
   color: ${({ theme }) => theme.vars.textSecondary};
 `;
 

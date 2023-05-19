@@ -16,7 +16,7 @@ type NativeSelectProps = {
   label?: ReactNode;
   options: NativeSelectFieldType[];
   clearValue?: () => void;
-  helpText?: ReactNode;
+  helpMessage?: ReactNode;
   isError?: boolean;
   errorMessage?: ReactNode;
   isSuccess?: boolean;
@@ -34,7 +34,7 @@ export const NativeSelect: FunctionComponent<NativeSelectProps> = ({
   clearValue,
   label,
   disabled,
-  helpText,
+  helpMessage,
   isError = false,
   errorMessage,
   isSuccess = false,
@@ -50,9 +50,9 @@ export const NativeSelect: FunctionComponent<NativeSelectProps> = ({
 
   const isSelected = !!value;
 
-  const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
+  const showBottom: boolean = !!helpMessage || !!errorMessage || !!successMessage;
 
-  const helpTextId = `${id}-help-text`;
+  const helpMessageId = `${id}-help`;
   const errorMessageId = `${id}-error`;
 
   const handleKeyDown = (event: KeyboardEvent) => {
@@ -75,7 +75,7 @@ export const NativeSelect: FunctionComponent<NativeSelectProps> = ({
       return <SuccessMessage>{successMessage}</SuccessMessage>;
     }
 
-    return <HelpText id={helpTextId}>{helpText}</HelpText>;
+    return <HelpMessage id={helpMessageId}>{helpMessage}</HelpMessage>;
   };
 
   return (
@@ -97,7 +97,7 @@ export const NativeSelect: FunctionComponent<NativeSelectProps> = ({
           $isSelected={isSelected}
           onKeyDown={handleKeyDown}
           aria-invalid={isError}
-          {...(helpText && { "aria-describedby": helpTextId })}
+          {...(helpMessage && { "aria-describedby": helpMessageId })}
           {...(errorMessage && { "aria-errormessage": errorMessageId })}
           {...restProps}
         >
@@ -257,7 +257,7 @@ const ChevronWrapper = styled.div`
   align-items: center;
 `;
 
-const HelpText = styled.span`
+const HelpMessage = styled.span`
   color: ${({ theme }) => theme.vars.textSecondary};
 `;
 

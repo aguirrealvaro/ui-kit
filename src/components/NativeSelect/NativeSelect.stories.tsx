@@ -38,9 +38,10 @@ const Template: ComponentStory<typeof NativeSelect> = ({ options: dummyOptions, 
 
 export const Primary = Template.bind({});
 Primary.args = {
+  id: "native-select-id",
   placeholder: "Placeholder",
   label: "Label:",
-  helpText: "Help text",
+  helpMessage: "Help text",
   size: "md",
   isLoading: false,
 };

@@ -18,7 +18,7 @@ import { theme } from "@/css";
 type InputProps = {
   id: string;
   label?: ReactNode;
-  helpText?: ReactNode;
+  helpMessage?: ReactNode;
   isError?: boolean;
   errorMessage?: ReactNode;
   isSuccess?: boolean;
@@ -33,7 +33,7 @@ type InputProps = {
 export const Input: FunctionComponent<InputProps> = ({
   id,
   label,
-  helpText,
+  helpMessage,
   isError = false,
   errorMessage,
   isSuccess = false,
@@ -71,9 +71,9 @@ export const Input: FunctionComponent<InputProps> = ({
     !!endElement ||
     type === "password";
 
-  const showBottom: boolean = !!helpText || !!errorMessage || !!successMessage;
+  const showBottom: boolean = !!helpMessage || !!errorMessage || !!successMessage;
 
-  const helpTextId = `${id}-help-text`;
+  const helpMessageId = `${id}-help`;
   const errorMessageId = `${id}-error`;
 
   const rightContainerRef = useRef<HTMLDivElement>(null);
@@ -114,7 +114,7 @@ export const Input: FunctionComponent<InputProps> = ({
       return <SuccessMessage>{successMessage}</SuccessMessage>;
     }
 
-    return <HelpText id={helpTextId}>{helpText}</HelpText>;
+    return <HelpMessage id={helpMessageId}>{helpMessage}</HelpMessage>;
   };
 
   return (
@@ -145,7 +145,7 @@ export const Input: FunctionComponent<InputProps> = ({
           type={seePassword ? "text" : type}
           $inputSize={size}
           aria-invalid={isError}
-          {...(helpText && { "aria-describedby": helpTextId })}
+          {...(helpMessage && { "aria-describedby": helpMessageId })}
           {...(errorMessage && { "aria-errormessage": errorMessageId })}
           {...restProps}
         />
@@ -304,7 +304,7 @@ const BottomText = styled.div<{ $size: InputSizeType }>`
   }};
 `;
 
-const HelpText = styled.span`
+const HelpMessage = styled.span`
   color: ${({ theme }) => theme.vars.textSecondary};
 `;
 

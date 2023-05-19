@@ -46,6 +46,6 @@ Primary.args = {
   id: "select-story",
   placeholder: "Placeholder",
   label: "Label:",
-  helpText: "Help text",
+  helpMessage: "Help text",
   size: "md",
 };
