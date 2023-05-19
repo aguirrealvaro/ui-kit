@@ -9,6 +9,7 @@ export { usePreviousValue } from "./usePreviousValue";
 export { useLocalStorage } from "./useLocalStorage";
 export { useScrollIntoView } from "./useScrollIntoView";
 export { useIntersectingViewport } from "./useIntersectingViewport";
+export { useIntersectedViewport } from "./useIntersectedViewport";
 export { useBoolean } from "./useBoolean";
 export { useToast } from "./useToast";
 export { useIsFirstRender } from "./useIsFirstRender";
