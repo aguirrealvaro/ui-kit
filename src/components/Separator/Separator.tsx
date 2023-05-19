@@ -12,26 +12,26 @@ export const Separator: FunctionComponent<SeparatorProps> = ({
   orientation = "horizontal",
   spacing = 4,
 }) => {
-  return <Line role="separator" orientation={orientation} spacing={spacing} />;
+  return <Line role="separator" $orientation={orientation} $spacing={spacing} />;
 };
 
 const Line = styled.div<{
-  orientation: SeparatorOrientatorType;
-  spacing: Spacing;
+  $orientation: SeparatorOrientatorType;
+  $spacing: Spacing;
 }>`
   background-color: ${({ theme }) => theme.vars.border};
   border: none;
-  ${({ theme, orientation, spacing }) => {
-    if (orientation === "horizontal") {
+  ${({ theme, $orientation, $spacing }) => {
+    if ($orientation === "horizontal") {
       return css`
-        margin-top: ${theme.spacing[spacing]};
-        margin-bottom: ${theme.spacing[spacing]};
+        margin-top: ${theme.spacing[$spacing]};
+        margin-bottom: ${theme.spacing[$spacing]};
         height: 1px;
       `;
     } else {
       return css`
-        margin-left: ${theme.spacing[spacing]};
-        margin-right: ${theme.spacing[spacing]};
+        margin-left: ${theme.spacing[$spacing]};
+        margin-right: ${theme.spacing[$spacing]};
         width: 1px;
       `;
     }

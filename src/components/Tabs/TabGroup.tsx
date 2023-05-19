@@ -68,7 +68,7 @@ export const TabGroup: FunctionComponent<TabGroupProps> = ({ children, id }) => 
                 role="tab"
                 type="button"
                 id={getTabItemId(index)}
-                active={isTabSelected}
+                $active={isTabSelected}
                 onClick={() => setSelectedTab(index)}
                 aria-selected={isTabSelected}
                 aria-controls={getTabPanelId(index)}
@@ -119,11 +119,11 @@ const TabItemWrapper = styled.li`
   list-style: none;
 `;
 
-const TabItem = styled.button<{ active: boolean }>`
+const TabItem = styled.button<{ $active: boolean }>`
   padding: ${({ theme }) => theme.spacing[4]};
   cursor: pointer;
-  ${({ active, theme }) => {
-    if (active) {
+  ${({ $active, theme }) => {
+    if ($active) {
       return css`
         color: ${theme.colors.grey.default};
         border-bottom: 2px solid ${theme.colors.grey.default};

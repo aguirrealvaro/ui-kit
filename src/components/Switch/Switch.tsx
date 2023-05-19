@@ -29,7 +29,7 @@ export const Switch: FunctionComponent<SwitchProps> = ({
   const labelId = `${id}-label`;
 
   return (
-    <Container position={position}>
+    <Container $position={position}>
       <SwitchButton
         type="button"
         role="switch"
@@ -38,45 +38,46 @@ export const Switch: FunctionComponent<SwitchProps> = ({
         id={id}
         aria-labelledby={labelId}
         disabled={disabled}
-        position={position}
+        $position={position}
         {...restProps}
       >
-        <Wrapper position={position}>
+        <Wrapper $position={position}>
           <Pill
-            checked={checked || false}
-            size={size}
-            color={color || theme.colors.grey.default}
-            disabled={disabled}
+            $checked={checked || false}
+            $size={size}
+            $color={color || theme.colors.grey.default}
+            $disabled={disabled}
           >
-            <Ball checked={checked || false} size={size} />
+            <Ball $checked={checked || false} $size={size} />
           </Pill>
         </Wrapper>
       </SwitchButton>
-      <LabelContainer id={labelId} htmlFor={id} position={position}>
-        <Children size={size}>{children}</Children>
+      <LabelContainer id={labelId} htmlFor={id} $position={position}>
+        <Children $size={size}>{children}</Children>
         {helpText && <HelpText size={size}>{helpText}</HelpText>}
       </LabelContainer>
     </Container>
   );
 };
 
-const Container = styled.div<{ position: SwitchPositionType }>`
+const Container = styled.div<{ $position: SwitchPositionType }>`
   display: flex;
   gap: ${({ theme }) => theme.spacing[4]};
   align-items: center;
-  justify-content: ${({ position }) => (position === "left" ? "flex-start" : "space-between")};
+  justify-content: ${({ $position }) =>
+    $position === "left" ? "flex-start" : "space-between"};
 `;
 
-const SwitchButton = styled.button<{ position: SwitchPositionType }>`
-  order: ${({ position }) => (position === "left" ? 1 : 2)};
+const SwitchButton = styled.button<{ $position: SwitchPositionType }>`
+  order: ${({ $position }) => ($position === "left" ? 1 : 2)};
   &:disabled {
     cursor: not-allowed;
   }
 `;
 
-const Wrapper = styled.div<{ position: SwitchPositionType }>`
+const Wrapper = styled.div<{ $position: SwitchPositionType }>`
   display: flex;
-  order: ${({ position }) => (position === "left" ? 1 : 2)};
+  order: ${({ $position }) => ($position === "left" ? 1 : 2)};
 `;
 
 const getSizes = (theme: ThemeType) => {
@@ -89,16 +90,16 @@ const getSizes = (theme: ThemeType) => {
 };
 
 const Pill = styled.span<{
-  checked: boolean;
-  size: SwitchSizeType;
-  color: string;
-  disabled: boolean;
+  $checked: boolean;
+  $size: SwitchSizeType;
+  $color: string;
+  $disabled: boolean;
 }>`
   display: inline-flex;
   cursor: pointer;
   position: relative;
-  ${({ size, theme }) => {
-    const pillSize = getSizes(theme)[size];
+  ${({ $size, theme }) => {
+    const pillSize = getSizes(theme)[$size];
 
     return css`
       width: ${`calc(${pillSize} * 2)`};
@@ -110,10 +111,10 @@ const Pill = styled.span<{
       ${({ theme }) => theme.transitions.timings.out},
     box-shadow ${({ theme }) => theme.transitions.durations.normal}ms
       ${({ theme }) => theme.transitions.timings.out};
-  ${({ checked, color, theme }) => {
-    if (checked) {
+  ${({ $checked, $color, theme }) => {
+    if ($checked) {
       return css`
-        background-color: ${color};
+        background-color: ${$color};
         box-shadow: ${({ theme }) => theme.shadows.inner};
       `;
     } else {
@@ -123,8 +124,8 @@ const Pill = styled.span<{
       `;
     }
   }}
-  ${({ disabled, theme }) => {
-    if (disabled) {
+  ${({ $disabled, theme }) => {
+    if ($disabled) {
       return css`
         cursor: not-allowed;
         background-color: ${theme.vars.disabledPrimary};
@@ -134,17 +135,17 @@ const Pill = styled.span<{
   }}
 `;
 
-const Ball = styled.span<{ checked: boolean; size: SwitchSizeType }>`
+const Ball = styled.span<{ $checked: boolean; $size: SwitchSizeType }>`
   position: absolute;
   top: 0;
-  left: ${({ checked, size, theme }) => {
-    const translate = getSizes(theme)[size];
-    return checked ? `${translate}` : 0;
+  left: ${({ $checked, $size, theme }) => {
+    const translate = getSizes(theme)[$size];
+    return $checked ? `${translate}` : 0;
   }};
   transform: scale(0.8);
   background-color: ${({ theme }) => theme.colors.white};
-  ${({ size, theme }) => {
-    const pillSize = getSizes(theme)[size];
+  ${({ $size, theme }) => {
+    const pillSize = getSizes(theme)[$size];
     return css`
       width: ${pillSize};
       height: ${pillSize};
@@ -155,18 +156,18 @@ const Ball = styled.span<{ checked: boolean; size: SwitchSizeType }>`
     ${({ theme }) => theme.transitions.timings.in};
 `;
 
-const LabelContainer = styled.label<{ position: SwitchPositionType }>`
-  order: ${({ position }) => (position === "left" ? 2 : 1)};
+const LabelContainer = styled.label<{ $position: SwitchPositionType }>`
+  order: ${({ $position }) => ($position === "left" ? 2 : 1)};
 `;
 
-const Children = styled.span<{ size: SwitchSizeType }>`
+const Children = styled.span<{ $size: SwitchSizeType }>`
   display: block;
-  font-size: ${({ size, theme }) => {
+  font-size: ${({ $size, theme }) => {
     const sizes: Record<SwitchSizeType, string> = {
       sm: theme.typography.fontSizes.sm,
       md: theme.typography.fontSizes.md,
       lg: theme.typography.fontSizes.lg,
     };
-    return sizes[size];
+    return sizes[$size];
   }};
 `;

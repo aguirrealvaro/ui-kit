@@ -25,7 +25,7 @@ export const Table: FunctionComponent<TableProps> = ({ columns, data, size = "md
           <TableRowHeader>
             {columns.map((column, index) => {
               return (
-                <TableHead padding={padding} key={index}>
+                <TableHead $padding={padding} key={index}>
                   {column}
                 </TableHead>
               );
@@ -38,7 +38,7 @@ export const Table: FunctionComponent<TableProps> = ({ columns, data, size = "md
               <TableRowData key={index}>
                 {row.map((rowData, index) => {
                   return (
-                    <TableData padding={padding} key={index}>
+                    <TableData $padding={padding} key={index}>
                       {rowData}
                     </TableData>
                   );
@@ -77,10 +77,10 @@ const TableRowHeader = styled.tr`
   }};
 `;
 
-const TableHead = styled.th<{ padding: string }>`
+const TableHead = styled.th<{ $padding: string }>`
   flex: 1;
   text-align: left;
-  padding: ${({ padding }) => padding};
+  padding: ${({ $padding }) => $padding};
 `;
 
 const TableRowData = styled.tr`
@@ -103,8 +103,8 @@ const TableRowData = styled.tr`
   }
 `;
 
-const TableData = styled.td<{ padding: string }>`
+const TableData = styled.td<{ $padding: string }>`
   flex: 1;
   text-align: left;
-  padding: ${({ padding }) => padding};
+  padding: ${({ $padding }) => $padding};
 `;

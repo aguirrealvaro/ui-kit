@@ -41,5 +41,5 @@ export const Infotip: FunctionComponent<InfotipProps> = ({
 };
 
 const IconWrapper = styled.div`
-  display: inline-block;
+  display: inline-flex;
 `;

@@ -132,7 +132,7 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
         const isChecked = value === itemValue;
 
         return (
-          <ItemList position={position}>
+          <ItemList $position={position}>
             <RadioButton
               role="radio"
               type="button"
@@ -141,22 +141,22 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
               aria-labelledby={getRadioLabelId(index)}
               onClick={() => onChange(itemValue)}
               disabled={disabled}
-              position={position}
+              $position={position}
               ref={(el) => {
                 if (el) {
                   radiosRef.current[index] = el;
                 }
               }}
-              isChecked={isChecked}
-              radioSize={radioSize}
-              color={color}
+              $isChecked={isChecked}
+              $radioSize={radioSize}
+              $color={color}
             />
             <LabelContainer
               htmlFor={getRadioItemId(index)}
               id={getRadioLabelId(index)}
-              position={position}
+              $position={position}
             >
-              <StyledChildren size={size}>{children}</StyledChildren>
+              <StyledChildren $size={size}>{children}</StyledChildren>
               {helpText && <HelpText size={size}>{helpText}</HelpText>}
             </LabelContainer>
           </ItemList>
@@ -170,11 +170,12 @@ const UList = styled.ul`
   list-style: none;
 `;
 
-const ItemList = styled.li<{ position: RadioPositionType }>`
+const ItemList = styled.li<{ $position: RadioPositionType }>`
   display: flex;
   gap: ${({ theme }) => theme.spacing[4]};
   align-items: center;
-  justify-content: ${({ position }) => (position === "left" ? "flex-start" : "space-between")};
+  justify-content: ${({ $position }) =>
+    $position === "left" ? "flex-start" : "space-between"};
   margin-bottom: ${({ theme }) => theme.spacing[2]};
   &:last-child {
     margin-bottom: 0;
@@ -182,45 +183,45 @@ const ItemList = styled.li<{ position: RadioPositionType }>`
 `;
 
 const RadioButton = styled.button<{
-  position: RadioPositionType;
-  isChecked: boolean;
-  radioSize: string;
-  color: string;
+  $position: RadioPositionType;
+  $isChecked: boolean;
+  $radioSize: string;
+  $color: string;
 }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: ${({ radioSize }) => radioSize};
-  height: ${({ radioSize }) => radioSize};
+  width: ${({ $radioSize }) => $radioSize};
+  height: ${({ $radioSize }) => $radioSize};
   border: 1px solid
-    ${({ theme, isChecked }) => (isChecked ? theme.colors.grey.default : theme.vars.border)};
+    ${({ theme, $isChecked }) => ($isChecked ? theme.colors.grey.default : theme.vars.border)};
   border-radius: ${({ theme }) => theme.borderRadius.full};
   :after {
     content: "";
     width: 0.5rem;
     height: 0.5rem;
     border-radius: ${({ theme }) => theme.borderRadius.full};
-    background-color: ${({ isChecked, color }) => isChecked && color};
+    background-color: ${({ $isChecked, $color }) => $isChecked && $color};
   }
-  order: ${({ position }) => (position === "left" ? 1 : 2)};
+  order: ${({ $position }) => ($position === "left" ? 1 : 2)};
   &:disabled {
     cursor: not-allowed;
     opacity: 0.5;
   }
 `;
 
-const LabelContainer = styled.label<{ position: RadioPositionType }>`
-  order: ${({ position }) => (position === "left" ? 2 : 1)};
+const LabelContainer = styled.label<{ $position: RadioPositionType }>`
+  order: ${({ $position }) => ($position === "left" ? 2 : 1)};
 `;
 
-const StyledChildren = styled.span<{ size: RadioSizeType }>`
+const StyledChildren = styled.span<{ $size: RadioSizeType }>`
   display: block;
-  font-size: ${({ size, theme }) => {
+  font-size: ${({ $size, theme }) => {
     const sizes: Record<RadioSizeType, string> = {
       sm: theme.typography.fontSizes.sm,
       md: theme.typography.fontSizes.md,
       lg: theme.typography.fontSizes.lg,
     };
-    return sizes[size];
+    return sizes[$size];
   }};
 `;
