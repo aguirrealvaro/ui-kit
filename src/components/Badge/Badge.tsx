@@ -8,13 +8,13 @@ type BadeProps = {
 };
 
 export const Badge: FunctionComponent<BadeProps> = ({ children, colorScheme = "grey" }) => {
-  return <Container colorScheme={colorScheme}>{children}</Container>;
+  return <Container $colorScheme={colorScheme}>{children}</Container>;
 };
 
-const Container = styled.span<{ colorScheme: Colors }>`
+const Container = styled.span<{ $colorScheme: Colors }>`
   padding: 0.2005em 0.4em;
   border-radius: ${({ theme }) => theme.borderRadius.xs};
-  ${({ colorScheme, theme }) => {
+  ${({ $colorScheme, theme }) => {
     const variantStyles: Record<Colors, RuleSet<object>> = {
       grey: css`
         background-color: ${theme.colors.grey[200]};
@@ -37,7 +37,7 @@ const Container = styled.span<{ colorScheme: Colors }>`
         color: ${theme.colors.yellow[800]};
       `,
     };
-    return variantStyles[colorScheme];
+    return variantStyles[$colorScheme];
   }};
   font-size: ${({ theme }) => theme.typography.fontSizes.xs};
 `;
