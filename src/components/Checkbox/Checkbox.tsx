@@ -3,7 +3,7 @@ import { Check } from "lucide-react";
 import styled from "styled-components";
 import { CheckboxPositionType, CheckboxSizeType } from "./Checkbox.types";
 import { Icon } from "@/components";
-import { HelpText, theme } from "@/css";
+import { HelpMessage, theme } from "@/css";
 
 type CheckboxProps = {
   children: ReactNode;
@@ -12,7 +12,7 @@ type CheckboxProps = {
   onChange: () => void;
   color?: string;
   size?: CheckboxSizeType;
-  helpText?: ReactNode;
+  helpMessage?: ReactNode;
   position?: CheckboxPositionType;
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "size" | "onChange">;
 
@@ -24,7 +24,7 @@ export const Checkbox: FunctionComponent<CheckboxProps> = ({
   disabled = false,
   color = theme.colors.grey.default,
   size = "md",
-  helpText,
+  helpMessage,
   position = "left",
   ...restProps
 }) => {
@@ -57,7 +57,7 @@ export const Checkbox: FunctionComponent<CheckboxProps> = ({
       </CheckboxButton>
       <LabelContainer id={labelId} htmlFor={id} $position={position}>
         <Children size={size}>{children}</Children>
-        {helpText && <HelpText size={size}>{helpText}</HelpText>}
+        {helpMessage && <HelpMessage size={size}>{helpMessage}</HelpMessage>}
       </LabelContainer>
     </Container>
   );

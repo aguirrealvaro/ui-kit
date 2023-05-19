@@ -41,7 +41,7 @@ Primary.args = {
   id: "native-select-id",
   placeholder: "Placeholder",
   label: "Label:",
-  helpMessage: "Help text",
+  helpMessage: "help message",
   size: "md",
   isLoading: false,
 };

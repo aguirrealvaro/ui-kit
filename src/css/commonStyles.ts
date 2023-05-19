@@ -9,12 +9,12 @@ export const Wrapper = styled.div`
   margin: 0 auto;
 `;
 
-type HelpTextSize = CheckboxSizeType | SwitchSizeType | RadioSizeType;
+type HelpMessageType = CheckboxSizeType | SwitchSizeType | RadioSizeType;
 
-export const HelpText = styled.span<{ size: HelpTextSize }>`
+export const HelpMessage = styled.span<{ size: HelpMessageType }>`
   display: block;
   margin-top: ${({ size, theme }) => {
-    const sizes: Record<HelpTextSize, string> = {
+    const sizes: Record<HelpMessageType, string> = {
       sm: theme.spacing[1],
       md: theme.spacing[2],
       lg: theme.spacing[3],
@@ -23,7 +23,7 @@ export const HelpText = styled.span<{ size: HelpTextSize }>`
   }};
   color: ${({ theme }) => theme.vars.textSecondary};
   font-size: ${({ size, theme }) => {
-    const sizes: Record<HelpTextSize, string> = {
+    const sizes: Record<HelpMessageType, string> = {
       sm: theme.typography.fontSizes.xs,
       md: theme.typography.fontSizes.sm,
       lg: theme.typography.fontSizes.md,

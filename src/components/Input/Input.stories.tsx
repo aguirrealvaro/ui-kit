@@ -26,6 +26,6 @@ Primary.args = {
   id: "input-story",
   placeholder: "Placeholder",
   label: "Label:",
-  helpMessage: "Help text",
+  helpMessage: "help message",
   size: "md",
 };

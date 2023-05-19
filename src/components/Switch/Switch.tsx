@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes, FunctionComponent, ReactNode } from "react";
 import styled, { css } from "styled-components";
 import { SwitchPositionType, SwitchSizeType } from "./Switch.types";
-import { HelpText, ThemeType, theme } from "@/css";
+import { HelpMessage, ThemeType, theme } from "@/css";
 
 type SwitchProps = {
   children: ReactNode;
@@ -10,7 +10,7 @@ type SwitchProps = {
   onChange: () => void;
   color?: string;
   size?: SwitchSizeType;
-  helpText?: ReactNode;
+  helpMessage?: ReactNode;
   position?: SwitchPositionType;
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "size" | "onChange">;
 
@@ -22,7 +22,7 @@ export const Switch: FunctionComponent<SwitchProps> = ({
   color,
   id,
   size = "md",
-  helpText,
+  helpMessage,
   position = "left",
   ...restProps
 }) => {
@@ -54,7 +54,7 @@ export const Switch: FunctionComponent<SwitchProps> = ({
       </SwitchButton>
       <LabelContainer id={labelId} htmlFor={id} $position={position}>
         <Children $size={size}>{children}</Children>
-        {helpText && <HelpText size={size}>{helpText}</HelpText>}
+        {helpMessage && <HelpMessage size={size}>{helpMessage}</HelpMessage>}
       </LabelContainer>
     </Container>
   );

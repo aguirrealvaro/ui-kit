@@ -25,6 +25,6 @@ const Template: ComponentStory<typeof AnimatedInput> = (args) => {
 export const Primary = Template.bind({});
 Primary.args = {
   placeholder: "Placeholder",
-  helpMessage: "Help text",
+  helpMessage: "help message",
   type: "text",
 };

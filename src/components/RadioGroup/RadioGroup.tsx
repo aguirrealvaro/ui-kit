@@ -11,7 +11,7 @@ import {
 import styled from "styled-components";
 import { RadioSizeType, RadioPositionType } from "./Radio.types";
 import { RadioItemProps } from "./RadioItem";
-import { HelpText, theme } from "@/css";
+import { HelpMessage, theme } from "@/css";
 
 type RadioGroupProps = {
   children: ReactNode;
@@ -126,7 +126,7 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
           children,
           value: itemValue,
           disabled = false,
-          helpText,
+          helpMessage,
         } = child.props as RadioItemProps;
 
         const isChecked = value === itemValue;
@@ -157,7 +157,7 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
               $position={position}
             >
               <StyledChildren $size={size}>{children}</StyledChildren>
-              {helpText && <HelpText size={size}>{helpText}</HelpText>}
+              {helpMessage && <HelpMessage size={size}>{helpMessage}</HelpMessage>}
             </LabelContainer>
           </ItemList>
         );

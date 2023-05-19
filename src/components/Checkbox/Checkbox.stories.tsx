@@ -18,7 +18,7 @@ Primary.args = {
   children: "This is a checkbox",
   id: "checkbox-story",
   size: "md",
-  helpText: "This is a helpText",
+  helpMessage: "This is a help message",
   position: "left",
   disabled: false,
 };
