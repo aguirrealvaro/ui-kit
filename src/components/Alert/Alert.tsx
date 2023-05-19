@@ -26,18 +26,14 @@ export const Alert: FunctionComponent<AlertProps> = ({
     lg: 20,
   };
 
-  const iconColors: Record<Colors, string> = {
-    grey: theme.colors.grey.default,
-    blue: theme.colors.blue.default,
-    green: theme.colors.green.default,
-    yellow: theme.colors.yellow.default,
-    red: theme.colors.red.default,
-  };
-
   return (
     <Container $colorScheme={colorScheme} $size={size} role="alert">
       {showIcon && (
-        <Icon icon={AlertCircle} size={sizeIcons[size]} color={iconColors[colorScheme]} />
+        <Icon
+          icon={AlertCircle}
+          size={sizeIcons[size]}
+          color={theme.colors[colorScheme].default}
+        />
       )}
       <span>{children}</span>
     </Container>

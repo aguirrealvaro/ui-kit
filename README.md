@@ -13,6 +13,5 @@
 ### To do
 
 - colors
-- Alert same icon
 - Dropdown components & keyboard interactions
 - Table?
