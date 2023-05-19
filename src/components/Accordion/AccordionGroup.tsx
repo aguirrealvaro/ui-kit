@@ -85,7 +85,7 @@ export const AccordionGroup: FunctionComponent<AccordionGroupProps> = ({
             <Button
               type="button"
               onClick={toggle}
-              arrowPosition={arrowPosition}
+              $arrowPosition={arrowPosition}
               aria-expanded={isOpen}
               aria-controls={contentId}
               id={buttonId}
@@ -95,8 +95,12 @@ export const AccordionGroup: FunctionComponent<AccordionGroupProps> = ({
                 }
               }}
             >
-              <Title arrowPosition={arrowPosition}>{title}</Title>
-              <ChevronWrapper isOpen={isOpen} arrowPosition={arrowPosition} aria-hidden="true">
+              <Title $arrowPosition={arrowPosition}>{title}</Title>
+              <ChevronWrapper
+                $isOpen={isOpen}
+                $arrowPosition={arrowPosition}
+                aria-hidden="true"
+              >
                 <Icon icon={ChevronDown} />
               </ChevronWrapper>
             </Button>
@@ -109,8 +113,8 @@ export const AccordionGroup: FunctionComponent<AccordionGroupProps> = ({
                   accordionContentsRef.current[index] = el;
                 }
               }}
-              height={height}
-              isOpen={isOpen}
+              $height={height}
+              $isOpen={isOpen}
             >
               {itemChildren}
             </Content>
@@ -128,11 +132,11 @@ const Container = styled.div`
   }
 `;
 
-const Button = styled.button<{ arrowPosition: AccordionArrowPosition }>`
+const Button = styled.button<{ $arrowPosition: AccordionArrowPosition }>`
   display: flex;
   align-items: center;
-  ${({ arrowPosition, theme }) => {
-    if (arrowPosition === "right") {
+  ${({ $arrowPosition, theme }) => {
+    if ($arrowPosition === "right") {
       return css`
         justify-content: space-between;
       `;
@@ -146,23 +150,26 @@ const Button = styled.button<{ arrowPosition: AccordionArrowPosition }>`
   padding: ${({ theme }) => theme.spacing[4]} 0;
 `;
 
-const Title = styled.div<{ arrowPosition: AccordionArrowPosition }>`
-  order: ${({ arrowPosition }) => (arrowPosition === "right" ? 1 : 2)};
+const Title = styled.div<{ $arrowPosition: AccordionArrowPosition }>`
+  order: ${({ $arrowPosition }) => ($arrowPosition === "right" ? 1 : 2)};
 `;
 
-const ChevronWrapper = styled.div<{ isOpen: boolean; arrowPosition: AccordionArrowPosition }>`
-  transform: ${({ isOpen }) => `rotate(${isOpen ? "-180" : 0}deg)`};
+const ChevronWrapper = styled.div<{
+  $isOpen: boolean;
+  $arrowPosition: AccordionArrowPosition;
+}>`
+  transform: ${({ $isOpen }) => `rotate(${$isOpen ? "-180" : 0}deg)`};
   transition: transform ${({ theme }) => theme.transitions.durations.normal}ms
     ${({ theme }) => theme.transitions.timings.out};
-  order: ${({ arrowPosition }) => (arrowPosition === "right" ? 2 : 1)};
+  order: ${({ $arrowPosition }) => ($arrowPosition === "right" ? 2 : 1)};
 `;
 
-const Content = styled.div<{ height: number; isOpen: boolean }>`
-  height: ${({ isOpen, height }) => `${isOpen ? height : 0}px`};
-  opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
+const Content = styled.div<{ $height: number; $isOpen: boolean }>`
+  height: ${({ $isOpen, $height }) => `${$isOpen ? $height : 0}px`};
+  opacity: ${({ $isOpen }) => ($isOpen ? "1" : "0")};
   overflow: hidden;
   transition: all ${({ theme }) => theme.transitions.durations.fast}ms
     ${({ theme }) => theme.transitions.timings.in};
   margin-left: ${({ theme }) => theme.spacing[4]};
-  margin-bottom: ${({ isOpen, theme }) => isOpen && theme.spacing[4]};
+  margin-bottom: ${({ $isOpen, theme }) => $isOpen && theme.spacing[4]};
 `;
