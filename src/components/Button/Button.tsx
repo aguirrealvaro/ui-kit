@@ -54,12 +54,12 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <CustomButton
         ref={ref}
-        block={block}
-        variant={variant}
-        size={size}
-        colorScheme={colorScheme}
+        $block={block}
+        $variant={variant}
+        $size={size}
+        $colorScheme={colorScheme}
         onClick={handleOnClick}
-        shape={shape}
+        $shape={shape}
         type={type}
         {...restProps}
       >
@@ -334,21 +334,21 @@ const getColorStyles = (colorScheme: Colors, variant: ButtonVariantType): RuleSe
 };
 
 const CustomButton = styled.button<{
-  block?: boolean;
-  variant: ButtonVariantType;
-  size: ButtonSizeType;
-  colorScheme: Colors;
-  shape: ButtonShapeType;
+  $block?: boolean;
+  $variant: ButtonVariantType;
+  $size: ButtonSizeType;
+  $colorScheme: Colors;
+  $shape: ButtonShapeType;
 }>`
   display: flex;
   align-items: center;
   justify-content: center;
   gap: ${({ theme }) => theme.spacing[2]};
-  width: ${({ block }) => (block ? "100%" : "auto")};
+  width: ${({ $block }) => ($block ? "100%" : "auto")};
   border: 1px solid transparent;
-  ${({ size }) => getSizeStyles(size)};
-  ${({ shape }) => getShapeStyles(shape)};
-  ${({ colorScheme, variant }) => getColorStyles(colorScheme, variant)};
+  ${({ $size }) => getSizeStyles($size)};
+  ${({ $shape }) => getShapeStyles($shape)};
+  ${({ $colorScheme, $variant }) => getColorStyles($colorScheme, $variant)};
   transition: all ${({ theme }) => theme.transitions.durations.normal}ms
     ${({ theme }) => theme.transitions.timings.out};
   &:disabled {
