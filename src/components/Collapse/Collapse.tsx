@@ -18,9 +18,9 @@ export const Collapse: FunctionComponent<CollapseProps> = ({
   return (
     <Container
       ref={containerRef}
-      isOpen={isOpen}
-      containerHeight={containerHeight}
-      startingHeight={startingHeight}
+      $isOpen={isOpen}
+      $containerHeight={containerHeight}
+      $startingHeight={startingHeight}
     >
       {children}
     </Container>
@@ -28,12 +28,12 @@ export const Collapse: FunctionComponent<CollapseProps> = ({
 };
 
 const Container = styled.div<{
-  isOpen: boolean;
-  containerHeight: number;
-  startingHeight: number;
+  $isOpen: boolean;
+  $containerHeight: number;
+  $startingHeight: number;
 }>`
-  height: ${({ isOpen, containerHeight, startingHeight }) =>
-    isOpen ? containerHeight : startingHeight}px;
+  height: ${({ $isOpen, $containerHeight, $startingHeight }) =>
+    $isOpen ? $containerHeight : $startingHeight}px;
   overflow-y: hidden;
   transition: height ${({ theme }) => theme.transitions.durations.normal}ms
     ${({ theme }) => theme.transitions.timings.out};

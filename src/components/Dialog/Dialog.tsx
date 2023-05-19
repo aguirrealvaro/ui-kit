@@ -65,13 +65,13 @@ export const Dialog: FunctionComponent<DialogProps> = ({
       {triggerComponent}
       {isOpen &&
         createPortal(
-          <Backdrop isOpen={isOpen} fadeOut={isUnmounting}>
+          <Backdrop $isUnmounting={isUnmounting}>
             <FocusTrap>
               <Content
                 id={dialogId}
-                size={size}
+                $size={size}
                 ref={contentRef}
-                fadeOut={isUnmounting}
+                $isUnmounting={isUnmounting}
                 role="dialog"
                 aria-modal={true}
                 aria-labelledby={id}
@@ -101,7 +101,7 @@ const fadeInScale = keyframes`
   to { opacity: 1; transform: scale(1);}
 `;
 
-const Backdrop = styled.div<{ isOpen: boolean; fadeOut: boolean }>`
+const Backdrop = styled.div<{ $isUnmounting: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
@@ -110,8 +110,8 @@ const Backdrop = styled.div<{ isOpen: boolean; fadeOut: boolean }>`
   overflow-y: auto;
   animation: ${fadeIn} ${({ theme }) => theme.transitions.durations.normal}ms
     ${({ theme }) => theme.transitions.timings.in};
-  ${({ fadeOut }) =>
-    fadeOut &&
+  ${({ $isUnmounting }) =>
+    $isUnmounting &&
     css`
       opacity: 0;
       transition: all ${({ theme }) => theme.transitions.durations.normal}ms
@@ -124,23 +124,23 @@ const Backdrop = styled.div<{ isOpen: boolean; fadeOut: boolean }>`
   z-index: ${({ theme }) => theme.zIndex.dialog};
 `;
 
-const Content = styled.div<{ size: DialogSizeType; fadeOut: boolean }>`
+const Content = styled.div<{ $size: DialogSizeType; $isUnmounting: boolean }>`
   position: relative;
-  width: ${({ size }) => {
+  width: ${({ $size }) => {
     const sizes: Record<DialogSizeType, string> = {
       xs: "20rem",
       sm: "28rem",
       md: "36rem",
       lg: "42rem",
     };
-    return sizes[size];
+    return sizes[$size];
   }};
   min-height: ${({ theme }) => theme.spacing[28]};
   max-height: 80vh;
   animation: ${fadeInScale} ${({ theme }) => theme.transitions.durations.normal}ms
     ${({ theme }) => theme.transitions.timings.in};
-  ${({ fadeOut }) =>
-    fadeOut &&
+  ${({ $isUnmounting }) =>
+    $isUnmounting &&
     css`
       opacity: 0;
       transform: scale(0.9);
