@@ -121,7 +121,7 @@ const Backdrop = styled.div<{ isOpen: boolean; fadeOut: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: ${({ theme }) => theme.zIndices.dialog};
+  z-index: ${({ theme }) => theme.zIndex.dialog};
 `;
 
 const Content = styled.div<{ size: DialogSizeType; fadeOut: boolean }>`

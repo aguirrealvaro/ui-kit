@@ -7,14 +7,14 @@ import { transitions, type TransitionsType } from "./transitions";
 import { transparencies, type TransparencyType } from "./transparencies";
 import { typography, type TypographyType } from "./typography";
 import { vars, type VarsType } from "./vars";
-import { zIndices, type ZIndexType } from "./zIndices";
+import { zIndex, type ZIndexType } from "./zIndex";
 
 export type ThemeType = {
   typography: TypographyType;
   breakpoint: (size: BreakpointSize) => string;
   colors: ColorsType;
   borderRadius: BorderRadiusType;
-  zIndices: ZIndexType;
+  zIndex: ZIndexType;
   shadows: ShadowsType;
   transitions: TransitionsType;
   vars: VarsType;
@@ -27,7 +27,7 @@ export const theme: ThemeType = {
   breakpoint: (size) => `@media (max-width: ${breakpoints[size]})`,
   colors,
   borderRadius,
-  zIndices,
+  zIndex,
   shadows,
   transitions,
   vars,

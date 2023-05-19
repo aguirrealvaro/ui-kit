@@ -10,7 +10,7 @@ type ZIndex =
 
 export type ZIndexType = Record<ZIndex, string | number>;
 
-export const zIndices: ZIndexType = {
+export const zIndex: ZIndexType = {
   hide: -1,
   auto: "auto",
   base: 0,

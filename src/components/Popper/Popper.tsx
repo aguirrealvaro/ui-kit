@@ -192,7 +192,7 @@ const Content = styled.div<{
   transitionTime: number;
 }>`
   position: absolute;
-  z-index: ${({ theme }) => theme.zIndices.popover};
+  z-index: ${({ theme }) => theme.zIndex.popover};
   animation: ${fadeInScale} ${({ transitionTime }) => transitionTime}ms
     ${({ theme }) => theme.transitions.timings.in};
   ${({ $coords }) => {

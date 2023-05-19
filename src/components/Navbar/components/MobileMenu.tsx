@@ -49,7 +49,7 @@ const Container = styled.div<{
   isUnmounting: boolean;
 }>`
   position: fixed;
-  z-index: ${({ theme }) => theme.zIndices.selectDropdown};
+  z-index: ${({ theme }) => theme.zIndex.selectDropdown};
   background-color: ${({ theme }) => theme.colors.white};
   top: ${({ navbarHeight }) => {
     if (navbarHeight) {
