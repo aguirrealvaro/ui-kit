@@ -8,7 +8,7 @@ export { useKeyPress } from "./useKeyPress";
 export { usePreviousValue } from "./usePreviousValue";
 export { useLocalStorage } from "./useLocalStorage";
 export { useScrollIntoView } from "./useScrollIntoView";
-export { useIntersectViewport } from "./useIntersectViewport";
+export { useIntersectingViewport } from "./useIntersectingViewport";
 export { useBoolean } from "./useBoolean";
 export { useToast } from "./useToast";
 export { useIsFirstRender } from "./useIsFirstRender";

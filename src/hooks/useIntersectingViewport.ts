@@ -1,12 +1,10 @@
 import { RefObject, useEffect, useMemo, useState } from "react";
 
-export const useIntersectViewport = <T extends HTMLElement>(ref: RefObject<T>): boolean => {
+export const useIntersectingViewport = <T extends HTMLElement>(ref: RefObject<T>): boolean => {
   const [isIntersecting, setIsIntersecting] = useState<boolean>(false);
 
   const observer = useMemo(() => {
     return new IntersectionObserver(([entry]) => {
-      // if (isIntersecting) return; // once is intersected, it wont be disabled again
-      // TO DO: split to useIntersectedView and useIntersectingView
       setIsIntersecting(entry.isIntersecting);
     });
   }, []);

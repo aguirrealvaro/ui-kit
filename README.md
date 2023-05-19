@@ -12,8 +12,6 @@
 
 ### To do
 
-- z-index
-- useIntersecing & useIntersected
 - Upgrade SC to 6, uninstall types SC, $props
 - Dropdown components & keyboard interactions
 - Table?
