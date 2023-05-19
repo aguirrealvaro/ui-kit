@@ -35,7 +35,7 @@ export const Alert: FunctionComponent<AlertProps> = ({
   };
 
   return (
-    <Container colorScheme={colorScheme} size={size} role="alert">
+    <Container $colorScheme={colorScheme} $size={size} role="alert">
       {showIcon && (
         <Icon
           icon={variantIcons[colorScheme].icon}
@@ -48,10 +48,10 @@ export const Alert: FunctionComponent<AlertProps> = ({
   );
 };
 
-const Container = styled.div<{ colorScheme: Colors; size: AlertSizeType }>`
+const Container = styled.div<{ $colorScheme: Colors; $size: AlertSizeType }>`
   display: flex;
   border-radius: ${({ theme }) => theme.borderRadius.xs};
-  ${({ colorScheme, theme }) => {
+  ${({ $colorScheme, theme }) => {
     const variantStyles: Record<Colors, RuleSet<object>> = {
       grey: css`
         background-color: ${theme.colors.grey[200]};
@@ -74,9 +74,9 @@ const Container = styled.div<{ colorScheme: Colors; size: AlertSizeType }>`
         color: ${theme.colors.yellow[800]};
       `,
     };
-    return variantStyles[colorScheme];
+    return variantStyles[$colorScheme];
   }};
-  ${({ size, theme }) => {
+  ${({ $size, theme }) => {
     const sizeStyles: Record<AlertSizeType, RuleSet<object>> = {
       xs: css`
         padding: ${`${theme.spacing[2]} ${theme.spacing[3]}`};
@@ -99,6 +99,6 @@ const Container = styled.div<{ colorScheme: Colors; size: AlertSizeType }>`
         gap: ${theme.spacing[4]};
       `,
     };
-    return sizeStyles[size];
+    return sizeStyles[$size];
   }};
 `;
