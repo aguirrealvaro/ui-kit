@@ -15,21 +15,21 @@ export const Card: FunctionComponent<CardProps> = ({
   variant = "secondary",
 }) => {
   return (
-    <Container spacing={spacing} variant={variant}>
+    <Container $spacing={spacing} $variant={variant}>
       {children}
     </Container>
   );
 };
 
-const Container = styled.div<{ spacing: Spacing; variant: CardVariantType }>`
-  padding: ${({ theme, spacing }) => theme.spacing[spacing]};
+const Container = styled.div<{ $spacing: Spacing; $variant: CardVariantType }>`
+  padding: ${({ theme, $spacing }) => theme.spacing[$spacing]};
   box-shadow: ${({ theme }) => theme.shadows.md};
-  background-color: ${({ theme, variant }) => {
+  background-color: ${({ theme, $variant }) => {
     const bgColors: Record<CardVariantType, string> = {
       primary: theme.vars.bgPrimary,
       secondary: theme.vars.bgSecondary,
     };
-    return bgColors[variant];
+    return bgColors[$variant];
   }};
   border-radius: ${({ theme }) => theme.borderRadius.sm};
 `;

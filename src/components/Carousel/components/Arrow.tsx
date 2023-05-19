@@ -20,7 +20,7 @@ export const Arrow: FunctionComponent<ArrowProps> = ({ direction, handleArrow, d
     <Button
       type="button"
       onClick={() => handleArrow(direction)}
-      direction={direction}
+      $direction={direction}
       disabled={disabled}
       tabIndex={-1}
     >
@@ -29,19 +29,19 @@ export const Arrow: FunctionComponent<ArrowProps> = ({ direction, handleArrow, d
   );
 };
 
-const Button = styled.button<{ direction: CarouselDirectionType }>`
+const Button = styled.button<{ $direction: CarouselDirectionType }>`
   display: flex;
   align-self: baseline;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  ${({ direction, theme }) =>
+  ${({ $direction, theme }) =>
     css`
       padding: ${theme.spacing[4]};
       background-color: ${theme.vars.bgSecondary};
       box-shadow: ${theme.shadows.sm};
       border-radius: ${theme.borderRadius.full};
-      ${direction === "left"
+      ${$direction === "left"
         ? css`
             left: -${theme.spacing[8]};
           `
