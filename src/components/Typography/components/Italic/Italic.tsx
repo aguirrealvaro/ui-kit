@@ -15,15 +15,15 @@ export const Italic: FunctionComponent<ItalicProps> = ({
 }) => {
   return (
     <StyledTypography {...styledProps}>
-      <CustomItalic variant={variant}>{children}</CustomItalic>
+      <CustomItalic $variant={variant}>{children}</CustomItalic>
     </StyledTypography>
   );
 };
 
-const CustomItalic = styled.i<{ variant: ItalicVariantType }>`
+const CustomItalic = styled.i<{ $variant: ItalicVariantType }>`
   font-family: ${({ theme }) => theme.typography.fontFamilies.body};
   font-size: ${({ theme }) => theme.typography.fontSizes["md"]};
   font-weight: ${({ theme }) => theme.typography.fontWeights.normal};
-  color: ${({ theme, variant }) =>
-    variant === "primary" ? theme.vars.textPrimary : theme.vars.textSecondary};
+  color: ${({ theme, $variant }) =>
+    $variant === "primary" ? theme.vars.textPrimary : theme.vars.textSecondary};
 `;

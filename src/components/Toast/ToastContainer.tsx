@@ -14,7 +14,7 @@ export const ToastContainer: FunctionComponent<ToastContainerProps> = ({
   position,
 }) => {
   const Component = (
-    <Container position={position}>
+    <Container $position={position}>
       {toasts.map((props) => {
         const { id, content } = props;
         return (
@@ -29,10 +29,10 @@ export const ToastContainer: FunctionComponent<ToastContainerProps> = ({
   return createPortal(Component, document.body);
 };
 
-const Container = styled.div<{ position: ToastPositionType }>`
+const Container = styled.div<{ $position: ToastPositionType }>`
   position: fixed;
   z-index: ${({ theme }) => theme.zIndex.toast};
-  ${({ position, theme }) => {
+  ${({ $position, theme }) => {
     const positions: Record<ToastPositionType, RuleSet<object>> = {
       top: css`
         top: ${theme.spacing[4]};
@@ -71,6 +71,6 @@ const Container = styled.div<{ position: ToastPositionType }>`
         left: ${theme.spacing[4]};
       `,
     };
-    return positions[position];
+    return positions[$position];
   }};
 `;

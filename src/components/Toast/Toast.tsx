@@ -65,10 +65,10 @@ export const Toast: FunctionComponent<ToastProps> = ({
 
   return (
     <Container
-      isClosing={isClosing}
-      colorScheme={colorScheme}
+      $isClosing={isClosing}
+      $colorScheme={colorScheme}
       role="alert"
-      transitionTime={transitionTime}
+      $transitionTime={transitionTime}
     >
       <Icon
         icon={variantIcons[colorScheme]}
@@ -91,9 +91,9 @@ const fadeInScale = keyframes`
 `;
 
 const Container = styled.div<{
-  isClosing: boolean;
-  colorScheme: Colors;
-  transitionTime: number;
+  $isClosing: boolean;
+  $colorScheme: Colors;
+  $transitionTime: number;
 }>`
   position: relative;
   display: flex;
@@ -104,7 +104,7 @@ const Container = styled.div<{
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   margin-bottom: ${({ theme }) => theme.spacing[4]};
   box-shadow: ${({ theme }) => theme.shadows.md};
-  ${({ colorScheme, theme }) => {
+  ${({ $colorScheme, theme }) => {
     const variantStyles: Record<Colors, RuleSet<object>> = {
       grey: css`
         background-color: ${theme.colors.grey.default};
@@ -127,19 +127,19 @@ const Container = styled.div<{
         color: ${theme.colors.white};
       `,
     };
-    return variantStyles[colorScheme];
+    return variantStyles[$colorScheme];
   }};
 
   &:last-child {
     margin-bottom: 0;
   }
-  animation: ${fadeInScale} ${({ transitionTime }) => transitionTime}ms linear;
-  ${({ isClosing, transitionTime }) => {
-    if (isClosing) {
+  animation: ${fadeInScale} ${({ $transitionTime }) => $transitionTime}ms linear;
+  ${({ $isClosing, $transitionTime }) => {
+    if ($isClosing) {
       return css`
         opacity: 0;
         transform: scale(0.9);
-        transition: all ${transitionTime}ms ${({ theme }) => theme.transitions.timings.in};
+        transition: all ${$transitionTime}ms ${({ theme }) => theme.transitions.timings.in};
       `;
     }
   }};

@@ -15,15 +15,15 @@ export const Inline: FunctionComponent<Inline> = ({
 }) => {
   return (
     <StyledTypography {...styledProps}>
-      <Span variant={variant}>{children}</Span>
+      <Span $variant={variant}>{children}</Span>
     </StyledTypography>
   );
 };
 
-const Span = styled.span<{ variant: InlineVariantType }>`
+const Span = styled.span<{ $variant: InlineVariantType }>`
   font-family: ${({ theme }) => theme.typography.fontFamilies.body};
   font-size: ${({ theme }) => theme.typography.fontSizes["md"]};
   font-weight: ${({ theme }) => theme.typography.fontWeights.normal};
-  color: ${({ theme, variant }) =>
-    variant === "primary" ? theme.vars.textPrimary : theme.vars.textSecondary};
+  color: ${({ theme, $variant }) =>
+    $variant === "primary" ? theme.vars.textPrimary : theme.vars.textSecondary};
 `;

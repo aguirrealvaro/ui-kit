@@ -15,15 +15,15 @@ export const Bold: FunctionComponent<BoldProps> = ({
 }) => {
   return (
     <StyledTypography {...styledProps}>
-      <Strong variant={variant}>{children}</Strong>
+      <Strong $variant={variant}>{children}</Strong>
     </StyledTypography>
   );
 };
 
-const Strong = styled.strong<{ variant: BoldVariantType }>`
+const Strong = styled.strong<{ $variant: BoldVariantType }>`
   font-family: ${({ theme }) => theme.typography.fontFamilies.body};
   font-size: ${({ theme }) => theme.typography.fontSizes["md"]};
   font-weight: ${({ theme }) => theme.typography.fontWeights.bold};
-  color: ${({ theme, variant }) =>
-    variant === "primary" ? theme.vars.textPrimary : theme.vars.textSecondary};
+  color: ${({ theme, $variant }) =>
+    $variant === "primary" ? theme.vars.textPrimary : theme.vars.textSecondary};
 `;

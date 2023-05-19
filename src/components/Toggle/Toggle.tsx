@@ -9,18 +9,18 @@ type ToggleProps = {
 
 export const Toggle: FunctionComponent<ToggleProps> = ({ children, isChecked, onToggle }) => {
   return (
-    <ToggleButton aria-pressed={isChecked} onClick={onToggle} isChecked={isChecked}>
+    <ToggleButton aria-pressed={isChecked} onClick={onToggle} $isChecked={isChecked}>
       {children}
     </ToggleButton>
   );
 };
 
-const ToggleButton = styled.button<{ isChecked: boolean }>`
+const ToggleButton = styled.button<{ $isChecked: boolean }>`
   display: flex;
   padding: ${({ theme }) => theme.spacing[2]};
   border-radius: ${({ theme }) => theme.borderRadius.md};
   border: 1px solid
-    ${({ theme, isChecked }) => (isChecked ? theme.colors.grey.default : theme.vars.border)};
-  color: ${({ theme, isChecked }) =>
-    isChecked ? theme.colors.grey.default : theme.vars.textPrimary};
+    ${({ theme, $isChecked }) => ($isChecked ? theme.colors.grey.default : theme.vars.border)};
+  color: ${({ theme, $isChecked }) =>
+    $isChecked ? theme.colors.grey.default : theme.vars.textPrimary};
 `;
