@@ -12,6 +12,4 @@
 
 ### To do
 
-- colors
 - Dropdown components & keyboard interactions
-- Table?

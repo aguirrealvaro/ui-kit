@@ -34,6 +34,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({ id }) => {
       <Wrapper>
         <InnerContainer>
           <Content>
+            <span>LOGO</span>
             <DesktopElementContainer>Desktop menu</DesktopElementContainer>
           </Content>
           <Burger
@@ -76,8 +77,10 @@ const InnerContainer = styled.div`
 `;
 
 const Content = styled.div`
+  flex: 1;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 `;
 
 const DesktopElementContainer = styled.div`
