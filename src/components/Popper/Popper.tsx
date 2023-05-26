@@ -167,7 +167,7 @@ export const Popper: FunctionComponent<PopperProps> = ({
         createPortal(
           <Content
             ref={popperRef}
-            $fadeOut={isUnmounting}
+            $isUnmounting={isUnmounting}
             $coords={coords}
             $triggerWidth={triggerWidth}
             $transitionTime={transitionTime}
@@ -186,7 +186,7 @@ const fadeInScale = keyframes`
 `;
 
 const Content = styled.div<{
-  $fadeOut: boolean;
+  $isUnmounting: boolean;
   $coords: CoordsType | undefined;
   $triggerWidth: number | undefined;
   $transitionTime: number;
@@ -204,8 +204,8 @@ const Content = styled.div<{
       `;
     }
   }};
-  ${({ $fadeOut, $transitionTime }) => {
-    if ($fadeOut) {
+  ${({ $isUnmounting, $transitionTime }) => {
+    if ($isUnmounting) {
       return css`
         opacity: 0;
         transform: scale(0.9);
