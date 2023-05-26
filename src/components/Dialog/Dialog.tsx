@@ -118,21 +118,27 @@ const Backdrop = styled.div<{ $isUnmounting: boolean }>`
   width: 100vw;
   height: 100vh;
   overflow-y: auto;
-  animation: ${fadeInBackdrop} ${({ theme }) => theme.transitions.durations.normal}ms
-    ${({ theme }) => theme.transitions.timings.in} forwards;
-  ${({ $isUnmounting, theme }) => {
-    if ($isUnmounting) {
-      return css`
-        animation: ${fadeOutBackdrop} ${theme.transitions.durations.normal}ms
-          ${theme.transitions.timings.in} forwards;
-      `;
-    }
-  }};
   background-color: ${({ theme }) => theme.transparencies.medium};
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: ${({ theme }) => theme.zIndex.dialog};
+
+  animation-name: ${fadeInBackdrop};
+  animation-duration: ${({ theme }) => theme.transitions.durations.normal}ms;
+  animation-timing-function: ${({ theme }) => theme.transitions.timings.in};
+  animation-fill-mode: forwards;
+
+  ${({ $isUnmounting, theme }) => {
+    if ($isUnmounting) {
+      return css`
+        animation-name: ${fadeOutBackdrop};
+        animation-duration: ${theme.transitions.durations.normal}ms;
+        animation-timing-function: ${theme.transitions.timings.in};
+        animation-fill-mode: forwards;
+      `;
+    }
+  }};
 `;
 
 const Content = styled.div<{ $size: DialogSizeType; $isUnmounting: boolean }>`
@@ -148,22 +154,28 @@ const Content = styled.div<{ $size: DialogSizeType; $isUnmounting: boolean }>`
   }};
   min-height: ${({ theme }) => theme.spacing[28]};
   max-height: 80vh;
-  animation: ${fadeInDialog} ${({ theme }) => theme.transitions.durations.normal}ms
-    ${({ theme }) => theme.transitions.timings.in};
-  ${({ $isUnmounting, theme }) => {
-    if ($isUnmounting) {
-      return css`
-        animation: ${fadeOutDialog} ${theme.transitions.durations.normal}ms
-          ${theme.transitions.timings.in} forwards;
-      `;
-    }
-  }};
   background-color: ${({ theme }) => theme.vars.bgSecondary};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   box-shadow: ${({ theme }) => theme.shadows.sm};
   display: flex;
   flex-direction: column;
   margin: 0 1rem;
+
+  animation-name: ${fadeInDialog};
+  animation-duration: ${({ theme }) => theme.transitions.durations.normal}ms;
+  animation-timing-function: ${({ theme }) => theme.transitions.timings.in};
+  animation-fill-mode: forwards;
+
+  ${({ $isUnmounting, theme }) => {
+    if ($isUnmounting) {
+      return css`
+        animation-name: ${fadeOutDialog};
+        animation-duration: ${theme.transitions.durations.normal}ms;
+        animation-timing-function: ${theme.transitions.timings.in};
+        animation-fill-mode: forwards;
+      `;
+    }
+  }};
 `;
 
 const CloseButtonWrapper = styled.div`
