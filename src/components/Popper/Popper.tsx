@@ -167,6 +167,7 @@ export const Popper: FunctionComponent<PopperProps> = ({
         createPortal(
           <Content
             ref={popperRef}
+            $isOpen={isOpen}
             $isUnmounting={isUnmounting}
             $coords={coords}
             $triggerWidth={triggerWidth}
@@ -191,6 +192,7 @@ const fadeOut = keyframes`
 `;
 
 const Content = styled.div<{
+  $isOpen: boolean;
   $isUnmounting: boolean;
   $coords: CoordsType | undefined;
   $triggerWidth: number | undefined;
@@ -208,21 +210,23 @@ const Content = styled.div<{
     }
   }};
 
-  animation-name: ${fadeIn};
-  animation-duration: ${({ $transitionTime }) => `${$transitionTime}ms`};
+  animation-duration: ${({ $transitionTime }) => $transitionTime}ms;
   animation-timing-function: ${({ theme }) => theme.transitions.timings.in};
   animation-fill-mode: forwards;
-
-  ${({ $isUnmounting, theme, $transitionTime }) => {
-    if ($isUnmounting) {
+  ${({ $isOpen }) => {
+    if ($isOpen) {
       return css`
-        animation-name: ${fadeOut};
-        animation-duration: ${$transitionTime}ms;
-        animation-timing-function: ${theme.transitions.timings.in};
-        animation-fill-mode: forwards;
+        animation-name: ${fadeIn};
       `;
     }
   }};
+  ${({ $isUnmounting }) => {
+    if ($isUnmounting) {
+      return css`
+        animation-name: ${fadeOut};
+      `;
+    }
+  }}
 
   ${({ $triggerWidth }) => {
     if ($triggerWidth) {
