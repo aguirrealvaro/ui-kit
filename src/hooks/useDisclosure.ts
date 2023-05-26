@@ -24,12 +24,12 @@ export const useDisclosure = (objParams: UseDisclosureParams = {}): UseDisclosur
   const timeoutId = useRef<number>(0);
 
   const onOpen = useCallback(() => {
-    if (phase === "mounting" || phase === "mounted" || phase === "unmounting") return;
+    if (phase !== "unmounted") return;
     setPhase("mounting");
   }, [phase]);
 
   const onClose = useCallback(() => {
-    if (phase === "unmounting" || phase === "unmounted" || phase === "mounting") return;
+    if (phase !== "mounted") return;
     setPhase("unmounting");
   }, [phase]);
 
