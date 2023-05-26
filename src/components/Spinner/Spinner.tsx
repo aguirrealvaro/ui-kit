@@ -7,27 +7,21 @@ import { theme } from "@/css";
 type SpinnerProps = {
   color?: string;
   size?: SpinnerSizeType;
-  fullHeight?: boolean;
 };
 
-export const Spinner: FunctionComponent<SpinnerProps> = ({
-  color,
-  size = "md",
-  fullHeight = false,
-}) => {
+export const Spinner: FunctionComponent<SpinnerProps> = ({ color, size = "md" }) => {
   return (
-    <Container $fullHeight={fullHeight}>
+    <Container>
       <Loader $color={color || theme.colors.grey.default} $size={size} />
     </Container>
   );
 };
 
-const Container = styled.div<{ $fullHeight: boolean }>`
+const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   flex: 1;
-  height: ${({ $fullHeight }) => $fullHeight && "100vh"};
 `;
 
 const Loader = styled.div<{ $size: SpinnerSizeType; $color: string }>`
