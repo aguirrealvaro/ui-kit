@@ -26,6 +26,7 @@ export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
 
   return (
     <Container
+      $isMobileMenuOpen={isMobileMenuOpen}
       $navbarHeight={navbarHeight}
       $transitionTime={transitionTime}
       $isUnmounting={isUnmounting}
@@ -47,6 +48,7 @@ const fadeOut = keyframes`
 `;
 
 const Container = styled.div<{
+  $isMobileMenuOpen: boolean;
   $navbarHeight: number | undefined;
   $transitionTime: number;
   $isUnmounting: boolean;
@@ -66,19 +68,21 @@ const Container = styled.div<{
   left: 0;
   bottom: 0;
 
-  animation-name: ${fadeIn};
-  animation-duration: ${({ $transitionTime }) => `${$transitionTime}ms`};
+  animation-duration: ${({ $transitionTime }) => $transitionTime}ms;
   animation-timing-function: ${({ theme }) => theme.transitions.timings.in};
   animation-fill-mode: forwards;
-
-  ${({ $isUnmounting, theme, $transitionTime }) => {
-    if ($isUnmounting) {
+  ${({ $isMobileMenuOpen }) => {
+    if ($isMobileMenuOpen) {
       return css`
-        animation-name: ${fadeOut};
-        animation-duration: ${$transitionTime}ms;
-        animation-timing-function: ${theme.transitions.timings.in};
-        animation-fill-mode: forwards;
+        animation-name: ${fadeIn};
       `;
     }
   }};
+  ${({ $isUnmounting }) => {
+    if ($isUnmounting) {
+      return css`
+        animation-name: ${fadeOut};
+      `;
+    }
+  }}
 `;
