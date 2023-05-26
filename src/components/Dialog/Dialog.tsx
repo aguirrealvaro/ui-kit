@@ -91,14 +91,24 @@ export const Dialog: FunctionComponent<DialogProps> = ({
   );
 };
 
-const fadeIn = keyframes`
+const fadeInBackdrop = keyframes`
   from { opacity: 0 }
   to { opacity: 1 }
 `;
 
-const fadeInScale = keyframes`
+const fadeOutBackdrop = keyframes`
+  from { opacity: 1 }
+  to { opacity: 0 }
+`;
+
+const fadeInDialog = keyframes`
   from { opacity: 0; transform: scale(0.9); }
   to { opacity: 1; transform: scale(1);}
+`;
+
+const fadeOutDialog = keyframes`
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.9);}
 `;
 
 const Backdrop = styled.div<{ $isUnmounting: boolean }>`
@@ -108,15 +118,16 @@ const Backdrop = styled.div<{ $isUnmounting: boolean }>`
   width: 100vw;
   height: 100vh;
   overflow-y: auto;
-  animation: ${fadeIn} ${({ theme }) => theme.transitions.durations.normal}ms
-    ${({ theme }) => theme.transitions.timings.in};
-  ${({ $isUnmounting }) =>
-    $isUnmounting &&
-    css`
-      opacity: 0;
-      transition: all ${({ theme }) => theme.transitions.durations.normal}ms
-        ${({ theme }) => theme.transitions.timings.in};
-    `};
+  animation: ${fadeInBackdrop} ${({ theme }) => theme.transitions.durations.normal}ms
+    ${({ theme }) => theme.transitions.timings.in} forwards;
+  ${({ $isUnmounting, theme }) => {
+    if ($isUnmounting) {
+      return css`
+        animation: ${fadeOutBackdrop} ${theme.transitions.durations.normal}ms
+          ${theme.transitions.timings.in} forwards;
+      `;
+    }
+  }};
   background-color: ${({ theme }) => theme.transparencies.medium};
   display: flex;
   justify-content: center;
@@ -137,16 +148,16 @@ const Content = styled.div<{ $size: DialogSizeType; $isUnmounting: boolean }>`
   }};
   min-height: ${({ theme }) => theme.spacing[28]};
   max-height: 80vh;
-  animation: ${fadeInScale} ${({ theme }) => theme.transitions.durations.normal}ms
+  animation: ${fadeInDialog} ${({ theme }) => theme.transitions.durations.normal}ms
     ${({ theme }) => theme.transitions.timings.in};
-  ${({ $isUnmounting }) =>
-    $isUnmounting &&
-    css`
-      opacity: 0;
-      transform: scale(0.9);
-      transition: all ${({ theme }) => theme.transitions.durations.normal}ms
-        ${({ theme }) => theme.transitions.timings.in};
-    `}
+  ${({ $isUnmounting, theme }) => {
+    if ($isUnmounting) {
+      return css`
+        animation: ${fadeOutDialog} ${theme.transitions.durations.normal}ms
+          ${theme.transitions.timings.in} forwards;
+      `;
+    }
+  }};
   background-color: ${({ theme }) => theme.vars.bgSecondary};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   box-shadow: ${({ theme }) => theme.shadows.sm};
