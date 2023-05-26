@@ -34,7 +34,9 @@ export const Dialog: FunctionComponent<DialogProps> = ({
 }) => {
   const contentRef = useRef<HTMLDivElement>(null);
 
-  const { isOpen, onOpen, onClose, isUnmounting } = useDisclosure();
+  const { isOpen, onOpen, onClose, isUnmounting } = useDisclosure({
+    timeout: TRANSITION_TIME,
+  });
 
   useDisableScroll(isOpen);
 
@@ -68,13 +70,14 @@ export const Dialog: FunctionComponent<DialogProps> = ({
       {triggerComponent}
       {isOpen &&
         createPortal(
-          <Backdrop $isUnmounting={isUnmounting}>
+          <Backdrop $isUnmounting={isUnmounting} $isOpen={isOpen}>
             <FocusTrap>
               <Content
                 id={dialogId}
                 $size={size}
                 ref={contentRef}
                 $isUnmounting={isUnmounting}
+                $isOpen={isOpen}
                 role="dialog"
                 aria-modal={true}
                 aria-labelledby={id}
@@ -114,7 +117,7 @@ const fadeOutDialog = keyframes`
   to { opacity: 0; transform: scale(0.9);}
 `;
 
-const Backdrop = styled.div<{ $isUnmounting: boolean }>`
+const Backdrop = styled.div<{ $isUnmounting: boolean; $isOpen: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
@@ -127,10 +130,16 @@ const Backdrop = styled.div<{ $isUnmounting: boolean }>`
   align-items: center;
   z-index: ${({ theme }) => theme.zIndex.dialog};
 
-  animation-name: ${fadeInBackdrop};
-  animation-duration: ${TRANSITION_TIME}ms;
-  animation-timing-function: ${({ theme }) => theme.transitions.timings.in};
-  animation-fill-mode: forwards;
+  ${({ $isOpen, theme }) => {
+    if ($isOpen) {
+      return css`
+        animation-name: ${fadeInBackdrop};
+        animation-duration: ${TRANSITION_TIME}ms;
+        animation-timing-function: ${theme.transitions.timings.in};
+        animation-fill-mode: forwards;
+      `;
+    }
+  }};
 
   ${({ $isUnmounting, theme }) => {
     if ($isUnmounting) {
@@ -144,7 +153,11 @@ const Backdrop = styled.div<{ $isUnmounting: boolean }>`
   }};
 `;
 
-const Content = styled.div<{ $size: DialogSizeType; $isUnmounting: boolean }>`
+const Content = styled.div<{
+  $size: DialogSizeType;
+  $isUnmounting: boolean;
+  $isOpen: boolean;
+}>`
   position: relative;
   width: ${({ $size }) => {
     const sizes: Record<DialogSizeType, string> = {
@@ -164,10 +177,16 @@ const Content = styled.div<{ $size: DialogSizeType; $isUnmounting: boolean }>`
   flex-direction: column;
   margin: 0 1rem;
 
-  animation-name: ${fadeInDialog};
-  animation-duration: ${TRANSITION_TIME}ms;
-  animation-timing-function: ${({ theme }) => theme.transitions.timings.in};
-  animation-fill-mode: forwards;
+  ${({ $isOpen, theme }) => {
+    if ($isOpen) {
+      return css`
+        animation-name: ${fadeInDialog};
+        animation-duration: ${TRANSITION_TIME}ms;
+        animation-timing-function: ${theme.transitions.timings.in};
+        animation-fill-mode: forwards;
+      `;
+    }
+  }};
 
   ${({ $isUnmounting, theme }) => {
     if ($isUnmounting) {
