@@ -1,18 +1,20 @@
 import { FunctionComponent } from "react";
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { SPINER_SIZES } from "./Spinner.constants";
 import { SpinnerSizeType } from "./Spinner.types";
-import { theme } from "@/css";
 
 type SpinnerProps = {
   color?: string;
   size?: SpinnerSizeType;
 };
 
-export const Spinner: FunctionComponent<SpinnerProps> = ({ color, size = "md" }) => {
+export const Spinner: FunctionComponent<SpinnerProps> = ({
+  color = "currentColor",
+  size = "md",
+}) => {
   return (
     <Container>
-      <Loader $color={color || theme.colors.grey.default} $size={size} />
+      <Loader $color={color} $size={size} />
     </Container>
   );
 };
@@ -24,13 +26,24 @@ const Container = styled.div`
   flex: 1;
 `;
 
+const spin = keyframes`
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+`;
+
 const Loader = styled.div<{ $size: SpinnerSizeType; $color: string }>`
   border-radius: ${({ theme }) => theme.borderRadius.full};
-  animation: spin 1.5s linear infinite;
+  animation-name: ${spin};
+  animation-duration: 1500ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
   ${({ $size, $color, theme }) => {
     const numberSize = $size ? SPINER_SIZES[$size] : 30;
     const borderSize = (numberSize * 3.9) / 32;
-
     return css`
       border: ${borderSize}px solid ${theme.colors.grey[200]};
       border-top: ${borderSize}px solid ${$color};
@@ -38,12 +51,4 @@ const Loader = styled.div<{ $size: SpinnerSizeType; $color: string }>`
       height: ${numberSize}px;
     `;
   }};
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
 `;
