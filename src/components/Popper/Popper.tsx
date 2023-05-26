@@ -180,9 +180,14 @@ export const Popper: FunctionComponent<PopperProps> = ({
   );
 };
 
-const fadeInScale = keyframes`
+const fadeIn = keyframes`
   from { opacity: 0; transform: scale(0.9); }
   to { opacity: 1; transform: scale(1);}
+`;
+
+const fadeOut = keyframes`
+  from { opacity: 1 }
+  to { opacity: 0 }
 `;
 
 const Content = styled.div<{
@@ -193,8 +198,6 @@ const Content = styled.div<{
 }>`
   position: absolute;
   z-index: ${({ theme }) => theme.zIndex.popover};
-  animation: ${fadeInScale} ${({ $transitionTime }) => $transitionTime}ms
-    ${({ theme }) => theme.transitions.timings.in};
   ${({ $coords }) => {
     if ($coords) {
       const { top, left } = $coords;
@@ -204,15 +207,23 @@ const Content = styled.div<{
       `;
     }
   }};
-  ${({ $isUnmounting, $transitionTime }) => {
+
+  animation-name: ${fadeIn};
+  animation-duration: ${({ $transitionTime }) => `${$transitionTime}ms`};
+  animation-timing-function: ${({ theme }) => theme.transitions.timings.in};
+  animation-fill-mode: forwards;
+
+  ${({ $isUnmounting, theme, $transitionTime }) => {
     if ($isUnmounting) {
       return css`
-        opacity: 0;
-        transform: scale(0.9);
-        transition: all ${$transitionTime}ms ${({ theme }) => theme.transitions.timings.in};
+        animation-name: ${fadeOut};
+        animation-duration: ${$transitionTime}ms;
+        animation-timing-function: ${theme.transitions.timings.in};
+        animation-fill-mode: forwards;
       `;
     }
   }};
+
   ${({ $triggerWidth }) => {
     if ($triggerWidth) {
       return css`

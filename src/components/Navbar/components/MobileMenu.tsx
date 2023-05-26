@@ -41,11 +41,19 @@ const fadeIn = keyframes`
   to { opacity: 1 }
 `;
 
+const fadeOut = keyframes`
+  from { opacity: 1 }
+  to { opacity: 0 }
+`;
+
 const Container = styled.div<{
   $navbarHeight: number | undefined;
   $transitionTime: number;
   $isUnmounting: boolean;
 }>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: fixed;
   z-index: ${({ theme }) => theme.zIndex.selectDropdown};
   background-color: ${({ theme }) => theme.colors.white};
@@ -57,15 +65,20 @@ const Container = styled.div<{
   right: 0;
   left: 0;
   bottom: 0;
-  animation: ${fadeIn} ${({ $transitionTime }) => $transitionTime}ms
-    ${({ theme }) => theme.transitions.timings.in};
-  ${({ $isUnmounting, $transitionTime, theme }) =>
-    $isUnmounting &&
-    css`
-      opacity: 0;
-      transition: opacity ${$transitionTime}ms ${theme.transitions.timings.in};
-    `};
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+  animation-name: ${fadeIn};
+  animation-duration: ${({ $transitionTime }) => `${$transitionTime}ms`};
+  animation-timing-function: ${({ theme }) => theme.transitions.timings.in};
+  animation-fill-mode: forwards;
+
+  ${({ $isUnmounting, theme, $transitionTime }) => {
+    if ($isUnmounting) {
+      return css`
+        animation-name: ${fadeOut};
+        animation-duration: ${$transitionTime}ms;
+        animation-timing-function: ${theme.transitions.timings.in};
+        animation-fill-mode: forwards;
+      `;
+    }
+  }};
 `;

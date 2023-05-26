@@ -12,7 +12,10 @@ import { X } from "lucide-react";
 import styled, { css, keyframes } from "styled-components";
 import { DialogSizeType } from "./Dialog.types";
 import { IconButton, Icon } from "@/components";
+import { theme } from "@/css";
 import { useDisableScroll, useKeyPress, useDisclosure, useOutsideClick } from "@/hooks";
+
+const TRANSITION_TIME = theme.transitions.durations.normal;
 
 export type DialogProps = {
   children: ReactNode;
@@ -125,7 +128,7 @@ const Backdrop = styled.div<{ $isUnmounting: boolean }>`
   z-index: ${({ theme }) => theme.zIndex.dialog};
 
   animation-name: ${fadeInBackdrop};
-  animation-duration: ${({ theme }) => theme.transitions.durations.normal}ms;
+  animation-duration: ${TRANSITION_TIME}ms;
   animation-timing-function: ${({ theme }) => theme.transitions.timings.in};
   animation-fill-mode: forwards;
 
@@ -133,7 +136,7 @@ const Backdrop = styled.div<{ $isUnmounting: boolean }>`
     if ($isUnmounting) {
       return css`
         animation-name: ${fadeOutBackdrop};
-        animation-duration: ${theme.transitions.durations.normal}ms;
+        animation-duration: ${TRANSITION_TIME}ms;
         animation-timing-function: ${theme.transitions.timings.in};
         animation-fill-mode: forwards;
       `;
@@ -162,7 +165,7 @@ const Content = styled.div<{ $size: DialogSizeType; $isUnmounting: boolean }>`
   margin: 0 1rem;
 
   animation-name: ${fadeInDialog};
-  animation-duration: ${({ theme }) => theme.transitions.durations.normal}ms;
+  animation-duration: ${TRANSITION_TIME}ms;
   animation-timing-function: ${({ theme }) => theme.transitions.timings.in};
   animation-fill-mode: forwards;
 
@@ -170,7 +173,7 @@ const Content = styled.div<{ $size: DialogSizeType; $isUnmounting: boolean }>`
     if ($isUnmounting) {
       return css`
         animation-name: ${fadeOutDialog};
-        animation-duration: ${theme.transitions.durations.normal}ms;
+        animation-duration: ${TRANSITION_TIME}ms;
         animation-timing-function: ${theme.transitions.timings.in};
         animation-fill-mode: forwards;
       `;
