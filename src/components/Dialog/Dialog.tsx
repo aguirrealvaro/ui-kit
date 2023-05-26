@@ -130,24 +130,20 @@ const Backdrop = styled.div<{ $isUnmounting: boolean; $isOpen: boolean }>`
   align-items: center;
   z-index: ${({ theme }) => theme.zIndex.dialog};
 
-  ${({ $isOpen, theme }) => {
+  animation-duration: ${TRANSITION_TIME}ms;
+  animation-timing-function: ${({ theme }) => theme.transitions.timings.in};
+  animation-fill-mode: forwards;
+  ${({ $isOpen }) => {
     if ($isOpen) {
       return css`
         animation-name: ${fadeInBackdrop};
-        animation-duration: ${TRANSITION_TIME}ms;
-        animation-timing-function: ${theme.transitions.timings.in};
-        animation-fill-mode: forwards;
       `;
     }
   }};
-
-  ${({ $isUnmounting, theme }) => {
+  ${({ $isUnmounting }) => {
     if ($isUnmounting) {
       return css`
         animation-name: ${fadeOutBackdrop};
-        animation-duration: ${TRANSITION_TIME}ms;
-        animation-timing-function: ${theme.transitions.timings.in};
-        animation-fill-mode: forwards;
       `;
     }
   }};
@@ -177,24 +173,20 @@ const Content = styled.div<{
   flex-direction: column;
   margin: 0 1rem;
 
-  ${({ $isOpen, theme }) => {
+  animation-duration: ${TRANSITION_TIME}ms;
+  animation-timing-function: ${({ theme }) => theme.transitions.timings.in};
+  animation-fill-mode: forwards;
+  ${({ $isOpen }) => {
     if ($isOpen) {
       return css`
         animation-name: ${fadeInDialog};
-        animation-duration: ${TRANSITION_TIME}ms;
-        animation-timing-function: ${theme.transitions.timings.in};
-        animation-fill-mode: forwards;
       `;
     }
   }};
-
-  ${({ $isUnmounting, theme }) => {
+  ${({ $isUnmounting }) => {
     if ($isUnmounting) {
       return css`
         animation-name: ${fadeOutDialog};
-        animation-duration: ${TRANSITION_TIME}ms;
-        animation-timing-function: ${theme.transitions.timings.in};
-        animation-fill-mode: forwards;
       `;
     }
   }};
