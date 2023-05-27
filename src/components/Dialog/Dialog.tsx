@@ -9,7 +9,7 @@ import {
 import { createPortal } from "react-dom";
 import FocusTrap from "focus-trap-react";
 import { X } from "lucide-react";
-import styled, { css, keyframes } from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { DialogSizeType } from "./Dialog.types";
 import { IconButton, Icon } from "@/components";
 import { theme } from "@/css";
@@ -133,19 +133,9 @@ const Backdrop = styled.div<{ $isUnmounting: boolean; $isOpen: boolean }>`
   animation-duration: ${TRANSITION_TIME}ms;
   animation-timing-function: ${({ theme }) => theme.transitions.timings.in};
   animation-fill-mode: forwards;
-  ${({ $isOpen }) => {
-    if ($isOpen) {
-      return css`
-        animation-name: ${fadeInBackdrop};
-      `;
-    }
-  }};
-  ${({ $isUnmounting }) => {
-    if ($isUnmounting) {
-      return css`
-        animation-name: ${fadeOutBackdrop};
-      `;
-    }
+  animation-name: ${({ $isOpen, $isUnmounting }) => {
+    if ($isOpen && !$isUnmounting) return fadeInBackdrop;
+    if ($isUnmounting) return fadeOutBackdrop;
   }};
 `;
 
@@ -176,19 +166,9 @@ const Content = styled.div<{
   animation-duration: ${TRANSITION_TIME}ms;
   animation-timing-function: ${({ theme }) => theme.transitions.timings.in};
   animation-fill-mode: forwards;
-  ${({ $isOpen }) => {
-    if ($isOpen) {
-      return css`
-        animation-name: ${fadeInDialog};
-      `;
-    }
-  }};
-  ${({ $isUnmounting }) => {
-    if ($isUnmounting) {
-      return css`
-        animation-name: ${fadeOutDialog};
-      `;
-    }
+  animation-name: ${({ $isOpen, $isUnmounting }) => {
+    if ($isOpen && !$isUnmounting) return fadeInDialog;
+    if ($isUnmounting) return fadeOutDialog;
   }};
 `;
 

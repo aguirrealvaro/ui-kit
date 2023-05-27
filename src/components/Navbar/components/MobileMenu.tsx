@@ -1,5 +1,5 @@
 import { FunctionComponent, HTMLAttributes } from "react";
-import styled, { css, keyframes } from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { useKeyPress } from "@/hooks";
 
 type MobileMenuProps = {
@@ -71,18 +71,8 @@ const Container = styled.div<{
   animation-duration: ${({ $transitionTime }) => $transitionTime}ms;
   animation-timing-function: ${({ theme }) => theme.transitions.timings.in};
   animation-fill-mode: forwards;
-  ${({ $isMobileMenuOpen }) => {
-    if ($isMobileMenuOpen) {
-      return css`
-        animation-name: ${fadeIn};
-      `;
-    }
+  animation-name: ${({ $isMobileMenuOpen, $isUnmounting }) => {
+    if ($isMobileMenuOpen && !$isUnmounting) return fadeIn;
+    if ($isUnmounting) return fadeOut;
   }};
-  ${({ $isUnmounting }) => {
-    if ($isUnmounting) {
-      return css`
-        animation-name: ${fadeOut};
-      `;
-    }
-  }}
 `;

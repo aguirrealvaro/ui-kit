@@ -213,20 +213,10 @@ const Content = styled.div<{
   animation-duration: ${({ $transitionTime }) => $transitionTime}ms;
   animation-timing-function: ${({ theme }) => theme.transitions.timings.in};
   animation-fill-mode: forwards;
-  ${({ $isOpen }) => {
-    if ($isOpen) {
-      return css`
-        animation-name: ${fadeIn};
-      `;
-    }
+  animation-name: ${({ $isOpen, $isUnmounting }) => {
+    if ($isOpen && !$isUnmounting) return fadeIn;
+    if ($isUnmounting) return fadeOut;
   }};
-  ${({ $isUnmounting }) => {
-    if ($isUnmounting) {
-      return css`
-        animation-name: ${fadeOut};
-      `;
-    }
-  }}
 
   ${({ $triggerWidth }) => {
     if ($triggerWidth) {
