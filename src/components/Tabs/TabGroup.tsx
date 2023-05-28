@@ -57,9 +57,9 @@ export const TabGroup: FunctionComponent<TabGroupProps> = ({ children, id }) => 
         onKeyDown={handleKeyDown}
       >
         {Children.map(children, (child, index) => {
-          if (!isValidElement(child)) return;
+          if (!isValidElement<TabItemProps>(child)) return;
 
-          const { title } = child.props as TabItemProps;
+          const { title } = child.props;
           const isTabSelected = selectedTab === index;
 
           return (

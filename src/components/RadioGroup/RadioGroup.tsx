@@ -48,9 +48,9 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
   const enabledItemId: number | undefined = (() => {
     let enabledItem: number | undefined;
     Children.forEach(children, (child, index) => {
-      if (!isValidElement(child)) return;
+      if (!isValidElement<RadioItemProps>(child)) return;
 
-      const { value: itemValue } = child.props as RadioItemProps;
+      const { value: itemValue } = child.props;
       const isChecked = value === itemValue;
 
       if (isChecked) {
@@ -120,14 +120,9 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
       })}
     >
       {Children.map(children, (child, index) => {
-        if (!isValidElement(child)) return;
+        if (!isValidElement<RadioItemProps>(child)) return;
 
-        const {
-          children,
-          value: itemValue,
-          disabled = false,
-          helpMessage,
-        } = child.props as RadioItemProps;
+        const { children, value: itemValue, disabled = false, helpMessage } = child.props;
 
         const isChecked = value === itemValue;
 

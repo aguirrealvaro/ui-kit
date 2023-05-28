@@ -63,9 +63,9 @@ export const AccordionGroup: FunctionComponent<AccordionGroupProps> = ({
   return (
     <div onKeyDown={handleKeyDown}>
       {Children.map(children, (child, index) => {
-        if (!isValidElement(child)) return;
+        if (!isValidElement<AccordionItemProps>(child)) return;
 
-        const { title, children: itemChildren } = child.props as AccordionItemProps;
+        const { title, children: itemChildren } = child.props;
 
         const buttonId = `${id}-${index}`;
         const contentId = `${buttonId}-content`;

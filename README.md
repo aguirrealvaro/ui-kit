@@ -12,5 +12,5 @@
 
 ### To do
 
-- Dropdown components & keyboard interactions
-- improve types of cloneElement
+- Dropdown: interactions with rest components
+- get phase on Popper usages
