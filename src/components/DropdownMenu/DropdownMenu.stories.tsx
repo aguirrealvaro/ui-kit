@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { MoreVertical } from "lucide-react";
-import { DropdownMenuGroup, DropdownMenuItem, DropdownMenuTitle } from "./components";
-import { DropdownMenu, Icon, IconButton, Separator } from "@/components";
+import { DropdownMenuItem } from "./components";
+import { DropdownMenu, Icon, IconButton } from "@/components";
 
 export default {
   title: "Components/DropdownMenu",
@@ -15,7 +15,7 @@ const Template: ComponentStory<typeof DropdownMenu> = ({ trigger: dummyTrigger, 
     </IconButton>
   );
 
-  return (
+  /* return (
     <DropdownMenu trigger={trigger} {...args}>
       <DropdownMenuGroup>
         <DropdownMenuTitle>Title 1</DropdownMenuTitle>
@@ -30,6 +30,17 @@ const Template: ComponentStory<typeof DropdownMenu> = ({ trigger: dummyTrigger, 
         <DropdownMenuItem>Item 5</DropdownMenuItem>
         <DropdownMenuItem>Item 6</DropdownMenuItem>
       </DropdownMenuGroup>
+    </DropdownMenu>
+  ); */
+
+  return (
+    <DropdownMenu trigger={trigger} {...args}>
+      <DropdownMenuItem>Item 1</DropdownMenuItem>
+      <DropdownMenuItem>Item 2</DropdownMenuItem>
+      <DropdownMenuItem>Item 3</DropdownMenuItem>
+      <DropdownMenuItem>Item 4</DropdownMenuItem>
+      <DropdownMenuItem>Item 5</DropdownMenuItem>
+      <DropdownMenuItem>Item 6</DropdownMenuItem>
     </DropdownMenu>
   );
 };
