@@ -15,4 +15,5 @@ const Title = styled.span`
   text-transform: uppercase;
   font-size: ${({ theme }) => theme.typography.fontSizes.sm};
   padding: ${({ theme }) => theme.spacing[1.5]} ${({ theme }) => theme.spacing[2]};
+  font-weight: ${({ theme }) => theme.typography.fontWeights.semibold};
 `;
