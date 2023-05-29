@@ -187,8 +187,8 @@ const fadeIn = keyframes`
 `;
 
 const fadeOut = keyframes`
-  from { opacity: 1 }
-  to { opacity: 0 }
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.9);}
 `;
 
 const Content = styled.div<{
