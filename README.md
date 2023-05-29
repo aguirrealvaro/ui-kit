@@ -12,6 +12,7 @@
 
 ### To do
 
+- Popper: pass disclosure props on trigger render
 - Dropdown: interactions with rest components, escape, init focus
-- get phase on Popper usages
 - Dialog: fix outside click with focus trap
+- Popper: add arrow
