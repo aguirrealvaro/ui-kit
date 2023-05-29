@@ -48,27 +48,35 @@ export const DropdownMenu: FunctionComponent<PopoverProps> = ({
 
     const first = 0;
     const last = dropdownMenuItemsRef.current.length - 1;
-    const prev = currentIndex === first ? last : currentIndex - 1;
-    const next = currentIndex === last ? first : currentIndex + 1;
+    const prev = currentIndex - 1;
+    const next = currentIndex + 1;
 
     if (event.key === "ArrowUp") {
-      event.preventDefault();
-      dropdownMenuItemsRef.current[prev].focus();
+      if (dropdownMenuItemsRef.current[prev]) {
+        event.preventDefault();
+        dropdownMenuItemsRef.current[prev].focus();
+      }
     }
 
     if (event.key === "ArrowDown") {
-      event.preventDefault();
-      dropdownMenuItemsRef.current[next].focus();
+      if (dropdownMenuItemsRef.current[next]) {
+        event.preventDefault();
+        dropdownMenuItemsRef.current[next].focus();
+      }
     }
 
     if (event.key === "Home") {
-      event.preventDefault();
-      dropdownMenuItemsRef.current[first].focus();
+      if (dropdownMenuItemsRef.current[first]) {
+        event.preventDefault();
+        dropdownMenuItemsRef.current[first].focus();
+      }
     }
 
     if (event.key === "End") {
-      event.preventDefault();
-      dropdownMenuItemsRef.current[last].focus();
+      if (dropdownMenuItemsRef.current[last]) {
+        event.preventDefault();
+        dropdownMenuItemsRef.current[last].focus();
+      }
     }
   };
 
