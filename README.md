@@ -12,6 +12,7 @@
 
 ### To do
 
+- Replace button ghost with icon button
 - Popper: pass disclosure props on trigger render
 - Dropdown: interactions with rest components, escape, init focus
 - Dialog: fix outside click with focus trap
