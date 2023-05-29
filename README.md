@@ -12,5 +12,5 @@
 
 ### To do
 
-- Dropdown: interactions with rest components
+- Dropdown: interactions with rest components, escape, init focus
 - get phase on Popper usages
