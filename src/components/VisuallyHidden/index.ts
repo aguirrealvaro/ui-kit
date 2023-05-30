@@ -1,1 +1,1 @@
-export { VisuallyHidden } from "./VisuallyHidden";
+export { VisuallyHidden, type VisuallyHiddenProps } from "./VisuallyHidden";

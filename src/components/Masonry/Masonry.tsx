@@ -1,17 +1,13 @@
 import { FunctionComponent, ReactNode } from "react";
-import ReactMasonry, { MasonryProps } from "react-masonry-css";
+import ReactMasonry, { MasonryProps as ReactMasonryProps } from "react-masonry-css";
 import styled, { css } from "styled-components";
 
-type CustomMasonryProps = {
+type MasonryProps = {
   children: ReactNode;
   gap: number;
-} & Omit<MasonryProps, "className">;
+} & Omit<ReactMasonryProps, "className">;
 
-export const Masonry: FunctionComponent<CustomMasonryProps> = ({
-  children,
-  gap,
-  ...restProps
-}) => {
+const Masonry: FunctionComponent<MasonryProps> = ({ children, gap, ...restProps }) => {
   return (
     <Container $gap={gap}>
       <ReactMasonry className="grid" columnClassName="grid-column" {...restProps}>
@@ -20,6 +16,8 @@ export const Masonry: FunctionComponent<CustomMasonryProps> = ({
     </Container>
   );
 };
+
+export { Masonry, type MasonryProps };
 
 const Container = styled.div<{ $gap: number }>`
   ${({ $gap }) => {

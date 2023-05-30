@@ -2,13 +2,13 @@ import { AnchorHTMLAttributes, ReactNode, forwardRef } from "react";
 import styled, { css } from "styled-components";
 import { LinkUnderlineType } from "./Link.types";
 
-export type LinkProps = {
+type LinkProps = {
   children: ReactNode;
   underline?: LinkUnderlineType;
   disabled?: boolean;
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
-export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
+const Link = forwardRef<HTMLAnchorElement, LinkProps>(
   ({ children, underline = true, disabled = false, ...restProps }, ref) => {
     return (
       <Anchor
@@ -23,6 +23,8 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     );
   }
 );
+
+export { Link, type LinkProps };
 
 const Anchor = styled.a<{ $underline: LinkUnderlineType; $disabled: boolean }>`
   ${({ $underline }) => {

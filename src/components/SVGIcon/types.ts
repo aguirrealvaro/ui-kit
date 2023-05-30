@@ -10,4 +10,4 @@ export const ALL_ICONS = [
 
 type IconsTuple = typeof ALL_ICONS;
 
-export type IconType = IconsTuple[number];
+export type SVGIconType = IconsTuple[number];

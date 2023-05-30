@@ -15,7 +15,7 @@ import { PopoverPositionType, PopoverTriggerType } from "./Popper.types";
 import { theme } from "@/css";
 import { useDisclosure, useOutsideClick } from "@/hooks";
 
-export type PopperProps = {
+type PopperProps = {
   children: ReactNode;
   trigger: ReactNode;
   position: PopoverPositionType;
@@ -29,7 +29,7 @@ type CoordsType = {
   left: number;
 };
 
-export const Popper: FunctionComponent<PopperProps> = ({
+const Popper: FunctionComponent<PopperProps> = ({
   children,
   trigger,
   position,
@@ -180,6 +180,8 @@ export const Popper: FunctionComponent<PopperProps> = ({
     </>
   );
 };
+
+export { Popper, type PopperProps };
 
 const fadeIn = keyframes`
   from { opacity: 0; transform: scale(0.9); }

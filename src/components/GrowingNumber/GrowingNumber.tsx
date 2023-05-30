@@ -1,15 +1,12 @@
 import { FunctionComponent, useEffect, useRef, useState } from "react";
 import { useIntersectingViewport } from "@/hooks";
 
-type GrowingNumber = {
+type GrowingNumberProps = {
   number: string;
   duration?: string;
 };
 
-export const GrowingNumber: FunctionComponent<GrowingNumber> = ({
-  number,
-  duration = "2",
-}) => {
+const GrowingNumber: FunctionComponent<GrowingNumberProps> = ({ number, duration = "2" }) => {
   const [count, setCount] = useState<string>("0");
 
   const ref = useRef<HTMLSpanElement>(null);
@@ -36,3 +33,5 @@ export const GrowingNumber: FunctionComponent<GrowingNumber> = ({
 
   return <span ref={ref}>{count}</span>;
 };
+
+export { GrowingNumber, type GrowingNumberProps };

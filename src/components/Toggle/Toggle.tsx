@@ -7,7 +7,7 @@ type ToggleProps = {
   onToggle: () => void;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const Toggle: FunctionComponent<ToggleProps> = ({ children, isChecked, onToggle }) => {
+const Toggle: FunctionComponent<ToggleProps> = ({ children, isChecked, onToggle }) => {
   return (
     <ToggleButton aria-pressed={isChecked} onClick={onToggle} $isChecked={isChecked}>
       {children}
@@ -24,3 +24,5 @@ const ToggleButton = styled.button<{ $isChecked: boolean }>`
   color: ${({ theme, $isChecked }) =>
     $isChecked ? theme.colors.grey.default : theme.vars.textPrimary};
 `;
+
+export { Toggle, type ToggleProps };

@@ -7,11 +7,7 @@ type CollapseProps = {
   startingHeight: number;
 };
 
-export const Collapse: FunctionComponent<CollapseProps> = ({
-  children,
-  isOpen,
-  startingHeight,
-}) => {
+const Collapse: FunctionComponent<CollapseProps> = ({ children, isOpen, startingHeight }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const containerHeight = containerRef.current?.scrollHeight || 0;
 
@@ -26,6 +22,8 @@ export const Collapse: FunctionComponent<CollapseProps> = ({
     </Container>
   );
 };
+
+export { Collapse, type CollapseProps };
 
 const Container = styled.div<{
   $isOpen: boolean;

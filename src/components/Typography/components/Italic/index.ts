@@ -1,1 +1,1 @@
-export { Italic } from "./Italic";
+export { Italic, type ItalicProps } from "./Italic";

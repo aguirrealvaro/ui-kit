@@ -8,7 +8,7 @@ type NavbarProps = {
   id: string;
 };
 
-export const Navbar: FunctionComponent<NavbarProps> = ({ id }) => {
+const Navbar: FunctionComponent<NavbarProps> = ({ id }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [navbarHeight, setNavbarHeight] = useState<number | undefined>(0);
 
@@ -62,6 +62,8 @@ export const Navbar: FunctionComponent<NavbarProps> = ({ id }) => {
     </Container>
   );
 };
+
+export { Navbar, type NavbarProps };
 
 const Container = styled.header`
   display: flex;

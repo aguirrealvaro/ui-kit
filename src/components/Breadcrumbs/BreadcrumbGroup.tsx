@@ -5,7 +5,7 @@ type BreadcrumbGroupProps = {
   children: ReactNode;
 };
 
-export const BreadcrumbGroup: FunctionComponent<BreadcrumbGroupProps> = ({ children }) => {
+const BreadcrumbGroup: FunctionComponent<BreadcrumbGroupProps> = ({ children }) => {
   return (
     <nav aria-label="Breadcrumb">
       <List>
@@ -16,6 +16,8 @@ export const BreadcrumbGroup: FunctionComponent<BreadcrumbGroupProps> = ({ child
     </nav>
   );
 };
+
+export { BreadcrumbGroup, type BreadcrumbGroupProps };
 
 const List = styled.ol`
   display: flex;

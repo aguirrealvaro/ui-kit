@@ -4,7 +4,7 @@ type TimerProps = {
   deadline: Date;
 };
 
-export const Timer: FunctionComponent<TimerProps> = ({ deadline }) => {
+const Timer: FunctionComponent<TimerProps> = ({ deadline }) => {
   const [days, setDays] = useState<number>(0);
   const [hours, setHours] = useState<number>(0);
   const [minutes, setMinutes] = useState<number>(0);
@@ -34,3 +34,5 @@ export const Timer: FunctionComponent<TimerProps> = ({ deadline }) => {
     </div>
   );
 };
+
+export { Timer, type TimerProps };

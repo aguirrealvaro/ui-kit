@@ -35,7 +35,7 @@ type SelectProps = {
   startElement?: ReactNode;
 };
 
-export const Select: FunctionComponent<SelectProps> = ({
+const Select: FunctionComponent<SelectProps> = ({
   id,
   label,
   placeholder,
@@ -200,6 +200,8 @@ export const Select: FunctionComponent<SelectProps> = ({
     </div>
   );
 };
+
+export { Select, type SelectProps };
 
 const Label = styled.label<{ $size: SelectSizeType }>`
   display: block;

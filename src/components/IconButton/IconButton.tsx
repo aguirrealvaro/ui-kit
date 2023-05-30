@@ -8,7 +8,7 @@ type IconButtonProps = {
   size?: IconButtonSizeType;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
+const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   ({ children, size = "md", ...props }, ref) => {
     return (
       <Container ref={ref} type="button" $size={size} {...props}>
@@ -40,3 +40,5 @@ const Container = styled.button<{ $size: IconButtonSizeType }>`
     cursor: not-allowed;
   }
 `;
+
+export { IconButton, type IconButtonProps };

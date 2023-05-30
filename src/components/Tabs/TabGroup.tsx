@@ -15,7 +15,7 @@ type TabGroupProps = {
   id: string;
 };
 
-export const TabGroup: FunctionComponent<TabGroupProps> = ({ children, id }) => {
+const TabGroup: FunctionComponent<TabGroupProps> = ({ children, id }) => {
   const [selectedTab, setSelectedTab] = useState<number>(0);
 
   const tabsRef = useRef<HTMLButtonElement[]>([]);
@@ -107,6 +107,8 @@ export const TabGroup: FunctionComponent<TabGroupProps> = ({ children, id }) => 
     </div>
   );
 };
+
+export { TabGroup, type TabGroupProps };
 
 const TabList = styled.ul`
   display: flex;

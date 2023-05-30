@@ -6,7 +6,7 @@ type VisuallyHiddenProps = {
   as: keyof HTMLElementTagNameMap;
 };
 
-export const VisuallyHidden: FunctionComponent<VisuallyHiddenProps> = ({ children, as }) => {
+const VisuallyHidden: FunctionComponent<VisuallyHiddenProps> = ({ children, as }) => {
   return <Container as={as}>{children}</Container>;
 };
 
@@ -19,3 +19,5 @@ const Container = styled.div`
   white-space: nowrap;
   width: 1px;
 `;
+
+export { VisuallyHidden, type VisuallyHiddenProps };

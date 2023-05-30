@@ -1,1 +1,1 @@
-export { GrowingNumber } from "./GrowingNumber";
+export { GrowingNumber, type GrowingNumberProps } from "./GrowingNumber";

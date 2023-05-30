@@ -16,7 +16,7 @@ type ButtonProps = {
   endElement?: ReactNode;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       children,
@@ -68,6 +68,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     );
   }
 );
+
+export { Button, type ButtonProps };
 
 const getSizeStyles = (size: ButtonSizeType): RuleSet<object> => {
   const sizeOptions: Record<ButtonSizeType, RuleSet<object>> = {

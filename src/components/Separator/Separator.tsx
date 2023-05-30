@@ -8,7 +8,7 @@ type SeparatorProps = {
   spacing?: Spacing;
 };
 
-export const Separator: FunctionComponent<SeparatorProps> = ({
+const Separator: FunctionComponent<SeparatorProps> = ({
   orientation = "horizontal",
   spacing = 4,
 }) => {
@@ -37,3 +37,5 @@ const Line = styled.div<{
     }
   }}
 `;
+
+export { Separator, type SeparatorProps };

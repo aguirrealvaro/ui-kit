@@ -7,7 +7,7 @@ type LayoutProps = {
   children: ReactNode;
 };
 
-export const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
+const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
   return (
     <Container>
       <Navbar id="navbar" />
@@ -17,6 +17,8 @@ export const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
     </Container>
   );
 };
+
+export { Layout, type LayoutProps };
 
 const Container = styled.div`
   height: 100vh;

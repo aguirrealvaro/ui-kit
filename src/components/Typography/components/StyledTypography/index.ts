@@ -1,2 +1,1 @@
-export { StyledTypography } from "./StyledTypography";
-export type { StyledTypographyProps } from "./StyledTypography";
+export { StyledTypography, type StyledTypographyProps } from "./StyledTypography";

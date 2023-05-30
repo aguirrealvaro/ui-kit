@@ -19,7 +19,7 @@ type AccordionGroupProps = {
   arrowPosition?: AccordionArrowPosition;
 };
 
-export const AccordionGroup: FunctionComponent<AccordionGroupProps> = ({
+const AccordionGroup: FunctionComponent<AccordionGroupProps> = ({
   children,
   id,
   arrowPosition = "left",
@@ -124,6 +124,8 @@ export const AccordionGroup: FunctionComponent<AccordionGroupProps> = ({
     </div>
   );
 };
+
+export { AccordionGroup, type AccordionGroupProps };
 
 const Container = styled.div`
   border-bottom: 1px solid ${({ theme }) => theme.vars.border};

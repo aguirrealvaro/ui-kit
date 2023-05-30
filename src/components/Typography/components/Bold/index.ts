@@ -1,1 +1,1 @@
-export { Bold } from "./Bold";
+export { Bold, type BoldProps } from "./Bold";

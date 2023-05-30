@@ -10,7 +10,7 @@ type AvatarProps = {
   shape?: AvatarShapeType;
 };
 
-export const Avatar: FunctionComponent<AvatarProps> = ({
+const Avatar: FunctionComponent<AvatarProps> = ({
   name,
   src,
   size = "md",
@@ -34,6 +34,8 @@ export const Avatar: FunctionComponent<AvatarProps> = ({
     </Container>
   );
 };
+
+export { Avatar, type AvatarProps };
 
 const Container = styled.div<{
   $size: AvatarSizeType;

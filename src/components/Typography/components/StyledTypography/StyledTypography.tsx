@@ -14,7 +14,7 @@ import {
   LineHeight,
 } from "@/css/theme/typography";
 
-export type StyledTypographyProps = {
+type StyledTypographyProps = {
   fontFamily?: FontFamily;
   fontSize?: FontSize;
   fontWeight?: FontWeight;
@@ -24,7 +24,7 @@ export type StyledTypographyProps = {
   children: ReactNode;
 };
 
-export const StyledTypography: FunctionComponent<StyledTypographyProps> = ({
+const StyledTypography: FunctionComponent<StyledTypographyProps> = ({
   children,
   fontFamily,
   fontSize,
@@ -55,3 +55,5 @@ export const StyledTypography: FunctionComponent<StyledTypographyProps> = ({
 
   return <>{child}</>;
 };
+
+export { StyledTypography, type StyledTypographyProps };

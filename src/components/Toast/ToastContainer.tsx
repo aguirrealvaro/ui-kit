@@ -9,10 +9,7 @@ type ToastContainerProps = {
   position: ToastPositionType;
 };
 
-export const ToastContainer: FunctionComponent<ToastContainerProps> = ({
-  toasts,
-  position,
-}) => {
+const ToastContainer: FunctionComponent<ToastContainerProps> = ({ toasts, position }) => {
   const Component = (
     <Container $position={position}>
       {toasts.map((props) => {
@@ -28,6 +25,8 @@ export const ToastContainer: FunctionComponent<ToastContainerProps> = ({
 
   return createPortal(Component, document.body);
 };
+
+export { ToastContainer, type ToastContainerProps };
 
 const Container = styled.div<{ $position: ToastPositionType }>`
   position: fixed;

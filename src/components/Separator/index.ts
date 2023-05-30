@@ -1,1 +1,1 @@
-export { Separator } from "./Separator";
+export { Separator, type SeparatorProps } from "./Separator";

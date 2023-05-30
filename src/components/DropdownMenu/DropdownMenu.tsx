@@ -8,13 +8,13 @@ import {
   useRef,
 } from "react";
 import styled from "styled-components";
-import { Popper, PopperProps } from "@/components/Popper";
+import { Popper, PopperProps } from "@/components";
 
-type PopoverProps = PopperProps & {
+type DropdownMenuProps = PopperProps & {
   id: string;
 };
 
-export const DropdownMenu: FunctionComponent<PopoverProps> = ({
+const DropdownMenu: FunctionComponent<DropdownMenuProps> = ({
   id,
   children,
   trigger,
@@ -112,6 +112,8 @@ export const DropdownMenu: FunctionComponent<PopoverProps> = ({
     </Popper>
   );
 };
+
+export { DropdownMenu, type DropdownMenuProps };
 
 const Content = styled.div`
   background-color: ${({ theme }) => theme.vars.bgSecondary};

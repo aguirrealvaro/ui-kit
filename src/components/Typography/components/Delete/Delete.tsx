@@ -8,7 +8,7 @@ type DeleteProps = {
   variant?: DeleteVariantType;
 } & StyledTypographyProps;
 
-export const Delete: FunctionComponent<DeleteProps> = ({
+const Delete: FunctionComponent<DeleteProps> = ({
   children,
   variant = "primary",
   ...styledProps
@@ -27,3 +27,5 @@ const CustomUnderline = styled.del<{ $variant: DeleteVariantType }>`
   color: ${({ theme, $variant }) =>
     $variant === "primary" ? theme.vars.textPrimary : theme.vars.textSecondary};
 `;
+
+export { Delete, type DeleteProps };

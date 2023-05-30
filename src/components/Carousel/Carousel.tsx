@@ -20,7 +20,7 @@ type CarouselProps = {
   fullWidth?: boolean;
 };
 
-export const Carousel: FunctionComponent<CarouselProps> = ({
+const Carousel: FunctionComponent<CarouselProps> = ({
   children,
   gap = 16,
   callbackLeft,
@@ -82,6 +82,8 @@ export const Carousel: FunctionComponent<CarouselProps> = ({
     </Container>
   );
 };
+
+export { Carousel, type CarouselProps };
 
 const Container = styled.div`
   position: relative;

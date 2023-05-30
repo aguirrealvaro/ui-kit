@@ -16,7 +16,7 @@ type CheckboxProps = {
   position?: CheckboxPositionType;
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "size" | "onChange">;
 
-export const Checkbox: FunctionComponent<CheckboxProps> = ({
+const Checkbox: FunctionComponent<CheckboxProps> = ({
   children,
   id,
   checked,
@@ -62,6 +62,8 @@ export const Checkbox: FunctionComponent<CheckboxProps> = ({
     </Container>
   );
 };
+
+export { Checkbox, type CheckboxProps };
 
 const Container = styled.div<{ $position: CheckboxPositionType }>`
   display: flex;

@@ -1,1 +1,1 @@
-export { Timer } from "./Timer";
+export { Timer, type TimerProps } from "./Timer";

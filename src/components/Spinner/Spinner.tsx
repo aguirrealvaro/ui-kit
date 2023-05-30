@@ -8,16 +8,15 @@ type SpinnerProps = {
   size?: SpinnerSizeType;
 };
 
-export const Spinner: FunctionComponent<SpinnerProps> = ({
-  color = "currentColor",
-  size = "md",
-}) => {
+const Spinner: FunctionComponent<SpinnerProps> = ({ color = "currentColor", size = "md" }) => {
   return (
     <Container>
       <Loader $color={color} $size={size} />
     </Container>
   );
 };
+
+export { Spinner, type SpinnerProps };
 
 const Container = styled.div`
   display: flex;

@@ -23,7 +23,7 @@ type RadioGroupProps = {
   position?: RadioPositionType;
 };
 
-export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
+const RadioGroup: FunctionComponent<RadioGroupProps> = ({
   children,
   id,
   value,
@@ -160,6 +160,8 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
     </UList>
   );
 };
+
+export { RadioGroup, type RadioGroupProps };
 
 const UList = styled.ul`
   list-style: none;

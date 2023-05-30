@@ -1,1 +1,1 @@
-export { Underline } from "./Underline";
+export { Underline, type UnderlineProps } from "./Underline";

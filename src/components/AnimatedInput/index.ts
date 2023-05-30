@@ -1,1 +1,1 @@
-export { AnimatedInput } from "./AnimatedInput";
+export { AnimatedInput, type AnimatedInputProps } from "./AnimatedInput";

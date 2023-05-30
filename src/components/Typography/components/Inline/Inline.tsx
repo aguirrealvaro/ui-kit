@@ -3,12 +3,12 @@ import styled from "styled-components";
 import { StyledTypography, StyledTypographyProps } from "../StyledTypography/StyledTypography";
 import { InlineVariantType } from "./Inline.types";
 
-type Inline = {
+type InlineProps = {
   children: ReactNode;
   variant?: InlineVariantType;
 } & StyledTypographyProps;
 
-export const Inline: FunctionComponent<Inline> = ({
+const Inline: FunctionComponent<InlineProps> = ({
   children,
   variant = "primary",
   ...styledProps
@@ -27,3 +27,5 @@ const Span = styled.span<{ $variant: InlineVariantType }>`
   color: ${({ theme, $variant }) =>
     $variant === "primary" ? theme.vars.textPrimary : theme.vars.textSecondary};
 `;
+
+export { Inline, type InlineProps };

@@ -8,7 +8,7 @@ type ItalicProps = {
   variant?: ItalicVariantType;
 } & StyledTypographyProps;
 
-export const Italic: FunctionComponent<ItalicProps> = ({
+const Italic: FunctionComponent<ItalicProps> = ({
   children,
   variant = "primary",
   ...styledProps
@@ -27,3 +27,5 @@ const CustomItalic = styled.i<{ $variant: ItalicVariantType }>`
   color: ${({ theme, $variant }) =>
     $variant === "primary" ? theme.vars.textPrimary : theme.vars.textSecondary};
 `;
+
+export { Italic, type ItalicProps };

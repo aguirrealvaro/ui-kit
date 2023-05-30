@@ -8,7 +8,7 @@ type BoldProps = {
   variant?: BoldVariantType;
 } & StyledTypographyProps;
 
-export const Bold: FunctionComponent<BoldProps> = ({
+const Bold: FunctionComponent<BoldProps> = ({
   children,
   variant = "primary",
   ...styledProps
@@ -27,3 +27,5 @@ const Strong = styled.strong<{ $variant: BoldVariantType }>`
   color: ${({ theme, $variant }) =>
     $variant === "primary" ? theme.vars.textPrimary : theme.vars.textSecondary};
 `;
+
+export { Bold, type BoldProps };

@@ -25,7 +25,7 @@ type NativeSelectProps = {
   isLoading?: boolean;
 } & Omit<SelectHTMLAttributes<HTMLSelectElement>, "size">;
 
-export const NativeSelect: FunctionComponent<NativeSelectProps> = ({
+const NativeSelect: FunctionComponent<NativeSelectProps> = ({
   id,
   value,
   onChange,
@@ -128,6 +128,8 @@ export const NativeSelect: FunctionComponent<NativeSelectProps> = ({
     </div>
   );
 };
+
+export { NativeSelect, type NativeSelectProps };
 
 const SelectContainer = styled.div`
   position: relative;

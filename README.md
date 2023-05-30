@@ -16,6 +16,7 @@
 - Dropdown: interactions with rest components, escape, init focus
 - Dialog: fix outside click with focus trap
 - Popper: add arrow
+- Collapse: fade out
 
 ### Diff
 

@@ -13,7 +13,7 @@ type AlertProps = {
   showIcon?: boolean;
 };
 
-export const Alert: FunctionComponent<AlertProps> = ({
+const Alert: FunctionComponent<AlertProps> = ({
   children,
   colorScheme = "grey",
   size = "md",
@@ -39,6 +39,8 @@ export const Alert: FunctionComponent<AlertProps> = ({
     </Container>
   );
 };
+
+export { Alert, type AlertProps };
 
 const Container = styled.div<{ $colorScheme: Colors; $size: AlertSizeType }>`
   display: flex;

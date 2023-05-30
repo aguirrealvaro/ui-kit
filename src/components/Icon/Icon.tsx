@@ -7,10 +7,12 @@ type IconProps = {
   color?: string;
 } & LucideProps;
 
-export const Icon: FunctionComponent<IconProps> = ({
+const Icon: FunctionComponent<IconProps> = ({
   icon: IconComponent,
   size = 20,
   ...restProps
 }) => {
   return <IconComponent size={size} {...restProps} />;
 };
+
+export { Icon, type IconProps };

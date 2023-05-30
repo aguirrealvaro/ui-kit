@@ -14,7 +14,7 @@ type SwitchProps = {
   position?: SwitchPositionType;
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "size" | "onChange">;
 
-export const Switch: FunctionComponent<SwitchProps> = ({
+const Switch: FunctionComponent<SwitchProps> = ({
   children,
   checked,
   onChange,
@@ -59,6 +59,8 @@ export const Switch: FunctionComponent<SwitchProps> = ({
     </Container>
   );
 };
+
+export { Switch, type SwitchProps };
 
 const Container = styled.div<{ $position: SwitchPositionType }>`
   display: flex;

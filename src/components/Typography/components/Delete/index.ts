@@ -1,1 +1,1 @@
-export { Delete } from "./Delete";
+export { Delete, type DeleteProps } from "./Delete";

@@ -8,7 +8,7 @@ type UnderlineProps = {
   variant?: UnderlineVariantType;
 } & StyledTypographyProps;
 
-export const Underline: FunctionComponent<UnderlineProps> = ({
+const Underline: FunctionComponent<UnderlineProps> = ({
   children,
   variant = "primary",
   ...styledProps
@@ -19,6 +19,8 @@ export const Underline: FunctionComponent<UnderlineProps> = ({
     </StyledTypography>
   );
 };
+
+export { Underline, type UnderlineProps };
 
 const CustomUnderline = styled.u<{ $variant: UnderlineVariantType }>`
   font-family: ${({ theme }) => theme.typography.fontFamilies.body};

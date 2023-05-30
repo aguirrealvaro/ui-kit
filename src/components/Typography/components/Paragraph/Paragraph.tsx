@@ -3,12 +3,12 @@ import styled from "styled-components";
 import { StyledTypography, StyledTypographyProps } from "../StyledTypography/StyledTypography";
 import { ParagraphVariantType } from "./Paragraph.types";
 
-type TextPrimaryProps = {
+type ParagraphProps = {
   children: ReactNode;
   variant?: ParagraphVariantType;
 } & StyledTypographyProps;
 
-export const Paragraph: FunctionComponent<TextPrimaryProps> = ({
+const Paragraph: FunctionComponent<ParagraphProps> = ({
   children,
   variant = "primary",
   ...styledProps
@@ -19,6 +19,8 @@ export const Paragraph: FunctionComponent<TextPrimaryProps> = ({
     </StyledTypography>
   );
 };
+
+export { Paragraph, type ParagraphProps };
 
 const Heading = styled.p<{ $variant: ParagraphVariantType }>`
   font-family: ${({ theme }) => theme.typography.fontFamilies.body};

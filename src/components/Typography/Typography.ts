@@ -13,7 +13,7 @@ import {
   Code,
 } from "./components";
 
-export const Typography = {
+const Typography = {
   H1,
   H2,
   H3,
@@ -27,3 +27,5 @@ export const Typography = {
   Highlight,
   Code,
 };
+
+export { Typography };

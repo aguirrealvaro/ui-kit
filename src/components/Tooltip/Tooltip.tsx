@@ -1,12 +1,12 @@
 import { FunctionComponent, ReactElement, cloneElement, isValidElement } from "react";
 import styled from "styled-components";
-import { Popper, PopperProps } from "@/components/Popper";
+import { Popper, PopperProps } from "@/components";
 
 type TooltipProps = PopperProps & {
   id: string;
 };
 
-export const Tooltip: FunctionComponent<TooltipProps> = ({
+const Tooltip: FunctionComponent<TooltipProps> = ({
   id,
   children,
   trigger,
@@ -43,6 +43,8 @@ export const Tooltip: FunctionComponent<TooltipProps> = ({
     </Popper>
   );
 };
+
+export { Tooltip, type TooltipProps };
 
 const Content = styled.span`
   display: block;

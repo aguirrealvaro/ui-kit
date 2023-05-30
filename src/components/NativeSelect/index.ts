@@ -1,1 +1,1 @@
-export { NativeSelect } from "./NativeSelect";
+export { NativeSelect, type NativeSelectProps } from "./NativeSelect";

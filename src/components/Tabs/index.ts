@@ -1,2 +1,2 @@
-export { TabGroup } from "./TabGroup";
-export { TabItem } from "./TabItem";
+export { TabGroup, type TabGroupProps } from "./TabGroup";
+export { TabItem, type TabItemProps } from "./TabItem";

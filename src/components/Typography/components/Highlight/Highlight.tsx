@@ -6,7 +6,7 @@ type HighlightProps = {
   children: ReactNode;
 } & StyledTypographyProps;
 
-export const Highlight: FunctionComponent<HighlightProps> = ({ children, ...styledProps }) => {
+const Highlight: FunctionComponent<HighlightProps> = ({ children, ...styledProps }) => {
   return (
     <StyledTypography {...styledProps}>
       <Mark>{children}</Mark>
@@ -21,3 +21,5 @@ const Mark = styled.mark`
   background-color: ${({ theme }) => theme.colors.yellow.default};
   color: ${({ theme }) => theme.vars.textPrimary};
 `;
+
+export { Highlight, type HighlightProps };

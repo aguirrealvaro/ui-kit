@@ -1,1 +1,1 @@
-export { Highlight } from "./Highlight";
+export { Highlight, type HighlightProps } from "./Highlight";

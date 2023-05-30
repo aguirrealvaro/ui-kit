@@ -9,7 +9,7 @@ type TableProps = {
   size?: TableSizeType;
 };
 
-export const Table: FunctionComponent<TableProps> = ({ columns, data, size = "md" }) => {
+const Table: FunctionComponent<TableProps> = ({ columns, data, size = "md" }) => {
   const paddingSizes: Record<TableSizeType, string> = {
     sm: theme.spacing[4],
     md: theme.spacing[5],
@@ -51,6 +51,8 @@ export const Table: FunctionComponent<TableProps> = ({ columns, data, size = "md
     </Container>
   );
 };
+
+export { Table, type TableProps };
 
 const headerBg = theme.colors.grey[100];
 const tableBorder = theme.colors.grey[200];

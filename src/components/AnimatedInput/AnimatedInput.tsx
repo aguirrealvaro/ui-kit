@@ -26,7 +26,7 @@ type AnimatedInputProps = {
   icon?: ReactNode;
 } & InputHTMLAttributes<HTMLInputElement>;
 
-export const AnimatedInput: FunctionComponent<AnimatedInputProps> = ({
+const AnimatedInput: FunctionComponent<AnimatedInputProps> = ({
   id,
   placeholder,
   onChange,
@@ -161,6 +161,8 @@ export const AnimatedInput: FunctionComponent<AnimatedInputProps> = ({
     </div>
   );
 };
+
+export { AnimatedInput, type AnimatedInputProps };
 
 const InputContainer = styled.div<{
   disabled: boolean;

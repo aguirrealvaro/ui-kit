@@ -1,1 +1,1 @@
-export { Infotip } from "./Infotip";
+export { Infotip, type InfotipProps } from "./Infotip";

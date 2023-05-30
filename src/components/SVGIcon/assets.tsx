@@ -1,6 +1,6 @@
-import { IconType } from "./types";
+import { SVGIconType } from "./types";
 
-export const viewBox: Record<IconType, string> = {
+export const viewBox: Record<SVGIconType, string> = {
   burger: "0 0 448 512",
   close: "0 0 320 512",
   exclamation: "0 0 512 512",
@@ -10,7 +10,7 @@ export const viewBox: Record<IconType, string> = {
   chevron_right: "0 0 320 512",
 };
 
-export const paths: Record<IconType, (color: string) => JSX.Element> = {
+export const paths: Record<SVGIconType, (color: string) => JSX.Element> = {
   burger: (color) => (
     <path
       xmlns="http://www.w3.org/2000/svg"

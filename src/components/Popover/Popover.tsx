@@ -1,12 +1,12 @@
 import { FunctionComponent, ReactElement, cloneElement, isValidElement } from "react";
 import styled from "styled-components";
-import { Popper, PopperProps } from "@/components/Popper";
+import { Popper, PopperProps } from "@/components";
 
 type PopoverProps = PopperProps & {
   id: string;
 };
 
-export const Popover: FunctionComponent<PopoverProps> = ({
+const Popover: FunctionComponent<PopoverProps> = ({
   id,
   children,
   position = "bottom",
@@ -44,6 +44,8 @@ export const Popover: FunctionComponent<PopoverProps> = ({
     </Popper>
   );
 };
+
+export { Popover, type PopoverProps };
 
 const Content = styled.div`
   background-color: ${({ theme }) => theme.vars.bgSecondary};

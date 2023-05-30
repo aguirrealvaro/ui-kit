@@ -12,7 +12,7 @@ type AvatarGroupProps = {
   max?: number;
 };
 
-export const AvatarGroup: FunctionComponent<AvatarGroupProps> = ({
+const AvatarGroup: FunctionComponent<AvatarGroupProps> = ({
   children,
   size = "md",
   shape = "circle",
@@ -62,6 +62,8 @@ export const AvatarGroup: FunctionComponent<AvatarGroupProps> = ({
     </Container>
   );
 };
+
+export { AvatarGroup, type AvatarGroupProps };
 
 const Container = styled.div`
   display: flex;

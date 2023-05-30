@@ -9,7 +9,7 @@ type CardProps = {
   spacing?: Spacing;
 };
 
-export const Card: FunctionComponent<CardProps> = ({
+const Card: FunctionComponent<CardProps> = ({
   children,
   spacing = 4,
   variant = "secondary",
@@ -20,6 +20,8 @@ export const Card: FunctionComponent<CardProps> = ({
     </Container>
   );
 };
+
+export { Card, type CardProps };
 
 const Container = styled.div<{ $spacing: Spacing; $variant: CardVariantType }>`
   padding: ${({ theme, $spacing }) => theme.spacing[$spacing]};

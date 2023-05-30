@@ -2,14 +2,16 @@ import { FunctionComponent, ReactNode } from "react";
 import styled, { css, RuleSet } from "styled-components";
 import { Colors } from "@/css/theme/colors";
 
-type BadeProps = {
+type BadgeProps = {
   children: ReactNode;
   colorScheme?: Colors;
 };
 
-export const Badge: FunctionComponent<BadeProps> = ({ children, colorScheme = "grey" }) => {
+const Badge: FunctionComponent<BadgeProps> = ({ children, colorScheme = "grey" }) => {
   return <Container $colorScheme={colorScheme}>{children}</Container>;
 };
+
+export { Badge, type BadgeProps };
 
 const Container = styled.span<{ $colorScheme: Colors }>`
   padding: 0.2005em 0.4em;

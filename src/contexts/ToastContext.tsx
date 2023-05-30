@@ -6,8 +6,8 @@ import {
   useState,
   ReactNode,
 } from "react";
-import { ToastOptions, ToastPositionType, ToastProps } from "@/components/Toast/Toast.types";
-import { ToastContainer } from "@/components/Toast/ToastContainer";
+import { ToastContainer, type ToastProps } from "@/components";
+import { ToastOptions, ToastPositionType } from "@/components/Toast/Toast.types";
 
 export type ToastContextType = {
   open: (content: ReactNode, options?: ToastOptions) => void;

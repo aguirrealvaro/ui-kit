@@ -1,14 +1,15 @@
 import { FunctionComponent } from "react";
-import { paths, viewBox, IconType } from ".";
+import { paths, viewBox } from "./assets";
+import { SVGIconType } from "./types";
 import { theme } from "@/css";
 
-type IconProps = {
-  icon: IconType;
+type SVGIconProps = {
+  icon: SVGIconType;
   size?: string;
   color?: string;
 };
 
-export const SVGIcon: FunctionComponent<IconProps> = ({ icon, color, size = "2rem" }) => {
+const SVGIcon: FunctionComponent<SVGIconProps> = ({ icon, color, size = "2rem" }) => {
   return (
     <svg
       width={size}
@@ -22,3 +23,5 @@ export const SVGIcon: FunctionComponent<IconProps> = ({ icon, color, size = "2re
     </svg>
   );
 };
+
+export { SVGIcon, type SVGIconProps };

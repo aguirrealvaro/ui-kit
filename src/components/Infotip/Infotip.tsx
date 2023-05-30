@@ -2,8 +2,7 @@ import { FunctionComponent } from "react";
 import { AlertCircle } from "lucide-react";
 import styled from "styled-components";
 import { InfotipSizeType } from "./Infotip.types";
-import { Icon, Tooltip } from "@/components";
-import { PopperProps } from "@/components/Popper";
+import { Icon, PopperProps, Tooltip } from "@/components";
 import { theme } from "@/css";
 
 type InfotipProps = {
@@ -11,7 +10,7 @@ type InfotipProps = {
   size?: InfotipSizeType;
 } & PopperProps;
 
-export const Infotip: FunctionComponent<InfotipProps> = ({
+const Infotip: FunctionComponent<InfotipProps> = ({
   id,
   children,
   size = "sm",
@@ -43,3 +42,5 @@ export const Infotip: FunctionComponent<InfotipProps> = ({
 const IconWrapper = styled.div`
   display: inline-flex;
 `;
+
+export { Infotip, type InfotipProps };

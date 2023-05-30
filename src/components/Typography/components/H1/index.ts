@@ -1,1 +1,1 @@
-export { H1 } from "./H1";
+export { H1, type H1Props } from "./H1";

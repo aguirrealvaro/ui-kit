@@ -17,7 +17,7 @@ import { useDisableScroll, useKeyPress, useDisclosure, useOutsideClick } from "@
 
 const TRANSITION_TIME = theme.transitions.durations.normal;
 
-export type DialogProps = {
+type DialogProps = {
   children: ReactNode;
   id: string;
   trigger: ReactNode;
@@ -25,7 +25,7 @@ export type DialogProps = {
   closeOnInteractions?: boolean;
 };
 
-export const Dialog: FunctionComponent<DialogProps> = ({
+const Dialog: FunctionComponent<DialogProps> = ({
   children,
   id,
   trigger,
@@ -96,6 +96,8 @@ export const Dialog: FunctionComponent<DialogProps> = ({
     </>
   );
 };
+
+export { Dialog, type DialogProps };
 
 const fadeInBackdrop = keyframes`
   from { opacity: 0 }

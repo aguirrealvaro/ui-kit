@@ -1,6 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import styled from "styled-components";
-import { SVGIcon, ALL_ICONS } from "@/components/SVGIcon";
+import { ALL_ICONS } from "./types";
+import { SVGIcon } from "@/components";
 
 export default {
   title: "Components/SVGIcon",

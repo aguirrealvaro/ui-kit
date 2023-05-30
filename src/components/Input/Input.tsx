@@ -30,7 +30,7 @@ type InputProps = {
   size?: InputSizeType;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "size">;
 
-export const Input: FunctionComponent<InputProps> = ({
+const Input: FunctionComponent<InputProps> = ({
   id,
   label,
   helpMessage,
@@ -174,6 +174,8 @@ export const Input: FunctionComponent<InputProps> = ({
     </div>
   );
 };
+
+export { Input, type InputProps };
 
 const Label = styled.label<{ $size: InputSizeType }>`
   display: block;

@@ -8,7 +8,7 @@ import { theme } from "@/css";
 import { Colors } from "@/css/theme/colors";
 import { useToast } from "@/hooks";
 
-export const Toast: FunctionComponent<ToastProps> = ({
+const Toast: FunctionComponent<ToastProps> = ({
   children,
   id,
   duration = 5000,
@@ -84,6 +84,8 @@ export const Toast: FunctionComponent<ToastProps> = ({
     </Container>
   );
 };
+
+export { Toast };
 
 const fadeInScale = keyframes`
   from { opacity: 0; transform: scale(0.9); }

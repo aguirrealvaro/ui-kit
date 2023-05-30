@@ -6,7 +6,7 @@ type H2Props = {
   children: ReactNode;
 } & StyledTypographyProps;
 
-export const H2: FunctionComponent<H2Props> = ({ children, ...styledProps }) => {
+const H2: FunctionComponent<H2Props> = ({ children, ...styledProps }) => {
   return (
     <StyledTypography {...styledProps}>
       <Heading>{children}</Heading>
@@ -20,3 +20,5 @@ const Heading = styled.h2`
   font-weight: ${({ theme }) => theme.typography.fontWeights.semibold};
   color: ${({ theme }) => theme.vars.textHeading};
 `;
+
+export { H2, type H2Props };

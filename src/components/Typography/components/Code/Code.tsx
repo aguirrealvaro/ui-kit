@@ -2,11 +2,11 @@ import { FunctionComponent, ReactNode } from "react";
 import styled from "styled-components";
 import { StyledTypography, StyledTypographyProps } from "../StyledTypography/StyledTypography";
 
-type Codeprops = {
+type CodeProps = {
   children: ReactNode;
 } & StyledTypographyProps;
 
-export const Code: FunctionComponent<Codeprops> = ({ children, ...styledProps }) => {
+const Code: FunctionComponent<CodeProps> = ({ children, ...styledProps }) => {
   return (
     <StyledTypography {...styledProps}>
       <Mark>{children}</Mark>
@@ -24,3 +24,5 @@ const Mark = styled.code`
   padding: ${({ theme }) => `${theme.spacing[0.5]} ${theme.spacing[1]}`};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
 `;
+
+export { Code, type CodeProps };
