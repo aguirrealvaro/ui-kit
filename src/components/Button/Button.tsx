@@ -165,9 +165,9 @@ const getColorStyles = (colorScheme: Colors, variant: ButtonVariantType): RuleSe
     grey: css`
       border-color: transparent;
       color: ${theme.colors.grey[600]};
-      background-color: ${theme.colors.grey[100]};
+      background-color: ${theme.colors.grey[200]};
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.grey[200]};
+        background-color: ${theme.colors.grey[300]};
       }
     `,
     blue: css`
@@ -180,7 +180,7 @@ const getColorStyles = (colorScheme: Colors, variant: ButtonVariantType): RuleSe
     `,
     green: css`
       border-color: transparent;
-      color: ${theme.colors.green[600]};
+      color: ${theme.colors.green[700]};
       background-color: ${theme.colors.green[100]};
       &:hover:not([disabled]) {
         background-color: ${theme.colors.green[200]};
@@ -252,35 +252,35 @@ const getColorStyles = (colorScheme: Colors, variant: ButtonVariantType): RuleSe
       color: ${theme.colors.grey.default};
       background-color: transparent;
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.grey[100]};
+        background-color: ${theme.colors.grey[200]};
       }
     `,
     blue: css`
       color: ${theme.colors.blue.default};
       background-color: transparent;
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.blue[50]};
+        background-color: ${theme.colors.blue[100]};
       }
     `,
     green: css`
       color: ${theme.colors.green.default};
       background-color: transparent;
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.green[50]};
+        background-color: ${theme.colors.green[100]};
       }
     `,
     yellow: css`
       color: ${theme.colors.yellow.default};
       background-color: transparent;
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.yellow[50]};
+        background-color: ${theme.colors.yellow[100]};
       }
     `,
     red: css`
       color: ${theme.colors.red.default};
       background-color: transparent;
       &:hover:not([disabled]) {
-        background-color: ${theme.colors.red[50]};
+        background-color: ${theme.colors.red[100]};
       }
     `,
   };
