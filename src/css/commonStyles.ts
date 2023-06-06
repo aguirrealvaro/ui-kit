@@ -21,7 +21,7 @@ export const HelpMessage = styled.span<{ size: HelpMessageType }>`
     };
     return sizes[size];
   }};
-  color: ${({ theme }) => theme.vars.textSecondary};
+  color: ${({ theme }) => theme.tokens.textSecondary};
   font-size: ${({ size, theme }) => {
     const sizes: Record<HelpMessageType, string> = {
       sm: theme.typography.fontSizes.xs,

@@ -113,7 +113,7 @@ export { TabGroup, type TabGroupProps };
 const TabList = styled.ul`
   display: flex;
   margin-bottom: ${({ theme }) => theme.spacing[4]};
-  border-bottom: 1px solid ${({ theme }) => theme.vars.border};
+  border-bottom: 1px solid ${({ theme }) => theme.tokens.border};
   flex-wrap: wrap;
 `;
 
@@ -132,7 +132,7 @@ const TabItem = styled.button<{ $active: boolean }>`
       `;
     } else {
       return css`
-        color: ${theme.vars.textPrimary};
+        color: ${theme.tokens.textPrimary};
         border-bottom: 2px solid transparent;
       `;
     }

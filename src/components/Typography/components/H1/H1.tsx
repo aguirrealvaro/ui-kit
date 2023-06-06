@@ -18,7 +18,7 @@ const Heading = styled.h2`
   font-family: ${({ theme }) => theme.typography.fontFamilies.heading};
   font-size: ${({ theme }) => theme.typography.fontSizes["4xl"]};
   font-weight: ${({ theme }) => theme.typography.fontWeights.bold};
-  color: ${({ theme }) => theme.vars.textHeading};
+  color: ${({ theme }) => theme.tokens.textHeading};
 `;
 
 export { H1, type H1Props };

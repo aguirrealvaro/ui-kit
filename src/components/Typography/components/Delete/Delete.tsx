@@ -25,7 +25,7 @@ const CustomUnderline = styled.del<{ $variant: DeleteVariantType }>`
   font-size: ${({ theme }) => theme.typography.fontSizes["md"]};
   font-weight: ${({ theme }) => theme.typography.fontWeights.normal};
   color: ${({ theme, $variant }) =>
-    $variant === "primary" ? theme.vars.textPrimary : theme.vars.textSecondary};
+    $variant === "primary" ? theme.tokens.textPrimary : theme.tokens.textSecondary};
 `;
 
 export { Delete, type DeleteProps };

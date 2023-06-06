@@ -206,7 +206,7 @@ export { Select, type SelectProps };
 const Label = styled.label<{ $size: SelectSizeType }>`
   display: block;
   margin-bottom: ${({ theme }) => theme.spacing[2]};
-  color: ${({ theme }) => theme.vars.textSecondary};
+  color: ${({ theme }) => theme.tokens.textSecondary};
   font-size: ${({ $size, theme }) => {
     const sizes: Record<SelectSizeType, string> = {
       sm: theme.typography.fontSizes.sm,
@@ -230,7 +230,7 @@ const SelectContainer = styled.div<{
   justify-content: space-between;
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   color: ${({ theme, $isSelected }) =>
-    $isSelected ? theme.vars.textPrimary : theme.vars.textSecondary};
+    $isSelected ? theme.tokens.textPrimary : theme.tokens.textSecondary};
   height: ${({ $size, theme }) => {
     const sizes: Record<SelectSizeType, string> = {
       sm: theme.spacing[8],
@@ -250,7 +250,7 @@ const SelectContainer = styled.div<{
       return theme.colors.green.default;
     }
 
-    return theme.vars.border;
+    return theme.tokens.border;
   }};
   outline: none;
   &:focus {
@@ -271,7 +271,7 @@ const SelectContainer = styled.div<{
   ${({ $disabled, theme }) => {
     if ($disabled) {
       return css`
-        background-color: ${theme.vars.disabledPrimary};
+        background-color: ${theme.tokens.disabledPrimary};
         border-color: transparent;
         cursor: not-allowed;
       `;
@@ -314,8 +314,8 @@ const Dropdown = styled.div<{
   }};
   z-index: ${({ theme }) => theme.zIndex.selectDropdown};
   padding: ${({ theme }) => theme.spacing[2]};
-  border: 1px solid ${({ theme }) => theme.vars.border};
-  background-color: ${({ theme }) => theme.vars.bgPrimary};
+  border: 1px solid ${({ theme }) => theme.tokens.border};
+  background-color: ${({ theme }) => theme.tokens.bgPrimary};
   box-shadow: ${({ theme }) => theme.shadows.sm};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   width: 100%;
@@ -338,7 +338,7 @@ const Dropdown = styled.div<{
 const Option = styled.button<{ $isSelected: boolean }>`
   padding: ${({ theme }) => `${theme.spacing[2]} ${theme.spacing[3]}`};
   text-align: left;
-  color: ${({ theme }) => theme.vars.textPrimary};
+  color: ${({ theme }) => theme.tokens.textPrimary};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   ${({ $isSelected, theme }) =>
     $isSelected
@@ -348,12 +348,12 @@ const Option = styled.button<{ $isSelected: boolean }>`
         `
       : css`
           &:hover:not([disabled]) {
-            background-color: ${theme.vars.hover};
+            background-color: ${theme.tokens.hover};
           }
         `};
   &:disabled {
     background-color: none;
-    color: ${({ theme }) => theme.vars.disabledPrimary};
+    color: ${({ theme }) => theme.tokens.disabledPrimary};
     cursor: not-allowed;
   }
 `;
@@ -383,7 +383,7 @@ const ChevronWrapper = styled.div<{ $active: boolean }>`
 `;
 
 const HelpMessage = styled.span`
-  color: ${({ theme }) => theme.vars.textSecondary};
+  color: ${({ theme }) => theme.tokens.textSecondary};
 `;
 
 const SuccessMessage = styled.span`

@@ -130,7 +130,7 @@ const Pill = styled.span<{
     if ($disabled) {
       return css`
         cursor: not-allowed;
-        background-color: ${theme.vars.disabledPrimary};
+        background-color: ${theme.tokens.disabledPrimary};
         box-shadow: ${({ theme }) => theme.shadows.none};
       `;
     }

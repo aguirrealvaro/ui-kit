@@ -19,6 +19,6 @@ const Container = styled.div`
   cursor: default;
   padding: ${({ theme }) => theme.spacing[1.5]} ${({ theme }) => theme.spacing[2]};
   &:hover {
-    background-color: ${({ theme }) => theme.vars.hover};
+    background-color: ${({ theme }) => theme.tokens.hover};
   }
 `;

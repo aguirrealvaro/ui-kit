@@ -11,7 +11,7 @@ export const DropdownMenuTitle: FunctionComponent<DropdownMenuTitleProps> = ({ c
 
 const Title = styled.span`
   display: block;
-  color: ${({ theme }) => theme.vars.textSecondary};
+  color: ${({ theme }) => theme.tokens.textSecondary};
   text-transform: uppercase;
   font-size: ${({ theme }) => theme.typography.fontSizes.sm};
   padding: ${({ theme }) => theme.spacing[1.5]} ${({ theme }) => theme.spacing[2]};

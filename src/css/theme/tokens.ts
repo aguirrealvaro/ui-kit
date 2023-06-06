@@ -1,6 +1,6 @@
 import { colors } from "./colors";
 
-type Vars =
+type Tokens =
   | "bgPrimary"
   | "bgSecondary"
   | "border"
@@ -11,9 +11,9 @@ type Vars =
   | "disabledPrimary"
   | "disabledSecondary";
 
-export type VarsType = Record<Vars, string>;
+export type TokensType = Record<Tokens, string>;
 
-export const vars: VarsType = {
+export const tokens: TokensType = {
   bgPrimary: colors.grey[50],
   bgSecondary: colors.white,
 

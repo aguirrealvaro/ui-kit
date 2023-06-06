@@ -12,7 +12,6 @@ React component library and custom hooks. Personally, I'm not a big fan of any c
 
 ### To do
 
-- rename vars to tokens
 - Popper: pass disclosure props on trigger render
 - Dropdown: interactions with rest components, escape, init focus
 - Dialog: fix outside click with focus trap

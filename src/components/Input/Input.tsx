@@ -180,7 +180,7 @@ export { Input, type InputProps };
 const Label = styled.label<{ $size: InputSizeType }>`
   display: block;
   margin-bottom: ${({ theme }) => theme.spacing[2]};
-  color: ${({ theme }) => theme.vars.textSecondary};
+  color: ${({ theme }) => theme.tokens.textSecondary};
   font-size: ${({ $size, theme }) => {
     const sizes: Record<InputSizeType, string> = {
       sm: theme.typography.fontSizes.sm,
@@ -221,7 +221,7 @@ const InputContainer = styled.div<{
       `;
     }
     return css`
-      border-color: ${({ theme }) => theme.vars.border};
+      border-color: ${({ theme }) => theme.tokens.border};
       &:focus-within {
         outline: 2px solid ${({ theme }) => theme.colors.grey.default};
         border-color: transparent;
@@ -239,7 +239,7 @@ const InputContainer = styled.div<{
   ${({ $disabled, theme }) =>
     $disabled &&
     css`
-      background-color: ${theme.vars.disabledPrimary};
+      background-color: ${theme.tokens.disabledPrimary};
       border: transparent;
       cursor: not-allowed;
     `};
@@ -268,7 +268,7 @@ const CustomInput = styled.input<{
   border: none;
   background-color: transparent;
   padding: 0 ${({ theme }) => theme.spacing[4]};
-  color: ${({ theme }) => theme.vars.textPrimary};
+  color: ${({ theme }) => theme.tokens.textPrimary};
   width: ${({ $sideWidth }) => {
     if ($sideWidth) {
       return `calc(100% - ${$sideWidth}px - 20px)`;
@@ -288,7 +288,7 @@ const CustomInput = styled.input<{
     cursor: not-allowed;
   }
   &::placeholder {
-    color: ${({ theme }) => theme.vars.textSecondary};
+    color: ${({ theme }) => theme.tokens.textSecondary};
   }
 `;
 
@@ -307,7 +307,7 @@ const BottomText = styled.div<{ $size: InputSizeType }>`
 `;
 
 const HelpMessage = styled.span`
-  color: ${({ theme }) => theme.vars.textSecondary};
+  color: ${({ theme }) => theme.tokens.textSecondary};
 `;
 
 const SuccessMessage = styled.span`

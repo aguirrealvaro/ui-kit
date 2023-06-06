@@ -48,7 +48,7 @@ const Popover: FunctionComponent<PopoverProps> = ({
 export { Popover, type PopoverProps };
 
 const Content = styled.div`
-  background-color: ${({ theme }) => theme.vars.bgSecondary};
+  background-color: ${({ theme }) => theme.tokens.bgSecondary};
   box-shadow: ${({ theme }) => theme.shadows.sm};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   padding: ${({ theme }) => theme.spacing[1]};

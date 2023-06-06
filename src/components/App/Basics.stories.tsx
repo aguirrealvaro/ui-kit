@@ -7,12 +7,12 @@ export default {
 export const Primary = () => {
   const basics = [
     {
-      bg: theme.vars.bgPrimary,
-      border: theme.vars.border,
+      bg: theme.tokens.bgPrimary,
+      border: theme.tokens.border,
     },
     {
-      bg: theme.vars.bgSecondary,
-      border: theme.vars.border,
+      bg: theme.tokens.bgSecondary,
+      border: theme.tokens.border,
     },
   ];
 
@@ -56,6 +56,6 @@ const Item = styled.div<{ border: string }>`
     border-bottom: none;
   }
   &:hover {
-    background-color: ${({ theme }) => theme.vars.hover};
+    background-color: ${({ theme }) => theme.tokens.hover};
   }
 `;

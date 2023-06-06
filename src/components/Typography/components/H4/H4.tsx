@@ -18,7 +18,7 @@ const Heading = styled.h4`
   font-family: ${({ theme }) => theme.typography.fontFamilies.heading};
   font-size: ${({ theme }) => theme.typography.fontSizes["xl"]};
   font-weight: ${({ theme }) => theme.typography.fontWeights.normal};
-  color: ${({ theme }) => theme.vars.textHeading};
+  color: ${({ theme }) => theme.tokens.textHeading};
 `;
 
 export { H4, type H4Props };

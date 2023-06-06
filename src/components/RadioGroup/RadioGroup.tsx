@@ -191,7 +191,8 @@ const RadioButton = styled.button<{
   width: ${({ $radioSize }) => $radioSize};
   height: ${({ $radioSize }) => $radioSize};
   border: 1px solid
-    ${({ theme, $isChecked }) => ($isChecked ? theme.colors.grey.default : theme.vars.border)};
+    ${({ theme, $isChecked }) =>
+      $isChecked ? theme.colors.grey.default : theme.tokens.border};
   border-radius: ${({ theme }) => theme.borderRadius.full};
   :after {
     content: "";

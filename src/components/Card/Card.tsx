@@ -28,8 +28,8 @@ const Container = styled.div<{ $spacing: Spacing; $variant: CardVariantType }>`
   box-shadow: ${({ theme }) => theme.shadows.md};
   background-color: ${({ theme, $variant }) => {
     const bgColors: Record<CardVariantType, string> = {
-      primary: theme.vars.bgPrimary,
-      secondary: theme.vars.bgSecondary,
+      primary: theme.tokens.bgPrimary,
+      secondary: theme.tokens.bgSecondary,
     };
     return bgColors[$variant];
   }};

@@ -69,7 +69,7 @@ const Container = styled.header`
   display: flex;
   align-items: center;
   height: ${({ theme }) => theme.spacing[20]};
-  background-color: ${({ theme }) => theme.vars.bgSecondary};
+  background-color: ${({ theme }) => theme.tokens.bgSecondary};
   box-shadow: ${({ theme }) => theme.shadows.sm};
 `;
 

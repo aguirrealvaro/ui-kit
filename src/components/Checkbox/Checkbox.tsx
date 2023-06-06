@@ -84,7 +84,7 @@ const CheckboxButton = styled.button<{
   justify-content: center;
   width: ${({ $iconSize }) => $iconSize};
   height: ${({ $iconSize }) => $iconSize};
-  border: 1px solid ${({ theme }) => theme.vars.border};
+  border: 1px solid ${({ theme }) => theme.tokens.border};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   background-color: ${({ $checked, $color }) => $checked && $color};
   order: ${({ $position }) => ($position === "left" ? 1 : 2)};

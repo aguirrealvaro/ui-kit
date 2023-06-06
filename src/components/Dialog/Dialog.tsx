@@ -158,7 +158,7 @@ const Content = styled.div<{
   }};
   min-height: ${({ theme }) => theme.spacing[28]};
   max-height: 80vh;
-  background-color: ${({ theme }) => theme.vars.bgSecondary};
+  background-color: ${({ theme }) => theme.tokens.bgSecondary};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   box-shadow: ${({ theme }) => theme.shadows.sm};
   display: flex;

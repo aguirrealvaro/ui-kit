@@ -19,7 +19,7 @@ const Line = styled.div<{
   $orientation: SeparatorOrientatorType;
   $spacing: Spacing;
 }>`
-  background-color: ${({ theme }) => theme.vars.border};
+  background-color: ${({ theme }) => theme.tokens.border};
   border: none;
   ${({ theme, $orientation, $spacing }) => {
     if ($orientation === "horizontal") {
