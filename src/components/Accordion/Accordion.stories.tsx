@@ -38,6 +38,5 @@ const Template: ComponentStory<typeof AccordionGroup> = (args) => {
 
 export const Primary = Template.bind({});
 Primary.args = {
-  id: "story",
   arrowPosition: "right",
 };

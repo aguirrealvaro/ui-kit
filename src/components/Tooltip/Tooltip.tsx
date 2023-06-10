@@ -1,19 +1,15 @@
-import { FunctionComponent, ReactElement, cloneElement, isValidElement } from "react";
+import { FunctionComponent, ReactElement, cloneElement, isValidElement, useId } from "react";
 import styled from "styled-components";
-import { Popper, PopperProps } from "@/components";
+import { Popper, type PopperProps } from "@/components";
 
-type TooltipProps = PopperProps & {
-  id: string;
-};
-
-const Tooltip: FunctionComponent<TooltipProps> = ({
-  id,
+const Tooltip: FunctionComponent<PopperProps> = ({
   children,
   trigger,
   position = "right",
   triggerMode = "hover",
   ...restProps
 }) => {
+  const id = useId();
   const contentId = `${id}-content`;
 
   const popUp = "dialog";
@@ -44,7 +40,7 @@ const Tooltip: FunctionComponent<TooltipProps> = ({
   );
 };
 
-export { Tooltip, type TooltipProps };
+export { Tooltip };
 
 const Content = styled.span`
   display: block;

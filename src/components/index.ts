@@ -2,9 +2,9 @@ export { Spinner, type SpinnerProps } from "./Spinner";
 export { AnimatedInput, type AnimatedInputProps } from "./AnimatedInput";
 export { Dialog, type DialogProps, DialogHeader, DialogContent, DialogFooter } from "./Dialog";
 export { SVGIcon, type SVGIconProps } from "./SVGIcon";
-export { Tooltip, type TooltipProps } from "./Tooltip";
+export { Tooltip } from "./Tooltip";
 export { Infotip, type InfotipProps } from "./Infotip";
-export { DropdownMenu, type DropdownMenuProps } from "./DropdownMenu";
+export { DropdownMenu } from "./DropdownMenu";
 export { Carousel, type CarouselProps } from "./Carousel";
 export { Button, type ButtonProps } from "./Button";
 export { Link, type LinkProps } from "./Link";
@@ -48,7 +48,7 @@ export {
   type AccordionItemProps,
 } from "./Accordion";
 export { Icon, type IconProps } from "./Icon";
-export { Navbar, type NavbarProps } from "./Navbar";
+export { Navbar } from "./Navbar";
 export { Toggle, type ToggleProps } from "./Toggle";
 export { Popper, type PopperProps } from "./Popper";
-export { Popover, type PopoverProps } from "./Popover";
+export { Popover } from "./Popover";

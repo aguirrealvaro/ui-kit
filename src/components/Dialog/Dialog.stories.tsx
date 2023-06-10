@@ -30,7 +30,6 @@ const Template: ComponentStory<typeof Dialog> = ({ trigger: dummyTrigger, ...arg
 
 export const Primary = Template.bind({});
 Primary.args = {
-  id: "dialog-story",
   size: "sm",
   closeOnInteractions: true,
 };

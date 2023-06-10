@@ -8,6 +8,7 @@ import {
   useState,
   MouseEvent,
   KeyboardEvent,
+  useId,
 } from "react";
 import { CheckCircle2, XCircle, X, Eye, EyeOff } from "lucide-react";
 import styled, { css } from "styled-components";
@@ -15,7 +16,6 @@ import { Spinner, Icon, IconButton } from "@/components";
 import { theme } from "@/css";
 
 type AnimatedInputProps = {
-  id: string;
   helpMessage?: ReactNode;
   isError?: boolean;
   errorMessage?: ReactNode;
@@ -24,10 +24,9 @@ type AnimatedInputProps = {
   isLoading?: boolean;
   clearValue?: () => void;
   icon?: ReactNode;
-} & InputHTMLAttributes<HTMLInputElement>;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "id">;
 
 const AnimatedInput: FunctionComponent<AnimatedInputProps> = ({
-  id,
   placeholder,
   onChange,
   helpMessage,
@@ -43,6 +42,7 @@ const AnimatedInput: FunctionComponent<AnimatedInputProps> = ({
   type,
   ...restProps
 }) => {
+  const id = useId();
   const [seePassword, setSeePassword] = useState<boolean>(false);
 
   const inputRef = useRef<HTMLInputElement>(null);

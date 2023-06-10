@@ -43,7 +43,6 @@ const Template: ComponentStory<typeof Select> = ({
 
 export const Primary = Template.bind({});
 Primary.args = {
-  id: "select-story",
   placeholder: "Placeholder",
   label: "Label:",
   helpMessage: "help message",

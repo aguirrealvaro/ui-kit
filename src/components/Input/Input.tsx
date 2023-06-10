@@ -8,6 +8,7 @@ import {
   useState,
   MouseEvent,
   KeyboardEvent,
+  useId,
 } from "react";
 import { CheckCircle2, Eye, EyeOff, X, XCircle } from "lucide-react";
 import styled, { css } from "styled-components";
@@ -16,7 +17,6 @@ import { Spinner, IconButton, Icon } from "@/components";
 import { theme } from "@/css";
 
 type InputProps = {
-  id: string;
   label?: ReactNode;
   helpMessage?: ReactNode;
   isError?: boolean;
@@ -28,10 +28,9 @@ type InputProps = {
   endElement?: ReactNode;
   startElement?: ReactNode;
   size?: InputSizeType;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "size">;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "id">;
 
 const Input: FunctionComponent<InputProps> = ({
-  id,
   label,
   helpMessage,
   isError = false,
@@ -49,6 +48,7 @@ const Input: FunctionComponent<InputProps> = ({
   size = "md",
   ...restProps
 }) => {
+  const id = useId();
   const [seePassword, setSeePassword] = useState<boolean>(false);
 
   const inputRef = useRef<HTMLInputElement>(null);

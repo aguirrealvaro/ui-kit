@@ -1,14 +1,12 @@
-import { FunctionComponent, useLayoutEffect, useRef, useState } from "react";
+import { FunctionComponent, useId, useLayoutEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { Burger, MobileMenu } from "./components";
 import { Wrapper, theme } from "@/css";
 import { useDisclosure } from "@/hooks";
 
-type NavbarProps = {
-  id: string;
-};
+const Navbar: FunctionComponent = () => {
+  const id = useId();
 
-const Navbar: FunctionComponent<NavbarProps> = ({ id }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [navbarHeight, setNavbarHeight] = useState<number | undefined>(0);
 
@@ -63,7 +61,7 @@ const Navbar: FunctionComponent<NavbarProps> = ({ id }) => {
   );
 };
 
-export { Navbar, type NavbarProps };
+export { Navbar };
 
 const Container = styled.header`
   display: flex;

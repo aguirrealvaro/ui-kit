@@ -1,25 +1,21 @@
-import { FunctionComponent, ReactElement, cloneElement, isValidElement } from "react";
+import { FunctionComponent, ReactElement, cloneElement, isValidElement, useId } from "react";
 import styled from "styled-components";
 import { Popper, PopperProps } from "@/components";
 
-type PopoverProps = PopperProps & {
-  id: string;
-};
+const POP_UP_TYPE = "dialog";
 
-const Popover: FunctionComponent<PopoverProps> = ({
-  id,
+const Popover: FunctionComponent<PopperProps> = ({
   children,
   position = "bottom",
   trigger,
   triggerMode = "click",
   ...restProps
 }) => {
+  const id = useId();
   const contentId = `${id}-content`;
 
-  const popUp = "dialog";
-
   const popUpProps = {
-    "aria-haspopup": popUp,
+    "aria-haspopup": POP_UP_TYPE,
     "aria-controls": contentId,
   };
 
@@ -38,14 +34,14 @@ const Popover: FunctionComponent<PopoverProps> = ({
       triggerMode={triggerMode}
       {...restProps}
     >
-      <Content id={contentId} aria-labelledby={id} role={popUp}>
+      <Content id={contentId} aria-labelledby={id} role={POP_UP_TYPE}>
         {children}
       </Content>
     </Popper>
   );
 };
 
-export { Popover, type PopoverProps };
+export { Popover };
 
 const Content = styled.div`
   background-color: ${({ theme }) => theme.tokens.bgSecondary};

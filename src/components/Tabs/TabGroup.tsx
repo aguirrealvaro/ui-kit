@@ -6,16 +6,17 @@ import {
   isValidElement,
   KeyboardEvent,
   useRef,
+  useId,
 } from "react";
 import styled, { css } from "styled-components";
 import { TabItemProps } from "./TabItem";
 
 type TabGroupProps = {
   children: ReactNode;
-  id: string;
 };
 
-const TabGroup: FunctionComponent<TabGroupProps> = ({ children, id }) => {
+const TabGroup: FunctionComponent<TabGroupProps> = ({ children }) => {
+  const id = useId();
   const [selectedTab, setSelectedTab] = useState<number>(0);
 
   const tabsRef = useRef<HTMLButtonElement[]>([]);

@@ -5,6 +5,7 @@ import {
   isValidElement,
   cloneElement,
   ReactElement,
+  useId,
 } from "react";
 import { createPortal } from "react-dom";
 import FocusTrap from "focus-trap-react";
@@ -19,7 +20,6 @@ const TRANSITION_TIME = theme.transitions.durations.normal;
 
 type DialogProps = {
   children: ReactNode;
-  id: string;
   trigger: ReactNode;
   size?: DialogSizeType;
   closeOnInteractions?: boolean;
@@ -27,11 +27,11 @@ type DialogProps = {
 
 const Dialog: FunctionComponent<DialogProps> = ({
   children,
-  id,
   trigger,
   size = "sm",
   closeOnInteractions = true,
 }) => {
+  const id = useId();
   const contentRef = useRef<HTMLDivElement>(null);
 
   const { isOpen, onOpen, onClose, isUnmounting } = useDisclosure({

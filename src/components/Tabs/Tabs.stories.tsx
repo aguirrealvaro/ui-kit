@@ -21,6 +21,3 @@ const Template: ComponentStory<typeof TabGroup> = (args) => {
 };
 
 export const Primary = Template.bind({});
-Primary.args = {
-  id: "tabs-story",
-};

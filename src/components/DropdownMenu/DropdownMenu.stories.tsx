@@ -47,7 +47,6 @@ const Template: ComponentStory<typeof DropdownMenu> = ({ trigger: dummyTrigger, 
 
 export const Primary = Template.bind({});
 Primary.args = {
-  id: "dropdown-story",
   position: "bottom",
   gap: 16,
   triggerMode: "click",

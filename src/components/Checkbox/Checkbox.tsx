@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FunctionComponent, ReactNode } from "react";
+import { ButtonHTMLAttributes, FunctionComponent, ReactNode, useId } from "react";
 import { Check } from "lucide-react";
 import styled from "styled-components";
 import { CheckboxPositionType, CheckboxSizeType } from "./Checkbox.types";
@@ -7,18 +7,16 @@ import { HelpMessage, theme } from "@/css";
 
 type CheckboxProps = {
   children: ReactNode;
-  id: string;
   checked: boolean;
   onChange: () => void;
   color?: string;
   size?: CheckboxSizeType;
   helpMessage?: ReactNode;
   position?: CheckboxPositionType;
-} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "size" | "onChange">;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "id" | "onChange">;
 
 const Checkbox: FunctionComponent<CheckboxProps> = ({
   children,
-  id,
   checked,
   onChange,
   disabled = false,
@@ -28,6 +26,8 @@ const Checkbox: FunctionComponent<CheckboxProps> = ({
   position = "left",
   ...restProps
 }) => {
+  const id = useId();
+
   const sizes: Record<CheckboxSizeType, string> = {
     sm: theme.spacing[3.5],
     md: theme.spacing[4],

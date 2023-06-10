@@ -4,6 +4,7 @@ import {
   ReactNode,
   SelectHTMLAttributes,
   KeyboardEvent,
+  useId,
 } from "react";
 import { ChevronDown, X } from "lucide-react";
 import styled from "styled-components";
@@ -12,7 +13,6 @@ import { NativeSelectFieldType } from "./NativeSelect.types";
 import { Icon, IconButton, Spinner } from "@/components";
 
 type NativeSelectProps = {
-  id: string;
   label?: ReactNode;
   options: NativeSelectFieldType[];
   clearValue?: () => void;
@@ -23,10 +23,9 @@ type NativeSelectProps = {
   successMessage?: ReactNode;
   size?: SelectSizeType;
   isLoading?: boolean;
-} & Omit<SelectHTMLAttributes<HTMLSelectElement>, "size">;
+} & Omit<SelectHTMLAttributes<HTMLSelectElement>, "size" | "id">;
 
 const NativeSelect: FunctionComponent<NativeSelectProps> = ({
-  id,
   value,
   onChange,
   options,
@@ -43,6 +42,8 @@ const NativeSelect: FunctionComponent<NativeSelectProps> = ({
   isLoading,
   ...restProps
 }) => {
+  const id = useId();
+
   const handleClearValue = (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     clearValue?.();

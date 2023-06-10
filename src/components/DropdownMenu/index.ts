@@ -1,1 +1,1 @@
-export { DropdownMenu, type DropdownMenuProps } from "./DropdownMenu";
+export { DropdownMenu } from "./DropdownMenu";

@@ -1,1 +1,1 @@
-export { Navbar, type NavbarProps } from "./Navbar";
+export { Navbar } from "./Navbar";

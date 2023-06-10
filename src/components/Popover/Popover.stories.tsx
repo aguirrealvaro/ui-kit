@@ -23,7 +23,6 @@ const Template: ComponentStory<typeof Popover> = ({ trigger: dummyTrigger, ...ar
 
 export const Primary = Template.bind({});
 Primary.args = {
-  id: "popover",
   position: "bottom",
   gap: 8,
   triggerMode: "click",

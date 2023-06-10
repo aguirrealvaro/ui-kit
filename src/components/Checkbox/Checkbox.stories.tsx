@@ -16,7 +16,6 @@ const Template: ComponentStory<typeof Checkbox> = ({ onChange: _, checked: __, .
 export const Primary = Template.bind({});
 Primary.args = {
   children: "This is a checkbox",
-  id: "checkbox-story",
   size: "md",
   helpMessage: "This is a help message",
   position: "left",

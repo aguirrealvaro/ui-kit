@@ -6,6 +6,7 @@ import {
   useState,
   useRef,
   KeyboardEvent,
+  useId,
 } from "react";
 import { ChevronDown } from "lucide-react";
 import styled, { css } from "styled-components";
@@ -15,15 +16,14 @@ import { Icon } from "@/components";
 
 type AccordionGroupProps = {
   children: ReactNode;
-  id: string;
   arrowPosition?: AccordionArrowPosition;
 };
 
 const AccordionGroup: FunctionComponent<AccordionGroupProps> = ({
   children,
-  id,
   arrowPosition = "left",
 }) => {
+  const id = useId();
   const accordionTriggersRef = useRef<HTMLButtonElement[]>([]);
   const accordionContentsRef = useRef<HTMLDivElement[]>([]);
 

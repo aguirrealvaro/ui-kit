@@ -19,7 +19,6 @@ const Template: ComponentStory<typeof Tooltip> = ({ trigger: dummyTrigger, ...ar
 
 export const Primary = Template.bind({});
 Primary.args = {
-  id: "tooltip-story",
   position: "right",
   gap: 8,
   triggerMode: "hover",

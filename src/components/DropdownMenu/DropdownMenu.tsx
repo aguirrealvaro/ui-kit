@@ -6,22 +6,19 @@ import {
   KeyboardEvent,
   Children,
   useRef,
+  useId,
 } from "react";
 import styled from "styled-components";
-import { Popper, PopperProps } from "@/components";
+import { Popper, type PopperProps } from "@/components";
 
-type DropdownMenuProps = PopperProps & {
-  id: string;
-};
-
-const DropdownMenu: FunctionComponent<DropdownMenuProps> = ({
-  id,
+const DropdownMenu: FunctionComponent<PopperProps> = ({
   children,
   trigger,
   triggerMode = "click",
   position = "bottom",
   ...restProps
 }) => {
+  const id = useId();
   const dropdownMenuItemsRef = useRef<HTMLDivElement[]>([]);
 
   const contentId = `${id}-content`;
@@ -113,7 +110,7 @@ const DropdownMenu: FunctionComponent<DropdownMenuProps> = ({
   );
 };
 
-export { DropdownMenu, type DropdownMenuProps };
+export { DropdownMenu };
 
 const Content = styled.div`
   background-color: ${({ theme }) => theme.tokens.bgSecondary};

@@ -1,18 +1,17 @@
-import { ButtonHTMLAttributes, FunctionComponent, ReactNode } from "react";
+import { ButtonHTMLAttributes, FunctionComponent, ReactNode, useId } from "react";
 import styled, { css } from "styled-components";
 import { SwitchPositionType, SwitchSizeType } from "./Switch.types";
 import { HelpMessage, ThemeType, theme } from "@/css";
 
 type SwitchProps = {
   children: ReactNode;
-  id: string;
   checked: boolean;
   onChange: () => void;
   color?: string;
   size?: SwitchSizeType;
   helpMessage?: ReactNode;
   position?: SwitchPositionType;
-} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "size" | "onChange">;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "id" | "onChange">;
 
 const Switch: FunctionComponent<SwitchProps> = ({
   children,
@@ -20,12 +19,12 @@ const Switch: FunctionComponent<SwitchProps> = ({
   onChange,
   disabled = false,
   color,
-  id,
   size = "md",
   helpMessage,
   position = "left",
   ...restProps
 }) => {
+  const id = useId();
   const labelId = `${id}-label`;
 
   return (

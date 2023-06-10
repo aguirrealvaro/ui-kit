@@ -8,6 +8,7 @@ import {
   SetStateAction,
   MouseEvent,
   ReactNode,
+  useId,
 } from "react";
 import { ChevronDown, X } from "lucide-react";
 import styled, { css } from "styled-components";
@@ -17,7 +18,6 @@ import { Spinner, Icon, IconButton } from "@/components";
 import { useOutsideClick } from "@/hooks";
 
 type SelectProps = {
-  id: string;
   label?: ReactNode;
   placeholder: string;
   value: string | undefined;
@@ -36,7 +36,6 @@ type SelectProps = {
 };
 
 const Select: FunctionComponent<SelectProps> = ({
-  id,
   label,
   placeholder,
   value,
@@ -53,6 +52,7 @@ const Select: FunctionComponent<SelectProps> = ({
   size = "md",
   startElement,
 }) => {
+  const id = useId();
   const selectRef = useRef<HTMLDivElement>(null);
   const optionsRef = useRef<HTMLButtonElement[]>([]);
 

@@ -7,6 +7,7 @@ import {
   SetStateAction,
   KeyboardEvent,
   useRef,
+  useId,
 } from "react";
 import styled from "styled-components";
 import { RadioSizeType, RadioPositionType } from "./Radio.types";
@@ -15,7 +16,6 @@ import { HelpMessage, theme } from "@/css";
 
 type RadioGroupProps = {
   children: ReactNode;
-  id: string;
   value: string | undefined;
   onChange: Dispatch<SetStateAction<string | undefined>>;
   size?: RadioSizeType;
@@ -25,13 +25,14 @@ type RadioGroupProps = {
 
 const RadioGroup: FunctionComponent<RadioGroupProps> = ({
   children,
-  id,
   value,
   onChange,
   size = "md",
   color = theme.colors.grey.default,
   position = "left",
 }) => {
+  const id = useId();
+
   const radiosRef = useRef<HTMLButtonElement[]>([]);
 
   const sizes: Record<RadioSizeType, string> = {
