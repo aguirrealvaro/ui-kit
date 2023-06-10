@@ -12,7 +12,7 @@ React component library and custom hooks. Personally, I'm not a big fan of any c
 
 ### To do
 
-- Dropdown: interactions with rest components, escape, init focus
+- Dropdown: interactions with rest components, init focus
 - Dialog: fix outside click with focus trap
 - Popper: add arrow
 - Collapse: fade out

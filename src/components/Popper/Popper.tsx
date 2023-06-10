@@ -48,6 +48,7 @@ const Popper: FunctionComponent<PopperProps> = ({
   const { isOpen, onOpen, onClose, onToggle, isUnmounting } = useDisclosure({
     timeout: transitionTime,
     closeOnResize: true,
+    closeOnEscape: true,
   });
 
   useOutsideClick({

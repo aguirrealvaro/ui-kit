@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useKeyPress } from "./useKeyPress";
 
 type PhasesType = "unmounted" | "mounting" | "mounted" | "unmounting";
 
 type UseDisclosureParams = {
   timeout?: number;
   closeOnResize?: boolean;
+  closeOnEscape?: boolean;
 };
 
 type UseDisclosureReturn = {
@@ -17,9 +19,15 @@ type UseDisclosureReturn = {
 };
 
 export const useDisclosure = (objParams: UseDisclosureParams = {}): UseDisclosureReturn => {
-  const defaultParams: UseDisclosureParams = { timeout: 200, closeOnResize: false };
+  const defaultParams: UseDisclosureParams = {
+    timeout: 200,
+    closeOnResize: false,
+    closeOnEscape: false,
+  };
+
   const params: UseDisclosureParams = { ...defaultParams, ...objParams };
-  const { timeout, closeOnResize } = params;
+
+  const { timeout, closeOnResize, closeOnEscape } = params;
 
   const [phase, setPhase] = useState<PhasesType>("unmounted");
   const timeoutId = useRef<number>(0);
@@ -59,6 +67,12 @@ export const useDisclosure = (objParams: UseDisclosureParams = {}): UseDisclosur
     window.addEventListener("resize", onClose);
     return () => window.removeEventListener("resize", onClose);
   }, [closeOnResize, isOpen, onClose]);
+
+  useKeyPress({
+    targetKey: "Escape",
+    handler: onClose,
+    enabled: closeOnEscape,
+  });
 
   return { isOpen, onOpen, onClose, onToggle, isUnmounting, phase };
 };
