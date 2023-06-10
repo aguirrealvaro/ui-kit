@@ -17,7 +17,7 @@ import { useDisclosure, useOutsideClick } from "@/hooks";
 
 type PopperProps = {
   children: ReactNode;
-  trigger: ReactNode;
+  trigger: ReactNode | (({ isOpen }: { isOpen: boolean }) => ReactNode);
   position: PopoverPositionType;
   triggerMode?: PopoverTriggerType;
   withTriggerWidth?: boolean;
@@ -152,8 +152,10 @@ const Popper: FunctionComponent<PopperProps> = ({
   };
 
   const triggerComponent = (() => {
-    if (!isValidElement(trigger)) return null;
-    return cloneElement(trigger as ReactElement, {
+    const parsedTrigger = typeof trigger === "function" ? trigger({ isOpen }) : trigger;
+
+    if (!isValidElement(parsedTrigger)) return null;
+    return cloneElement(parsedTrigger as ReactElement, {
       "aria-expanded": isOpen,
       ref: triggerRef,
       ...openProps,

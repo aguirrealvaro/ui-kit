@@ -13,6 +13,7 @@ type UseDisclosureReturn = {
   onClose: () => void;
   onToggle: () => void;
   isUnmounting: boolean;
+  phase: PhasesType;
 };
 
 export const useDisclosure = (objParams: UseDisclosureParams = {}): UseDisclosureReturn => {
@@ -59,5 +60,5 @@ export const useDisclosure = (objParams: UseDisclosureParams = {}): UseDisclosur
     return () => window.removeEventListener("resize", onClose);
   }, [closeOnResize, isOpen, onClose]);
 
-  return { isOpen, onOpen, onClose, onToggle, isUnmounting };
+  return { isOpen, onOpen, onClose, onToggle, isUnmounting, phase };
 };

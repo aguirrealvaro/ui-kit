@@ -83,7 +83,6 @@ const DropdownMenu: FunctionComponent<PopperProps> = ({
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       if ((child.type as any).displayName === "DropdownMenuItem") {
         return cloneElement(child as ReactElement, {
-          asd: "1",
           ref: (el: HTMLDivElement) => {
             if (el) {
               dropdownMenuItemsRef.current[index] = el;
