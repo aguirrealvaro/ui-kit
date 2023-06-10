@@ -14,7 +14,7 @@ React component library and custom hooks. Personally, I'm not a big fan of any c
 
 - Dropdown: interactions with rest components, init focus
 - Dialog: fix outside click with focus trap
-- Popper: add arrow
+- Popper: add arrow, flip position
 - Collapse: fade out
 
 ### Diff
