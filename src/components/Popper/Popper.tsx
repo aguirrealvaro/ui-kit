@@ -22,6 +22,8 @@ type PopperProps = {
   triggerMode?: PopoverTriggerType;
   withTriggerWidth?: boolean;
   gap?: number;
+  closeOnResize?: boolean;
+  closeOnEscape?: boolean;
 };
 
 type CoordsType = {
@@ -36,6 +38,8 @@ const Popper: FunctionComponent<PopperProps> = ({
   triggerMode = "hover",
   gap = 0,
   withTriggerWidth = false,
+  closeOnResize = true,
+  closeOnEscape = true,
 }) => {
   const transitionTime = theme.transitions.durations.normal;
 
@@ -47,8 +51,8 @@ const Popper: FunctionComponent<PopperProps> = ({
 
   const { isOpen, onOpen, onClose, onToggle, isUnmounting } = useDisclosure({
     timeout: transitionTime,
-    closeOnResize: true,
-    closeOnEscape: true,
+    closeOnResize,
+    closeOnEscape,
   });
 
   useOutsideClick({
