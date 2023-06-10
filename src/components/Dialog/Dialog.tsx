@@ -43,8 +43,7 @@ const Dialog: FunctionComponent<DialogProps> = ({
   useOutsideClick({
     ref: contentRef,
     handler: onClose,
-    //enabled: isOpen && closeOnInteractions,
-    enabled: false, //Does not work with Focus trap
+    enabled: isOpen && closeOnInteractions,
   });
 
   useKeyPress({
@@ -71,7 +70,7 @@ const Dialog: FunctionComponent<DialogProps> = ({
       {isOpen &&
         createPortal(
           <Backdrop $isUnmounting={isUnmounting} $isOpen={isOpen}>
-            <FocusTrap>
+            <FocusTrap focusTrapOptions={{ allowOutsideClick: closeOnInteractions }}>
               <Content
                 id={dialogId}
                 $size={size}
