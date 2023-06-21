@@ -9,7 +9,7 @@ type LinkProps = {
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 const Link = forwardRef<HTMLAnchorElement, LinkProps>(
-  ({ children, underline = true, disabled = false, ...restProps }, ref) => {
+  ({ children, underline = true, disabled = false, href, ...restProps }, ref) => {
     return (
       <Anchor
         ref={ref}
@@ -17,6 +17,8 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>(
         target="_blank"
         rel="noopener noreferrer"
         $disabled={disabled}
+        href={disabled ? undefined : href}
+        aria-invalid={disabled}
         {...restProps}
       >
         {children}
