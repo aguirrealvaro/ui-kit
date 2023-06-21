@@ -15,6 +15,7 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>(
         ref={ref}
         $underline={underline}
         target="_blank"
+        rel="noopener noreferrer"
         $disabled={disabled}
         {...restProps}
       >
