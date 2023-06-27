@@ -13,6 +13,7 @@ React component library and custom hooks. Personally, I'm not a big fan of any c
 ### To do
 
 - Context for root components
+- Split components: Input, Label, Select, Checkbox, Radio, Switch, HelpMessage, etc?
 - Dropdown: interactions with rest components, init focus
 - Popper: add arrow, flip position
 - Collapse: fade out
