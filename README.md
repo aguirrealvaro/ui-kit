@@ -10,13 +10,18 @@ React component library and custom hooks. Personally, I'm not a big fan of any c
 
 [ui-kit7.vercel.app](https://ui-kit7.vercel.app/)
 
-### To do
+### Backlog
 
-- Context for root components
-- Split components: Input, Label, Select, Checkbox, Radio, Switch, HelpMessage, etc?
 - Dropdown: interactions with rest components, init focus
 - Popper: add arrow, flip position
 - Collapse: fade out
+
+### To do
+
+- Migrate to next + tailwind
+- primary, success, warning, danger, neutral
+- Context for root components
+- Split components: Input, Select, Checkbox, Radio, Switch, Label, HelpMessage and more
 
 ### Diff
 
