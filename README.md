@@ -22,9 +22,3 @@ React component library and custom hooks. Personally, I'm not a big fan of any c
 - primary, success, warning, danger, neutral
 - Context for root components
 - Split components: Input, Select, Checkbox, Radio, Switch, Label, HelpMessage and more
-
-### Diff
-
-- grey to neutral
-- grey default is black
-- plain button
